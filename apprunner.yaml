@@ -1,17 +1,15 @@
 version: 1.0
-runtime: nodejs18
+runtime: nodejs
 build:
   commands:
     build:
       - echo "Installing dependencies..."
       - npm install
-      - echo "Building application..."
-      - npm run build
 run:
   runtime-version: 18
-  command: npm start
+  command: node server.js
   network:
-    port: 3000
+    port: 8080
   env:
     - name: NODE_ENV
       value: production
