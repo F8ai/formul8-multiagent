@@ -3,6 +3,12 @@
 <head>
     <title>Formul8 Multiagent Chat</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/mermaid@11/dist/mermaid.min.js"></script>
+    <script>
+        if (typeof mermaid !== 'undefined') {
+            mermaid.initialize({ startOnLoad: false, theme: 'default' });
+        }
+    </script>
     <style>
         body { 
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; 
@@ -120,6 +126,19 @@
             border-radius: 5px;
             margin: 20px 0;
             border-left: 4px solid #ffc107;
+        }
+        .mermaid-diagram {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 10px 0;
+            overflow-x: auto;
+        }
+        .mermaid-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100px;
         }
     </style>
 </head>
@@ -254,17 +273,52 @@
             }
         }
         
-        function addMessage(content, type, agent = null, usage = null) {
+        async function addMessage(content, type, agent = null, usage = null) {
             const messageDiv = document.createElement('div');
             messageDiv.className = `message ${type}-message`;
             
-            let messageContent = `<strong>${agent || 'Formul8 AI'}:</strong> ${content}`;
+            // Check for Mermaid diagram syntax
+            const mermaidRegex = /```mermaid\n([\s\S]*?)```/g;
+            let processedContent = content;
+            const mermaidMatches = [];
+            let match;
+            
+            while ((match = mermaidRegex.exec(content)) !== null) {
+                mermaidMatches.push(match[1]);
+            }
+            
+            if (mermaidMatches.length > 0) {
+                // Replace mermaid code blocks with placeholders
+                processedContent = content.replace(mermaidRegex, (_, code, index) => {
+                    const id = 'mermaid-' + Date.now() + '-' + mermaidMatches.indexOf(code);
+                    return `<div class="mermaid-diagram"><div class="mermaid-container" id="${id}"></div></div>`;
+                });
+            }
+            
+            let messageContent = `<strong>${agent || 'Formul8 AI'}:</strong> ${processedContent}`;
             if (usage) {
                 messageContent += `<br><small style="color: #666;">Tokens: ${usage.total_tokens} | Cost: $${usage.cost.toFixed(4)} | Model: ${usage.model}</small>`;
             }
             
             messageDiv.innerHTML = messageContent;
             chatMessages.appendChild(messageDiv);
+            
+            // Render Mermaid diagrams
+            if (mermaidMatches.length > 0 && typeof mermaid !== 'undefined') {
+                for (let i = 0; i < mermaidMatches.length; i++) {
+                    const id = 'mermaid-' + (Date.now() - (mermaidMatches.length - i)) + '-' + i;
+                    const container = document.getElementById(id);
+                    if (container) {
+                        try {
+                            const { svg } = await mermaid.render('diagram-' + id, mermaidMatches[i]);
+                            container.innerHTML = svg;
+                        } catch (error) {
+                            container.innerHTML = `<pre style="color: red;">Error rendering diagram: ${error.message}</pre>`;
+                        }
+                    }
+                }
+            }
+            
             chatMessages.scrollTop = chatMessages.scrollHeight;
         }
     </script>
