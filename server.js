@@ -298,7 +298,203 @@ app.get('/api/agents', (req, res) => {
 });
 
 app.get('/chat', (req, res) => {
-  res.redirect('/');
+  // Serve the same chat interface as the main page
+  res.send(`
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Formul8 Multiagent Chat</title>
+        <style>
+            body { 
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; 
+                margin: 0; 
+                padding: 20px; 
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                min-height: 100vh;
+            }
+            .container { 
+                max-width: 800px; 
+                margin: 0 auto; 
+                background: white; 
+                border-radius: 15px; 
+                padding: 30px; 
+                box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            }
+            .status { 
+                background: #e8f5e8; 
+                padding: 20px; 
+                border-radius: 10px; 
+                margin-bottom: 20px; 
+                border-left: 5px solid #4CAF50;
+            }
+            .chat-container { 
+                background: #f9f9f9; 
+                padding: 20px; 
+                border-radius: 10px; 
+                margin: 20px 0; 
+            }
+            .chat-messages { 
+                max-height: 400px; 
+                overflow-y: auto; 
+                border: 1px solid #ddd; 
+                padding: 15px; 
+                background: white; 
+                border-radius: 5px; 
+                margin-bottom: 15px;
+            }
+            .message { 
+                margin-bottom: 10px; 
+                padding: 10px; 
+                border-radius: 5px; 
+            }
+            .user-message { 
+                background: #007bff; 
+                color: white; 
+                text-align: right; 
+            }
+            .agent-message { 
+                background: #f1f1f1; 
+                color: #333; 
+            }
+            .chat-input { 
+                display: flex; 
+                gap: 10px; 
+            }
+            .chat-input input { 
+                flex: 1; 
+                padding: 12px; 
+                border: 1px solid #ddd; 
+                border-radius: 5px; 
+                font-size: 16px; 
+            }
+            .chat-input button { 
+                padding: 12px 24px; 
+                background: #007bff; 
+                color: white; 
+                border: none; 
+                border-radius: 5px; 
+                cursor: pointer; 
+                font-size: 16px; 
+            }
+            .chat-input button:hover { 
+                background: #0056b3; 
+            }
+            .agent-selector { 
+                margin-bottom: 15px; 
+            }
+            .agent-selector select { 
+                padding: 8px; 
+                border: 1px solid #ddd; 
+                border-radius: 5px; 
+                font-size: 14px; 
+            }
+            .loading {
+                display: none;
+                text-align: center;
+                color: #666;
+                font-style: italic;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>🤖 Formul8 Multiagent Chat</h1>
+            
+            <div class="status">
+                <h2>✅ Service Status: Running <span style="background: #4CAF50; color: white; padding: 5px 10px; border-radius: 3px; font-size: 12px;">Multiagent System</span></h2>
+                <p>Welcome to the Formul8 Multiagent Chat Interface!</p>
+                <p><strong>Deployment:</strong> AWS App Runner</p>
+                <p><strong>Domain:</strong> f8.syzygyx.com</p>
+                <p><strong>Status:</strong> Operational</p>
+                <p><strong>Version:</strong> 1.0.0 - Multiagent Chat Frontend</p>
+            </div>
+            
+            <div class="chat-container">
+                <h3>💬 Chat with Formul8 Agents</h3>
+                
+                <div class="agent-selector">
+                    <label for="agentSelect">Select Agent:</label>
+                    <select id="agentSelect">
+                        <option value="">Auto-select (Recommended)</option>
+                        <option value="f8_agent">F8 Multi-Agent</option>
+                        <option value="compliance">Compliance Agent</option>
+                        <option value="formulation">Formulation Agent</option>
+                        <option value="science">Science Agent</option>
+                    </select>
+                </div>
+                
+                <div class="chat-messages" id="chatMessages">
+                    <div class="message agent-message">
+                        <strong>Formul8 AI:</strong> Hello! I'm your Formul8 AI assistant. I can help you with cannabis compliance, formulation, research, operations, and more. How can I assist you today?
+                    </div>
+                </div>
+                
+                <div class="loading" id="loading">🤖 Agent is thinking...</div>
+                
+                <div class="chat-input">
+                    <input type="text" id="messageInput" placeholder="Ask about cannabis regulations, formulation, research, or any other topic..." />
+                    <button onclick="sendMessage()">Send</button>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            async function sendMessage() {
+                const input = document.getElementById('messageInput');
+                const messages = document.getElementById('chatMessages');
+                const loading = document.getElementById('loading');
+                const agentSelect = document.getElementById('agentSelect');
+                
+                const message = input.value.trim();
+                if (!message) return;
+                
+                // Add user message
+                messages.innerHTML += \`<div class="message user-message"><strong>You:</strong> \${message}</div>\`;
+                input.value = '';
+                
+                // Show loading
+                loading.style.display = 'block';
+                messages.scrollTop = messages.scrollHeight;
+                
+                try {
+                    const response = await fetch('/api/chat', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            message: message,
+                            agent: agentSelect.value || undefined
+                        })
+                    });
+                    
+                    const data = await response.json();
+                    
+                    if (data.success) {
+                        messages.innerHTML += \`<div class="message agent-message"><strong>\${data.agent}:</strong> \${data.response}</div>\`;
+                    } else {
+                        messages.innerHTML += \`<div class="message agent-message"><strong>Error:</strong> \${data.message || 'Something went wrong'}</div>\`;
+                    }
+                } catch (error) {
+                    messages.innerHTML += \`<div class="message agent-message"><strong>Error:</strong> Failed to send message</div>\`;
+                }
+                
+                loading.style.display = 'none';
+                messages.scrollTop = messages.scrollHeight;
+            }
+            
+            // Allow Enter key to send message
+            document.getElementById('messageInput').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    sendMessage();
+                }
+            });
+        </script>
+    </body>
+    </html>
+  `);
 });
 
 /**
