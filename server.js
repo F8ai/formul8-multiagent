@@ -252,7 +252,8 @@ app.get('/health', async (req, res) => {
   res.json({
     status: overallStatus,
     service: 'Formul8 Multiagent Chat',
-    version: '1.0.0',
+    version: '1.0.1',
+    lastUpdated: new Date().toISOString(),
     git: {
       commit: gitCommitHash,
       commitShort: gitCommitShort,
