@@ -1,0 +1,18 @@
+{
+    "Comment": "Redirect f8.syzygyx.com to GitHub Pages",
+    "Changes": [
+        {
+            "Action": "UPSERT",
+            "ResourceRecordSet": {
+                "Name": "f8.syzygyx.com.",
+                "Type": "CNAME",
+                "TTL": 300,
+                "ResourceRecords": [
+                    {
+                        "Value": "f8ai.github.io"
+                    }
+                ]
+            }
+        }
+    ]
+}

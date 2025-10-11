@@ -1,0 +1,11 @@
+{
+  "name": "formul8-multiagent-lambda",
+  "version": "1.0.0",
+  "description": "Formul8 Multiagent Chat Lambda Function",
+  "main": "lambda.js",
+  "dependencies": {
+    "@codegenie/serverless-express": "^4.17.0",
+    "cors": "^2.8.5",
+    "express": "^4.21.2"
+  }
+}

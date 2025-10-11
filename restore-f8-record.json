@@ -1,0 +1,18 @@
+{
+    "Comment": "Restore f8.syzygyx.com to CloudFront",
+    "Changes": [
+        {
+            "Action": "UPSERT",
+            "ResourceRecordSet": {
+                "Name": "f8.syzygyx.com.",
+                "Type": "CNAME",
+                "TTL": 300,
+                "ResourceRecords": [
+                    {
+                        "Value": "d1wlfsux3d8aa8.cloudfront.net"
+                    }
+                ]
+            }
+        }
+    ]
+}
