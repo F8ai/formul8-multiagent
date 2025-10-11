@@ -2,8 +2,8 @@
   "name": "formul8-multiagent",
   "version": "1.0.0",
   "description": "Multi-agent chat frontend for Formul8 using LangChain.js",
-  "main": "dist/server.js",
-  "type": "module",
+  "main": "server.js",
+  "type": "commonjs",
   "scripts": {
     "dev": "tsx watch src/server.ts",
     "build": "tsc && tsc-alias",
