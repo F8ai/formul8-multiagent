@@ -210,6 +210,61 @@ app.get('/chat', (req, res) => {
   res.redirect('/');
 });
 
+/**
+ * Chat API endpoint
+ */
+app.post('/api/chat', async (req, res) => {
+  const { message, agent, user_id, context } = req.body;
+
+  if (!message) {
+    return res.status(400).json({
+      success: false,
+      message: 'Message is required',
+    });
+  }
+
+  try {
+    const selectedAgent = agent || 'f8_agent';
+    const agentConfig = agents[selectedAgent];
+    
+    if (!agentConfig) {
+      return res.status(400).json({
+        success: false,
+        message: `Agent not found: ${selectedAgent}`,
+      });
+    }
+
+    console.log(`🤖 Routing to ${agentConfig.name} for: "${message}"`);
+    
+    const startTime = Date.now();
+    const response = agentConfig.getResponse(message);
+    const duration = Date.now() - startTime;
+    
+    console.log(`✅ Response in ${duration}ms`);
+
+    const estimatedTokens = Math.ceil((message.length + response.length) / 4);
+
+    res.json({
+      success: true,
+      response: response,
+      agent: selectedAgent,
+      usage: {
+        total_tokens: estimatedTokens,
+        cost: 0, // Free model
+        model: 'formul8-multiagent'
+      },
+      timestamp: new Date().toISOString(),
+    });
+  } catch (error) {
+    console.error('Chat API error:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Internal server error',
+      error: error instanceof Error ? error.message : 'Unknown error',
+    });
+  }
+});
+
 // Start server
 app.listen(PORT, () => {
   console.log(`🚀 Formul8 Multiagent Chat server running on port ${PORT}`);
