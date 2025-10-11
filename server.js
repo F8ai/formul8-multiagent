@@ -10,6 +10,97 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// Simple agent responses (placeholder for LangChain integration)
+const agents = {
+  f8_agent: {
+    name: 'F8 Multi-Agent',
+    description: 'Main Formul8 AI agent that can route to specialized agents',
+    getResponse: (message) => {
+      const lower = message.toLowerCase();
+      if (lower.includes('compliance') || lower.includes('regulation')) {
+        return `As the F8 Multi-Agent, I can help you with cannabis compliance. Here are some key areas:
+
+1. **State Regulations**: Each state has specific cannabis regulations
+2. **Licensing**: Proper licensing is essential for legal operation
+3. **Testing**: Regular product testing is required
+4. **Record Keeping**: Maintain detailed records of all operations
+5. **Security**: Implement proper security measures
+
+I can connect you with our specialized Compliance Agent for more detailed assistance.`;
+      }
+      if (lower.includes('formulation') || lower.includes('recipe')) {
+        return `As the F8 Multi-Agent, I can help you with cannabis product formulation. Key considerations include:
+
+1. **Dosage Calculation**: Proper THC/CBD dosing is crucial
+2. **Extraction Methods**: Choose the right extraction technique
+3. **Ingredient Compatibility**: Ensure all ingredients work together
+4. **Stability**: Consider shelf life and storage requirements
+5. **Testing**: Regular potency and safety testing
+
+I can connect you with our specialized Formulation Agent for detailed recipes and guidance.`;
+      }
+      return `Hello! I'm the F8 Multi-Agent, your main Formul8 AI assistant. I can help you with:
+
+- Cannabis compliance and regulations
+- Product formulation and recipes
+- Scientific research and analysis
+- Operations and facility management
+- Marketing strategies
+- Supply chain management
+- Patent and IP research
+- Quality analysis and COA interpretation
+- Customer success optimization
+
+How can I assist you today?`;
+    }
+  },
+  compliance: {
+    name: 'Compliance Agent',
+    description: 'Cannabis regulatory compliance expert',
+    getResponse: (message) => {
+      return `As the Compliance Agent, I specialize in cannabis regulatory compliance. I can help with:
+
+1. **State-Specific Regulations**: Each state has unique requirements
+2. **Licensing Applications**: Guide you through the licensing process
+3. **Compliance Audits**: Prepare for regulatory inspections
+4. **Record Keeping**: Set up proper documentation systems
+5. **Testing Requirements**: Ensure products meet testing standards
+
+What specific compliance question do you have?`;
+    }
+  },
+  formulation: {
+    name: 'Formulation Agent',
+    description: 'Cannabis product formulation specialist',
+    getResponse: (message) => {
+      return `As the Formulation Agent, I help create cannabis products. I can help with:
+
+1. **Recipe Development**: Create custom formulations
+2. **Dosage Calculations**: Precise THC/CBD dosing
+3. **Extraction Methods**: Choose optimal extraction techniques
+4. **Ingredient Selection**: Source quality ingredients
+5. **Quality Control**: Ensure consistent product quality
+
+What type of product are you looking to formulate?`;
+    }
+  },
+  science: {
+    name: 'Science Agent',
+    description: 'Cannabis research and analysis expert',
+    getResponse: (message) => {
+      return `As the Science Agent, I provide scientific insights on cannabis. I can help with:
+
+1. **Research Analysis**: Interpret scientific studies
+2. **Cannabinoid Profiles**: Understand different cannabinoids
+3. **Terpene Analysis**: Analyze terpene profiles
+4. **Lab Results**: Interpret COA and test results
+5. **Research Trends**: Stay updated on latest findings
+
+What scientific aspect would you like to explore?`;
+    }
+  }
+};
+
 // Get git commit hash
 function getGitCommitHash() {
   try {
