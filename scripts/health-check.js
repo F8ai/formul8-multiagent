@@ -5,7 +5,6 @@
  */
 
 const microservices = [
-  { name: 'formul8-platform', port: 3000, url: 'http://localhost:3000' },
   { name: 'compliance-agent', port: 3001, url: 'http://localhost:3001' },
   { name: 'formulation-agent', port: 3002, url: 'http://localhost:3002' },
   { name: 'science-agent', port: 3003, url: 'http://localhost:3003' },

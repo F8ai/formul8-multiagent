@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "/Users/danielmcshan/GitHub/formul8-multiagent/logs/.354611fecabf9615742529d46ed10981f7a009df-audit.json",
+    "files": [
+        {
+            "date": 1760143376916,
+            "name": "/Users/danielmcshan/GitHub/formul8-multiagent/logs/mcp-puppeteer-2025-10-10.log",
+            "hash": "dee7ea88712b202079c8665e20a8fc2fd48a8da3c7295660fbbd8ab2e038700c"
+        }
+    ],
+    "hashType": "sha256"
+}

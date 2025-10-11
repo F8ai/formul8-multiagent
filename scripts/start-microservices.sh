@@ -69,7 +69,6 @@ start_service() {
 
 # Service configurations (using simple arrays instead of associative arrays)
 services=(
-    "formul8-platform:f8ai/formul8-platform:3000:npm start"
     "compliance-agent:f8ai/compliance-agent:3001:npm start"
     "formulation-agent:f8ai/formulation-agent:3002:npm start"
     "science-agent:f8ai/science-agent:3003:npm start"
