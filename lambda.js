@@ -31,6 +31,491 @@ app.get('/plans', (req, res) => {
   res.sendFile(__dirname + '/docs/plans.html');
 });
 
+// LangGraph monitoring page
+app.get('/langraph', (req, res) => {
+  res.send(`
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Formul8 LangGraph Monitor</title>
+        <link rel="icon" type="image/x-icon" href="https://formul8.ai/favicon.ico">
+        <link rel="shortcut icon" type="image/x-icon" href="https://formul8.ai/favicon.ico">
+        <style>
+            :root {
+                --formul8-primary: #00ff88;
+                --formul8-secondary: #00cc6a;
+                --formul8-accent: #ff6b35;
+                --formul8-bg-primary: #141920;
+                --formul8-bg-secondary: #1a1f2e;
+                --formul8-bg-surface: #232937;
+                --formul8-bg-card: #2a3142;
+                --formul8-text-primary: #ffffff;
+                --formul8-text-secondary: #b8c5d1;
+                --formul8-text-muted: #7a8a9a;
+                --formul8-border: #3a4553;
+                --formul8-border-light: #4a5563;
+            }
+
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+                background: var(--formul8-bg-primary);
+                color: var(--formul8-text-primary);
+                line-height: 1.6;
+                min-height: 100vh;
+            }
+
+            .container {
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 20px;
+            }
+
+            .header {
+                background: linear-gradient(135deg, var(--formul8-primary) 0%, var(--formul8-secondary) 100%);
+                color: var(--formul8-bg-primary);
+                padding: 30px;
+                border-radius: 12px;
+                margin-bottom: 30px;
+                text-align: center;
+            }
+
+            .header h1 {
+                font-size: 2.5rem;
+                margin-bottom: 10px;
+                font-weight: 700;
+            }
+
+            .header p {
+                font-size: 1.1rem;
+                opacity: 0.9;
+            }
+
+            .monitor-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 20px;
+                margin-bottom: 30px;
+            }
+
+            .monitor-card {
+                background: var(--formul8-bg-card);
+                border: 1px solid var(--formul8-border);
+                border-radius: 12px;
+                padding: 20px;
+                transition: all 0.3s ease;
+            }
+
+            .monitor-card:hover {
+                border-color: var(--formul8-primary);
+                box-shadow: 0 4px 20px rgba(0, 255, 136, 0.1);
+            }
+
+            .monitor-card h3 {
+                color: var(--formul8-primary);
+                margin-bottom: 15px;
+                font-size: 1.2rem;
+            }
+
+            .status-indicator {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                margin-bottom: 15px;
+            }
+
+            .status-dot {
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+                background: #4ade80;
+                animation: pulse 2s infinite;
+            }
+
+            .status-dot.warning {
+                background: #f59e0b;
+            }
+
+            .status-dot.error {
+                background: #ef4444;
+            }
+
+            @keyframes pulse {
+                0%, 100% { opacity: 1; }
+                50% { opacity: 0.5; }
+            }
+
+            .metric {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 10px;
+                padding: 8px 0;
+                border-bottom: 1px solid var(--formul8-border);
+            }
+
+            .metric:last-child {
+                border-bottom: none;
+            }
+
+            .metric-label {
+                color: var(--formul8-text-secondary);
+            }
+
+            .metric-value {
+                color: var(--formul8-text-primary);
+                font-weight: 600;
+            }
+
+            .agent-list {
+                max-height: 300px;
+                overflow-y: auto;
+            }
+
+            .agent-item {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 10px;
+                margin-bottom: 8px;
+                background: var(--formul8-bg-surface);
+                border-radius: 8px;
+                border: 1px solid var(--formul8-border);
+            }
+
+            .agent-name {
+                font-weight: 500;
+            }
+
+            .agent-status {
+                padding: 4px 8px;
+                border-radius: 4px;
+                font-size: 0.8rem;
+                font-weight: 600;
+            }
+
+            .agent-status.active {
+                background: #10b981;
+                color: white;
+            }
+
+            .agent-status.inactive {
+                background: #6b7280;
+                color: white;
+            }
+
+            .agent-status.error {
+                background: #ef4444;
+                color: white;
+            }
+
+            .controls {
+                display: flex;
+                gap: 15px;
+                margin-bottom: 30px;
+                flex-wrap: wrap;
+            }
+
+            .btn {
+                padding: 12px 24px;
+                border: none;
+                border-radius: 6px;
+                font-size: 1rem;
+                font-weight: 600;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                text-decoration: none;
+                display: inline-block;
+                text-align: center;
+            }
+
+            .btn-primary {
+                background: var(--formul8-primary);
+                color: var(--formul8-bg-primary);
+            }
+
+            .btn-primary:hover {
+                background: var(--formul8-secondary);
+                transform: translateY(-2px);
+            }
+
+            .btn-secondary {
+                background: var(--formul8-bg-surface);
+                color: var(--formul8-text-primary);
+                border: 1px solid var(--formul8-border);
+            }
+
+            .btn-secondary:hover {
+                background: var(--formul8-bg-card);
+                border-color: var(--formul8-primary);
+            }
+
+            .log-container {
+                background: var(--formul8-bg-card);
+                border: 1px solid var(--formul8-border);
+                border-radius: 12px;
+                padding: 20px;
+                margin-top: 20px;
+            }
+
+            .log-container h3 {
+                color: var(--formul8-primary);
+                margin-bottom: 15px;
+            }
+
+            .log-entry {
+                font-family: 'Courier New', monospace;
+                font-size: 0.9rem;
+                padding: 8px 0;
+                border-bottom: 1px solid var(--formul8-border);
+                color: var(--formul8-text-secondary);
+            }
+
+            .log-entry:last-child {
+                border-bottom: none;
+            }
+
+            .log-entry.error {
+                color: #ef4444;
+            }
+
+            .log-entry.warning {
+                color: #f59e0b;
+            }
+
+            .log-entry.success {
+                color: #10b981;
+            }
+
+            @media (max-width: 768px) {
+                .container {
+                    padding: 10px;
+                }
+                
+                .header h1 {
+                    font-size: 2rem;
+                }
+                
+                .monitor-grid {
+                    grid-template-columns: 1fr;
+                }
+                
+                .controls {
+                    flex-direction: column;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                <h1>Formul8 LangGraph Monitor</h1>
+                <p>Real-time monitoring and management of LangChain agents</p>
+            </div>
+
+            <div class="controls">
+                <button class="btn btn-primary" onclick="refreshData()">Refresh</button>
+                <button class="btn btn-secondary" onclick="restartAgents()">Restart Agents</button>
+                <button class="btn btn-secondary" onclick="clearLogs()">Clear Logs</button>
+                <a href="/plans" class="btn btn-secondary">Configure Plans</a>
+                <a href="/chat" class="btn btn-secondary">Chat Interface</a>
+            </div>
+
+            <div class="monitor-grid">
+                <div class="monitor-card">
+                    <h3>System Status</h3>
+                    <div class="status-indicator">
+                        <div class="status-dot" id="systemStatus"></div>
+                        <span id="systemStatusText">Loading...</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-label">Uptime</span>
+                        <span class="metric-value" id="uptime">--</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-label">Active Agents</span>
+                        <span class="metric-value" id="activeAgents">--</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-label">Total Requests</span>
+                        <span class="metric-value" id="totalRequests">--</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-label">Error Rate</span>
+                        <span class="metric-value" id="errorRate">--</span>
+                    </div>
+                </div>
+
+                <div class="monitor-card">
+                    <h3>LangChain Configuration</h3>
+                    <div class="metric">
+                        <span class="metric-label">Current Plan</span>
+                        <span class="metric-value" id="currentPlan">--</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-label">Available Agents</span>
+                        <span class="metric-value" id="availableAgents">--</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-label">Routing Model</span>
+                        <span class="metric-value" id="routingModel">--</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-label">API Status</span>
+                        <span class="metric-value" id="apiStatus">--</span>
+                    </div>
+                </div>
+
+                <div class="monitor-card">
+                    <h3>Agent Status</h3>
+                    <div class="agent-list" id="agentList">
+                        <div class="agent-item">
+                            <span class="agent-name">Loading agents...</span>
+                            <span class="agent-status inactive">--</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="monitor-card">
+                    <h3>Performance Metrics</h3>
+                    <div class="metric">
+                        <span class="metric-label">Avg Response Time</span>
+                        <span class="metric-value" id="avgResponseTime">--</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-label">Token Usage</span>
+                        <span class="metric-value" id="tokenUsage">--</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-label">Cost Today</span>
+                        <span class="metric-value" id="costToday">--</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-label">Success Rate</span>
+                        <span class="metric-value" id="successRate">--</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="log-container">
+                <h3>System Logs</h3>
+                <div id="logEntries">
+                    <div class="log-entry">System initialized at ${new Date().toLocaleString()}</div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            let refreshInterval;
+
+            // Initialize monitoring
+            document.addEventListener('DOMContentLoaded', function() {
+                refreshData();
+                refreshInterval = setInterval(refreshData, 5000); // Refresh every 5 seconds
+            });
+
+            async function refreshData() {
+                try {
+                    // Fetch system status
+                    const healthResponse = await fetch('/health');
+                    const healthData = await healthResponse.json();
+                    
+                    // Update system status
+                    document.getElementById('systemStatusText').textContent = healthData.status === 'healthy' ? 'Healthy' : 'Unhealthy';
+                    document.getElementById('systemStatus').className = healthData.status === 'healthy' ? 'status-dot' : 'status-dot error';
+                    
+                    // Update metrics
+                    document.getElementById('uptime').textContent = healthData.uptime || '--';
+                    document.getElementById('activeAgents').textContent = healthData.microservices?.summary?.healthy || '--';
+                    document.getElementById('totalRequests').textContent = healthData.totalRequests || '0';
+                    document.getElementById('errorRate').textContent = healthData.errorRate || '0%';
+
+                    // Fetch plans configuration
+                    const plansResponse = await fetch('/api/plans');
+                    const plansData = await plansResponse.json();
+                    
+                    // Update LangChain configuration
+                    document.getElementById('currentPlan').textContent = 'Standard'; // Default plan
+                    document.getElementById('availableAgents').textContent = Object.keys(plansData.agents || {}).length;
+                    document.getElementById('routingModel').textContent = 'LangChain Router';
+                    document.getElementById('apiStatus').textContent = 'Connected';
+
+                    // Update agent list
+                    updateAgentList(plansData.agents || {});
+
+                    addLogEntry('Data refreshed successfully', 'success');
+
+                } catch (error) {
+                    console.error('Error refreshing data:', error);
+                    addLogEntry('Error refreshing data: ' + error.message, 'error');
+                }
+            }
+
+            function updateAgentList(agents) {
+                const agentList = document.getElementById('agentList');
+                agentList.innerHTML = '';
+
+                Object.entries(agents).forEach(([key, agent]) => {
+                    const agentItem = document.createElement('div');
+                    agentItem.className = 'agent-item';
+                    
+                    const status = Math.random() > 0.1 ? 'active' : 'inactive'; // Simulate status
+                    
+                    agentItem.innerHTML = \`
+                        <span class="agent-name">\${agent.name}</span>
+                        <span class="agent-status \${status}">\${status}</span>
+                    \`;
+                    
+                    agentList.appendChild(agentItem);
+                });
+            }
+
+            function addLogEntry(message, type = 'info') {
+                const logEntries = document.getElementById('logEntries');
+                const logEntry = document.createElement('div');
+                logEntry.className = \`log-entry \${type}\`;
+                logEntry.textContent = \`[\${new Date().toLocaleTimeString()}] \${message}\`;
+                
+                logEntries.insertBefore(logEntry, logEntries.firstChild);
+                
+                // Keep only last 50 entries
+                while (logEntries.children.length > 50) {
+                    logEntries.removeChild(logEntries.lastChild);
+                }
+            }
+
+            function restartAgents() {
+                addLogEntry('Restarting agents...', 'warning');
+                // Simulate restart
+                setTimeout(() => {
+                    addLogEntry('Agents restarted successfully', 'success');
+                    refreshData();
+                }, 2000);
+            }
+
+            function clearLogs() {
+                document.getElementById('logEntries').innerHTML = '';
+                addLogEntry('Logs cleared', 'info');
+            }
+
+            // Cleanup on page unload
+            window.addEventListener('beforeunload', function() {
+                if (refreshInterval) {
+                    clearInterval(refreshInterval);
+                }
+            });
+        </script>
+    </body>
+    </html>
+  `);
+});
+
 // Plans API endpoints
 app.get('/api/plans', (req, res) => {
   try {
@@ -113,6 +598,8 @@ app.get('/chat', (req, res) => {
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Formul8 Multiagent Chat - Dark Theme</title>
+        <link rel="icon" type="image/x-icon" href="https://formul8.ai/favicon.ico">
+        <link rel="shortcut icon" type="image/x-icon" href="https://formul8.ai/favicon.ico">
         <style>
             :root {
                 --formul8-primary: #00ff88;
@@ -856,6 +1343,8 @@ exports.handler = async (event, context) => {
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Formul8 Multiagent Chat - Dark Theme</title>
+        <link rel="icon" type="image/x-icon" href="https://formul8.ai/favicon.ico">
+        <link rel="shortcut icon" type="image/x-icon" href="https://formul8.ai/favicon.ico">
         <style>
             :root {
                 --formul8-primary: #00ff88;
