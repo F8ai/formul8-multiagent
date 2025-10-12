@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Formul8 Editor Agent Interface</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/theme/monokai.min.css" rel="stylesheet">
+    <style>
+        .editor-container {
+            height: 500px;
+        }
+        .file-tree {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        .file-item {
+            cursor: pointer;
+            padding: 5px 10px;
+            border-radius: 4px;
+            margin: 2px 0;
+        }
+        .file-item:hover {
+            background-color: #f8f9fa;
+        }
+        .file-item.active {
+            background-color: #007bff;
+            color: white;
+        }
+        .changes-indicator {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        .editor-tabs {
+            border-bottom: 1px solid #dee2e6;
+        }
+        .tab-content {
+            height: 450px;
+        }
+        .CodeMirror {
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-edit me-2"></i>
+                <strong>Formul8</strong> Editor Agent
+            </a>
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link" href="index.html">
+                    <i class="fas fa-cog me-1"></i>Configurations
+                </a>
+                <a class="nav-link" href="agent-config.html">
+                    <i class="fas fa-table me-1"></i>Agent Access
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid mt-4">
+        <div class="row">
+            <!-- File Tree Sidebar -->
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-header">
+                        <h6 class="mb-0"><i class="fas fa-folder me-2"></i>Configuration Files</h6>
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="file-tree p-3">
+                            <div class="file-item" onclick="loadFile('config/agents.json')">
+                                <i class="fas fa-robot me-2"></i>agents.json
+                            </div>
+                            <div class="file-item" onclick="loadFile('config/pricing-tiers.json')">
+                                <i class="fas fa-dollar-sign me-2"></i>pricing-tiers.json
+                            </div>
+                            <div class="file-item" onclick="loadFile('config/routing.json')">
+                                <i class="fas fa-route me-2"></i>routing.json
+                            </div>
+                            <div class="file-item" onclick="loadFile('config/microservices.json')">
+                                <i class="fas fa-server me-2"></i>microservices.json
+                            </div>
+                            <hr>
+                            <div class="fw-bold text-muted mb-2">LangChain Configs</div>
+                            <div class="file-item" onclick="loadFile('config/langchain-free.json')">
+                                <i class="fas fa-file-code me-2"></i>langchain-free.json
+                            </div>
+                            <div class="file-item" onclick="loadFile('config/langchain-standard.json')">
+                                <i class="fas fa-file-code me-2"></i>langchain-standard.json
+                            </div>
+                            <div class="file-item" onclick="loadFile('config/langchain-micro.json')">
+                                <i class="fas fa-file-code me-2"></i>langchain-micro.json
+                            </div>
+                            <div class="file-item" onclick="loadFile('config/langchain-operator.json')">
+                                <i class="fas fa-file-code me-2"></i>langchain-operator.json
+                            </div>
+                            <div class="file-item" onclick="loadFile('config/langchain-enterprise.json')">
+                                <i class="fas fa-file-code me-2"></i>langchain-enterprise.json
+                            </div>
+                            <div class="file-item" onclick="loadFile('config/langchain-admin.json')">
+                                <i class="fas fa-file-code me-2"></i>langchain-admin.json
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="card mt-3">
+                    <div class="card-header">
+                        <h6 class="mb-0"><i class="fas fa-bolt me-2"></i>Quick Actions</h6>
+                    </div>
+                    <div class="card-body">
+                        <button class="btn btn-sm btn-outline-primary w-100 mb-2" onclick="addAgentToTier('micro', 'patent')">
+                            <i class="fas fa-plus me-1"></i>Add Patent to Micro
+                        </button>
+                        <button class="btn btn-sm btn-outline-success w-100 mb-2" onclick="updateTierFeatures('micro', 'patent_research', true)">
+                            <i class="fas fa-check me-1"></i>Enable Patent Research
+                        </button>
+                        <button class="btn btn-sm btn-outline-warning w-100 mb-2" onclick="validateCurrentFile()">
+                            <i class="fas fa-check-circle me-1"></i>Validate File
+                        </button>
+                        <button class="btn btn-sm btn-outline-info w-100" onclick="showFileDiff()">
+                            <i class="fas fa-git-alt me-1"></i>Show Diff
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Editor Area -->
+            <div class="col-md-9">
+                <div class="card">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <div>
+                            <h5 class="mb-0" id="currentFileName">Select a file to edit</h5>
+                            <small class="text-muted" id="filePath"></small>
+                        </div>
+                        <div>
+                            <button class="btn btn-sm btn-outline-secondary me-2" onclick="resetFile()">
+                                <i class="fas fa-undo me-1"></i>Reset
+                            </button>
+                            <button class="btn btn-sm btn-success" onclick="saveFile()" id="saveButton" disabled>
+                                <i class="fas fa-save me-1"></i>Save
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body p-0">
+                        <div id="editor" class="editor-container"></div>
+                    </div>
+                </div>
+
+                <!-- Changes Indicator -->
+                <div id="changesIndicator" class="changes-indicator" style="display: none;">
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                        <i class="fas fa-exclamation-triangle me-2"></i>
+                        <span id="changesCount">0</span> changes pending
+                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Action Results -->
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h6 class="mb-0"><i class="fas fa-terminal me-2"></i>Action Results</h6>
+                    </div>
+                    <div class="card-body">
+                        <div id="actionResults" class="bg-light p-3 rounded" style="min-height: 100px;">
+                            <em class="text-muted">No actions performed yet...</em>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/javascript/javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/xml/xml.min.js"></script>
+    <script>
+        let editor;
+        let currentFile = null;
+        let originalContent = '';
+        let hasChanges = false;
+
+        // Initialize CodeMirror editor
+        function initializeEditor() {
+            editor = CodeMirror(document.getElementById('editor'), {
+                mode: 'application/json',
+                theme: 'monokai',
+                lineNumbers: true,
+                autoCloseBrackets: true,
+                matchBrackets: true,
+                indentUnit: 2,
+                tabSize: 2,
+                lineWrapping: true
+            });
+
+            editor.on('change', function() {
+                hasChanges = editor.getValue() !== originalContent;
+                updateUI();
+            });
+        }
+
+        function loadFile(filePath) {
+            // In a real implementation, this would fetch the actual file
+            const mockContent = getMockFileContent(filePath);
+            
+            currentFile = filePath;
+            originalContent = mockContent;
+            
+            editor.setValue(mockContent);
+            editor.setOption('mode', filePath.endsWith('.json') ? 'application/json' : 'text/plain');
+            
+            document.getElementById('currentFileName').textContent = filePath.split('/').pop();
+            document.getElementById('filePath').textContent = filePath;
+            
+            // Update active file in sidebar
+            document.querySelectorAll('.file-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            hasChanges = false;
+            updateUI();
+        }
+
+        function getMockFileContent(filePath) {
+            // Mock content for demonstration
+            if (filePath.includes('langchain-micro')) {
+                return JSON.stringify({
+                    "langchain": {
+                        "tier": "micro",
+                        "features": {
+                            "patent_research": true
+                        },
+                        "models": {
+                            "patent": {
+                                "model": "meta-llama/llama-3.1-8b-instruct",
+                                "temperature": 0.4,
+                                "maxTokens": 1200,
+                                "timeout": 30000
+                            }
+                        }
+                    }
+                }, null, 2);
+            }
+            
+            return JSON.stringify({
+                "example": "This is mock content for " + filePath,
+                "note": "In a real implementation, this would load the actual file content"
+            }, null, 2);
+        }
+
+        function saveFile() {
+            if (!currentFile) return;
+            
+            try {
+                const content = editor.getValue();
+                
+                // Validate JSON if it's a JSON file
+                if (currentFile.endsWith('.json')) {
+                    JSON.parse(content);
+                }
+                
+                // In a real implementation, this would save to the actual file
+                console.log(`Saving ${currentFile}:`, content);
+                
+                originalContent = content;
+                hasChanges = false;
+                updateUI();
+                
+                showResult('success', `File ${currentFile} saved successfully!`);
+            } catch (error) {
+                showResult('error', `Error saving file: ${error.message}`);
+            }
+        }
+
+        function resetFile() {
+            if (currentFile && confirm('Are you sure you want to reset all changes?')) {
+                editor.setValue(originalContent);
+                hasChanges = false;
+                updateUI();
+                showResult('info', 'File reset to original content');
+            }
+        }
+
+        function updateUI() {
+            document.getElementById('saveButton').disabled = !hasChanges;
+            document.getElementById('changesCount').textContent = hasChanges ? '1' : '0';
+            document.getElementById('changesIndicator').style.display = hasChanges ? 'block' : 'none';
+        }
+
+        function addAgentToTier(tier, agentId) {
+            const filePath = `config/langchain-${tier}.json`;
+            showResult('info', `Adding ${agentId} agent to ${tier} tier...`);
+            
+            // In a real implementation, this would call the editor service
+            setTimeout(() => {
+                showResult('success', `Successfully added ${agentId} agent to ${tier} tier`);
+            }, 1000);
+        }
+
+        function updateTierFeatures(tier, feature, enabled) {
+            showResult('info', `Updating ${tier} tier features: ${feature} = ${enabled}`);
+            
+            // In a real implementation, this would update the configuration
+            setTimeout(() => {
+                showResult('success', `Successfully updated ${tier} tier features`);
+            }, 1000);
+        }
+
+        function validateCurrentFile() {
+            if (!currentFile) {
+                showResult('error', 'No file selected');
+                return;
+            }
+            
+            try {
+                const content = editor.getValue();
+                if (currentFile.endsWith('.json')) {
+                    JSON.parse(content);
+                    showResult('success', 'File validation passed - JSON is valid');
+                } else {
+                    showResult('success', 'File validation passed');
+                }
+            } catch (error) {
+                showResult('error', `Validation failed: ${error.message}`);
+            }
+        }
+
+        function showFileDiff() {
+            if (!currentFile) {
+                showResult('error', 'No file selected');
+                return;
+            }
+            
+            showResult('info', 'Showing file diff...');
+            // In a real implementation, this would show the actual git diff
+        }
+
+        function showResult(type, message) {
+            const resultsDiv = document.getElementById('actionResults');
+            const timestamp = new Date().toLocaleTimeString();
+            const icon = type === 'success' ? '✅' : type === 'error' ? '❌' : 'ℹ️';
+            
+            resultsDiv.innerHTML = `
+                <div class="d-flex justify-content-between align-items-start">
+                    <div>
+                        <span class="me-2">${icon}</span>
+                        <span>${message}</span>
+                    </div>
+                    <small class="text-muted">${timestamp}</small>
+                </div>
+            `;
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeEditor();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+{
+  "langchain": {
+    "version": "0.1.0",
+    "providers": {
+      "openrouter": {
+        "apiKey": "${OPENROUTER_API_KEY}",
+        "baseURL": "https://openrouter.ai/api/v1",
+        "defaultHeaders": {
+          "HTTP-Referer": "https://f8.syzygyx.com",
+          "X-Title": "Formul8 Multiagent Chat"
+        }
+      }
+    },
+    "chains": {
+      "routing": {
+        "type": "prompt_chain",
+        "model": "meta-llama/llama-3.1-8b-instruct",
+        "temperature": 0.3,
+        "maxTokens": 50,
+        "timeout": 10000
+      },
+      "agent_response": {
+        "type": "prompt_chain",
+        "model": "meta-llama/llama-3.1-8b-instruct",
+        "temperature": 0.7,
+        "maxTokens": 1000,
+        "timeout": 30000
+      }
+    },
+    "prompts": {
+      "routing": {
+        "template": "You are an intelligent agent router for the Formul8 cannabis industry AI system. Your job is to analyze user messages and route them to the most appropriate specialized agent.\n\nAvailable agents:\n{agents_list}\n\nUser message: {message}\n\nAnalyze the message and respond with ONLY the agent name from the list above.\nDo not include any other text or explanation.",
+        "inputVariables": ["agents_list", "message"]
+      },
+      "agent_system": {
+        "template": "You are the {agent_name}, a {agent_description} specializing in:\n{agent_specialties}\n\nProvide helpful, accurate, and professional responses about cannabis industry topics.\nAlways cite specific regulations when possible and recommend consulting with legal professionals for complex matters.\n\nUser question: {message}\n\nProvide a comprehensive response:",
+        "inputVariables": ["agent_name", "agent_description", "agent_specialties", "message"]
+      }
+    },
+    "memory": {
+      "enabled": false,
+      "type": "conversation_buffer",
+      "maxTokens": 1000
+    },
+    "tools": {
+      "enabled": false,
+      "available": [
+        "web_search",
+        "calculator",
+        "code_interpreter",
+        "file_reader"
+      ]
+    },
+    "callbacks": {
+      "enabled": true,
+      "types": [
+        "console_logging",
+        "performance_monitoring"
+      ]
+    }
+  }
+}

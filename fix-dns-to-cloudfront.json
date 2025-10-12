@@ -1,0 +1,18 @@
+{
+    "Comment": "Point f8.syzygyx.com to CloudFront distribution for proper SSL",
+    "Changes": [
+        {
+            "Action": "UPSERT",
+            "ResourceRecordSet": {
+                "Name": "f8.syzygyx.com.",
+                "Type": "CNAME",
+                "TTL": 300,
+                "ResourceRecords": [
+                    {
+                        "Value": "d3ck9vgm5nuq5w.cloudfront.net"
+                    }
+                ]
+            }
+        }
+    ]
+}

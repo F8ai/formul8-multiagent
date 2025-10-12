@@ -1,27 +1,45 @@
 #!/bin/bash
 
-# Deploy formul8-multiagent to AWS Lambda
-echo "🚀 Deploying Formul8 Multiagent to AWS Lambda..."
+# Deploy Formul8 Multiagent Lambda Function
+echo "🚀 Deploying Formul8 Multiagent Lambda Function..."
 
 # Create deployment package
-cd deploy
+echo "📦 Creating deployment package..."
+mkdir -p lambda-deploy
+cp lambda.js lambda-deploy/
+cp lambda-package.json lambda-deploy/package.json
+
+# Install dependencies
+echo "📥 Installing dependencies..."
+cd lambda-deploy
 npm install --production
-zip -r ../formul8-multiagent-lambda.zip . -x "*.git*" "*.DS_Store*"
+cd ..
+
+# Create ZIP file
+echo "🗜️  Creating ZIP file..."
+cd lambda-deploy
+zip -r ../formul8-multiagent-lambda.zip .
+cd ..
 
 # Deploy to Lambda
-aws lambda create-function \
-  --function-name formul8-multiagent \
-  --runtime nodejs18.x \
-  --role arn:aws:iam::YOUR_ACCOUNT_ID:role/lambda-execution-role \
-  --handler lambda.handler \
-  --zip-file fileb://../formul8-multiagent-lambda.zip \
-  --timeout 30 \
-  --memory-size 512 \
-  --environment Variables='{NODE_ENV=production}' \
-  --description "Formul8 Multiagent Chat with LangChain and microservice monitoring"
+echo "🚀 Deploying to AWS Lambda..."
+aws lambda update-function-code \
+  --function-name formul8-enhanced-chat \
+  --zip-file fileb://formul8-multiagent-lambda.zip
 
-echo "✅ Lambda function created: formul8-multiagent"
-echo "📝 Next steps:"
-echo "   1. Create API Gateway endpoint"
-echo "   2. Update Route 53 to point to API Gateway"
-echo "   3. Test the deployment"
+# Update function configuration
+echo "⚙️  Updating function configuration..."
+aws lambda update-function-configuration \
+  --function-name formul8-enhanced-chat \
+  --handler lambda.handler \
+  --runtime nodejs18.x \
+  --timeout 30 \
+  --memory-size 512
+
+# Clean up
+echo "🧹 Cleaning up..."
+rm -rf lambda-deploy
+rm formul8-multiagent-lambda.zip
+
+echo "✅ Lambda function deployed successfully!"
+echo "🌐 Test the function at: https://f8.syzygyx.com"

@@ -1,65 +1,33 @@
 {
-  "name": "formul8-multiagent",
+  "name": "formul8-chat-tests",
   "version": "1.0.0",
-  "description": "Multi-agent chat frontend for Formul8 using LangChain.js",
-  "main": "server.js",
-  "type": "commonjs",
+  "description": "Comprehensive test suite for Formul8 Multiagent Chat System",
+  "main": "index.js",
   "scripts": {
-    "dev": "tsx watch src/server.ts",
-    "build": "tsc && tsc-alias",
-    "start": "node dist/server.js",
-    "type-check": "tsc --noEmit",
-    "lint": "eslint src --ext .ts",
-    "test": "jest",
-    "build:static": "npm run build && npm run build:pages",
-    "build:pages": "node scripts/build-pages.js",
-    "deploy:pages": "gh-pages -d dist/pages",
-    "microservice": "tsx src/watchdog/cli.ts",
-    "monitor": "tsx src/watchdog/microservice-monitor.ts",
-    "start-services": "bash scripts/start-microservices.sh",
-    "stop-services": "bash scripts/start-microservices.sh stop",
-    "status-services": "bash scripts/start-microservices.sh status"
-  },
-  "dependencies": {
-    "@langchain/anthropic": "^0.3.11",
-    "@langchain/community": "^0.3.19",
-    "@langchain/core": "^0.3.29",
-    "@langchain/openai": "^0.3.16",
-    "axios": "^1.7.9",
-    "cors": "^2.8.5",
-    "dotenv": "^16.6.1",
-    "express": "^4.21.2",
-    "langchain": "^0.3.11",
-    "zod": "^3.24.1"
-  },
-  "devDependencies": {
-    "@playwright/test": "^1.56.0",
-    "@types/cors": "^2.8.19",
-    "@types/express": "^4.17.23",
-    "@types/jest": "^29.5.14",
-    "@types/node": "^22.18.9",
-    "@typescript-eslint/eslint-plugin": "^8.20.0",
-    "@typescript-eslint/parser": "^8.20.0",
-    "eslint": "^9.18.0",
-    "gh-pages": "^6.1.1",
-    "jest": "^29.7.0",
-    "playwright": "^1.56.0",
-    "tsc-alias": "^1.8.10",
-    "tsx": "^4.20.6",
-    "typescript": "^5.7.2"
+    "test": "npx playwright test",
+    "test:headed": "npx playwright test --headed",
+    "test:ui": "npx playwright test --ui",
+    "test:debug": "npx playwright test --debug",
+    "test:comprehensive": "npx playwright test tests/chat-comprehensive.spec.js",
+    "test:smoke": "npx playwright test tests/chat-smoke.spec.js",
+    "test:performance": "npx playwright test tests/chat-comprehensive.spec.js --grep 'Performance'",
+    "test:mobile": "npx playwright test --project='Mobile Chrome' --project='Mobile Safari'",
+    "test:report": "npx playwright show-report",
+    "install:browsers": "npx playwright install",
+    "install:deps": "npx playwright install-deps"
   },
   "keywords": [
+    "playwright",
+    "testing",
     "formul8",
-    "langchain",
-    "ai",
-    "agents",
     "chat",
-    "multiagent"
+    "multiagent",
+    "cannabis"
   ],
-  "author": "F8ai",
+  "author": "Formul8 AI",
   "license": "MIT",
-  "engines": {
-    "node": ">=18.0.0"
-  },
-  "homepage": "https://f8ai.github.io/formul8-multiagent"
+  "devDependencies": {
+    "@playwright/test": "^1.56.0",
+    "playwright": "^1.56.0"
+  }
 }

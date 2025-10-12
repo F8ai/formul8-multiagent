@@ -1,0 +1,8 @@
+{
+    "CloudFrontDefaultCertificate": false,
+    "ACMCertificateArn": "arn:aws:acm:us-east-1:204181332839:certificate/c302f9a7-5798-4ef3-b2d0-e82d37b76f03",
+    "SSLSupportMethod": "sni-only",
+    "MinimumProtocolVersion": "TLSv1.1_2016",
+    "Certificate": "arn:aws:acm:us-east-1:204181332839:certificate/c302f9a7-5798-4ef3-b2d0-e82d37b76f03",
+    "CertificateSource": "acm"
+}

@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formul8 Multiagent Configuration</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+    <style>
+        .config-editor {
+            min-height: 400px;
+        }
+        .tier-card {
+            transition: transform 0.2s;
+            cursor: pointer;
+        }
+        .tier-card:hover {
+            transform: translateY(-5px);
+        }
+        .tier-free { border-left: 4px solid #6c757d; }
+        .tier-standard { border-left: 4px solid #0d6efd; }
+        .tier-micro { border-left: 4px solid #198754; }
+        .tier-operator { border-left: 4px solid #fd7e14; }
+        .tier-enterprise { border-left: 4px solid #6f42c1; }
+        .tier-admin { border-left: 4px solid #dc3545; }
+        .feature-list {
+            max-height: 200px;
+            overflow-y: auto;
+        }
+        .json-editor {
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <strong>Formul8</strong> Multiagent Configuration
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#tiers">Pricing Tiers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#configs">Configurations</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#docs">Documentation</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <!-- Hero Section -->
+        <div class="row mb-5">
+            <div class="col-12">
+                <div class="jumbotron bg-light p-5 rounded">
+                    <h1 class="display-4">Formul8 Multiagent Configuration</h1>
+                    <p class="lead">Configure LangChain settings for different pricing tiers and agent capabilities.</p>
+                    <hr class="my-4">
+                    <p>Manage agent routing, model configurations, and tier-specific features across all Formul8 services.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pricing Tiers Section -->
+        <section id="tiers" class="mb-5">
+            <h2 class="mb-4">Pricing Tiers</h2>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card tier-card tier-free h-100" onclick="selectTier('free')">
+                        <div class="card-body">
+                            <h5 class="card-title">Free</h5>
+                            <h6 class="text-muted">$0/month</h6>
+                            <p class="card-text">Perfect for Artesians</p>
+                            <ul class="feature-list list-unstyled">
+                                <li>✅ Basic formulation tools</li>
+                                <li>✅ Future4200 Search</li>
+                                <li>✅ Basic calculations</li>
+                                <li>✅ Ad delivery after responses</li>
+                                <li>❌ Advanced features</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card tier-card tier-standard h-100" onclick="selectTier('standard')">
+                        <div class="card-body">
+                            <h5 class="card-title">Standard</h5>
+                            <h6 class="text-primary">$20/month</h6>
+                            <p class="card-text">Perfect for Artesians</p>
+                            <ul class="feature-list list-unstyled">
+                                <li>✅ Standard formulation tools</li>
+                                <li>✅ Future4200 Search and Summarize</li>
+                                <li>✅ Calculations</li>
+                                <li>✅ Basic SOP starter templates</li>
+                                <li>✅ Advanced routing</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card tier-card tier-micro h-100" onclick="selectTier('micro')">
+                        <div class="card-body">
+                            <h5 class="card-title">Micro</h5>
+                            <h6 class="text-success">$99/month</h6>
+                            <p class="card-text">Designed for micro and social equity licenses</p>
+                            <ul class="feature-list list-unstyled">
+                                <li>✅ Enhanced compliance checking</li>
+                                <li>✅ Everything in Standard</li>
+                                <li>✅ Advanced formulation tools</li>
+                                <li>✅ Single state marketing data</li>
+                                <li>✅ Scenario Mapping</li>
+                                <li>✅ Metrc API</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card tier-card tier-operator h-100" onclick="selectTier('operator')">
+                        <div class="card-body">
+                            <h5 class="card-title">Operator</h5>
+                            <h6 class="text-warning">$499/month</h6>
+                            <p class="card-text">Ideal for growing cannabis businesses</p>
+                            <ul class="feature-list list-unstyled">
+                                <li>✅ Live 50 state compliance</li>
+                                <li>✅ Full formulation suite</li>
+                                <li>✅ Priority support</li>
+                                <li>✅ Unlimited calculations</li>
+                                <li>✅ Custom SOP generation</li>
+                                <li>✅ All 12 agents</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card tier-card tier-enterprise h-100" onclick="selectTier('enterprise')">
+                        <div class="card-body">
+                            <h5 class="card-title">Enterprise</h5>
+                            <h6 class="text-info">Custom</h6>
+                            <p class="card-text">For large operations and multi-state businesses</p>
+                            <ul class="feature-list list-unstyled">
+                                <li>✅ Everything in Operator</li>
+                                <li>✅ Customer Service agents</li>
+                                <li>✅ White-label solutions</li>
+                                <li>✅ Custom integrations</li>
+                                <li>✅ Advanced analytics</li>
+                                <li>✅ API access</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card tier-card tier-admin h-100" onclick="selectTier('admin')">
+                        <div class="card-body">
+                            <h5 class="card-title">Admin</h5>
+                            <h6 class="text-danger">$0/month</h6>
+                            <p class="card-text">Administrative access with editor capabilities</p>
+                            <ul class="feature-list list-unstyled">
+                                <li>✅ All agent access</li>
+                                <li>✅ Editor agent capabilities</li>
+                                <li>✅ System configuration</li>
+                                <li>✅ User management</li>
+                                <li>✅ Analytics and monitoring</li>
+                                <li>✅ API administration</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Configuration Editor Section -->
+        <section id="configs" class="mb-5">
+            <h2 class="mb-4">Configuration Editor</h2>
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <h5 class="mb-0">LangChain Configuration</h5>
+                            <div>
+                                <select id="tierSelect" class="form-select d-inline-block w-auto me-2">
+                                    <option value="free">Free</option>
+                                    <option value="standard">Standard</option>
+                                    <option value="micro">Micro</option>
+                                    <option value="operator">Operator</option>
+                                    <option value="enterprise">Enterprise</option>
+                                    <option value="admin">Admin</option>
+                                </select>
+                                <button class="btn btn-primary" onclick="loadConfig()">Load Config</button>
+                                <button class="btn btn-success" onclick="saveConfig()">Save Config</button>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <label for="configType" class="form-label">Configuration Type</label>
+                                <select id="configType" class="form-select">
+                                    <option value="langchain">LangChain</option>
+                                    <option value="agents">Agents</option>
+                                    <option value="pricing">Pricing Tiers</option>
+                                    <option value="routing">Routing</option>
+                                    <option value="microservices">Microservices</option>
+                                </select>
+                            </div>
+                            <textarea id="configEditor" class="form-control config-editor json-editor" rows="20" placeholder="Select a tier and configuration type to load..."></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Documentation Section -->
+        <section id="docs" class="mb-5">
+            <h2 class="mb-4">Documentation</h2>
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5>Configuration Files</h5>
+                            <ul>
+                                <li><code>config/langchain-{tier}.json</code> - Tier-specific LangChain configurations</li>
+                                <li><code>config/agents.json</code> - Agent definitions and capabilities</li>
+                                <li><code>config/pricing-tiers.json</code> - Pricing tier definitions</li>
+                                <li><code>config/routing.json</code> - Agent routing configuration</li>
+                                <li><code>config/microservices.json</code> - Microservice endpoints and settings</li>
+                            </ul>
+                            
+                            <h5 class="mt-4">Tier Features</h5>
+                            <div class="table-responsive">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>Feature</th>
+                                            <th>Free</th>
+                                            <th>Standard</th>
+                                            <th>Micro</th>
+                                            <th>Operator</th>
+                                            <th>Enterprise</th>
+                                            <th>Admin</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Ad Delivery</td>
+                                            <td>✅</td>
+                                            <td>❌</td>
+                                            <td>❌</td>
+                                            <td>❌</td>
+                                            <td>❌</td>
+                                            <td>❌</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Advanced Routing</td>
+                                            <td>❌</td>
+                                            <td>✅</td>
+                                            <td>✅</td>
+                                            <td>✅</td>
+                                            <td>✅</td>
+                                            <td>✅</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Conversation Memory</td>
+                                            <td>❌</td>
+                                            <td>❌</td>
+                                            <td>✅</td>
+                                            <td>✅</td>
+                                            <td>✅</td>
+                                            <td>✅</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Tool Integration</td>
+                                            <td>❌</td>
+                                            <td>❌</td>
+                                            <td>✅</td>
+                                            <td>✅</td>
+                                            <td>✅</td>
+                                            <td>✅</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Editor Agent</td>
+                                            <td>❌</td>
+                                            <td>❌</td>
+                                            <td>❌</td>
+                                            <td>❌</td>
+                                            <td>❌</td>
+                                            <td>✅</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script>
+        let currentConfig = {};
+        let currentTier = 'free';
+
+        // Configuration data (in a real app, this would be loaded from the API)
+        const configData = {
+            free: {
+                langchain: {
+                    "langchain": {
+                        "tier": "free",
+                        "version": "0.1.0",
+                        "description": "Free tier LangChain configuration with basic capabilities",
+                        "providers": {
+                            "openrouter": {
+                                "apiKey": "${OPENROUTER_API_KEY}",
+                                "baseURL": "https://openrouter.ai/api/v1",
+                                "defaultHeaders": {
+                                    "HTTP-Referer": "https://f8.syzygyx.com",
+                                    "X-Title": "Formul8 Multiagent Chat - Free"
+                                }
+                            }
+                        },
+                        "features": {
+                            "advanced_routing": false,
+                            "conversation_memory": false,
+                            "tool_integration": false,
+                            "custom_prompts": false,
+                            "analytics": false,
+                            "ad_delivery": true
+                        },
+                        "ad_delivery": {
+                            "enabled": true,
+                            "agent": "ad_agent",
+                            "trigger": "after_response",
+                            "frequency": "every_interaction",
+                            "placement": "post_response"
+                        }
+                    }
+                }
+            }
+        };
+
+        function selectTier(tier) {
+            currentTier = tier;
+            document.getElementById('tierSelect').value = tier;
+            loadConfig();
+        }
+
+        function loadConfig() {
+            const tier = document.getElementById('tierSelect').value;
+            const configType = document.getElementById('configType').value;
+            
+            currentTier = tier;
+            
+            // In a real app, this would fetch from the actual config files
+            let config = {};
+            
+            if (configType === 'langchain') {
+                config = configData[tier]?.langchain || {};
+            } else {
+                // Mock data for other config types
+                config = {
+                    "message": `Loading ${configType} configuration for ${tier} tier...`,
+                    "note": "This would load the actual configuration file in a real implementation"
+                };
+            }
+            
+            currentConfig = config;
+            document.getElementById('configEditor').value = JSON.stringify(config, null, 2);
+            
+            // Highlight the selected tier card
+            document.querySelectorAll('.tier-card').forEach(card => {
+                card.classList.remove('border-primary');
+            });
+            document.querySelector(`.tier-${tier}`).classList.add('border-primary');
+        }
+
+        function saveConfig() {
+            try {
+                const configText = document.getElementById('configEditor').value;
+                const config = JSON.parse(configText);
+                
+                // In a real app, this would save to the actual config file
+                console.log(`Saving ${document.getElementById('configType').value} config for ${currentTier} tier:`, config);
+                
+                alert('Configuration saved successfully! (This is a demo - in production this would update the actual config files)');
+            } catch (error) {
+                alert('Invalid JSON: ' + error.message);
+            }
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            loadConfig();
+        });
+    </script>
+</body>
+</html>

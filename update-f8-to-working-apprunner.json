@@ -1,0 +1,18 @@
+{
+    "Comment": "Point f8.syzygyx.com to working App Runner formul8-multiagent from GitHub",
+    "Changes": [
+        {
+            "Action": "UPSERT",
+            "ResourceRecordSet": {
+                "Name": "f8.syzygyx.com.",
+                "Type": "CNAME",
+                "TTL": 300,
+                "ResourceRecords": [
+                    {
+                        "Value": "wmzmdyv63h.us-east-1.awsapprunner.com"
+                    }
+                ]
+            }
+        }
+    ]
+}

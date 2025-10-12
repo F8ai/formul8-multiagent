@@ -1,0 +1,92 @@
+{
+  "langchain": {
+    "tier": "free",
+    "version": "0.1.0",
+    "description": "Free tier LangChain configuration with basic capabilities",
+    "providers": {
+      "openrouter": {
+        "apiKey": "${OPENROUTER_API_KEY}",
+        "baseURL": "https://openrouter.ai/api/v1",
+        "defaultHeaders": {
+          "HTTP-Referer": "https://f8.syzygyx.com",
+          "X-Title": "Formul8 Multiagent Chat - Free"
+        }
+      }
+    },
+    "models": {
+      "routing": {
+        "model": "meta-llama/llama-3.1-8b-instruct",
+        "temperature": 0.3,
+        "maxTokens": 50,
+        "timeout": 5000
+      },
+      "agent_response": {
+        "model": "meta-llama/llama-3.1-8b-instruct",
+        "temperature": 0.7,
+        "maxTokens": 500,
+        "timeout": 15000
+      }
+    },
+    "chains": {
+      "routing": {
+        "type": "prompt_chain",
+        "enabled": true,
+        "fallback_enabled": true
+      },
+      "agent_response": {
+        "type": "prompt_chain",
+        "enabled": true
+      }
+    },
+    "prompts": {
+      "routing": {
+        "template": "You are a basic agent router for the Formul8 cannabis industry AI system. Route user messages to the most appropriate agent.\n\nAvailable agents:\n{agents_list}\n\nUser message: {message}\n\nRespond with ONLY the agent name.",
+        "inputVariables": ["agents_list", "message"]
+      },
+      "agent_system": {
+        "template": "You are the {agent_name}. {agent_description}\n\nUser question: {message}\n\nProvide a helpful response:",
+        "inputVariables": ["agent_name", "agent_description", "message"]
+      }
+    },
+    "memory": {
+      "enabled": false
+    },
+    "tools": {
+      "enabled": false
+    },
+    "callbacks": {
+      "enabled": true,
+      "types": ["console_logging"]
+    },
+    "rate_limiting": {
+      "enabled": true,
+      "requests_per_minute": 10,
+      "requests_per_hour": 100
+    },
+    "features": {
+      "advanced_routing": false,
+      "conversation_memory": false,
+      "tool_integration": false,
+      "custom_prompts": false,
+      "analytics": false,
+      "ad_delivery": true
+    },
+    "ad_delivery": {
+      "enabled": true,
+      "agent": "ad_agent",
+      "trigger": "after_response",
+      "frequency": "every_interaction",
+      "placement": "post_response",
+      "ad_types": [
+        "upgrade_promotion",
+        "feature_highlight",
+        "tier_comparison"
+      ],
+      "templates": {
+        "upgrade_promotion": "Upgrade to Standard ($20/month) for advanced formulation tools and Future4200 search!",
+        "feature_highlight": "Get enhanced compliance checking and marketing data with our Micro plan ($99/month)",
+        "tier_comparison": "Unlock unlimited calculations and custom SOPs with Operator ($499/month)"
+      }
+    }
+  }
+}

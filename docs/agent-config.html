@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Formul8 Agent Configuration</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .agent-table {
+            font-size: 0.9rem;
+        }
+        .tier-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            font-weight: bold;
+        }
+        .agent-row:hover {
+            background-color: #f8f9fa;
+        }
+        .agent-name {
+            font-weight: 500;
+            color: #495057;
+        }
+        .agent-description {
+            font-size: 0.8rem;
+            color: #6c757d;
+        }
+        .checkbox-cell {
+            text-align: center;
+            vertical-align: middle;
+        }
+        .tier-free { background-color: #f8f9fa; }
+        .tier-standard { background-color: #e3f2fd; }
+        .tier-micro { background-color: #e8f5e8; }
+        .tier-operator { background-color: #fff3e0; }
+        .tier-enterprise { background-color: #f3e5f5; }
+        .tier-admin { background-color: #ffebee; }
+        .save-section {
+            position: sticky;
+            bottom: 0;
+            background: white;
+            border-top: 2px solid #dee2e6;
+            padding: 1rem;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+        }
+        .changes-indicator {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        .agent-icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-robot me-2"></i>
+                <strong>Formul8</strong> Agent Configuration
+            </a>
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link" href="index.html">
+                    <i class="fas fa-cog me-1"></i>Configurations
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid mt-4">
+        <div class="row">
+            <div class="col-12">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <div>
+                        <h1><i class="fas fa-table me-2"></i>Agent Access Configuration</h1>
+                        <p class="text-muted">Configure which agents each pricing tier can access</p>
+                    </div>
+                    <div>
+                        <button class="btn btn-outline-secondary me-2" onclick="resetToDefaults()">
+                            <i class="fas fa-undo me-1"></i>Reset to Defaults
+                        </button>
+                        <button class="btn btn-primary" onclick="previewChanges()">
+                            <i class="fas fa-eye me-1"></i>Preview Changes
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Changes Indicator -->
+                <div id="changesIndicator" class="changes-indicator" style="display: none;">
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                        <i class="fas fa-exclamation-triangle me-2"></i>
+                        <span id="changesCount">0</span> changes pending
+                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    </div>
+                </div>
+
+                <!-- Agent Access Table -->
+                <div class="card">
+                    <div class="card-body p-0">
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover agent-table mb-0">
+                                <thead class="tier-header">
+                                    <tr>
+                                        <th class="text-start" style="width: 300px;">
+                                            <i class="fas fa-robot me-2"></i>Agent
+                                        </th>
+                                        <th class="text-center tier-free">Free<br><small>$0/month</small></th>
+                                        <th class="text-center tier-standard">Standard<br><small>$20/month</small></th>
+                                        <th class="text-center tier-micro">Micro<br><small>$99/month</small></th>
+                                        <th class="text-center tier-operator">Operator<br><small>$499/month</small></th>
+                                        <th class="text-center tier-enterprise">Enterprise<br><small>Custom</small></th>
+                                        <th class="text-center tier-admin">Admin<br><small>System</small></th>
+                                    </tr>
+                                </thead>
+                                <tbody id="agentTableBody">
+                                    <!-- Table rows will be generated by JavaScript -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Legend -->
+                <div class="row mt-4">
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h6 class="mb-0"><i class="fas fa-info-circle me-2"></i>Legend</h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="d-flex align-items-center mb-2">
+                                    <input type="checkbox" checked disabled class="me-2">
+                                    <span>Agent available for this tier</span>
+                                </div>
+                                <div class="d-flex align-items-center mb-2">
+                                    <input type="checkbox" disabled class="me-2">
+                                    <span>Agent not available for this tier</span>
+                                </div>
+                                <div class="d-flex align-items-center">
+                                    <i class="fas fa-lock text-muted me-2"></i>
+                                    <span class="text-muted">Restricted agent (requires specific tier)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h6 class="mb-0"><i class="fas fa-chart-bar me-2"></i>Summary</h6>
+                            </div>
+                            <div class="card-body">
+                                <div id="tierSummary">
+                                    <!-- Summary will be generated by JavaScript -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Save Section -->
+    <div class="save-section">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <div class="d-flex align-items-center">
+                        <i class="fas fa-save me-2 text-primary"></i>
+                        <span id="saveStatus">No changes to save</span>
+                    </div>
+                </div>
+                <div class="col-md-6 text-end">
+                    <button class="btn btn-outline-secondary me-2" onclick="exportConfig()">
+                        <i class="fas fa-download me-1"></i>Export Config
+                    </button>
+                    <button class="btn btn-success" onclick="createPullRequest()" id="saveButton" disabled>
+                        <i class="fas fa-code-branch me-1"></i>Create Pull Request
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Preview Modal -->
+    <div class="modal fade" id="previewModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="fas fa-eye me-2"></i>Configuration Preview</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label class="form-label">Pull Request Title</label>
+                        <input type="text" class="form-control" id="prTitle" value="Update agent access configuration">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Pull Request Description</label>
+                        <textarea class="form-control" id="prDescription" rows="4" placeholder="Describe the changes made to agent access..."></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Configuration Changes</label>
+                        <pre class="bg-light p-3 rounded" id="configPreview"></pre>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" onclick="submitPullRequest()">
+                        <i class="fas fa-code-branch me-1"></i>Create Pull Request
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Agent definitions with icons and descriptions
+        const agents = [
+            {
+                id: 'f8_agent',
+                name: 'F8 Multi-Agent',
+                description: 'Main Formul8 AI agent that can route to specialized agents',
+                icon: 'fas fa-robot',
+                tierRestriction: null
+            },
+            {
+                id: 'compliance',
+                name: 'Compliance Agent',
+                description: 'Cannabis regulatory compliance expert',
+                icon: 'fas fa-shield-alt',
+                tierRestriction: null
+            },
+            {
+                id: 'formulation',
+                name: 'Formulation Agent',
+                description: 'Cannabis product formulation specialist',
+                icon: 'fas fa-flask',
+                tierRestriction: null
+            },
+            {
+                id: 'science',
+                name: 'Science Agent',
+                description: 'Cannabis research and analysis expert',
+                icon: 'fas fa-microscope',
+                tierRestriction: null
+            },
+            {
+                id: 'operations',
+                name: 'Operations Agent',
+                description: 'Cannabis facility operations and management specialist',
+                icon: 'fas fa-cogs',
+                tierRestriction: 'micro'
+            },
+            {
+                id: 'marketing',
+                name: 'Marketing Agent',
+                description: 'Cannabis marketing and brand strategy expert',
+                icon: 'fas fa-bullhorn',
+                tierRestriction: 'micro'
+            },
+            {
+                id: 'sourcing',
+                name: 'Sourcing Agent',
+                description: 'Cannabis supply chain and sourcing specialist',
+                icon: 'fas fa-truck',
+                tierRestriction: 'operator'
+            },
+            {
+                id: 'patent',
+                name: 'Patent Agent',
+                description: 'Cannabis intellectual property and patent research expert',
+                icon: 'fas fa-file-alt',
+                tierRestriction: 'micro'
+            },
+            {
+                id: 'spectra',
+                name: 'Spectra Agent',
+                description: 'Cannabis spectral analysis and quality testing specialist',
+                icon: 'fas fa-chart-line',
+                tierRestriction: 'operator'
+            },
+            {
+                id: 'customer_success',
+                name: 'Customer Success Agent',
+                description: 'Cannabis customer success and retention specialist',
+                icon: 'fas fa-handshake',
+                tierRestriction: 'operator'
+            },
+            {
+                id: 'f8_slackbot',
+                name: 'F8 Slackbot',
+                description: 'Formul8 Slack integration and team collaboration agent',
+                icon: 'fab fa-slack',
+                tierRestriction: 'enterprise'
+            },
+            {
+                id: 'mcr',
+                name: 'MCR Agent',
+                description: 'Cannabis MCR (Master Control Record) management specialist',
+                icon: 'fas fa-database',
+                tierRestriction: 'micro'
+            },
+            {
+                id: 'ad',
+                name: 'Ad Agent',
+                description: 'Cannabis advertising and promotional strategy expert',
+                icon: 'fas fa-ad',
+                tierRestriction: 'operator'
+            },
+            {
+                id: 'editor_agent',
+                name: 'Editor Agent',
+                description: 'Content editing and document management specialist',
+                icon: 'fas fa-edit',
+                tierRestriction: 'admin'
+            }
+        ];
+
+        // Default tier configurations
+        const defaultConfig = {
+            free: ['f8_agent', 'formulation', 'science'],
+            standard: ['f8_agent', 'formulation', 'science'],
+            micro: ['f8_agent', 'formulation', 'science', 'compliance', 'marketing', 'mcr', 'operations', 'patent'],
+            operator: ['f8_agent', 'formulation', 'science', 'compliance', 'marketing', 'operations', 'sourcing', 'patent', 'spectra', 'customer_success', 'mcr', 'ad'],
+            enterprise: ['f8_agent', 'formulation', 'science', 'compliance', 'marketing', 'operations', 'sourcing', 'patent', 'spectra', 'customer_success', 'f8_slackbot', 'mcr', 'ad'],
+            admin: ['f8_agent', 'formulation', 'science', 'compliance', 'marketing', 'operations', 'sourcing', 'patent', 'spectra', 'customer_success', 'f8_slackbot', 'mcr', 'ad', 'editor_agent']
+        };
+
+        let currentConfig = JSON.parse(JSON.stringify(defaultConfig));
+        let hasChanges = false;
+
+        // Initialize the table
+        function initializeTable() {
+            const tbody = document.getElementById('agentTableBody');
+            tbody.innerHTML = '';
+
+            agents.forEach(agent => {
+                const row = document.createElement('tr');
+                row.className = 'agent-row';
+                
+                row.innerHTML = `
+                    <td class="agent-name">
+                        <i class="${agent.icon} agent-icon"></i>
+                        ${agent.name}
+                        <div class="agent-description">${agent.description}</div>
+                    </td>
+                    ${['free', 'standard', 'micro', 'operator', 'enterprise', 'admin'].map(tier => {
+                        const isChecked = currentConfig[tier].includes(agent.id);
+                        const isDisabled = agent.tierRestriction && !isTierAllowed(agent.tierRestriction, tier);
+                        const lockIcon = isDisabled ? '<i class="fas fa-lock text-muted ms-1"></i>' : '';
+                        
+                        return `
+                            <td class="checkbox-cell tier-${tier}">
+                                <input type="checkbox" 
+                                       class="form-check-input agent-checkbox" 
+                                       data-agent="${agent.id}" 
+                                       data-tier="${tier}"
+                                       ${isChecked ? 'checked' : ''}
+                                       ${isDisabled ? 'disabled' : ''}
+                                       onchange="updateConfig('${agent.id}', '${tier}', this.checked)">
+                                ${lockIcon}
+                            </td>
+                        `;
+                    }).join('')}
+                `;
+                
+                tbody.appendChild(row);
+            });
+
+            updateSummary();
+        }
+
+        function isTierAllowed(requiredTier, currentTier) {
+            const tierOrder = ['free', 'standard', 'micro', 'operator', 'enterprise', 'admin'];
+            return tierOrder.indexOf(currentTier) >= tierOrder.indexOf(requiredTier);
+        }
+
+        function updateConfig(agentId, tier, enabled) {
+            if (enabled) {
+                if (!currentConfig[tier].includes(agentId)) {
+                    currentConfig[tier].push(agentId);
+                }
+            } else {
+                currentConfig[tier] = currentConfig[tier].filter(id => id !== agentId);
+            }
+            
+            hasChanges = true;
+            updateUI();
+        }
+
+        function updateUI() {
+            const changesCount = countChanges();
+            document.getElementById('changesCount').textContent = changesCount;
+            document.getElementById('changesIndicator').style.display = changesCount > 0 ? 'block' : 'none';
+            document.getElementById('saveStatus').textContent = changesCount > 0 ? `${changesCount} changes pending` : 'No changes to save';
+            document.getElementById('saveButton').disabled = changesCount === 0;
+            updateSummary();
+        }
+
+        function countChanges() {
+            let changes = 0;
+            Object.keys(defaultConfig).forEach(tier => {
+                const defaultAgents = defaultConfig[tier].sort();
+                const currentAgents = currentConfig[tier].sort();
+                if (JSON.stringify(defaultAgents) !== JSON.stringify(currentAgents)) {
+                    changes++;
+                }
+            });
+            return changes;
+        }
+
+        function updateSummary() {
+            const summaryDiv = document.getElementById('tierSummary');
+            const tiers = ['free', 'standard', 'micro', 'operator', 'enterprise', 'admin'];
+            
+            summaryDiv.innerHTML = tiers.map(tier => {
+                const count = currentConfig[tier].length;
+                const total = agents.length;
+                return `
+                    <div class="d-flex justify-content-between mb-1">
+                        <span class="text-capitalize">${tier}:</span>
+                        <span class="badge bg-primary">${count}/${total}</span>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function resetToDefaults() {
+            if (confirm('Are you sure you want to reset all changes to defaults?')) {
+                currentConfig = JSON.parse(JSON.stringify(defaultConfig));
+                hasChanges = false;
+                initializeTable();
+                updateUI();
+            }
+        }
+
+        function previewChanges() {
+            const changes = generateConfigChanges();
+            document.getElementById('configPreview').textContent = JSON.stringify(changes, null, 2);
+            
+            const modal = new bootstrap.Modal(document.getElementById('previewModal'));
+            modal.show();
+        }
+
+        function generateConfigChanges() {
+            const changes = {};
+            Object.keys(defaultConfig).forEach(tier => {
+                const defaultAgents = defaultConfig[tier].sort();
+                const currentAgents = currentConfig[tier].sort();
+                if (JSON.stringify(defaultAgents) !== JSON.stringify(currentAgents)) {
+                    changes[tier] = {
+                        added: currentAgents.filter(agent => !defaultAgents.includes(agent)),
+                        removed: defaultAgents.filter(agent => !currentAgents.includes(agent))
+                    };
+                }
+            });
+            return changes;
+        }
+
+        function exportConfig() {
+            const config = {
+                pricing_tiers: {}
+            };
+            
+            Object.keys(currentConfig).forEach(tier => {
+                config.pricing_tiers[tier] = {
+                    agents: currentConfig[tier]
+                };
+            });
+            
+            const blob = new Blob([JSON.stringify(config, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'agent-config.json';
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+
+        function createPullRequest() {
+            previewChanges();
+        }
+
+        function submitPullRequest() {
+            // In a real implementation, this would:
+            // 1. Create a fork of the repository
+            // 2. Create a new branch
+            // 3. Update the configuration files
+            // 4. Create a pull request
+            
+            const title = document.getElementById('prTitle').value;
+            const description = document.getElementById('prDescription').value;
+            const changes = generateConfigChanges();
+            
+            console.log('Creating PR with:', { title, description, changes });
+            
+            // Simulate API call
+            alert(`Pull Request created successfully!\n\nTitle: ${title}\n\nThis would update the configuration files and create a PR in a real implementation.`);
+            
+            // Close modal
+            const modal = bootstrap.Modal.getInstance(document.getElementById('previewModal'));
+            modal.hide();
+            
+            // Reset changes
+            hasChanges = false;
+            updateUI();
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeTable();
+        });
+    </script>
+</body>
+</html>

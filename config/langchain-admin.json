@@ -1,0 +1,197 @@
+{
+  "langchain": {
+    "tier": "admin",
+    "version": "0.1.0",
+    "description": "Admin tier LangChain configuration with full system access and editor capabilities",
+    "providers": {
+      "openrouter": {
+        "apiKey": "${OPENROUTER_API_KEY}",
+        "baseURL": "https://openrouter.ai/api/v1",
+        "defaultHeaders": {
+          "HTTP-Referer": "https://f8.syzygyx.com",
+          "X-Title": "Formul8 Multiagent Chat - Admin"
+        }
+      },
+      "openai": {
+        "apiKey": "${OPENAI_API_KEY}",
+        "baseURL": "https://api.openai.com/v1",
+        "defaultHeaders": {
+          "OpenAI-Organization": "${OPENAI_ORG_ID}"
+        }
+      }
+    },
+    "models": {
+      "routing": {
+        "model": "openai/gpt-4o",
+        "temperature": 0.3,
+        "maxTokens": 50,
+        "timeout": 5000
+      },
+      "agent_response": {
+        "model": "openai/gpt-4o",
+        "temperature": 0.7,
+        "maxTokens": 4000,
+        "timeout": 60000
+      },
+      "editor": {
+        "model": "openai/gpt-4o",
+        "temperature": 0.3,
+        "maxTokens": 4000,
+        "timeout": 60000
+      },
+      "admin": {
+        "model": "openai/gpt-4o",
+        "temperature": 0.5,
+        "maxTokens": 4000,
+        "timeout": 60000
+      }
+    },
+    "chains": {
+      "routing": {
+        "type": "prompt_chain",
+        "enabled": true,
+        "fallback_enabled": true
+      },
+      "agent_response": {
+        "type": "prompt_chain",
+        "enabled": true
+      },
+      "editor": {
+        "type": "prompt_chain",
+        "enabled": true,
+        "specialized": true
+      },
+      "admin": {
+        "type": "prompt_chain",
+        "enabled": true,
+        "specialized": true
+      },
+      "multi_agent": {
+        "type": "sequential_chain",
+        "enabled": true,
+        "max_agents": 10
+      },
+      "parallel_processing": {
+        "type": "parallel_chain",
+        "enabled": true,
+        "max_concurrent": 5
+      }
+    },
+    "prompts": {
+      "routing": {
+        "template": "You are an intelligent agent router for the Formul8 cannabis industry AI system. Route user messages to the most appropriate specialized agent.\n\nAvailable agents:\n{agents_list}\n\nUser message: {message}\n\nAnalyze the message and respond with ONLY the agent name.",
+        "inputVariables": ["agents_list", "message"]
+      },
+      "agent_system": {
+        "template": "You are the {agent_name}, a {agent_description} specializing in:\n{agent_specialties}\n\nProvide detailed, accurate, and professional responses about cannabis industry topics.\nAlways cite specific regulations when possible and recommend consulting with legal professionals for complex matters.\n\nUser question: {message}\n\nProvide a comprehensive response:",
+        "inputVariables": ["agent_name", "agent_description", "agent_specialties", "message"]
+      },
+      "editor": {
+        "template": "You are the Editor Agent, a content editing and document management specialist with system configuration capabilities. You can process natural language commands to modify Formul8 configurations.\n\nYour capabilities include:\n- Document editing and revision\n- Content review and optimization\n- Version control and tracking\n- Collaborative editing\n- Format standardization\n- Quality assurance\n- System configuration editing\n- Prompt optimization\n- Agent behavior modification\n- LangChain configuration management\n- Tier access control\n- Agent permission management\n\nYou can understand commands like:\n- \"allow Micro to use patent-agent\"\n- \"remove compliance agent from free tier\"\n- \"add marketing features to standard tier\"\n- \"update patent agent temperature to 0.5\"\n- \"enable conversation memory for operator tier\"\n\nUser command: {message}\n\nProcess this command and provide the specific configuration changes needed:",
+        "inputVariables": ["message"]
+      },
+      "admin": {
+        "template": "You are the Admin Agent with full system access. You can help with:\n- System configuration and management\n- User management and permissions\n- Agent configuration and deployment\n- Analytics and monitoring\n- API administration\n- Security and access control\n- Performance optimization\n- Troubleshooting and debugging\n\nUser question: {message}\n\nProvide administrative guidance:",
+        "inputVariables": ["message"]
+      }
+    },
+    "memory": {
+      "enabled": true,
+      "type": "conversation_buffer",
+      "maxTokens": 10000
+    },
+    "tools": {
+      "enabled": true,
+      "available": ["calculator", "web_search", "code_interpreter", "file_reader", "api_caller", "database_query", "system_config", "user_management", "deployment_tools"]
+    },
+    "callbacks": {
+      "enabled": true,
+      "types": ["console_logging", "performance_monitoring", "usage_tracking", "analytics", "custom_callbacks", "admin_logging", "security_monitoring"]
+    },
+    "rate_limiting": {
+      "enabled": false
+    },
+    "features": {
+      "advanced_routing": true,
+      "conversation_memory": true,
+      "tool_integration": true,
+      "custom_prompts": true,
+      "analytics": true,
+      "formulation_tools": true,
+      "compliance_checking": true,
+      "marketing_analysis": true,
+      "operations_management": true,
+      "sourcing_optimization": true,
+      "patent_research": true,
+      "spectral_analysis": true,
+      "customer_success": true,
+      "f8_slackbot": true,
+      "mcr_management": true,
+      "ad_strategy": true,
+      "editor_agent": true,
+      "multi_agent_workflows": true,
+      "parallel_processing": true,
+      "system_administration": true,
+      "user_management": true,
+      "configuration_management": true,
+      "deployment_control": true,
+      "security_management": true,
+      "performance_monitoring": true,
+      "unlimited_everything": true
+    },
+    "admin_capabilities": {
+      "system_config": true,
+      "user_management": true,
+      "agent_deployment": true,
+      "analytics_access": true,
+      "api_administration": true,
+      "security_control": true,
+      "performance_optimization": true,
+      "troubleshooting": true,
+      "editor_access": true
+    },
+    "editor_capabilities": {
+      "content_editing": true,
+      "document_management": true,
+      "version_control": true,
+      "collaborative_editing": true,
+      "format_standardization": true,
+      "quality_assurance": true,
+      "system_config_editing": true,
+      "prompt_optimization": true,
+      "agent_behavior_modification": true,
+      "langchain_config_editing": true,
+      "tier_configuration": true,
+      "agent_access_management": true,
+      "file_system_access": true,
+      "git_operations": true,
+      "pull_request_creation": true
+    },
+    "file_operations": {
+      "enabled": true,
+      "allowed_paths": [
+        "config/langchain-*.json",
+        "config/agents.json",
+        "config/pricing-tiers.json",
+        "config/routing.json",
+        "config/microservices.json"
+      ],
+      "operations": [
+        "read",
+        "write",
+        "create",
+        "update",
+        "delete"
+      ],
+      "backup_enabled": true,
+      "version_control": true
+    },
+    "git_integration": {
+      "enabled": true,
+      "auto_commit": false,
+      "branch_creation": true,
+      "pull_request_creation": true,
+      "commit_message_template": "Editor Agent: {action} {file} - {description}"
+    }
+  }
+}
