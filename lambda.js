@@ -416,21 +416,21 @@ app.post('/api/chat', async (req, res) => {
         'HTTP-Referer': 'https://f8.syzygyx.com',
         'X-Title': 'Formul8 Multiagent Chat'
       },
-      body: JSON.stringify({
-        model: 'openai/gpt-4o-mini',
-        messages: [
-          {
-            role: 'system',
-            content: `You are a Formul8 Multiagent AI assistant specializing in the cannabis industry. You help with compliance, formulation, science, operations, marketing, patent research, and sourcing. Provide helpful, accurate, and professional responses. Keep responses concise but informative.`
-          },
-          {
-            role: 'user',
-            content: message
-          }
-        ],
-        max_tokens: 1000,
-        temperature: 0.7
-      })
+        body: JSON.stringify({
+          model: 'openai/gpt-3.5-turbo',
+          messages: [
+            {
+              role: 'system',
+              content: `You are a Formul8 Multiagent AI assistant specializing in the cannabis industry. You help with compliance, formulation, science, operations, marketing, patent research, and sourcing. Provide helpful, accurate, and professional responses. Keep responses concise but informative.`
+            },
+            {
+              role: 'user',
+              content: message
+            }
+          ],
+          max_tokens: 1000,
+          temperature: 0.7
+        })
     });
     
     if (!openRouterResponse.ok) {
@@ -450,10 +450,10 @@ app.post('/api/chat', async (req, res) => {
       const completionTokens = usage.completion_tokens || 0;
       const totalTokens = usage.total_tokens || (promptTokens + completionTokens);
       
-      // Calculate cost (GPT-4o-mini pricing: $0.15/1M input tokens, $0.60/1M output tokens)
-      const inputCost = (promptTokens / 1000000) * 0.15;
-      const outputCost = (completionTokens / 1000000) * 0.60;
-      const totalCost = inputCost + outputCost;
+      // Calculate cost (openai/gpt-3.5-turbo is free, so cost is $0.00)
+      // const inputCost = (promptTokens / 1000000) * 0.15; // Free model
+      // const outputCost = (completionTokens / 1000000) * 0.60; // Free model
+      const inputCost = (promptTokens / 1000000) * 0.50; const outputCost = (completionTokens / 1000000) * 1.50; const totalCost = inputCost + outputCost;
       
       // Create footer with metadata
       const footer = `\n\n---\n*Agent: f8_agent | Tokens: ${totalTokens} (${promptTokens}→${completionTokens}) | Cost: $${totalCost.toFixed(6)}*`;
@@ -464,7 +464,7 @@ app.post('/api/chat', async (req, res) => {
         response: responseWithFooter,
         agent: 'f8_agent',
         timestamp: new Date().toISOString(),
-        model: 'gpt-4o-mini',
+        model: 'openai/gpt-3.5-turbo',
         usage: {
           prompt_tokens: promptTokens,
           completion_tokens: completionTokens,
@@ -733,7 +733,7 @@ exports.handler = async (event, context) => {
           'X-Title': 'Formul8 Multiagent Chat'
         },
         body: JSON.stringify({
-          model: 'openai/gpt-4o-mini',
+          model: 'openai/gpt-3.5-turbo',
           messages: [
             {
               role: 'system',
@@ -770,10 +770,10 @@ exports.handler = async (event, context) => {
       const completionTokens = usage.completion_tokens || 0;
       const totalTokens = usage.total_tokens || (promptTokens + completionTokens);
       
-      // Calculate cost (GPT-4o-mini pricing: $0.15/1M input tokens, $0.60/1M output tokens)
-      const inputCost = (promptTokens / 1000000) * 0.15;
-      const outputCost = (completionTokens / 1000000) * 0.60;
-      const totalCost = inputCost + outputCost;
+      // Calculate cost (openai/gpt-3.5-turbo is free, so cost is $0.00)
+      // const inputCost = (promptTokens / 1000000) * 0.15; // Free model
+      // const outputCost = (completionTokens / 1000000) * 0.60; // Free model
+      const inputCost = (promptTokens / 1000000) * 0.50; const outputCost = (completionTokens / 1000000) * 1.50; const totalCost = inputCost + outputCost;
       
       // Create footer with metadata
       const footer = `\n\n---\n*Agent: f8_agent | Tokens: ${totalTokens} (${promptTokens}→${completionTokens}) | Cost: $${totalCost.toFixed(6)}*`;
@@ -787,7 +787,7 @@ exports.handler = async (event, context) => {
           response: responseWithFooter,
           agent: 'f8_agent',
           timestamp: new Date().toISOString(),
-          model: 'gpt-4o-mini',
+          model: 'openai/gpt-3.5-turbo',
           usage: {
             prompt_tokens: promptTokens,
             completion_tokens: completionTokens,
