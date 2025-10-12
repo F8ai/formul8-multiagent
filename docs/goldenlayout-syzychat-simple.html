@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formul8 Multiagent Chat - GoldenLayout + SyzyChat</title>
+    
+    <!-- Formul8 Dark Theme CSS -->
+    <style>
+        :root {
+            --formul8-primary: #00ff88;
+            --formul8-secondary: #00d4aa;
+            --formul8-accent: #ff6b35;
+            --formul8-bg-primary: #0a0a0a;
+            --formul8-bg-secondary: #1a1a1a;
+            --formul8-bg-card: #1e1e1e;
+            --formul8-text-primary: #ffffff;
+            --formul8-text-secondary: #b0b0b0;
+            --formul8-border: #333333;
+            --formul8-glow: rgba(0, 255, 136, 0.3);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, var(--formul8-bg-primary) 0%, var(--formul8-bg-secondary) 100%);
+            color: var(--formul8-text-primary);
+            min-height: 100vh;
+            overflow: hidden;
+        }
+        
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: linear-gradient(135deg, var(--formul8-bg-secondary), #2a2a2a);
+            border-bottom: 1px solid var(--formul8-border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            z-index: 1000;
+        }
+        
+        .header h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--formul8-primary), var(--formul8-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .tier-selector {
+            display: flex;
+            gap: 8px;
+        }
+        
+        .tier-button {
+            background: var(--formul8-bg-card);
+            color: var(--formul8-text-secondary);
+            border: 1px solid var(--formul8-border);
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        .tier-button:hover {
+            border-color: var(--formul8-primary);
+            color: var(--formul8-text-primary);
+        }
+        
+        .tier-button.active {
+            background: linear-gradient(135deg, var(--formul8-primary), var(--formul8-secondary));
+            color: var(--formul8-bg-primary);
+            border-color: var(--formul8-primary);
+        }
+        
+        .status-indicator {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: #2ed573;
+            color: var(--formul8-bg-primary);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .main-container {
+            position: fixed;
+            top: 60px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+        }
+        
+        /* Left Panel - Agents */
+        .left-panel {
+            width: 25%;
+            background: var(--formul8-bg-primary);
+            border-right: 1px solid var(--formul8-border);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .panel-header {
+            background: var(--formul8-bg-secondary);
+            padding: 15px 20px;
+            border-bottom: 1px solid var(--formul8-border);
+            font-weight: 600;
+            color: var(--formul8-text-primary);
+        }
+        
+        .agent-panel {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+        }
+        
+        .agent-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .agent-item {
+            background: var(--formul8-bg-card);
+            border: 1px solid var(--formul8-border);
+            border-radius: 12px;
+            padding: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .agent-item:hover {
+            border-color: var(--formul8-primary);
+            box-shadow: 0 4px 15px var(--formul8-glow);
+        }
+        
+        .agent-item.active {
+            background: linear-gradient(135deg, var(--formul8-primary), var(--formul8-secondary));
+            color: var(--formul8-bg-primary);
+            border-color: var(--formul8-primary);
+        }
+        
+        .agent-name {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        
+        .agent-description {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        .agent-status {
+            font-size: 0.8rem;
+            margin-top: 4px;
+            padding: 2px 8px;
+            border-radius: 10px;
+            background: rgba(0, 255, 136, 0.1);
+            color: var(--formul8-primary);
+            display: inline-block;
+        }
+        
+        /* Center Panel - Chat */
+        .center-panel {
+            width: 50%;
+            background: var(--formul8-bg-primary);
+            border-right: 1px solid var(--formul8-border);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .chat-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+            background: var(--formul8-bg-primary);
+        }
+        
+        .message {
+            margin-bottom: 15px;
+            padding: 12px 16px;
+            border-radius: 12px;
+            max-width: 80%;
+            word-wrap: break-word;
+        }
+        
+        .message.user {
+            background: linear-gradient(135deg, var(--formul8-primary), var(--formul8-secondary));
+            color: var(--formul8-bg-primary);
+            margin-left: auto;
+            text-align: right;
+        }
+        
+        .message.agent {
+            background: var(--formul8-bg-card);
+            color: var(--formul8-text-primary);
+            border: 1px solid var(--formul8-border);
+        }
+        
+        .message.system {
+            background: var(--formul8-bg-secondary);
+            color: var(--formul8-text-secondary);
+            text-align: center;
+            font-style: italic;
+            max-width: 100%;
+        }
+        
+        .message.typing {
+            background: var(--formul8-bg-card);
+            color: var(--formul8-text-secondary);
+            border: 1px solid var(--formul8-border);
+            font-style: italic;
+        }
+        
+        .chat-input-container {
+            padding: 20px;
+            background: var(--formul8-bg-secondary);
+            border-top: 1px solid var(--formul8-border);
+        }
+        
+        .chat-input-group {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+        
+        .chat-input {
+            flex: 1;
+            background: var(--formul8-bg-primary);
+            border: 2px solid var(--formul8-border);
+            border-radius: 25px;
+            padding: 12px 20px;
+            color: var(--formul8-text-primary);
+            font-family: inherit;
+            font-size: 14px;
+        }
+        
+        .chat-input:focus {
+            outline: none;
+            border-color: var(--formul8-primary);
+            box-shadow: 0 0 0 3px var(--formul8-glow);
+        }
+        
+        .send-button {
+            background: linear-gradient(135deg, var(--formul8-primary), var(--formul8-secondary));
+            border: none;
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            color: var(--formul8-bg-primary);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+        
+        .send-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px var(--formul8-glow);
+        }
+        
+        /* Right Panel - Settings */
+        .right-panel {
+            width: 25%;
+            background: var(--formul8-bg-primary);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .settings-panel {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+        }
+        
+        .setting-group {
+            margin-bottom: 24px;
+        }
+        
+        .setting-label {
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--formul8-text-primary);
+        }
+        
+        .setting-input {
+            width: 100%;
+            background: var(--formul8-bg-card);
+            border: 1px solid var(--formul8-border);
+            border-radius: 8px;
+            padding: 10px 12px;
+            color: var(--formul8-text-primary);
+            font-family: inherit;
+        }
+        
+        .setting-input:focus {
+            outline: none;
+            border-color: var(--formul8-primary);
+        }
+        
+        .setting-toggle {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .toggle-switch {
+            position: relative;
+            width: 44px;
+            height: 24px;
+            background: var(--formul8-border);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .toggle-switch.active {
+            background: var(--formul8-primary);
+        }
+        
+        .toggle-switch::after {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 20px;
+            height: 20px;
+            background: white;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+        
+        .toggle-switch.active::after {
+            transform: translateX(20px);
+        }
+        
+        /* Welcome Message */
+        .welcome-message {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--formul8-text-secondary);
+        }
+        
+        .welcome-message h3 {
+            color: var(--formul8-text-primary);
+            margin-bottom: 12px;
+            font-size: 1.4rem;
+        }
+        
+        .feature-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        
+        .feature-tag {
+            background: linear-gradient(135deg, var(--formul8-primary), var(--formul8-secondary));
+            color: var(--formul8-bg-primary);
+            padding: 6px 12px;
+            border-radius: 16px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .main-container {
+                flex-direction: column;
+            }
+            
+            .left-panel, .center-panel, .right-panel {
+                width: 100%;
+                height: 33.33vh;
+            }
+            
+            .left-panel, .center-panel {
+                border-right: none;
+                border-bottom: 1px solid var(--formul8-border);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Formul8 Multiagent Chat</h1>
+        <div class="tier-selector">
+            <button class="tier-button active" data-tier="free">Free</button>
+            <button class="tier-button" data-tier="standard">Standard</button>
+            <button class="tier-button" data-tier="micro">Micro</button>
+            <button class="tier-button" data-tier="operator">Operator</button>
+            <button class="tier-button" data-tier="enterprise">Enterprise</button>
+            <button class="tier-button" data-tier="admin">Admin</button>
+        </div>
+        <div class="status-indicator">
+            <span>●</span>
+            <span>Connected</span>
+        </div>
+    </div>
+    
+    <div class="main-container">
+        <!-- Left Panel - Agents -->
+        <div class="left-panel">
+            <div class="panel-header">Agents</div>
+            <div class="agent-panel">
+                <div class="agent-list">
+                    <div class="agent-item active" data-agent="f8_agent">
+                        <div class="agent-name">F8 Multi-Agent</div>
+                        <div class="agent-description">Main Formul8 AI assistant</div>
+                        <div class="agent-status">active</div>
+                    </div>
+                    <div class="agent-item" data-agent="compliance_agent">
+                        <div class="agent-name">Compliance Agent</div>
+                        <div class="agent-description">Cannabis regulations & compliance</div>
+                        <div class="agent-status">available</div>
+                    </div>
+                    <div class="agent-item" data-agent="formulation_agent">
+                        <div class="agent-name">Formulation Agent</div>
+                        <div class="agent-description">Product formulation & recipes</div>
+                        <div class="agent-status">available</div>
+                    </div>
+                    <div class="agent-item" data-agent="science_agent">
+                        <div class="agent-name">Science Agent</div>
+                        <div class="agent-description">Cannabis science & research</div>
+                        <div class="agent-status">available</div>
+                    </div>
+                    <div class="agent-item" data-agent="operations_agent">
+                        <div class="agent-name">Operations Agent</div>
+                        <div class="agent-description">Facility operations & management</div>
+                        <div class="agent-status">available</div>
+                    </div>
+                    <div class="agent-item" data-agent="marketing_agent">
+                        <div class="agent-name">Marketing Agent</div>
+                        <div class="agent-description">Brand marketing & promotion</div>
+                        <div class="agent-status">available</div>
+                    </div>
+                    <div class="agent-item" data-agent="patent_agent">
+                        <div class="agent-name">Patent Agent</div>
+                        <div class="agent-description">Intellectual property & patents</div>
+                        <div class="agent-status">available</div>
+                    </div>
+                    <div class="agent-item" data-agent="sourcing_agent">
+                        <div class="agent-name">Sourcing Agent</div>
+                        <div class="agent-description">Supply chain & sourcing</div>
+                        <div class="agent-status">available</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Center Panel - Chat -->
+        <div class="center-panel">
+            <div class="panel-header">Chat</div>
+            <div class="chat-messages" id="chatMessages">
+                <div class="welcome-message">
+                    <h3>Welcome to Formul8 Multiagent Chat!</h3>
+                    <p>I'm your intelligent cannabis industry assistant.</p>
+                    <p>Ask me about compliance, formulation, science, operations, and more!</p>
+                    <div class="feature-tags">
+                        <span class="feature-tag">Compliance</span>
+                        <span class="feature-tag">Formulation</span>
+                        <span class="feature-tag">Science</span>
+                        <span class="feature-tag">Operations</span>
+                        <span class="feature-tag">Marketing</span>
+                        <span class="feature-tag">Patent Research</span>
+                    </div>
+                </div>
+            </div>
+            <div class="chat-input-container">
+                <div class="chat-input-group">
+                    <input type="text" class="chat-input" id="chatInput" placeholder="Ask me anything about cannabis industry...">
+                    <button class="send-button" id="sendButton">→</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Right Panel - Settings -->
+        <div class="right-panel">
+            <div class="panel-header">Settings</div>
+            <div class="settings-panel">
+                <div class="setting-group">
+                    <div class="setting-label">Current Tier</div>
+                    <div style="color: var(--formul8-primary); font-weight: 600;">Free</div>
+                </div>
+                <div class="setting-group">
+                    <div class="setting-label">API Key</div>
+                    <input type="password" class="setting-input" placeholder="Enter OpenRouter API key">
+                </div>
+                <div class="setting-group">
+                    <div class="setting-label">Model</div>
+                    <select class="setting-input">
+                        <option value="gpt-4">GPT-4</option>
+                        <option value="gpt-3.5-turbo">GPT-3.5 Turbo</option>
+                        <option value="claude-3">Claude 3</option>
+                    </select>
+                </div>
+                <div class="setting-group">
+                    <div class="setting-label">Temperature</div>
+                    <input type="range" class="setting-input" min="0" max="1" step="0.1" value="0.7">
+                </div>
+                <div class="setting-group">
+                    <div class="setting-label">Auto-save</div>
+                    <div class="setting-toggle">
+                        <div class="toggle-switch active"></div>
+                        <span>Enabled</span>
+                    </div>
+                </div>
+                <div class="setting-group">
+                    <div class="setting-label">Dark Mode</div>
+                    <div class="setting-toggle">
+                        <div class="toggle-switch active"></div>
+                        <span>Enabled</span>
+                    </div>
+                </div>
+                <div class="setting-group">
+                    <div class="setting-label">Notifications</div>
+                    <div class="setting-toggle">
+                        <div class="toggle-switch"></div>
+                        <span>Disabled</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Formul8 Multiagent Chat System
+        class Formul8MultiagentChat {
+            constructor() {
+                this.currentAgent = 'f8_agent';
+                this.currentTier = 'free';
+                this.agents = {
+                    f8_agent: {
+                        name: 'F8 Multi-Agent',
+                        description: 'Main Formul8 AI assistant',
+                        status: 'active',
+                        capabilities: ['general', 'routing', 'coordination']
+                    },
+                    compliance_agent: {
+                        name: 'Compliance Agent',
+                        description: 'Cannabis regulations & compliance',
+                        status: 'available',
+                        capabilities: ['compliance', 'regulations', 'legal']
+                    },
+                    formulation_agent: {
+                        name: 'Formulation Agent',
+                        description: 'Product formulation & recipes',
+                        status: 'available',
+                        capabilities: ['formulation', 'recipes', 'products']
+                    },
+                    science_agent: {
+                        name: 'Science Agent',
+                        description: 'Cannabis science & research',
+                        status: 'available',
+                        capabilities: ['science', 'research', 'analysis']
+                    },
+                    operations_agent: {
+                        name: 'Operations Agent',
+                        description: 'Facility operations & management',
+                        status: 'available',
+                        capabilities: ['operations', 'management', 'facility']
+                    },
+                    marketing_agent: {
+                        name: 'Marketing Agent',
+                        description: 'Brand marketing & promotion',
+                        status: 'available',
+                        capabilities: ['marketing', 'branding', 'promotion']
+                    },
+                    patent_agent: {
+                        name: 'Patent Agent',
+                        description: 'Intellectual property & patents',
+                        status: 'available',
+                        capabilities: ['patents', 'ip', 'intellectual_property']
+                    },
+                    sourcing_agent: {
+                        name: 'Sourcing Agent',
+                        description: 'Supply chain & sourcing',
+                        status: 'available',
+                        capabilities: ['sourcing', 'supply_chain', 'procurement']
+                    }
+                };
+                this.tiers = {
+                    free: { name: 'Free', price: '$0/month', features: ['basic_chat', 'limited_agents'] },
+                    standard: { name: 'Standard', price: '$29/month', features: ['full_chat', 'all_agents', 'priority_support'] },
+                    micro: { name: 'Micro', price: '$99/month', features: ['full_chat', 'all_agents', 'patent_research', 'advanced_features'] },
+                    operator: { name: 'Operator', price: '$299/month', features: ['full_chat', 'all_agents', 'operations_management', 'analytics'] },
+                    enterprise: { name: 'Enterprise', price: '$999/month', features: ['full_chat', 'all_agents', 'custom_integrations', 'dedicated_support'] },
+                    admin: { name: 'Admin', price: 'Custom', features: ['full_chat', 'all_agents', 'system_management', 'unlimited_access'] }
+                };
+                this.init();
+            }
+            
+            init() {
+                this.setupEventListeners();
+                console.log('Formul8 Multiagent Chat initialized!');
+            }
+            
+            setupEventListeners() {
+                // Chat input
+                const chatInput = document.getElementById('chatInput');
+                const sendButton = document.getElementById('sendButton');
+                
+                sendButton.addEventListener('click', () => this.sendMessage());
+                chatInput.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') {
+                        this.sendMessage();
+                    }
+                });
+                
+                // Agent selection
+                document.querySelectorAll('.agent-item').forEach(item => {
+                    item.addEventListener('click', () => {
+                        const agentId = item.dataset.agent;
+                        this.switchAgent(agentId);
+                    });
+                });
+                
+                // Tier selection
+                document.querySelectorAll('.tier-button').forEach(button => {
+                    button.addEventListener('click', () => {
+                        const tierId = button.dataset.tier;
+                        this.switchTier(tierId);
+                    });
+                });
+                
+                // Settings toggles
+                document.querySelectorAll('.toggle-switch').forEach(toggle => {
+                    toggle.addEventListener('click', () => {
+                        toggle.classList.toggle('active');
+                        const span = toggle.nextElementSibling;
+                        span.textContent = toggle.classList.contains('active') ? 'Enabled' : 'Disabled';
+                    });
+                });
+            }
+            
+            sendMessage() {
+                const chatInput = document.getElementById('chatInput');
+                const message = chatInput.value.trim();
+                
+                if (message) {
+                    this.addMessage(message, 'user');
+                    chatInput.value = '';
+                    
+                    // Show typing indicator
+                    const typingId = this.addMessage('Typing...', 'typing');
+                    
+                    // Simulate agent response
+                    setTimeout(() => {
+                        this.removeMessage(typingId);
+                        const response = this.generateAgentResponse(message);
+                        this.addMessage(response, 'agent');
+                    }, 1000 + Math.random() * 2000);
+                }
+            }
+            
+            addMessage(text, type = 'user') {
+                const chatMessages = document.getElementById('chatMessages');
+                const messageDiv = document.createElement('div');
+                messageDiv.className = `message ${type}`;
+                messageDiv.textContent = text;
+                messageDiv.id = `message-${Date.now()}-${Math.random()}`;
+                chatMessages.appendChild(messageDiv);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+                return messageDiv.id;
+            }
+            
+            removeMessage(messageId) {
+                const message = document.getElementById(messageId);
+                if (message) {
+                    message.remove();
+                }
+            }
+            
+            generateAgentResponse(message) {
+                const agent = this.agents[this.currentAgent];
+                const responses = {
+                    f8_agent: `I'm the F8 Multi-Agent, your main Formul8 AI assistant. I can help coordinate with other specialized agents to answer your question: "${message}". Let me route this to the most appropriate agent.`,
+                    compliance_agent: `As the Compliance Agent, I can help with cannabis regulations and compliance matters. For your question "${message}", I recommend checking with your local regulatory authority and reviewing the latest compliance guidelines.`,
+                    formulation_agent: `I'm the Formulation Agent, specializing in product formulation and recipes. Regarding "${message}", I can help you develop cannabis products with proper ratios and formulations.`,
+                    science_agent: `As the Science Agent, I focus on cannabis science and research. For "${message}", I can provide scientific insights and research-based recommendations.`,
+                    operations_agent: `I'm the Operations Agent, handling facility operations and management. For "${message}", I can help optimize your cannabis facility operations and processes.`,
+                    marketing_agent: `As the Marketing Agent, I specialize in brand marketing and promotion. Regarding "${message}", I can help develop marketing strategies for your cannabis brand.`,
+                    patent_agent: `I'm the Patent Agent, focusing on intellectual property and patents. For "${message}", I can help with patent research and IP protection strategies.`,
+                    sourcing_agent: `As the Sourcing Agent, I handle supply chain and sourcing. Regarding "${message}", I can help you find reliable suppliers and optimize your supply chain.`
+                };
+                
+                return responses[this.currentAgent] || responses.f8_agent;
+            }
+            
+            switchAgent(agentId) {
+                if (this.agents[agentId]) {
+                    // Update UI
+                    document.querySelectorAll('.agent-item').forEach(item => {
+                        item.classList.remove('active');
+                    });
+                    document.querySelector(`[data-agent="${agentId}"]`).classList.add('active');
+                    
+                    // Update current agent
+                    this.currentAgent = agentId;
+                    this.addMessage(`Switched to ${this.agents[agentId].name}`, 'system');
+                    console.log('Switched to agent:', agentId);
+                    return true;
+                }
+                return false;
+            }
+            
+            switchTier(tierId) {
+                if (this.tiers[tierId]) {
+                    // Update UI
+                    document.querySelectorAll('.tier-button').forEach(button => {
+                        button.classList.remove('active');
+                    });
+                    document.querySelector(`[data-tier="${tierId}"]`).classList.add('active');
+                    
+                    // Update current tier
+                    this.currentTier = tierId;
+                    this.addMessage(`Switched to ${this.tiers[tierId].name} tier`, 'system');
+                    console.log('Switched to tier:', tierId);
+                    return true;
+                }
+                return false;
+            }
+        }
+        
+        // Initialize the chat system when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            window.formul8Chat = new Formul8MultiagentChat();
+        });
+    </script>
+</body>
+</html>

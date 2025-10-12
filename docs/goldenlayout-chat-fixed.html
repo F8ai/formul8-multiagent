@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formul8 Multiagent Chat - GoldenLayout</title>
+    
+    <!-- GoldenLayout CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/golden-layout@2.6.0/dist/css/goldenlayout-base.css">
+    <link rel="stylesheet" href="https://unpkg.com/golden-layout@2.6.0/dist/css/themes/goldenlayout-dark-theme.css">
+    
+    <!-- Formul8 Dark Theme CSS -->
+    <style>
+        :root {
+            --formul8-primary: #00ff88;
+            --formul8-secondary: #00d4aa;
+            --formul8-accent: #ff6b35;
+            --formul8-bg-primary: #0a0a0a;
+            --formul8-bg-secondary: #1a1a1a;
+            --formul8-bg-card: #1e1e1e;
+            --formul8-text-primary: #ffffff;
+            --formul8-text-secondary: #b0b0b0;
+            --formul8-border: #333333;
+            --formul8-glow: rgba(0, 255, 136, 0.3);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, var(--formul8-bg-primary) 0%, var(--formul8-bg-secondary) 100%);
+            color: var(--formul8-text-primary);
+            min-height: 100vh;
+            overflow: hidden;
+        }
+        
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: linear-gradient(135deg, var(--formul8-bg-secondary), #2a2a2a);
+            border-bottom: 1px solid var(--formul8-border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            z-index: 1000;
+        }
+        
+        .header h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--formul8-primary), var(--formul8-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .tier-selector {
+            display: flex;
+            gap: 8px;
+        }
+        
+        .tier-button {
+            background: var(--formul8-bg-card);
+            color: var(--formul8-text-secondary);
+            border: 1px solid var(--formul8-border);
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        .tier-button:hover {
+            border-color: var(--formul8-primary);
+            color: var(--formul8-text-primary);
+        }
+        
+        .tier-button.active {
+            background: linear-gradient(135deg, var(--formul8-primary), var(--formul8-secondary));
+            color: var(--formul8-bg-primary);
+            border-color: var(--formul8-primary);
+        }
+        
+        .status-indicator {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: #2ed573;
+            color: var(--formul8-bg-primary);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .main-container {
+            position: fixed;
+            top: 60px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+        
+        /* GoldenLayout Custom Styling */
+        .lm_goldenlayout {
+            background: var(--formul8-bg-primary) !important;
+        }
+        
+        .lm_header {
+            background: var(--formul8-bg-secondary) !important;
+            border-bottom: 1px solid var(--formul8-border) !important;
+        }
+        
+        .lm_header .lm_tab {
+            background: var(--formul8-bg-card) !important;
+            color: var(--formul8-text-secondary) !important;
+            border: 1px solid var(--formul8-border) !important;
+            border-bottom: none !important;
+        }
+        
+        .lm_header .lm_tab.lm_active {
+            background: linear-gradient(135deg, var(--formul8-primary), var(--formul8-secondary)) !important;
+            color: var(--formul8-bg-primary) !important;
+        }
+        
+        .lm_header .lm_tab:hover {
+            background: var(--formul8-bg-primary) !important;
+            color: var(--formul8-text-primary) !important;
+        }
+        
+        .lm_content {
+            background: var(--formul8-bg-primary) !important;
+            color: var(--formul8-text-primary) !important;
+        }
+        
+        .lm_splitter {
+            background: var(--formul8-border) !important;
+        }
+        
+        .lm_splitter:hover {
+            background: var(--formul8-primary) !important;
+        }
+        
+        /* Chat Panel Styling */
+        .chat-panel {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            background: var(--formul8-bg-primary);
+        }
+        
+        .chat-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+            background: var(--formul8-bg-primary);
+        }
+        
+        .message {
+            margin-bottom: 15px;
+            padding: 12px 16px;
+            border-radius: 12px;
+            max-width: 80%;
+            word-wrap: break-word;
+        }
+        
+        .message.user {
+            background: linear-gradient(135deg, var(--formul8-primary), var(--formul8-secondary));
+            color: var(--formul8-bg-primary);
+            margin-left: auto;
+            text-align: right;
+        }
+        
+        .message.agent {
+            background: var(--formul8-bg-card);
+            color: var(--formul8-text-primary);
+            border: 1px solid var(--formul8-border);
+        }
+        
+        .message.system {
+            background: var(--formul8-bg-secondary);
+            color: var(--formul8-text-secondary);
+            text-align: center;
+            font-style: italic;
+            max-width: 100%;
+        }
+        
+        .chat-input-container {
+            padding: 20px;
+            background: var(--formul8-bg-secondary);
+            border-top: 1px solid var(--formul8-border);
+        }
+        
+        .chat-input-group {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+        
+        .chat-input {
+            flex: 1;
+            background: var(--formul8-bg-primary);
+            border: 2px solid var(--formul8-border);
+            border-radius: 25px;
+            padding: 12px 20px;
+            color: var(--formul8-text-primary);
+            font-family: inherit;
+            font-size: 14px;
+        }
+        
+        .chat-input:focus {
+            outline: none;
+            border-color: var(--formul8-primary);
+            box-shadow: 0 0 0 3px var(--formul8-glow);
+        }
+        
+        .send-button {
+            background: linear-gradient(135deg, var(--formul8-primary), var(--formul8-secondary));
+            border: none;
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            color: var(--formul8-bg-primary);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+        
+        .send-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px var(--formul8-glow);
+        }
+        
+        /* Agent Panel Styling */
+        .agent-panel {
+            height: 100%;
+            padding: 20px;
+            background: var(--formul8-bg-primary);
+            overflow-y: auto;
+        }
+        
+        .agent-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .agent-item {
+            background: var(--formul8-bg-card);
+            border: 1px solid var(--formul8-border);
+            border-radius: 12px;
+            padding: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .agent-item:hover {
+            border-color: var(--formul8-primary);
+            box-shadow: 0 4px 15px var(--formul8-glow);
+        }
+        
+        .agent-item.active {
+            background: linear-gradient(135deg, var(--formul8-primary), var(--formul8-secondary));
+            color: var(--formul8-bg-primary);
+            border-color: var(--formul8-primary);
+        }
+        
+        .agent-name {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        
+        .agent-description {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        /* Settings Panel Styling */
+        .settings-panel {
+            height: 100%;
+            padding: 20px;
+            background: var(--formul8-bg-primary);
+            overflow-y: auto;
+        }
+        
+        .setting-group {
+            margin-bottom: 24px;
+        }
+        
+        .setting-label {
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--formul8-text-primary);
+        }
+        
+        .setting-input {
+            width: 100%;
+            background: var(--formul8-bg-card);
+            border: 1px solid var(--formul8-border);
+            border-radius: 8px;
+            padding: 10px 12px;
+            color: var(--formul8-text-primary);
+            font-family: inherit;
+        }
+        
+        .setting-input:focus {
+            outline: none;
+            border-color: var(--formul8-primary);
+        }
+        
+        .setting-toggle {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .toggle-switch {
+            position: relative;
+            width: 44px;
+            height: 24px;
+            background: var(--formul8-border);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .toggle-switch.active {
+            background: var(--formul8-primary);
+        }
+        
+        .toggle-switch::after {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 20px;
+            height: 20px;
+            background: white;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+        
+        .toggle-switch.active::after {
+            transform: translateX(20px);
+        }
+        
+        /* Welcome Message */
+        .welcome-message {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--formul8-text-secondary);
+        }
+        
+        .welcome-message h3 {
+            color: var(--formul8-text-primary);
+            margin-bottom: 12px;
+            font-size: 1.4rem;
+        }
+        
+        .feature-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        
+        .feature-tag {
+            background: linear-gradient(135deg, var(--formul8-primary), var(--formul8-secondary));
+            color: var(--formul8-bg-primary);
+            padding: 6px 12px;
+            border-radius: 16px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        /* Loading indicator */
+        .loading {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: var(--formul8-primary);
+            font-size: 1.2rem;
+            z-index: 9999;
+        }
+    </style>
+</head>
+<body>
+    <div class="loading" id="loading">Loading GoldenLayout...</div>
+    
+    <div class="header">
+        <h1>Formul8 Multiagent Chat</h1>
+        <div class="tier-selector">
+            <button class="tier-button active" data-tier="free">Free</button>
+            <button class="tier-button" data-tier="standard">Standard</button>
+            <button class="tier-button" data-tier="micro">Micro</button>
+            <button class="tier-button" data-tier="operator">Operator</button>
+            <button class="tier-button" data-tier="enterprise">Enterprise</button>
+            <button class="tier-button" data-tier="admin">Admin</button>
+        </div>
+        <div class="status-indicator">
+            <span>●</span>
+            <span>Connected</span>
+        </div>
+    </div>
+    
+    <div class="main-container">
+        <div id="goldenLayout"></div>
+    </div>
+
+    <!-- GoldenLayout JavaScript -->
+    <script src="https://unpkg.com/golden-layout@2.6.0/dist/goldenlayout.min.js"></script>
+    
+    <script>
+        // Wait for GoldenLayout to load
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM loaded, initializing GoldenLayout...');
+            
+            // Check if GoldenLayout is available
+            if (typeof GoldenLayout === 'undefined') {
+                console.error('GoldenLayout not loaded');
+                document.getElementById('loading').textContent = 'Error: GoldenLayout failed to load';
+                return;
+            }
+            
+            console.log('GoldenLayout available, creating layout...');
+            
+            // Initialize GoldenLayout
+            const config = {
+                content: [{
+                    type: 'row',
+                    content: [{
+                        type: 'column',
+                        width: 25,
+                        content: [{
+                            type: 'component',
+                            componentName: 'agentPanel',
+                            title: 'Agents',
+                            componentState: {}
+                        }]
+                    }, {
+                        type: 'column',
+                        width: 50,
+                        content: [{
+                            type: 'component',
+                            componentName: 'chatPanel',
+                            title: 'Chat',
+                            componentState: {}
+                        }]
+                    }, {
+                        type: 'column',
+                        width: 25,
+                        content: [{
+                            type: 'component',
+                            componentName: 'settingsPanel',
+                            title: 'Settings',
+                            componentState: {}
+                        }]
+                    }]
+                }]
+            };
+
+            // Register components
+            const components = {
+                chatPanel: function(container, componentState) {
+                    console.log('Creating chat panel...');
+                    const chatPanel = document.createElement('div');
+                    chatPanel.className = 'chat-panel';
+                    chatPanel.innerHTML = `
+                        <div class="chat-messages" id="chatMessages">
+                            <div class="welcome-message">
+                                <h3>Welcome to Formul8 Multiagent Chat!</h3>
+                                <p>I'm your intelligent cannabis industry assistant.</p>
+                                <p>Ask me about compliance, formulation, science, operations, and more!</p>
+                                <div class="feature-tags">
+                                    <span class="feature-tag">Compliance</span>
+                                    <span class="feature-tag">Formulation</span>
+                                    <span class="feature-tag">Science</span>
+                                    <span class="feature-tag">Operations</span>
+                                    <span class="feature-tag">Marketing</span>
+                                    <span class="feature-tag">Patent Research</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="chat-input-container">
+                            <div class="chat-input-group">
+                                <input type="text" class="chat-input" id="chatInput" placeholder="Ask me anything about cannabis industry...">
+                                <button class="send-button" id="sendButton">→</button>
+                            </div>
+                        </div>
+                    `;
+                    container.getElement().html(chatPanel);
+                    
+                    // Add chat functionality
+                    const chatInput = chatPanel.querySelector('#chatInput');
+                    const sendButton = chatPanel.querySelector('#sendButton');
+                    const chatMessages = chatPanel.querySelector('#chatMessages');
+                    
+                    function addMessage(text, type = 'user') {
+                        const messageDiv = document.createElement('div');
+                        messageDiv.className = `message ${type}`;
+                        messageDiv.textContent = text;
+                        chatMessages.appendChild(messageDiv);
+                        chatMessages.scrollTop = chatMessages.scrollHeight;
+                    }
+                    
+                    function sendMessage() {
+                        const message = chatInput.value.trim();
+                        if (message) {
+                            addMessage(message, 'user');
+                            chatInput.value = '';
+                            
+                            // Simulate agent response
+                            setTimeout(() => {
+                                addMessage(`I received your message: "${message}". This is a placeholder response from the Formul8 Multiagent system.`, 'agent');
+                            }, 1000);
+                        }
+                    }
+                    
+                    sendButton.addEventListener('click', sendMessage);
+                    chatInput.addEventListener('keypress', (e) => {
+                        if (e.key === 'Enter') {
+                            sendMessage();
+                        }
+                    });
+                    
+                    console.log('Chat panel created successfully');
+                },
+                
+                agentPanel: function(container, componentState) {
+                    console.log('Creating agent panel...');
+                    const agentPanel = document.createElement('div');
+                    agentPanel.className = 'agent-panel';
+                    agentPanel.innerHTML = `
+                        <div class="agent-list">
+                            <div class="agent-item active" data-agent="f8_agent">
+                                <div class="agent-name">F8 Multi-Agent</div>
+                                <div class="agent-description">Main Formul8 AI assistant</div>
+                            </div>
+                            <div class="agent-item" data-agent="compliance_agent">
+                                <div class="agent-name">Compliance Agent</div>
+                                <div class="agent-description">Cannabis regulations & compliance</div>
+                            </div>
+                            <div class="agent-item" data-agent="formulation_agent">
+                                <div class="agent-name">Formulation Agent</div>
+                                <div class="agent-description">Product formulation & recipes</div>
+                            </div>
+                            <div class="agent-item" data-agent="science_agent">
+                                <div class="agent-name">Science Agent</div>
+                                <div class="agent-description">Cannabis science & research</div>
+                            </div>
+                            <div class="agent-item" data-agent="operations_agent">
+                                <div class="agent-name">Operations Agent</div>
+                                <div class="agent-description">Facility operations & management</div>
+                            </div>
+                            <div class="agent-item" data-agent="marketing_agent">
+                                <div class="agent-name">Marketing Agent</div>
+                                <div class="agent-description">Brand marketing & promotion</div>
+                            </div>
+                            <div class="agent-item" data-agent="patent_agent">
+                                <div class="agent-name">Patent Agent</div>
+                                <div class="agent-description">Intellectual property & patents</div>
+                            </div>
+                            <div class="agent-item" data-agent="sourcing_agent">
+                                <div class="agent-name">Sourcing Agent</div>
+                                <div class="agent-description">Supply chain & sourcing</div>
+                            </div>
+                        </div>
+                    `;
+                    container.getElement().html(agentPanel);
+                    
+                    // Add agent selection functionality
+                    const agentItems = agentPanel.querySelectorAll('.agent-item');
+                    agentItems.forEach(item => {
+                        item.addEventListener('click', () => {
+                            agentItems.forEach(i => i.classList.remove('active'));
+                            item.classList.add('active');
+                            console.log('Selected agent:', item.dataset.agent);
+                        });
+                    });
+                    
+                    console.log('Agent panel created successfully');
+                },
+                
+                settingsPanel: function(container, componentState) {
+                    console.log('Creating settings panel...');
+                    const settingsPanel = document.createElement('div');
+                    settingsPanel.className = 'settings-panel';
+                    settingsPanel.innerHTML = `
+                        <div class="setting-group">
+                            <div class="setting-label">API Key</div>
+                            <input type="password" class="setting-input" placeholder="Enter OpenRouter API key">
+                        </div>
+                        <div class="setting-group">
+                            <div class="setting-label">Model</div>
+                            <select class="setting-input">
+                                <option value="gpt-4">GPT-4</option>
+                                <option value="gpt-3.5-turbo">GPT-3.5 Turbo</option>
+                                <option value="claude-3">Claude 3</option>
+                            </select>
+                        </div>
+                        <div class="setting-group">
+                            <div class="setting-label">Temperature</div>
+                            <input type="range" class="setting-input" min="0" max="1" step="0.1" value="0.7">
+                        </div>
+                        <div class="setting-group">
+                            <div class="setting-label">Auto-save</div>
+                            <div class="setting-toggle">
+                                <div class="toggle-switch active"></div>
+                                <span>Enabled</span>
+                            </div>
+                        </div>
+                        <div class="setting-group">
+                            <div class="setting-label">Dark Mode</div>
+                            <div class="setting-toggle">
+                                <div class="toggle-switch active"></div>
+                                <span>Enabled</span>
+                            </div>
+                        </div>
+                        <div class="setting-group">
+                            <div class="setting-label">Notifications</div>
+                            <div class="setting-toggle">
+                                <div class="toggle-switch"></div>
+                                <span>Disabled</span>
+                            </div>
+                        </div>
+                    `;
+                    container.getElement().html(settingsPanel);
+                    
+                    // Add settings functionality
+                    const toggleSwitches = settingsPanel.querySelectorAll('.toggle-switch');
+                    toggleSwitches.forEach(toggle => {
+                        toggle.addEventListener('click', () => {
+                            toggle.classList.toggle('active');
+                            const span = toggle.nextElementSibling;
+                            span.textContent = toggle.classList.contains('active') ? 'Enabled' : 'Disabled';
+                        });
+                    });
+                    
+                    console.log('Settings panel created successfully');
+                }
+            };
+
+            // Register all components
+            Object.keys(components).forEach(name => {
+                console.log(`Registering component: ${name}`);
+                layout.registerComponent(name, components[name]);
+            });
+            
+            // Create the layout
+            const layout = new GoldenLayout(config);
+            
+            // Initialize the layout
+            layout.init();
+            
+            // Hide loading indicator
+            document.getElementById('loading').style.display = 'none';
+            
+            console.log('GoldenLayout initialized successfully!');
+            
+            // Tier switching functionality
+            document.querySelectorAll('.tier-button').forEach(button => {
+                button.addEventListener('click', () => {
+                    document.querySelectorAll('.tier-button').forEach(b => b.classList.remove('active'));
+                    button.classList.add('active');
+                    console.log('Switched to tier:', button.dataset.tier);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
