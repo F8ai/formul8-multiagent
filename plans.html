@@ -18,35 +18,71 @@
             --formul8-bg-primary: #0a0a0a;
             --formul8-bg-secondary: #1a1a1a;
             --formul8-bg-card: #1e1e1e;
+            --formul8-bg-surface: #2a2a2a;
             --formul8-text-primary: #ffffff;
             --formul8-text-secondary: #b0b0b0;
+            --formul8-text-muted: #888888;
             --formul8-border: #333333;
+            --formul8-border-light: #444444;
             --formul8-glow: rgba(0, 255, 136, 0.3);
+            --formul8-glow-secondary: rgba(0, 212, 170, 0.2);
+            --formul8-glow-accent: rgba(255, 107, 53, 0.2);
         }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             background: var(--formul8-bg-primary);
             background-image: 
-                radial-gradient(circle at 20% 80%, rgba(0, 255, 136, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(0, 212, 170, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 40% 40%, rgba(255, 107, 53, 0.05) 0%, transparent 50%);
+                radial-gradient(circle at 20% 80%, var(--formul8-glow) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, var(--formul8-glow-secondary) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, var(--formul8-glow-accent) 0%, transparent 50%),
+                linear-gradient(135deg, var(--formul8-bg-primary) 0%, var(--formul8-bg-secondary) 100%);
             min-height: 100vh;
             padding: 20px;
             color: var(--formul8-text-primary);
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 10% 20%, rgba(0, 255, 136, 0.05) 0%, transparent 30%),
+                radial-gradient(circle at 90% 80%, rgba(0, 212, 170, 0.05) 0%, transparent 30%),
+                radial-gradient(circle at 50% 50%, rgba(255, 107, 53, 0.03) 0%, transparent 40%);
+            pointer-events: none;
+            z-index: -1;
         }
 
         .container {
             max-width: 1400px;
             margin: 0 auto;
             background: var(--formul8-bg-card);
-            border-radius: 12px;
+            border-radius: 16px;
             box-shadow: 
-                0 20px 40px rgba(0,0,0,0.3),
+                0 25px 50px rgba(0,0,0,0.4),
                 0 0 0 1px var(--formul8-border),
-                inset 0 1px 0 rgba(255,255,255,0.1);
+                0 0 20px rgba(0, 255, 136, 0.1),
+                inset 0 1px 0 rgba(255,255,255,0.05);
             overflow: hidden;
             border: 1px solid var(--formul8-border);
+            backdrop-filter: blur(10px);
+            position: relative;
+        }
+
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--formul8-primary), transparent);
+            opacity: 0.5;
         }
 
         .header {
@@ -109,8 +145,58 @@
 
         .agent-name {
             font-weight: 600;
-            color: #2c3e50;
+            color: var(--formul8-text-primary);
             text-align: left;
+            padding-left: 0;
+        }
+
+        .agent-name.main-agent {
+            font-weight: 700;
+            color: var(--formul8-primary);
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+
+        .agent-name.sub-agent {
+            padding-left: 24px;
+            font-weight: 500;
+            color: var(--formul8-text-secondary);
+            font-size: 0.95rem;
+            position: relative;
+        }
+
+        .agent-name.sub-agent::before {
+            content: '└─';
+            position: absolute;
+            left: 8px;
+            color: var(--formul8-border-light);
+            font-size: 0.8rem;
+        }
+
+        .agent-name.beta-agent {
+            padding-left: 24px;
+            font-weight: 500;
+            color: var(--formul8-accent);
+            font-size: 0.95rem;
+            position: relative;
+            font-style: italic;
+        }
+
+        .agent-name.beta-agent::before {
+            content: 'β';
+            position: absolute;
+            left: 8px;
+            color: var(--formul8-accent);
+            font-size: 0.8rem;
+            font-weight: bold;
+            font-style: normal;
+        }
+
+        .agent-name.beta-agent::after {
+            content: ' (Beta)';
+            color: var(--formul8-text-muted);
+            font-size: 0.8rem;
+            font-weight: normal;
         }
 
         .plan-header {
@@ -479,9 +565,7 @@
                         "patent": true,
                         "spectra": true,
                         "customer_success": true,
-                        "f8_slackbot": true,
-                        "mcr": true,
-                        "ad": true
+                        "f8_slackbot": true
                     }
                 },
                 "enterprise": {
@@ -499,7 +583,8 @@
                         "Multi-user management",
                         "API access",
                         "Custom training",
-                        "SLA guarantees"
+                        "SLA guarantees",
+                        "Admin tools (Editor & Ad agents)"
                     ],
                     "agents": {
                         "f8_agent": true,
@@ -760,47 +845,101 @@
             
             const planKeys = ['standard', 'micro', 'operator', 'enterprise'];
             
-            // Group agents by category
-            const agentCategories = {
-                'Core': ['f8_agent'],
-                'Compliance': ['compliance', 'mcr'],
-                'Product': ['formulation', 'science', 'spectra'],
-                'Operations': ['operations', 'sourcing'],
-                'Marketing': ['marketing', 'ad'],
-                'Business': ['patent', 'customer_success'],
-                'Integration': ['f8_slackbot', 'editor_agent']
+            // Organize agents hierarchically
+            const agentHierarchy = {
+                main: ['f8_agent'],
+                sub: [
+                    'compliance',
+                    'operations', 
+                    'marketing',
+                    'formulation',
+                    'patent',
+                    'sourcing',
+                    'customer_success',
+                    'f8_slackbot',
+                    'mcr',
+                    'ad',
+                    'editor_agent'
+                ],
+                beta: [
+                    'science',
+                    'spectra'
+                ]
             };
             
-            Object.entries(agentCategories).forEach(([category, agentKeys]) => {
-                // Add category header
-                const categoryRow = document.createElement('tr');
-                categoryRow.innerHTML = `<td colspan="5" class="agent-category">${category}</td>`;
-                tbody.appendChild(categoryRow);
-                
-                // Add agents in this category
-                agentKeys.forEach(agentKey => {
-                    if (agentsConfig.agents[agentKey]) {
-                        const agent = agentsConfig.agents[agentKey];
-                        const row = document.createElement('tr');
-                        
-                        let rowHTML = `<td class="agent-name">${agent.name}</td>`;
-                        
-                        planKeys.forEach(planKey => {
-                            const isChecked = plansConfig.plans[planKey].agents[agentKey] || false;
-                            rowHTML += `
-                                <td>
-                                    <input type="checkbox" 
-                                           class="checkbox" 
-                                           ${isChecked ? 'checked' : ''} 
-                                           onchange="updatePlanAgent('${planKey}', '${agentKey}', this.checked)">
-                                </td>
-                            `;
-                        });
-                        
-                        row.innerHTML = rowHTML;
-                        tbody.appendChild(row);
-                    }
-                });
+            // Add main agent (F8)
+            agentHierarchy.main.forEach(agentKey => {
+                if (agentsConfig.agents[agentKey]) {
+                    const agent = agentsConfig.agents[agentKey];
+                    const row = document.createElement('tr');
+                    
+                    let rowHTML = `<td class="agent-name main-agent">${agent.name}</td>`;
+                    
+                    planKeys.forEach(planKey => {
+                        const isChecked = plansConfig.plans[planKey].agents[agentKey] || false;
+                        rowHTML += `
+                            <td>
+                                <input type="checkbox" 
+                                       class="checkbox" 
+                                       ${isChecked ? 'checked' : ''} 
+                                       onchange="updatePlanAgent('${planKey}', '${agentKey}', this.checked)">
+                            </td>
+                        `;
+                    });
+                    
+                    row.innerHTML = rowHTML;
+                    tbody.appendChild(row);
+                }
+            });
+            
+            // Add sub agents (indented)
+            agentHierarchy.sub.forEach(agentKey => {
+                if (agentsConfig.agents[agentKey]) {
+                    const agent = agentsConfig.agents[agentKey];
+                    const row = document.createElement('tr');
+                    
+                    let rowHTML = `<td class="agent-name sub-agent">${agent.name}</td>`;
+                    
+                    planKeys.forEach(planKey => {
+                        const isChecked = plansConfig.plans[planKey].agents[agentKey] || false;
+                        rowHTML += `
+                            <td>
+                                <input type="checkbox" 
+                                       class="checkbox" 
+                                       ${isChecked ? 'checked' : ''} 
+                                       onchange="updatePlanAgent('${planKey}', '${agentKey}', this.checked)">
+                            </td>
+                        `;
+                    });
+                    
+                    row.innerHTML = rowHTML;
+                    tbody.appendChild(row);
+                }
+            });
+            
+            // Add beta agents (indented with beta styling)
+            agentHierarchy.beta.forEach(agentKey => {
+                if (agentsConfig.agents[agentKey]) {
+                    const agent = agentsConfig.agents[agentKey];
+                    const row = document.createElement('tr');
+                    
+                    let rowHTML = `<td class="agent-name beta-agent">${agent.name}</td>`;
+                    
+                    planKeys.forEach(planKey => {
+                        const isChecked = plansConfig.plans[planKey].agents[agentKey] || false;
+                        rowHTML += `
+                            <td>
+                                <input type="checkbox" 
+                                       class="checkbox" 
+                                       ${isChecked ? 'checked' : ''} 
+                                       onchange="updatePlanAgent('${planKey}', '${agentKey}', this.checked)">
+                            </td>
+                        `;
+                    });
+                    
+                    row.innerHTML = rowHTML;
+                    tbody.appendChild(row);
+                }
             });
         }
 
