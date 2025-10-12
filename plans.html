@@ -11,20 +11,42 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --formul8-primary: #00ff88;
+            --formul8-secondary: #00d4aa;
+            --formul8-accent: #ff6b35;
+            --formul8-bg-primary: #0a0a0a;
+            --formul8-bg-secondary: #1a1a1a;
+            --formul8-bg-card: #1e1e1e;
+            --formul8-text-primary: #ffffff;
+            --formul8-text-secondary: #b0b0b0;
+            --formul8-border: #333333;
+            --formul8-glow: rgba(0, 255, 136, 0.3);
+        }
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: var(--formul8-bg-primary);
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(0, 255, 136, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(0, 212, 170, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(255, 107, 53, 0.05) 0%, transparent 50%);
             min-height: 100vh;
             padding: 20px;
+            color: var(--formul8-text-primary);
         }
 
         .container {
             max-width: 1400px;
             margin: 0 auto;
-            background: white;
+            background: var(--formul8-bg-card);
             border-radius: 12px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            box-shadow: 
+                0 20px 40px rgba(0,0,0,0.3),
+                0 0 0 1px var(--formul8-border),
+                inset 0 1px 0 rgba(255,255,255,0.1);
             overflow: hidden;
+            border: 1px solid var(--formul8-border);
         }
 
         .header {
@@ -384,29 +406,346 @@
         let agentsConfig = null;
         let originalConfig = null;
 
+        // Default configuration fallback
+        const defaultPlansConfig = {
+            "plans": {
+                "standard": {
+                    "name": "Standard",
+                    "description": "Perfect for Artesians",
+                    "price": "$20",
+                    "period": "month",
+                    "features": [
+                        "Standard formulation tools",
+                        "Future4200 Search and Summarize",
+                        "calculations",
+                        "Basic SOP starter templates",
+                        "Science"
+                    ],
+                    "agents": {
+                        "f8_agent": true,
+                        "formulation": true,
+                        "science": true
+                    }
+                },
+                "micro": {
+                    "name": "Micro",
+                    "description": "Designed for micro and social equity licenses",
+                    "price": "$99",
+                    "period": "month",
+                    "features": [
+                        "Enhanced single state compliance checking",
+                        "Everything in Standard",
+                        "Advanced formulation tools",
+                        "Single state marketing data",
+                        "Compliant SOP templates",
+                        "Scenario Mapping",
+                        "Metrc API"
+                    ],
+                    "agents": {
+                        "f8_agent": true,
+                        "compliance": true,
+                        "formulation": true,
+                        "science": true,
+                        "marketing": true,
+                        "operations": true
+                    }
+                },
+                "operator": {
+                    "name": "Operator",
+                    "description": "Ideal for growing cannabis businesses",
+                    "price": "$499",
+                    "period": "month",
+                    "features": [
+                        "Live 50 state compliance monitoring",
+                        "Full formulation suite",
+                        "Priority support",
+                        "Unlimited calculations",
+                        "Custom SOP generation",
+                        "Extraction optimization",
+                        "Document Upload and Storage (Coming soon)",
+                        "Google Drive integration (Coming soon)",
+                        "Marketing Strategy",
+                        "Manuals/Troubleshooting",
+                        "FTO Search"
+                    ],
+                    "agents": {
+                        "f8_agent": true,
+                        "compliance": true,
+                        "formulation": true,
+                        "science": true,
+                        "operations": true,
+                        "marketing": true,
+                        "sourcing": true,
+                        "patent": true,
+                        "spectra": true,
+                        "customer_success": true,
+                        "f8_slackbot": true,
+                        "mcr": true,
+                        "ad": true
+                    }
+                },
+                "enterprise": {
+                    "name": "Enterprise",
+                    "description": "For large operations and multi-state businesses",
+                    "price": "Custom",
+                    "period": "",
+                    "features": [
+                        "Everything in Operator",
+                        "Customer Service agents",
+                        "White-label solutions",
+                        "Dedicated account manager",
+                        "Custom Workflow integrations",
+                        "Advanced analytics",
+                        "Multi-user management",
+                        "API access",
+                        "Custom training",
+                        "SLA guarantees"
+                    ],
+                    "agents": {
+                        "f8_agent": true,
+                        "compliance": true,
+                        "formulation": true,
+                        "science": true,
+                        "operations": true,
+                        "marketing": true,
+                        "sourcing": true,
+                        "patent": true,
+                        "spectra": true,
+                        "customer_success": true,
+                        "f8_slackbot": true,
+                        "mcr": true,
+                        "ad": true,
+                        "editor_agent": true
+                    }
+                }
+            }
+        };
+
+        const defaultAgentsConfig = {
+            "agents": {
+                "f8_agent": {
+                    "name": "F8 Multi-Agent",
+                    "description": "Main Formul8 AI agent that can route to specialized agents",
+                    "type": "main",
+                    "url": "https://f8.syzygyx.com",
+                    "keywords": ["general", "business", "strategy", "overview", "help"],
+                    "specialties": [
+                        "General cannabis industry questions",
+                        "Business strategy and planning",
+                        "Multi-topic queries",
+                        "Agent routing and coordination"
+                    ]
+                },
+                "compliance": {
+                    "name": "Compliance Agent",
+                    "description": "Cannabis regulatory compliance expert",
+                    "type": "microservice",
+                    "url": "https://compliance-agent.f8.syzygyx.com",
+                    "keywords": ["compliance", "regulation", "license", "legal", "audit", "inspection", "permit", "regulatory"],
+                    "specialties": [
+                        "State and federal compliance",
+                        "License management",
+                        "Regulatory updates",
+                        "Audit preparation"
+                    ]
+                },
+                "formulation": {
+                    "name": "Formulation Agent",
+                    "description": "Cannabis product formulation specialist",
+                    "type": "microservice",
+                    "url": "https://formulation-agent.f8.syzygyx.com",
+                    "keywords": ["formulation", "recipe", "dosage", "extraction", "ingredient", "thc", "cbd", "concentrate", "edible", "tincture"],
+                    "specialties": [
+                        "Product formulation",
+                        "Dosage calculations",
+                        "Extraction methods",
+                        "Ingredient optimization"
+                    ]
+                },
+                "science": {
+                    "name": "Science Agent",
+                    "description": "Cannabis research and scientific analysis expert",
+                    "type": "microservice",
+                    "url": "https://science-agent.f8.syzygyx.com",
+                    "keywords": ["science", "research", "cannabinoid", "terpene", "lab", "testing", "coa", "analysis", "study", "clinical"],
+                    "specialties": [
+                        "Cannabinoid analysis",
+                        "Terpene profiling",
+                        "Lab testing interpretation",
+                        "Scientific research"
+                    ]
+                },
+                "operations": {
+                    "name": "Operations Agent",
+                    "description": "Cannabis facility operations and management expert",
+                    "type": "microservice",
+                    "url": "https://operations-agent.f8.syzygyx.com",
+                    "keywords": ["operations", "facility", "management", "production", "quality", "control", "logistics", "manufacturing"],
+                    "specialties": [
+                        "Facility management",
+                        "Production optimization",
+                        "Quality control",
+                        "Operational efficiency"
+                    ]
+                },
+                "marketing": {
+                    "name": "Marketing Agent",
+                    "description": "Cannabis marketing and brand strategy specialist",
+                    "type": "microservice",
+                    "url": "https://marketing-agent.f8.syzygyx.com",
+                    "keywords": ["marketing", "brand", "advertising", "promotion", "customer", "acquisition", "strategy", "campaign"],
+                    "specialties": [
+                        "Brand strategy",
+                        "Digital marketing",
+                        "Customer acquisition",
+                        "Campaign development"
+                    ]
+                },
+                "sourcing": {
+                    "name": "Sourcing Agent",
+                    "description": "Cannabis supply chain and procurement expert",
+                    "type": "microservice",
+                    "url": "https://sourcing-agent.f8.syzygyx.com",
+                    "keywords": ["sourcing", "supply", "chain", "procurement", "vendor", "inventory", "supplier", "purchasing"],
+                    "specialties": [
+                        "Supplier management",
+                        "Supply chain optimization",
+                        "Vendor relations",
+                        "Inventory management"
+                    ]
+                },
+                "patent": {
+                    "name": "Patent Agent",
+                    "description": "Cannabis intellectual property and patent research specialist",
+                    "type": "microservice",
+                    "url": "https://patent-agent.f8.syzygyx.com",
+                    "keywords": ["patent", "intellectual", "property", "ip", "research", "legal", "innovation", "invention"],
+                    "specialties": [
+                        "Patent research",
+                        "IP strategy",
+                        "Innovation analysis",
+                        "Legal compliance"
+                    ]
+                },
+                "spectra": {
+                    "name": "Spectra Agent",
+                    "description": "Cannabis spectral analysis and testing expert",
+                    "type": "microservice",
+                    "url": "https://spectra-agent.f8.syzygyx.com",
+                    "keywords": ["spectra", "analysis", "testing", "lab", "equipment", "chemistry", "spectroscopy", "quality"],
+                    "specialties": [
+                        "Spectral analysis",
+                        "Lab equipment guidance",
+                        "Quality testing",
+                        "Chemical analysis"
+                    ]
+                },
+                "customer_success": {
+                    "name": "Customer Success Agent",
+                    "description": "Customer success and retention specialist",
+                    "type": "microservice",
+                    "url": "https://customer-success-agent.f8.syzygyx.com",
+                    "keywords": ["customer", "success", "retention", "support", "satisfaction", "onboarding", "service"],
+                    "specialties": [
+                        "Customer onboarding",
+                        "Retention strategies",
+                        "Support optimization",
+                        "Success metrics"
+                    ]
+                },
+                "f8_slackbot": {
+                    "name": "F8 Slackbot",
+                    "description": "Slack integration and team collaboration agent",
+                    "type": "microservice",
+                    "url": "https://f8-slackbot.f8.syzygyx.com",
+                    "keywords": ["slack", "integration", "team", "collaboration", "notification", "workflow", "communication"],
+                    "specialties": [
+                        "Slack integration",
+                        "Team notifications",
+                        "Workflow automation",
+                        "Communication tools"
+                    ]
+                },
+                "mcr": {
+                    "name": "MCR Agent",
+                    "description": "Master Control Record management specialist",
+                    "type": "microservice",
+                    "url": "https://mcr-agent.f8.syzygyx.com",
+                    "keywords": ["mcr", "master", "control", "record", "documentation", "compliance", "tracking"],
+                    "specialties": [
+                        "MCR management",
+                        "Documentation tracking",
+                        "Compliance records",
+                        "Control systems"
+                    ]
+                },
+                "ad": {
+                    "name": "Ad Agent",
+                    "description": "Advertising and promotional content specialist",
+                    "type": "microservice",
+                    "url": "https://ad-agent.f8.syzygyx.com",
+                    "keywords": ["advertising", "ad", "promotional", "campaign", "media", "strategy", "creative", "content"],
+                    "specialties": [
+                        "Ad campaign development",
+                        "Creative content",
+                        "Media strategy",
+                        "Promotional planning"
+                    ]
+                },
+                "editor_agent": {
+                    "name": "Editor Agent",
+                    "description": "Content editing and document management specialist",
+                    "type": "microservice",
+                    "url": "https://editor-agent.f8.syzygyx.com",
+                    "keywords": ["edit", "editor", "content", "document", "review", "modify", "update", "version"],
+                    "specialties": [
+                        "Content editing",
+                        "Document management",
+                        "Version control",
+                        "Review processes"
+                    ]
+                }
+            }
+        };
+
         // Load configurations
         async function loadConfigurations() {
             try {
                 document.getElementById('loading').style.display = 'block';
                 
-                // Load plans configuration from GitHub raw
-                const plansResponse = await fetch('https://raw.githubusercontent.com/F8ai/formul8-multiagent/main/config/plans.json');
-                if (!plansResponse.ok) {
-                    throw new Error('Failed to load plans configuration');
+                // Try to load plans configuration from GitHub raw
+                try {
+                    const plansResponse = await fetch('https://raw.githubusercontent.com/F8ai/formul8-multiagent/main/config/plans.json');
+                    if (plansResponse.ok) {
+                        plansConfig = await plansResponse.json();
+                        originalConfig = JSON.parse(JSON.stringify(plansConfig));
+                        console.log('Plans config loaded from GitHub');
+                    } else {
+                        throw new Error('GitHub fetch failed');
+                    }
+                } catch (error) {
+                    console.warn('Failed to load from GitHub, using default config:', error);
+                    plansConfig = JSON.parse(JSON.stringify(defaultPlansConfig));
+                    originalConfig = JSON.parse(JSON.stringify(plansConfig));
                 }
-                plansConfig = await plansResponse.json();
-                originalConfig = JSON.parse(JSON.stringify(plansConfig));
                 
-                // Load agents configuration from GitHub raw
-                const agentsResponse = await fetch('https://raw.githubusercontent.com/F8ai/formul8-multiagent/main/config/agents.json');
-                if (!agentsResponse.ok) {
-                    throw new Error('Failed to load agents configuration');
+                // Try to load agents configuration from GitHub raw
+                try {
+                    const agentsResponse = await fetch('https://raw.githubusercontent.com/F8ai/formul8-multiagent/main/config/agents.json');
+                    if (agentsResponse.ok) {
+                        agentsConfig = await agentsResponse.json();
+                        console.log('Agents config loaded from GitHub');
+                    } else {
+                        throw new Error('GitHub fetch failed');
+                    }
+                } catch (error) {
+                    console.warn('Failed to load agents from GitHub, using default config:', error);
+                    agentsConfig = JSON.parse(JSON.stringify(defaultAgentsConfig));
                 }
-                agentsConfig = await agentsResponse.json();
                 
                 renderTable();
                 document.getElementById('loading').style.display = 'none';
-                showStatus('Configuration loaded successfully from GitHub', 'success');
+                showStatus('Configuration loaded successfully', 'success');
             } catch (error) {
                 console.error('Error loading configurations:', error);
                 document.getElementById('loading').style.display = 'none';
