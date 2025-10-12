@@ -52,6 +52,49 @@ app.post('/api/plans', (req, res) => {
   }
 });
 
+app.post('/api/plans/sync-langchain', (req, res) => {
+  try {
+    const fs = require('fs');
+    const plansConfig = req.body;
+    
+    // Update each langchain-{plan}.json file based on plans.json
+    Object.entries(plansConfig.plans).forEach(([planKey, planData]) => {
+      const langchainFile = `config/langchain-${planKey}.json`;
+      
+      try {
+        // Read existing langchain config
+        const langchainConfig = JSON.parse(fs.readFileSync(__dirname + '/' + langchainFile, 'utf8'));
+        
+        // Update agent access based on plans.json
+        if (langchainConfig.langchain && langchainConfig.langchain.agents) {
+          // Reset all agents to false first
+          Object.keys(langchainConfig.langchain.agents).forEach(agentKey => {
+            langchainConfig.langchain.agents[agentKey].enabled = false;
+          });
+          
+          // Enable agents based on plans.json
+          Object.entries(planData.agents).forEach(([agentKey, enabled]) => {
+            if (langchainConfig.langchain.agents[agentKey]) {
+              langchainConfig.langchain.agents[agentKey].enabled = enabled;
+            }
+          });
+        }
+        
+        // Write updated langchain config
+        fs.writeFileSync(__dirname + '/' + langchainFile, JSON.stringify(langchainConfig, null, 2));
+        
+      } catch (error) {
+        console.error(`Error updating ${langchainFile}:`, error);
+      }
+    });
+    
+    res.json({ success: true, message: 'LangChain files updated successfully' });
+  } catch (error) {
+    console.error('Error syncing langchain files:', error);
+    res.status(500).json({ error: 'Failed to sync langchain files' });
+  }
+});
+
 app.post('/api/plans/pr', (req, res) => {
   // Placeholder for creating pull request
   res.json({ 
