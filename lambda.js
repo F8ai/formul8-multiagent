@@ -213,6 +213,16 @@ app.get('/chat', (req, res) => {
                 letter-spacing: 0.5px;
             }
             
+            .message-footer {
+                font-size: 9px;
+                opacity: 0.5;
+                color: var(--formul8-text-secondary);
+                margin-top: 8px;
+                padding-top: 4px;
+                border-top: 1px solid var(--formul8-border);
+                font-style: italic;
+            }
+            
             .chat-input-container {
                 padding: 25px;
                 background: var(--formul8-bg-secondary);
@@ -431,16 +441,37 @@ app.post('/api/chat', async (req, res) => {
       });
     }
     
-    const aiData = await openRouterResponse.json();
-    const aiResponse = aiData.choices?.[0]?.message?.content || 'I apologize, but I couldn\'t generate a response. Please try again.';
-    
-    res.json({
-      success: true,
-      response: aiResponse,
-      agent: 'f8_agent',
-      timestamp: new Date().toISOString(),
-      model: 'gpt-4o-mini'
-    });
+      const aiData = await openRouterResponse.json();
+      const aiResponse = aiData.choices?.[0]?.message?.content || 'I apologize, but I couldn\'t generate a response. Please try again.';
+      
+      // Extract usage information
+      const usage = aiData.usage || {};
+      const promptTokens = usage.prompt_tokens || 0;
+      const completionTokens = usage.completion_tokens || 0;
+      const totalTokens = usage.total_tokens || (promptTokens + completionTokens);
+      
+      // Calculate cost (GPT-4o-mini pricing: $0.15/1M input tokens, $0.60/1M output tokens)
+      const inputCost = (promptTokens / 1000000) * 0.15;
+      const outputCost = (completionTokens / 1000000) * 0.60;
+      const totalCost = inputCost + outputCost;
+      
+      // Create footer with metadata
+      const footer = `\n\n---\n*Agent: f8_agent | Tokens: ${totalTokens} (${promptTokens}→${completionTokens}) | Cost: $${totalCost.toFixed(6)}*`;
+      const responseWithFooter = aiResponse + footer;
+      
+      res.json({
+        success: true,
+        response: responseWithFooter,
+        agent: 'f8_agent',
+        timestamp: new Date().toISOString(),
+        model: 'gpt-4o-mini',
+        usage: {
+          prompt_tokens: promptTokens,
+          completion_tokens: completionTokens,
+          total_tokens: totalTokens,
+          cost: totalCost
+        }
+      });
     
   } catch (error) {
     console.error('Error calling OpenRouter API:', error);
@@ -563,6 +594,16 @@ exports.handler = async (event, context) => {
                 border-radius: 20px;
                 font-size: 0.8rem;
                 font-weight: 600;
+            }
+            
+            .message-footer {
+                font-size: 9px;
+                opacity: 0.5;
+                color: var(--formul8-text-secondary);
+                margin-top: 8px;
+                padding-top: 4px;
+                border-top: 1px solid var(--formul8-border);
+                font-style: italic;
             }
             .chat-input-container { padding: 25px; background: var(--formul8-bg-secondary); border-top: 1px solid var(--formul8-border); }
             .chat-input-group { display: flex; gap: 15px; align-items: center; }
@@ -723,15 +764,36 @@ exports.handler = async (event, context) => {
       const aiData = await openRouterResponse.json();
       const aiResponse = aiData.choices?.[0]?.message?.content || 'I apologize, but I couldn\'t generate a response. Please try again.';
       
+      // Extract usage information
+      const usage = aiData.usage || {};
+      const promptTokens = usage.prompt_tokens || 0;
+      const completionTokens = usage.completion_tokens || 0;
+      const totalTokens = usage.total_tokens || (promptTokens + completionTokens);
+      
+      // Calculate cost (GPT-4o-mini pricing: $0.15/1M input tokens, $0.60/1M output tokens)
+      const inputCost = (promptTokens / 1000000) * 0.15;
+      const outputCost = (completionTokens / 1000000) * 0.60;
+      const totalCost = inputCost + outputCost;
+      
+      // Create footer with metadata
+      const footer = `\n\n---\n*Agent: f8_agent | Tokens: ${totalTokens} (${promptTokens}→${completionTokens}) | Cost: $${totalCost.toFixed(6)}*`;
+      const responseWithFooter = aiResponse + footer;
+      
       return {
         statusCode: 200,
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           success: true,
-          response: aiResponse,
+          response: responseWithFooter,
           agent: 'f8_agent',
           timestamp: new Date().toISOString(),
-          model: 'gpt-4o-mini'
+          model: 'gpt-4o-mini',
+          usage: {
+            prompt_tokens: promptTokens,
+            completion_tokens: completionTokens,
+            total_tokens: totalTokens,
+            cost: totalCost
+          }
         })
       };
       
