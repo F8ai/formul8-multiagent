@@ -17,7 +17,7 @@
     class Logger {
         constructor(prefix = 'SyzyChat') {
             this.prefix = prefix;
-            this.debug = true; // Enable debug mode by default
+            this.debug = false; // Disable debug mode by default; enable explicitly when needed
         }
 
         log(...args) {
