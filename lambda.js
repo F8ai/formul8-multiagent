@@ -417,7 +417,7 @@ app.post('/api/chat', async (req, res) => {
         'X-Title': 'Formul8 Multiagent Chat'
       },
         body: JSON.stringify({
-          model: 'openai/gpt-3.5-turbo',
+          model: 'openai/gpt-oss-120b',
           messages: [
             {
               role: 'system',
@@ -450,10 +450,10 @@ app.post('/api/chat', async (req, res) => {
       const completionTokens = usage.completion_tokens || 0;
       const totalTokens = usage.total_tokens || (promptTokens + completionTokens);
       
-      // Calculate cost (openai/gpt-3.5-turbo is free, so cost is $0.00)
+      // Calculate cost (openai/gpt-oss-120b is free, so cost is $0.00)
       // const inputCost = (promptTokens / 1000000) * 0.15; // Free model
       // const outputCost = (completionTokens / 1000000) * 0.60; // Free model
-      const inputCost = (promptTokens / 1000000) * 0.50; const outputCost = (completionTokens / 1000000) * 1.50; const totalCost = inputCost + outputCost;
+      const totalCost = 0.00; // Free model
       
       // Create footer with metadata
       const footer = `\n\n---\n*Agent: f8_agent | Tokens: ${totalTokens} (${promptTokens}→${completionTokens}) | Cost: $${totalCost.toFixed(6)}*`;
@@ -464,7 +464,7 @@ app.post('/api/chat', async (req, res) => {
         response: responseWithFooter,
         agent: 'f8_agent',
         timestamp: new Date().toISOString(),
-        model: 'openai/gpt-3.5-turbo',
+        model: 'openai/gpt-oss-120b',
         usage: {
           prompt_tokens: promptTokens,
           completion_tokens: completionTokens,
@@ -733,7 +733,7 @@ exports.handler = async (event, context) => {
           'X-Title': 'Formul8 Multiagent Chat'
         },
         body: JSON.stringify({
-          model: 'openai/gpt-3.5-turbo',
+          model: 'openai/gpt-oss-120b',
           messages: [
             {
               role: 'system',
@@ -770,10 +770,10 @@ exports.handler = async (event, context) => {
       const completionTokens = usage.completion_tokens || 0;
       const totalTokens = usage.total_tokens || (promptTokens + completionTokens);
       
-      // Calculate cost (openai/gpt-3.5-turbo is free, so cost is $0.00)
+      // Calculate cost (openai/gpt-oss-120b is free, so cost is $0.00)
       // const inputCost = (promptTokens / 1000000) * 0.15; // Free model
       // const outputCost = (completionTokens / 1000000) * 0.60; // Free model
-      const inputCost = (promptTokens / 1000000) * 0.50; const outputCost = (completionTokens / 1000000) * 1.50; const totalCost = inputCost + outputCost;
+      const totalCost = 0.00; // Free model
       
       // Create footer with metadata
       const footer = `\n\n---\n*Agent: f8_agent | Tokens: ${totalTokens} (${promptTokens}→${completionTokens}) | Cost: $${totalCost.toFixed(6)}*`;
@@ -787,7 +787,7 @@ exports.handler = async (event, context) => {
           response: responseWithFooter,
           agent: 'f8_agent',
           timestamp: new Date().toISOString(),
-          model: 'openai/gpt-3.5-turbo',
+          model: 'openai/gpt-oss-120b',
           usage: {
             prompt_tokens: promptTokens,
             completion_tokens: completionTokens,
