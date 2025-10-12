@@ -1048,9 +1048,14 @@
                 try {
                     const plansResponse = await fetch('https://raw.githubusercontent.com/F8ai/formul8-multiagent/main/config/plans.json');
                     if (plansResponse.ok) {
-                        plansConfig = await plansResponse.json();
-                        originalConfig = JSON.parse(JSON.stringify(plansConfig));
-                        console.log('Plans config loaded from GitHub');
+                        const plansData = await plansResponse.json();
+                        if (plansData && plansData.plans) {
+                            plansConfig = plansData;
+                            originalConfig = JSON.parse(JSON.stringify(plansConfig));
+                            console.log('Plans config loaded from GitHub');
+                        } else {
+                            throw new Error('Invalid plans configuration format');
+                        }
                     } else {
                         throw new Error('GitHub fetch failed');
                     }
@@ -1064,8 +1069,13 @@
                 try {
                     const agentsResponse = await fetch('https://raw.githubusercontent.com/F8ai/formul8-multiagent/main/config/agents.json');
                     if (agentsResponse.ok) {
-                        agentsConfig = await agentsResponse.json();
-                        console.log('Agents config loaded from GitHub');
+                        const agentsData = await agentsResponse.json();
+                        if (agentsData && agentsData.agents) {
+                            agentsConfig = agentsData;
+                            console.log('Agents config loaded from GitHub');
+                        } else {
+                            throw new Error('Invalid agents configuration format');
+                        }
                     } else {
                         throw new Error('GitHub fetch failed');
                     }
@@ -1074,13 +1084,28 @@
                     agentsConfig = JSON.parse(JSON.stringify(defaultAgentsConfig));
                 }
                 
+                // Ensure configurations are initialized
+                if (!plansConfig) {
+                    plansConfig = JSON.parse(JSON.stringify(defaultPlansConfig));
+                    originalConfig = JSON.parse(JSON.stringify(plansConfig));
+                }
+                if (!agentsConfig) {
+                    agentsConfig = JSON.parse(JSON.stringify(defaultAgentsConfig));
+                }
+                
                 renderTable();
                 document.getElementById('loading').style.display = 'none';
                 showStatus('Configuration loaded successfully', 'success');
             } catch (error) {
                 console.error('Error loading configurations:', error);
+                // Fallback to default configurations
+                plansConfig = JSON.parse(JSON.stringify(defaultPlansConfig));
+                agentsConfig = JSON.parse(JSON.stringify(defaultAgentsConfig));
+                originalConfig = JSON.parse(JSON.stringify(plansConfig));
+                
+                renderTable();
                 document.getElementById('loading').style.display = 'none';
-                showStatus('Error loading configuration: ' + error.message, 'error');
+                showStatus('Using default configuration due to error: ' + error.message, 'warning');
             }
         }
 
@@ -1175,7 +1200,7 @@
                         let rowHTML = `<td class="${agentClass}"><span class="drag-handle">⋮⋮</span>${agent.name}</td>`;
                         
                         planKeys.forEach(planKey => {
-                            const isChecked = plansConfig.plans[planKey].agents[agentKey] || false;
+                            const isChecked = (plansConfig.plans[planKey] && plansConfig.plans[planKey].agents && plansConfig.plans[planKey].agents[agentKey]) || false;
                             rowHTML += `
                                 <td>
                                     <input type="checkbox" 
