@@ -103,8 +103,8 @@
          * Validate required options
          */
         validateOptions(options) {
-            if (!options.container && !options.backendUrl) {
-                throw new Error('Missing required option: container or backendUrl');
+            if (!options.container || !options.backendUrl) {
+                throw new Error('Missing required options: both container and backendUrl are required');
             }
         }
 
