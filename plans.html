@@ -139,10 +139,12 @@
         .plans-table th {
             background: linear-gradient(135deg, var(--formul8-primary) 0%, var(--formul8-secondary) 100%);
             color: var(--formul8-bg-primary);
-            padding: 15px 10px;
+            padding: 12px 8px;
             text-align: center;
             font-weight: 600;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
+            width: 120px;
+            min-width: 100px;
         }
 
         .plans-table th:first-child {
@@ -460,6 +462,42 @@
         .plan-popular .plan-price,
         .plan-popular .plan-description {
             color: white;
+        }
+
+        .plan-angled {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .plan-angled::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, var(--formul8-primary) 0%, var(--formul8-secondary) 100%);
+            transform: skewY(-2deg);
+            z-index: -1;
+        }
+
+        .plan-angled .plan-header,
+        .plan-angled .plan-price,
+        .plan-angled .plan-description {
+            color: var(--formul8-bg-primary);
+            font-weight: 600;
+        }
+
+        .plan-angled.free-plan::before {
+            background: linear-gradient(135deg, #00b894 0%, #00cec9 100%);
+        }
+
+        .plan-angled.future4200-plan::before {
+            background: linear-gradient(135deg, #6c5ce7 0%, #a29bfe 100%);
+        }
+
+        .plan-angled.admin-plan::before {
+            background: linear-gradient(135deg, #2d3436 0%, #636e72 100%);
         }
 
         @media (max-width: 768px) {
