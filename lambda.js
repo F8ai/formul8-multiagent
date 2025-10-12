@@ -32,7 +32,7 @@ app.get('/plans', (req, res) => {
 });
 
 // LangGraph monitoring page
-app.get('/langraph', (req, res) => {
+app.get('/langgraph', (req, res) => {
   res.send(`
     <!DOCTYPE html>
     <html lang="en">
