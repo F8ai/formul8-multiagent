@@ -170,11 +170,7 @@
         }
 
         .agent-name.sub-agent::before {
-            content: '└─';
-            position: absolute;
-            left: 8px;
-            color: var(--formul8-border-light);
-            font-size: 0.8rem;
+            content: '';
         }
 
         .agent-name.beta-agent {
@@ -187,13 +183,7 @@
         }
 
         .agent-name.beta-agent::before {
-            content: 'β';
-            position: absolute;
-            left: 8px;
-            color: var(--formul8-accent);
-            font-size: 0.8rem;
-            font-weight: bold;
-            font-style: normal;
+            content: '';
         }
 
         .agent-name.beta-agent::after {
@@ -226,6 +216,12 @@
             background: linear-gradient(135deg, var(--formul8-accent) 0%, #ff8c42 100%);
             color: var(--formul8-bg-primary);
             border-bottom-color: var(--formul8-accent);
+        }
+
+        .agent-section-header.free-section {
+            background: linear-gradient(135deg, #00b894 0%, #00cec9 100%);
+            color: var(--formul8-bg-primary);
+            border-bottom-color: #00b894;
         }
 
         .agent-section-header.admin-section {
@@ -545,29 +541,69 @@
         // Default configuration fallback
         const defaultPlansConfig = {
             "plans": {
+                "free": {
+                    "name": "Free",
+                    "description": "Basic access with ads",
+                    "price": "$0",
+                    "period": "/month",
+                    "features": [
+                        "Basic formulation tools",
+                        "Limited compliance checking",
+                        "Ad-supported experience",
+                        "Community support"
+                    ],
+                    "agents": {
+                        "compliance": true,
+                        "formulation": true,
+                        "ad": true,
+                        "operations": false,
+                        "marketing": false,
+                        "patent": false,
+                        "sourcing": false,
+                        "customer_success": false,
+                        "mcr": false,
+                        "science": false,
+                        "spectra": false,
+                        "metabolome": false,
+                        "f8_slackbot": false,
+                        "editor_agent": false
+                    }
+                },
                 "standard": {
                     "name": "Standard",
                     "description": "Perfect for Artesians",
                     "price": "$20",
-                    "period": "month",
+                    "period": "/month",
                     "features": [
                         "Standard formulation tools",
                         "Future4200 Search and Summarize",
                         "calculations",
                         "Basic SOP starter templates",
-                        "Science"
+                        "Science",
+                        "Get Notified"
                     ],
                     "agents": {
-                        "f8_agent": true,
+                        "compliance": true,
+                        "operations": true,
+                        "marketing": true,
                         "formulation": true,
-                        "science": true
+                        "patent": true,
+                        "sourcing": true,
+                        "customer_success": true,
+                        "mcr": true,
+                        "science": false,
+                        "spectra": false,
+                        "metabolome": false,
+                        "f8_slackbot": false,
+                        "ad": false,
+                        "editor_agent": false
                     }
                 },
                 "micro": {
                     "name": "Micro",
                     "description": "Designed for micro and social equity licenses",
                     "price": "$99",
-                    "period": "month",
+                    "period": "/month",
                     "features": [
                         "Enhanced single state compliance checking",
                         "Everything in Standard",
@@ -575,22 +611,31 @@
                         "Single state marketing data",
                         "Compliant SOP templates",
                         "Scenario Mapping",
-                        "Metrc API"
+                        "Metrc API",
+                        "Get Notified"
                     ],
                     "agents": {
-                        "f8_agent": true,
                         "compliance": true,
-                        "formulation": true,
-                        "science": true,
+                        "operations": true,
                         "marketing": true,
-                        "operations": true
+                        "formulation": true,
+                        "patent": true,
+                        "sourcing": true,
+                        "customer_success": true,
+                        "mcr": true,
+                        "science": false,
+                        "spectra": false,
+                        "metabolome": false,
+                        "f8_slackbot": false,
+                        "ad": false,
+                        "editor_agent": false
                     }
                 },
                 "operator": {
                     "name": "Operator",
                     "description": "Ideal for growing cannabis businesses",
                     "price": "$499",
-                    "period": "month",
+                    "period": "/month",
                     "features": [
                         "Live 50 state compliance monitoring",
                         "Full formulation suite",
@@ -602,20 +647,24 @@
                         "Google Drive integration (Coming soon)",
                         "Marketing Strategy",
                         "Manuals/Troubleshooting",
-                        "FTO Search"
+                        "FTO Search",
+                        "Get Notified"
                     ],
                     "agents": {
-                        "f8_agent": true,
                         "compliance": true,
-                        "formulation": true,
-                        "science": true,
                         "operations": true,
                         "marketing": true,
-                        "sourcing": true,
+                        "formulation": true,
                         "patent": true,
-                        "spectra": true,
+                        "sourcing": true,
                         "customer_success": true,
-                        "f8_slackbot": true
+                        "mcr": true,
+                        "science": false,
+                        "spectra": false,
+                        "metabolome": false,
+                        "f8_slackbot": false,
+                        "ad": false,
+                        "editor_agent": false
                     }
                 },
                 "enterprise": {
@@ -634,22 +683,81 @@
                         "API access",
                         "Custom training",
                         "SLA guarantees",
-                        "Admin tools (Editor & Ad agents)"
+                        "Get Notified"
                     ],
                     "agents": {
-                        "f8_agent": true,
                         "compliance": true,
-                        "formulation": true,
-                        "science": true,
                         "operations": true,
                         "marketing": true,
-                        "sourcing": true,
+                        "formulation": true,
                         "patent": true,
-                        "spectra": true,
+                        "sourcing": true,
                         "customer_success": true,
-                        "f8_slackbot": true,
                         "mcr": true,
-                        "ad": true,
+                        "science": false,
+                        "spectra": false,
+                        "metabolome": false,
+                        "f8_slackbot": false,
+                        "ad": false,
+                        "editor_agent": false
+                    }
+                },
+                "beta": {
+                    "name": "Beta",
+                    "description": "Access to experimental features",
+                    "price": "$199",
+                    "period": "/month",
+                    "features": [
+                        "Everything in Standard",
+                        "Beta agent access",
+                        "Early feature preview",
+                        "Direct feedback channel",
+                        "Experimental tools"
+                    ],
+                    "agents": {
+                        "compliance": true,
+                        "operations": true,
+                        "marketing": true,
+                        "formulation": true,
+                        "patent": true,
+                        "sourcing": true,
+                        "customer_success": true,
+                        "mcr": true,
+                        "science": true,
+                        "spectra": true,
+                        "metabolome": true,
+                        "f8_slackbot": false,
+                        "ad": false,
+                        "editor_agent": false
+                    }
+                },
+                "admin": {
+                    "name": "Admin",
+                    "description": "Full system access and admin tools",
+                    "price": "Custom",
+                    "period": "",
+                    "features": [
+                        "Everything in all plans",
+                        "Admin tools access",
+                        "System configuration",
+                        "Advanced analytics",
+                        "Custom integrations",
+                        "Priority support"
+                    ],
+                    "agents": {
+                        "compliance": true,
+                        "operations": true,
+                        "marketing": true,
+                        "formulation": true,
+                        "patent": true,
+                        "sourcing": true,
+                        "customer_success": true,
+                        "mcr": true,
+                        "science": true,
+                        "spectra": true,
+                        "metabolome": true,
+                        "f8_slackbot": true,
+                        "ad": false,
                         "editor_agent": true
                     }
                 }
@@ -658,19 +766,6 @@
 
         const defaultAgentsConfig = {
             "agents": {
-                "f8_agent": {
-                    "name": "F8 Multi-Agent",
-                    "description": "Main Formul8 AI agent that can route to specialized agents",
-                    "type": "main",
-                    "url": "https://f8.syzygyx.com",
-                    "keywords": ["general", "business", "strategy", "overview", "help"],
-                    "specialties": [
-                        "General cannabis industry questions",
-                        "Business strategy and planning",
-                        "Multi-topic queries",
-                        "Agent routing and coordination"
-                    ]
-                },
                 "compliance": {
                     "name": "Compliance Agent",
                     "description": "Cannabis regulatory compliance expert",
@@ -773,6 +868,19 @@
                         "Lab equipment guidance",
                         "Quality testing",
                         "Chemical analysis"
+                    ]
+                },
+                "metabolome": {
+                    "name": "Metabolome Agent",
+                    "description": "Cannabis metabolomics and biochemical analysis expert",
+                    "type": "microservice",
+                    "url": "https://metabolome-agent.f8.syzygyx.com",
+                    "keywords": ["metabolome", "metabolomics", "biochemistry", "metabolites", "analysis", "profiling", "biomarkers"],
+                    "specialties": [
+                        "Metabolite profiling",
+                        "Biochemical analysis",
+                        "Metabolomics research",
+                        "Biomarker identification"
                     ]
                 },
                 "customer_success": {
@@ -893,14 +1001,13 @@
             const tbody = document.getElementById('plansTableBody');
             tbody.innerHTML = '';
             
-            const planKeys = ['standard', 'micro', 'operator', 'enterprise'];
+            const planKeys = ['free', 'standard', 'micro', 'operator', 'enterprise', 'beta', 'admin'];
             
             // Organize agents by sections
             const agentSections = {
                 f8: {
                     title: 'F8 Core Agents',
                     agents: [
-                        'f8_agent',
                         'compliance',
                         'operations', 
                         'marketing',
@@ -908,7 +1015,6 @@
                         'patent',
                         'sourcing',
                         'customer_success',
-                        'f8_slackbot',
                         'mcr'
                     ]
                 },
@@ -916,13 +1022,20 @@
                     title: 'Beta Features',
                     agents: [
                         'science',
-                        'spectra'
+                        'spectra',
+                        'metabolome'
+                    ]
+                },
+                free: {
+                    title: 'Free Plan Features',
+                    agents: [
+                        'ad'
                     ]
                 },
                 admin: {
                     title: 'Admin Tools',
                     agents: [
-                        'ad',
+                        'f8_slackbot',
                         'editor_agent'
                     ]
                 }
@@ -947,10 +1060,10 @@
                         
                         // Determine agent styling based on section
                         let agentClass = 'agent-name';
-                        if (agentKey === 'f8_agent') {
-                            agentClass += ' main-agent';
-                        } else if (sectionKey === 'beta') {
+                        if (sectionKey === 'beta') {
                             agentClass += ' beta-agent';
+                        } else if (sectionKey === 'free') {
+                            agentClass += ' sub-agent';
                         } else if (sectionKey === 'admin') {
                             agentClass += ' sub-agent';
                         } else {
