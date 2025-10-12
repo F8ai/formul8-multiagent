@@ -135,8 +135,12 @@
         .plans-table td {
             padding: 12px 10px;
             text-align: center;
-            border-bottom: 1px solid #ecf0f1;
+            border-bottom: 1px solid var(--formul8-border);
             vertical-align: middle;
+        }
+
+        .plans-table td:first-child {
+            text-align: left;
         }
 
         .plans-table tr:hover {
@@ -424,6 +428,10 @@
             .plans-table th,
             .plans-table td {
                 padding: 8px 4px;
+            }
+            
+            .plans-table td:first-child {
+                text-align: left;
             }
             
             .controls {
