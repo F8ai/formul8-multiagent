@@ -203,6 +203,48 @@
             font-weight: normal;
         }
 
+        .agent-section-header {
+            background: linear-gradient(135deg, var(--formul8-bg-surface) 0%, var(--formul8-bg-card) 100%);
+            color: var(--formul8-text-primary);
+            font-weight: 700;
+            font-size: 1rem;
+            padding: 12px 16px;
+            text-align: left;
+            border-bottom: 2px solid var(--formul8-border);
+            position: relative;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .agent-section-header.f8-section {
+            background: linear-gradient(135deg, var(--formul8-primary) 0%, var(--formul8-secondary) 100%);
+            color: var(--formul8-bg-primary);
+            border-bottom-color: var(--formul8-primary);
+        }
+
+        .agent-section-header.beta-section {
+            background: linear-gradient(135deg, var(--formul8-accent) 0%, #ff8c42 100%);
+            color: var(--formul8-bg-primary);
+            border-bottom-color: var(--formul8-accent);
+        }
+
+        .agent-section-header.admin-section {
+            background: linear-gradient(135deg, #6c5ce7 0%, #a29bfe 100%);
+            color: var(--formul8-bg-primary);
+            border-bottom-color: #6c5ce7;
+        }
+
+        .agent-section-header::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: currentColor;
+            opacity: 0.8;
+        }
+
         .plan-header {
             font-weight: 700;
             color: #2c3e50;
@@ -853,101 +895,86 @@
             
             const planKeys = ['standard', 'micro', 'operator', 'enterprise'];
             
-            // Organize agents hierarchically
-            const agentHierarchy = {
-                main: ['f8_agent'],
-                sub: [
-                    'compliance',
-                    'operations', 
-                    'marketing',
-                    'formulation',
-                    'patent',
-                    'sourcing',
-                    'customer_success',
-                    'f8_slackbot',
-                    'mcr',
-                    'ad',
-                    'editor_agent'
-                ],
-                beta: [
-                    'science',
-                    'spectra'
-                ]
+            // Organize agents by sections
+            const agentSections = {
+                f8: {
+                    title: 'F8 Core Agents',
+                    agents: [
+                        'f8_agent',
+                        'compliance',
+                        'operations', 
+                        'marketing',
+                        'formulation',
+                        'patent',
+                        'sourcing',
+                        'customer_success',
+                        'f8_slackbot',
+                        'mcr'
+                    ]
+                },
+                beta: {
+                    title: 'Beta Features',
+                    agents: [
+                        'science',
+                        'spectra'
+                    ]
+                },
+                admin: {
+                    title: 'Admin Tools',
+                    agents: [
+                        'ad',
+                        'editor_agent'
+                    ]
+                }
             };
             
-            // Add main agent (F8)
-            agentHierarchy.main.forEach(agentKey => {
-                if (agentsConfig.agents[agentKey]) {
-                    const agent = agentsConfig.agents[agentKey];
-                    const row = document.createElement('tr');
-                    
-                    let rowHTML = `<td class="agent-name main-agent">${agent.name}</td>`;
-                    
-                    planKeys.forEach(planKey => {
-                        const isChecked = plansConfig.plans[planKey].agents[agentKey] || false;
-                        rowHTML += `
-                            <td>
-                                <input type="checkbox" 
-                                       class="checkbox" 
-                                       ${isChecked ? 'checked' : ''} 
-                                       onchange="updatePlanAgent('${planKey}', '${agentKey}', this.checked)">
-                            </td>
-                        `;
-                    });
-                    
-                    row.innerHTML = rowHTML;
-                    tbody.appendChild(row);
-                }
-            });
-            
-            // Add sub agents (indented)
-            agentHierarchy.sub.forEach(agentKey => {
-                if (agentsConfig.agents[agentKey]) {
-                    const agent = agentsConfig.agents[agentKey];
-                    const row = document.createElement('tr');
-                    
-                    let rowHTML = `<td class="agent-name sub-agent">${agent.name}</td>`;
-                    
-                    planKeys.forEach(planKey => {
-                        const isChecked = plansConfig.plans[planKey].agents[agentKey] || false;
-                        rowHTML += `
-                            <td>
-                                <input type="checkbox" 
-                                       class="checkbox" 
-                                       ${isChecked ? 'checked' : ''} 
-                                       onchange="updatePlanAgent('${planKey}', '${agentKey}', this.checked)">
-                            </td>
-                        `;
-                    });
-                    
-                    row.innerHTML = rowHTML;
-                    tbody.appendChild(row);
-                }
-            });
-            
-            // Add beta agents (indented with beta styling)
-            agentHierarchy.beta.forEach(agentKey => {
-                if (agentsConfig.agents[agentKey]) {
-                    const agent = agentsConfig.agents[agentKey];
-                    const row = document.createElement('tr');
-                    
-                    let rowHTML = `<td class="agent-name beta-agent">${agent.name}</td>`;
-                    
-                    planKeys.forEach(planKey => {
-                        const isChecked = plansConfig.plans[planKey].agents[agentKey] || false;
-                        rowHTML += `
-                            <td>
-                                <input type="checkbox" 
-                                       class="checkbox" 
-                                       ${isChecked ? 'checked' : ''} 
-                                       onchange="updatePlanAgent('${planKey}', '${agentKey}', this.checked)">
-                            </td>
-                        `;
-                    });
-                    
-                    row.innerHTML = rowHTML;
-                    tbody.appendChild(row);
-                }
+            // Create sections
+            Object.entries(agentSections).forEach(([sectionKey, section]) => {
+                // Add section header
+                const headerRow = document.createElement('tr');
+                const headerCell = document.createElement('td');
+                headerCell.className = `agent-section-header ${sectionKey}-section`;
+                headerCell.colSpan = planKeys.length + 1; // +1 for agent name column
+                headerCell.textContent = section.title;
+                headerRow.appendChild(headerCell);
+                tbody.appendChild(headerRow);
+                
+                // Add agents in this section
+                section.agents.forEach(agentKey => {
+                    if (agentsConfig.agents[agentKey]) {
+                        const agent = agentsConfig.agents[agentKey];
+                        const row = document.createElement('tr');
+                        
+                        // Determine agent styling based on section
+                        let agentClass = 'agent-name';
+                        if (agentKey === 'f8_agent') {
+                            agentClass += ' main-agent';
+                        } else if (sectionKey === 'beta') {
+                            agentClass += ' beta-agent';
+                        } else if (sectionKey === 'admin') {
+                            agentClass += ' sub-agent';
+                        } else {
+                            agentClass += ' sub-agent';
+                        }
+                        
+                        let rowHTML = `<td class="${agentClass}">${agent.name}</td>`;
+                        
+                        planKeys.forEach(planKey => {
+                            const isChecked = plansConfig.plans[planKey].agents[agentKey] || false;
+                            rowHTML += `
+                                <td>
+                                    <input type="checkbox" 
+                                           class="checkbox" 
+                                           ${isChecked ? 'checked' : ''} 
+                                           onchange="updatePlanAgent('${planKey}', '${agentKey}', this.checked)">
+                                </td>
+                            `;
+                        });
+                        
+                        row.innerHTML = rowHTML;
+                        tbody.appendChild(row);
+                    }
+                });
             });
         }
 
