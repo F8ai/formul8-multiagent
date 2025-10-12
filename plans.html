@@ -173,7 +173,11 @@
             font-weight: 600;
             color: var(--formul8-text-primary);
             text-align: left;
-            padding-left: 0;
+            padding: 12px 0;
+            position: relative;
+            font-size: 1rem;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.4;
         }
 
         .agent-name.main-agent {
@@ -184,10 +188,10 @@
         }
 
         .agent-name.sub-agent {
-            padding-left: 24px;
+            padding-left: 20px;
             font-weight: 500;
-            color: var(--formul8-text-secondary);
-            font-size: 0.95rem;
+            color: var(--formul8-text-primary);
+            font-size: 1rem;
             position: relative;
         }
 
@@ -196,10 +200,10 @@
         }
 
         .agent-name.beta-agent {
-            padding-left: 24px;
+            padding-left: 20px;
             font-weight: 500;
             color: var(--formul8-accent);
-            font-size: 0.95rem;
+            font-size: 1rem;
             position: relative;
             font-style: italic;
         }
@@ -211,8 +215,9 @@
         .agent-name.beta-agent::after {
             content: ' (Beta)';
             color: var(--formul8-text-muted);
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             font-weight: normal;
+            font-style: normal;
         }
 
         .agent-section-header {
@@ -577,6 +582,11 @@
                 <thead>
                     <tr>
                         <th>Agent</th>
+                        <th>
+                            <div class="plan-header" onclick="startEditing('free', 'name')" data-plan="free" data-field="name">Free</div>
+                            <div class="plan-price" onclick="startEditing('free', 'price')" data-plan="free" data-field="price">$0/month</div>
+                            <div class="plan-description" onclick="startEditing('free', 'description')" data-plan="free" data-field="description">Basic Access with Ads</div>
+                        </th>
                         <th class="plan-popular">
                             <div class="plan-header" onclick="startEditing('standard', 'name')" data-plan="standard" data-field="name">Standard</div>
                             <div class="plan-price" onclick="startEditing('standard', 'price')" data-plan="standard" data-field="price">$20/month</div>
@@ -596,6 +606,21 @@
                             <div class="plan-header" onclick="startEditing('enterprise', 'name')" data-plan="enterprise" data-field="name">Enterprise</div>
                             <div class="plan-price" onclick="startEditing('enterprise', 'price')" data-plan="enterprise" data-field="price">Custom</div>
                             <div class="plan-description" onclick="startEditing('enterprise', 'description')" data-plan="enterprise" data-field="description">Large Operations</div>
+                        </th>
+                        <th>
+                            <div class="plan-header" onclick="startEditing('beta', 'name')" data-plan="beta" data-field="name">Beta</div>
+                            <div class="plan-price" onclick="startEditing('beta', 'price')" data-plan="beta" data-field="price">$199/month</div>
+                            <div class="plan-description" onclick="startEditing('beta', 'description')" data-plan="beta" data-field="description">Experimental Features</div>
+                        </th>
+                        <th>
+                            <div class="plan-header" onclick="startEditing('admin', 'name')" data-plan="admin" data-field="name">Admin</div>
+                            <div class="plan-price" onclick="startEditing('admin', 'price')" data-plan="admin" data-field="price">Custom</div>
+                            <div class="plan-description" onclick="startEditing('admin', 'description')" data-plan="admin" data-field="description">Full System Access</div>
+                        </th>
+                        <th>
+                            <div class="plan-header" onclick="startEditing('future4200', 'name')" data-plan="future4200" data-field="name">Future4200.com</div>
+                            <div class="plan-price" onclick="startEditing('future4200', 'price')" data-plan="future4200" data-field="price">$29/month</div>
+                            <div class="plan-description" onclick="startEditing('future4200', 'description')" data-plan="future4200" data-field="description">Community Access</div>
                         </th>
                     </tr>
                 </thead>
@@ -637,6 +662,7 @@
                         "customer_success": false,
                         "mcr": false,
                         "future4200": false,
+                        "future": false,
                         "science": false,
                         "spectra": false,
                         "metabolome": false,
@@ -828,12 +854,45 @@
                         "sourcing": true,
                         "customer_success": true,
                         "mcr": true,
+                        "future4200": true,
+                        "future": true,
                         "science": true,
                         "spectra": true,
                         "metabolome": true,
                         "f8_slackbot": true,
                         "ad": false,
                         "editor_agent": true
+                    }
+                },
+                "future4200": {
+                    "name": "Future4200.com",
+                    "description": "Community access plan",
+                    "price": "$29",
+                    "period": "/month",
+                    "features": [
+                        "Future4200 forum access",
+                        "Community intelligence",
+                        "Discussion analysis",
+                        "Trend identification",
+                        "Basic formulation tools"
+                    ],
+                    "agents": {
+                        "compliance": false,
+                        "operations": false,
+                        "marketing": false,
+                        "formulation": true,
+                        "patent": false,
+                        "sourcing": false,
+                        "customer_success": false,
+                        "mcr": false,
+                        "future4200": true,
+                        "future": false,
+                        "science": false,
+                        "spectra": false,
+                        "metabolome": false,
+                        "f8_slackbot": false,
+                        "ad": false,
+                        "editor_agent": false
                     }
                 }
             }
@@ -1010,6 +1069,19 @@
                         "Trend identification"
                     ]
                 },
+                "future": {
+                    "name": "Future Agent",
+                    "description": "Future trends and innovation prediction specialist",
+                    "type": "microservice",
+                    "url": "https://future-agent.f8.syzygyx.com",
+                    "keywords": ["future", "trends", "innovation", "prediction", "forecasting", "technology", "disruption"],
+                    "specialties": [
+                        "Trend analysis and forecasting",
+                        "Innovation prediction",
+                        "Technology disruption analysis",
+                        "Future market insights"
+                    ]
+                },
                 "ad": {
                     "name": "Ad Agent",
                     "description": "Advertising and promotional content specialist",
@@ -1116,11 +1188,11 @@
             
             // Check if configurations are loaded
             if (!plansConfig || !agentsConfig) {
-                tbody.innerHTML = '<tr><td colspan="6" style="text-align: center; padding: 20px; color: var(--formul8-text-muted);">Loading configuration...</td></tr>';
+                tbody.innerHTML = '<tr><td colspan="9" style="text-align: center; padding: 20px; color: var(--formul8-text-muted);">Loading configuration...</td></tr>';
                 return;
             }
             
-            const planKeys = ['free', 'standard', 'micro', 'operator', 'enterprise', 'beta', 'admin'];
+            const planKeys = ['free', 'standard', 'micro', 'operator', 'enterprise', 'beta', 'admin', 'future4200'];
             
             // Organize agents by sections
             const agentSections = {
