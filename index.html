@@ -421,7 +421,8 @@
             try {
                 showStatus('Saving configuration...', 'info');
                 
-                const response = await fetch('/api/plans', {
+                // Save plans.json
+                const plansResponse = await fetch('/api/plans', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -429,12 +430,26 @@
                     body: JSON.stringify(plansConfig)
                 });
                 
-                if (response.ok) {
-                    showStatus('Configuration saved successfully!', 'success');
-                    originalConfig = JSON.parse(JSON.stringify(plansConfig));
-                } else {
-                    throw new Error('Failed to save configuration');
+                if (!plansResponse.ok) {
+                    throw new Error('Failed to save plans configuration');
                 }
+                
+                // Update corresponding langchain-{plan}.json files
+                const langchainResponse = await fetch('/api/plans/sync-langchain', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(plansConfig)
+                });
+                
+                if (langchainResponse.ok) {
+                    showStatus('Configuration saved and langchain files updated successfully!', 'success');
+                } else {
+                    showStatus('Plans saved but langchain sync failed. Check logs.', 'error');
+                }
+                
+                originalConfig = JSON.parse(JSON.stringify(plansConfig));
             } catch (error) {
                 console.error('Error saving configuration:', error);
                 showStatus('Error saving configuration: ' + error.message, 'error');
