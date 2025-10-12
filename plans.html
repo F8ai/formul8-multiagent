@@ -503,11 +503,15 @@
         }
 
         .plan-angled.free-plan::before {
-            background: linear-gradient(135deg, #00b894 0%, #00cec9 100%);
+            background: linear-gradient(135deg, #2d3436 0%, #636e72 100%);
+        }
+
+        .plan-angled.beta-plan::before {
+            background: linear-gradient(135deg, #2d3436 0%, #636e72 100%);
         }
 
         .plan-angled.future4200-plan::before {
-            background: linear-gradient(135deg, #6c5ce7 0%, #a29bfe 100%);
+            background: linear-gradient(135deg, #2d3436 0%, #636e72 100%);
         }
 
         .plan-angled.admin-plan::before {
@@ -593,7 +597,7 @@
                 <thead>
                     <tr>
                         <th>Agent</th>
-                        <th>
+                        <th class="plan-angled free-plan">
                             <div class="plan-header" onclick="startEditing('free', 'name')" data-plan="free" data-field="name">Free</div>
                             <div class="plan-price" onclick="startEditing('free', 'price')" data-plan="free" data-field="price">$0/month</div>
                             <div class="plan-description" onclick="startEditing('free', 'description')" data-plan="free" data-field="description">Basic Access with Ads</div>
@@ -618,17 +622,17 @@
                             <div class="plan-price" onclick="startEditing('enterprise', 'price')" data-plan="enterprise" data-field="price">Custom</div>
                             <div class="plan-description" onclick="startEditing('enterprise', 'description')" data-plan="enterprise" data-field="description">Large Operations</div>
                         </th>
-                        <th>
+                        <th class="plan-angled beta-plan">
                             <div class="plan-header" onclick="startEditing('beta', 'name')" data-plan="beta" data-field="name">Beta</div>
                             <div class="plan-price" onclick="startEditing('beta', 'price')" data-plan="beta" data-field="price">N/A</div>
                             <div class="plan-description" onclick="startEditing('beta', 'description')" data-plan="beta" data-field="description">Experimental Features</div>
                         </th>
-                        <th>
+                        <th class="plan-angled admin-plan">
                             <div class="plan-header" onclick="startEditing('admin', 'name')" data-plan="admin" data-field="name">Admin</div>
                             <div class="plan-price" onclick="startEditing('admin', 'price')" data-plan="admin" data-field="price">N/A</div>
                             <div class="plan-description" onclick="startEditing('admin', 'description')" data-plan="admin" data-field="description">Full System Access</div>
                         </th>
-                        <th>
+                        <th class="plan-angled future4200-plan">
                             <div class="plan-header" onclick="startEditing('future4200', 'name')" data-plan="future4200" data-field="name">Future4200.com</div>
                             <div class="plan-price" onclick="startEditing('future4200', 'price')" data-plan="future4200" data-field="price">$29/month</div>
                             <div class="plan-description" onclick="startEditing('future4200', 'description')" data-plan="future4200" data-field="description">Community Access</div>

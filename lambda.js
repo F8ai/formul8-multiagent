@@ -217,8 +217,7 @@ app.get('/chat', (req, res) => {
             
             .chat-header {
                 background: linear-gradient(135deg, var(--formul8-bg-secondary), #2a2a2a);
-                padding: 25px;
-                text-align: center;
+                padding: 20px;
                 border-bottom: 1px solid var(--formul8-border);
             }
             
@@ -226,12 +225,63 @@ app.get('/chat', (req, res) => {
                 font-size: 1.8rem;
                 font-weight: 600;
                 color: var(--formul8-text-primary);
-                margin-bottom: 8px;
+                margin-bottom: 15px;
+                text-align: center;
             }
             
-            .chat-header p {
+            .chat-controls {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                gap: 20px;
+                flex-wrap: wrap;
+            }
+            
+            .user-field, .plan-selector {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+            }
+            
+            .user-field label, .plan-selector label {
                 color: var(--formul8-text-secondary);
-                font-size: 0.95rem;
+                font-size: 0.9rem;
+                font-weight: 500;
+            }
+            
+            .user-field input, .plan-selector select {
+                background: var(--formul8-bg-surface);
+                border: 1px solid var(--formul8-border);
+                color: var(--formul8-text-primary);
+                padding: 6px 10px;
+                border-radius: 4px;
+                font-size: 0.9rem;
+            }
+            
+            .user-field input:focus, .plan-selector select:focus {
+                outline: none;
+                border-color: var(--formul8-primary);
+            }
+            
+            .status-indicator {
+                display: flex;
+                align-items: center;
+                gap: 6px;
+                color: var(--formul8-text-secondary);
+                font-size: 0.9rem;
+            }
+            
+            .status-dot {
+                width: 8px;
+                height: 8px;
+                background: #4ade80;
+                border-radius: 50%;
+                animation: pulse 2s infinite;
+            }
+            
+            @keyframes pulse {
+                0%, 100% { opacity: 1; }
+                50% { opacity: 0.5; }
             }
             
             .tier-indicator {
@@ -253,6 +303,58 @@ app.get('/chat', (req, res) => {
                 padding: 25px;
                 overflow-y: auto;
                 background: var(--formul8-bg-primary);
+            }
+            
+            .message {
+                margin-bottom: 15px;
+                display: flex;
+            }
+            
+            .user-message {
+                justify-content: flex-end;
+            }
+            
+            .assistant-message {
+                justify-content: flex-start;
+            }
+            
+            .message-content {
+                max-width: 70%;
+                padding: 12px 16px;
+                border-radius: 12px;
+                position: relative;
+            }
+            
+            .user-message .message-content {
+                background: var(--formul8-primary);
+                color: var(--formul8-bg-primary);
+            }
+            
+            .assistant-message .message-content {
+                background: var(--formul8-bg-surface);
+                color: var(--formul8-text-primary);
+                border: 1px solid var(--formul8-border);
+            }
+            
+            .message-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 6px;
+                font-size: 0.8rem;
+                opacity: 0.8;
+            }
+            
+            .username, .agent-name {
+                font-weight: 600;
+            }
+            
+            .timestamp {
+                font-size: 0.75rem;
+            }
+            
+            .message-text {
+                line-height: 1.4;
             }
             
             .welcome-message {
@@ -389,10 +491,29 @@ app.get('/chat', (req, res) => {
             
             <div class="chat-wrapper">
                 <div class="chat-header">
-                    <h2>Formul8 Multiagent Chat - Free Tier</h2>
-                    <p>Basic cannabis industry assistance with upgrade prompts</p>
-                    <div class="tier-indicator">
-                        <span>Free Tier - $0/month</span>
+                    <h2>Formul8 Multiagent Chat</h2>
+                    <div class="chat-controls">
+                        <div class="user-field">
+                            <label for="username">User:</label>
+                            <input type="text" id="username" placeholder="Enter username" value="guest">
+                        </div>
+                        <div class="plan-selector">
+                            <label for="planSelect">Plan:</label>
+                            <select id="planSelect">
+                                <option value="free">Free</option>
+                                <option value="standard" selected>Standard</option>
+                                <option value="micro">Micro</option>
+                                <option value="operator">Operator</option>
+                                <option value="enterprise">Enterprise</option>
+                                <option value="beta">Beta</option>
+                                <option value="admin">Admin</option>
+                                <option value="future4200">Future4200.com</option>
+                            </select>
+                        </div>
+                        <div class="status-indicator">
+                            <span class="status-dot"></span>
+                            <span>Online</span>
+                        </div>
                     </div>
                 </div>
                 
@@ -435,21 +556,97 @@ app.get('/chat', (req, res) => {
         </div>
 
         <script>
-            // Simple chat functionality
+            // Enhanced chat functionality with plan and user support
             document.getElementById('sendButton').addEventListener('click', function() {
-                const input = document.getElementById('chatInput');
-                const message = input.value.trim();
-                if (message) {
-                    console.log('Sending message:', message);
-                    input.value = '';
-                }
+                sendMessage();
             });
             
             document.getElementById('chatInput').addEventListener('keypress', function(e) {
                 if (e.key === 'Enter') {
-                    document.getElementById('sendButton').click();
+                    sendMessage();
                 }
             });
+            
+            function sendMessage() {
+                const input = document.getElementById('chatInput');
+                const message = input.value.trim();
+                const username = document.getElementById('username').value || 'guest';
+                const plan = document.getElementById('planSelect').value || 'standard';
+                
+                if (message) {
+                    console.log('Sending message:', message, 'User:', username, 'Plan:', plan);
+                    
+                    // Add user message to chat
+                    addMessageToChat('user', message, username);
+                    
+                    // Send to API
+                    sendToAPI(message, username, plan);
+                    
+                    input.value = '';
+                }
+            }
+            
+            function addMessageToChat(sender, message, username) {
+                const chatMessages = document.getElementById('chatMessages');
+                const messageDiv = document.createElement('div');
+                messageDiv.className = \`message \${sender}-message\`;
+                
+                if (sender === 'user') {
+                    messageDiv.innerHTML = \`
+                        <div class="message-content">
+                            <div class="message-header">
+                                <span class="username">\${username}</span>
+                                <span class="timestamp">\${new Date().toLocaleTimeString()}</span>
+                            </div>
+                            <div class="message-text">\${message}</div>
+                        </div>
+                    \`;
+                } else {
+                    messageDiv.innerHTML = \`
+                        <div class="message-content">
+                            <div class="message-header">
+                                <span class="agent-name">Formul8 AI</span>
+                                <span class="timestamp">\${new Date().toLocaleTimeString()}</span>
+                            </div>
+                            <div class="message-text">\${message}</div>
+                        </div>
+                    \`;
+                }
+                
+                chatMessages.appendChild(messageDiv);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+            
+            async function sendToAPI(message, username, plan) {
+                try {
+                    const response = await fetch('/api/chat', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            message: message,
+                            username: username,
+                            plan: plan
+                        })
+                    });
+                    
+                    if (!response.ok) {
+                        throw new Error(\`HTTP error! status: \${response.status}\`);
+                    }
+                    
+                    const data = await response.json();
+                    
+                    if (data.success) {
+                        addMessageToChat('assistant', data.response, 'Formul8 AI');
+                    } else {
+                        addMessageToChat('assistant', 'Sorry, I encountered an error. Please try again.', 'Formul8 AI');
+                    }
+                } catch (error) {
+                    console.error('Error sending message:', error);
+                    addMessageToChat('assistant', 'Sorry, I\'m having trouble connecting. Please try again.', 'Formul8 AI');
+                }
+            }
             
             // Tier switching
             document.querySelectorAll('.tier-button').forEach(button => {
