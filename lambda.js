@@ -378,20 +378,77 @@ app.get('/chat', (req, res) => {
 });
 
 // API chat endpoint
-app.post('/api/chat', (req, res) => {
+app.post('/api/chat', async (req, res) => {
   const { message } = req.body;
   
   if (!message) {
     return res.status(400).json({ error: 'Message is required' });
   }
   
-  // Simple response for now
-  res.json({
-    success: true,
-    response: `I received your message: "${message}". This is a placeholder response from the Formul8 Multiagent system.`,
-    agent: 'f8_agent',
-    timestamp: new Date().toISOString()
-  });
+  try {
+    // Get OpenRouter API key from environment
+    const openRouterApiKey = process.env.OPENROUTER_API_KEY;
+    
+    if (!openRouterApiKey) {
+      console.error('OpenRouter API key not found in environment variables');
+      return res.status(500).json({ 
+        error: 'API configuration error',
+        response: 'I apologize, but I\'m currently experiencing a configuration issue. Please try again later.'
+      });
+    }
+    
+    // Call OpenRouter API
+    const openRouterResponse = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${openRouterApiKey}`,
+        'Content-Type': 'application/json',
+        'HTTP-Referer': 'https://f8.syzygyx.com',
+        'X-Title': 'Formul8 Multiagent Chat'
+      },
+      body: JSON.stringify({
+        model: 'openai/gpt-4o-mini',
+        messages: [
+          {
+            role: 'system',
+            content: `You are a Formul8 Multiagent AI assistant specializing in the cannabis industry. You help with compliance, formulation, science, operations, marketing, patent research, and sourcing. Provide helpful, accurate, and professional responses. Keep responses concise but informative.`
+          },
+          {
+            role: 'user',
+            content: message
+          }
+        ],
+        max_tokens: 1000,
+        temperature: 0.7
+      })
+    });
+    
+    if (!openRouterResponse.ok) {
+      console.error('OpenRouter API error:', openRouterResponse.status, openRouterResponse.statusText);
+      return res.status(500).json({ 
+        error: 'AI service temporarily unavailable',
+        response: 'I apologize, but I\'m currently unable to process your request. Please try again in a moment.'
+      });
+    }
+    
+    const aiData = await openRouterResponse.json();
+    const aiResponse = aiData.choices?.[0]?.message?.content || 'I apologize, but I couldn\'t generate a response. Please try again.';
+    
+    res.json({
+      success: true,
+      response: aiResponse,
+      agent: 'f8_agent',
+      timestamp: new Date().toISOString(),
+      model: 'gpt-4o-mini'
+    });
+    
+  } catch (error) {
+    console.error('Error calling OpenRouter API:', error);
+    res.status(500).json({ 
+      error: 'Internal server error',
+      response: 'I apologize, but I encountered an error processing your request. Please try again.'
+    });
+  }
 });
 
 // Lambda handler
@@ -609,16 +666,86 @@ exports.handler = async (event, context) => {
       };
     }
     
-    return {
-      statusCode: 200,
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        success: true,
-        response: `I received your message: "${message}". This is a placeholder response from the Formul8 Multiagent system.`,
-        agent: 'f8_agent',
-        timestamp: new Date().toISOString()
-      })
-    };
+    try {
+      // Get OpenRouter API key from environment
+      const openRouterApiKey = process.env.OPENROUTER_API_KEY;
+      
+      if (!openRouterApiKey) {
+        console.error('OpenRouter API key not found in environment variables');
+        return {
+          statusCode: 500,
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ 
+            error: 'API configuration error',
+            response: 'I apologize, but I\'m currently experiencing a configuration issue. Please try again later.'
+          })
+        };
+      }
+      
+      // Call OpenRouter API
+      const openRouterResponse = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${openRouterApiKey}`,
+          'Content-Type': 'application/json',
+          'HTTP-Referer': 'https://f8.syzygyx.com',
+          'X-Title': 'Formul8 Multiagent Chat'
+        },
+        body: JSON.stringify({
+          model: 'openai/gpt-4o-mini',
+          messages: [
+            {
+              role: 'system',
+              content: `You are a Formul8 Multiagent AI assistant specializing in the cannabis industry. You help with compliance, formulation, science, operations, marketing, patent research, and sourcing. Provide helpful, accurate, and professional responses. Keep responses concise but informative.`
+            },
+            {
+              role: 'user',
+              content: message
+            }
+          ],
+          max_tokens: 1000,
+          temperature: 0.7
+        })
+      });
+      
+      if (!openRouterResponse.ok) {
+        console.error('OpenRouter API error:', openRouterResponse.status, openRouterResponse.statusText);
+        return {
+          statusCode: 500,
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ 
+            error: 'AI service temporarily unavailable',
+            response: 'I apologize, but I\'m currently unable to process your request. Please try again in a moment.'
+          })
+        };
+      }
+      
+      const aiData = await openRouterResponse.json();
+      const aiResponse = aiData.choices?.[0]?.message?.content || 'I apologize, but I couldn\'t generate a response. Please try again.';
+      
+      return {
+        statusCode: 200,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          success: true,
+          response: aiResponse,
+          agent: 'f8_agent',
+          timestamp: new Date().toISOString(),
+          model: 'gpt-4o-mini'
+        })
+      };
+      
+    } catch (error) {
+      console.error('Error calling OpenRouter API:', error);
+      return {
+        statusCode: 500,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ 
+          error: 'Internal server error',
+          response: 'I apologize, but I encountered an error processing your request. Please try again.'
+        })
+      };
+    }
   }
   
   return {
