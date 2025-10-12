@@ -606,12 +606,12 @@
                         </th>
                         <th>
                             <div class="plan-header" onclick="startEditing('beta', 'name')" data-plan="beta" data-field="name">Beta</div>
-                            <div class="plan-price" onclick="startEditing('beta', 'price')" data-plan="beta" data-field="price">$199/month</div>
+                            <div class="plan-price" onclick="startEditing('beta', 'price')" data-plan="beta" data-field="price">No Cost</div>
                             <div class="plan-description" onclick="startEditing('beta', 'description')" data-plan="beta" data-field="description">Experimental Features</div>
                         </th>
                         <th>
                             <div class="plan-header" onclick="startEditing('admin', 'name')" data-plan="admin" data-field="name">Admin</div>
-                            <div class="plan-price" onclick="startEditing('admin', 'price')" data-plan="admin" data-field="price">Custom</div>
+                            <div class="plan-price" onclick="startEditing('admin', 'price')" data-plan="admin" data-field="price">No Cost</div>
                             <div class="plan-description" onclick="startEditing('admin', 'description')" data-plan="admin" data-field="description">Full System Access</div>
                         </th>
                         <th>
@@ -803,8 +803,8 @@
                 "beta": {
                     "name": "Beta",
                     "description": "Access to experimental features",
-                    "price": "$199",
-                    "period": "/month",
+                    "price": "No Cost",
+                    "period": "",
                     "features": [
                         "Everything in Standard",
                         "Beta agent access",
@@ -821,9 +821,9 @@
                         "sourcing": true,
                         "customer_success": true,
                         "mcr": true,
-                        "science": true,
-                        "spectra": true,
-                        "metabolome": true,
+                        "science": false,
+                        "spectra": false,
+                        "metabolome": false,
                         "f8_slackbot": false,
                         "ad": false,
                         "editor_agent": false
@@ -832,7 +832,7 @@
                 "admin": {
                     "name": "Admin",
                     "description": "Full system access and admin tools",
-                    "price": "Custom",
+                    "price": "No Cost",
                     "period": "",
                     "features": [
                         "Everything in all plans",
@@ -853,9 +853,9 @@
                         "mcr": true,
                         "future4200": true,
                         "future": true,
-                        "science": true,
-                        "spectra": true,
-                        "metabolome": true,
+                        "science": false,
+                        "spectra": false,
+                        "metabolome": false,
                         "f8_slackbot": true,
                         "ad": false,
                         "editor_agent": true
@@ -925,15 +925,16 @@
                 },
                 "science": {
                     "name": "Science Agent",
-                    "description": "Cannabis research and scientific analysis expert",
+                    "description": "Advanced cannabis research and scientific analysis expert",
                     "type": "microservice",
                     "url": "https://science-agent.f8.syzygyx.com",
-                    "keywords": ["science", "research", "cannabinoid", "terpene", "lab", "testing", "coa", "analysis", "study", "clinical"],
+                    "keywords": ["science", "research", "cannabinoid", "terpene", "lab", "testing", "coa", "analysis", "study", "clinical", "biochemistry", "pharmacology"],
                     "specialties": [
-                        "Cannabinoid analysis",
-                        "Terpene profiling",
-                        "Lab testing interpretation",
-                        "Scientific research"
+                        "Advanced cannabinoid analysis",
+                        "Comprehensive terpene profiling",
+                        "Lab testing interpretation and validation",
+                        "Scientific research and clinical studies",
+                        "Biochemical pathway analysis"
                     ]
                 },
                 "operations": {
