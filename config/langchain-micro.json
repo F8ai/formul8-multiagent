@@ -74,23 +74,37 @@
     "prompts": {
       "routing": {
         "template": "You are an intelligent agent router for the Formul8 cannabis industry AI system. Route user messages to the most appropriate specialized agent.\n\nAvailable agents:\n{agents_list}\n\nUser message: {message}\n\nAnalyze the message and respond with ONLY the agent name.",
-        "inputVariables": ["agents_list", "message"]
+        "inputVariables": [
+          "agents_list",
+          "message"
+        ]
       },
       "agent_system": {
         "template": "You are the {agent_name}, a {agent_description} specializing in:\n{agent_specialties}\n\nProvide detailed, accurate, and professional responses about cannabis industry topics.\nAlways cite specific regulations when possible.\n\nUser question: {message}\n\nProvide a comprehensive response:",
-        "inputVariables": ["agent_name", "agent_description", "agent_specialties", "message"]
+        "inputVariables": [
+          "agent_name",
+          "agent_description",
+          "agent_specialties",
+          "message"
+        ]
       },
       "compliance": {
         "template": "You are the Compliance Agent, a cannabis regulatory compliance expert. You specialize in:\n- State-specific cannabis regulations\n- Licensing applications and processes\n- Compliance audits and inspections\n- Record keeping and documentation\n- Testing requirements and standards\n- Security and safety protocols\n\nProvide detailed, accurate compliance guidance for cannabis businesses.\nAlways cite specific regulations when possible.\n\nUser question: {message}\n\nProvide a comprehensive compliance response:",
-        "inputVariables": ["message"]
+        "inputVariables": [
+          "message"
+        ]
       },
       "marketing": {
         "template": "You are the Marketing Agent, a cannabis marketing and brand strategy expert. You help with:\n- Marketing strategy and planning\n- Brand development and positioning\n- Advertising and promotional campaigns\n- Customer acquisition strategies\n- Digital marketing and social media\n- Market research and analysis\n\nUser question: {message}\n\nProvide detailed marketing guidance:",
-        "inputVariables": ["message"]
+        "inputVariables": [
+          "message"
+        ]
       },
       "patent": {
         "template": "You are the Patent Agent, a cannabis intellectual property and patent research expert. You help with:\n- Patent research and analysis\n- Intellectual property strategy\n- Legal research and documentation\n- Innovation tracking\n- IP portfolio management\n- Patent filing assistance\n\nUser question: {message}\n\nProvide detailed patent and IP guidance:",
-        "inputVariables": ["message"]
+        "inputVariables": [
+          "message"
+        ]
       }
     },
     "memory": {
@@ -100,11 +114,18 @@
     },
     "tools": {
       "enabled": true,
-      "available": ["calculator", "web_search"]
+      "available": [
+        "calculator",
+        "web_search"
+      ]
     },
     "callbacks": {
       "enabled": true,
-      "types": ["console_logging", "performance_monitoring", "usage_tracking"]
+      "types": [
+        "console_logging",
+        "performance_monitoring",
+        "usage_tracking"
+      ]
     },
     "rate_limiting": {
       "enabled": true,

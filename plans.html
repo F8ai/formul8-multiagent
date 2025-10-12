@@ -95,6 +95,19 @@
             font-weight: 700;
             color: #2c3e50;
             font-size: 1.1rem;
+            cursor: pointer;
+            padding: 4px 8px;
+            border-radius: 4px;
+            transition: background-color 0.2s ease;
+        }
+
+        .plan-header:hover {
+            background-color: #f8f9fa;
+        }
+
+        .plan-header.editing {
+            background-color: #e3f2fd;
+            border: 2px solid #2196f3;
         }
 
         .plan-price {
@@ -102,12 +115,56 @@
             font-weight: 700;
             color: #e74c3c;
             margin-bottom: 5px;
+            cursor: pointer;
+            padding: 4px 8px;
+            border-radius: 4px;
+            transition: background-color 0.2s ease;
+        }
+
+        .plan-price:hover {
+            background-color: #f8f9fa;
+        }
+
+        .plan-price.editing {
+            background-color: #e3f2fd;
+            border: 2px solid #2196f3;
         }
 
         .plan-description {
             font-size: 0.9rem;
             color: #7f8c8d;
             margin-bottom: 10px;
+            cursor: pointer;
+            padding: 4px 8px;
+            border-radius: 4px;
+            transition: background-color 0.2s ease;
+        }
+
+        .plan-description:hover {
+            background-color: #f8f9fa;
+        }
+
+        .plan-description.editing {
+            background-color: #e3f2fd;
+            border: 2px solid #2196f3;
+        }
+
+        .editable-input {
+            background: transparent;
+            border: none;
+            outline: none;
+            font: inherit;
+            color: inherit;
+            width: 100%;
+            padding: 0;
+            margin: 0;
+        }
+
+        .editable-input:focus {
+            background: white;
+            border: 1px solid #2196f3;
+            border-radius: 3px;
+            padding: 2px 4px;
         }
 
         .checkbox {
@@ -288,24 +345,24 @@
                     <tr>
                         <th>Agent</th>
                         <th class="plan-popular">
-                            <div class="plan-header">Standard</div>
-                            <div class="plan-price">$20/month</div>
-                            <div class="plan-description">Perfect for Artesians</div>
+                            <div class="plan-header" onclick="startEditing('standard', 'name')" data-plan="standard" data-field="name">Standard</div>
+                            <div class="plan-price" onclick="startEditing('standard', 'price')" data-plan="standard" data-field="price">$20/month</div>
+                            <div class="plan-description" onclick="startEditing('standard', 'description')" data-plan="standard" data-field="description">Perfect for Artesians</div>
                         </th>
                         <th>
-                            <div class="plan-header">Micro</div>
-                            <div class="plan-price">$99/month</div>
-                            <div class="plan-description">Micro & Social Equity</div>
+                            <div class="plan-header" onclick="startEditing('micro', 'name')" data-plan="micro" data-field="name">Micro</div>
+                            <div class="plan-price" onclick="startEditing('micro', 'price')" data-plan="micro" data-field="price">$99/month</div>
+                            <div class="plan-description" onclick="startEditing('micro', 'description')" data-plan="micro" data-field="description">Micro & Social Equity</div>
                         </th>
                         <th>
-                            <div class="plan-header">Operator</div>
-                            <div class="plan-price">$499/month</div>
-                            <div class="plan-description">Growing Businesses</div>
+                            <div class="plan-header" onclick="startEditing('operator', 'name')" data-plan="operator" data-field="name">Operator</div>
+                            <div class="plan-price" onclick="startEditing('operator', 'price')" data-plan="operator" data-field="price">$499/month</div>
+                            <div class="plan-description" onclick="startEditing('operator', 'description')" data-plan="operator" data-field="description">Growing Businesses</div>
                         </th>
                         <th>
-                            <div class="plan-header">Enterprise</div>
-                            <div class="plan-price">Custom</div>
-                            <div class="plan-description">Large Operations</div>
+                            <div class="plan-header" onclick="startEditing('enterprise', 'name')" data-plan="enterprise" data-field="name">Enterprise</div>
+                            <div class="plan-price" onclick="startEditing('enterprise', 'price')" data-plan="enterprise" data-field="price">Custom</div>
+                            <div class="plan-description" onclick="startEditing('enterprise', 'description')" data-plan="enterprise" data-field="description">Large Operations</div>
                         </th>
                     </tr>
                 </thead>
@@ -332,16 +389,16 @@
             try {
                 document.getElementById('loading').style.display = 'block';
                 
-                // Load plans configuration
-                const plansResponse = await fetch('/config/plans.json');
+                // Load plans configuration from GitHub raw
+                const plansResponse = await fetch('https://raw.githubusercontent.com/F8ai/formul8-multiagent/main/config/plans.json');
                 if (!plansResponse.ok) {
                     throw new Error('Failed to load plans configuration');
                 }
                 plansConfig = await plansResponse.json();
                 originalConfig = JSON.parse(JSON.stringify(plansConfig));
                 
-                // Load agents configuration
-                const agentsResponse = await fetch('/config/agents.json');
+                // Load agents configuration from GitHub raw
+                const agentsResponse = await fetch('https://raw.githubusercontent.com/F8ai/formul8-multiagent/main/config/agents.json');
                 if (!agentsResponse.ok) {
                     throw new Error('Failed to load agents configuration');
                 }
@@ -349,7 +406,7 @@
                 
                 renderTable();
                 document.getElementById('loading').style.display = 'none';
-                showStatus('Configuration loaded successfully', 'success');
+                showStatus('Configuration loaded successfully from GitHub', 'success');
             } catch (error) {
                 console.error('Error loading configurations:', error);
                 document.getElementById('loading').style.display = 'none';
@@ -419,40 +476,54 @@
         // Save configuration
         async function saveConfiguration() {
             try {
-                showStatus('Saving configuration...', 'info');
+                showStatus('Preparing pull request...', 'info');
                 
-                // Save plans.json
-                const plansResponse = await fetch('/api/plans', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(plansConfig)
-                });
+                // Generate a unique branch name
+                const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
+                const branchName = `update-plans-config-${timestamp}`;
                 
-                if (!plansResponse.ok) {
-                    throw new Error('Failed to save plans configuration');
-                }
+                // Create the updated plans.json content
+                const plansJson = JSON.stringify(plansConfig, null, 2);
                 
-                // Update corresponding langchain-{plan}.json files
-                const langchainResponse = await fetch('/api/plans/sync-langchain', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(plansConfig)
-                });
+                // Create GitHub web editor URL for creating a new file
+                const githubWebEditorUrl = `https://github.com/F8ai/formul8-multiagent/new/${branchName}?filename=config/plans.json&value=${encodeURIComponent(plansJson)}`;
                 
-                if (langchainResponse.ok) {
-                    showStatus('Configuration saved and langchain files updated successfully!', 'success');
-                } else {
-                    showStatus('Plans saved but langchain sync failed. Check logs.', 'error');
-                }
+                // Create PR creation URL
+                const prCreateUrl = `https://github.com/F8ai/formul8-multiagent/compare/main...${branchName}`;
+                
+                showStatus('✅ Configuration prepared! Opening GitHub editor...', 'success');
+                
+                const prInfo = `
+                    <div style="margin-top: 20px; padding: 15px; background: #d4edda; border-radius: 6px; border-left: 4px solid #28a745;">
+                        <h4>🎉 Ready to Create Pull Request!</h4>
+                        <p>Follow these steps to create your PR:</p>
+                        <ol>
+                            <li><strong>Create Branch & File:</strong> <a href="${githubWebEditorUrl}" target="_blank" style="color: #007bff; text-decoration: underline;">Open GitHub Editor</a></li>
+                            <li><strong>Commit the file</strong> with message: <code>Update plans configuration</code></li>
+                            <li><strong>Create PR:</strong> <a href="${prCreateUrl}" target="_blank" style="color: #007bff; text-decoration: underline;">Create Pull Request</a></li>
+                        </ol>
+                        <p><strong>Branch Name:</strong> <code>${branchName}</code></p>
+                        <p><strong>Files to Update:</strong></p>
+                        <ul>
+                            <li><code>config/plans.json</code> (main file)</li>
+                            <li><code>config/langchain-{plan}.json</code> (run sync script after PR is created)</li>
+                        </ul>
+                        <div style="margin-top: 15px; padding: 10px; background: #f8f9fa; border-radius: 4px;">
+                            <strong>After creating the PR, run this command to sync langchain files:</strong><br>
+                            <code style="background: #e9ecef; padding: 2px 4px; border-radius: 3px;">node scripts/sync-plans-to-langchain.js</code>
+                        </div>
+                    </div>
+                `;
+                
+                document.getElementById('status').innerHTML += prInfo;
+                
+                // Auto-open the GitHub editor
+                window.open(githubWebEditorUrl, '_blank');
                 
                 originalConfig = JSON.parse(JSON.stringify(plansConfig));
             } catch (error) {
-                console.error('Error saving configuration:', error);
-                showStatus('Error saving configuration: ' + error.message, 'error');
+                console.error('Error preparing pull request:', error);
+                showStatus('Error preparing pull request: ' + error.message, 'error');
             }
         }
 
@@ -501,6 +572,75 @@
             setTimeout(() => {
                 statusDiv.innerHTML = '';
             }, 5000);
+        }
+
+        // Start editing a plan field
+        function startEditing(planKey, field) {
+            const element = document.querySelector(`[data-plan="${planKey}"][data-field="${field}"]`);
+            if (!element || element.classList.contains('editing')) return;
+            
+            const currentValue = element.textContent;
+            element.classList.add('editing');
+            
+            // Create input element
+            const input = document.createElement('input');
+            input.type = 'text';
+            input.className = 'editable-input';
+            input.value = currentValue;
+            
+            // Replace content with input
+            element.innerHTML = '';
+            element.appendChild(input);
+            input.focus();
+            input.select();
+            
+            // Handle save on blur or enter
+            const saveEdit = () => {
+                const newValue = input.value.trim();
+                if (newValue !== currentValue) {
+                    updatePlanField(planKey, field, newValue);
+                }
+                element.textContent = newValue;
+                element.classList.remove('editing');
+            };
+            
+            // Handle cancel on escape
+            const cancelEdit = () => {
+                element.textContent = currentValue;
+                element.classList.remove('editing');
+            };
+            
+            input.addEventListener('blur', saveEdit);
+            input.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    saveEdit();
+                } else if (e.key === 'Escape') {
+                    e.preventDefault();
+                    cancelEdit();
+                }
+            });
+        }
+
+        // Update a plan field in the configuration
+        function updatePlanField(planKey, field, value) {
+            if (!plansConfig.plans[planKey]) {
+                plansConfig.plans[planKey] = {};
+            }
+            
+            if (field === 'name') {
+                plansConfig.plans[planKey].name = value;
+            } else if (field === 'price') {
+                plansConfig.plans[planKey].price = value;
+            } else if (field === 'description') {
+                plansConfig.plans[planKey].description = value;
+            }
+            
+            // Update the display
+            const element = document.querySelector(`[data-plan="${planKey}"][data-field="${field}"]`);
+            if (element) {
+                element.textContent = value;
+            }
         }
 
         // Initialize on page load

@@ -79,23 +79,37 @@
     "prompts": {
       "routing": {
         "template": "You are an intelligent agent router for the Formul8 cannabis industry AI system. Route user messages to the most appropriate specialized agent.\n\nAvailable agents:\n{agents_list}\n\nUser message: {message}\n\nAnalyze the message and respond with ONLY the agent name.",
-        "inputVariables": ["agents_list", "message"]
+        "inputVariables": [
+          "agents_list",
+          "message"
+        ]
       },
       "agent_system": {
         "template": "You are the {agent_name}, a {agent_description} specializing in:\n{agent_specialties}\n\nProvide detailed, accurate, and professional responses about cannabis industry topics.\nAlways cite specific regulations when possible and recommend consulting with legal professionals for complex matters.\n\nUser question: {message}\n\nProvide a comprehensive response:",
-        "inputVariables": ["agent_name", "agent_description", "agent_specialties", "message"]
+        "inputVariables": [
+          "agent_name",
+          "agent_description",
+          "agent_specialties",
+          "message"
+        ]
       },
       "compliance": {
         "template": "You are the Compliance Agent, a cannabis regulatory compliance expert. You specialize in:\n- State-specific cannabis regulations\n- Licensing applications and processes\n- Compliance audits and inspections\n- Record keeping and documentation\n- Testing requirements and standards\n- Security and safety protocols\n\nProvide detailed, accurate compliance guidance for cannabis businesses.\nAlways cite specific regulations when possible.\n\nUser question: {message}\n\nProvide a comprehensive compliance response:",
-        "inputVariables": ["message"]
+        "inputVariables": [
+          "message"
+        ]
       },
       "formulation": {
         "template": "You are the Formulation Agent, a cannabis product formulation specialist. You help with:\n- Recipe development and customization\n- Dosage calculations for THC/CBD\n- Extraction methods and techniques\n- Ingredient selection and sourcing\n- Quality control and consistency\n- Product stability and shelf life\n\nUser question: {message}\n\nProvide detailed formulation guidance with calculations:",
-        "inputVariables": ["message"]
+        "inputVariables": [
+          "message"
+        ]
       },
       "operations": {
         "template": "You are the Operations Agent, a cannabis facility operations and management specialist. You help with:\n- Facility operations and management\n- Production planning and scheduling\n- Quality control processes\n- Logistics and supply chain\n- Equipment maintenance\n- Staff training and safety\n\nUser question: {message}\n\nProvide comprehensive operations guidance:",
-        "inputVariables": ["message"]
+        "inputVariables": [
+          "message"
+        ]
       }
     },
     "memory": {
@@ -105,11 +119,21 @@
     },
     "tools": {
       "enabled": true,
-      "available": ["calculator", "web_search", "code_interpreter", "file_reader"]
+      "available": [
+        "calculator",
+        "web_search",
+        "code_interpreter",
+        "file_reader"
+      ]
     },
     "callbacks": {
       "enabled": true,
-      "types": ["console_logging", "performance_monitoring", "usage_tracking", "analytics"]
+      "types": [
+        "console_logging",
+        "performance_monitoring",
+        "usage_tracking",
+        "analytics"
+      ]
     },
     "rate_limiting": {
       "enabled": true,
