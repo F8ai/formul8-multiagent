@@ -26,6 +26,41 @@ app.get('/health', (req, res) => {
   });
 });
 
+// Plans configuration page
+app.get('/plans', (req, res) => {
+  res.sendFile(__dirname + '/docs/plans.html');
+});
+
+// Plans API endpoints
+app.get('/api/plans', (req, res) => {
+  try {
+    const fs = require('fs');
+    const plansConfig = JSON.parse(fs.readFileSync(__dirname + '/config/plans.json', 'utf8'));
+    res.json(plansConfig);
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to load plans configuration' });
+  }
+});
+
+app.post('/api/plans', (req, res) => {
+  try {
+    const fs = require('fs');
+    fs.writeFileSync(__dirname + '/config/plans.json', JSON.stringify(req.body, null, 2));
+    res.json({ success: true, message: 'Plans configuration updated' });
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to save plans configuration' });
+  }
+});
+
+app.post('/api/plans/pr', (req, res) => {
+  // Placeholder for creating pull request
+  res.json({ 
+    success: true, 
+    message: 'Pull request creation not implemented yet',
+    prUrl: 'https://github.com/F8ai/formul8-multiagent/pulls'
+  });
+});
+
 // Chat endpoint
 app.get('/chat', (req, res) => {
   res.send(`

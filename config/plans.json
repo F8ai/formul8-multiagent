@@ -1,0 +1,113 @@
+{
+  "plans": {
+    "standard": {
+      "name": "Standard",
+      "description": "Perfect for Artesians",
+      "price": "$20",
+      "period": "month",
+      "features": [
+        "Standard formulation tools",
+        "Future4200 Search and Summarize",
+        "calculations",
+        "Basic SOP starter templates",
+        "Science"
+      ],
+      "agents": {
+        "f8_agent": true,
+        "formulation": true,
+        "science": true
+      }
+    },
+    "micro": {
+      "name": "Micro",
+      "description": "Designed for micro and social equity licenses",
+      "price": "$99",
+      "period": "month",
+      "features": [
+        "Enhanced single state compliance checking",
+        "Everything in Standard",
+        "Advanced formulation tools",
+        "Single state marketing data",
+        "Compliant SOP templates",
+        "Scenario Mapping",
+        "Metrc API"
+      ],
+      "agents": {
+        "f8_agent": true,
+        "compliance": true,
+        "formulation": true,
+        "science": true,
+        "marketing": true,
+        "operations": true
+      }
+    },
+    "operator": {
+      "name": "Operator",
+      "description": "Ideal for growing cannabis businesses",
+      "price": "$499",
+      "period": "month",
+      "features": [
+        "Live 50 state compliance monitoring",
+        "Full formulation suite",
+        "Priority support",
+        "Unlimited calculations",
+        "Custom SOP generation",
+        "Extraction optimization",
+        "Document Upload and Storage (Coming soon)",
+        "Google Drive integration (Coming soon)",
+        "Marketing Strategy",
+        "Manuals/Troubleshooting",
+        "FTO Search"
+      ],
+      "agents": {
+        "f8_agent": true,
+        "compliance": true,
+        "formulation": true,
+        "science": true,
+        "operations": true,
+        "marketing": true,
+        "sourcing": true,
+        "patent": true,
+        "spectra": true,
+        "customer_success": true,
+        "f8_slackbot": true,
+        "mcr": true,
+        "ad": true
+      }
+    },
+    "enterprise": {
+      "name": "Enterprise",
+      "description": "For large operations and multi-state businesses",
+      "price": "Custom",
+      "period": "",
+      "features": [
+        "Everything in Operator",
+        "Customer Service agents",
+        "White-label solutions",
+        "Dedicated account manager",
+        "Custom Workflow integrations",
+        "Advanced analytics",
+        "Multi-user management",
+        "API access",
+        "Custom training",
+        "SLA guarantees"
+      ],
+      "agents": {
+        "f8_agent": true,
+        "compliance": true,
+        "formulation": true,
+        "science": true,
+        "operations": true,
+        "marketing": true,
+        "sourcing": true,
+        "patent": true,
+        "spectra": true,
+        "customer_success": true,
+        "f8_slackbot": true,
+        "mcr": true,
+        "ad": true,
+        "editor_agent": true
+      }
+    }
+  }
+}

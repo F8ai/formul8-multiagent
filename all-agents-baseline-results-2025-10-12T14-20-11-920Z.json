@@ -1,0 +1,1023 @@
+{
+  "timestamp": "2025-10-12T14:20:11.920Z",
+  "agentsConfig": {
+    "f8_agent": {
+      "name": "F8 Multi-Agent",
+      "description": "Main Formul8 AI agent that can route to specialized agents",
+      "type": "main",
+      "url": "https://f8.syzygyx.com",
+      "keywords": [
+        "general",
+        "business",
+        "strategy",
+        "overview",
+        "help"
+      ],
+      "specialties": [
+        "General cannabis industry questions",
+        "Business strategy and planning",
+        "Multi-topic queries",
+        "Agent routing and coordination"
+      ]
+    },
+    "compliance": {
+      "name": "Compliance Agent",
+      "description": "Cannabis regulatory compliance expert",
+      "type": "microservice",
+      "url": "https://compliance-agent.f8.syzygyx.com",
+      "keywords": [
+        "compliance",
+        "regulation",
+        "license",
+        "legal",
+        "audit",
+        "inspection",
+        "permit",
+        "regulatory"
+      ],
+      "specialties": [
+        "State-specific cannabis regulations",
+        "Licensing applications and processes",
+        "Compliance audits and inspections",
+        "Record keeping and documentation",
+        "Testing requirements and standards",
+        "Security and safety protocols"
+      ]
+    },
+    "formulation": {
+      "name": "Formulation Agent",
+      "description": "Cannabis product formulation specialist",
+      "type": "microservice",
+      "url": "https://formulation-agent.f8.syzygyx.com",
+      "keywords": [
+        "formulation",
+        "recipe",
+        "dosage",
+        "extraction",
+        "ingredient",
+        "thc",
+        "cbd",
+        "concentrate",
+        "edible",
+        "tincture"
+      ],
+      "specialties": [
+        "Recipe development and customization",
+        "Dosage calculations for THC/CBD",
+        "Extraction methods and techniques",
+        "Ingredient selection and sourcing",
+        "Quality control and consistency",
+        "Product stability and shelf life"
+      ]
+    },
+    "science": {
+      "name": "Science Agent",
+      "description": "Cannabis research and analysis expert",
+      "type": "microservice",
+      "url": "https://science-agent.f8.syzygyx.com",
+      "keywords": [
+        "science",
+        "research",
+        "cannabinoid",
+        "terpene",
+        "lab",
+        "testing",
+        "coa",
+        "analysis",
+        "study",
+        "clinical"
+      ],
+      "specialties": [
+        "Scientific research analysis",
+        "Cannabinoid and terpene profiles",
+        "Lab results interpretation (COAs)",
+        "Research trends and findings",
+        "Chemical analysis and testing",
+        "Product quality assessment"
+      ]
+    },
+    "operations": {
+      "name": "Operations Agent",
+      "description": "Cannabis facility operations and management specialist",
+      "type": "microservice",
+      "url": "https://operations-agent.f8.syzygyx.com",
+      "keywords": [
+        "operations",
+        "facility",
+        "management",
+        "production",
+        "quality",
+        "control",
+        "logistics",
+        "manufacturing"
+      ],
+      "specialties": [
+        "Facility operations and management",
+        "Production planning and scheduling",
+        "Quality control processes",
+        "Logistics and supply chain",
+        "Equipment maintenance",
+        "Staff training and safety"
+      ]
+    },
+    "marketing": {
+      "name": "Marketing Agent",
+      "description": "Cannabis marketing and brand strategy expert",
+      "type": "microservice",
+      "url": "https://marketing-agent.f8.syzygyx.com",
+      "keywords": [
+        "marketing",
+        "brand",
+        "advertising",
+        "promotion",
+        "customer",
+        "acquisition",
+        "strategy",
+        "campaign"
+      ],
+      "specialties": [
+        "Marketing strategy and planning",
+        "Brand development and positioning",
+        "Advertising and promotional campaigns",
+        "Customer acquisition strategies",
+        "Digital marketing and social media",
+        "Market research and analysis"
+      ]
+    },
+    "sourcing": {
+      "name": "Sourcing Agent",
+      "description": "Cannabis supply chain and sourcing specialist",
+      "type": "microservice",
+      "url": "https://sourcing-agent.f8.syzygyx.com",
+      "keywords": [
+        "sourcing",
+        "supply",
+        "chain",
+        "procurement",
+        "vendor",
+        "inventory",
+        "supplier",
+        "purchasing"
+      ],
+      "specialties": [
+        "Supply chain management",
+        "Vendor sourcing and evaluation",
+        "Procurement strategies",
+        "Inventory management",
+        "Quality assurance for suppliers",
+        "Cost optimization"
+      ]
+    },
+    "patent": {
+      "name": "Patent Agent",
+      "description": "Cannabis intellectual property and patent research expert",
+      "type": "microservice",
+      "url": "https://patent-agent.f8.syzygyx.com",
+      "keywords": [
+        "patent",
+        "intellectual",
+        "property",
+        "ip",
+        "research",
+        "legal",
+        "innovation",
+        "invention"
+      ],
+      "specialties": [
+        "Patent research and analysis",
+        "Intellectual property strategy",
+        "Legal research and documentation",
+        "Innovation tracking",
+        "IP portfolio management",
+        "Patent filing assistance"
+      ]
+    },
+    "spectra": {
+      "name": "Spectra Agent",
+      "description": "Cannabis spectral analysis and quality testing specialist",
+      "type": "microservice",
+      "url": "https://spectra-agent.f8.syzygyx.com",
+      "keywords": [
+        "spectra",
+        "analysis",
+        "testing",
+        "lab",
+        "equipment",
+        "chemistry",
+        "spectroscopy",
+        "quality"
+      ],
+      "specialties": [
+        "Spectral analysis techniques",
+        "Quality testing protocols",
+        "Lab equipment operation",
+        "Analytical chemistry",
+        "Data interpretation",
+        "Testing standards compliance"
+      ]
+    },
+    "customer_success": {
+      "name": "Customer Success Agent",
+      "description": "Cannabis customer success and retention specialist",
+      "type": "microservice",
+      "url": "https://customer-success-agent.f8.syzygyx.com",
+      "keywords": [
+        "customer",
+        "success",
+        "retention",
+        "support",
+        "satisfaction",
+        "onboarding",
+        "service"
+      ],
+      "specialties": [
+        "Customer success strategies",
+        "Retention and loyalty programs",
+        "Support and service optimization",
+        "Customer onboarding processes",
+        "Satisfaction measurement",
+        "Account management"
+      ]
+    },
+    "f8_slackbot": {
+      "name": "F8 Slackbot",
+      "description": "Formul8 Slack integration and team collaboration agent",
+      "type": "microservice",
+      "url": "https://f8-slackbot.f8.syzygyx.com",
+      "keywords": [
+        "slack",
+        "integration",
+        "team",
+        "collaboration",
+        "notification",
+        "workflow",
+        "communication"
+      ],
+      "specialties": [
+        "Slack integration and automation",
+        "Team collaboration tools",
+        "Notification and alert systems",
+        "Workflow automation",
+        "Communication optimization",
+        "Team productivity tools"
+      ]
+    },
+    "mcr": {
+      "name": "MCR Agent",
+      "description": "Cannabis MCR (Master Control Record) management specialist",
+      "type": "microservice",
+      "url": "https://mcr-agent.f8.syzygyx.com",
+      "keywords": [
+        "mcr",
+        "master",
+        "control",
+        "record",
+        "documentation",
+        "compliance",
+        "tracking"
+      ],
+      "specialties": [
+        "Master Control Record management",
+        "Documentation and record keeping",
+        "Compliance tracking systems",
+        "Data integrity management",
+        "Audit trail maintenance",
+        "Regulatory reporting"
+      ]
+    },
+    "ad": {
+      "name": "Ad Agent",
+      "description": "Cannabis advertising and promotional strategy expert",
+      "type": "microservice",
+      "url": "https://ad-agent.f8.syzygyx.com",
+      "keywords": [
+        "advertising",
+        "ad",
+        "promotional",
+        "campaign",
+        "media",
+        "strategy",
+        "creative",
+        "content"
+      ],
+      "specialties": [
+        "Advertising strategy and planning",
+        "Promotional campaign development",
+        "Media buying and placement",
+        "Creative content development",
+        "Campaign performance analysis",
+        "Brand messaging optimization"
+      ]
+    },
+    "editor_agent": {
+      "name": "Editor Agent",
+      "description": "Content editing and document management specialist",
+      "type": "microservice",
+      "url": "https://editor-agent.f8.syzygyx.com",
+      "keywords": [
+        "edit",
+        "editor",
+        "content",
+        "document",
+        "review",
+        "modify",
+        "update",
+        "version"
+      ],
+      "specialties": [
+        "Document editing and revision",
+        "Content review and optimization",
+        "Version control and tracking",
+        "Collaborative editing",
+        "Format standardization",
+        "Quality assurance"
+      ],
+      "tier_restriction": "admin"
+    }
+  },
+  "overallStats": {
+    "totalAgents": 14,
+    "healthyAgents": 1,
+    "unhealthyAgents": 13,
+    "totalQuestions": 5,
+    "totalSuccessful": 5,
+    "totalFailed": 0,
+    "totalResponseTime": 49670
+  },
+  "agentResults": {
+    "f8_agent": {
+      "agentKey": "f8_agent",
+      "agentConfig": {
+        "name": "F8 Multi-Agent",
+        "description": "Main Formul8 AI agent that can route to specialized agents",
+        "type": "main",
+        "url": "https://f8.syzygyx.com",
+        "keywords": [
+          "general",
+          "business",
+          "strategy",
+          "overview",
+          "help"
+        ],
+        "specialties": [
+          "General cannabis industry questions",
+          "Business strategy and planning",
+          "Multi-topic queries",
+          "Agent routing and coordination"
+        ]
+      },
+      "health": {
+        "url": "https://f8.syzygyx.com",
+        "status": 200,
+        "healthy": true,
+        "response": "{\"status\":\"healthy\",\"timestamp\":\"2025-10-12T14:18:05.985Z\",\"service\":\"formul8-multiagent-lambda\",\"version\":\"1.0.0\"}"
+      },
+      "results": [
+        {
+          "question": "What are the benefits of cannabis?",
+          "status": 200,
+          "response": {
+            "success": true,
+            "response": "**Therapeutic & Medical Benefits (Evidence‑Based)**  \n\n| Indication | Primary Cannabinoids Involved | Typical Formulations / Delivery | Evidence Level* |\n|------------|------------------------------|---------------------------------|-----------------|\n| **Chronic pain** (neuropathic, arthritic, cancer‑related) | THC + CBD (synergistic) | Oral capsules, sub‑lingual tinctures, topical gels | Moderate‑high (RCTs, meta‑analyses) |\n| **Spasticity & muscle tone** (multiple sclerosis, spinal cord injury) | THC‑dominant | Oral spray (e.g., Sativex), inhalation | Moderate‑high |\n| **Nausea & vomiting** (chemotherapy‑induced) | THC | Oral solution, vaporized THC | High (FDA‑approved dronabinol/nabiximols) |\n| **Appetite stimulation** (cachexia, HIV/AIDS) | THC | Oral, inhalation | Moderate |\n| **Seizure disorders** (Dravet, Lennox‑Gastaut) | CBD (pure) | FDA‑approved Epidiolex® (oral) | High |\n| **Anxiety & PTSD** (select cases) | CBD‑dominant (low THC) | Sublingual, oral, topical | Low‑moderate (small trials, anecdotal) |\n| **Sleep disturbances** (insomnia) | THC (dose‑dependent) | Inhalation, oral | Low‑moderate |\n| **Inflammatory & autoimmune conditions** (Crohn’s, arthritis) | CBD, THC‑CBD combos | Oral, topical, transdermal | Low‑moderate |\n| **Neuroprotection** (Parkinson’s, Alzheimer’s) | CBD, minor cannabinoids (CBC, CBG) | Oral, sub‑lingual | Pre‑clinical / early‑phase |\n\n\\*Evidence level reflects the quantity and quality of clinical data (high = multiple RCTs/registrations; moderate = systematic reviews/meta‑analyses; low‑moderate = small trials or strong observational data; low = pre‑clinical or anecdotal).\n\n**Well‑being & Lifestyle Benefits**  \n\n- **Relaxation & stress reduction** – mild psycho‑active effects of THC can promote a sense of calm.  \n- **Creativity & focus** – some users report enhanced divergent thinking at low‑moderate THC doses.  \n- **Social bonding** – shared consumption can increase perceived social connectivity.  \n- **Topical relief** – CBD‑rich creams/lotions can soothe localized soreness or skin irritation without systemic effects.\n\n**Key Considerations for Maximizing Benefits**  \n\n1. **Cannabinoid profile** – match THC/CBD ratios to the target condition (e.g., high‑CBD for seizures, balanced THC/CBD for pain).  \n2. **Delivery method** – inhalation offers rapid onset; oral/edible provides longer duration; topical limits systemic exposure.  \n3. **Dosage titration** – start low, go slow; therapeutic windows differ per individual and indication.  \n4. **Strain selection** – indica‑dominant strains often provide more sedative effects; sativa‑dominant strains are associated with uplifting effects.  \n5. **Regulatory compliance** – ensure product potency, labeling, and testing meet local jurisdictional requirements (e.g., GMP, batch‑testing for pesticides, residual solvents).  \n\n**Safety & Contra‑Indications**  \n\n- **Psychiatric history** (schizophrenia, severe anxiety) may be exacerbated by THC.  \n- **Pregnancy & lactation** – generally contraindicated due to limited safety data.  \n- **Drug interactions** – cannabinoids can affect CYP450 enzymes; review concomitant meds (e.g., warfarin, antiepileptics\n\n---\n*Agent: f8_agent | Tokens: 1131 (131→1000) | Cost: $0.000000*",
+            "agent": "f8_agent",
+            "timestamp": "2025-10-12T14:18:15.469Z",
+            "model": "openai/gpt-oss-120b",
+            "usage": {
+              "prompt_tokens": 131,
+              "completion_tokens": 1000,
+              "total_tokens": 1131,
+              "cost": 0
+            }
+          },
+          "success": true,
+          "url": "https://f8.syzygyx.com",
+          "responseTime": 9485
+        },
+        {
+          "question": "How do I scale up my cannabis production?",
+          "status": 200,
+          "response": {
+            "success": true,
+            "response": "**Scaling Up Cannabis Production – A Structured Road‑Map**\n\nBelow is a concise, step‑by‑step framework that balances operational efficiency, regulatory compliance, and product quality. Adapt each element to your jurisdiction’s specific rules and your business model (indoor, greenhouse, or outdoor).\n\n---\n\n## 1. Clarify Your Scale‑Goal & Business Model\n| Question | Action |\n|----------|--------|\n| **Target volume** (e.g., 10 kg / month → 100 kg / month)? | Define a measurable production target and timeline (12‑24 mo). |\n| **Market focus** (medical, adult‑use, wholesale, branded)? | Align strain portfolio, potency, and packaging to market demand. |\n| **Facility type** (indoor, greenhouse, outdoor, hybrid)? | Choose the environment that best fits cost, climate, and regulatory limits. |\n\n---\n\n## 2. Secure the Regulatory Foundation\n1. **Licensing** – Verify that your existing license permits the desired increase (many states cap canopy size or plant count). If not, submit an amendment or new license application early.\n2. **Track‑and‑Trace** – Integrate with the state’s seed‑to‑sale system (METRC, BioTrack, etc.) from day 1 of the scale‑up to avoid retro‑fit headaches.\n3. **Compliance SOPs** – Draft or update Standard Operating Procedures covering:\n   - Cultivation & harvesting\n   - Pesticide/chemical use\n   - Waste disposal\n   - Security & access control\n4. **Audit readiness** – Schedule internal audits quarterly; keep all logs (environmental, QC, labor) searchable and backed‑up.\n\n---\n\n## 3. Facility Design & Capacity Planning\n| Element | Scale‑Up Considerations |\n|---------|------------------------|\n| **Floorplan** | Use a modular layout (e.g., 10 × 10 m grow bays) that can be duplicated. Include space for future HVAC, water, and power upgrades. |\n| **Lighting** | For indoor: switch to high‑efficiency LEDs (≥2 µmol/J) and design a tiered lighting plan (vegetative → flowering). For greenhouse: integrate supplemental HPS/LED + blackout curtains. |\n| **HVAC & CO₂** | Size air‑handling units for 1 kW / m² heat load; install CO₂ dosing with closed‑loop monitoring. |\n| **Water & Nutrient Delivery** | Deploy a centralized recirculating hydroponic system or drip irrigation with automated dosing. Consider a water‑reuse loop (RO + UV sterilization). |\n| **Security** | Expand perimeter fencing, motion‑sensor cameras, and biometric access as square footage grows. |\n| **Utilities** | Verify that electrical service (kVA) and water pressure can handle the added load; negotiate upgrades with the utility provider well in advance. |\n\n---\n\n## 4. Automation & Data‑Driven Cultivation\n| Tech | Benefit |\n|------|---------|\n| **Environmental Controllers** (e.g., Growlink, Priva) | Real‑time temperature, RH, CO₂, and light intensity control; reduces labor & variance. |\n| **IoT Sensors** (soil moisture, EC, pH) | Enables predictive nutrient adjustments; early detection of stress. |\n| **Robotics** (trimming, harvesting, transport) | Cuts labor cost by 30‑50 % at >5 000 plants scale. |\n| **AI‑Based Analytics** | Correlate genotype × environment × yield; feed insights back into breeding or canopy management. |\n| **ERP/CMMS** | Centralize inventory, work orders, and maintenance schedules; improves traceability. |\n\nStart with a pilot automation zone (≈10 % of total canopy) and scale once reliability is proven.\n\n---\n\n## 5. Genetics & Strain Management\n1. **Select high‑yield, stable genotypes** that meet your market potency and terpene profile.  \n2. **Maintain a seed bank** – clone or store seeds under controlled conditions; avoid genetic drift.  \n3. **Implement a breeding pipeline** if you plan to develop proprietary varieties (requires additional licensing in many states).  \n\n---\n\n## 6. Workforce Planning\n| Role | Scaling Ratio |\n|------|--------------|\n| **Cultivation Technicians** | 1 tech per 250–350 plants (indoor) or per 0.5 acre (outdoor). |\n| **QC & Lab Staff** | 1 analyst per 500 kg of flower processed. |\n| **Maintenance/Engineering** | 1 tech per 2 000 m² of floor space. |\n| **Compliance Officer** | 1 full‑time for operations >10 000 m². |\n\nInvest in cross‑training and document SOPs to maintain consistency as new hires come on board.\n\n---\n\n## 7. Quality Control & Consistency\n1. **Standardize Harvest Timing** – Use trichome maturity charts + automated imaging to lock in potency.  \n2. **Post‑Harvest Workflow** – Drying (≤55 °F, 45‑55 % RH), curing (15‑20 °C, 60‑65 % RH), and lab testing (potency, contaminants).  \n3. **Batch Tracking** – Assign a unique batch ID linked to every cultivation, harvest, and processing step in the traceability system.  \n\n---\n\n## 8. Supply‑Chain & Distribution Readiness\n- **Raw Materials**: Secure contracts for high‑quality nutrients, growing media, and consumables with volume discounts.\n- **Packaging**: Choose compliant child‑resistant containers that can handle larger batch sizes; consider pre‑filled kits to reduce downstream labor.\n- **Logistics**: Partner with licensed transporters early; map out cold‑chain requirements if you ship to distant markets.\n\n---\n\n## 9. Financial Modeling & Funding\n| Item | Typical % of CapEx |\n|------|-------------------|\n| Facility build‑out | 40‑55 % |\n| Lighting & HVAC | 20‑30 % |\n| Automation & software | 10‑15 % |\n| Licensing & legal | 5‑10 % |\n| Working capital (seed, nutrients, labor) | 5‑10 % |\n\nRun a **break‑even analysis** using projected yield (g/ft²), price per gram, and operational OPEX. Most growers reach profitability at 2–3 years post‑scale‑up if yields exceed 400 g/ft² (indoor) or 1 000 lb/acre (outdoor).\n\n---\n\n## 10. Risk Management & Sustainability\n- **Pest & Disease**: Adopt Integrated Pest Management (IPM) with biological controls; keep a “no‑pesticide” buffer zone.\n- **Energy**: Install LED dimming, heat recovery, and solar panels to lower kWh cost.\n- **Water**: Use rain‑water capture and closed‑loop recirculation to reduce consumption.\n- **Insurance**: Update coverage for increased property value, crop loss, and product liability.\n\n---\n\n### Quick Checklist for Your First 90 Days\n\n| ✅ | Action |\n|---|--------|\n| 1 | Confirm license amendment & state caps |\n| 2 | Draft expanded SOPs & train core team |\n| 3 | Finalize modular facility layout |\n| 4 | Select pilot automation zone (10 % canopy) |\n| 5 | Secure bulk contracts for nutrients & media |\n| 6 | Set up ERP/traceability integration |\n| 7 | Run a financial model & secure funding |\n| 8 | Conduct a risk‑assessment (pests, power, security) |\n| 9 | Schedule first internal compliance audit |\n|10| Launch first scaled harvest trial & collect data |\n\n---\n\n**Bottom Line:** Scaling is a blend of regulatory diligence, engineered facility upgrades, data‑driven cultivation, and robust workforce & quality systems. Start with a pilot, iterate quickly, and let the metrics dictate the next expansion phase.  \n\nFeel free to share specifics (e.g., current canopy size, licensing jurisdiction, indoor vs. greenhouse) and I can tailor the next steps even further.\n\n---\n*Agent: f8_agent | Tokens: 2018 (133→1885) | Cost: $0.000000*",
+            "agent": "f8_agent",
+            "timestamp": "2025-10-12T14:18:39.258Z",
+            "model": "openai/gpt-oss-120b",
+            "usage": {
+              "prompt_tokens": 133,
+              "completion_tokens": 1885,
+              "total_tokens": 2018,
+              "cost": 0
+            }
+          },
+          "success": true,
+          "url": "https://f8.syzygyx.com",
+          "responseTime": 21789
+        },
+        {
+          "question": "I want to start a cannabis business",
+          "status": 200,
+          "response": {
+            "success": true,
+            "response": "Starting a cannabis business is a multi‑step process that blends traditional entrepreneurship with a heavy focus on regulation, compliance, and industry‑specific operations. Below is a high‑level roadmap you can use to map out your venture, followed by a few quick questions that will help me tailor the advice to your exact situation.\n\n---\n\n## 1️⃣ Define Your Business Model  \n| Model | What It Involves | Typical Licenses | Key Considerations |\n|-------|------------------|------------------|--------------------|\n| **Cultivation** | Growing indoor, outdoor, or greenhouse cannabis | Cultivation license (often tiered by canopy size) | Real‑estate, utilities, security, agricultural SOPs |\n| **Processing / Manufacturing** | Extraction, edibles, topicals, concentrates | Manufacturing/processing license | Lab equipment, QA/QC, product safety testing |\n| **Retail (Dispensary)** | Direct‑to‑consumer sales (flower, vape, edibles) | Retail/dispensary license | Storefront location, POS compliance, inventory tracking |\n| **Delivery** | Door‑to‑door fulfillment of licensed products | Delivery endorsement on a retail license (or separate) | Logistics, driver vetting, age verification |\n| **Brand / Wholesale** | Private‑label products sold to other retailers | May need a “brand” or “wholesale” license depending on state | Marketing, packaging, compliance with labeling rules |\n| **Ancillary Services** (consulting, software, equipment) | No plant contact required | Usually no cannabis‑specific license, but may need a business license | Lower regulatory burden, can serve many licensees |\n\n**Next step:** Pick the model (or combination) that matches your expertise, capital, and market opportunity.\n\n---\n\n## 2️⃣ Choose a Jurisdiction & Understand the Legal Landscape  \n1. **State/Provincial Regulations** – Each jurisdiction has its own licensing authority (e.g., California Department of Cannabis Control, Colorado Department of Revenue, Ontario Cannabis Store).  \n2. **License Caps & Application Windows** – Some states limit the number of licenses or open applications only once a year.  \n3. **Local Zoning & Municipal Approval** – Even if the state allows a license, cities/counties may restrict where you can locate a grow, lab, or store.  \n4. **Compliance Frameworks** – Most states require seed‑to‑sale tracking (METRC, BioTrackTHC, etc.) and regular reporting.  \n\n**Action:** Create a spreadsheet of the top 3–5 states (or provinces) you’re interested in, noting:\n\n| State | License Types Available | Application Cycle | Caps/Quota | Avg. Cost (License + Fees) | Notable Local Restrictions |\n|-------|------------------------|-------------------|------------|---------------------------|-----------------------------|\n\n---\n\n## 3️⃣ Build a Detailed Business Plan  \n- **Executive Summary** – Vision, mission, and market need.  \n- **Market Analysis** – Size, growth rate, consumer demographics, competitive landscape.  \n- **Operations Plan** – Facility layout, production workflow, staffing, security, seed‑to‑sale software.  \n- **Financial Projections** – Startup CAPEX (real‑estate, equipment, licensing fees), OPEX (utilities, payroll, testing), revenue streams, break‑even analysis.  \n- **Risk Management** – Regulatory risk, supply chain disruptions, banking restrictions.  \n- **Funding Strategy** – Self‑funded, private investors, cannabis‑focused venture funds, compliant lenders (e.g., CannaBiz Capital, New Frontier\n\n---\n*Agent: f8_agent | Tokens: 1130 (130→1000) | Cost: $0.000000*",
+            "agent": "f8_agent",
+            "timestamp": "2025-10-12T14:18:53.459Z",
+            "model": "openai/gpt-oss-120b",
+            "usage": {
+              "prompt_tokens": 130,
+              "completion_tokens": 1000,
+              "total_tokens": 1130,
+              "cost": 0
+            }
+          },
+          "success": true,
+          "url": "https://f8.syzygyx.com",
+          "responseTime": 12200
+        },
+        {
+          "question": "What is the meaning of life?",
+          "status": 200,
+          "response": {
+            "success": true,
+            "response": "The question “What is the meaning of life?” is a classic philosophical puzzle rather than a factual one—there’s no single answer that fits everyone. Different traditions and thinkers have offered a range of perspectives:\n\n| Perspective | Core Idea |\n|------------|-----------|\n| **Existentialist (e.g., Sartre, Camus)** | Life has no inherent meaning; we create purpose through our choices and actions. |\n| **Humanist** | Meaning comes from relationships, personal growth, and contributing to the well‑being of others. |\n| **Religious/Spiritual** | Purpose is often tied to a higher power, moral law, or spiritual development. |\n| **Scientific/Naturalist** | Life’s “meaning” can be viewed as the propagation of genes and the pursuit of knowledge about the universe. |\n| **Positive Psychology** | Well‑being, fulfillment, and the pursuit of *flow* experiences give life its richest sense of purpose. |\n\n**How to approach it for yourself**\n\n1. **Reflect on values** – Identify what matters most (e.g., creativity, community, health, learning).  \n2. **Set intentional goals** – Align daily actions with those values; purpose often emerges from progress toward them.  \n3. **Cultivate connections** – Relationships and service to others are repeatedly cited as sources of lasting meaning.  \n4. **Stay curious** – Exploring new ideas, skills, or experiences can reveal fresh motivations.  \n\nIn short, the “meaning of life” is a personal narrative you craft over time, shaped by your beliefs, experiences, and the impact you choose to have on the world around you.\n\n---\n*Agent: f8_agent | Tokens: 545 (130→415) | Cost: $0.000000*",
+            "agent": "f8_agent",
+            "timestamp": "2025-10-12T14:19:00.362Z",
+            "model": "openai/gpt-oss-120b",
+            "usage": {
+              "prompt_tokens": 130,
+              "completion_tokens": 415,
+              "total_tokens": 545,
+              "cost": 0
+            }
+          },
+          "success": true,
+          "url": "https://f8.syzygyx.com",
+          "responseTime": 4900
+        },
+        {
+          "question": "I need help with something completely unrelated to cannabis or business",
+          "status": 200,
+          "response": {
+            "success": true,
+            "response": "I’m focused on the cannabis industry—formulation, compliance, science, operations, marketing, patents, sourcing, etc. If your question falls outside that scope, I may not be able to provide detailed assistance, but I can try to point you toward a more appropriate resource if you let me know what you need.\n\n---\n*Agent: f8_agent | Tokens: 279 (140→139) | Cost: $0.000000*",
+            "agent": "f8_agent",
+            "timestamp": "2025-10-12T14:19:03.652Z",
+            "model": "openai/gpt-oss-120b",
+            "usage": {
+              "prompt_tokens": 140,
+              "completion_tokens": 139,
+              "total_tokens": 279,
+              "cost": 0
+            }
+          },
+          "success": true,
+          "url": "https://f8.syzygyx.com",
+          "responseTime": 1295
+        }
+      ],
+      "stats": {
+        "total": 5,
+        "successful": 5,
+        "failed": 0,
+        "successRate": "100.00",
+        "avgResponseTime": "9934",
+        "minResponseTime": 1295,
+        "maxResponseTime": 21789
+      }
+    },
+    "compliance": {
+      "agentKey": "compliance",
+      "agentConfig": {
+        "name": "Compliance Agent",
+        "description": "Cannabis regulatory compliance expert",
+        "type": "microservice",
+        "url": "https://compliance-agent.f8.syzygyx.com",
+        "keywords": [
+          "compliance",
+          "regulation",
+          "license",
+          "legal",
+          "audit",
+          "inspection",
+          "permit",
+          "regulatory"
+        ],
+        "specialties": [
+          "State-specific cannabis regulations",
+          "Licensing applications and processes",
+          "Compliance audits and inspections",
+          "Record keeping and documentation",
+          "Testing requirements and standards",
+          "Security and safety protocols"
+        ]
+      },
+      "health": {
+        "url": "https://compliance-agent.f8.syzygyx.com",
+        "status": 0,
+        "healthy": false,
+        "error": "Timeout"
+      },
+      "results": [],
+      "stats": {
+        "total": 0,
+        "successful": 0,
+        "failed": 0,
+        "successRate": "0.00",
+        "avgResponseTime": 0
+      }
+    },
+    "formulation": {
+      "agentKey": "formulation",
+      "agentConfig": {
+        "name": "Formulation Agent",
+        "description": "Cannabis product formulation specialist",
+        "type": "microservice",
+        "url": "https://formulation-agent.f8.syzygyx.com",
+        "keywords": [
+          "formulation",
+          "recipe",
+          "dosage",
+          "extraction",
+          "ingredient",
+          "thc",
+          "cbd",
+          "concentrate",
+          "edible",
+          "tincture"
+        ],
+        "specialties": [
+          "Recipe development and customization",
+          "Dosage calculations for THC/CBD",
+          "Extraction methods and techniques",
+          "Ingredient selection and sourcing",
+          "Quality control and consistency",
+          "Product stability and shelf life"
+        ]
+      },
+      "health": {
+        "url": "https://formulation-agent.f8.syzygyx.com",
+        "status": 0,
+        "healthy": false,
+        "error": "Timeout"
+      },
+      "results": [],
+      "stats": {
+        "total": 0,
+        "successful": 0,
+        "failed": 0,
+        "successRate": "0.00",
+        "avgResponseTime": 0
+      }
+    },
+    "science": {
+      "agentKey": "science",
+      "agentConfig": {
+        "name": "Science Agent",
+        "description": "Cannabis research and analysis expert",
+        "type": "microservice",
+        "url": "https://science-agent.f8.syzygyx.com",
+        "keywords": [
+          "science",
+          "research",
+          "cannabinoid",
+          "terpene",
+          "lab",
+          "testing",
+          "coa",
+          "analysis",
+          "study",
+          "clinical"
+        ],
+        "specialties": [
+          "Scientific research analysis",
+          "Cannabinoid and terpene profiles",
+          "Lab results interpretation (COAs)",
+          "Research trends and findings",
+          "Chemical analysis and testing",
+          "Product quality assessment"
+        ]
+      },
+      "health": {
+        "url": "https://science-agent.f8.syzygyx.com",
+        "status": 0,
+        "healthy": false,
+        "error": "Timeout"
+      },
+      "results": [],
+      "stats": {
+        "total": 0,
+        "successful": 0,
+        "failed": 0,
+        "successRate": "0.00",
+        "avgResponseTime": 0
+      }
+    },
+    "operations": {
+      "agentKey": "operations",
+      "agentConfig": {
+        "name": "Operations Agent",
+        "description": "Cannabis facility operations and management specialist",
+        "type": "microservice",
+        "url": "https://operations-agent.f8.syzygyx.com",
+        "keywords": [
+          "operations",
+          "facility",
+          "management",
+          "production",
+          "quality",
+          "control",
+          "logistics",
+          "manufacturing"
+        ],
+        "specialties": [
+          "Facility operations and management",
+          "Production planning and scheduling",
+          "Quality control processes",
+          "Logistics and supply chain",
+          "Equipment maintenance",
+          "Staff training and safety"
+        ]
+      },
+      "health": {
+        "url": "https://operations-agent.f8.syzygyx.com",
+        "status": 0,
+        "healthy": false,
+        "error": "Timeout"
+      },
+      "results": [],
+      "stats": {
+        "total": 0,
+        "successful": 0,
+        "failed": 0,
+        "successRate": "0.00",
+        "avgResponseTime": 0
+      }
+    },
+    "marketing": {
+      "agentKey": "marketing",
+      "agentConfig": {
+        "name": "Marketing Agent",
+        "description": "Cannabis marketing and brand strategy expert",
+        "type": "microservice",
+        "url": "https://marketing-agent.f8.syzygyx.com",
+        "keywords": [
+          "marketing",
+          "brand",
+          "advertising",
+          "promotion",
+          "customer",
+          "acquisition",
+          "strategy",
+          "campaign"
+        ],
+        "specialties": [
+          "Marketing strategy and planning",
+          "Brand development and positioning",
+          "Advertising and promotional campaigns",
+          "Customer acquisition strategies",
+          "Digital marketing and social media",
+          "Market research and analysis"
+        ]
+      },
+      "health": {
+        "url": "https://marketing-agent.f8.syzygyx.com",
+        "status": 0,
+        "healthy": false,
+        "error": "Timeout"
+      },
+      "results": [],
+      "stats": {
+        "total": 0,
+        "successful": 0,
+        "failed": 0,
+        "successRate": "0.00",
+        "avgResponseTime": 0
+      }
+    },
+    "sourcing": {
+      "agentKey": "sourcing",
+      "agentConfig": {
+        "name": "Sourcing Agent",
+        "description": "Cannabis supply chain and sourcing specialist",
+        "type": "microservice",
+        "url": "https://sourcing-agent.f8.syzygyx.com",
+        "keywords": [
+          "sourcing",
+          "supply",
+          "chain",
+          "procurement",
+          "vendor",
+          "inventory",
+          "supplier",
+          "purchasing"
+        ],
+        "specialties": [
+          "Supply chain management",
+          "Vendor sourcing and evaluation",
+          "Procurement strategies",
+          "Inventory management",
+          "Quality assurance for suppliers",
+          "Cost optimization"
+        ]
+      },
+      "health": {
+        "url": "https://sourcing-agent.f8.syzygyx.com",
+        "status": 0,
+        "healthy": false,
+        "error": "Timeout"
+      },
+      "results": [],
+      "stats": {
+        "total": 0,
+        "successful": 0,
+        "failed": 0,
+        "successRate": "0.00",
+        "avgResponseTime": 0
+      }
+    },
+    "patent": {
+      "agentKey": "patent",
+      "agentConfig": {
+        "name": "Patent Agent",
+        "description": "Cannabis intellectual property and patent research expert",
+        "type": "microservice",
+        "url": "https://patent-agent.f8.syzygyx.com",
+        "keywords": [
+          "patent",
+          "intellectual",
+          "property",
+          "ip",
+          "research",
+          "legal",
+          "innovation",
+          "invention"
+        ],
+        "specialties": [
+          "Patent research and analysis",
+          "Intellectual property strategy",
+          "Legal research and documentation",
+          "Innovation tracking",
+          "IP portfolio management",
+          "Patent filing assistance"
+        ]
+      },
+      "health": {
+        "url": "https://patent-agent.f8.syzygyx.com",
+        "status": 0,
+        "healthy": false,
+        "error": "Timeout"
+      },
+      "results": [],
+      "stats": {
+        "total": 0,
+        "successful": 0,
+        "failed": 0,
+        "successRate": "0.00",
+        "avgResponseTime": 0
+      }
+    },
+    "spectra": {
+      "agentKey": "spectra",
+      "agentConfig": {
+        "name": "Spectra Agent",
+        "description": "Cannabis spectral analysis and quality testing specialist",
+        "type": "microservice",
+        "url": "https://spectra-agent.f8.syzygyx.com",
+        "keywords": [
+          "spectra",
+          "analysis",
+          "testing",
+          "lab",
+          "equipment",
+          "chemistry",
+          "spectroscopy",
+          "quality"
+        ],
+        "specialties": [
+          "Spectral analysis techniques",
+          "Quality testing protocols",
+          "Lab equipment operation",
+          "Analytical chemistry",
+          "Data interpretation",
+          "Testing standards compliance"
+        ]
+      },
+      "health": {
+        "url": "https://spectra-agent.f8.syzygyx.com",
+        "status": 0,
+        "healthy": false,
+        "error": "Timeout"
+      },
+      "results": [],
+      "stats": {
+        "total": 0,
+        "successful": 0,
+        "failed": 0,
+        "successRate": "0.00",
+        "avgResponseTime": 0
+      }
+    },
+    "customer_success": {
+      "agentKey": "customer_success",
+      "agentConfig": {
+        "name": "Customer Success Agent",
+        "description": "Cannabis customer success and retention specialist",
+        "type": "microservice",
+        "url": "https://customer-success-agent.f8.syzygyx.com",
+        "keywords": [
+          "customer",
+          "success",
+          "retention",
+          "support",
+          "satisfaction",
+          "onboarding",
+          "service"
+        ],
+        "specialties": [
+          "Customer success strategies",
+          "Retention and loyalty programs",
+          "Support and service optimization",
+          "Customer onboarding processes",
+          "Satisfaction measurement",
+          "Account management"
+        ]
+      },
+      "health": {
+        "url": "https://customer-success-agent.f8.syzygyx.com",
+        "status": 0,
+        "healthy": false,
+        "error": "Timeout"
+      },
+      "results": [],
+      "stats": {
+        "total": 0,
+        "successful": 0,
+        "failed": 0,
+        "successRate": "0.00",
+        "avgResponseTime": 0
+      }
+    },
+    "f8_slackbot": {
+      "agentKey": "f8_slackbot",
+      "agentConfig": {
+        "name": "F8 Slackbot",
+        "description": "Formul8 Slack integration and team collaboration agent",
+        "type": "microservice",
+        "url": "https://f8-slackbot.f8.syzygyx.com",
+        "keywords": [
+          "slack",
+          "integration",
+          "team",
+          "collaboration",
+          "notification",
+          "workflow",
+          "communication"
+        ],
+        "specialties": [
+          "Slack integration and automation",
+          "Team collaboration tools",
+          "Notification and alert systems",
+          "Workflow automation",
+          "Communication optimization",
+          "Team productivity tools"
+        ]
+      },
+      "health": {
+        "url": "https://f8-slackbot.f8.syzygyx.com",
+        "status": 0,
+        "healthy": false,
+        "error": "Timeout"
+      },
+      "results": [],
+      "stats": {
+        "total": 0,
+        "successful": 0,
+        "failed": 0,
+        "successRate": "0.00",
+        "avgResponseTime": 0
+      }
+    },
+    "mcr": {
+      "agentKey": "mcr",
+      "agentConfig": {
+        "name": "MCR Agent",
+        "description": "Cannabis MCR (Master Control Record) management specialist",
+        "type": "microservice",
+        "url": "https://mcr-agent.f8.syzygyx.com",
+        "keywords": [
+          "mcr",
+          "master",
+          "control",
+          "record",
+          "documentation",
+          "compliance",
+          "tracking"
+        ],
+        "specialties": [
+          "Master Control Record management",
+          "Documentation and record keeping",
+          "Compliance tracking systems",
+          "Data integrity management",
+          "Audit trail maintenance",
+          "Regulatory reporting"
+        ]
+      },
+      "health": {
+        "url": "https://mcr-agent.f8.syzygyx.com",
+        "status": 0,
+        "healthy": false,
+        "error": "Timeout"
+      },
+      "results": [],
+      "stats": {
+        "total": 0,
+        "successful": 0,
+        "failed": 0,
+        "successRate": "0.00",
+        "avgResponseTime": 0
+      }
+    },
+    "ad": {
+      "agentKey": "ad",
+      "agentConfig": {
+        "name": "Ad Agent",
+        "description": "Cannabis advertising and promotional strategy expert",
+        "type": "microservice",
+        "url": "https://ad-agent.f8.syzygyx.com",
+        "keywords": [
+          "advertising",
+          "ad",
+          "promotional",
+          "campaign",
+          "media",
+          "strategy",
+          "creative",
+          "content"
+        ],
+        "specialties": [
+          "Advertising strategy and planning",
+          "Promotional campaign development",
+          "Media buying and placement",
+          "Creative content development",
+          "Campaign performance analysis",
+          "Brand messaging optimization"
+        ]
+      },
+      "health": {
+        "url": "https://ad-agent.f8.syzygyx.com",
+        "status": 0,
+        "healthy": false,
+        "error": "Timeout"
+      },
+      "results": [],
+      "stats": {
+        "total": 0,
+        "successful": 0,
+        "failed": 0,
+        "successRate": "0.00",
+        "avgResponseTime": 0
+      }
+    },
+    "editor_agent": {
+      "agentKey": "editor_agent",
+      "agentConfig": {
+        "name": "Editor Agent",
+        "description": "Content editing and document management specialist",
+        "type": "microservice",
+        "url": "https://editor-agent.f8.syzygyx.com",
+        "keywords": [
+          "edit",
+          "editor",
+          "content",
+          "document",
+          "review",
+          "modify",
+          "update",
+          "version"
+        ],
+        "specialties": [
+          "Document editing and revision",
+          "Content review and optimization",
+          "Version control and tracking",
+          "Collaborative editing",
+          "Format standardization",
+          "Quality assurance"
+        ],
+        "tier_restriction": "admin"
+      },
+      "health": {
+        "url": "https://editor-agent.f8.syzygyx.com",
+        "status": 0,
+        "healthy": false,
+        "error": "Timeout"
+      },
+      "results": [],
+      "stats": {
+        "total": 0,
+        "successful": 0,
+        "failed": 0,
+        "successRate": "0.00",
+        "avgResponseTime": 0
+      }
+    }
+  }
+}
