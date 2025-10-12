@@ -224,6 +224,12 @@
             border-bottom-color: #00b894;
         }
 
+        .agent-section-header.custom-section {
+            background: linear-gradient(135deg, #e17055 0%, #fdcb6e 100%);
+            color: var(--formul8-bg-primary);
+            border-bottom-color: #e17055;
+        }
+
         .agent-section-header.admin-section {
             background: linear-gradient(135deg, #6c5ce7 0%, #a29bfe 100%);
             color: var(--formul8-bg-primary);
@@ -239,6 +245,42 @@
             width: 4px;
             background: currentColor;
             opacity: 0.8;
+        }
+
+        .agent-row {
+            cursor: move;
+            transition: all 0.2s ease;
+        }
+
+        .agent-row:hover {
+            background-color: var(--formul8-bg-surface);
+        }
+
+        .agent-row.dragging {
+            opacity: 0.5;
+            transform: rotate(2deg);
+            background-color: var(--formul8-accent);
+            color: var(--formul8-bg-primary);
+        }
+
+        .agent-row.drag-over {
+            border-top: 2px solid var(--formul8-primary);
+            background-color: var(--formul8-bg-surface);
+        }
+
+        .agent-row .drag-handle {
+            cursor: grab;
+            color: var(--formul8-text-muted);
+            margin-right: 8px;
+            font-size: 0.9rem;
+        }
+
+        .agent-row .drag-handle:active {
+            cursor: grabbing;
+        }
+
+        .agent-row .drag-handle:hover {
+            color: var(--formul8-primary);
         }
 
         .plan-header {
@@ -562,6 +604,7 @@
                         "sourcing": false,
                         "customer_success": false,
                         "mcr": false,
+                        "future4200": false,
                         "science": false,
                         "spectra": false,
                         "metabolome": false,
@@ -922,6 +965,19 @@
                         "Control systems"
                     ]
                 },
+                "future4200": {
+                    "name": "Future4200 Agent",
+                    "description": "Future4200 forum search and community intelligence specialist",
+                    "type": "microservice",
+                    "url": "https://future4200-agent.f8.syzygyx.com",
+                    "keywords": ["future4200", "forum", "community", "search", "discussion", "threads", "posts"],
+                    "specialties": [
+                        "Forum search and analysis",
+                        "Community intelligence",
+                        "Discussion summarization",
+                        "Trend identification"
+                    ]
+                },
                 "ad": {
                     "name": "Ad Agent",
                     "description": "Advertising and promotional content specialist",
@@ -1014,8 +1070,7 @@
                         'formulation',
                         'patent',
                         'sourcing',
-                        'customer_success',
-                        'mcr'
+                        'customer_success'
                     ]
                 },
                 beta: {
@@ -1030,6 +1085,13 @@
                     title: 'Free Plan Features',
                     agents: [
                         'ad'
+                    ]
+                },
+                custom: {
+                    title: 'Custom Agents',
+                    agents: [
+                        'future4200',
+                        'mcr'
                     ]
                 },
                 admin: {
@@ -1064,13 +1126,15 @@
                             agentClass += ' beta-agent';
                         } else if (sectionKey === 'free') {
                             agentClass += ' sub-agent';
+                        } else if (sectionKey === 'custom') {
+                            agentClass += ' sub-agent';
                         } else if (sectionKey === 'admin') {
                             agentClass += ' sub-agent';
                         } else {
                             agentClass += ' sub-agent';
                         }
                         
-                        let rowHTML = `<td class="${agentClass}">${agent.name}</td>`;
+                        let rowHTML = `<td class="${agentClass}"><span class="drag-handle">⋮⋮</span>${agent.name}</td>`;
                         
                         planKeys.forEach(planKey => {
                             const isChecked = plansConfig.plans[planKey].agents[agentKey] || false;
@@ -1085,6 +1149,17 @@
                         });
                         
                         row.innerHTML = rowHTML;
+                        row.className = 'agent-row';
+                        row.draggable = true;
+                        row.dataset.agentKey = agentKey;
+                        row.dataset.sectionKey = sectionKey;
+                        
+                        // Add drag event listeners
+                        row.addEventListener('dragstart', handleAgentDragStart);
+                        row.addEventListener('dragend', handleAgentDragEnd);
+                        row.addEventListener('dragover', handleAgentDragOver);
+                        row.addEventListener('drop', handleAgentDrop);
+                        
                         tbody.appendChild(row);
                     }
                 });
@@ -1160,6 +1235,128 @@
                 renderTable();
                 showStatus('Configuration reset to original state', 'info');
             }
+        }
+
+        // Agent drag and drop handlers
+        let draggedAgentRow = null;
+        let draggedAgentKey = null;
+        let draggedSectionKey = null;
+
+        function handleAgentDragStart(e) {
+            draggedAgentRow = e.target;
+            draggedAgentKey = e.target.dataset.agentKey;
+            draggedSectionKey = e.target.dataset.sectionKey;
+            e.target.classList.add('dragging');
+            e.dataTransfer.effectAllowed = 'move';
+            e.dataTransfer.setData('text/html', e.target.outerHTML);
+        }
+
+        function handleAgentDragEnd(e) {
+            e.target.classList.remove('dragging');
+            // Remove drag-over class from all rows
+            document.querySelectorAll('.agent-row').forEach(row => {
+                row.classList.remove('drag-over');
+            });
+            draggedAgentRow = null;
+            draggedAgentKey = null;
+            draggedSectionKey = null;
+        }
+
+        function handleAgentDragOver(e) {
+            e.preventDefault();
+            e.dataTransfer.dropEffect = 'move';
+            
+            // Add visual feedback
+            const targetRow = e.target.closest('.agent-row');
+            if (targetRow && targetRow !== draggedAgentRow) {
+                targetRow.classList.add('drag-over');
+            }
+        }
+
+        function handleAgentDrop(e) {
+            e.preventDefault();
+            
+            const targetRow = e.target.closest('.agent-row');
+            if (!targetRow || !draggedAgentKey || targetRow === draggedAgentRow) {
+                return;
+            }
+
+            const targetAgentKey = targetRow.dataset.agentKey;
+            const targetSectionKey = targetRow.dataset.sectionKey;
+            
+            // Don't allow dropping on the same section
+            if (targetSectionKey === draggedSectionKey) {
+                return;
+            }
+
+            // Move agent to new section
+            moveAgentToSection(draggedAgentKey, draggedSectionKey, targetSectionKey);
+            
+            // Remove drag-over class
+            targetRow.classList.remove('drag-over');
+        }
+
+        function moveAgentToSection(agentKey, fromSection, toSection) {
+            // Update the agent sections configuration
+            const agentSections = {
+                f8: {
+                    title: 'F8 Core Agents',
+                    agents: [
+                        'compliance',
+                        'operations', 
+                        'marketing',
+                        'formulation',
+                        'patent',
+                        'sourcing',
+                        'customer_success'
+                    ]
+                },
+                beta: {
+                    title: 'Beta Features',
+                    agents: [
+                        'science',
+                        'spectra',
+                        'metabolome'
+                    ]
+                },
+                free: {
+                    title: 'Free Plan Features',
+                    agents: [
+                        'ad'
+                    ]
+                },
+                custom: {
+                    title: 'Custom Agents',
+                    agents: [
+                        'future4200',
+                        'mcr'
+                    ]
+                },
+                admin: {
+                    title: 'Admin Tools',
+                    agents: [
+                        'f8_slackbot',
+                        'editor_agent'
+                    ]
+                }
+            };
+
+            // Remove agent from source section
+            if (agentSections[fromSection]) {
+                const sourceIndex = agentSections[fromSection].agents.indexOf(agentKey);
+                if (sourceIndex > -1) {
+                    agentSections[fromSection].agents.splice(sourceIndex, 1);
+                }
+            }
+
+            // Add agent to target section
+            if (agentSections[toSection]) {
+                agentSections[toSection].agents.push(agentKey);
+            }
+
+            // Re-render the table with new organization
+            renderTable();
+            showStatus(`Moved ${agentsConfig.agents[agentKey]?.name || agentKey} to ${agentSections[toSection]?.title || toSection}`, 'success');
         }
 
         // Create pull request
