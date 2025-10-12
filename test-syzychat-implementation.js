@@ -51,7 +51,7 @@ for (const file of htmlFiles) {
     if (fs.existsSync(filePath)) {
         const content = fs.readFileSync(filePath, 'utf8');
         const usesLocal = content.includes('src="./syzychat.js"');
-        const usesExternal = content.includes('syzygyx.github.io/syzychat/syzychat.js');
+        const usesExternal = /<script[^>]*src\s*=\s*["'].*syzygyx\.github\.io\/syzychat\/syzychat\.js[^"']*["'][^>]*>/i.test(content);
         
         if (usesLocal && !usesExternal) {
             console.log(`   ✅ ${file} - uses local syzychat.js`);
