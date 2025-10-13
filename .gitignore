@@ -8,6 +8,7 @@ key-agent-baseline-results-*.json
 
 # Temporary baseline files
 baselines-raw/
+baseline-backup.json
 
 # Test results
 test-results/
