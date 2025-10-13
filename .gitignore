@@ -1,0 +1,32 @@
+# Node modules
+node_modules/
+
+# Test artifacts
+baseline-test-results-*.json
+all-agents-baseline-results-*.json
+key-agent-baseline-results-*.json
+
+# Temporary baseline files
+baselines-raw/
+
+# Test results
+test-results/
+playwright-report/
+
+# Logs
+logs/
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Build artifacts
+dist/
+*.zip
+lambda-proxy.zip
+formul8-multiagent-lambda.zip

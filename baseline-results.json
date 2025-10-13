@@ -1,0 +1,72 @@
+{
+  "timestamp": "2025-10-13T10:25:42.232Z",
+  "endpoint": "https://f8.syzygyx.com/api/chat",
+  "baselineMetadata": {
+    "generatedAt": "2025-10-13T10:21:00.000Z",
+    "sourceRepos": [
+      "formul8-multiagent"
+    ],
+    "totalSources": 1,
+    "version": "1.0",
+    "description": "Sample baseline for testing the workflow"
+  },
+  "overallStats": {
+    "totalQuestions": 5,
+    "totalSuccessful": 0,
+    "totalFailed": 5,
+    "totalValidated": 0,
+    "successRate": "0.00",
+    "validationRate": "0.00",
+    "avgResponseTime": 0,
+    "minResponseTime": 0,
+    "maxResponseTime": 0
+  },
+  "categoryStats": {},
+  "results": [
+    {
+      "question": "What are the benefits of cannabis?",
+      "category": "f8_agent",
+      "expectedAnswer": "Cannabis has various therapeutic benefits including pain relief, anxiety reduction, and potential anti-inflammatory properties.",
+      "success": false,
+      "error": "Cannot read properties of undefined (reading 'response')",
+      "responseTime": 0,
+      "passedValidation": false
+    },
+    {
+      "question": "How do I scale up my cannabis production?",
+      "category": "f8_agent",
+      "expectedAnswer": "Scaling cannabis production involves optimizing cultivation processes, expanding facility capacity, and implementing efficient operations.",
+      "success": false,
+      "error": "Cannot read properties of undefined (reading 'response')",
+      "responseTime": 0,
+      "passedValidation": false
+    },
+    {
+      "question": "What are the compliance requirements for cannabis businesses in California?",
+      "category": "compliance",
+      "expectedAnswer": "California cannabis businesses must comply with state licensing, testing, tracking, and security requirements.",
+      "success": false,
+      "error": "Cannot read properties of undefined (reading 'response')",
+      "responseTime": 0,
+      "passedValidation": false
+    },
+    {
+      "question": "How do I calculate THC dosage?",
+      "category": "formulation",
+      "expectedAnswer": "THC dosage calculation involves determining the concentration of THC and calculating the amount per serving based on desired effects.",
+      "success": false,
+      "error": "Cannot read properties of undefined (reading 'response')",
+      "responseTime": 0,
+      "passedValidation": false
+    },
+    {
+      "question": "What is THC?",
+      "category": "science",
+      "expectedAnswer": "THC (tetrahydrocannabinol) is the primary psychoactive compound in cannabis responsible for the 'high' effect.",
+      "success": false,
+      "error": "Cannot read properties of undefined (reading 'response')",
+      "responseTime": 0,
+      "passedValidation": false
+    }
+  ]
+}
