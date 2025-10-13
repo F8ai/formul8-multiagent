@@ -1,0 +1,12 @@
+[
+  {
+    "question": "What are the benefits of cannabis?",
+    "expected_answer": "Cannabis has various therapeutic benefits including pain relief, anxiety reduction, and potential anti-inflammatory properties.",
+    "category": "general"
+  },
+  {
+    "question": "How do I calculate THC dosage?",
+    "expected_answer": "THC dosage calculation involves determining the concentration of THC and calculating the amount per serving based on desired effects.",
+    "category": "formulation"
+  }
+]

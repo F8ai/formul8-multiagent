@@ -1,43 +1,106 @@
 {
   "metadata": {
-    "generatedAt": "2025-10-13T10:21:00.000Z",
+    "generatedAt": "2025-10-13T10:29:29.992Z",
     "sourceRepos": [
-      "formul8-multiagent"
+      "compliance-agent",
+      "formulation-agent",
+      "science-agent"
     ],
-    "totalSources": 1,
+    "totalSources": 3,
     "version": "1.0",
-    "description": "Sample baseline for testing the workflow"
+    "stats": {
+      "totalSources": 3,
+      "uniqueQuestions": 9,
+      "categoryCounts": {
+        "compliance": 3,
+        "formulation": 3,
+        "science": 3
+      },
+      "questionsWithExpectedAnswers": 6,
+      "questionsFromMultipleSources": 0
+    }
   },
   "questions": [
-    {
-      "question": "What are the benefits of cannabis?",
-      "expected_answer": "Cannabis has various therapeutic benefits including pain relief, anxiety reduction, and potential anti-inflammatory properties.",
-      "category": "f8_agent",
-      "sources": ["formul8-multiagent"]
-    },
-    {
-      "question": "How do I scale up my cannabis production?",
-      "expected_answer": "Scaling cannabis production involves optimizing cultivation processes, expanding facility capacity, and implementing efficient operations.",
-      "category": "f8_agent",
-      "sources": ["formul8-multiagent"]
-    },
     {
       "question": "What are the compliance requirements for cannabis businesses in California?",
       "expected_answer": "California cannabis businesses must comply with state licensing, testing, tracking, and security requirements.",
       "category": "compliance",
-      "sources": ["formul8-multiagent"]
+      "sources": [
+        "compliance-agent"
+      ],
+      "metadata": {}
+    },
+    {
+      "question": "What are the multi-state compliance challenges for cannabis?",
+      "expected_answer": "Multi-state cannabis operations face varying regulations across states.",
+      "category": "compliance",
+      "sources": [
+        "compliance-agent"
+      ],
+      "metadata": {}
+    },
+    {
+      "question": "How do I maintain compliance records for cannabis cultivation?",
+      "expected_answer": "Compliance records should include tracking, inventory, testing, and security documentation.",
+      "category": "compliance",
+      "sources": [
+        "compliance-agent"
+      ],
+      "metadata": {}
     },
     {
       "question": "How do I calculate THC dosage?",
-      "expected_answer": "THC dosage calculation involves determining the concentration of THC and calculating the amount per serving based on desired effects.",
+      "expected_answer": "THC dosage calculation involves determining the concentration of THC and calculating the amount per serving.",
       "category": "formulation",
-      "sources": ["formul8-multiagent"]
+      "sources": [
+        "formulation-agent"
+      ],
+      "metadata": {}
+    },
+    {
+      "question": "Create a recipe for cannabis gummies with 10mg THC each",
+      "expected_answer": "To create 10mg THC gummies, you need to calculate total THC content and distribute evenly across servings.",
+      "category": "formulation",
+      "sources": [
+        "formulation-agent"
+      ],
+      "metadata": {}
+    },
+    {
+      "question": "How do I make cannabis edibles?",
+      "expected_answer": "Cannabis edibles are made by infusing cannabinoids into fats or oils and incorporating them into recipes.",
+      "category": "formulation",
+      "sources": [
+        "formulation-agent"
+      ],
+      "metadata": {}
     },
     {
       "question": "What is THC?",
-      "expected_answer": "THC (tetrahydrocannabinol) is the primary psychoactive compound in cannabis responsible for the 'high' effect.",
+      "expected_answer": "",
       "category": "science",
-      "sources": ["formul8-multiagent"]
+      "sources": [
+        "science-agent"
+      ],
+      "metadata": {}
+    },
+    {
+      "question": "What extraction method is best for high-CBD products?",
+      "expected_answer": "",
+      "category": "science",
+      "sources": [
+        "science-agent"
+      ],
+      "metadata": {}
+    },
+    {
+      "question": "What are terpenes and how do they affect cannabis?",
+      "expected_answer": "",
+      "category": "science",
+      "sources": [
+        "science-agent"
+      ],
+      "metadata": {}
     }
   ]
 }
