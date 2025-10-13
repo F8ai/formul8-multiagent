@@ -1,0 +1,59 @@
+{
+  "name": "@formul8/security-sdk",
+  "version": "1.0.0",
+  "description": "Formul8 Multiagent Security SDK - Comprehensive security middleware for all Formul8 agents",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "build": "npm run lint && npm test",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "formul8",
+    "security",
+    "middleware",
+    "rate-limiting",
+    "cors",
+    "validation",
+    "cannabis",
+    "multiagent"
+  ],
+  "author": "Formul8 <security@formul8.ai>",
+  "license": "PROPRIETARY",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/formul8/f8-security.git"
+  },
+  "bugs": {
+    "url": "https://github.com/formul8/f8-security/issues"
+  },
+  "homepage": "https://github.com/formul8/f8-security#readme",
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "cors": "^2.8.5"
+  },
+  "devDependencies": {
+    "jest": "^29.0.0",
+    "eslint": "^8.0.0",
+    "@types/node": "^18.0.0",
+    "supertest": "^6.0.0"
+  },
+  "peerDependencies": {
+    "express": "^5.0.0"
+  },
+  "files": [
+    "index.js",
+    "index.d.ts",
+    "lib/",
+    "README.md",
+    "LICENSE"
+  ]
+}
