@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SyzyChat Local Test</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        
+        .status {
+            text-align: center;
+            padding: 15px;
+            background: #e8f5e8;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid #4CAF50;
+        }
+        
+        .status.error {
+            background: #ffebee;
+            border-left-color: #f44336;
+        }
+        
+        .test-controls {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f5f5f5;
+            border-radius: 8px;
+        }
+        
+        .test-controls button {
+            padding: 10px 20px;
+            margin: 5px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        
+        .test-controls button:hover {
+            background: #5566d8;
+        }
+        
+        .test-controls input {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+        
+        .chat-messages {
+            height: 400px;
+            overflow-y: auto;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            background: #f9f9f9;
+            margin-bottom: 15px;
+        }
+        
+        .message {
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 8px;
+            max-width: 80%;
+        }
+        
+        .message.user {
+            background: #667eea;
+            color: white;
+            margin-left: auto;
+        }
+        
+        .message.assistant {
+            background: #e9ecef;
+            color: #333;
+        }
+        
+        .message.system {
+            background: #fff3cd;
+            color: #856404;
+            text-align: center;
+            max-width: 100%;
+        }
+        
+        .message.error {
+            background: #ffebee;
+            color: #c62828;
+            max-width: 100%;
+        }
+        
+        .typing-indicator {
+            display: none;
+            padding: 10px;
+            color: #666;
+            font-style: italic;
+        }
+        
+        .typing-indicator.active {
+            display: block;
+        }
+        
+        .logs {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f5f5f5;
+            border-radius: 8px;
+            max-height: 300px;
+            overflow-y: auto;
+            font-family: monospace;
+            font-size: 12px;
+        }
+        
+        .log-entry {
+            margin: 5px 0;
+            padding: 5px;
+            border-left: 3px solid #ddd;
+            padding-left: 10px;
+        }
+        
+        .log-entry.info { border-left-color: #2196F3; }
+        .log-entry.success { border-left-color: #4CAF50; }
+        .log-entry.warning { border-left-color: #FF9800; }
+        .log-entry.error { border-left-color: #f44336; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🧪 SyzyChat Local Test</h1>
+        
+        <div class="status" id="status">
+            <strong>Status:</strong> <span id="statusText">Initializing...</span>
+        </div>
+        
+        <div class="test-controls">
+            <h3>Test Controls</h3>
+            <input type="text" id="testMessage" placeholder="Enter test message..." value="Hello, can you help me with compliance?">
+            <button onclick="sendTestMessage()">Send Test Message</button>
+            <button onclick="getStatus()">Get Status</button>
+            <button onclick="clearChat()">Clear Chat</button>
+            <button onclick="toggleDebug()">Toggle Debug</button>
+        </div>
+        
+        <div id="chat-container" class="chat-messages"></div>
+        <div class="typing-indicator" id="typingIndicator">🤖 Agent is typing...</div>
+        
+        <div class="logs">
+            <h3>Debug Logs</h3>
+            <div id="logs"></div>
+        </div>
+    </div>
+
+    <!-- Load local SyzyChat -->
+    <script src="./syzychat.js"></script>
+    
+    <script>
+        let chat = null;
+        const statusEl = document.getElementById('status');
+        const statusTextEl = document.getElementById('statusText');
+        const logsEl = document.getElementById('logs');
+        const chatContainer = document.getElementById('chat-container');
+        const typingIndicator = document.getElementById('typingIndicator');
+
+        // Override console methods to capture logs
+        const originalLog = console.log;
+        const originalInfo = console.info;
+        const originalWarn = console.warn;
+        const originalError = console.error;
+
+        function addLog(type, ...args) {
+            const logEntry = document.createElement('div');
+            logEntry.className = `log-entry ${type}`;
+            logEntry.textContent = `[${new Date().toLocaleTimeString()}] ${args.join(' ')}`;
+            logsEl.appendChild(logEntry);
+            logsEl.scrollTop = logsEl.scrollHeight;
+        }
+
+        console.log = function(...args) {
+            originalLog.apply(console, args);
+            addLog('info', ...args);
+        };
+
+        console.info = function(...args) {
+            originalInfo.apply(console, args);
+            addLog('info', ...args);
+        };
+
+        console.warn = function(...args) {
+            originalWarn.apply(console, args);
+            addLog('warning', ...args);
+        };
+
+        console.error = function(...args) {
+            originalError.apply(console, args);
+            addLog('error', ...args);
+        };
+
+        function updateStatus(text, isError = false) {
+            statusTextEl.textContent = text;
+            statusEl.className = isError ? 'status error' : 'status';
+        }
+
+        function addMessage(content, role = 'system') {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${role}`;
+            messageDiv.textContent = content;
+            chatContainer.appendChild(messageDiv);
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+        }
+
+        function showTyping() {
+            typingIndicator.classList.add('active');
+        }
+
+        function hideTyping() {
+            typingIndicator.classList.remove('active');
+        }
+
+        // Initialize SyzyChat
+        try {
+            addMessage('Initializing SyzyChat...', 'system');
+            
+            chat = new SyzyChat({
+                container: '#chat-container',
+                backendUrl: 'https://f8.syzygyx.com/api/chat',
+                config: {
+                    enableTypingIndicator: true,
+                    enableAgentRouting: true,
+                    tier: 'free',
+                    maxMessageLength: 1000,
+                    responseTimeout: 30000,
+                    retryAttempts: 3,
+                    retryDelay: 1000
+                },
+                onMessage: (message) => {
+                    console.log('Message event:', message);
+                    if (message.role === 'user') {
+                        addMessage(message.content, 'user');
+                    } else if (message.role === 'assistant') {
+                        addMessage(`${message.agent || 'Agent'}: ${message.content}`, 'assistant');
+                    }
+                },
+                onAgentChange: (agent) => {
+                    console.log('Agent changed:', agent);
+                    addMessage(`Switched to agent: ${agent}`, 'system');
+                },
+                onError: (error) => {
+                    console.error('Chat error:', error);
+                    addMessage(`Error: ${error.message}`, 'error');
+                    updateStatus(`Error: ${error.message}`, true);
+                },
+                onTypingStart: () => {
+                    console.log('Typing started');
+                    showTyping();
+                },
+                onTypingEnd: () => {
+                    console.log('Typing ended');
+                    hideTyping();
+                }
+            });
+
+            chat.init();
+            updateStatus('SyzyChat initialized successfully ✅');
+            addMessage('SyzyChat ready! Type a message to test.', 'system');
+
+        } catch (error) {
+            console.error('Failed to initialize SyzyChat:', error);
+            updateStatus(`Initialization failed: ${error.message}`, true);
+            addMessage(`Failed to initialize: ${error.message}`, 'error');
+        }
+
+        async function sendTestMessage() {
+            const input = document.getElementById('testMessage');
+            const message = input.value.trim();
+            
+            if (!message) {
+                alert('Please enter a message');
+                return;
+            }
+
+            if (!chat) {
+                alert('SyzyChat not initialized');
+                return;
+            }
+
+            try {
+                updateStatus('Sending message...');
+                const response = await chat.sendMessage(message);
+                console.log('Response:', response);
+                updateStatus('Message sent successfully ✅');
+            } catch (error) {
+                console.error('Failed to send message:', error);
+                updateStatus(`Failed to send: ${error.message}`, true);
+            }
+        }
+
+        function getStatus() {
+            if (!chat) {
+                alert('SyzyChat not initialized');
+                return;
+            }
+
+            const status = chat.getStatus();
+            console.log('Status:', status);
+            addMessage(JSON.stringify(status, null, 2), 'system');
+        }
+
+        function clearChat() {
+            if (!chat) {
+                alert('SyzyChat not initialized');
+                return;
+            }
+
+            chat.clearHistory();
+            chatContainer.innerHTML = '';
+            addMessage('Chat history cleared', 'system');
+        }
+
+        function toggleDebug() {
+            if (!chat) {
+                alert('SyzyChat not initialized');
+                return;
+            }
+
+            const currentDebug = chat.logger.debug;
+            chat.setDebugMode(!currentDebug);
+            addMessage(`Debug mode: ${!currentDebug ? 'ON' : 'OFF'}`, 'system');
+        }
+
+        // Allow Enter key to send message
+        document.getElementById('testMessage').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                sendTestMessage();
+            }
+        });
+    </script>
+</body>
+</html>
