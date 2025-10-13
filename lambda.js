@@ -4,10 +4,65 @@ const cors = require('cors');
 // Create Express app
 const app = express();
 
+// Simple rate limiting without external dependency
+const requestCounts = new Map();
+const RATE_LIMIT_WINDOW = 15 * 60 * 1000; // 15 minutes
+const RATE_LIMIT_MAX = 50; // max requests per window
+
+const rateLimiter = (req, res, next) => {
+  const ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress || 'unknown';
+  const now = Date.now();
+  
+  if (!requestCounts.has(ip)) {
+    requestCounts.set(ip, { count: 1, resetTime: now + RATE_LIMIT_WINDOW });
+    return next();
+  }
+  
+  const ipData = requestCounts.get(ip);
+  
+  if (now > ipData.resetTime) {
+    // Reset the counter
+    requestCounts.set(ip, { count: 1, resetTime: now + RATE_LIMIT_WINDOW });
+    return next();
+  }
+  
+  if (ipData.count >= RATE_LIMIT_MAX) {
+    return res.status(429).json({
+      error: 'Too many requests from this IP, please try again later.',
+      retryAfter: Math.ceil((ipData.resetTime - now) / 1000)
+    });
+  }
+  
+  ipData.count++;
+  next();
+};
+
+// CORS configuration - restrict to specific origins
+const corsOptions = {
+  origin: [
+    'https://f8.syzygyx.com',
+    'https://f8ai.github.io',
+    'https://formul8.ai'
+  ],
+  credentials: true,
+  optionsSuccessStatus: 200
+};
+
 // Middleware
-app.use(cors());
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(cors(corsOptions));
+app.use(express.json({ limit: '10mb' })); // Limit request size
+app.use(express.urlencoded({ extended: true, limit: '10mb' }));
+
+// Request logging middleware
+app.use((req, res, next) => {
+  const timestamp = new Date().toISOString();
+  const ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress || 'unknown';
+  console.log(`${timestamp} - ${req.method} ${req.path} - IP: ${ip} - User-Agent: ${req.headers['user-agent'] || 'unknown'}`);
+  next();
+});
+
+// Apply rate limiting to API endpoints
+app.use('/api/', rateLimiter);
 
 // Health endpoint
 app.get('/health', (req, res) => {
@@ -29,6 +84,11 @@ app.get('/health', (req, res) => {
 // Plans configuration page
 app.get('/plans', (req, res) => {
   res.sendFile(__dirname + '/docs/plans.html');
+});
+
+// Test route
+app.get('/test-langgraph', (req, res) => {
+  res.json({ message: 'LangGraph test route working' });
 });
 
 // LangGraph monitoring page
@@ -1149,15 +1209,86 @@ app.get('/chat', (req, res) => {
   `);
 });
 
-// API chat endpoint
-app.post('/api/chat', async (req, res) => {
-  const { message, plan = 'standard' } = req.body;
-  
-  if (!message) {
-    return res.status(400).json({ error: 'Message is required' });
+// Input validation and sanitization functions
+const validateAndSanitizeInput = (input) => {
+  if (!input || typeof input !== 'string') {
+    return null;
   }
   
+  // Trim whitespace
+  let sanitized = input.trim();
+  
+  // Check length limits
+  if (sanitized.length === 0) {
+    return null;
+  }
+  if (sanitized.length > 2000) {
+    throw new Error('Message too long. Maximum 2000 characters allowed.');
+  }
+  
+  // Basic XSS protection - remove potentially dangerous characters
+  sanitized = sanitized
+    .replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '') // Remove script tags
+    .replace(/javascript:/gi, '') // Remove javascript: protocols
+    .replace(/on\w+\s*=/gi, '') // Remove event handlers
+    .replace(/<iframe\b[^<]*(?:(?!<\/iframe>)<[^<]*)*<\/iframe>/gi, ''); // Remove iframe tags
+  
+  return sanitized;
+};
+
+const validatePlan = (plan) => {
+  const validPlans = ['free', 'standard', 'micro', 'operator', 'enterprise', 'beta', 'admin', 'future4200'];
+  return validPlans.includes(plan) ? plan : 'standard';
+};
+
+// API chat endpoint with enhanced security
+app.post('/api/chat', async (req, res) => {
   try {
+    const { message, plan = 'standard', username = 'anonymous' } = req.body;
+    
+    // Validate required fields
+    if (!message) {
+      return res.status(400).json({ 
+        error: 'Message is required',
+        code: 'MISSING_MESSAGE'
+      });
+    }
+    
+    // Sanitize and validate input
+    let sanitizedMessage;
+    try {
+      sanitizedMessage = validateAndSanitizeInput(message);
+      if (!sanitizedMessage) {
+        return res.status(400).json({ 
+          error: 'Invalid message content',
+          code: 'INVALID_MESSAGE'
+        });
+      }
+    } catch (error) {
+      return res.status(400).json({ 
+        error: error.message,
+        code: 'MESSAGE_TOO_LONG'
+      });
+    }
+    
+    // Validate and sanitize plan
+    const validatedPlan = validatePlan(plan);
+    
+    // Validate username
+    const sanitizedUsername = validateAndSanitizeInput(username) || 'anonymous';
+    if (sanitizedUsername.length > 50) {
+      return res.status(400).json({ 
+        error: 'Username too long. Maximum 50 characters allowed.',
+        code: 'USERNAME_TOO_LONG'
+      });
+    }
+    
+    // Log the request for monitoring
+    console.log(`Chat request - User: ${sanitizedUsername}, Plan: ${validatedPlan}, Message length: ${sanitizedMessage.length}`);
+    
+    // Continue with the original logic using sanitized inputs
+    // message and plan are already available from the destructuring above
+    
     // Get OpenRouter API key from environment
     const openRouterApiKey = process.env.OPENROUTER_API_KEY;
     
@@ -1183,11 +1314,11 @@ app.post('/api/chat', async (req, res) => {
     }
     
     // Get the requested plan configuration
-    const planConfig = plansConfig.plans[plan];
+    const planConfig = plansConfig.plans[validatedPlan];
     if (!planConfig) {
       return res.status(400).json({ 
         error: 'Invalid plan',
-        response: `The plan '${plan}' is not available. Please select a valid plan.`
+        response: `The plan '${validatedPlan}' is not available. Please select a valid plan.`
       });
     }
     
@@ -1210,9 +1341,9 @@ app.post('/api/chat', async (req, res) => {
     
     // Determine which agent to use based on message content and available agents
     let selectedAgent = 'compliance'; // Default fallback
-    const messageLower = message.toLowerCase();
     
     // Simple keyword-based routing (can be enhanced with more sophisticated logic)
+    const messageLower = sanitizedMessage.toLowerCase();
     for (const agentKey of availableAgents) {
       const agent = agentsConfig.agents[agentKey];
       if (agent && agent.keywords) {
@@ -1304,6 +1435,13 @@ app.post('/api/chat', async (req, res) => {
     
   } catch (error) {
     console.error('Error calling OpenRouter API:', error);
+    res.status(500).json({ 
+      error: 'Internal server error',
+      response: 'I apologize, but I encountered an error processing your request. Please try again.'
+    });
+  }
+  } catch (error) {
+    console.error('Error in chat endpoint:', error);
     res.status(500).json({ 
       error: 'Internal server error',
       response: 'I apologize, but I encountered an error processing your request. Please try again.'

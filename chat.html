@@ -366,25 +366,97 @@
             }
         });
         
+        // Client-side input validation and sanitization
+        function validateAndSanitizeInput(input) {
+            if (!input || typeof input !== 'string') {
+                return null;
+            }
+            
+            // Trim whitespace
+            let sanitized = input.trim();
+            
+            // Check length limits
+            if (sanitized.length === 0) {
+                return null;
+            }
+            if (sanitized.length > 2000) {
+                throw new Error('Message too long. Maximum 2000 characters allowed.');
+            }
+            
+            // Basic XSS protection
+            sanitized = sanitized
+                .replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '')
+                .replace(/javascript:/gi, '')
+                .replace(/on\w+\s*=/gi, '')
+                .replace(/<iframe\b[^<]*(?:(?!<\/iframe>)<[^<]*)*<\/iframe>/gi, '');
+            
+            return sanitized;
+        }
+
+        function validateUsername(username) {
+            if (!username || typeof username !== 'string') {
+                return 'guest';
+            }
+            
+            const sanitized = username.trim();
+            if (sanitized.length === 0) {
+                return 'guest';
+            }
+            if (sanitized.length > 50) {
+                throw new Error('Username too long. Maximum 50 characters allowed.');
+            }
+            
+            return sanitized;
+        }
+
+        function showError(message, type = 'error') {
+            const chatMessages = document.getElementById('chatMessages');
+            const errorDiv = document.createElement('div');
+            errorDiv.className = `error-message ${type}`;
+            errorDiv.textContent = message;
+            chatMessages.appendChild(errorDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+            
+            // Auto-remove after 5 seconds
+            setTimeout(() => {
+                if (errorDiv.parentNode) {
+                    errorDiv.parentNode.removeChild(errorDiv);
+                }
+            }, 5000);
+        }
+
         function sendMessage() {
             const input = document.getElementById('chatInput');
-            const message = input.value.trim();
-            const username = document.getElementById('username').value || 'guest';
+            const message = input.value;
+            const username = document.getElementById('username').value;
             const plan = document.getElementById('planSelect').value || 'standard';
             
-            if (message) {
-                console.log('Sending message:', message, 'User:', username, 'Plan:', plan);
+            try {
+                // Validate and sanitize inputs
+                const sanitizedMessage = validateAndSanitizeInput(message);
+                if (!sanitizedMessage) {
+                    showError('Please enter a message.');
+                    return;
+                }
+                
+                const validatedUsername = validateUsername(username);
+                
+                console.log('Sending message:', sanitizedMessage, 'User:', validatedUsername, 'Plan:', plan);
                 
                 // Add user message to chat
-                addMessageToChat('user', message, username);
+                addMessageToChat('user', sanitizedMessage, validatedUsername);
                 
                 // Show loading
                 showLoading(true);
                 
                 // Send to API
-                sendToAPI(message, username, plan);
+                sendToAPI(sanitizedMessage, validatedUsername, plan);
                 
                 input.value = '';
+                
+            } catch (error) {
+                console.error('Validation error:', error);
+                showError(error.message);
             }
         }
         
