@@ -1,0 +1,43 @@
+{
+  "metadata": {
+    "generatedAt": "2025-10-13T10:21:00.000Z",
+    "sourceRepos": [
+      "formul8-multiagent"
+    ],
+    "totalSources": 1,
+    "version": "1.0",
+    "description": "Initial baseline questions for Formul8 multiagent system"
+  },
+  "questions": [
+    {
+      "question": "What are the benefits of cannabis?",
+      "expected_answer": "Cannabis has various therapeutic benefits including pain relief, anxiety reduction, anti-inflammatory properties.",
+      "category": "f8_agent",
+      "sources": ["formul8-multiagent"]
+    },
+    {
+      "question": "How do I scale up my cannabis production?",
+      "expected_answer": "Scaling cannabis production involves expanding cultivation capacity, optimizing processes, and maintaining quality control.",
+      "category": "f8_agent",
+      "sources": ["formul8-multiagent"]
+    },
+    {
+      "question": "What are the compliance requirements for cannabis businesses in California?",
+      "expected_answer": "California cannabis businesses must comply with state licensing, testing, tracking, and security requirements.",
+      "category": "compliance",
+      "sources": ["formul8-multiagent"]
+    },
+    {
+      "question": "How do I calculate THC dosage?",
+      "expected_answer": "THC dosage calculation involves determining concentration and calculating amount per serving.",
+      "category": "formulation",
+      "sources": ["formul8-multiagent"]
+    },
+    {
+      "question": "What is THC?",
+      "expected_answer": "THC (tetrahydrocannabinol) is the primary psychoactive compound in cannabis.",
+      "category": "science",
+      "sources": ["formul8-multiagent"]
+    }
+  ]
+}

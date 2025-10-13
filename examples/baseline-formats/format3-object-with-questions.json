@@ -1,0 +1,18 @@
+{
+  "questions": [
+    {
+      "question": "What are the compliance requirements for cannabis businesses in California?",
+      "expected_answer": "California cannabis businesses must comply with state licensing, testing, tracking, and security requirements.",
+      "category": "compliance",
+      "metadata": {
+        "difficulty": "intermediate",
+        "tags": ["compliance", "california", "licensing"]
+      }
+    },
+    {
+      "question": "What are the multi-state compliance challenges for cannabis?",
+      "expected_answer": "Multi-state cannabis operations face varying regulations across states.",
+      "category": "compliance"
+    }
+  ]
+}
