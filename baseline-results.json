@@ -1,0 +1,75 @@
+{
+  "timestamp": "2025-10-13T10:28:36.589Z",
+  "endpoint": "https://f8.syzygyx.com/api/chat",
+  "baselineMetadata": {
+    "generatedAt": "2025-10-13T10:21:00.000Z",
+    "sourceRepos": [
+      "test"
+    ],
+    "totalSources": 1,
+    "version": "1.0"
+  },
+  "overallStats": {
+    "totalQuestions": 2,
+    "totalSuccessful": 0,
+    "totalFailed": 2,
+    "totalValidated": 0,
+    "successRate": "0.00",
+    "validationRate": "0.00",
+    "avgResponseTime": 0,
+    "minResponseTime": 0,
+    "maxResponseTime": 0
+  },
+  "categoryStats": {
+    "science": {
+      "total": 1,
+      "successful": 0,
+      "failed": 1,
+      "validated": 0,
+      "successRate": "0.00",
+      "validationRate": "0.00",
+      "avgResponseTime": 0
+    },
+    "general": {
+      "total": 1,
+      "successful": 0,
+      "failed": 1,
+      "validated": 0,
+      "successRate": "0.00",
+      "validationRate": "0.00",
+      "avgResponseTime": 0
+    }
+  },
+  "results": [
+    {
+      "question": "What is THC?",
+      "category": "science",
+      "expectedAnswer": "THC tetrahydrocannabinol psychoactive compound cannabis",
+      "status": 0,
+      "success": false,
+      "responseTime": 12,
+      "response": null,
+      "error": "getaddrinfo ENOTFOUND f8.syzygyx.com",
+      "comparison": {
+        "matched": false,
+        "score": 0
+      },
+      "passedValidation": false
+    },
+    {
+      "question": "What are the benefits of cannabis?",
+      "category": "general",
+      "expectedAnswer": "cannabis therapeutic benefits pain relief anxiety",
+      "status": 0,
+      "success": false,
+      "responseTime": 3,
+      "response": null,
+      "error": "getaddrinfo ENOTFOUND f8.syzygyx.com",
+      "comparison": {
+        "matched": false,
+        "score": 0
+      },
+      "passedValidation": false
+    }
+  ]
+}

@@ -1,0 +1,105 @@
+name: Baseline Integration and Testing
+
+on:
+  schedule:
+    # Run daily at 2 AM UTC
+    - cron: '0 2 * * *'
+  workflow_dispatch:
+    inputs:
+      test_only:
+        description: 'Test existing baseline.json without fetching'
+        required: false
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  actions: read
+
+jobs:
+  integrate-and-test-baselines:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: npm install
+      
+      - name: Fetch baseline.json files from organization repos
+        if: ${{ !inputs.test_only }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/fetch-baselines.js
+      
+      - name: Merge baseline.json files
+        if: ${{ !inputs.test_only }}
+        run: node scripts/merge-baselines.js
+      
+      - name: Test merged baselines
+        env:
+          API_ENDPOINT: https://f8.syzygyx.com/api/chat
+        run: node scripts/test-baselines.js
+      
+      - name: Generate test report
+        if: always()
+        run: |
+          if [ -f baseline-results.json ]; then
+            echo "## Baseline Test Results" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            node -e "
+              const fs = require('fs');
+              const results = JSON.parse(fs.readFileSync('baseline-results.json', 'utf8'));
+              console.log(\`**Overall Success Rate:** \${results.overallStats.successRate}%\`);
+              console.log(\`**Total Questions:** \${results.overallStats.totalQuestions}\`);
+              console.log(\`**Successful:** \${results.overallStats.totalSuccessful}\`);
+              console.log(\`**Failed:** \${results.overallStats.totalFailed}\`);
+              console.log(\`**Average Response Time:** \${results.overallStats.avgResponseTime}ms\`);
+            " >> $GITHUB_STEP_SUMMARY
+          fi
+      
+      - name: Upload baseline results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: baseline-results-${{ github.run_number }}
+          path: |
+            baseline-results.json
+            baseline.json
+          retention-days: 90
+      
+      - name: Commit updated baseline.json
+        if: ${{ !inputs.test_only && hashFiles('baseline.json') != '' }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add baseline.json
+          git diff --staged --quiet || git commit -m "Update baseline.json from organization repos [skip ci]"
+          git push
+      
+      - name: Check test threshold
+        if: always()
+        run: |
+          if [ -f baseline-results.json ]; then
+            node -e "
+              const fs = require('fs');
+              const results = JSON.parse(fs.readFileSync('baseline-results.json', 'utf8'));
+              const threshold = 80; // 80% success rate required
+              if (parseFloat(results.overallStats.successRate) < threshold) {
+                console.error(\`❌ Test success rate \${results.overallStats.successRate}% is below threshold \${threshold}%\`);
+                process.exit(1);
+              } else {
+                console.log(\`✅ Test success rate \${results.overallStats.successRate}% meets threshold \${threshold}%\`);
+              }
+            "
+          fi
