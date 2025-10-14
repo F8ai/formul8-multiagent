@@ -426,13 +426,32 @@
                 <h2>💰 Pricing Tiers</h2>
                 <div class="pricing-grid">
                     <div class="pricing-card">
+                        <div class="plan-name">Future4200</div>
+                        <div class="plan-price">Free</div>
+                        <div class="plan-period">Ad-supported</div>
+                        <div class="plan-description">Community access with Future4200 forum integration</div>
+                        <ul class="features-list">
+                            <li>Future4200 forum search & analysis</li>
+                            <li>Community thread discussions</li>
+                            <li>Basic formulation tools</li>
+                            <li>Ad-supported experience</li>
+                            <li>10 requests per hour</li>
+                            <li class="unavailable">No chat history</li>
+                            <li class="unavailable">No file uploads</li>
+                            <li class="unavailable">No document storage</li>
+                        </ul>
+                        <button class="cta-button secondary">Join Community</button>
+                    </div>
+
+                    <div class="pricing-card">
                         <div class="plan-name">Unregistered</div>
                         <div class="plan-price">Free</div>
-                        <div class="plan-period">No registration required</div>
+                        <div class="plan-period">Ad-supported</div>
                         <div class="plan-description">Basic access with limited features and rate limiting</div>
                         <ul class="features-list">
                             <li>Basic chat interface</li>
                             <li>Limited agent access</li>
+                            <li>Ad-supported experience</li>
                             <li>5 requests per hour</li>
                             <li class="unavailable">No chat history</li>
                             <li class="unavailable">No file uploads</li>
@@ -534,12 +553,46 @@
             </div>
 
             <div class="section">
+                <h2>🧠 Personal RAG Tier Differentiation</h2>
+                <div class="highlight-box">
+                    <h3>How RAG Tiers Distinguish</h3>
+                    <p><strong>Bronze - Basic Personal RAG:</strong><br>
+                    • Simple keyword-based search through uploaded documents<br>
+                    • Basic Q&A about your formulation files<br>
+                    • 1GB document storage limit<br>
+                    • Example: "Find my tincture recipes" → Returns documents containing "tincture"</p>
+                    
+                    <p><strong>Silver - Advanced Personal RAG:</strong><br>
+                    • Semantic vector embeddings + keyword search<br>
+                    • Cross-document analysis and contextual understanding<br>
+                    • Smart citations and document summarization<br>
+                    • 10GB document storage limit<br>
+                    • Example: "What's the best extraction method for high-CBD strains based on my previous formulations?" → Analyzes your CBD formulations and identifies successful methods</p>
+                    
+                    <p><strong>Gold - Premium Personal RAG:</strong><br>
+                    • Advanced vector embeddings + metadata tagging<br>
+                    • Trend analysis and batch comparison capabilities<br>
+                    • Real-time document updates and regulatory compliance checking<br>
+                    • 50GB document storage limit<br>
+                    • Example: "Compare my Blue Dream tincture batches from 2024 and identify what changed between batch #001 and #015 that improved potency by 12%?" → Detailed batch analysis with trend data</p>
+                    
+                    <p><strong>Platinum - Enterprise Personal RAG:</strong><br>
+                    • Custom-trained embeddings on your methodologies<br>
+                    • Predictive analytics and business insights<br>
+                    • Team collaboration and API integrations<br>
+                    • Unlimited document storage<br>
+                    • Example: "Based on my entire formulation history, market trends, and regulatory changes, what should my next product line focus on?" → Comprehensive analysis with predictive recommendations</p>
+                </div>
+            </div>
+
+            <div class="section">
                 <h2>📊 Feature Matrix</h2>
                 <div class="feature-matrix">
                     <table class="feature-table">
                         <thead>
                             <tr>
                                 <th>Feature</th>
+                                <th>Future4200</th>
                                 <th>Unregistered</th>
                                 <th>Registered</th>
                                 <th>Bronze</th>
@@ -552,6 +605,7 @@
                             <tr>
                                 <td>Chat History</td>
                                 <td><span class="cross">✗</span></td>
+                                <td><span class="cross">✗</span></td>
                                 <td><span class="checkmark">✓</span> (7 days)</td>
                                 <td><span class="checkmark">✓</span> (Unlimited)</td>
                                 <td><span class="checkmark">✓</span> (Unlimited)</td>
@@ -560,6 +614,7 @@
                             </tr>
                             <tr>
                                 <td>File Upload</td>
+                                <td><span class="cross">✗</span></td>
                                 <td><span class="cross">✗</span></td>
                                 <td><span class="checkmark">✓</span> (10MB)</td>
                                 <td><span class="checkmark">✓</span> (100MB)</td>
@@ -570,6 +625,7 @@
                             <tr>
                                 <td>Document Storage</td>
                                 <td><span class="cross">✗</span></td>
+                                <td><span class="cross">✗</span></td>
                                 <td><span class="checkmark">✓</span> (100MB)</td>
                                 <td><span class="checkmark">✓</span> (1GB)</td>
                                 <td><span class="checkmark">✓</span> (10GB)</td>
@@ -578,6 +634,7 @@
                             </tr>
                             <tr>
                                 <td>Projects</td>
+                                <td><span class="cross">✗</span></td>
                                 <td><span class="cross">✗</span></td>
                                 <td><span class="checkmark">✓</span> (1)</td>
                                 <td><span class="checkmark">✓</span> (3)</td>
@@ -589,13 +646,25 @@
                                 <td>Personal RAG</td>
                                 <td><span class="cross">✗</span></td>
                                 <td><span class="cross">✗</span></td>
+                                <td><span class="cross">✗</span></td>
                                 <td><span class="checkmark">✓</span> (Basic)</td>
                                 <td><span class="checkmark">✓</span> (Advanced)</td>
                                 <td><span class="checkmark">✓</span> (Premium)</td>
                                 <td><span class="checkmark">✓</span> (Enterprise)</td>
                             </tr>
                             <tr>
+                                <td>Future4200 Forum Access</td>
+                                <td><span class="checkmark">✓</span></td>
+                                <td><span class="cross">✗</span></td>
+                                <td><span class="cross">✗</span></td>
+                                <td><span class="cross">✗</span></td>
+                                <td><span class="cross">✗</span></td>
+                                <td><span class="cross">✗</span></td>
+                                <td><span class="cross">✗</span></td>
+                            </tr>
+                            <tr>
                                 <td><em>Google Docs (coming soon)</em></td>
+                                <td><span class="cross">✗</span></td>
                                 <td><span class="cross">✗</span></td>
                                 <td><span class="cross">✗</span></td>
                                 <td><span class="checkmark">✓</span></td>
@@ -607,6 +676,7 @@
                                 <td><em>Google Sheets (coming soon)</em></td>
                                 <td><span class="cross">✗</span></td>
                                 <td><span class="cross">✗</span></td>
+                                <td><span class="cross">✗</span></td>
                                 <td><span class="checkmark">✓</span></td>
                                 <td><span class="checkmark">✓</span></td>
                                 <td><span class="checkmark">✓</span></td>
@@ -614,6 +684,7 @@
                             </tr>
                             <tr>
                                 <td><em>Google Forms (coming soon)</em></td>
+                                <td><span class="cross">✗</span></td>
                                 <td><span class="cross">✗</span></td>
                                 <td><span class="cross">✗</span></td>
                                 <td><span class="cross">✗</span></td>
@@ -627,11 +698,13 @@
                                 <td><span class="cross">✗</span></td>
                                 <td><span class="cross">✗</span></td>
                                 <td><span class="cross">✗</span></td>
+                                <td><span class="cross">✗</span></td>
                                 <td><span class="checkmark">✓</span></td>
                                 <td><span class="checkmark">✓</span></td>
                             </tr>
                             <tr>
                                 <td>Team Collaboration</td>
+                                <td><span class="cross">✗</span></td>
                                 <td><span class="cross">✗</span></td>
                                 <td><span class="cross">✗</span></td>
                                 <td><span class="cross">✗</span></td>
@@ -644,12 +717,14 @@
                                 <td><span class="cross">✗</span></td>
                                 <td><span class="cross">✗</span></td>
                                 <td><span class="cross">✗</span></td>
+                                <td><span class="cross">✗</span></td>
                                 <td><span class="checkmark">✓</span></td>
                                 <td><span class="checkmark">✓</span></td>
                                 <td><span class="checkmark">✓</span></td>
                             </tr>
                             <tr>
                                 <td>Custom Integrations</td>
+                                <td><span class="cross">✗</span></td>
                                 <td><span class="cross">✗</span></td>
                                 <td><span class="cross">✗</span></td>
                                 <td><span class="cross">✗</span></td>
@@ -666,11 +741,21 @@
                 <h2>⚡ Rate Limiting</h2>
                 <div class="rate-limits">
                     <div class="rate-limit-card">
+                        <div class="rate-limit-tier">Future4200</div>
+                        <div class="rate-limit-details">
+                            • 10 requests per hour<br>
+                            • 1 concurrent session<br>
+                            • Future4200 forum access<br>
+                            • Ad-supported experience
+                        </div>
+                    </div>
+                    <div class="rate-limit-card">
                         <div class="rate-limit-tier">Unregistered</div>
                         <div class="rate-limit-details">
                             • 5 requests per hour<br>
                             • 1 concurrent session<br>
-                            • Basic agent access only
+                            • Basic agent access only<br>
+                            • Ad-supported experience
                         </div>
                     </div>
                     <div class="rate-limit-card">
@@ -721,6 +806,10 @@
                 <div class="cost-breakdown">
                     <h3>Estimated Monthly Hosting Costs per User</h3>
                     <div class="cost-item">
+                        <span>Future4200 Users</span>
+                        <span>$0.15</span>
+                    </div>
+                    <div class="cost-item">
                         <span>Unregistered Users</span>
                         <span>$0.10</span>
                     </div>
@@ -746,8 +835,44 @@
                     </div>
                     <div class="cost-item">
                         <span><strong>Average Cost per User</strong></span>
-                        <span><strong>$7.43</strong></span>
+                        <span><strong>$6.39</strong></span>
                     </div>
+                </div>
+
+                <div class="highlight-box">
+                    <h3>Detailed Cost Breakdown by Feature</h3>
+                    <p><strong>Future4200 Forum Integration:</strong><br>
+                    • Web scraping & API calls: $0.05/user/month<br>
+                    • Data processing & indexing: $0.08/user/month<br>
+                    • Search & retrieval: $0.02/user/month</p>
+                    
+                    <p><strong>Chat History Storage:</strong><br>
+                    • Supabase database: $0.125/GB/month<br>
+                    • Average 1MB per user per month: $0.13/user/month</p>
+                    
+                    <p><strong>File Upload & Document Storage:</strong><br>
+                    • AWS S3 storage: $0.023/GB/month<br>
+                    • CDN delivery: $0.085/GB/month<br>
+                    • File processing: $0.10 per 1,000 files</p>
+                    
+                    <p><strong>Personal RAG System:</strong><br>
+                    • Vector database (Pinecone): $0.40/GB/month<br>
+                    • Embedding generation: $0.0001 per 1K tokens<br>
+                    • Query processing: $0.0004 per 1K tokens</p>
+                    
+                    <p><strong>Google Workspace Integration:</strong><br>
+                    • Google API calls: $0.01 per 1,000 requests<br>
+                    • OAuth token management: $0.05/user/month<br>
+                    • Data synchronization: $0.02/user/month</p>
+                    
+                    <p><strong>AI/LLM Processing:</strong><br>
+                    • OpenRouter API: $0.002-0.06 per 1K tokens<br>
+                    • Average 10K tokens per user per month: $0.20-3.00/user/month</p>
+                    
+                    <p><strong>Infrastructure & Monitoring:</strong><br>
+                    • AWS Lambda: $0.20 per 1M requests<br>
+                    • CloudWatch logging: $0.50/GB ingested<br>
+                    • Rate limiting & security: $0.10/user/month</p>
                 </div>
 
                 <div class="highlight-box">
