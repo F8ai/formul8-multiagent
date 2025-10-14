@@ -65,22 +65,53 @@
         
         .logo {
             font-family: 'Arial Black', Arial, sans-serif;
-            font-size: 28px;
+            font-size: 32px;
             font-weight: 900;
-            color: #fff;
             text-decoration: none;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
             line-height: 1;
+            position: relative;
+            display: inline-block;
         }
         
-        .logo .logo-main {
+        .logo-text {
+            background: linear-gradient(180deg, #ffb366 0%, #ff6b35 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: #ff6b35; /* Fallback for browsers that don't support background-clip */
+            text-shadow: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 2;
+        }
+        
+        .logo-outline {
+            position: absolute;
+            top: 0;
+            left: 0;
             color: #fff;
+            z-index: 1;
+            text-shadow: 
+                -2px -2px 0 #fff,
+                2px -2px 0 #fff,
+                -2px 2px 0 #fff,
+                2px 2px 0 #fff,
+                -1px -1px 0 #fff,
+                1px -1px 0 #fff,
+                -1px 1px 0 #fff,
+                1px 1px 0 #fff;
         }
         
-        .logo .logo-sub {
-            font-size: 20px;
-            display: block;
-            margin-top: -5px;
+        .logo-f-bar {
+            position: absolute;
+            top: -8px;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: linear-gradient(180deg, #ffb366 0%, #ff6b35 100%);
+            border-radius: 4px;
+            z-index: 3;
         }
         
         .header-right {
@@ -614,8 +645,9 @@
             <div class="header-left">
                 <div class="hamburger-menu">☰</div>
                 <a href="/" class="logo">
-                    <span class="logo-main">FUTURE</span>
-                    <span class="logo-sub">4200</span>
+                    <div class="logo-f-bar"></div>
+                    <span class="logo-outline">FUTURE4200</span>
+                    <span class="logo-text">FUTURE4200</span>
                 </a>
             </div>
             
