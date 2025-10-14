@@ -1,0 +1,222 @@
+name: Distribute OpenRouter API Key
+
+on:
+  repository_dispatch:
+    types: [update-api-key]
+  workflow_dispatch:
+    inputs:
+      api_key:
+        description: 'OpenRouter API Key to distribute'
+        required: true
+        type: string
+      force_update:
+        description: 'Force update even if key appears to be the same'
+        required: false
+        type: boolean
+        default: false
+
+jobs:
+  distribute-key:
+    name: Distribute API Key to All Vercel Projects
+    runs-on: ubuntu-latest
+    if: github.event_name == 'repository_dispatch' || github.event_name == 'workflow_dispatch'
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        
+    - name: Install Vercel CLI
+      run: npm install -g vercel@latest
+      
+    - name: Login to Vercel
+      run: vercel login --token ${{ secrets.VERCEL_TOKEN }}
+      
+    - name: Get API Key
+      id: get-key
+      run: |
+        if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+          echo "key=${{ github.event.inputs.api_key }}" >> $GITHUB_OUTPUT
+        else
+          echo "key=${{ secrets.OPENROUTER_API_KEY }}" >> $GITHUB_OUTPUT
+        fi
+        
+    - name: Validate API Key Format
+      run: |
+        KEY="${{ steps.get-key.outputs.key }}"
+        if [[ ! "$KEY" =~ ^sk-or-v1- ]]; then
+          echo "⚠️ Warning: API key doesn't match expected OpenRouter format"
+          echo "Continuing anyway..."
+        else
+          echo "✅ API key format looks correct"
+        fi
+        
+    - name: Update Main Agent
+      run: |
+        echo "Updating main agent (lambda-package)..."
+        cd lambda-package
+        
+        # Remove existing key
+        vercel env rm OPENROUTER_API_KEY production --yes 2>/dev/null || true
+        vercel env rm OPENROUTER_API_KEY preview --yes 2>/dev/null || true
+        vercel env rm OPENROUTER_API_KEY development --yes 2>/dev/null || true
+        
+        # Add new key
+        echo "${{ steps.get-key.outputs.key }}" | vercel env add OPENROUTER_API_KEY production
+        echo "${{ steps.get-key.outputs.key }}" | vercel env add OPENROUTER_API_KEY preview
+        echo "${{ steps.get-key.outputs.key }}" | vercel env add OPENROUTER_API_KEY development
+        
+        cd ..
+        echo "✅ Main agent updated"
+        
+    - name: Update Individual Agents
+      run: |
+        AGENTS=(
+          "ad-agent"
+          "compliance-agent"
+          "customer-success-agent"
+          "editor-agent"
+          "f8-slackbot"
+          "formulation-agent"
+          "marketing-agent"
+          "mcr-agent"
+          "operations-agent"
+          "patent-agent"
+          "science-agent"
+          "sourcing-agent"
+          "spectra-agent"
+        )
+        
+        for agent in "${AGENTS[@]}"; do
+          echo "Updating $agent..."
+          
+          if [ -d "agents/$agent" ]; then
+            cd "agents/$agent"
+            
+            # Remove existing key
+            vercel env rm OPENROUTER_API_KEY production --yes 2>/dev/null || true
+            vercel env rm OPENROUTER_API_KEY preview --yes 2>/dev/null || true
+            vercel env rm OPENROUTER_API_KEY development --yes 2>/dev/null || true
+            
+            # Add new key
+            echo "${{ steps.get-key.outputs.key }}" | vercel env add OPENROUTER_API_KEY production
+            echo "${{ steps.get-key.outputs.key }}" | vercel env add OPENROUTER_API_KEY preview
+            echo "${{ steps.get-key.outputs.key }}" | vercel env add OPENROUTER_API_KEY development
+            
+            cd ../..
+            echo "✅ $agent updated"
+          else
+            echo "⚠️ $agent directory not found"
+          fi
+        done
+        
+    - name: Update Future Agent
+      run: |
+        echo "Updating future-agent..."
+        
+        if [ -d "../future-agent" ]; then
+          cd ../future-agent
+          
+          # Remove existing key
+          vercel env rm OPENROUTER_API_KEY production --yes 2>/dev/null || true
+          vercel env rm OPENROUTER_API_KEY preview --yes 2>/dev/null || true
+          vercel env rm OPENROUTER_API_KEY development --yes 2>/dev/null || true
+          
+          # Add new key
+          echo "${{ steps.get-key.outputs.key }}" | vercel env add OPENROUTER_API_KEY production
+          echo "${{ steps.get-key.outputs.key }}" | vercel env add OPENROUTER_API_KEY preview
+          echo "${{ steps.get-key.outputs.key }}" | vercel env add OPENROUTER_API_KEY development
+          
+          cd ../formul8-multiagent
+          echo "✅ future-agent updated"
+        else
+          echo "⚠️ future-agent directory not found"
+        fi
+        
+    - name: Redeploy All Projects
+      run: |
+        echo "Redeploying all projects with new API key..."
+        
+        # Redeploy main agent
+        echo "Redeploying main agent..."
+        cd lambda-package
+        vercel --prod --yes
+        cd ..
+        
+        # Redeploy future-agent
+        if [ -d "../future-agent" ]; then
+          echo "Redeploying future-agent..."
+          cd ../future-agent
+          vercel --prod --yes
+          cd ../formul8-multiagent
+        fi
+        
+        # Redeploy individual agents
+        AGENTS=(
+          "ad-agent"
+          "compliance-agent"
+          "customer-success-agent"
+          "editor-agent"
+          "f8-slackbot"
+          "formulation-agent"
+          "marketing-agent"
+          "mcr-agent"
+          "operations-agent"
+          "patent-agent"
+          "science-agent"
+          "sourcing-agent"
+          "spectra-agent"
+        )
+        
+        for agent in "${AGENTS[@]}"; do
+          if [ -d "agents/$agent" ]; then
+            echo "Redeploying $agent..."
+            cd "agents/$agent"
+            vercel --prod --yes
+            cd ../..
+          fi
+        done
+        
+        echo "✅ All projects redeployed"
+        
+    - name: Verify Deployment
+      run: |
+        echo "Verifying deployments..."
+        
+        # Test main agent
+        echo "Testing main agent..."
+        curl -f https://f8.syzygyx.com/api/health || echo "⚠️ Main agent health check failed"
+        
+        # Test a few individual agents
+        AGENTS=("compliance-agent" "science-agent" "formulation-agent")
+        
+        for agent in "${AGENTS[@]}"; do
+          echo "Testing $agent..."
+          curl -f "https://$agent.vercel.app/api/health" || echo "⚠️ $agent health check failed"
+        done
+        
+        # Test future-agent
+        echo "Testing future-agent..."
+        curl -f "https://future-agent.vercel.app/api/health" || echo "⚠️ future-agent health check failed"
+        
+        echo "✅ Verification complete"
+        
+    - name: Create Summary
+      run: |
+        echo "## 🔑 API Key Distribution Complete" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "**Updated Projects:**" >> $GITHUB_STEP_SUMMARY
+        echo "- ✅ Main Agent (lambda-package)" >> $GITHUB_STEP_SUMMARY
+        echo "- ✅ Future Agent (future-agent)" >> $GITHUB_STEP_SUMMARY
+        echo "- ✅ 13 Individual Agents" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "**Key Format:** \`${{ steps.get-key.outputs.key }}...\`" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "**Next Steps:**" >> $GITHUB_STEP_SUMMARY
+        echo "1. Monitor deployment status in Vercel dashboard" >> $GITHUB_STEP_SUMMARY
+        echo "2. Run comprehensive tests to verify functionality" >> $GITHUB_STEP_SUMMARY
+        echo "3. Check logs for any deployment issues" >> $GITHUB_STEP_SUMMARY

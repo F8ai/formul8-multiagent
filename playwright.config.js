@@ -64,6 +64,12 @@ module.exports = defineConfig({
       name: 'Mobile Safari',
       use: { ...devices['iPhone 12'] },
     },
+    /* ChatGPT comparison tests */
+    {
+      name: 'chatgpt-comparison',
+      testMatch: '**/tests/chatgpt-*.spec.js',
+      use: { ...devices['Desktop Chrome'] },
+    },
   ],
 
   /* Run your local dev server before starting the tests */
