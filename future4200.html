@@ -28,7 +28,13 @@
         /* Layout */
         .app-container {
             display: flex;
+            flex-direction: column;
             min-height: 100vh;
+        }
+        
+        .content-wrapper {
+            display: flex;
+            flex: 1;
         }
         
         /* Header */
@@ -129,8 +135,6 @@
             padding: 20px 0;
             overflow-y: auto;
             height: calc(100vh - 60px);
-            position: sticky;
-            top: 60px;
         }
         
         .sidebar-section {
@@ -190,6 +194,7 @@
             flex: 1;
             padding: 30px;
             max-width: calc(100vw - 250px);
+            overflow-y: auto;
         }
         
         .welcome-section {
@@ -440,14 +445,13 @@
         
         /* Responsive */
         @media (max-width: 768px) {
-            .app-container {
+            .content-wrapper {
                 flex-direction: column;
             }
             
             .sidebar {
                 width: 100%;
                 height: auto;
-                position: static;
             }
             
             .main-content {
@@ -490,8 +494,10 @@
             </div>
         </header>
 
-        <!-- Sidebar -->
-        <aside class="sidebar">
+        <!-- Content Wrapper -->
+        <div class="content-wrapper">
+            <!-- Sidebar -->
+            <aside class="sidebar">
             <div class="sidebar-section">
                 <div class="sidebar-title">
                     <span class="sidebar-icon">📄</span>
@@ -651,6 +657,7 @@
                 </div>
             </div>
         </main>
+        </div>
     </div>
 
     <script>
