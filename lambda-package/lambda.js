@@ -11,38 +11,7 @@ const {
 // Create Express app
 const app = express();
 
-// Simple rate limiting without external dependency
-const requestCounts = new Map();
-const RATE_LIMIT_WINDOW = 15 * 60 * 1000; // 15 minutes
-const RATE_LIMIT_MAX = 50; // max requests per window
-
-const rateLimiter = (req, res, next) => {
-  const ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress || 'unknown';
-  const now = Date.now();
-  
-  if (!requestCounts.has(ip)) {
-    requestCounts.set(ip, { count: 1, resetTime: now + RATE_LIMIT_WINDOW });
-    return next();
-  }
-  
-  const ipData = requestCounts.get(ip);
-  
-  if (now > ipData.resetTime) {
-    // Reset the counter
-    requestCounts.set(ip, { count: 1, resetTime: now + RATE_LIMIT_WINDOW });
-    return next();
-  }
-  
-  if (ipData.count >= RATE_LIMIT_MAX) {
-    return res.status(429).json({
-      error: 'Too many requests from this IP, please try again later.',
-      retryAfter: Math.ceil((ipData.resetTime - now) / 1000)
-    });
-  }
-  
-  ipData.count++;
-  next();
-};
+// Rate limiting is handled by auth-middleware
 
 // CORS configuration - restrict to specific origins
 const corsOptions = {
@@ -68,9 +37,19 @@ app.use((req, res, next) => {
   next();
 });
 
-// Apply authentication and rate limiting to API endpoints
-app.use('/api/', authenticate);
-app.use('/api/', rateLimiter);
+// Apply authentication and rate limiting to API endpoints (except free-key)
+app.use('/api/', (req, res, next) => {
+  if (req.path === '/free-key') {
+    return next(); // Skip auth for free-key endpoint
+  }
+  return authenticate(req, res, next);
+});
+app.use('/api/', (req, res, next) => {
+  if (req.path === '/free-key') {
+    return next(); // Skip rate limiting for free-key endpoint
+  }
+  return rateLimiter(req, res, next);
+});
 
 // Health endpoint
 app.get('/health', (req, res) => {
@@ -90,6 +69,25 @@ app.get('/health', (req, res) => {
 });
 
 // Free API key generation endpoint
+app.post('/api/free-key', (req, res) => {
+  const freeApiKey = generateFreeApiKey();
+  res.json({
+    success: true,
+    apiKey: freeApiKey,
+    plan: 'free',
+    limits: {
+      requestsPerHour: 10,
+      availableAgents: ['compliance', 'formulation', 'science']
+    },
+    usage: {
+      header: 'X-API-Key',
+      value: freeApiKey
+    },
+    message: 'Use this API key in the X-API-Key header for free access'
+  });
+});
+
+// Also support GET for backward compatibility
 app.get('/api/free-key', (req, res) => {
   const freeApiKey = generateFreeApiKey();
   res.json({
@@ -1546,606 +1544,20 @@ app.post('/api/chat', async (req, res) => {
   }
 });
 
-// Lambda handler
-exports.handler = async (event, context) => {
-  // Convert Lambda event to Express request
-  const request = {
-    method: event.httpMethod || 'GET',
-    url: event.path || '/',
-    headers: event.headers || {},
-    body: event.body ? JSON.parse(event.body) : {}
-  };
+// Vercel serverless function handler
+module.exports = async (req, res) => {
+  // Set CORS headers
+  res.setHeader('Access-Control-Allow-Credentials', true);
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT');
+  res.setHeader('Access-Control-Allow-Headers', 'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version, Authorization');
   
-  // Simple routing
-  if (request.method === 'GET' && request.url === '/health') {
-    return {
-      statusCode: 200,
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        status: 'healthy',
-        timestamp: new Date().toISOString(),
-        service: 'formul8-multiagent-lambda',
-        version: '1.0.0'
-      })
-    };
+  // Handle preflight requests
+  if (req.method === 'OPTIONS') {
+    res.status(200).end();
+    return;
   }
   
-  if (request.method === 'GET' && request.url === '/chat') {
-    // Return the HTML for the ChatGPT-style chat interface
-    const html = `<!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Formul8 Multiagent Chat</title>
-        <link rel="icon" type="image/x-icon" href="https://formul8.ai/favicon.ico">
-        <style>
-            * { margin: 0; padding: 0; box-sizing: border-box; }
-            
-            body {
-                font-family: ui-sans-serif, -apple-system, system-ui, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
-                background: #ffffff;
-                color: #0d0d0d;
-                min-height: 100vh;
-                display: flex;
-                flex-direction: column;
-                font-size: 16px;
-            }
-            
-            /* Header with login button */
-            .header {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                padding: 8px;
-                height: 52px;
-                border-bottom: 1px solid #e5e5e5;
-                background: #ffffff;
-            }
-            
-            .logo {
-                font-size: 18px;
-                font-weight: 600;
-                color: #0d0d0d;
-            }
-            
-            .login-button {
-                background: #0d0d0d;
-                color: white;
-                border: none;
-                padding: 0px 10px;
-                border-radius: 3.35544e+07px;
-                font-size: 12px;
-                font-weight: 500;
-                cursor: pointer;
-                transition: background-color 0.2s;
-            }
-            
-            .login-button:hover {
-                background: #0d0d0dcc;
-            }
-            
-            /* Main chat container - dynamic layout */
-            .chat-container {
-                flex: 1;
-                display: flex;
-                flex-direction: column;
-                max-width: 768px;
-                margin: 0 auto;
-                padding: 20px;
-                width: 100%;
-                transition: all 0.3s ease;
-            }
-            
-            /* Initial centered state */
-            .chat-container.initial-state {
-                justify-content: center;
-                align-items: center;
-            }
-            
-            /* Chat state after first message */
-            .chat-container.chat-state {
-                justify-content: flex-start;
-                align-items: stretch;
-            }
-            
-            .chat-title {
-                font-size: 32px;
-                font-weight: 600;
-                color: #0d0d0d;
-                margin-bottom: 8px;
-                text-align: center;
-                transition: all 0.3s ease;
-            }
-            
-            .chat-subtitle {
-                font-size: 16px;
-                color: #5d5d5d;
-                margin-bottom: 40px;
-                text-align: center;
-                transition: all 0.3s ease;
-            }
-            
-            /* Chat state - hide title and subtitle */
-            .chat-container.chat-state .chat-title,
-            .chat-container.chat-state .chat-subtitle {
-                display: none;
-            }
-            
-            /* Chat messages area */
-            .chat-messages {
-                width: 100%;
-                max-width: 600px;
-                margin: 0 auto;
-                min-height: 200px;
-                transition: all 0.3s ease;
-            }
-            
-            /* Initial state - hide messages */
-            .chat-container.initial-state .chat-messages {
-                display: none;
-            }
-            
-            /* Chat state - show messages */
-            .chat-container.chat-state .chat-messages {
-                display: block;
-                flex: 1;
-                overflow-y: auto;
-                max-height: calc(100vh - 200px);
-                padding: 0 0 20px 0;
-            }
-            
-            .message {
-                margin-bottom: 16px;
-                padding: 12px 16px;
-                border-radius: 12px;
-                max-width: 100%;
-            }
-            
-            .user-message {
-                background: #f7f7f8;
-                margin-left: auto;
-                margin-right: 0;
-                max-width: 85%;
-                margin-bottom: 20px;
-            }
-            
-            .assistant-message {
-                background: #ffffff;
-                border: 1px solid #e5e5e5;
-                margin-right: auto;
-                margin-left: 0;
-                max-width: 85%;
-                margin-bottom: 20px;
-            }
-            
-            .welcome-message {
-                text-align: center;
-                padding: 40px 20px;
-                background: #f9f9f9;
-                border-radius: 12px;
-                border: 1px solid #e5e5e5;
-                transition: all 0.3s ease;
-            }
-            
-            .welcome-message h3 {
-                font-size: 20px;
-                font-weight: 600;
-                margin-bottom: 12px;
-                color: #000000;
-            }
-            
-            .welcome-message p {
-                font-size: 16px;
-                color: #6b7280;
-                margin-bottom: 8px;
-            }
-            
-            .feature-tags {
-                display: flex;
-                flex-wrap: wrap;
-                gap: 8px;
-                justify-content: center;
-                margin-top: 20px;
-            }
-            
-            .feature-tag {
-                background: #e5e7eb;
-                color: #374151;
-                padding: 6px 12px;
-                border-radius: 16px;
-                font-size: 14px;
-                font-weight: 500;
-            }
-            
-            /* Chat state - hide welcome message */
-            .chat-container.chat-state .welcome-message {
-                display: none;
-            }
-            
-            /* Chat input area */
-            .chat-input-container {
-                width: 100%;
-                max-width: 600px;
-                position: relative;
-                margin: 0 auto;
-            }
-            
-            /* Initial state - centered input */
-            .chat-container.initial-state .chat-input-container {
-                margin: 0 auto 40px auto;
-            }
-            
-            /* Chat state - input at bottom */
-            .chat-container.chat-state .chat-input-container {
-                margin: 20px auto 0 auto;
-            }
-            
-            .chat-input-wrapper {
-                position: relative;
-                display: flex;
-                align-items: flex-end;
-                background: #ffffff;
-                border: 1px solid #d1d5db;
-                border-radius: 12px;
-                padding: 12px;
-                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-            }
-            
-            .chat-input {
-                flex: 1;
-                border: none;
-                outline: none;
-                font-size: 16px;
-                line-height: 1.5;
-                resize: none;
-                min-height: 24px;
-                max-height: 120px;
-                font-family: inherit;
-                background: transparent;
-                padding: 0px 0px 16px;
-            }
-            
-            .chat-input::placeholder {
-                color: #000000b3;
-            }
-            
-            .send-button {
-                background: #10a37f;
-                color: white;
-                border: none;
-                border-radius: 8px;
-                width: 32px;
-                height: 32px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                cursor: pointer;
-                margin-left: 8px;
-                transition: background-color 0.2s;
-            }
-            
-            .send-button:hover:not(:disabled) {
-                background: #0d8a6b;
-            }
-            
-            .send-button:disabled {
-                background: #d1d5db;
-                cursor: not-allowed;
-            }
-            
-            .send-icon {
-                width: 16px;
-                height: 16px;
-            }
-            
-            /* Loading indicator */
-            .loading {
-                display: none;
-                text-align: center;
-                color: #6b7280;
-                font-size: 14px;
-                margin-top: 16px;
-            }
-            
-            .loading.show {
-                display: block;
-            }
-            
-            /* Responsive design */
-            @media (max-width: 768px) {
-                .chat-container {
-                    padding: 16px;
-                }
-                
-                .chat-title {
-                    font-size: 24px;
-                }
-                
-                .chat-subtitle {
-                    font-size: 14px;
-                }
-                
-                .message {
-                    max-width: 90%;
-                }
-            }
-        </style>
-    </head>
-    <body>
-        <!-- Header with login button -->
-        <div class="header">
-            <div class="logo">Formul8</div>
-            <button class="login-button" onclick="handleLogin()">Log in</button>
-        </div>
-        
-        <!-- Main chat container - centered -->
-        <div class="chat-container">
-            <div class="chat-title">What do you want to Formul8 today?</div>
-            <div class="chat-subtitle">Ask me anything about cannabis compliance, formulation, research, operations, and more.</div>
-            
-            <!-- Chat messages area -->
-            <div class="chat-messages" id="chatMessages">
-                <div class="welcome-message">
-                    <h3>Welcome to Formul8 Multiagent Chat!</h3>
-                    <p>I'm your intelligent cannabis industry assistant.</p>
-                    <p>I can help you with compliance, formulation, science, operations, marketing, and more!</p>
-                    
-                    <div class="feature-tags">
-                        <span class="feature-tag">Compliance</span>
-                        <span class="feature-tag">Formulation</span>
-                        <span class="feature-tag">Science</span>
-                        <span class="feature-tag">Operations</span>
-                        <span class="feature-tag">Marketing</span>
-                        <span class="feature-tag">Patent Research</span>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Loading indicator -->
-            <div class="loading" id="loading">Formul8 is thinking...</div>
-            
-            <!-- Chat input area -->
-            <div class="chat-input-container">
-                <div class="chat-input-wrapper">
-                    <textarea 
-                        class="chat-input" 
-                        id="messageInput" 
-                        placeholder="Ask anything"
-                        rows="1"
-                    ></textarea>
-                    <button class="send-button" id="sendButton" onclick="sendMessage()">
-                        <svg class="send-icon" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
-                        </svg>
-                    </button>
-                </div>
-            </div>
-        </div>
-        
-        <script>
-            const chatContainer = document.querySelector('.chat-container');
-            const chatMessages = document.getElementById('chatMessages');
-            const messageInput = document.getElementById('messageInput');
-            const sendButton = document.getElementById('sendButton');
-            const loading = document.getElementById('loading');
-            
-            // Initialize in centered state
-            chatContainer.classList.add('initial-state');
-            
-            // Auto-resize textarea
-            messageInput.addEventListener('input', function() {
-                this.style.height = 'auto';
-                this.style.height = Math.min(this.scrollHeight, 120) + 'px';
-            });
-            
-            // Handle Enter key (Shift+Enter for new line)
-            messageInput.addEventListener('keydown', function(e) {
-                if (e.key === 'Enter' && !e.shiftKey) {
-                    e.preventDefault();
-                    sendMessage();
-                }
-            });
-            
-            // Handle login button
-            function handleLogin() {
-                alert('Login functionality coming soon! For now, you can use the chat without logging in.');
-            }
-            
-            // Transition to chat state
-            function transitionToChatState() {
-                chatContainer.classList.remove('initial-state');
-                chatContainer.classList.add('chat-state');
-            }
-            
-            // Send message function
-            async function sendMessage() {
-                const message = messageInput.value.trim();
-                
-                if (!message) {
-                    return;
-                }
-                
-                // Transition to chat state on first message
-                if (chatContainer.classList.contains('initial-state')) {
-                    transitionToChatState();
-                }
-                
-                // Add user message to chat
-                addMessage(message, 'user');
-                messageInput.value = '';
-                messageInput.style.height = 'auto';
-                
-                // Show loading
-                loading.classList.add('show');
-                sendButton.disabled = true;
-                
-                try {
-                    const response = await fetch('/api/chat', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ 
-                            message,
-                            user_id: 'web-user'
-                        })
-                    });
-                    
-                    const data = await response.json();
-                    
-                    if (data.success) {
-                        addMessage(data.response, 'assistant');
-                    } else {
-                        addMessage('Sorry, I encountered an error: ' + (data.message || 'Unknown error'), 'assistant');
-                    }
-                } catch (error) {
-                    addMessage('Sorry, I encountered an error: ' + error.message, 'assistant');
-                } finally {
-                    loading.classList.remove('show');
-                    sendButton.disabled = false;
-                    messageInput.focus();
-                }
-            }
-            
-            // Add message to chat
-            function addMessage(content, type) {
-                const messageDiv = document.createElement('div');
-                messageDiv.className = \`message \${type}-message\`;
-                messageDiv.textContent = content;
-                
-                chatMessages.appendChild(messageDiv);
-                chatMessages.scrollTop = chatMessages.scrollHeight;
-            }
-            
-            // Focus input on load
-            messageInput.focus();
-        </script>
-    </body>
-    </html>`;
-    
-    return {
-      statusCode: 200,
-      headers: { 'Content-Type': 'text/html' },
-      body: html
-    };
-  }
-  
-  if (request.method === 'POST' && request.url === '/api/chat') {
-    const { message } = request.body;
-    
-    if (!message) {
-      return {
-        statusCode: 400,
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ error: 'Message is required' })
-      };
-    }
-    
-    try {
-      // Get OpenRouter API key from environment
-      const openRouterApiKey = process.env.OPENROUTER_API_KEY;
-      
-      if (!openRouterApiKey) {
-        console.error('OpenRouter API key not found in environment variables');
-        return {
-          statusCode: 500,
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ 
-            error: 'API configuration error',
-            response: 'I apologize, but I\'m currently experiencing a configuration issue. Please try again later.'
-          })
-        };
-      }
-      
-      // Call OpenRouter API
-      const openRouterResponse = await fetch('https://openrouter.ai/api/v1/chat/completions', {
-        method: 'POST',
-        headers: {
-          'Authorization': `Bearer ${openRouterApiKey}`,
-          'Content-Type': 'application/json',
-          'HTTP-Referer': 'https://f8.syzygyx.com',
-          'X-Title': 'Formul8 Multiagent Chat'
-        },
-        body: JSON.stringify({
-          model: 'openai/gpt-oss-120b',
-          messages: [
-            {
-              role: 'system',
-              content: `You are a Formul8 Multiagent AI assistant specializing in the cannabis industry. You help with compliance, formulation, science, operations, marketing, patent research, and sourcing. Provide helpful, accurate, and professional responses. Keep responses concise but informative.`
-            },
-            {
-              role: 'user',
-              content: message
-            }
-          ],
-          max_tokens: 1000,
-          temperature: 0.7
-        })
-      });
-      
-      if (!openRouterResponse.ok) {
-        console.error('OpenRouter API error:', openRouterResponse.status, openRouterResponse.statusText);
-        return {
-          statusCode: 500,
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ 
-            error: 'AI service temporarily unavailable',
-            response: 'I apologize, but I\'m currently unable to process your request. Please try again in a moment.'
-          })
-        };
-      }
-      
-      const aiData = await openRouterResponse.json();
-      const aiResponse = aiData.choices?.[0]?.message?.content || 'I apologize, but I couldn\'t generate a response. Please try again.';
-      
-      // Extract usage information
-      const usage = aiData.usage || {};
-      const promptTokens = usage.prompt_tokens || 0;
-      const completionTokens = usage.completion_tokens || 0;
-      const totalTokens = usage.total_tokens || (promptTokens + completionTokens);
-      
-      // Calculate cost (openai/gpt-oss-120b is free, so cost is $0.00)
-      // const inputCost = (promptTokens / 1000000) * 0.15; // Free model
-      // const outputCost = (completionTokens / 1000000) * 0.60; // Free model
-      const totalCost = 0.00; // Free model
-      
-      // Create footer with metadata
-      const footer = `\n\n---\n*Agent: f8_agent | Tokens: ${totalTokens} (${promptTokens}→${completionTokens}) | Cost: $${totalCost.toFixed(6)}*`;
-      const responseWithFooter = aiResponse + footer;
-      
-      return {
-        statusCode: 200,
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          success: true,
-          response: responseWithFooter,
-          agent: 'f8_agent',
-          timestamp: new Date().toISOString(),
-          model: 'openai/gpt-oss-120b',
-          usage: {
-            prompt_tokens: promptTokens,
-            completion_tokens: completionTokens,
-            total_tokens: totalTokens,
-            cost: totalCost
-          }
-        })
-      };
-      
-    } catch (error) {
-      console.error('Error calling OpenRouter API:', error);
-      return {
-        statusCode: 500,
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ 
-          error: 'Internal server error',
-          response: 'I apologize, but I encountered an error processing your request. Please try again.'
-        })
-      };
-    }
-  }
-  
-  return {
-    statusCode: 404,
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ error: 'Not found' })
-  };
+  // Route to Express app
+  return app(req, res);
 };

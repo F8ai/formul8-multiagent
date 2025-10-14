@@ -16,11 +16,12 @@
       "dest": "/lambda.js"
     },
     {
+      "src": "/health",
+      "dest": "/lambda.js"
+    },
+    {
       "src": "/(.*)",
       "dest": "/public/$1"
     }
-  ],
-  "env": {
-    "OPENROUTER_API_KEY": "@openrouter_api_key"
-  }
+  ]
 }
