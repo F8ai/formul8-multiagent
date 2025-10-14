@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en" class="desktop-view not-mobile-device text-size-normal anon no-touch discourse-no-touch">
+<head>
+    <meta charset="utf-8">
+    <title>Future4200</title>
+    <meta name="description" content="The Future Is Now">
+    <meta name="theme-color" content="#252525">
+    <meta name="color-scheme" content="dark">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, viewport-fit=cover, interactive-widget=resizes-content">
+    <link rel="icon" type="image/png" href="https://future4200.com/uploads/default/optimized/3X/a/d/ad54c52220ad6e9905fd2e055365d34f95362f91_2_32x32.ico">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #0e0e0e;
+            color: #d1d1d1;
+            font-size: 16px;
+            line-height: 1.4;
+        }
+        
+        /* Header */
+        .header {
+            background-color: #252525;
+            border-bottom: 1px solid #333;
+            padding: 8px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #fff;
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+        
+        .nav-link {
+            color: #d1d1d1;
+            text-decoration: none;
+            padding: 8px 12px;
+            border-radius: 4px;
+            transition: background-color 0.2s;
+        }
+        
+        .nav-link:hover {
+            background-color: #333;
+        }
+        
+        .auth-buttons {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.2s;
+        }
+        
+        .btn-primary {
+            background-color: #007bff;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: #d1d1d1;
+            border: 1px solid #555;
+        }
+        
+        .btn-secondary:hover {
+            background-color: #333;
+        }
+        
+        /* Main content */
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .page-title {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 30px;
+            color: #fff;
+        }
+        
+        /* Categories */
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        
+        .category-card {
+            background-color: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 20px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+        
+        .category-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .category-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(45deg, #007bff, #00d4aa);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 20px;
+        }
+        
+        .category-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #fff;
+            margin-bottom: 5px;
+        }
+        
+        .category-description {
+            color: #888;
+            font-size: 14px;
+        }
+        
+        .category-stats {
+            display: flex;
+            gap: 20px;
+            margin-top: 15px;
+            font-size: 14px;
+            color: #888;
+        }
+        
+        /* Topics list */
+        .topics-section {
+            background-color: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .topics-header {
+            background-color: #252525;
+            padding: 15px 20px;
+            border-bottom: 1px solid #333;
+        }
+        
+        .topics-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #fff;
+        }
+        
+        .topics-list {
+            list-style: none;
+        }
+        
+        .topic-item {
+            border-bottom: 1px solid #333;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            transition: background-color 0.2s;
+        }
+        
+        .topic-item:hover {
+            background-color: #222;
+        }
+        
+        .topic-item:last-child {
+            border-bottom: none;
+        }
+        
+        .topic-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 15px;
+            background: linear-gradient(45deg, #007bff, #00d4aa);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: white;
+        }
+        
+        .topic-content {
+            flex: 1;
+        }
+        
+        .topic-title {
+            font-size: 16px;
+            font-weight: 500;
+            color: #fff;
+            margin-bottom: 5px;
+            text-decoration: none;
+        }
+        
+        .topic-title:hover {
+            color: #007bff;
+        }
+        
+        .topic-meta {
+            display: flex;
+            gap: 15px;
+            font-size: 14px;
+            color: #888;
+        }
+        
+        .topic-category {
+            background-color: #007bff;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+        }
+        
+        .topic-stats {
+            display: flex;
+            gap: 15px;
+            font-size: 14px;
+            color: #888;
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: #0e0e0e;
+            border-top: 1px solid #333;
+            padding: 40px 20px;
+            margin-top: 60px;
+            text-align: center;
+            color: #888;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-link {
+            color: #888;
+            text-decoration: none;
+        }
+        
+        .footer-link:hover {
+            color: #fff;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .categories {
+                grid-template-columns: 1fr;
+            }
+            
+            .topic-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .topic-avatar {
+                margin-bottom: 10px;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <a href="/" class="logo">Future4200</a>
+            
+            <nav class="nav-links">
+                <a href="/latest" class="nav-link">Topics</a>
+                <a href="/upcoming-events" class="nav-link">Upcoming events</a>
+                <a href="/categories" class="nav-link">All categories</a>
+            </nav>
+            
+            <div class="auth-buttons">
+                <button class="btn btn-secondary">Log In</button>
+                <button class="btn btn-primary">Sign Up</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main content -->
+    <main class="main-container">
+        <h1 class="page-title">All latest topics</h1>
+        
+        <!-- Categories -->
+        <section class="categories">
+            <div class="category-card">
+                <div class="category-header">
+                    <div class="category-icon">🌿</div>
+                    <div>
+                        <h3 class="category-title">Hash and Stuff</h3>
+                        <p class="category-description">Discussion about hash, concentrates, and extraction methods</p>
+                    </div>
+                </div>
+                <div class="category-stats">
+                    <span>1,234 topics</span>
+                    <span>5,678 posts</span>
+                </div>
+            </div>
+            
+            <div class="category-card">
+                <div class="category-header">
+                    <div class="category-icon">❓</div>
+                    <div>
+                        <h3 class="category-title">Help Support and Requests</h3>
+                        <p class="category-description">Get help and support from the community</p>
+                    </div>
+                </div>
+                <div class="category-stats">
+                    <span>890 topics</span>
+                    <span>3,456 posts</span>
+                </div>
+            </div>
+            
+            <div class="category-card">
+                <div class="category-header">
+                    <div class="category-icon">📊</div>
+                    <div>
+                        <h3 class="category-title">Data Dump</h3>
+                        <p class="category-description">Share and discuss data, research, and analytics</p>
+                    </div>
+                </div>
+                <div class="category-stats">
+                    <span>567 topics</span>
+                    <span>2,345 posts</span>
+                </div>
+            </div>
+            
+            <div class="category-card">
+                <div class="category-header">
+                    <div class="category-icon">🌱</div>
+                    <div>
+                        <h3 class="category-title">Botany and Cultivation</h3>
+                        <p class="category-description">Growing techniques, genetics, and cultivation tips</p>
+                    </div>
+                </div>
+                <div class="category-stats">
+                    <span>2,345 topics</span>
+                    <span>8,901 posts</span>
+                </div>
+            </div>
+            
+            <div class="category-card">
+                <div class="category-header">
+                    <div class="category-icon">🧪</div>
+                    <div>
+                        <h3 class="category-title">Testing and Analytics</h3>
+                        <p class="category-description">Lab testing, quality control, and analytical methods</p>
+                    </div>
+                </div>
+                <div class="category-stats">
+                    <span>678 topics</span>
+                    <span>2,890 posts</span>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Topics list -->
+        <section class="topics-section">
+            <div class="topics-header">
+                <h2 class="topics-title">Latest Topics</h2>
+            </div>
+            
+            <ul class="topics-list">
+                <li class="topic-item">
+                    <div class="topic-avatar">S</div>
+                    <div class="topic-content">
+                        <a href="#" class="topic-title">New extraction method for high-CBD concentrates</a>
+                        <div class="topic-meta">
+                            <span class="topic-category">Hash and Stuff</span>
+                            <span>by sidco</span>
+                            <span>2 hours ago</span>
+                        </div>
+                    </div>
+                    <div class="topic-stats">
+                        <span>15 replies</span>
+                        <span>234 views</span>
+                    </div>
+                </li>
+                
+                <li class="topic-item">
+                    <div class="topic-avatar">V</div>
+                    <div class="topic-content">
+                        <a href="#" class="topic-title">Help with winterization process - cloudy final product</a>
+                        <div class="topic-meta">
+                            <span class="topic-category">Help Support and Requests</span>
+                            <span>by villy</span>
+                            <span>4 hours ago</span>
+                        </div>
+                    </div>
+                    <div class="topic-stats">
+                        <span>8 replies</span>
+                        <span>156 views</span>
+                    </div>
+                </li>
+                
+                <li class="topic-item">
+                    <div class="topic-avatar">F</div>
+                    <div class="topic-content">
+                        <a href="#" class="topic-title">Lab results from latest batch - potency analysis</a>
+                        <div class="topic-meta">
+                            <span class="topic-category">Data Dump</span>
+                            <span>by future</span>
+                            <span>6 hours ago</span>
+                        </div>
+                    </div>
+                    <div class="topic-stats">
+                        <span>23 replies</span>
+                        <span>445 views</span>
+                    </div>
+                </li>
+                
+                <li class="topic-item">
+                    <div class="topic-avatar">K</div>
+                    <div class="topic-content">
+                        <a href="#" class="topic-title">CBD extraction yield optimization techniques</a>
+                        <div class="topic-meta">
+                            <span class="topic-category">Botany and Cultivation</span>
+                            <span>by ky_cbd</span>
+                            <span>8 hours ago</span>
+                        </div>
+                    </div>
+                    <div class="topic-stats">
+                        <span>12 replies</span>
+                        <span>289 views</span>
+                    </div>
+                </li>
+                
+                <li class="topic-item">
+                    <div class="topic-avatar">C</div>
+                    <div class="topic-content">
+                        <a href="#" class="topic-title">Testing equipment recommendations for small lab</a>
+                        <div class="topic-meta">
+                            <span class="topic-category">Testing and Analytics</span>
+                            <span>by curiouschemist22</span>
+                            <span>10 hours ago</span>
+                        </div>
+                    </div>
+                    <div class="topic-stats">
+                        <span>19 replies</span>
+                        <span>367 views</span>
+                    </div>
+                </li>
+                
+                <li class="topic-item">
+                    <div class="topic-avatar">C</div>
+                    <div class="topic-content">
+                        <a href="#" class="topic-title">Ethanol vs CO2 extraction - pros and cons discussion</a>
+                        <div class="topic-meta">
+                            <span class="topic-category">Hash and Stuff</span>
+                            <span>by cbd.machinabis</span>
+                            <span>12 hours ago</span>
+                        </div>
+                    </div>
+                    <div class="topic-stats">
+                        <span>31 replies</span>
+                        <span>523 views</span>
+                    </div>
+                </li>
+                
+                <li class="topic-item">
+                    <div class="topic-avatar">P</div>
+                    <div class="topic-content">
+                        <a href="#" class="topic-title">Portland cannabis regulations update - compliance tips</a>
+                        <div class="topic-meta">
+                            <span class="topic-category">Help Support and Requests</span>
+                            <span>by pdxcanna</span>
+                            <span>14 hours ago</span>
+                        </div>
+                    </div>
+                    <div class="topic-stats">
+                        <span>7 replies</span>
+                        <span>198 views</span>
+                    </div>
+                </li>
+                
+                <li class="topic-item">
+                    <div class="topic-avatar">S</div>
+                    <div class="topic-content">
+                        <a href="#" class="topic-title">Substitute creature genetics - strain development</a>
+                        <div class="topic-meta">
+                            <span class="topic-category">Botany and Cultivation</span>
+                            <span>by substitutecreature</span>
+                            <span>16 hours ago</span>
+                        </div>
+                    </div>
+                    <div class="topic-stats">
+                        <span>14 replies</span>
+                        <span>312 views</span>
+                    </div>
+                </li>
+                
+                <li class="topic-item">
+                    <div class="topic-avatar">O</div>
+                    <div class="topic-content">
+                        <a href="#" class="topic-title">Oscar's lab testing methodology - detailed breakdown</a>
+                        <div class="topic-meta">
+                            <span class="topic-category">Data Dump</span>
+                            <span>by oscar</span>
+                            <span>18 hours ago</span>
+                        </div>
+                    </div>
+                    <div class="topic-stats">
+                        <span>26 replies</span>
+                        <span>456 views</span>
+                    </div>
+                </li>
+                
+                <li class="topic-item">
+                    <div class="topic-avatar">V</div>
+                    <div class="topic-content">
+                        <a href="#" class="topic-title">Villy's winterization tips - troubleshooting guide</a>
+                        <div class="topic-meta">
+                            <span class="topic-category">Hash and Stuff</span>
+                            <span>by villy</span>
+                            <span>20 hours ago</span>
+                        </div>
+                    </div>
+                    <div class="topic-stats">
+                        <span>18 replies</span>
+                        <span>389 views</span>
+                    </div>
+                </li>
+            </ul>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="#" class="footer-link">About</a>
+            <a href="#" class="footer-link">Privacy</a>
+            <a href="#" class="footer-link">Terms</a>
+            <a href="#" class="footer-link">Contact</a>
+            <a href="#" class="footer-link">Help</a>
+        </div>
+        <p>&copy; 2024 Future4200. The Future Is Now.</p>
+    </footer>
+
+    <script>
+        // Add some interactivity
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add hover effects to topic items
+            const topicItems = document.querySelectorAll('.topic-item');
+            topicItems.forEach(item => {
+                item.addEventListener('mouseenter', function() {
+                    this.style.backgroundColor = '#222';
+                });
+                item.addEventListener('mouseleave', function() {
+                    this.style.backgroundColor = 'transparent';
+                });
+            });
+            
+            // Add click handlers for auth buttons
+            const loginBtn = document.querySelector('.btn-secondary');
+            const signupBtn = document.querySelector('.btn-primary');
+            
+            loginBtn.addEventListener('click', function() {
+                alert('Login functionality would be implemented here');
+            });
+            
+            signupBtn.addEventListener('click', function() {
+                alert('Sign up functionality would be implemented here');
+            });
+            
+            // Add click handlers for topic titles
+            const topicTitles = document.querySelectorAll('.topic-title');
+            topicTitles.forEach(title => {
+                title.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    alert('Topic: ' + this.textContent);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
