@@ -81,7 +81,8 @@ app.post('/api/chat', (req, res) => {
   const { message, plan = 'free' } = req.body;
   const apiKey = req.headers['x-api-key'];
   
-  if (!apiKey) {
+  // Only require API key for free plan, not for future4200 plan
+  if (plan !== 'future4200' && !apiKey) {
     return res.status(401).json({ error: 'API key required' });
   }
   
@@ -89,24 +90,61 @@ app.post('/api/chat', (req, res) => {
   let response, agent, planType;
   
   if (plan === 'future4200') {
-    // Future4200 plan - uses future-agent and ad-agent
-    response = `[Future4200 Mode] I received your message: "${message}". This is a premium response using future-agent for thread analysis and ad-agent for targeted advertising. The future4200.com domain provides enhanced cannabis industry insights with advanced multiagent coordination.`;
-    agent = 'future-agent';
-    planType = 'future4200';
+    // Future4200 plan - return structured data with threads
+    const threads = [
+      {
+        title: "How To Easily Find A Vape Hardware Cannabis Vape Cannabis Vaporizer Vape Cart Manufacturer For FREE",
+        description: "Dec 2022 - A commonly asked question that we get is 'How can I find our Vape Hardware/Cannabis Vape Hardware Manufacturer?' How to find a Vape Supplier'? 'How can i find Cannabis Vaporizer Manufacturers 'What ...",
+        categories: ["Cart Peddler"],
+        tags: ["cbd"],
+        url: "https://future4200.com/t/vape-hardware-manufacturer/123"
+      },
+      {
+        title: "Cannabis derived terpenes vs non-cannabis derived terpenes",
+        description: "Mar 2019 - New to the site, so sorry if this has already been discussed. Didn't see it when I searched though. I see a lot of claims about cannabis derived terpenes being superior. The problem is that these c...",
+        categories: ["Hash and Stuff"],
+        tags: ["terpenes"],
+        url: "https://future4200.com/t/cannabis-terpenes/456"
+      },
+      {
+        title: "Valenza Nutrients: Formulated for cannabis and with cannabis",
+        description: "May 2022 - While writing my book review on a newly released academic journal sourced and written book from CRC Press titled, https://www.taylorfrancis.- com/books/edit/10.1201/9781003150442/handbook-cannabis-pr...",
+        categories: ["Botany and Cultivation"],
+        tags: ["cannabis"],
+        url: "https://future4200.com/t/valenza-nutrients/789"
+      },
+      {
+        title: "Whats in my Cannabis? A Unified Manifest of Cannabis Constituents",
+        description: "Nov 2019 - https://www.medicinalgenomics.com/wp-content/uploads/2011/12/Chemical- constituents-of-cannabis.pdf medicinalgenomics.com https://www.medicinalgenomics.- com/wp-content/uploads/2011/12/Chemical-consti...",
+        categories: ["Data Dump"],
+        tags: ["cannabis", "minor", "medicinalgenomics"],
+        url: "https://future4200.com/t/cannabis-constituents/101"
+      }
+    ];
+    
+    res.json({
+      success: true,
+      paragraph: `Found ${threads.length} relevant threads about "${message}" in the Future4200 community. These discussions cover various aspects of cannabis cultivation, extraction, and industry insights.`,
+      threads: threads,
+      advertisement: "NEW FLAVORS//CARAMEL CUTTHROAT/SUNSET MAC/... THE ABSOLUTE FINEST CANNABIS DERIVED TERPENES AVAILABLE ANYWHERE",
+      agent: 'future-agent',
+      plan: 'future4200',
+      timestamp: new Date().toISOString()
+    });
   } else {
     // Free plan - basic response
     response = `I received your message: "${message}". This is a free response from the F8 Multiagent system. For enhanced features, consider upgrading to the future4200 plan.`;
     agent = 'f8_agent';
     planType = 'free';
+    
+    res.json({
+      success: true,
+      response: response,
+      agent: agent,
+      plan: planType,
+      timestamp: new Date().toISOString()
+    });
   }
-  
-  res.json({
-    success: true,
-    response: response,
-    agent: agent,
-    plan: planType,
-    timestamp: new Date().toISOString()
-  });
 });
 
 // Vercel serverless function handler
