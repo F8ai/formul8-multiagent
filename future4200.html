@@ -680,106 +680,6 @@
             margin-bottom: 15px;
         }
         
-        /* API Key Modal */
-        .api-key-modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 10000;
-        }
-        
-        .modal-content {
-            background-color: #2a2a2a;
-            border: 1px solid #333;
-            border-radius: 8px;
-            padding: 0;
-            max-width: 500px;
-            width: 90%;
-            max-height: 80vh;
-            overflow-y: auto;
-        }
-        
-        .modal-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px;
-            border-bottom: 1px solid #333;
-        }
-        
-        .modal-header h3 {
-            color: #fff;
-            margin: 0;
-            font-size: 18px;
-        }
-        
-        .close-modal {
-            background: none;
-            border: none;
-            color: #888;
-            font-size: 24px;
-            cursor: pointer;
-            padding: 0;
-            width: 30px;
-            height: 30px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .close-modal:hover {
-            color: #fff;
-        }
-        
-        .modal-body {
-            padding: 20px;
-        }
-        
-        .modal-body p {
-            color: #d1d1d1;
-            margin-bottom: 15px;
-        }
-        
-        .api-key-input {
-            width: 100%;
-            padding: 12px;
-            background-color: #333;
-            border: 1px solid #555;
-            border-radius: 4px;
-            color: #d1d1d1;
-            font-size: 14px;
-            margin-bottom: 20px;
-        }
-        
-        .api-key-input:focus {
-            outline: none;
-            border-color: #007bff;
-            box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
-        }
-        
-        .modal-actions {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-        
-        .api-key-status {
-            padding: 10px;
-            background-color: #1a1a1a;
-            border-radius: 4px;
-            border: 1px solid #333;
-        }
-        
-        .api-key-status span {
-            font-size: 14px;
-            font-weight: 500;
-        }
         
         /* Notification */
         .notification {
@@ -840,8 +740,8 @@
 </head>
 <body>
     <div class="app-container">
-        <!-- Header -->
-        <header class="header">
+    <!-- Header -->
+    <header class="header">
             <div class="header-left">
                 <div class="hamburger-menu">☰</div>
                 <a href="/" class="logo">
@@ -854,10 +754,9 @@
             <div class="header-right">
                 <button class="btn btn-primary">Sign Up</button>
                 <button class="btn btn-secondary">👤 Log In</button>
-                <button class="btn btn-secondary" onclick="showApiKeySettings()">⚙️</button>
                 <div class="search-icon">🔍</div>
-            </div>
-        </header>
+        </div>
+    </header>
 
         <!-- Content Wrapper -->
         <div class="content-wrapper">
@@ -867,7 +766,7 @@
                 <div class="sidebar-title">
                     <span class="sidebar-icon">📄</span>
                     Topics
-                </div>
+                    </div>
                 <a href="#" class="sidebar-item">
                     <span class="sidebar-icon">📅</span>
                     Upcoming events
@@ -881,7 +780,7 @@
             <div class="sidebar-section">
                 <div class="sidebar-title">
                     CATEGORIES
-                </div>
+                    </div>
                 <a href="#" class="sidebar-item">
                     <div class="category-color category-orange"></div>
                     Hash and Stuff
@@ -911,7 +810,7 @@
             <div class="sidebar-section">
                 <div class="sidebar-title">
                     TAGS
-                </div>
+                    </div>
                 <a href="#" class="sidebar-item">
                     <span class="sidebar-icon">🏷️</span>
                     cbd
@@ -936,7 +835,7 @@
                     <span class="sidebar-icon">☰</span>
                     All tags
                 </a>
-            </div>
+                </div>
         </aside>
 
         <!-- Main Content -->
@@ -952,8 +851,8 @@
                     <input type="text" class="search-bar" placeholder="Search">
                     <div class="search-filter">☰</div>
                     <div class="search-suggestions" id="search-suggestions"></div>
+                    </div>
                 </div>
-            </div>
             
             <!-- Navigation Tabs -->
             <div class="nav-tabs">
@@ -968,14 +867,14 @@
             <div class="ad-banners">
                 <div class="ad-banner green">
                     MEGA OFFER 10ml $100 ON ALL PREMIUM TERPENES
-                </div>
+                        </div>
                 <div class="ad-banner dark">
                     NEW WEBSITE SALE! HELLTERPENES.COM 20% OFF & FREE SHIPPING ON ORDERS OVER $99.99
-                </div>
+                    </div>
                 <div class="ad-banner black">
                     NEW FLAVORS//CARAMEL CUTTHROAT/SUNSET MAC/... THE ABSOLUTE FINEST CANNABIS DERIVED TERPENES AVAILABLE ANYWHERE
-                </div>
-            </div>
+                    </div>
+                        </div>
             
             <!-- Forum Topics -->
             <div class="forum-topics">
@@ -983,48 +882,48 @@
                     <div class="topics-title">
                         🔒 Paid Advertisers
                         <div style="font-size: 10px; color: #888; font-weight: normal;">Meta</div>
+                        </div>
                     </div>
-                </div>
                 
                 <div class="topics-columns">
                     <div>Topic</div>
                     <div>Replies</div>
                     <div>Activity</div>
-                </div>
+                        </div>
                 
                 <div class="topic-item">
                     <div class="topic-content">
                         <div class="topic-avatar">V</div>
                         <div class="topic-info">
                             <a href="#" class="topic-title">Paid Advertisers</a>
-                            <div class="topic-meta">
+                        <div class="topic-meta">
                                 <span class="topic-category">Meta</span>
                                 <span>Here is a current list of our ad roll, including monetary supporters and their banners. Their support plays a major role in keeping this forum running. All of our ads are run in house, without google or any other user tr... read more</span>
-                            </div>
                         </div>
+                    </div>
                     </div>
                     <div class="topic-replies">2</div>
                     <div class="topic-activity">Sep 4</div>
-                </div>
+                        </div>
                 
                 <div class="topic-item">
                     <div class="topic-content">
                         <div class="topic-avatar" style="background: linear-gradient(45deg, #ff69b4, #9370db);">F</div>
                         <div class="topic-info">
                             <a href="#" class="topic-title">Introduction and FAQ</a>
-                            <div class="topic-meta">
+                        <div class="topic-meta">
                                 <span class="topic-category">FAQ</span>
                                 <span>Getting Started Step one, read the Community Guidelines If this is your first visit, use the Search Bar Make sure to modify your personal settings by clicking on your profile pic top right corner, and selecting the li... read more</span>
-                            </div>
                         </div>
+                    </div>
                     </div>
                     <div class="topic-replies">2</div>
                     <div class="topic-activity">Mar 2019</div>
-                </div>
-            </div>
+                        </div>
+                    </div>
         </main>
-        </div>
-    </div>
+                    </div>
+                        </div>
 
     <script>
         // Add some interactivity
@@ -1131,23 +1030,10 @@
             searchBar.disabled = true;
             
             try {
-                // Get API key from localStorage or prompt user
-                let apiKey = localStorage.getItem('f8_api_key');
-                if (!apiKey) {
-                    apiKey = prompt('Please enter your API key to search:');
-                    if (!apiKey) {
-                        showSearchError('API key required for search functionality.');
-                        return;
-                    }
-                    localStorage.setItem('f8_api_key', apiKey);
-                }
-                
                 const response = await fetch('/api/chat', {
                     method: 'POST',
                     headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${apiKey}`,
-                        'X-API-Key': apiKey
+                        'Content-Type': 'application/json'
                     },
                     body: JSON.stringify({
                         message: query,
@@ -1156,12 +1042,6 @@
                 });
                 
                 if (!response.ok) {
-                    if (response.status === 401) {
-                        // Invalid API key, clear it and prompt again
-                        localStorage.removeItem('f8_api_key');
-                        showSearchError('Invalid API key. Please try again.');
-                        return;
-                    }
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
                 
@@ -1280,75 +1160,6 @@
             }
         }
         
-        // API Key Management
-        function showApiKeySettings() {
-            const modal = document.createElement('div');
-            modal.className = 'api-key-modal';
-            modal.innerHTML = `
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h3>API Key Settings</h3>
-                        <button class="close-modal" onclick="closeApiKeyModal()">×</button>
-                    </div>
-                    <div class="modal-body">
-                        <p>Enter your API key to enable search functionality:</p>
-                        <input type="password" id="api-key-input" placeholder="Enter your API key" class="api-key-input">
-                        <div class="modal-actions">
-                            <button class="btn btn-primary" onclick="saveApiKey()">Save</button>
-                            <button class="btn btn-secondary" onclick="clearApiKey()">Clear</button>
-                            <button class="btn btn-secondary" onclick="closeApiKeyModal()">Cancel</button>
-                        </div>
-                        <div class="api-key-status">
-                            <span id="api-key-status">No API key set</span>
-                        </div>
-                    </div>
-                </div>
-            `;
-            document.body.appendChild(modal);
-            
-            // Load current API key status
-            updateApiKeyStatus();
-        }
-        
-        function closeApiKeyModal() {
-            const modal = document.querySelector('.api-key-modal');
-            if (modal) {
-                modal.remove();
-            }
-        }
-        
-        function saveApiKey() {
-            const input = document.getElementById('api-key-input');
-            const apiKey = input.value.trim();
-            
-            if (apiKey) {
-                localStorage.setItem('f8_api_key', apiKey);
-                updateApiKeyStatus();
-                showNotification('API key saved successfully!');
-            } else {
-                showNotification('Please enter a valid API key.');
-            }
-        }
-        
-        function clearApiKey() {
-            localStorage.removeItem('f8_api_key');
-            updateApiKeyStatus();
-            showNotification('API key cleared.');
-        }
-        
-        function updateApiKeyStatus() {
-            const statusElement = document.getElementById('api-key-status');
-            if (statusElement) {
-                const apiKey = localStorage.getItem('f8_api_key');
-                if (apiKey) {
-                    statusElement.textContent = `API key set (${apiKey.substring(0, 8)}...)`;
-                    statusElement.style.color = '#28a745';
-                } else {
-                    statusElement.textContent = 'No API key set';
-                    statusElement.style.color = '#dc3545';
-                }
-            }
-        }
         
         function showNotification(message) {
             const notification = document.createElement('div');
