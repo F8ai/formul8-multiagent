@@ -1526,17 +1526,28 @@ exports.handler = async (event, context) => {
                 background: #0d8a6b;
             }
             
-            /* Main chat container - centered */
+            /* Main chat container - dynamic layout */
             .chat-container {
                 flex: 1;
                 display: flex;
                 flex-direction: column;
-                justify-content: center;
-                align-items: center;
                 max-width: 768px;
                 margin: 0 auto;
                 padding: 20px;
                 width: 100%;
+                transition: all 0.3s ease;
+            }
+            
+            /* Initial centered state */
+            .chat-container.initial-state {
+                justify-content: center;
+                align-items: center;
+            }
+            
+            /* Chat state after first message */
+            .chat-container.chat-state {
+                justify-content: flex-start;
+                align-items: stretch;
             }
             
             .chat-title {
@@ -1545,6 +1556,7 @@ exports.handler = async (event, context) => {
                 color: #000000;
                 margin-bottom: 8px;
                 text-align: center;
+                transition: all 0.3s ease;
             }
             
             .chat-subtitle {
@@ -1552,19 +1564,41 @@ exports.handler = async (event, context) => {
                 color: #6b7280;
                 margin-bottom: 40px;
                 text-align: center;
+                transition: all 0.3s ease;
+            }
+            
+            /* Chat state - hide title and subtitle */
+            .chat-container.chat-state .chat-title,
+            .chat-container.chat-state .chat-subtitle {
+                display: none;
             }
             
             /* Chat messages area */
             .chat-messages {
                 width: 100%;
                 max-width: 600px;
-                margin-bottom: 40px;
+                margin: 0 auto;
                 min-height: 200px;
+                transition: all 0.3s ease;
+            }
+            
+            /* Initial state - hide messages */
+            .chat-container.initial-state .chat-messages {
+                display: none;
+            }
+            
+            /* Chat state - show messages */
+            .chat-container.chat-state .chat-messages {
+                display: block;
+                flex: 1;
+                overflow-y: auto;
+                max-height: calc(100vh - 200px);
+                padding: 0 0 20px 0;
             }
             
             .message {
-                margin-bottom: 24px;
-                padding: 16px;
+                margin-bottom: 16px;
+                padding: 12px 16px;
                 border-radius: 12px;
                 max-width: 100%;
             }
@@ -1573,7 +1607,8 @@ exports.handler = async (event, context) => {
                 background: #f7f7f8;
                 margin-left: auto;
                 margin-right: 0;
-                max-width: 80%;
+                max-width: 85%;
+                margin-bottom: 20px;
             }
             
             .assistant-message {
@@ -1581,7 +1616,8 @@ exports.handler = async (event, context) => {
                 border: 1px solid #e5e5e5;
                 margin-right: auto;
                 margin-left: 0;
-                max-width: 80%;
+                max-width: 85%;
+                margin-bottom: 20px;
             }
             
             .welcome-message {
@@ -1590,6 +1626,7 @@ exports.handler = async (event, context) => {
                 background: #f9f9f9;
                 border-radius: 12px;
                 border: 1px solid #e5e5e5;
+                transition: all 0.3s ease;
             }
             
             .welcome-message h3 {
@@ -1622,11 +1659,27 @@ exports.handler = async (event, context) => {
                 font-weight: 500;
             }
             
+            /* Chat state - hide welcome message */
+            .chat-container.chat-state .welcome-message {
+                display: none;
+            }
+            
             /* Chat input area */
             .chat-input-container {
                 width: 100%;
                 max-width: 600px;
                 position: relative;
+                margin: 0 auto;
+            }
+            
+            /* Initial state - centered input */
+            .chat-container.initial-state .chat-input-container {
+                margin: 0 auto 40px auto;
+            }
+            
+            /* Chat state - input at bottom */
+            .chat-container.chat-state .chat-input-container {
+                margin: 20px auto 0 auto;
             }
             
             .chat-input-wrapper {
@@ -1771,10 +1824,14 @@ exports.handler = async (event, context) => {
         </div>
         
         <script>
+            const chatContainer = document.querySelector('.chat-container');
             const chatMessages = document.getElementById('chatMessages');
             const messageInput = document.getElementById('messageInput');
             const sendButton = document.getElementById('sendButton');
             const loading = document.getElementById('loading');
+            
+            // Initialize in centered state
+            chatContainer.classList.add('initial-state');
             
             // Auto-resize textarea
             messageInput.addEventListener('input', function() {
@@ -1795,12 +1852,23 @@ exports.handler = async (event, context) => {
                 alert('Login functionality coming soon! For now, you can use the chat without logging in.');
             }
             
+            // Transition to chat state
+            function transitionToChatState() {
+                chatContainer.classList.remove('initial-state');
+                chatContainer.classList.add('chat-state');
+            }
+            
             // Send message function
             async function sendMessage() {
                 const message = messageInput.value.trim();
                 
                 if (!message) {
                     return;
+                }
+                
+                // Transition to chat state on first message
+                if (chatContainer.classList.contains('initial-state')) {
+                    transitionToChatState();
                 }
                 
                 // Add user message to chat
