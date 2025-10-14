@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>F8 Multiagent - Cannabis AI Assistant</title>
-    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>">
+    <title>F8 Chat Widget</title>
     <style>
         * {
             margin: 0;
@@ -37,130 +36,102 @@
             overflow: hidden;
         }
 
-        .header {
-            background: var(--bg-primary);
-            border-bottom: 1px solid var(--border-color);
-            padding: 0.5rem 1rem;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-shrink: 0;
-            height: 60px;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            font-size: 1.125rem;
-            font-weight: 600;
-        }
-
-        .logo-icon {
-            width: 24px;
-            height: 24px;
-            background: linear-gradient(135deg, var(--accent-green), #0d8a6b);
-            border-radius: 6px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 14px;
-        }
-
-        .main-container {
-            flex: 1;
+        .widget-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
             display: flex;
             flex-direction: column;
+            align-items: flex-end;
+        }
+
+        .widget-button {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent-green), #0d8a6b);
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: var(--shadow-lg);
+            transition: all 0.3s ease;
+            display: flex;
             align-items: center;
             justify-content: center;
-            padding: 2rem;
-            text-align: center;
-            max-width: 768px;
-            margin: 0 auto;
-            width: 100%;
         }
 
-        .welcome-title {
-            font-size: 2rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: var(--text-primary);
+        .widget-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 12px 32px rgba(16, 163, 127, 0.4);
         }
 
-        .welcome-subtitle {
-            font-size: 1.125rem;
-            color: var(--text-secondary);
-            margin-bottom: 2rem;
+        .widget-button.active {
+            background: #dc2626;
         }
 
-        .agent-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            width: 100%;
-            max-width: 600px;
-            margin-bottom: 2rem;
-        }
-
-        .agent-card {
+        .chat-window {
+            width: 350px;
+            height: 500px;
             background: var(--bg-secondary);
             border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 1.5rem;
-            text-align: left;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .agent-card:hover {
-            border-color: var(--border-hover);
-            transform: translateY(-2px);
+            border-radius: 16px;
             box-shadow: var(--shadow-lg);
-        }
-
-        .agent-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--accent-green), #0d8a6b);
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 10px;
+            overflow: hidden;
+            transform: translateY(20px);
             opacity: 0;
-            transition: opacity 0.2s ease;
+            transition: all 0.3s ease;
         }
 
-        .agent-card:hover::before {
+        .chat-window.visible {
+            transform: translateY(0);
             opacity: 1;
         }
 
-        .agent-icon {
-            font-size: 1.5rem;
-            margin-bottom: 0.75rem;
-        }
-
-        .agent-name {
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: var(--text-primary);
-        }
-
-        .agent-description {
-            font-size: 0.875rem;
-            color: var(--text-secondary);
-            line-height: 1.4;
-        }
-
-        .chat-container {
-            flex: 1;
+        .chat-header {
+            background: var(--bg-tertiary);
+            padding: 1rem;
+            border-bottom: 1px solid var(--border-color);
             display: flex;
-            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .chat-title {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 600;
+        }
+
+        .chat-title-icon {
+            width: 20px;
+            height: 20px;
+            background: var(--accent-green);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+        }
+
+        .close-button {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            cursor: pointer;
+            font-size: 18px;
+            padding: 4px;
+            border-radius: 4px;
+            transition: background-color 0.2s ease;
+        }
+
+        .close-button:hover {
             background: var(--bg-primary);
-            width: 100%;
-            max-width: 768px;
-            margin: 0 auto;
         }
 
         .chat-messages {
@@ -169,17 +140,17 @@
             padding: 1rem;
             display: flex;
             flex-direction: column;
-            gap: 1rem;
+            gap: 0.75rem;
         }
 
         .message {
             display: flex;
-            gap: 1rem;
+            gap: 0.5rem;
             animation: slideIn 0.3s ease-out;
         }
 
         @keyframes slideIn {
-            from { opacity: 0; transform: translateY(20px); }
+            from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
@@ -188,13 +159,13 @@
         }
 
         .message-avatar {
-            width: 32px;
-            height: 32px;
+            width: 24px;
+            height: 24px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 14px;
+            font-size: 12px;
             flex-shrink: 0;
         }
 
@@ -204,13 +175,13 @@
         }
 
         .message.assistant .message-avatar {
-            background: var(--bg-tertiary);
+            background: var(--bg-primary);
             color: var(--text-primary);
         }
 
         .message-content {
             flex: 1;
-            max-width: calc(100% - 48px);
+            max-width: calc(100% - 32px);
         }
 
         .message.user .message-content {
@@ -218,11 +189,12 @@
         }
 
         .message-text {
-            background: var(--bg-secondary);
-            padding: 0.75rem 1rem;
-            border-radius: 18px;
-            line-height: 1.5;
+            background: var(--bg-primary);
+            padding: 0.5rem 0.75rem;
+            border-radius: 12px;
+            line-height: 1.4;
             word-wrap: break-word;
+            font-size: 0.875rem;
         }
 
         .message.user .message-text {
@@ -238,19 +210,20 @@
         .typing-indicator {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.25rem;
             color: var(--text-secondary);
             font-style: italic;
+            font-size: 0.875rem;
         }
 
         .typing-dots {
             display: flex;
-            gap: 0.25rem;
+            gap: 0.125rem;
         }
 
         .typing-dot {
-            width: 4px;
-            height: 4px;
+            width: 3px;
+            height: 3px;
             border-radius: 50%;
             background: var(--text-muted);
             animation: typing 1.4s infinite;
@@ -261,31 +234,29 @@
 
         @keyframes typing {
             0%, 60%, 100% { transform: translateY(0); }
-            30% { transform: translateY(-10px); }
+            30% { transform: translateY(-6px); }
         }
 
         .chat-input-container {
-            padding: 1rem;
-            background: var(--bg-primary);
+            padding: 0.75rem;
+            background: var(--bg-secondary);
             border-top: 1px solid var(--border-color);
         }
 
         .chat-input-wrapper {
             position: relative;
-            max-width: 768px;
-            margin: 0 auto;
         }
 
         .chat-input {
             width: 100%;
-            background: var(--bg-secondary);
+            background: var(--bg-primary);
             border: 1px solid var(--border-color);
-            border-radius: 24px;
-            padding: 0.75rem 1rem;
-            padding-right: 3rem;
+            border-radius: 20px;
+            padding: 0.5rem 0.75rem;
+            padding-right: 2.5rem;
             color: var(--text-primary);
-            font-size: 1rem;
-            line-height: 1.5;
+            font-size: 0.875rem;
+            line-height: 1.4;
             resize: none;
             outline: none;
             transition: border-color 0.2s ease;
@@ -302,11 +273,11 @@
 
         .send-button {
             position: absolute;
-            right: 0.5rem;
+            right: 0.25rem;
             top: 50%;
             transform: translateY(-50%);
-            width: 32px;
-            height: 32px;
+            width: 24px;
+            height: 24px;
             border-radius: 50%;
             background: var(--accent-green);
             border: none;
@@ -316,50 +287,98 @@
             align-items: center;
             justify-content: center;
             transition: background-color 0.2s ease;
+            font-size: 12px;
         }
 
         .send-button:hover {
             background: var(--accent-green-hover);
         }
 
-        .api-key-setup {
+        .send-button:disabled {
+            background: var(--text-muted);
+            cursor: not-allowed;
+        }
+
+        .welcome-message {
             text-align: center;
-            padding: 2rem;
-            background: var(--bg-secondary);
-            border-radius: 12px;
+            padding: 1rem;
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+
+        .welcome-message h3 {
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .quick-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.75rem;
+        }
+
+        .quick-action {
+            background: var(--bg-primary);
             border: 1px solid var(--border-color);
-            margin: 1rem;
+            color: var(--text-secondary);
+            padding: 0.25rem 0.5rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .quick-action:hover {
+            background: var(--accent-green);
+            color: white;
+            border-color: var(--accent-green);
+        }
+
+        .error-message {
+            background: #dc2626;
+            color: white;
+            padding: 0.5rem 0.75rem;
+            border-radius: 8px;
+            margin: 0.5rem;
+            text-align: center;
+            font-size: 0.75rem;
+        }
+
+        .api-key-setup {
+            padding: 1rem;
+            text-align: center;
         }
 
         .api-key-setup h3 {
-            margin-bottom: 1rem;
-            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
         }
 
         .api-key-setup p {
             color: var(--text-secondary);
-            margin-bottom: 1.5rem;
+            margin-bottom: 0.75rem;
+            font-size: 0.875rem;
         }
 
         .api-key-input {
             width: 100%;
-            max-width: 400px;
-            background: var(--bg-tertiary);
+            background: var(--bg-primary);
             border: 1px solid var(--border-color);
             border-radius: 8px;
-            padding: 0.75rem;
+            padding: 0.5rem;
             color: var(--text-primary);
-            font-size: 1rem;
-            margin-bottom: 1rem;
+            font-size: 0.875rem;
+            margin-bottom: 0.75rem;
         }
 
         .setup-button {
             background: var(--accent-green);
             color: white;
             border: none;
-            padding: 0.75rem 1.5rem;
+            padding: 0.5rem 1rem;
             border-radius: 8px;
-            font-size: 1rem;
+            font-size: 0.875rem;
             font-weight: 500;
             cursor: pointer;
             transition: background-color 0.2s ease;
@@ -369,103 +388,53 @@
             background: var(--accent-green-hover);
         }
 
-        .error-message {
-            background: #dc2626;
-            color: white;
-            padding: 0.75rem 1rem;
-            border-radius: 8px;
-            margin: 1rem;
-            text-align: center;
-        }
-
         .hidden {
             display: none !important;
         }
 
-        @media (max-width: 768px) {
-            .header {
-                padding: 1rem;
+        @media (max-width: 480px) {
+            .chat-window {
+                width: 300px;
+                height: 400px;
             }
-
-            .welcome-title {
-                font-size: 1.5rem;
-            }
-
-            .agent-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .chat-messages {
-                padding: 0.5rem;
-            }
-
-            .message-text {
-                padding: 0.5rem 0.75rem;
+            
+            .widget-container {
+                bottom: 10px;
+                right: 10px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="header">
-        <div class="logo">
-            <div class="logo-icon">🌿</div>
-            <span>F8 Multiagent</span>
-        </div>
-    </div>
-
-    <div class="main-container">
-        <div id="welcome-section" class="welcome-section">
-            <h1 class="welcome-title">What can I help with?</h1>
-            <p class="welcome-subtitle">Your AI assistant for the cannabis industry</p>
+    <div class="widget-container">
+        <div id="chat-window" class="chat-window">
+            <div class="chat-header">
+                <div class="chat-title">
+                    <div class="chat-title-icon">🌿</div>
+                    <span>F8 Assistant</span>
+                </div>
+                <button class="close-button" onclick="toggleChat()">×</button>
+            </div>
             
-            <div class="agent-grid">
-                <div class="agent-card" onclick="sendExamplePrompt('What are the latest cannabis regulations in California?')">
-                    <div class="agent-icon">⚖️</div>
-                    <div class="agent-name">Compliance</div>
-                    <div class="agent-description">Regulatory guidance, licensing, and audit preparation</div>
-                </div>
-                
-                <div class="agent-card" onclick="sendExamplePrompt('Help me formulate a CBD tincture with 1000mg potency')">
-                    <div class="agent-icon">🧬</div>
-                    <div class="agent-name">Formulation</div>
-                    <div class="agent-description">Product development, dosing, and extraction methods</div>
-                </div>
-                
-                <div class="agent-card" onclick="sendExamplePrompt('Explain the difference between THC and CBD')">
-                    <div class="agent-icon">🔬</div>
-                    <div class="agent-name">Science</div>
-                    <div class="agent-description">Cannabinoid research, terpene analysis, and lab testing</div>
-                </div>
-                
-                <div class="agent-card" onclick="sendExamplePrompt('How can I optimize my cannabis production facility?')">
-                    <div class="agent-icon">🏭</div>
-                    <div class="agent-name">Operations</div>
-                    <div class="agent-description">Production optimization, quality control, and logistics</div>
-                </div>
-                
-                <div class="agent-card" onclick="sendExamplePrompt('What are the best marketing strategies for cannabis products?')">
-                    <div class="agent-icon">📈</div>
-                    <div class="agent-name">Marketing</div>
-                    <div class="agent-description">Brand strategy, campaigns, and customer acquisition</div>
-                </div>
-                
-                <div class="agent-card" onclick="sendExamplePrompt('Help me find reliable cannabis suppliers')">
-                    <div class="agent-icon">🔗</div>
-                    <div class="agent-name">Supply Chain</div>
-                    <div class="agent-description">Vendor management, procurement, and sourcing</div>
+            <div id="chat-messages" class="chat-messages">
+                <div class="welcome-message">
+                    <h3>Welcome to F8 Multiagent!</h3>
+                    <p>Your AI assistant for the cannabis industry</p>
+                    <div class="quick-actions">
+                        <div class="quick-action" onclick="sendQuickMessage('What are cannabis regulations?')">Regulations</div>
+                        <div class="quick-action" onclick="sendQuickMessage('Help with formulation')">Formulation</div>
+                        <div class="quick-action" onclick="sendQuickMessage('Science questions')">Science</div>
+                        <div class="quick-action" onclick="sendQuickMessage('Operations help')">Operations</div>
+                    </div>
                 </div>
             </div>
-        </div>
-
-        <div id="chat-container" class="chat-container hidden">
-            <div id="chat-messages" class="chat-messages"></div>
             
             <div class="chat-input-container">
                 <div class="chat-input-wrapper">
                     <textarea 
                         id="chat-input" 
                         class="chat-input" 
-                        placeholder="Ask anything about cannabis industry..."
+                        placeholder="Ask anything about cannabis..."
                         rows="1"
                     ></textarea>
                     <button id="send-button" class="send-button" onclick="sendMessage()">
@@ -474,14 +443,16 @@
                 </div>
             </div>
         </div>
+        
+        <button id="widget-button" class="widget-button" onclick="toggleChat()">
+            🌿
+        </button>
     </div>
 
     <script>
         let apiKey = localStorage.getItem('f8-api-key');
         let isTyping = false;
-
-        // API Configuration
-        const API_BASE_URL = 'https://f8.syzygyx.com';
+        let isOpen = false;
 
         // Initialize
         document.addEventListener('DOMContentLoaded', function() {
@@ -490,7 +461,7 @@
             // Auto-resize textarea
             chatInput.addEventListener('input', function() {
                 this.style.height = 'auto';
-                this.style.height = Math.min(this.scrollHeight, 120) + 'px';
+                this.style.height = Math.min(this.scrollHeight, 80) + 'px';
             });
             
             // Send on Enter (but allow Shift+Enter for new lines)
@@ -507,16 +478,33 @@
             }
         });
 
+        function toggleChat() {
+            const chatWindow = document.getElementById('chat-window');
+            const widgetButton = document.getElementById('widget-button');
+            
+            isOpen = !isOpen;
+            
+            if (isOpen) {
+                chatWindow.classList.add('visible');
+                widgetButton.classList.add('active');
+                widgetButton.textContent = '×';
+            } else {
+                chatWindow.classList.remove('visible');
+                widgetButton.classList.remove('active');
+                widgetButton.textContent = '🌿';
+            }
+        }
+
         function showApiKeySetup() {
-            const welcomeSection = document.getElementById('welcome-section');
-            welcomeSection.innerHTML = `
+            const chatMessages = document.getElementById('chat-messages');
+            chatMessages.innerHTML = `
                 <div class="api-key-setup">
                     <h3>🔑 API Key Required</h3>
                     <p>To use F8 Multiagent Chat, you need a free API key.</p>
                     <input type="text" id="api-key-input" class="api-key-input" placeholder="Enter your API key (f8_free_...)">
                     <br>
                     <button class="setup-button" onclick="setupApiKey()">Get Free API Key</button>
-                    <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--text-muted);">
+                    <p style="margin-top: 0.5rem; font-size: 0.75rem; color: var(--text-muted);">
                         Don't have a key? Click "Get Free API Key" to generate one automatically.
                     </p>
                 </div>
@@ -535,7 +523,7 @@
             } else {
                 // Generate new key
                 try {
-                    const response = await fetch(`${API_BASE_URL}/api/free-key`, {
+                    const response = await fetch('https://f8.syzygyx.com/api/free-key', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json'
@@ -557,13 +545,8 @@
             }
         }
 
-        function sendExamplePrompt(prompt) {
-            // Hide welcome section and show chat
-            document.getElementById('welcome-section').classList.add('hidden');
-            document.getElementById('chat-container').classList.remove('hidden');
-            
-            // Set the input and send
-            document.getElementById('chat-input').value = prompt;
+        function sendQuickMessage(message) {
+            document.getElementById('chat-input').value = message;
             sendMessage();
         }
 
@@ -586,7 +569,7 @@
             try {
                 isTyping = true;
                 
-                const response = await fetch(`${API_BASE_URL}/api/chat`, {
+                const response = await fetch('https://f8.syzygyx.com/api/chat', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -620,26 +603,22 @@
 
         function addMessage(sender, text, agent = null, plan = null) {
             const chatMessages = document.getElementById('chat-messages');
+            
+            // Remove welcome message if it exists
+            const welcomeMessage = chatMessages.querySelector('.welcome-message');
+            if (welcomeMessage) {
+                welcomeMessage.remove();
+            }
+            
             const messageDiv = document.createElement('div');
             messageDiv.className = `message ${sender}`;
             
             const avatar = sender === 'user' ? '👤' : '🤖';
-            const timestamp = new Date().toLocaleTimeString();
-            
-            let metaHtml = `<div class="message-meta">${timestamp}`;
-            if (agent) {
-                metaHtml += ` <span class="agent-badge">${agent}</span>`;
-            }
-            if (plan) {
-                metaHtml += ` <span class="agent-badge">${plan}</span>`;
-            }
-            metaHtml += '</div>';
             
             messageDiv.innerHTML = `
                 <div class="message-avatar">${avatar}</div>
                 <div class="message-content">
                     <div class="message-text">${formatMessage(text)}</div>
-                    ${metaHtml}
                 </div>
             `;
             
@@ -652,7 +631,7 @@
             return text
                 .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
                 .replace(/\*(.*?)\*/g, '<em>$1</em>')
-                .replace(/`(.*?)`/g, '<code style="background: var(--bg-tertiary); padding: 0.125rem 0.25rem; border-radius: 4px; font-family: monospace;">$1</code>')
+                .replace(/`(.*?)`/g, '<code style="background: var(--bg-tertiary); padding: 0.125rem 0.25rem; border-radius: 4px; font-family: monospace; font-size: 0.75rem;">$1</code>')
                 .replace(/\n/g, '<br>');
         }
 

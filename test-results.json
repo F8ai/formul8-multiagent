@@ -1,0 +1,3749 @@
+{
+  "config": {
+    "configFile": "/Users/danielmcshan/GitHub/formul8-multiagent/playwright.config.js",
+    "rootDir": "/Users/danielmcshan/GitHub/formul8-multiagent/tests",
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 5
+    },
+    "preserveOutput": "always",
+    "reporter": [
+      [
+        "html",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "test-results.json"
+        }
+      ],
+      [
+        "junit",
+        {
+          "outputFile": "test-results.xml"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "/Users/danielmcshan/GitHub/formul8-multiagent/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 5
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/Users/danielmcshan/GitHub/formul8-multiagent/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/danielmcshan/GitHub/formul8-multiagent/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 5
+        },
+        "id": "firefox",
+        "name": "firefox",
+        "testDir": "/Users/danielmcshan/GitHub/formul8-multiagent/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/danielmcshan/GitHub/formul8-multiagent/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 5
+        },
+        "id": "webkit",
+        "name": "webkit",
+        "testDir": "/Users/danielmcshan/GitHub/formul8-multiagent/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/danielmcshan/GitHub/formul8-multiagent/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 5
+        },
+        "id": "Mobile Chrome",
+        "name": "Mobile Chrome",
+        "testDir": "/Users/danielmcshan/GitHub/formul8-multiagent/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/danielmcshan/GitHub/formul8-multiagent/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 5
+        },
+        "id": "Mobile Safari",
+        "name": "Mobile Safari",
+        "testDir": "/Users/danielmcshan/GitHub/formul8-multiagent/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/danielmcshan/GitHub/formul8-multiagent/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 5
+        },
+        "id": "chatgpt-comparison",
+        "name": "chatgpt-comparison",
+        "testDir": "/Users/danielmcshan/GitHub/formul8-multiagent/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/tests/chatgpt-*.spec.js"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "shard": null,
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.56.0",
+    "workers": 5,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "chatgpt-comparison.spec.js",
+      "file": "chatgpt-comparison.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "F8 Chat vs ChatGPT Interface Comparison",
+          "file": "chatgpt-comparison.spec.js",
+          "line": 3,
+          "column": 6,
+          "specs": [
+            {
+              "title": "should have ChatGPT-like visual design",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 0,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n    at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js:11:31",
+                        "location": {
+                          "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js",
+                          "column": 31,
+                          "line": 11
+                        },
+                        "snippet": "   9 |       data: { username: 'chatgpt-comparison-test' }\n  10 |     });\n> 11 |     expect(response.status()).toBe(200);\n     |                               ^\n  12 |     const data = await response.json();\n  13 |     freeApiKey = data.apiKey;\n  14 |   });"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js",
+                            "column": 31,
+                            "line": 11
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n\n   9 |       data: { username: 'chatgpt-comparison-test' }\n  10 |     });\n> 11 |     expect(response.status()).toBe(200);\n     |                               ^\n  12 |     const data = await response.json();\n  13 |     freeApiKey = data.apiKey;\n  14 |   });\n    at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js:11:31"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-14T03:23:02.496Z",
+                      "annotations": [],
+                      "attachments": [],
+                      "errorLocation": {
+                        "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js",
+                        "column": 31,
+                        "line": 11
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "8c239806f0a6ae3f6fe1-dec8ae5f607616e870c9",
+              "file": "chatgpt-comparison.spec.js",
+              "line": 16,
+              "column": 3
+            },
+            {
+              "title": "should have ChatGPT-like welcome screen",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-14T03:23:03.433Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "8c239806f0a6ae3f6fe1-b3925977222d94524600",
+              "file": "chatgpt-comparison.spec.js",
+              "line": 51,
+              "column": 3
+            },
+            {
+              "title": "should handle API key setup like ChatGPT",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-14T03:23:03.433Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "8c239806f0a6ae3f6fe1-293eb510b2cc8ba37119",
+              "file": "chatgpt-comparison.spec.js",
+              "line": 75,
+              "column": 3
+            },
+            {
+              "title": "should have ChatGPT-like message flow",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "failed",
+                      "duration": 0,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n    at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js:11:31",
+                        "location": {
+                          "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js",
+                          "column": 31,
+                          "line": 11
+                        },
+                        "snippet": "   9 |       data: { username: 'chatgpt-comparison-test' }\n  10 |     });\n> 11 |     expect(response.status()).toBe(200);\n     |                               ^\n  12 |     const data = await response.json();\n  13 |     freeApiKey = data.apiKey;\n  14 |   });"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js",
+                            "column": 31,
+                            "line": 11
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n\n   9 |       data: { username: 'chatgpt-comparison-test' }\n  10 |     });\n> 11 |     expect(response.status()).toBe(200);\n     |                               ^\n  12 |     const data = await response.json();\n  13 |     freeApiKey = data.apiKey;\n  14 |   });\n    at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js:11:31"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-14T03:23:02.502Z",
+                      "annotations": [],
+                      "attachments": [],
+                      "errorLocation": {
+                        "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js",
+                        "column": 31,
+                        "line": 11
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "8c239806f0a6ae3f6fe1-f3f5cdedb5a59b34b7b2",
+              "file": "chatgpt-comparison.spec.js",
+              "line": 98,
+              "column": 3
+            },
+            {
+              "title": "should have ChatGPT-like input behavior",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-14T03:23:02.990Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "8c239806f0a6ae3f6fe1-7064098300dcfc018468",
+              "file": "chatgpt-comparison.spec.js",
+              "line": 137,
+              "column": 3
+            },
+            {
+              "title": "should have ChatGPT-like message styling",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-14T03:23:02.990Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "8c239806f0a6ae3f6fe1-4de903d3702746edc6ab",
+              "file": "chatgpt-comparison.spec.js",
+              "line": 178,
+              "column": 3
+            },
+            {
+              "title": "should have ChatGPT-like responsive design",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "failed",
+                      "duration": 0,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n    at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js:11:31",
+                        "location": {
+                          "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js",
+                          "column": 31,
+                          "line": 11
+                        },
+                        "snippet": "   9 |       data: { username: 'chatgpt-comparison-test' }\n  10 |     });\n> 11 |     expect(response.status()).toBe(200);\n     |                               ^\n  12 |     const data = await response.json();\n  13 |     freeApiKey = data.apiKey;\n  14 |   });"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js",
+                            "column": 31,
+                            "line": 11
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n\n   9 |       data: { username: 'chatgpt-comparison-test' }\n  10 |     });\n> 11 |     expect(response.status()).toBe(200);\n     |                               ^\n  12 |     const data = await response.json();\n  13 |     freeApiKey = data.apiKey;\n  14 |   });\n    at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js:11:31"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-14T03:23:02.524Z",
+                      "annotations": [],
+                      "attachments": [],
+                      "errorLocation": {
+                        "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js",
+                        "column": 31,
+                        "line": 11
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "8c239806f0a6ae3f6fe1-61a88b224e33ad5fe036",
+              "file": "chatgpt-comparison.spec.js",
+              "line": 215,
+              "column": 3
+            },
+            {
+              "title": "should have ChatGPT-like error handling",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-14T03:23:03.165Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "8c239806f0a6ae3f6fe1-0a6d232ac1cea08c0d12",
+              "file": "chatgpt-comparison.spec.js",
+              "line": 239,
+              "column": 3
+            },
+            {
+              "title": "should have ChatGPT-like status indicators",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-14T03:23:03.165Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "8c239806f0a6ae3f6fe1-e5fe801edb4195ad7845",
+              "file": "chatgpt-comparison.spec.js",
+              "line": 260,
+              "column": 3
+            },
+            {
+              "title": "should have ChatGPT-like message formatting",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "failed",
+                      "duration": 0,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n    at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js:11:31",
+                        "location": {
+                          "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js",
+                          "column": 31,
+                          "line": 11
+                        },
+                        "snippet": "   9 |       data: { username: 'chatgpt-comparison-test' }\n  10 |     });\n> 11 |     expect(response.status()).toBe(200);\n     |                               ^\n  12 |     const data = await response.json();\n  13 |     freeApiKey = data.apiKey;\n  14 |   });"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js",
+                            "column": 31,
+                            "line": 11
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n\n   9 |       data: { username: 'chatgpt-comparison-test' }\n  10 |     });\n> 11 |     expect(response.status()).toBe(200);\n     |                               ^\n  12 |     const data = await response.json();\n  13 |     freeApiKey = data.apiKey;\n  14 |   });\n    at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js:11:31"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-14T03:23:02.503Z",
+                      "annotations": [],
+                      "attachments": [],
+                      "errorLocation": {
+                        "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js",
+                        "column": 31,
+                        "line": 11
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "8c239806f0a6ae3f6fe1-d7404faf9b254f25ee08",
+              "file": "chatgpt-comparison.spec.js",
+              "line": 290,
+              "column": 3
+            },
+            {
+              "title": "should have ChatGPT-like example prompt interactions",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-14T03:23:03.487Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "8c239806f0a6ae3f6fe1-283d84cd96a4e0ebf38d",
+              "file": "chatgpt-comparison.spec.js",
+              "line": 316,
+              "column": 3
+            },
+            {
+              "title": "should have ChatGPT-like loading states",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-14T03:23:03.487Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "8c239806f0a6ae3f6fe1-30a9a01625dfa56bf98c",
+              "file": "chatgpt-comparison.spec.js",
+              "line": 343,
+              "column": 3
+            },
+            {
+              "title": "should have ChatGPT-like scroll behavior",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 4,
+                      "status": "failed",
+                      "duration": 0,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n    at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js:11:31",
+                        "location": {
+                          "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js",
+                          "column": 31,
+                          "line": 11
+                        },
+                        "snippet": "   9 |       data: { username: 'chatgpt-comparison-test' }\n  10 |     });\n> 11 |     expect(response.status()).toBe(200);\n     |                               ^\n  12 |     const data = await response.json();\n  13 |     freeApiKey = data.apiKey;\n  14 |   });"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js",
+                            "column": 31,
+                            "line": 11
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n\n   9 |       data: { username: 'chatgpt-comparison-test' }\n  10 |     });\n> 11 |     expect(response.status()).toBe(200);\n     |                               ^\n  12 |     const data = await response.json();\n  13 |     freeApiKey = data.apiKey;\n  14 |   });\n    at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js:11:31"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-14T03:23:02.505Z",
+                      "annotations": [],
+                      "attachments": [],
+                      "errorLocation": {
+                        "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js",
+                        "column": 31,
+                        "line": 11
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "8c239806f0a6ae3f6fe1-ee5a7dcbb2034c9d8697",
+              "file": "chatgpt-comparison.spec.js",
+              "line": 377,
+              "column": 3
+            },
+            {
+              "title": "should have ChatGPT-like accessibility features",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-14T03:23:03.488Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "8c239806f0a6ae3f6fe1-3d394f2e01905c4b7e79",
+              "file": "chatgpt-comparison.spec.js",
+              "line": 406,
+              "column": 3
+            },
+            {
+              "title": "should have ChatGPT-like visual design",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 1,
+                      "status": "failed",
+                      "duration": 0,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n    at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js:11:31",
+                        "location": {
+                          "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js",
+                          "column": 31,
+                          "line": 11
+                        },
+                        "snippet": "   9 |       data: { username: 'chatgpt-comparison-test' }\n  10 |     });\n> 11 |     expect(response.status()).toBe(200);\n     |                               ^\n  12 |     const data = await response.json();\n  13 |     freeApiKey = data.apiKey;\n  14 |   });"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js",
+                            "column": 31,
+                            "line": 11
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n\n   9 |       data: { username: 'chatgpt-comparison-test' }\n  10 |     });\n> 11 |     expect(response.status()).toBe(200);\n     |                               ^\n  12 |     const data = await response.json();\n  13 |     freeApiKey = data.apiKey;\n  14 |   });\n    at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js:11:31"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-14T03:23:03.344Z",
+                      "annotations": [],
+                      "attachments": [],
+                      "errorLocation": {
+                        "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js",
+                        "column": 31,
+                        "line": 11
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "8c239806f0a6ae3f6fe1-5428f8ece9f73b8a841d",
+              "file": "chatgpt-comparison.spec.js",
+              "line": 16,
+              "column": 3
+            },
+            {
+              "title": "should have ChatGPT-like welcome screen",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-14T03:23:03.848Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "8c239806f0a6ae3f6fe1-4ff67d71f236e6c727c0",
+              "file": "chatgpt-comparison.spec.js",
+              "line": 51,
+              "column": 3
+            },
+            {
+              "title": "should handle API key setup like ChatGPT",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-14T03:23:03.849Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "8c239806f0a6ae3f6fe1-a079e1a8f1b0c32da144",
+              "file": "chatgpt-comparison.spec.js",
+              "line": 75,
+              "column": 3
+            },
+            {
+              "title": "should have ChatGPT-like message flow",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 6,
+                      "parallelIndex": 2,
+                      "status": "failed",
+                      "duration": 0,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n    at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js:11:31",
+                        "location": {
+                          "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js",
+                          "column": 31,
+                          "line": 11
+                        },
+                        "snippet": "   9 |       data: { username: 'chatgpt-comparison-test' }\n  10 |     });\n> 11 |     expect(response.status()).toBe(200);\n     |                               ^\n  12 |     const data = await response.json();\n  13 |     freeApiKey = data.apiKey;\n  14 |   });"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js",
+                            "column": 31,
+                            "line": 11
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n\n   9 |       data: { username: 'chatgpt-comparison-test' }\n  10 |     });\n> 11 |     expect(response.status()).toBe(200);\n     |                               ^\n  12 |     const data = await response.json();\n  13 |     freeApiKey = data.apiKey;\n  14 |   });\n    at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js:11:31"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-14T03:23:03.544Z",
+                      "annotations": [],
+                      "attachments": [],
+                      "errorLocation": {
+                        "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js",
+                        "column": 31,
+                        "line": 11
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "8c239806f0a6ae3f6fe1-199768cb609add17a394",
+              "file": "chatgpt-comparison.spec.js",
+              "line": 98,
+              "column": 3
+            },
+            {
+              "title": "should have ChatGPT-like input behavior",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-14T03:23:03.919Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "8c239806f0a6ae3f6fe1-874c0e1cf214460b9f2a",
+              "file": "chatgpt-comparison.spec.js",
+              "line": 137,
+              "column": 3
+            },
+            {
+              "title": "should have ChatGPT-like message styling",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-14T03:23:03.919Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "8c239806f0a6ae3f6fe1-2741e59c2de4a382afde",
+              "file": "chatgpt-comparison.spec.js",
+              "line": 178,
+              "column": 3
+            },
+            {
+              "title": "should have ChatGPT-like responsive design",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 7,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 0,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n    at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js:11:31",
+                        "location": {
+                          "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js",
+                          "column": 31,
+                          "line": 11
+                        },
+                        "snippet": "   9 |       data: { username: 'chatgpt-comparison-test' }\n  10 |     });\n> 11 |     expect(response.status()).toBe(200);\n     |                               ^\n  12 |     const data = await response.json();\n  13 |     freeApiKey = data.apiKey;\n  14 |   });"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js",
+                            "column": 31,
+                            "line": 11
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n\n   9 |       data: { username: 'chatgpt-comparison-test' }\n  10 |     });\n> 11 |     expect(response.status()).toBe(200);\n     |                               ^\n  12 |     const data = await response.json();\n  13 |     freeApiKey = data.apiKey;\n  14 |   });\n    at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js:11:31"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-14T03:23:03.818Z",
+                      "annotations": [],
+                      "attachments": [],
+                      "errorLocation": {
+                        "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js",
+                        "column": 31,
+                        "line": 11
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "8c239806f0a6ae3f6fe1-a10b2f55724065729a68",
+              "file": "chatgpt-comparison.spec.js",
+              "line": 215,
+              "column": 3
+            },
+            {
+              "title": "should have ChatGPT-like error handling",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-14T03:23:04.260Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "8c239806f0a6ae3f6fe1-765dd58a50f949ea401c",
+              "file": "chatgpt-comparison.spec.js",
+              "line": 239,
+              "column": 3
+            },
+            {
+              "title": "should have ChatGPT-like status indicators",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-14T03:23:04.260Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "8c239806f0a6ae3f6fe1-d14036f3d8361d3b4462",
+              "file": "chatgpt-comparison.spec.js",
+              "line": 260,
+              "column": 3
+            },
+            {
+              "title": "should have ChatGPT-like message formatting",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 9,
+                      "parallelIndex": 3,
+                      "status": "failed",
+                      "duration": 0,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n    at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js:11:31",
+                        "location": {
+                          "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js",
+                          "column": 31,
+                          "line": 11
+                        },
+                        "snippet": "   9 |       data: { username: 'chatgpt-comparison-test' }\n  10 |     });\n> 11 |     expect(response.status()).toBe(200);\n     |                               ^\n  12 |     const data = await response.json();\n  13 |     freeApiKey = data.apiKey;\n  14 |   });"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js",
+                            "column": 31,
+                            "line": 11
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n\n   9 |       data: { username: 'chatgpt-comparison-test' }\n  10 |     });\n> 11 |     expect(response.status()).toBe(200);\n     |                               ^\n  12 |     const data = await response.json();\n  13 |     freeApiKey = data.apiKey;\n  14 |   });\n    at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js:11:31"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-14T03:23:03.866Z",
+                      "annotations": [],
+                      "attachments": [],
+                      "errorLocation": {
+                        "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js",
+                        "column": 31,
+                        "line": 11
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "8c239806f0a6ae3f6fe1-41d06d498724e7d4f226",
+              "file": "chatgpt-comparison.spec.js",
+              "line": 290,
+              "column": 3
+            },
+            {
+              "title": "should have ChatGPT-like example prompt interactions",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-14T03:23:04.310Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "8c239806f0a6ae3f6fe1-b15405d7e071f09bf9d7",
+              "file": "chatgpt-comparison.spec.js",
+              "line": 316,
+              "column": 3
+            },
+            {
+              "title": "should have ChatGPT-like loading states",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-14T03:23:04.310Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "8c239806f0a6ae3f6fe1-8a3e7798b830f073305b",
+              "file": "chatgpt-comparison.spec.js",
+              "line": 343,
+              "column": 3
+            },
+            {
+              "title": "should have ChatGPT-like scroll behavior",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 8,
+                      "parallelIndex": 4,
+                      "status": "failed",
+                      "duration": 0,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n    at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js:11:31",
+                        "location": {
+                          "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js",
+                          "column": 31,
+                          "line": 11
+                        },
+                        "snippet": "   9 |       data: { username: 'chatgpt-comparison-test' }\n  10 |     });\n> 11 |     expect(response.status()).toBe(200);\n     |                               ^\n  12 |     const data = await response.json();\n  13 |     freeApiKey = data.apiKey;\n  14 |   });"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js",
+                            "column": 31,
+                            "line": 11
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n\n   9 |       data: { username: 'chatgpt-comparison-test' }\n  10 |     });\n> 11 |     expect(response.status()).toBe(200);\n     |                               ^\n  12 |     const data = await response.json();\n  13 |     freeApiKey = data.apiKey;\n  14 |   });\n    at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js:11:31"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-14T03:23:03.878Z",
+                      "annotations": [],
+                      "attachments": [],
+                      "errorLocation": {
+                        "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js",
+                        "column": 31,
+                        "line": 11
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "8c239806f0a6ae3f6fe1-8b51c638d1182e388da6",
+              "file": "chatgpt-comparison.spec.js",
+              "line": 377,
+              "column": 3
+            },
+            {
+              "title": "should have ChatGPT-like accessibility features",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-14T03:23:04.300Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "8c239806f0a6ae3f6fe1-816110e14bfd91738186",
+              "file": "chatgpt-comparison.spec.js",
+              "line": 406,
+              "column": 3
+            },
+            {
+              "title": "should have ChatGPT-like visual design",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 10,
+                      "parallelIndex": 1,
+                      "status": "failed",
+                      "duration": 0,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n    at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js:11:31",
+                        "location": {
+                          "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js",
+                          "column": 31,
+                          "line": 11
+                        },
+                        "snippet": "   9 |       data: { username: 'chatgpt-comparison-test' }\n  10 |     });\n> 11 |     expect(response.status()).toBe(200);\n     |                               ^\n  12 |     const data = await response.json();\n  13 |     freeApiKey = data.apiKey;\n  14 |   });"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js",
+                            "column": 31,
+                            "line": 11
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n\n   9 |       data: { username: 'chatgpt-comparison-test' }\n  10 |     });\n> 11 |     expect(response.status()).toBe(200);\n     |                               ^\n  12 |     const data = await response.json();\n  13 |     freeApiKey = data.apiKey;\n  14 |   });\n    at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js:11:31"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-14T03:23:04.222Z",
+                      "annotations": [],
+                      "attachments": [],
+                      "errorLocation": {
+                        "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js",
+                        "column": 31,
+                        "line": 11
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "8c239806f0a6ae3f6fe1-b3e923adaabbb0a49340",
+              "file": "chatgpt-comparison.spec.js",
+              "line": 16,
+              "column": 3
+            },
+            {
+              "title": "should have ChatGPT-like welcome screen",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-14T03:23:04.649Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "8c239806f0a6ae3f6fe1-8ee80078fb7d45bac844",
+              "file": "chatgpt-comparison.spec.js",
+              "line": 51,
+              "column": 3
+            },
+            {
+              "title": "should handle API key setup like ChatGPT",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-14T03:23:04.649Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "8c239806f0a6ae3f6fe1-9282d24e0d4b27233930",
+              "file": "chatgpt-comparison.spec.js",
+              "line": 75,
+              "column": 3
+            },
+            {
+              "title": "should have ChatGPT-like message flow",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 11,
+                      "parallelIndex": 2,
+                      "status": "failed",
+                      "duration": 0,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n    at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js:11:31",
+                        "location": {
+                          "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js",
+                          "column": 31,
+                          "line": 11
+                        },
+                        "snippet": "   9 |       data: { username: 'chatgpt-comparison-test' }\n  10 |     });\n> 11 |     expect(response.status()).toBe(200);\n     |                               ^\n  12 |     const data = await response.json();\n  13 |     freeApiKey = data.apiKey;\n  14 |   });"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js",
+                            "column": 31,
+                            "line": 11
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n\n   9 |       data: { username: 'chatgpt-comparison-test' }\n  10 |     });\n> 11 |     expect(response.status()).toBe(200);\n     |                               ^\n  12 |     const data = await response.json();\n  13 |     freeApiKey = data.apiKey;\n  14 |   });\n    at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js:11:31"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-14T03:23:04.292Z",
+                      "annotations": [],
+                      "attachments": [],
+                      "errorLocation": {
+                        "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js",
+                        "column": 31,
+                        "line": 11
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "8c239806f0a6ae3f6fe1-64a2a86dbc382fc89afe",
+              "file": "chatgpt-comparison.spec.js",
+              "line": 98,
+              "column": 3
+            },
+            {
+              "title": "should have ChatGPT-like input behavior",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-14T03:23:04.725Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "8c239806f0a6ae3f6fe1-dafa073ce44d81f5d1f1",
+              "file": "chatgpt-comparison.spec.js",
+              "line": 137,
+              "column": 3
+            },
+            {
+              "title": "should have ChatGPT-like message styling",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-14T03:23:04.725Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "8c239806f0a6ae3f6fe1-efa961ddd38b42e16cf9",
+              "file": "chatgpt-comparison.spec.js",
+              "line": 178,
+              "column": 3
+            },
+            {
+              "title": "should have ChatGPT-like responsive design",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 12,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 0,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n    at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js:11:31",
+                        "location": {
+                          "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js",
+                          "column": 31,
+                          "line": 11
+                        },
+                        "snippet": "   9 |       data: { username: 'chatgpt-comparison-test' }\n  10 |     });\n> 11 |     expect(response.status()).toBe(200);\n     |                               ^\n  12 |     const data = await response.json();\n  13 |     freeApiKey = data.apiKey;\n  14 |   });"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js",
+                            "column": 31,
+                            "line": 11
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n\n   9 |       data: { username: 'chatgpt-comparison-test' }\n  10 |     });\n> 11 |     expect(response.status()).toBe(200);\n     |                               ^\n  12 |     const data = await response.json();\n  13 |     freeApiKey = data.apiKey;\n  14 |   });\n    at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js:11:31"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-14T03:23:04.657Z",
+                      "annotations": [],
+                      "attachments": [],
+                      "errorLocation": {
+                        "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js",
+                        "column": 31,
+                        "line": 11
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "8c239806f0a6ae3f6fe1-b58d8c674e7e76fb0bac",
+              "file": "chatgpt-comparison.spec.js",
+              "line": 215,
+              "column": 3
+            },
+            {
+              "title": "should have ChatGPT-like error handling",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-14T03:23:05.059Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "8c239806f0a6ae3f6fe1-f9168cb253b1ec6ff9e6",
+              "file": "chatgpt-comparison.spec.js",
+              "line": 239,
+              "column": 3
+            },
+            {
+              "title": "should have ChatGPT-like status indicators",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-14T03:23:05.059Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "8c239806f0a6ae3f6fe1-efdd9f890bdc401274c0",
+              "file": "chatgpt-comparison.spec.js",
+              "line": 260,
+              "column": 3
+            },
+            {
+              "title": "should have ChatGPT-like message formatting",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 13,
+                      "parallelIndex": 4,
+                      "status": "failed",
+                      "duration": 0,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n    at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js:11:31",
+                        "location": {
+                          "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js",
+                          "column": 31,
+                          "line": 11
+                        },
+                        "snippet": "   9 |       data: { username: 'chatgpt-comparison-test' }\n  10 |     });\n> 11 |     expect(response.status()).toBe(200);\n     |                               ^\n  12 |     const data = await response.json();\n  13 |     freeApiKey = data.apiKey;\n  14 |   });"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js",
+                            "column": 31,
+                            "line": 11
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n\n   9 |       data: { username: 'chatgpt-comparison-test' }\n  10 |     });\n> 11 |     expect(response.status()).toBe(200);\n     |                               ^\n  12 |     const data = await response.json();\n  13 |     freeApiKey = data.apiKey;\n  14 |   });\n    at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js:11:31"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-14T03:23:04.712Z",
+                      "annotations": [],
+                      "attachments": [],
+                      "errorLocation": {
+                        "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js",
+                        "column": 31,
+                        "line": 11
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "8c239806f0a6ae3f6fe1-f26227b767053aae2dd8",
+              "file": "chatgpt-comparison.spec.js",
+              "line": 290,
+              "column": 3
+            },
+            {
+              "title": "should have ChatGPT-like example prompt interactions",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-14T03:23:05.123Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "8c239806f0a6ae3f6fe1-1c33f982037a639d79c6",
+              "file": "chatgpt-comparison.spec.js",
+              "line": 316,
+              "column": 3
+            },
+            {
+              "title": "should have ChatGPT-like loading states",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-14T03:23:05.123Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "8c239806f0a6ae3f6fe1-7459fa3025a75c8a3e44",
+              "file": "chatgpt-comparison.spec.js",
+              "line": 343,
+              "column": 3
+            },
+            {
+              "title": "should have ChatGPT-like scroll behavior",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 14,
+                      "parallelIndex": 3,
+                      "status": "failed",
+                      "duration": 0,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n    at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js:11:31",
+                        "location": {
+                          "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js",
+                          "column": 31,
+                          "line": 11
+                        },
+                        "snippet": "   9 |       data: { username: 'chatgpt-comparison-test' }\n  10 |     });\n> 11 |     expect(response.status()).toBe(200);\n     |                               ^\n  12 |     const data = await response.json();\n  13 |     freeApiKey = data.apiKey;\n  14 |   });"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js",
+                            "column": 31,
+                            "line": 11
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n\n   9 |       data: { username: 'chatgpt-comparison-test' }\n  10 |     });\n> 11 |     expect(response.status()).toBe(200);\n     |                               ^\n  12 |     const data = await response.json();\n  13 |     freeApiKey = data.apiKey;\n  14 |   });\n    at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js:11:31"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-14T03:23:04.704Z",
+                      "annotations": [],
+                      "attachments": [],
+                      "errorLocation": {
+                        "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js",
+                        "column": 31,
+                        "line": 11
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "8c239806f0a6ae3f6fe1-c26da78500c1f5051a95",
+              "file": "chatgpt-comparison.spec.js",
+              "line": 377,
+              "column": 3
+            },
+            {
+              "title": "should have ChatGPT-like accessibility features",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-14T03:23:05.085Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "8c239806f0a6ae3f6fe1-d391475da7c97ca5f751",
+              "file": "chatgpt-comparison.spec.js",
+              "line": 406,
+              "column": 3
+            },
+            {
+              "title": "should have ChatGPT-like visual design",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Chrome",
+                  "projectName": "Mobile Chrome",
+                  "results": [
+                    {
+                      "workerIndex": 15,
+                      "parallelIndex": 1,
+                      "status": "failed",
+                      "duration": 0,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n    at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js:11:31",
+                        "location": {
+                          "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js",
+                          "column": 31,
+                          "line": 11
+                        },
+                        "snippet": "   9 |       data: { username: 'chatgpt-comparison-test' }\n  10 |     });\n> 11 |     expect(response.status()).toBe(200);\n     |                               ^\n  12 |     const data = await response.json();\n  13 |     freeApiKey = data.apiKey;\n  14 |   });"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js",
+                            "column": 31,
+                            "line": 11
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n\n   9 |       data: { username: 'chatgpt-comparison-test' }\n  10 |     });\n> 11 |     expect(response.status()).toBe(200);\n     |                               ^\n  12 |     const data = await response.json();\n  13 |     freeApiKey = data.apiKey;\n  14 |   });\n    at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js:11:31"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-14T03:23:05.041Z",
+                      "annotations": [],
+                      "attachments": [],
+                      "errorLocation": {
+                        "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js",
+                        "column": 31,
+                        "line": 11
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "8c239806f0a6ae3f6fe1-e28bb5c8b1a38850e965",
+              "file": "chatgpt-comparison.spec.js",
+              "line": 16,
+              "column": 3
+            },
+            {
+              "title": "should have ChatGPT-like welcome screen",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Chrome",
+                  "projectName": "Mobile Chrome",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-14T03:23:05.418Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "8c239806f0a6ae3f6fe1-4276985ec808268a3d10",
+              "file": "chatgpt-comparison.spec.js",
+              "line": 51,
+              "column": 3
+            },
+            {
+              "title": "should handle API key setup like ChatGPT",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Chrome",
+                  "projectName": "Mobile Chrome",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-14T03:23:05.418Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "8c239806f0a6ae3f6fe1-70fa20c1d6b154248c88",
+              "file": "chatgpt-comparison.spec.js",
+              "line": 75,
+              "column": 3
+            },
+            {
+              "title": "should have ChatGPT-like message flow",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Chrome",
+                  "projectName": "Mobile Chrome",
+                  "results": [
+                    {
+                      "workerIndex": 16,
+                      "parallelIndex": 2,
+                      "status": "failed",
+                      "duration": 0,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n    at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js:11:31",
+                        "location": {
+                          "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js",
+                          "column": 31,
+                          "line": 11
+                        },
+                        "snippet": "   9 |       data: { username: 'chatgpt-comparison-test' }\n  10 |     });\n> 11 |     expect(response.status()).toBe(200);\n     |                               ^\n  12 |     const data = await response.json();\n  13 |     freeApiKey = data.apiKey;\n  14 |   });"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js",
+                            "column": 31,
+                            "line": 11
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n\n   9 |       data: { username: 'chatgpt-comparison-test' }\n  10 |     });\n> 11 |     expect(response.status()).toBe(200);\n     |                               ^\n  12 |     const data = await response.json();\n  13 |     freeApiKey = data.apiKey;\n  14 |   });\n    at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js:11:31"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-14T03:23:05.105Z",
+                      "annotations": [],
+                      "attachments": [],
+                      "errorLocation": {
+                        "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js",
+                        "column": 31,
+                        "line": 11
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "8c239806f0a6ae3f6fe1-87d84a8fafb8f658c7c7",
+              "file": "chatgpt-comparison.spec.js",
+              "line": 98,
+              "column": 3
+            },
+            {
+              "title": "should have ChatGPT-like input behavior",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Chrome",
+                  "projectName": "Mobile Chrome",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-14T03:23:05.507Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "8c239806f0a6ae3f6fe1-d7d1524ffff43b275ab2",
+              "file": "chatgpt-comparison.spec.js",
+              "line": 137,
+              "column": 3
+            },
+            {
+              "title": "should have ChatGPT-like message styling",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Chrome",
+                  "projectName": "Mobile Chrome",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-14T03:23:05.507Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "8c239806f0a6ae3f6fe1-4450cd4f9acae0865a7d",
+              "file": "chatgpt-comparison.spec.js",
+              "line": 178,
+              "column": 3
+            },
+            {
+              "title": "should have ChatGPT-like responsive design",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Chrome",
+                  "projectName": "Mobile Chrome",
+                  "results": [
+                    {
+                      "workerIndex": 17,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 0,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n    at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js:11:31",
+                        "location": {
+                          "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js",
+                          "column": 31,
+                          "line": 11
+                        },
+                        "snippet": "   9 |       data: { username: 'chatgpt-comparison-test' }\n  10 |     });\n> 11 |     expect(response.status()).toBe(200);\n     |                               ^\n  12 |     const data = await response.json();\n  13 |     freeApiKey = data.apiKey;\n  14 |   });"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js",
+                            "column": 31,
+                            "line": 11
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n\n   9 |       data: { username: 'chatgpt-comparison-test' }\n  10 |     });\n> 11 |     expect(response.status()).toBe(200);\n     |                               ^\n  12 |     const data = await response.json();\n  13 |     freeApiKey = data.apiKey;\n  14 |   });\n    at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js:11:31"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-14T03:23:05.469Z",
+                      "annotations": [],
+                      "attachments": [],
+                      "errorLocation": {
+                        "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js",
+                        "column": 31,
+                        "line": 11
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "8c239806f0a6ae3f6fe1-d4efe784d93b7f353c86",
+              "file": "chatgpt-comparison.spec.js",
+              "line": 215,
+              "column": 3
+            },
+            {
+              "title": "should have ChatGPT-like error handling",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Chrome",
+                  "projectName": "Mobile Chrome",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-14T03:23:05.873Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "8c239806f0a6ae3f6fe1-b13456515056ac3d5cb5",
+              "file": "chatgpt-comparison.spec.js",
+              "line": 239,
+              "column": 3
+            },
+            {
+              "title": "should have ChatGPT-like status indicators",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Chrome",
+                  "projectName": "Mobile Chrome",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-14T03:23:05.873Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "8c239806f0a6ae3f6fe1-5516ca3d994c6a989972",
+              "file": "chatgpt-comparison.spec.js",
+              "line": 260,
+              "column": 3
+            },
+            {
+              "title": "should have ChatGPT-like message formatting",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Chrome",
+                  "projectName": "Mobile Chrome",
+                  "results": [
+                    {
+                      "workerIndex": 18,
+                      "parallelIndex": 3,
+                      "status": "failed",
+                      "duration": 0,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n    at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js:11:31",
+                        "location": {
+                          "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js",
+                          "column": 31,
+                          "line": 11
+                        },
+                        "snippet": "   9 |       data: { username: 'chatgpt-comparison-test' }\n  10 |     });\n> 11 |     expect(response.status()).toBe(200);\n     |                               ^\n  12 |     const data = await response.json();\n  13 |     freeApiKey = data.apiKey;\n  14 |   });"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js",
+                            "column": 31,
+                            "line": 11
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n\n   9 |       data: { username: 'chatgpt-comparison-test' }\n  10 |     });\n> 11 |     expect(response.status()).toBe(200);\n     |                               ^\n  12 |     const data = await response.json();\n  13 |     freeApiKey = data.apiKey;\n  14 |   });\n    at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js:11:31"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-14T03:23:05.495Z",
+                      "annotations": [],
+                      "attachments": [],
+                      "errorLocation": {
+                        "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js",
+                        "column": 31,
+                        "line": 11
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "8c239806f0a6ae3f6fe1-ad709d168d043c7bd572",
+              "file": "chatgpt-comparison.spec.js",
+              "line": 290,
+              "column": 3
+            },
+            {
+              "title": "should have ChatGPT-like example prompt interactions",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Chrome",
+                  "projectName": "Mobile Chrome",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-14T03:23:05.922Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "8c239806f0a6ae3f6fe1-be7cb8739017e646fcd1",
+              "file": "chatgpt-comparison.spec.js",
+              "line": 316,
+              "column": 3
+            },
+            {
+              "title": "should have ChatGPT-like loading states",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Chrome",
+                  "projectName": "Mobile Chrome",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-14T03:23:05.922Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "8c239806f0a6ae3f6fe1-ef8f041e16492c1c77a6",
+              "file": "chatgpt-comparison.spec.js",
+              "line": 343,
+              "column": 3
+            },
+            {
+              "title": "should have ChatGPT-like scroll behavior",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Chrome",
+                  "projectName": "Mobile Chrome",
+                  "results": [
+                    {
+                      "workerIndex": 19,
+                      "parallelIndex": 4,
+                      "status": "failed",
+                      "duration": 0,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n    at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js:11:31",
+                        "location": {
+                          "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js",
+                          "column": 31,
+                          "line": 11
+                        },
+                        "snippet": "   9 |       data: { username: 'chatgpt-comparison-test' }\n  10 |     });\n> 11 |     expect(response.status()).toBe(200);\n     |                               ^\n  12 |     const data = await response.json();\n  13 |     freeApiKey = data.apiKey;\n  14 |   });"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js",
+                            "column": 31,
+                            "line": 11
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n\n   9 |       data: { username: 'chatgpt-comparison-test' }\n  10 |     });\n> 11 |     expect(response.status()).toBe(200);\n     |                               ^\n  12 |     const data = await response.json();\n  13 |     freeApiKey = data.apiKey;\n  14 |   });\n    at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js:11:31"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-14T03:23:05.526Z",
+                      "annotations": [],
+                      "attachments": [],
+                      "errorLocation": {
+                        "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js",
+                        "column": 31,
+                        "line": 11
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "8c239806f0a6ae3f6fe1-d0ee2c2029eb2fbaf54b",
+              "file": "chatgpt-comparison.spec.js",
+              "line": 377,
+              "column": 3
+            },
+            {
+              "title": "should have ChatGPT-like accessibility features",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Chrome",
+                  "projectName": "Mobile Chrome",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-14T03:23:05.930Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "8c239806f0a6ae3f6fe1-fd5056998ce6a97cad0f",
+              "file": "chatgpt-comparison.spec.js",
+              "line": 406,
+              "column": 3
+            },
+            {
+              "title": "should have ChatGPT-like visual design",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Safari",
+                  "projectName": "Mobile Safari",
+                  "results": [
+                    {
+                      "workerIndex": 20,
+                      "parallelIndex": 1,
+                      "status": "failed",
+                      "duration": 0,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n    at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js:11:31",
+                        "location": {
+                          "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js",
+                          "column": 31,
+                          "line": 11
+                        },
+                        "snippet": "   9 |       data: { username: 'chatgpt-comparison-test' }\n  10 |     });\n> 11 |     expect(response.status()).toBe(200);\n     |                               ^\n  12 |     const data = await response.json();\n  13 |     freeApiKey = data.apiKey;\n  14 |   });"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js",
+                            "column": 31,
+                            "line": 11
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n\n   9 |       data: { username: 'chatgpt-comparison-test' }\n  10 |     });\n> 11 |     expect(response.status()).toBe(200);\n     |                               ^\n  12 |     const data = await response.json();\n  13 |     freeApiKey = data.apiKey;\n  14 |   });\n    at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js:11:31"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-14T03:23:05.807Z",
+                      "annotations": [],
+                      "attachments": [],
+                      "errorLocation": {
+                        "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js",
+                        "column": 31,
+                        "line": 11
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "8c239806f0a6ae3f6fe1-7d99e8f7a54b776c96fe",
+              "file": "chatgpt-comparison.spec.js",
+              "line": 16,
+              "column": 3
+            },
+            {
+              "title": "should have ChatGPT-like welcome screen",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Safari",
+                  "projectName": "Mobile Safari",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-14T03:23:06.223Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "8c239806f0a6ae3f6fe1-b503964feda5549ba40a",
+              "file": "chatgpt-comparison.spec.js",
+              "line": 51,
+              "column": 3
+            },
+            {
+              "title": "should handle API key setup like ChatGPT",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Safari",
+                  "projectName": "Mobile Safari",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-14T03:23:06.223Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "8c239806f0a6ae3f6fe1-af427da007da8dbd7cda",
+              "file": "chatgpt-comparison.spec.js",
+              "line": 75,
+              "column": 3
+            },
+            {
+              "title": "should have ChatGPT-like message flow",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Safari",
+                  "projectName": "Mobile Safari",
+                  "results": [
+                    {
+                      "workerIndex": 21,
+                      "parallelIndex": 2,
+                      "status": "failed",
+                      "duration": 0,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n    at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js:11:31",
+                        "location": {
+                          "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js",
+                          "column": 31,
+                          "line": 11
+                        },
+                        "snippet": "   9 |       data: { username: 'chatgpt-comparison-test' }\n  10 |     });\n> 11 |     expect(response.status()).toBe(200);\n     |                               ^\n  12 |     const data = await response.json();\n  13 |     freeApiKey = data.apiKey;\n  14 |   });"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js",
+                            "column": 31,
+                            "line": 11
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n\n   9 |       data: { username: 'chatgpt-comparison-test' }\n  10 |     });\n> 11 |     expect(response.status()).toBe(200);\n     |                               ^\n  12 |     const data = await response.json();\n  13 |     freeApiKey = data.apiKey;\n  14 |   });\n    at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js:11:31"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-14T03:23:05.876Z",
+                      "annotations": [],
+                      "attachments": [],
+                      "errorLocation": {
+                        "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js",
+                        "column": 31,
+                        "line": 11
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "8c239806f0a6ae3f6fe1-468cf1fe9d8e90031e2a",
+              "file": "chatgpt-comparison.spec.js",
+              "line": 98,
+              "column": 3
+            },
+            {
+              "title": "should have ChatGPT-like input behavior",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Safari",
+                  "projectName": "Mobile Safari",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-14T03:23:06.292Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "8c239806f0a6ae3f6fe1-652310b08a5590da0cc0",
+              "file": "chatgpt-comparison.spec.js",
+              "line": 137,
+              "column": 3
+            },
+            {
+              "title": "should have ChatGPT-like message styling",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Safari",
+                  "projectName": "Mobile Safari",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-14T03:23:06.292Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "8c239806f0a6ae3f6fe1-3fd259ba1a0c7c8f031f",
+              "file": "chatgpt-comparison.spec.js",
+              "line": 178,
+              "column": 3
+            },
+            {
+              "title": "should have ChatGPT-like responsive design",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Safari",
+                  "projectName": "Mobile Safari",
+                  "results": [
+                    {
+                      "workerIndex": 22,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 0,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n    at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js:11:31",
+                        "location": {
+                          "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js",
+                          "column": 31,
+                          "line": 11
+                        },
+                        "snippet": "   9 |       data: { username: 'chatgpt-comparison-test' }\n  10 |     });\n> 11 |     expect(response.status()).toBe(200);\n     |                               ^\n  12 |     const data = await response.json();\n  13 |     freeApiKey = data.apiKey;\n  14 |   });"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js",
+                            "column": 31,
+                            "line": 11
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n\n   9 |       data: { username: 'chatgpt-comparison-test' }\n  10 |     });\n> 11 |     expect(response.status()).toBe(200);\n     |                               ^\n  12 |     const data = await response.json();\n  13 |     freeApiKey = data.apiKey;\n  14 |   });\n    at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js:11:31"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-14T03:23:06.270Z",
+                      "annotations": [],
+                      "attachments": [],
+                      "errorLocation": {
+                        "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js",
+                        "column": 31,
+                        "line": 11
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "8c239806f0a6ae3f6fe1-73e9c8920b84d4314d21",
+              "file": "chatgpt-comparison.spec.js",
+              "line": 215,
+              "column": 3
+            },
+            {
+              "title": "should have ChatGPT-like error handling",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Safari",
+                  "projectName": "Mobile Safari",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-14T03:23:06.646Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "8c239806f0a6ae3f6fe1-ed4844ed9aa3ecc2079e",
+              "file": "chatgpt-comparison.spec.js",
+              "line": 239,
+              "column": 3
+            },
+            {
+              "title": "should have ChatGPT-like status indicators",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Safari",
+                  "projectName": "Mobile Safari",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-14T03:23:06.646Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "8c239806f0a6ae3f6fe1-448c3dd41752b01e2bfd",
+              "file": "chatgpt-comparison.spec.js",
+              "line": 260,
+              "column": 3
+            },
+            {
+              "title": "should have ChatGPT-like message formatting",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Safari",
+                  "projectName": "Mobile Safari",
+                  "results": [
+                    {
+                      "workerIndex": 23,
+                      "parallelIndex": 3,
+                      "status": "failed",
+                      "duration": 0,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n    at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js:11:31",
+                        "location": {
+                          "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js",
+                          "column": 31,
+                          "line": 11
+                        },
+                        "snippet": "   9 |       data: { username: 'chatgpt-comparison-test' }\n  10 |     });\n> 11 |     expect(response.status()).toBe(200);\n     |                               ^\n  12 |     const data = await response.json();\n  13 |     freeApiKey = data.apiKey;\n  14 |   });"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js",
+                            "column": 31,
+                            "line": 11
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n\n   9 |       data: { username: 'chatgpt-comparison-test' }\n  10 |     });\n> 11 |     expect(response.status()).toBe(200);\n     |                               ^\n  12 |     const data = await response.json();\n  13 |     freeApiKey = data.apiKey;\n  14 |   });\n    at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js:11:31"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-14T03:23:06.337Z",
+                      "annotations": [],
+                      "attachments": [],
+                      "errorLocation": {
+                        "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js",
+                        "column": 31,
+                        "line": 11
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "8c239806f0a6ae3f6fe1-7ba06a013cd3d05330ea",
+              "file": "chatgpt-comparison.spec.js",
+              "line": 290,
+              "column": 3
+            },
+            {
+              "title": "should have ChatGPT-like example prompt interactions",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Safari",
+                  "projectName": "Mobile Safari",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-14T03:23:06.759Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "8c239806f0a6ae3f6fe1-1542381deba112e021bd",
+              "file": "chatgpt-comparison.spec.js",
+              "line": 316,
+              "column": 3
+            },
+            {
+              "title": "should have ChatGPT-like loading states",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Safari",
+                  "projectName": "Mobile Safari",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-14T03:23:06.759Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "8c239806f0a6ae3f6fe1-a4d843489b0de623112c",
+              "file": "chatgpt-comparison.spec.js",
+              "line": 343,
+              "column": 3
+            },
+            {
+              "title": "should have ChatGPT-like scroll behavior",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Safari",
+                  "projectName": "Mobile Safari",
+                  "results": [
+                    {
+                      "workerIndex": 24,
+                      "parallelIndex": 4,
+                      "status": "failed",
+                      "duration": 0,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n    at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js:11:31",
+                        "location": {
+                          "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js",
+                          "column": 31,
+                          "line": 11
+                        },
+                        "snippet": "   9 |       data: { username: 'chatgpt-comparison-test' }\n  10 |     });\n> 11 |     expect(response.status()).toBe(200);\n     |                               ^\n  12 |     const data = await response.json();\n  13 |     freeApiKey = data.apiKey;\n  14 |   });"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js",
+                            "column": 31,
+                            "line": 11
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n\n   9 |       data: { username: 'chatgpt-comparison-test' }\n  10 |     });\n> 11 |     expect(response.status()).toBe(200);\n     |                               ^\n  12 |     const data = await response.json();\n  13 |     freeApiKey = data.apiKey;\n  14 |   });\n    at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js:11:31"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-14T03:23:06.322Z",
+                      "annotations": [],
+                      "attachments": [],
+                      "errorLocation": {
+                        "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js",
+                        "column": 31,
+                        "line": 11
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "8c239806f0a6ae3f6fe1-442ed6a8eb1251f3b5b6",
+              "file": "chatgpt-comparison.spec.js",
+              "line": 377,
+              "column": 3
+            },
+            {
+              "title": "should have ChatGPT-like accessibility features",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Safari",
+                  "projectName": "Mobile Safari",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-14T03:23:06.756Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "8c239806f0a6ae3f6fe1-eeb9c8c9781992d03ce7",
+              "file": "chatgpt-comparison.spec.js",
+              "line": 406,
+              "column": 3
+            },
+            {
+              "title": "should have ChatGPT-like visual design",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chatgpt-comparison",
+                  "projectName": "chatgpt-comparison",
+                  "results": [
+                    {
+                      "workerIndex": 25,
+                      "parallelIndex": 1,
+                      "status": "failed",
+                      "duration": 1,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n    at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js:11:31",
+                        "location": {
+                          "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js",
+                          "column": 31,
+                          "line": 11
+                        },
+                        "snippet": "   9 |       data: { username: 'chatgpt-comparison-test' }\n  10 |     });\n> 11 |     expect(response.status()).toBe(200);\n     |                               ^\n  12 |     const data = await response.json();\n  13 |     freeApiKey = data.apiKey;\n  14 |   });"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js",
+                            "column": 31,
+                            "line": 11
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n\n   9 |       data: { username: 'chatgpt-comparison-test' }\n  10 |     });\n> 11 |     expect(response.status()).toBe(200);\n     |                               ^\n  12 |     const data = await response.json();\n  13 |     freeApiKey = data.apiKey;\n  14 |   });\n    at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js:11:31"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-14T03:23:06.617Z",
+                      "annotations": [],
+                      "attachments": [],
+                      "errorLocation": {
+                        "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js",
+                        "column": 31,
+                        "line": 11
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "8c239806f0a6ae3f6fe1-9ae176cd385144ae390f",
+              "file": "chatgpt-comparison.spec.js",
+              "line": 16,
+              "column": 3
+            },
+            {
+              "title": "should have ChatGPT-like welcome screen",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chatgpt-comparison",
+                  "projectName": "chatgpt-comparison",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-14T03:23:07.057Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "8c239806f0a6ae3f6fe1-b189fa97e78c2c06ba54",
+              "file": "chatgpt-comparison.spec.js",
+              "line": 51,
+              "column": 3
+            },
+            {
+              "title": "should handle API key setup like ChatGPT",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chatgpt-comparison",
+                  "projectName": "chatgpt-comparison",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-14T03:23:07.057Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "8c239806f0a6ae3f6fe1-718b2dd108908b3230ea",
+              "file": "chatgpt-comparison.spec.js",
+              "line": 75,
+              "column": 3
+            },
+            {
+              "title": "should have ChatGPT-like message flow",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chatgpt-comparison",
+                  "projectName": "chatgpt-comparison",
+                  "results": [
+                    {
+                      "workerIndex": 26,
+                      "parallelIndex": 2,
+                      "status": "failed",
+                      "duration": 0,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n    at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js:11:31",
+                        "location": {
+                          "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js",
+                          "column": 31,
+                          "line": 11
+                        },
+                        "snippet": "   9 |       data: { username: 'chatgpt-comparison-test' }\n  10 |     });\n> 11 |     expect(response.status()).toBe(200);\n     |                               ^\n  12 |     const data = await response.json();\n  13 |     freeApiKey = data.apiKey;\n  14 |   });"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js",
+                            "column": 31,
+                            "line": 11
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n\n   9 |       data: { username: 'chatgpt-comparison-test' }\n  10 |     });\n> 11 |     expect(response.status()).toBe(200);\n     |                               ^\n  12 |     const data = await response.json();\n  13 |     freeApiKey = data.apiKey;\n  14 |   });\n    at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js:11:31"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-14T03:23:06.672Z",
+                      "annotations": [],
+                      "attachments": [],
+                      "errorLocation": {
+                        "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js",
+                        "column": 31,
+                        "line": 11
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "8c239806f0a6ae3f6fe1-8327f13a489f71407f04",
+              "file": "chatgpt-comparison.spec.js",
+              "line": 98,
+              "column": 3
+            },
+            {
+              "title": "should have ChatGPT-like input behavior",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chatgpt-comparison",
+                  "projectName": "chatgpt-comparison",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-14T03:23:07.103Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "8c239806f0a6ae3f6fe1-33cd8413450b168f6d80",
+              "file": "chatgpt-comparison.spec.js",
+              "line": 137,
+              "column": 3
+            },
+            {
+              "title": "should have ChatGPT-like message styling",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chatgpt-comparison",
+                  "projectName": "chatgpt-comparison",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-14T03:23:07.103Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "8c239806f0a6ae3f6fe1-65e5547185dd973c0692",
+              "file": "chatgpt-comparison.spec.js",
+              "line": 178,
+              "column": 3
+            },
+            {
+              "title": "should have ChatGPT-like responsive design",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chatgpt-comparison",
+                  "projectName": "chatgpt-comparison",
+                  "results": [
+                    {
+                      "workerIndex": 27,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 0,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n    at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js:11:31",
+                        "location": {
+                          "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js",
+                          "column": 31,
+                          "line": 11
+                        },
+                        "snippet": "   9 |       data: { username: 'chatgpt-comparison-test' }\n  10 |     });\n> 11 |     expect(response.status()).toBe(200);\n     |                               ^\n  12 |     const data = await response.json();\n  13 |     freeApiKey = data.apiKey;\n  14 |   });"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js",
+                            "column": 31,
+                            "line": 11
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n\n   9 |       data: { username: 'chatgpt-comparison-test' }\n  10 |     });\n> 11 |     expect(response.status()).toBe(200);\n     |                               ^\n  12 |     const data = await response.json();\n  13 |     freeApiKey = data.apiKey;\n  14 |   });\n    at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js:11:31"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-14T03:23:07.027Z",
+                      "annotations": [],
+                      "attachments": [],
+                      "errorLocation": {
+                        "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js",
+                        "column": 31,
+                        "line": 11
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "8c239806f0a6ae3f6fe1-cb408b6c5d852417944b",
+              "file": "chatgpt-comparison.spec.js",
+              "line": 215,
+              "column": 3
+            },
+            {
+              "title": "should have ChatGPT-like error handling",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chatgpt-comparison",
+                  "projectName": "chatgpt-comparison",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-14T03:23:07.400Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "8c239806f0a6ae3f6fe1-c3a38300e59c5d811f17",
+              "file": "chatgpt-comparison.spec.js",
+              "line": 239,
+              "column": 3
+            },
+            {
+              "title": "should have ChatGPT-like status indicators",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chatgpt-comparison",
+                  "projectName": "chatgpt-comparison",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-14T03:23:07.400Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "8c239806f0a6ae3f6fe1-d7727c2d777a243ebda6",
+              "file": "chatgpt-comparison.spec.js",
+              "line": 260,
+              "column": 3
+            },
+            {
+              "title": "should have ChatGPT-like message formatting",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chatgpt-comparison",
+                  "projectName": "chatgpt-comparison",
+                  "results": [
+                    {
+                      "workerIndex": 29,
+                      "parallelIndex": 4,
+                      "status": "failed",
+                      "duration": 0,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n    at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js:11:31",
+                        "location": {
+                          "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js",
+                          "column": 31,
+                          "line": 11
+                        },
+                        "snippet": "   9 |       data: { username: 'chatgpt-comparison-test' }\n  10 |     });\n> 11 |     expect(response.status()).toBe(200);\n     |                               ^\n  12 |     const data = await response.json();\n  13 |     freeApiKey = data.apiKey;\n  14 |   });"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js",
+                            "column": 31,
+                            "line": 11
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n\n   9 |       data: { username: 'chatgpt-comparison-test' }\n  10 |     });\n> 11 |     expect(response.status()).toBe(200);\n     |                               ^\n  12 |     const data = await response.json();\n  13 |     freeApiKey = data.apiKey;\n  14 |   });\n    at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js:11:31"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-14T03:23:07.149Z",
+                      "annotations": [],
+                      "attachments": [],
+                      "errorLocation": {
+                        "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js",
+                        "column": 31,
+                        "line": 11
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "8c239806f0a6ae3f6fe1-0f5bf5dbc12b69707c84",
+              "file": "chatgpt-comparison.spec.js",
+              "line": 290,
+              "column": 3
+            },
+            {
+              "title": "should have ChatGPT-like example prompt interactions",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chatgpt-comparison",
+                  "projectName": "chatgpt-comparison",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-14T03:23:07.512Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "8c239806f0a6ae3f6fe1-d7baa867bee4692e096b",
+              "file": "chatgpt-comparison.spec.js",
+              "line": 316,
+              "column": 3
+            },
+            {
+              "title": "should have ChatGPT-like loading states",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chatgpt-comparison",
+                  "projectName": "chatgpt-comparison",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-14T03:23:07.512Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "8c239806f0a6ae3f6fe1-e37b09c3db869f3d6756",
+              "file": "chatgpt-comparison.spec.js",
+              "line": 343,
+              "column": 3
+            },
+            {
+              "title": "should have ChatGPT-like scroll behavior",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chatgpt-comparison",
+                  "projectName": "chatgpt-comparison",
+                  "results": [
+                    {
+                      "workerIndex": 28,
+                      "parallelIndex": 3,
+                      "status": "failed",
+                      "duration": 0,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n    at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js:11:31",
+                        "location": {
+                          "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js",
+                          "column": 31,
+                          "line": 11
+                        },
+                        "snippet": "   9 |       data: { username: 'chatgpt-comparison-test' }\n  10 |     });\n> 11 |     expect(response.status()).toBe(200);\n     |                               ^\n  12 |     const data = await response.json();\n  13 |     freeApiKey = data.apiKey;\n  14 |   });"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js",
+                            "column": 31,
+                            "line": 11
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n\n   9 |       data: { username: 'chatgpt-comparison-test' }\n  10 |     });\n> 11 |     expect(response.status()).toBe(200);\n     |                               ^\n  12 |     const data = await response.json();\n  13 |     freeApiKey = data.apiKey;\n  14 |   });\n    at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js:11:31"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-14T03:23:07.134Z",
+                      "annotations": [],
+                      "attachments": [],
+                      "errorLocation": {
+                        "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js",
+                        "column": 31,
+                        "line": 11
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "8c239806f0a6ae3f6fe1-3f0be8b653ed4b32275d",
+              "file": "chatgpt-comparison.spec.js",
+              "line": 377,
+              "column": 3
+            },
+            {
+              "title": "should have ChatGPT-like accessibility features",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chatgpt-comparison",
+                  "projectName": "chatgpt-comparison",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-14T03:23:07.537Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "8c239806f0a6ae3f6fe1-8d5d6012577f1518329a",
+              "file": "chatgpt-comparison.spec.js",
+              "line": 406,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2025-10-14T03:23:01.971Z",
+    "duration": 5579.8460000000005,
+    "expected": 0,
+    "skipped": 54,
+    "unexpected": 30,
+    "flaky": 0
+  }
+}
