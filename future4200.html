@@ -443,6 +443,138 @@
             color: #888;
         }
         
+        /* Search Results */
+        .search-results {
+            background-color: #2a2a2a;
+            border: 1px solid #333;
+            border-radius: 8px;
+            margin: 20px 0;
+            padding: 20px;
+            display: none;
+        }
+        
+        .search-query-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #333;
+        }
+        
+        .search-query-header h3 {
+            color: #fff;
+            margin: 0;
+            font-size: 18px;
+        }
+        
+        .close-search {
+            background: none;
+            border: none;
+            color: #888;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 0;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .close-search:hover {
+            color: #fff;
+        }
+        
+        .search-paragraph {
+            margin-bottom: 20px;
+        }
+        
+        .search-paragraph p {
+            color: #d1d1d1;
+            line-height: 1.6;
+            font-size: 16px;
+        }
+        
+        .search-threads {
+            margin-bottom: 20px;
+        }
+        
+        .search-threads h4 {
+            color: #fff;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+        
+        .search-threads ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .search-threads li {
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #333;
+            border-radius: 4px;
+            transition: background-color 0.2s;
+        }
+        
+        .search-threads li:hover {
+            background-color: #444;
+        }
+        
+        .thread-link {
+            color: #007bff;
+            text-decoration: none;
+            display: block;
+        }
+        
+        .thread-link:hover {
+            color: #0056b3;
+        }
+        
+        .thread-desc {
+            color: #888;
+            font-size: 14px;
+            margin-top: 5px;
+            display: block;
+        }
+        
+        .search-advertisement {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #1a1a1a;
+            border: 1px solid #555;
+            border-radius: 6px;
+        }
+        
+        .search-advertisement h4 {
+            color: #fff;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+        
+        .ad-content {
+            color: #d1d1d1;
+            font-size: 14px;
+        }
+        
+        .search-error {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .search-error h3 {
+            color: #ff6b6b;
+            margin-bottom: 10px;
+        }
+        
+        .search-error p {
+            color: #888;
+            margin-bottom: 15px;
+        }
+        
         /* Responsive */
         @media (max-width: 768px) {
             .content-wrapper {
@@ -677,12 +809,11 @@
                 this.style.boxShadow = 'none';
             });
             
-            searchBar.addEventListener('keypress', function(e) {
+            searchBar.addEventListener('keypress', async function(e) {
                 if (e.key === 'Enter') {
                     const query = this.value.trim();
                     if (query) {
-                        alert('Searching for: ' + query);
-                        // Here you would implement actual search functionality
+                        await performSearch(query);
                     }
                 }
             });
@@ -738,6 +869,146 @@
                 });
             });
         });
+        
+        // Search functionality
+        async function performSearch(query) {
+            const searchBar = document.querySelector('.search-bar');
+            const resultsContainer = document.getElementById('search-results');
+            
+            // Show loading state
+            searchBar.style.opacity = '0.7';
+            searchBar.disabled = true;
+            
+            try {
+                const response = await fetch('/api/chat', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        message: query,
+                        plan: 'future4200'
+                    })
+                });
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                const data = await response.json();
+                
+                // Display search results
+                displaySearchResults(data, query);
+                
+            } catch (error) {
+                console.error('Search error:', error);
+                showSearchError('Search failed. Please try again.');
+            } finally {
+                // Reset search bar
+                searchBar.style.opacity = '1';
+                searchBar.disabled = false;
+            }
+        }
+        
+        function displaySearchResults(data, query) {
+            // Create or update search results container
+            let resultsContainer = document.getElementById('search-results');
+            if (!resultsContainer) {
+                resultsContainer = document.createElement('div');
+                resultsContainer.id = 'search-results';
+                resultsContainer.className = 'search-results';
+                
+                // Insert after the ad banners
+                const adBanners = document.querySelector('.ad-banners');
+                adBanners.parentNode.insertBefore(resultsContainer, adBanners.nextSibling);
+            }
+            
+            // Clear previous results
+            resultsContainer.innerHTML = '';
+            
+            // Add search query header
+            const queryHeader = document.createElement('div');
+            queryHeader.className = 'search-query-header';
+            queryHeader.innerHTML = `
+                <h3>Search Results for: "${query}"</h3>
+                <button class="close-search" onclick="closeSearchResults()">×</button>
+            `;
+            resultsContainer.appendChild(queryHeader);
+            
+            // Add paragraph response
+            if (data.paragraph) {
+                const paragraphDiv = document.createElement('div');
+                paragraphDiv.className = 'search-paragraph';
+                paragraphDiv.innerHTML = `<p>${data.paragraph}</p>`;
+                resultsContainer.appendChild(paragraphDiv);
+            }
+            
+            // Add threads list
+            if (data.threads && data.threads.length > 0) {
+                const threadsDiv = document.createElement('div');
+                threadsDiv.className = 'search-threads';
+                threadsDiv.innerHTML = '<h4>Related Threads:</h4>';
+                
+                const threadsList = document.createElement('ul');
+                data.threads.forEach(thread => {
+                    const threadItem = document.createElement('li');
+                    threadItem.innerHTML = `
+                        <a href="${thread.url || '#'}" class="thread-link">
+                            <strong>${thread.title}</strong>
+                            ${thread.description ? `<br><span class="thread-desc">${thread.description}</span>` : ''}
+                        </a>
+                    `;
+                    threadsList.appendChild(threadItem);
+                });
+                threadsDiv.appendChild(threadsList);
+                resultsContainer.appendChild(threadsDiv);
+            }
+            
+            // Add advertisement
+            if (data.advertisement) {
+                const adDiv = document.createElement('div');
+                adDiv.className = 'search-advertisement';
+                adDiv.innerHTML = `
+                    <h4>Sponsored Content:</h4>
+                    <div class="ad-content">${data.advertisement}</div>
+                `;
+                resultsContainer.appendChild(adDiv);
+            }
+            
+            // Show results container
+            resultsContainer.style.display = 'block';
+            
+            // Scroll to results
+            resultsContainer.scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        function showSearchError(message) {
+            let resultsContainer = document.getElementById('search-results');
+            if (!resultsContainer) {
+                resultsContainer = document.createElement('div');
+                resultsContainer.id = 'search-results';
+                resultsContainer.className = 'search-results';
+                
+                const adBanners = document.querySelector('.ad-banners');
+                adBanners.parentNode.insertBefore(resultsContainer, adBanners.nextSibling);
+            }
+            
+            resultsContainer.innerHTML = `
+                <div class="search-error">
+                    <h3>Search Error</h3>
+                    <p>${message}</p>
+                    <button class="close-search" onclick="closeSearchResults()">×</button>
+                </div>
+            `;
+            resultsContainer.style.display = 'block';
+        }
+        
+        function closeSearchResults() {
+            const resultsContainer = document.getElementById('search-results');
+            if (resultsContainer) {
+                resultsContainer.style.display = 'none';
+            }
+        }
     </script>
 </body>
 </html>
