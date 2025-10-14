@@ -14,6 +14,11 @@
             "date": 1760402494731,
             "name": "/Users/danielmcshan/GitHub/formul8-multiagent/logs/mcp-puppeteer-2025-10-13.log",
             "hash": "ed7c48aabf60fe5efee459b92cea3fcfda864d9f48c8bb4ff99fd73e98e41516"
+        },
+        {
+            "date": 1760438399036,
+            "name": "/Users/danielmcshan/GitHub/formul8-multiagent/logs/mcp-puppeteer-2025-10-14.log",
+            "hash": "47d534c83a425462eebd8a2c65f98196feccad2d3785c69c750828d1da7e9432"
         }
     ],
     "hashType": "sha256"

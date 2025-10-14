@@ -31,12 +31,4 @@ dist/
 *.zip
 lambda-proxy.zip
 formul8-multiagent-lambda.zip
-
-# Environment variables (NEVER commit these!)
-.env
-.env.local
-.env.development
-.env.production
-.env.test
-*.key
-*.pem
+.vercel
