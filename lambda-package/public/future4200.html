@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="desktop-view not-mobile-device text-size-normal anon no-touch discourse-no-touch">
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <title>Future4200</title>
@@ -17,60 +17,114 @@
         }
         
         body {
-            font-family: Arial, sans-serif;
-            background-color: #0e0e0e;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #1a1a1a;
             color: #d1d1d1;
-            font-size: 16px;
+            font-size: 14px;
             line-height: 1.4;
+            overflow-x: hidden;
+        }
+        
+        /* Layout */
+        .app-container {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        
+        .content-wrapper {
+            display: flex;
+            flex: 1;
         }
         
         /* Header */
         .header {
             background-color: #252525;
             border-bottom: 1px solid #333;
-            padding: 8px 0;
+            padding: 12px 20px;
             position: sticky;
             top: 0;
             z-index: 1000;
-        }
-        
-        .header-container {
-            max-width: 1200px;
-            margin: 0 auto;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 0 20px;
+        }
+        
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .hamburger-menu {
+            cursor: pointer;
+            padding: 8px;
+            color: #d1d1d1;
+            font-size: 18px;
         }
         
         .logo {
-            font-size: 24px;
-            font-weight: bold;
+            font-family: 'Arial Black', Arial, sans-serif;
+            font-size: 32px;
+            font-weight: 900;
+            text-decoration: none;
+            line-height: 1;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .logo-text {
+            background: linear-gradient(180deg, #ffb366 0%, #ff6b35 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: #ff6b35; /* Fallback for browsers that don't support background-clip */
+            text-shadow: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 2;
+        }
+        
+        .logo-outline {
+            position: absolute;
+            top: 0;
+            left: 0;
             color: #fff;
-            text-decoration: none;
+            z-index: 1;
+            text-shadow: 
+                -2px -2px 0 #fff,
+                2px -2px 0 #fff,
+                -2px 2px 0 #fff,
+                2px 2px 0 #fff,
+                -1px -1px 0 #fff,
+                1px -1px 0 #fff,
+                -1px 1px 0 #fff,
+                1px 1px 0 #fff;
         }
         
-        .nav-links {
-            display: flex;
-            gap: 20px;
-            align-items: center;
-        }
-        
-        .nav-link {
-            color: #d1d1d1;
-            text-decoration: none;
-            padding: 8px 12px;
+        .logo-f-bar {
+            position: absolute;
+            top: -8px;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: linear-gradient(180deg, #ffb366 0%, #ff6b35 100%);
             border-radius: 4px;
-            transition: background-color 0.2s;
+            z-index: 3;
         }
         
-        .nav-link:hover {
-            background-color: #333;
-        }
-        
-        .auth-buttons {
+        .header-right {
             display: flex;
-            gap: 10px;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .search-icon {
+            color: #d1d1d1;
+            font-size: 18px;
+            cursor: pointer;
+            padding: 8px;
         }
         
         .btn {
@@ -79,7 +133,11 @@
             border-radius: 4px;
             cursor: pointer;
             font-size: 14px;
-            transition: background-color 0.2s;
+            font-weight: 500;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
         
         .btn-primary {
@@ -101,142 +159,286 @@
             background-color: #333;
         }
         
-        /* Main content */
-        .main-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
+        /* Sidebar */
+        .sidebar {
+            width: 250px;
+            background-color: #2a2a2a;
+            padding: 20px 0;
+            overflow-y: auto;
+            height: calc(100vh - 60px);
         }
         
-        .page-title {
-            font-size: 32px;
-            font-weight: bold;
+        .sidebar-section {
             margin-bottom: 30px;
-            color: #fff;
         }
         
-        /* Categories */
-        .categories {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            margin-bottom: 40px;
-        }
-        
-        .category-card {
-            background-color: #1a1a1a;
-            border: 1px solid #333;
-            border-radius: 8px;
-            padding: 20px;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-        
-        .category-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-        }
-        
-        .category-header {
+        .sidebar-title {
+            color: #d1d1d1;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 15px;
+            padding: 0 20px;
             display: flex;
             align-items: center;
-            margin-bottom: 15px;
+            gap: 8px;
         }
         
-        .category-icon {
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(45deg, #007bff, #00d4aa);
-            border-radius: 8px;
+        .sidebar-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 8px 20px;
+            color: #d1d1d1;
+            text-decoration: none;
+            font-size: 14px;
+            transition: background-color 0.2s;
+        }
+        
+        .sidebar-item:hover {
+            background-color: #333;
+        }
+        
+        .sidebar-icon {
+            width: 16px;
+            height: 16px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-right: 15px;
-            font-size: 20px;
         }
         
-        .category-title {
-            font-size: 18px;
+        .category-color {
+            width: 12px;
+            height: 12px;
+            border-radius: 2px;
+        }
+        
+        .category-orange { background-color: #ff8c00; }
+        .category-brown { background-color: #8b4513; }
+        .category-blue { background-color: #87ceeb; }
+        .category-green { background-color: #32cd32; }
+        .category-dark-brown { background-color: #654321; }
+        
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            padding: 30px;
+            max-width: calc(100vw - 250px);
+            overflow-y: auto;
+        }
+        
+        .welcome-section {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .welcome-title {
+            font-size: 36px;
             font-weight: bold;
             color: #fff;
-            margin-bottom: 5px;
+            margin-bottom: 10px;
         }
         
-        .category-description {
+        .welcome-subtitle {
+            font-size: 16px;
             color: #888;
-            font-size: 14px;
+            margin-bottom: 30px;
         }
         
-        .category-stats {
+        /* Search Bar */
+        .search-container {
+            position: relative;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+        
+        .search-bar {
+            width: 100%;
+            padding: 15px 50px 15px 50px;
+            background-color: #333;
+            border: 1px solid #555;
+            border-radius: 8px;
+            color: #d1d1d1;
+            font-size: 16px;
+            outline: none;
+        }
+        
+        .search-bar::placeholder {
+            color: #888;
+        }
+        
+        .search-bar:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+        }
+        
+        .search-icon-left {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #888;
+            font-size: 18px;
+        }
+        
+        .search-filter {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #888;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        
+        /* Navigation Tabs */
+        .nav-tabs {
             display: flex;
             gap: 20px;
-            margin-top: 15px;
-            font-size: 14px;
-            color: #888;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #333;
         }
         
-        /* Topics list */
-        .topics-section {
-            background-color: #1a1a1a;
-            border: 1px solid #333;
+        .nav-tab {
+            padding: 12px 0;
+            color: #888;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            border-bottom: 2px solid transparent;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .nav-tab.active {
+            color: #007bff;
+            border-bottom-color: #007bff;
+        }
+        
+        .nav-tab:hover {
+            color: #d1d1d1;
+        }
+        
+        /* Ad Banners */
+        .ad-banners {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .ad-banner {
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        
+        .ad-banner.green {
+            background-color: #28a745;
+            color: white;
+        }
+        
+        .ad-banner.dark {
+            background-color: #333;
+            color: white;
+        }
+        
+        .ad-banner.black {
+            background-color: #000;
+            color: white;
+        }
+        
+        /* Forum Topics */
+        .forum-topics {
+            background-color: #2a2a2a;
             border-radius: 8px;
             overflow: hidden;
         }
         
         .topics-header {
-            background-color: #252525;
+            background-color: #333;
             padding: 15px 20px;
-            border-bottom: 1px solid #333;
+            border-bottom: 1px solid #444;
+            display: grid;
+            grid-template-columns: 1fr auto auto;
+            gap: 20px;
+            align-items: center;
         }
         
         .topics-title {
-            font-size: 20px;
-            font-weight: bold;
+            font-size: 16px;
+            font-weight: 600;
             color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
         
-        .topics-list {
-            list-style: none;
+        .topics-columns {
+            display: grid;
+            grid-template-columns: 1fr auto auto;
+            gap: 20px;
+            padding: 0 20px;
+            font-size: 12px;
+            font-weight: 600;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
         
         .topic-item {
-            border-bottom: 1px solid #333;
+            display: grid;
+            grid-template-columns: 1fr auto auto;
+            gap: 20px;
             padding: 15px 20px;
-            display: flex;
+            border-bottom: 1px solid #333;
             align-items: center;
             transition: background-color 0.2s;
         }
         
         .topic-item:hover {
-            background-color: #222;
+            background-color: #333;
         }
         
         .topic-item:last-child {
             border-bottom: none;
         }
         
+        .topic-content {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
         .topic-avatar {
-            width: 40px;
-            height: 40px;
+            width: 32px;
+            height: 32px;
             border-radius: 50%;
-            margin-right: 15px;
             background: linear-gradient(45deg, #007bff, #00d4aa);
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: bold;
             color: white;
+            font-size: 12px;
         }
         
-        .topic-content {
+        .topic-info {
             flex: 1;
         }
         
         .topic-title {
-            font-size: 16px;
+            font-size: 14px;
             font-weight: 500;
             color: #fff;
-            margin-bottom: 5px;
             text-decoration: none;
+            margin-bottom: 4px;
+            display: block;
         }
         
         .topic-title:hover {
@@ -244,374 +446,425 @@
         }
         
         .topic-meta {
-            display: flex;
-            gap: 15px;
-            font-size: 14px;
+            font-size: 12px;
             color: #888;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
         
         .topic-category {
             background-color: #007bff;
             color: white;
-            padding: 2px 8px;
-            border-radius: 12px;
-            font-size: 12px;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 10px;
+            font-weight: 500;
         }
         
-        .topic-stats {
-            display: flex;
-            gap: 15px;
+        .topic-replies {
+            text-align: center;
+            font-size: 14px;
+            color: #d1d1d1;
+        }
+        
+        .topic-activity {
+            text-align: center;
             font-size: 14px;
             color: #888;
         }
         
-        /* Footer */
-        .footer {
-            background-color: #0e0e0e;
-            border-top: 1px solid #333;
-            padding: 40px 20px;
-            margin-top: 60px;
-            text-align: center;
-            color: #888;
+        /* Search Results */
+        .search-results {
+            background-color: #2a2a2a;
+            border: 1px solid #333;
+            border-radius: 8px;
+            margin: 20px 0;
+            padding: 20px;
+            display: none;
         }
         
-        .footer-links {
+        .search-query-header {
             display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #333;
+        }
+        
+        .search-query-header h3 {
+            color: #fff;
+            margin: 0;
+            font-size: 18px;
+        }
+        
+        .close-search {
+            background: none;
+            border: none;
+            color: #888;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 0;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
             justify-content: center;
-            gap: 30px;
+        }
+        
+        .close-search:hover {
+            color: #fff;
+        }
+        
+        .search-paragraph {
             margin-bottom: 20px;
         }
         
-        .footer-link {
-            color: #888;
-            text-decoration: none;
+        .search-paragraph p {
+            color: #d1d1d1;
+            line-height: 1.6;
+            font-size: 16px;
         }
         
-        .footer-link:hover {
+        .search-threads {
+            margin-bottom: 20px;
+        }
+        
+        .search-threads h4 {
             color: #fff;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+        
+        .search-threads ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .search-threads li {
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #333;
+            border-radius: 4px;
+            transition: background-color 0.2s;
+        }
+        
+        .search-threads li:hover {
+            background-color: #444;
+        }
+        
+        .thread-link {
+            color: #007bff;
+            text-decoration: none;
+            display: block;
+        }
+        
+        .thread-link:hover {
+            color: #0056b3;
+        }
+        
+        .thread-desc {
+            color: #888;
+            font-size: 14px;
+            margin-top: 5px;
+            display: block;
+        }
+        
+        .search-advertisement {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #1a1a1a;
+            border: 1px solid #555;
+            border-radius: 6px;
+        }
+        
+        .search-advertisement h4 {
+            color: #fff;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+        
+        .ad-content {
+            color: #d1d1d1;
+            font-size: 14px;
+        }
+        
+        .search-error {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .search-error h3 {
+            color: #ff6b6b;
+            margin-bottom: 10px;
+        }
+        
+        .search-error p {
+            color: #888;
+            margin-bottom: 15px;
         }
         
         /* Responsive */
         @media (max-width: 768px) {
-            .header-container {
+            .content-wrapper {
                 flex-direction: column;
-                gap: 15px;
             }
             
-            .nav-links {
-                flex-wrap: wrap;
-                justify-content: center;
+            .sidebar {
+                width: 100%;
+                height: auto;
             }
             
-            .categories {
+            .main-content {
+                max-width: 100%;
+                padding: 20px;
+            }
+            
+            .ad-banners {
                 grid-template-columns: 1fr;
             }
             
+            .topics-header,
             .topic-item {
-                flex-direction: column;
-                align-items: flex-start;
+                grid-template-columns: 1fr;
+                gap: 10px;
             }
             
-            .topic-avatar {
-                margin-bottom: 10px;
-            }
-            
-            .footer-links {
-                flex-direction: column;
-                gap: 15px;
+            .topics-columns {
+                display: none;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <div class="header-container">
-            <a href="/" class="logo">Future4200</a>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-left">
+                <div class="hamburger-menu">☰</div>
+                <a href="/" class="logo">
+                    <div class="logo-f-bar"></div>
+                    <span class="logo-outline">FUTURE4200</span>
+                    <span class="logo-text">FUTURE4200</span>
+                </a>
+            </div>
             
-            <nav class="nav-links">
-                <a href="/latest" class="nav-link">Topics</a>
-                <a href="/upcoming-events" class="nav-link">Upcoming events</a>
-                <a href="/categories" class="nav-link">All categories</a>
-            </nav>
-            
-            <div class="auth-buttons">
-                <button class="btn btn-secondary">Log In</button>
+            <div class="header-right">
                 <button class="btn btn-primary">Sign Up</button>
+                <button class="btn btn-secondary">👤 Log In</button>
+                <div class="search-icon">🔍</div>
             </div>
-        </div>
-    </header>
+        </header>
 
-    <!-- Main content -->
-    <main class="main-container">
-        <h1 class="page-title">All latest topics</h1>
-        
-        <!-- Categories -->
-        <section class="categories">
-            <div class="category-card">
-                <div class="category-header">
-                    <div class="category-icon">🌿</div>
-                    <div>
-                        <h3 class="category-title">Hash and Stuff</h3>
-                        <p class="category-description">Discussion about hash, concentrates, and extraction methods</p>
-                    </div>
+        <!-- Content Wrapper -->
+        <div class="content-wrapper">
+            <!-- Sidebar -->
+            <aside class="sidebar">
+            <div class="sidebar-section">
+                <div class="sidebar-title">
+                    <span class="sidebar-icon">📄</span>
+                    Topics
                 </div>
-                <div class="category-stats">
-                    <span>1,234 topics</span>
-                    <span>5,678 posts</span>
-                </div>
+                <a href="#" class="sidebar-item">
+                    <span class="sidebar-icon">📅</span>
+                    Upcoming events
+                </a>
+                <a href="#" class="sidebar-item">
+                    <span class="sidebar-icon">⋯</span>
+                    More
+                </a>
             </div>
             
-            <div class="category-card">
-                <div class="category-header">
-                    <div class="category-icon">❓</div>
-                    <div>
-                        <h3 class="category-title">Help Support and Requests</h3>
-                        <p class="category-description">Get help and support from the community</p>
-                    </div>
+            <div class="sidebar-section">
+                <div class="sidebar-title">
+                    CATEGORIES
                 </div>
-                <div class="category-stats">
-                    <span>890 topics</span>
-                    <span>3,456 posts</span>
-                </div>
+                <a href="#" class="sidebar-item">
+                    <div class="category-color category-orange"></div>
+                    Hash and Stuff
+                </a>
+                <a href="#" class="sidebar-item">
+                    <div class="category-color category-brown"></div>
+                    Help Support and Re...
+                </a>
+                <a href="#" class="sidebar-item">
+                    <div class="category-color category-blue"></div>
+                    Data Dump
+                </a>
+                <a href="#" class="sidebar-item">
+                    <div class="category-color category-green"></div>
+                    Botany and Cultivation
+                </a>
+                <a href="#" class="sidebar-item">
+                    <div class="category-color category-dark-brown"></div>
+                    Testing and Analytics
+                </a>
+                <a href="#" class="sidebar-item">
+                    <span class="sidebar-icon">☰</span>
+                    All categories
+                </a>
             </div>
             
-            <div class="category-card">
-                <div class="category-header">
-                    <div class="category-icon">📊</div>
-                    <div>
-                        <h3 class="category-title">Data Dump</h3>
-                        <p class="category-description">Share and discuss data, research, and analytics</p>
-                    </div>
+            <div class="sidebar-section">
+                <div class="sidebar-title">
+                    TAGS
                 </div>
-                <div class="category-stats">
-                    <span>567 topics</span>
-                    <span>2,345 posts</span>
-                </div>
+                <a href="#" class="sidebar-item">
+                    <span class="sidebar-icon">🏷️</span>
+                    cbd
+                </a>
+                <a href="#" class="sidebar-item">
+                    <span class="sidebar-icon">🏷️</span>
+                    extraction
+                </a>
+                <a href="#" class="sidebar-item">
+                    <span class="sidebar-icon">🏷️</span>
+                    distillate
+                </a>
+                <a href="#" class="sidebar-item">
+                    <span class="sidebar-icon">🏷️</span>
+                    hemp
+                </a>
+                <a href="#" class="sidebar-item">
+                    <span class="sidebar-icon">🏷️</span>
+                    distillation
+                </a>
+                <a href="#" class="sidebar-item">
+                    <span class="sidebar-icon">☰</span>
+                    All tags
+                </a>
             </div>
-            
-            <div class="category-card">
-                <div class="category-header">
-                    <div class="category-icon">🌱</div>
-                    <div>
-                        <h3 class="category-title">Botany and Cultivation</h3>
-                        <p class="category-description">Growing techniques, genetics, and cultivation tips</p>
-                    </div>
-                </div>
-                <div class="category-stats">
-                    <span>2,345 topics</span>
-                    <span>8,901 posts</span>
-                </div>
-            </div>
-            
-            <div class="category-card">
-                <div class="category-header">
-                    <div class="category-icon">🧪</div>
-                    <div>
-                        <h3 class="category-title">Testing and Analytics</h3>
-                        <p class="category-description">Lab testing, quality control, and analytical methods</p>
-                    </div>
-                </div>
-                <div class="category-stats">
-                    <span>678 topics</span>
-                    <span>2,890 posts</span>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Topics list -->
-        <section class="topics-section">
-            <div class="topics-header">
-                <h2 class="topics-title">Latest Topics</h2>
-            </div>
-            
-            <ul class="topics-list">
-                <li class="topic-item">
-                    <div class="topic-avatar">S</div>
-                    <div class="topic-content">
-                        <a href="#" class="topic-title">New extraction method for high-CBD concentrates</a>
-                        <div class="topic-meta">
-                            <span class="topic-category">Hash and Stuff</span>
-                            <span>by sidco</span>
-                            <span>2 hours ago</span>
-                        </div>
-                    </div>
-                    <div class="topic-stats">
-                        <span>15 replies</span>
-                        <span>234 views</span>
-                    </div>
-                </li>
-                
-                <li class="topic-item">
-                    <div class="topic-avatar">V</div>
-                    <div class="topic-content">
-                        <a href="#" class="topic-title">Help with winterization process - cloudy final product</a>
-                        <div class="topic-meta">
-                            <span class="topic-category">Help Support and Requests</span>
-                            <span>by villy</span>
-                            <span>4 hours ago</span>
-                        </div>
-                    </div>
-                    <div class="topic-stats">
-                        <span>8 replies</span>
-                        <span>156 views</span>
-                    </div>
-                </li>
-                
-                <li class="topic-item">
-                    <div class="topic-avatar">F</div>
-                    <div class="topic-content">
-                        <a href="#" class="topic-title">Lab results from latest batch - potency analysis</a>
-                        <div class="topic-meta">
-                            <span class="topic-category">Data Dump</span>
-                            <span>by future</span>
-                            <span>6 hours ago</span>
-                        </div>
-                    </div>
-                    <div class="topic-stats">
-                        <span>23 replies</span>
-                        <span>445 views</span>
-                    </div>
-                </li>
-                
-                <li class="topic-item">
-                    <div class="topic-avatar">K</div>
-                    <div class="topic-content">
-                        <a href="#" class="topic-title">CBD extraction yield optimization techniques</a>
-                        <div class="topic-meta">
-                            <span class="topic-category">Botany and Cultivation</span>
-                            <span>by ky_cbd</span>
-                            <span>8 hours ago</span>
-                        </div>
-                    </div>
-                    <div class="topic-stats">
-                        <span>12 replies</span>
-                        <span>289 views</span>
-                    </div>
-                </li>
-                
-                <li class="topic-item">
-                    <div class="topic-avatar">C</div>
-                    <div class="topic-content">
-                        <a href="#" class="topic-title">Testing equipment recommendations for small lab</a>
-                        <div class="topic-meta">
-                            <span class="topic-category">Testing and Analytics</span>
-                            <span>by curiouschemist22</span>
-                            <span>10 hours ago</span>
-                        </div>
-                    </div>
-                    <div class="topic-stats">
-                        <span>19 replies</span>
-                        <span>367 views</span>
-                    </div>
-                </li>
-                
-                <li class="topic-item">
-                    <div class="topic-avatar">C</div>
-                    <div class="topic-content">
-                        <a href="#" class="topic-title">Ethanol vs CO2 extraction - pros and cons discussion</a>
-                        <div class="topic-meta">
-                            <span class="topic-category">Hash and Stuff</span>
-                            <span>by cbd.machinabis</span>
-                            <span>12 hours ago</span>
-                        </div>
-                    </div>
-                    <div class="topic-stats">
-                        <span>31 replies</span>
-                        <span>523 views</span>
-                    </div>
-                </li>
-                
-                <li class="topic-item">
-                    <div class="topic-avatar">P</div>
-                    <div class="topic-content">
-                        <a href="#" class="topic-title">Portland cannabis regulations update - compliance tips</a>
-                        <div class="topic-meta">
-                            <span class="topic-category">Help Support and Requests</span>
-                            <span>by pdxcanna</span>
-                            <span>14 hours ago</span>
-                        </div>
-                    </div>
-                    <div class="topic-stats">
-                        <span>7 replies</span>
-                        <span>198 views</span>
-                    </div>
-                </li>
-                
-                <li class="topic-item">
-                    <div class="topic-avatar">S</div>
-                    <div class="topic-content">
-                        <a href="#" class="topic-title">Substitute creature genetics - strain development</a>
-                        <div class="topic-meta">
-                            <span class="topic-category">Botany and Cultivation</span>
-                            <span>by substitutecreature</span>
-                            <span>16 hours ago</span>
-                        </div>
-                    </div>
-                    <div class="topic-stats">
-                        <span>14 replies</span>
-                        <span>312 views</span>
-                    </div>
-                </li>
-                
-                <li class="topic-item">
-                    <div class="topic-avatar">O</div>
-                    <div class="topic-content">
-                        <a href="#" class="topic-title">Oscar's lab testing methodology - detailed breakdown</a>
-                        <div class="topic-meta">
-                            <span class="topic-category">Data Dump</span>
-                            <span>by oscar</span>
-                            <span>18 hours ago</span>
-                        </div>
-                    </div>
-                    <div class="topic-stats">
-                        <span>26 replies</span>
-                        <span>456 views</span>
-                    </div>
-                </li>
-                
-                <li class="topic-item">
-                    <div class="topic-avatar">V</div>
-                    <div class="topic-content">
-                        <a href="#" class="topic-title">Villy's winterization tips - troubleshooting guide</a>
-                        <div class="topic-meta">
-                            <span class="topic-category">Hash and Stuff</span>
-                            <span>by villy</span>
-                            <span>20 hours ago</span>
-                        </div>
-                    </div>
-                    <div class="topic-stats">
-                        <span>18 replies</span>
-                        <span>389 views</span>
-                    </div>
-                </li>
-            </ul>
-        </section>
-    </main>
+        </aside>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-links">
-            <a href="#" class="footer-link">About</a>
-            <a href="#" class="footer-link">Privacy</a>
-            <a href="#" class="footer-link">Terms</a>
-            <a href="#" class="footer-link">Contact</a>
-            <a href="#" class="footer-link">Help</a>
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Welcome Section -->
+            <div class="welcome-section">
+                <h1 class="welcome-title">Welcome to our community</h1>
+                <p class="welcome-subtitle">Search first, think twice before hitting post!</p>
+                
+                <!-- Search Bar -->
+                <div class="search-container">
+                    <div class="search-icon-left">🔍</div>
+                    <input type="text" class="search-bar" placeholder="Search">
+                    <div class="search-filter">☰</div>
+                </div>
+            </div>
+            
+            <!-- Navigation Tabs -->
+            <div class="nav-tabs">
+                <a href="#" class="nav-tab">categories →</a>
+                <a href="#" class="nav-tab">tags →</a>
+                <a href="#" class="nav-tab active">Latest</a>
+                <a href="#" class="nav-tab">Hot</a>
+                <a href="#" class="nav-tab">Categories</a>
+            </div>
+            
+            <!-- Ad Banners -->
+            <div class="ad-banners">
+                <div class="ad-banner green">
+                    MEGA OFFER 10ml $100 ON ALL PREMIUM TERPENES
+                </div>
+                <div class="ad-banner dark">
+                    NEW WEBSITE SALE! HELLTERPENES.COM 20% OFF & FREE SHIPPING ON ORDERS OVER $99.99
+                </div>
+                <div class="ad-banner black">
+                    NEW FLAVORS//CARAMEL CUTTHROAT/SUNSET MAC/... THE ABSOLUTE FINEST CANNABIS DERIVED TERPENES AVAILABLE ANYWHERE
+                </div>
+            </div>
+            
+            <!-- Forum Topics -->
+            <div class="forum-topics">
+                <div class="topics-header">
+                    <div class="topics-title">
+                        🔒 Paid Advertisers
+                        <div style="font-size: 10px; color: #888; font-weight: normal;">Meta</div>
+                    </div>
+                </div>
+                
+                <div class="topics-columns">
+                    <div>Topic</div>
+                    <div>Replies</div>
+                    <div>Activity</div>
+                </div>
+                
+                <div class="topic-item">
+                    <div class="topic-content">
+                        <div class="topic-avatar">V</div>
+                        <div class="topic-info">
+                            <a href="#" class="topic-title">Paid Advertisers</a>
+                            <div class="topic-meta">
+                                <span class="topic-category">Meta</span>
+                                <span>Here is a current list of our ad roll, including monetary supporters and their banners. Their support plays a major role in keeping this forum running. All of our ads are run in house, without google or any other user tr... read more</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="topic-replies">2</div>
+                    <div class="topic-activity">Sep 4</div>
+                </div>
+                
+                <div class="topic-item">
+                    <div class="topic-content">
+                        <div class="topic-avatar" style="background: linear-gradient(45deg, #ff69b4, #9370db);">F</div>
+                        <div class="topic-info">
+                            <a href="#" class="topic-title">Introduction and FAQ</a>
+                            <div class="topic-meta">
+                                <span class="topic-category">FAQ</span>
+                                <span>Getting Started Step one, read the Community Guidelines If this is your first visit, use the Search Bar Make sure to modify your personal settings by clicking on your profile pic top right corner, and selecting the li... read more</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="topic-replies">2</div>
+                    <div class="topic-activity">Mar 2019</div>
+                </div>
+            </div>
+        </main>
         </div>
-        <p>&copy; 2024 Future4200. The Future Is Now.</p>
-    </footer>
+    </div>
 
     <script>
         // Add some interactivity
         document.addEventListener('DOMContentLoaded', function() {
-            // Add hover effects to topic items
-            const topicItems = document.querySelectorAll('.topic-item');
-            topicItems.forEach(item => {
-                item.addEventListener('mouseenter', function() {
-                    this.style.backgroundColor = '#222';
-                });
-                item.addEventListener('mouseleave', function() {
-                    this.style.backgroundColor = 'transparent';
+            // Search functionality
+            const searchBar = document.querySelector('.search-bar');
+            const searchIcon = document.querySelector('.search-icon');
+            
+            searchBar.addEventListener('focus', function() {
+                this.style.borderColor = '#007bff';
+                this.style.boxShadow = '0 0 0 2px rgba(0, 123, 255, 0.25)';
+            });
+            
+            searchBar.addEventListener('blur', function() {
+                this.style.borderColor = '#555';
+                this.style.boxShadow = 'none';
+            });
+            
+            searchBar.addEventListener('keypress', async function(e) {
+                if (e.key === 'Enter') {
+                    const query = this.value.trim();
+                    if (query) {
+                        await performSearch(query);
+                    }
+                }
+            });
+            
+            // Hamburger menu toggle
+            const hamburgerMenu = document.querySelector('.hamburger-menu');
+            const sidebar = document.querySelector('.sidebar');
+            
+            hamburgerMenu.addEventListener('click', function() {
+                sidebar.style.display = sidebar.style.display === 'none' ? 'block' : 'none';
+            });
+            
+            // Navigation tabs
+            const navTabs = document.querySelectorAll('.nav-tab');
+            navTabs.forEach(tab => {
+                tab.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    navTabs.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
                 });
             });
             
@@ -635,7 +888,159 @@
                     alert('Topic: ' + this.textContent);
                 });
             });
+            
+            // Sidebar item interactions
+            const sidebarItems = document.querySelectorAll('.sidebar-item');
+            sidebarItems.forEach(item => {
+                item.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    // Remove active class from all items
+                    sidebarItems.forEach(i => i.classList.remove('active'));
+                    // Add active class to clicked item
+                    this.classList.add('active');
+                });
+            });
         });
+        
+        // Search functionality
+        async function performSearch(query) {
+            const searchBar = document.querySelector('.search-bar');
+            const resultsContainer = document.getElementById('search-results');
+            
+            // Show loading state
+            searchBar.style.opacity = '0.7';
+            searchBar.disabled = true;
+            
+            try {
+                const response = await fetch('/api/chat', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        message: query,
+                        plan: 'future4200'
+                    })
+                });
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                const data = await response.json();
+                
+                // Display search results
+                displaySearchResults(data, query);
+                
+            } catch (error) {
+                console.error('Search error:', error);
+                showSearchError('Search failed. Please try again.');
+            } finally {
+                // Reset search bar
+                searchBar.style.opacity = '1';
+                searchBar.disabled = false;
+            }
+        }
+        
+        function displaySearchResults(data, query) {
+            // Create or update search results container
+            let resultsContainer = document.getElementById('search-results');
+            if (!resultsContainer) {
+                resultsContainer = document.createElement('div');
+                resultsContainer.id = 'search-results';
+                resultsContainer.className = 'search-results';
+                
+                // Insert after the ad banners
+                const adBanners = document.querySelector('.ad-banners');
+                adBanners.parentNode.insertBefore(resultsContainer, adBanners.nextSibling);
+            }
+            
+            // Clear previous results
+            resultsContainer.innerHTML = '';
+            
+            // Add search query header
+            const queryHeader = document.createElement('div');
+            queryHeader.className = 'search-query-header';
+            queryHeader.innerHTML = `
+                <h3>Search Results for: "${query}"</h3>
+                <button class="close-search" onclick="closeSearchResults()">×</button>
+            `;
+            resultsContainer.appendChild(queryHeader);
+            
+            // Add paragraph response
+            if (data.paragraph) {
+                const paragraphDiv = document.createElement('div');
+                paragraphDiv.className = 'search-paragraph';
+                paragraphDiv.innerHTML = `<p>${data.paragraph}</p>`;
+                resultsContainer.appendChild(paragraphDiv);
+            }
+            
+            // Add threads list
+            if (data.threads && data.threads.length > 0) {
+                const threadsDiv = document.createElement('div');
+                threadsDiv.className = 'search-threads';
+                threadsDiv.innerHTML = '<h4>Related Threads:</h4>';
+                
+                const threadsList = document.createElement('ul');
+                data.threads.forEach(thread => {
+                    const threadItem = document.createElement('li');
+                    threadItem.innerHTML = `
+                        <a href="${thread.url || '#'}" class="thread-link">
+                            <strong>${thread.title}</strong>
+                            ${thread.description ? `<br><span class="thread-desc">${thread.description}</span>` : ''}
+                        </a>
+                    `;
+                    threadsList.appendChild(threadItem);
+                });
+                threadsDiv.appendChild(threadsList);
+                resultsContainer.appendChild(threadsDiv);
+            }
+            
+            // Add advertisement
+            if (data.advertisement) {
+                const adDiv = document.createElement('div');
+                adDiv.className = 'search-advertisement';
+                adDiv.innerHTML = `
+                    <h4>Sponsored Content:</h4>
+                    <div class="ad-content">${data.advertisement}</div>
+                `;
+                resultsContainer.appendChild(adDiv);
+            }
+            
+            // Show results container
+            resultsContainer.style.display = 'block';
+            
+            // Scroll to results
+            resultsContainer.scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        function showSearchError(message) {
+            let resultsContainer = document.getElementById('search-results');
+            if (!resultsContainer) {
+                resultsContainer = document.createElement('div');
+                resultsContainer.id = 'search-results';
+                resultsContainer.className = 'search-results';
+                
+                const adBanners = document.querySelector('.ad-banners');
+                adBanners.parentNode.insertBefore(resultsContainer, adBanners.nextSibling);
+            }
+            
+            resultsContainer.innerHTML = `
+                <div class="search-error">
+                    <h3>Search Error</h3>
+                    <p>${message}</p>
+                    <button class="close-search" onclick="closeSearchResults()">×</button>
+                </div>
+            `;
+            resultsContainer.style.display = 'block';
+        }
+        
+        function closeSearchResults() {
+            const resultsContainer = document.getElementById('search-results');
+            if (resultsContainer) {
+                resultsContainer.style.display = 'none';
+            }
+        }
     </script>
 </body>
 </html>
