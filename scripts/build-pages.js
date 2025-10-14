@@ -745,6 +745,9 @@ sequenceDiagram
 
   await fs.writeFile(path.join(pagesDir, 'architecture.html'), sequenceDiagramHtml);
   
+  // Also create sequence.html as an alias
+  await fs.writeFile(path.join(pagesDir, 'sequence.html'), sequenceDiagramHtml);
+  
   console.log('✅ Static pages built successfully!');
   console.log(`📁 Pages directory: ${pagesDir}`);
   console.log('🚀 Ready for GitHub Pages deployment');
