@@ -34,6 +34,11 @@ app.get('/health', (req, res) => {
   });
 });
 
+// Future4200 page route
+app.get('/future4200.html', (req, res) => {
+  res.sendFile(__dirname + '/public/future4200.html');
+});
+
 // Free API key generation endpoint
 app.get('/api/free-key', (req, res) => {
   const freeApiKey = generateFreeApiKey();
