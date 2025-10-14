@@ -113,13 +113,94 @@ jobs:
               
               console.log('✅ Chat UI page loaded successfully');
               
-              // Look for ChatGPT-style UI elements
-              const chatElements = [
-                // Common ChatGPT-style selectors
+              // Check for login button in top right
+              const loginSelectors = [
+                'button:has-text("Log in")',
+                'button:has-text("Login")',
+                'a:has-text("Log in")',
+                'a:has-text("Login")',
+                '[data-testid*="login"]',
+                '[aria-label*="login"]',
+                '.login-button',
+                '#login-button'
+              ];
+              
+              let loginFound = false;
+              for (const selector of loginSelectors) {
+                const count = await page.locator(selector).count();
+                if (count > 0) {
+                  console.log(`✅ Found login button: ${selector}`);
+                  loginFound = true;
+                  break;
+                }
+              }
+              
+              if (!loginFound) {
+                console.log('⚠️ No login button found in top right area');
+              }
+              
+              // Check for centered chat interface
+              const chatContainerSelectors = [
+                '.chat-container',
+                '.conversation',
+                '.messages',
+                '[data-testid*="chat"]',
+                'main',
+                '.main-content',
+                '.chat-interface'
+              ];
+              
+              let chatContainer = null;
+              for (const selector of chatContainerSelectors) {
+                const element = page.locator(selector).first();
+                if (await element.isVisible()) {
+                  chatContainer = element;
+                  console.log(`✅ Found chat container: ${selector}`);
+                  break;
+                }
+              }
+              
+              // Check for proper placeholder text
+              const placeholderSelectors = [
+                'textarea[placeholder*="What do you want to Formul8 today"]',
+                'input[placeholder*="What do you want to Formul8 today"]',
+                'textarea[placeholder*="Formul8"]',
+                'input[placeholder*="Formul8"]',
                 'textarea[placeholder*="message"]',
-                'textarea[placeholder*="Message"]',
-                'input[placeholder*="message"]',
-                'input[placeholder*="Message"]',
+                'input[placeholder*="message"]'
+              ];
+              
+              let placeholderFound = false;
+              let foundPlaceholder = '';
+              for (const selector of placeholderSelectors) {
+                const element = page.locator(selector).first();
+                if (await element.isVisible()) {
+                  const placeholder = await element.getAttribute('placeholder');
+                  if (placeholder) {
+                    foundPlaceholder = placeholder;
+                    console.log(`✅ Found input with placeholder: "${placeholder}"`);
+                    placeholderFound = true;
+                    break;
+                  }
+                }
+              }
+              
+              // Check for ChatGPT-style fonts (common font families)
+              const bodyElement = page.locator('body').first();
+              const computedStyle = await bodyElement.evaluate((el) => {
+                const styles = window.getComputedStyle(el);
+                return {
+                  fontFamily: styles.fontFamily,
+                  fontSize: styles.fontSize
+                };
+              });
+              
+              console.log(`Font family: ${computedStyle.fontFamily}`);
+              console.log(`Font size: ${computedStyle.fontSize}`);
+              
+              // Look for common ChatGPT-style UI elements
+              const chatElements = [
+                // Input elements
                 'textarea',
                 'input[type="text"]',
                 // Send button selectors
@@ -128,11 +209,6 @@ jobs:
                 'button:has-text("Send message")',
                 '[data-testid*="send"]',
                 '[aria-label*="Send"]',
-                // Chat container selectors
-                '[data-testid*="chat"]',
-                '.chat-container',
-                '.conversation',
-                '.messages',
                 // OpenAI-style selectors
                 '[data-testid="composer"]',
                 '[data-testid="composer-input"]',
@@ -153,8 +229,24 @@ jobs:
               const hasInput = foundElements.some(el => el.includes('textarea') || el.includes('input'));
               const hasButton = foundElements.some(el => el.includes('button'));
               
+              // Check if placeholder contains expected text
+              const hasCorrectPlaceholder = foundPlaceholder.toLowerCase().includes('formul8') || 
+                                         foundPlaceholder.toLowerCase().includes('what do you want');
+              
+              console.log(`UI Analysis:`);
+              console.log(`- Login button: ${loginFound ? '✅' : '❌'}`);
+              console.log(`- Chat container: ${chatContainer ? '✅' : '❌'}`);
+              console.log(`- Input field: ${hasInput ? '✅' : '❌'}`);
+              console.log(`- Send button: ${hasButton ? '✅' : '❌'}`);
+              console.log(`- Correct placeholder: ${hasCorrectPlaceholder ? '✅' : '❌'}`);
+              console.log(`- Placeholder text: "${foundPlaceholder}"`);
+              
               expect(hasInput).toBe(true);
               expect(hasButton).toBe(true);
+              
+              // Take a screenshot for visual verification
+              await page.screenshot({ path: 'chat-interface.png', fullPage: true });
+              console.log('Screenshot saved as chat-interface.png');
             });
 
             test('Test chat functionality with baseline questions', async ({ page }) => {

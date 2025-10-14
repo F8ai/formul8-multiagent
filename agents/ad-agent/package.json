@@ -1,0 +1,25 @@
+{
+  "name": "ad-agent",
+  "version": "1.0.0",
+  "description": "Cannabis advertising and promotional strategy expert",
+  "main": "lambda.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "advertising",
+    "ad",
+    "promotional",
+    "campaign",
+    "media",
+    "strategy",
+    "creative",
+    "content"
+  ],
+  "author": "Formul8",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0",
+    "cors": "^2.8.5"
+  }
+}

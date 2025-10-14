@@ -1,0 +1,27 @@
+{
+  "name": "science-agent",
+  "version": "1.0.0",
+  "description": "Cannabis research and analysis expert",
+  "main": "lambda.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "science",
+    "research",
+    "cannabinoid",
+    "terpene",
+    "lab",
+    "testing",
+    "coa",
+    "analysis",
+    "study",
+    "clinical"
+  ],
+  "author": "Formul8",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0",
+    "cors": "^2.8.5"
+  }
+}

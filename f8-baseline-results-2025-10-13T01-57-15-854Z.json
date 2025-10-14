@@ -1,0 +1,1347 @@
+{
+  "timestamp": "2025-10-13T01:57:15.854Z",
+  "summary": {
+    "total_questions": 43,
+    "successful_questions": 40,
+    "failed_questions": 3,
+    "success_rate": 93.02325581395348,
+    "avg_response_time": 11732.046511627907
+  },
+  "agent_results": {
+    "f8_agent": {
+      "total": 5,
+      "successful": 5
+    },
+    "compliance": {
+      "total": 4,
+      "successful": 4
+    },
+    "formulation": {
+      "total": 4,
+      "successful": 4
+    },
+    "science": {
+      "total": 4,
+      "successful": 4
+    },
+    "operations": {
+      "total": 3,
+      "successful": 2
+    },
+    "marketing": {
+      "total": 3,
+      "successful": 3
+    },
+    "sourcing": {
+      "total": 3,
+      "successful": 2
+    },
+    "patent": {
+      "total": 3,
+      "successful": 3
+    },
+    "spectra": {
+      "total": 3,
+      "successful": 2
+    },
+    "customer_success": {
+      "total": 3,
+      "successful": 3
+    },
+    "f8_slackbot": {
+      "total": 2,
+      "successful": 2
+    },
+    "mcr": {
+      "total": 2,
+      "successful": 2
+    },
+    "ad": {
+      "total": 2,
+      "successful": 2
+    },
+    "editor_agent": {
+      "total": 2,
+      "successful": 2
+    }
+  },
+  "baseline_config": {
+    "metadata": {
+      "version": "1.0.0",
+      "created": "2025-10-13T00:56:00.000Z",
+      "description": "Composite baseline questions for all Formul8 agents",
+      "total_agents": 13,
+      "total_questions": 50
+    },
+    "agents": {
+      "f8_agent": {
+        "name": "F8 Multi-Agent",
+        "description": "Main Formul8 AI agent that can route to specialized agents",
+        "type": "main",
+        "url": "https://f8.syzygyx.com",
+        "baseline_questions": [
+          "What are the benefits of cannabis?",
+          "How do I scale up my cannabis production?",
+          "I want to start a cannabis business",
+          "What is the meaning of life?",
+          "I need help with something completely unrelated to cannabis or business"
+        ],
+        "keywords": [
+          "general",
+          "business",
+          "strategy",
+          "overview",
+          "help"
+        ],
+        "specialties": [
+          "General cannabis industry questions",
+          "Business strategy and planning",
+          "Multi-topic queries",
+          "Agent routing and coordination"
+        ]
+      },
+      "compliance": {
+        "name": "Compliance Agent",
+        "description": "Cannabis regulatory compliance expert",
+        "type": "microservice",
+        "url": "https://compliance-agent.f8.syzygyx.com",
+        "baseline_questions": [
+          "What are the compliance requirements for cannabis businesses in California?",
+          "What are the multi-state compliance challenges for cannabis?",
+          "How do I maintain compliance records for cannabis cultivation?",
+          "What are the testing requirements for cannabis products?"
+        ],
+        "keywords": [
+          "compliance",
+          "regulation",
+          "license",
+          "legal",
+          "audit",
+          "inspection",
+          "permit",
+          "regulatory"
+        ],
+        "specialties": [
+          "State-specific cannabis regulations",
+          "Licensing applications and processes",
+          "Compliance audits and inspections",
+          "Record keeping and documentation",
+          "Testing requirements and standards",
+          "Security and safety protocols"
+        ]
+      },
+      "formulation": {
+        "name": "Formulation Agent",
+        "description": "Cannabis product formulation specialist",
+        "type": "microservice",
+        "url": "https://formulation-agent.f8.syzygyx.com",
+        "baseline_questions": [
+          "How do I calculate THC dosage?",
+          "How do I make cannabis edibles?",
+          "Create a recipe for cannabis gummies with 10mg THC each",
+          "What extraction method is best for high-CBD products?"
+        ],
+        "keywords": [
+          "formulation",
+          "recipe",
+          "dosage",
+          "extraction",
+          "ingredient",
+          "thc",
+          "cbd",
+          "concentrate",
+          "edible",
+          "tincture"
+        ],
+        "specialties": [
+          "Recipe development and customization",
+          "Dosage calculations for THC/CBD",
+          "Extraction methods and techniques",
+          "Ingredient selection and sourcing",
+          "Quality control and consistency",
+          "Product stability and shelf life"
+        ]
+      },
+      "science": {
+        "name": "Science Agent",
+        "description": "Cannabis research and analysis expert",
+        "type": "microservice",
+        "url": "https://science-agent.f8.syzygyx.com",
+        "baseline_questions": [
+          "What is THC?",
+          "What are terpenes?",
+          "How do I test cannabis potency?",
+          "What is the difference between indica and sativa?"
+        ],
+        "keywords": [
+          "science",
+          "research",
+          "cannabinoid",
+          "terpene",
+          "lab",
+          "testing",
+          "coa",
+          "analysis",
+          "study",
+          "clinical"
+        ],
+        "specialties": [
+          "Scientific research analysis",
+          "Cannabinoid and terpene profiles",
+          "Lab results interpretation (COAs)",
+          "Research trends and findings",
+          "Chemical analysis and testing",
+          "Product quality assessment"
+        ]
+      },
+      "operations": {
+        "name": "Operations Agent",
+        "description": "Cannabis facility operations and management specialist",
+        "type": "microservice",
+        "url": "https://operations-agent.f8.syzygyx.com",
+        "baseline_questions": [
+          "How do I optimize my cannabis facility operations?",
+          "What are the best practices for cannabis cultivation?",
+          "How do I manage cannabis inventory?"
+        ],
+        "keywords": [
+          "operations",
+          "facility",
+          "management",
+          "production",
+          "quality",
+          "control",
+          "logistics",
+          "manufacturing"
+        ],
+        "specialties": [
+          "Facility operations and management",
+          "Production planning and scheduling",
+          "Quality control processes",
+          "Logistics and supply chain",
+          "Equipment maintenance",
+          "Staff training and safety"
+        ]
+      },
+      "marketing": {
+        "name": "Marketing Agent",
+        "description": "Cannabis marketing and brand strategy expert",
+        "type": "microservice",
+        "url": "https://marketing-agent.f8.syzygyx.com",
+        "baseline_questions": [
+          "How should I market my cannabis brand on social media?",
+          "What are the best practices for cannabis advertising?",
+          "How do I build brand awareness for cannabis products?"
+        ],
+        "keywords": [
+          "marketing",
+          "brand",
+          "advertising",
+          "promotion",
+          "customer",
+          "acquisition",
+          "strategy",
+          "campaign"
+        ],
+        "specialties": [
+          "Marketing strategy and planning",
+          "Brand development and positioning",
+          "Advertising and promotional campaigns",
+          "Customer acquisition strategies",
+          "Digital marketing and social media",
+          "Market research and analysis"
+        ]
+      },
+      "sourcing": {
+        "name": "Sourcing Agent",
+        "description": "Cannabis supply chain and sourcing specialist",
+        "type": "microservice",
+        "url": "https://sourcing-agent.f8.syzygyx.com",
+        "baseline_questions": [
+          "Where can I source high-quality cannabis seeds?",
+          "How do I evaluate cannabis suppliers?",
+          "What are the best practices for cannabis supply chain management?"
+        ],
+        "keywords": [
+          "sourcing",
+          "supply",
+          "chain",
+          "procurement",
+          "vendor",
+          "inventory",
+          "supplier",
+          "purchasing"
+        ],
+        "specialties": [
+          "Supply chain management",
+          "Vendor sourcing and evaluation",
+          "Procurement strategies",
+          "Inventory management",
+          "Quality assurance for suppliers",
+          "Cost optimization"
+        ]
+      },
+      "patent": {
+        "name": "Patent Agent",
+        "description": "Cannabis intellectual property and patent research expert",
+        "type": "microservice",
+        "url": "https://patent-agent.f8.syzygyx.com",
+        "baseline_questions": [
+          "Can I patent my cannabis extraction process?",
+          "How do I conduct patent research for cannabis innovations?",
+          "What are the IP considerations for cannabis businesses?"
+        ],
+        "keywords": [
+          "patent",
+          "intellectual",
+          "property",
+          "ip",
+          "research",
+          "legal",
+          "innovation",
+          "invention"
+        ],
+        "specialties": [
+          "Patent research and analysis",
+          "Intellectual property strategy",
+          "Legal research and documentation",
+          "Innovation tracking",
+          "IP portfolio management",
+          "Patent filing assistance"
+        ]
+      },
+      "spectra": {
+        "name": "Spectra Agent",
+        "description": "Cannabis spectral analysis and quality testing specialist",
+        "type": "microservice",
+        "url": "https://spectra-agent.f8.syzygyx.com",
+        "baseline_questions": [
+          "How do I analyze cannabis potency using spectroscopy?",
+          "What equipment is needed for cannabis testing?",
+          "How do I interpret cannabis lab results?"
+        ],
+        "keywords": [
+          "spectra",
+          "analysis",
+          "testing",
+          "lab",
+          "equipment",
+          "chemistry",
+          "spectroscopy",
+          "quality"
+        ],
+        "specialties": [
+          "Spectral analysis techniques",
+          "Quality testing protocols",
+          "Lab equipment operation",
+          "Analytical chemistry",
+          "Data interpretation",
+          "Testing standards compliance"
+        ]
+      },
+      "customer_success": {
+        "name": "Customer Success Agent",
+        "description": "Cannabis customer success and retention specialist",
+        "type": "microservice",
+        "url": "https://customer-success-agent.f8.syzygyx.com",
+        "baseline_questions": [
+          "What strategies improve customer retention in cannabis retail?",
+          "How do I optimize customer onboarding for cannabis products?",
+          "What are the best practices for cannabis customer support?"
+        ],
+        "keywords": [
+          "customer",
+          "success",
+          "retention",
+          "support",
+          "satisfaction",
+          "onboarding",
+          "service"
+        ],
+        "specialties": [
+          "Customer success strategies",
+          "Retention and loyalty programs",
+          "Support and service optimization",
+          "Customer onboarding processes",
+          "Satisfaction measurement",
+          "Account management"
+        ]
+      },
+      "f8_slackbot": {
+        "name": "F8 Slackbot",
+        "description": "Formul8 Slack integration and team collaboration agent",
+        "type": "microservice",
+        "url": "https://f8-slackbot.f8.syzygyx.com",
+        "baseline_questions": [
+          "How do I integrate Slack notifications for my cannabis team?",
+          "How do I set up automated workflows for cannabis operations?"
+        ],
+        "keywords": [
+          "slack",
+          "integration",
+          "team",
+          "collaboration",
+          "notification",
+          "workflow",
+          "communication"
+        ],
+        "specialties": [
+          "Slack integration and automation",
+          "Team collaboration tools",
+          "Notification and alert systems",
+          "Workflow automation",
+          "Communication optimization",
+          "Team productivity tools"
+        ]
+      },
+      "mcr": {
+        "name": "MCR Agent",
+        "description": "Cannabis MCR (Master Control Record) management specialist",
+        "type": "microservice",
+        "url": "https://mcr-agent.f8.syzygyx.com",
+        "baseline_questions": [
+          "What are the MCR requirements for cannabis facilities?",
+          "How do I maintain master control records for cannabis?"
+        ],
+        "keywords": [
+          "mcr",
+          "master",
+          "control",
+          "record",
+          "documentation",
+          "compliance",
+          "tracking"
+        ],
+        "specialties": [
+          "Master Control Record management",
+          "Documentation and record keeping",
+          "Compliance tracking systems",
+          "Data integrity management",
+          "Audit trail maintenance",
+          "Regulatory reporting"
+        ]
+      },
+      "ad": {
+        "name": "Ad Agent",
+        "description": "Cannabis advertising and promotional strategy expert",
+        "type": "microservice",
+        "url": "https://ad-agent.f8.syzygyx.com",
+        "baseline_questions": [
+          "How do I create effective cannabis advertising campaigns?",
+          "What are the compliance requirements for cannabis advertising?"
+        ],
+        "keywords": [
+          "advertising",
+          "ad",
+          "promotional",
+          "campaign",
+          "media",
+          "strategy",
+          "creative",
+          "content"
+        ],
+        "specialties": [
+          "Advertising strategy and planning",
+          "Promotional campaign development",
+          "Media buying and placement",
+          "Creative content development",
+          "Campaign performance analysis",
+          "Brand messaging optimization"
+        ]
+      },
+      "editor_agent": {
+        "name": "Editor Agent",
+        "description": "Content editing and document management specialist",
+        "type": "microservice",
+        "url": "https://editor-agent.f8.syzygyx.com",
+        "baseline_questions": [
+          "How do I configure agent routing for new users?",
+          "Update the micro tier to include patent research capabilities"
+        ],
+        "keywords": [
+          "edit",
+          "editor",
+          "content",
+          "document",
+          "review",
+          "modify",
+          "update",
+          "version"
+        ],
+        "specialties": [
+          "Document editing and revision",
+          "Content review and optimization",
+          "Version control and tracking",
+          "Collaborative editing",
+          "Format standardization",
+          "Quality assurance"
+        ],
+        "tier_restriction": "admin"
+      }
+    },
+    "test_categories": {
+      "basic_functionality": [
+        "Agent responds to questions",
+        "Agent provides relevant information",
+        "Agent handles edge cases gracefully"
+      ],
+      "domain_expertise": [
+        "Agent demonstrates specialized knowledge",
+        "Agent provides accurate technical information",
+        "Agent offers practical solutions"
+      ],
+      "integration": [
+        "Agent integrates with other systems",
+        "Agent follows consistent response format",
+        "Agent maintains proper error handling"
+      ]
+    },
+    "usage_instructions": {
+      "description": "This baseline.json file contains comprehensive test questions for all Formul8 agents",
+      "usage": [
+        "Use these questions to test agent functionality and performance",
+        "Each agent has 2-5 baseline questions tailored to their specialty",
+        "Questions cover basic functionality, domain expertise, and edge cases",
+        "Run these questions regularly to ensure agent quality and consistency"
+      ],
+      "testing_frequency": "Daily or before major deployments",
+      "success_criteria": [
+        "All questions receive appropriate responses",
+        "Response times are within acceptable limits",
+        "No critical errors or timeouts occur"
+      ]
+    }
+  },
+  "detailed_results": [
+    {
+      "agent": "f8_agent",
+      "question": "What are the benefits of cannabis?",
+      "success": true,
+      "statusCode": 200,
+      "response": {
+        "success": true,
+        "response": "**Cannabis — Key Benefits Across Medical, Wellness, and Industrial Domains**\n\n| Category | Primary Benefits | Supporting Evidence / Notes |\n|----------|------------------|-----------------------------|\n| **Medical / Therapeutic** | • **Analgesia & anti‑inflammatory** – THC and CBD modulate pain pathways (CB1/CB2 receptors) and reduce cytokine release. <br>• **Anti‑emetic** – Strong evidence for reducing chemotherapy‑induced nausea/vomiting (e.g., dronabinol, nabiximols). <br>• **Appetite stimulation** – “Munchies” effect useful for AIDS‑related cachexia and cancer‑related weight loss. <br>• **Seizure control** – CBD‑rich extracts (Epidiolex) FDA‑approved for Dravet & Lennox‑Gastaut syndromes. <br>• **Muscle spasm & spasticity** – Improves symptoms in multiple sclerosis and spinal cord injury. <br>• **Anxiety & sleep** – Low‑dose THC or balanced THC:CBD can reduce anxiety and improve sleep latency; high‑dose THC may be anxiogenic. <br>• **Neuroprotection** – Pre‑clinical data suggest antioxidant and anti‑excitotoxic effects; clinical data are emerging (e.g., Parkinson’s, Alzheimer’s). | • Systematic reviews (e.g., Whiting 2020, JAMA) confirm moderate‑to‑strong evidence for pain, nausea, spasticity, and epilepsy. <br>• FDA‑approved CBD product (Epidiolex) validates seizure benefit. |\n| **Wellness & Lifestyle** | • **Relaxation & mood enhancement** – Low‑dose THC produces euphoria; CBD may promote “calm” without intoxication. <br>• **Creativity & focus** – Some users report enhanced divergent thinking at sub‑intoxicating doses. <br>• **Topical relief** – Creams/gels with cannabinoids can locally reduce inflammation and joint pain without systemic effects. | Benefits are largely anecdotal; clinical data are limited. Use responsibly and consider individual tolerance. |\n| **Industrial (Hemp) Applications** | • **Fiber & textile** – Hemp fibers are strong, breathable, and biodegradable, used for apparel, composites, and construction materials. <br>• **Nutritional products** – Hemp seed protein, oil (rich in ω‑3/ω‑6), and fiber are nutritionally dense. <br>• **Bioremediation** – Hemp phytoremediates heavy metals and improves soil health. <br>• **Bio‑fuel & bioplastics** – High cellulose content makes it a renewable feedstock. | These benefits are unrelated to psychoactive cannabinoids but drive economic growth in the cannabis sector. |\n| **Economic & Social** | • **Job creation** – Legal markets generate employment across cultivation, processing, retail, and ancillary services. <br>• **Tax revenue** – States/countries with regulated markets collect significant tax income (e.g., Colorado > $400 M FY 2023). <br>• **Criminal‑justice impact** – Legalization reduces cannabis‑related arrests and associated social costs. | Benefits depend on robust regulatory frameworks and equitable market access. |\n\n### Practical Takeaways for Stakeholders\n1. **Formulation** – Match cannabinoid ratios to the target indication (e.g., high‑CBD/low‑THC for epilepsy; balanced THC:CBD for chronic pain).  \n2. **Compliance** – Verify THC limits (often ≤ 0.3 % for hemp) and product licensing per jurisdiction; labeling must include potency, batch testing, and warnings.  \n3. **Dosing** – Start low, go slow: 2.5–5 mg THC for beginners, 10–20 mg for experienced users; CBD dosing ranges from 10 mg to > 150 mg daily depending on condition.  \n4. **Safety** – Monitor for psycho‑\n\n---\n*Agent: f8_agent | Tokens: 1131 (131→1000) | Cost: $0.000000*",
+        "agent": "f8_agent",
+        "timestamp": "2025-10-13T01:48:24.719Z",
+        "model": "openai/gpt-oss-120b",
+        "usage": {
+          "prompt_tokens": 131,
+          "completion_tokens": 1000,
+          "total_tokens": 1131,
+          "cost": 0
+        }
+      },
+      "responseTime": 16381
+    },
+    {
+      "agent": "f8_agent",
+      "question": "How do I scale up my cannabis production?",
+      "success": true,
+      "statusCode": 200,
+      "response": {
+        "success": true,
+        "response": "**Scaling Cannabis Production – A Step‑by‑Step Playbook**\n\nBelow is a concise roadmap you can adapt to your operation (indoor, greenhouse, or mixed‑light). Each phase includes the “what,” “why,” and a few quick‑start actions.\n\n---\n\n## 1. Strategic Foundations  \n\n| Action | Why it matters | Quick‑start tip |\n|--------|----------------|-----------------|\n| **Define the target market & volume** (e.g., 5 M g/yr of flower, 2 M g/yr of extracts) | Sets plant‑count, space, and equipment needs. | Use a simple spreadsheet: market price × desired revenue ÷ average yield per plant. |\n| **Create a detailed business case** (CAPEX, OPEX, ROI, breakeven) | Secures financing and guides expansion pacing. | Model three scenarios: conservative, base, aggressive. |\n| **Confirm licensing limits** (state/municipal caps on canopy, plant count, processing) | Prevents costly retrofits or compliance violations. | Pull the latest regulator’s “Maximum Allowable Canopy” table and map it to your footprint. |\n\n---\n\n## 2. Facility & Layout Design  \n\n| Component | Scaling‑ready design principle |\n|-----------|------------------------------|\n| **Modular grow rooms** | Build “pods” (e.g., 10 × 10 m) that can be duplicated as capital becomes available. |\n| **HVAC & de‑humidification** | Oversize capacity by ~20 % to handle added heat/moisture; use variable‑frequency drives (VFDs) for energy efficiency. |\n| **Electrical load** | Plan for 30 kW per 1,000 ft² of canopy; include spare circuits for future lighting upgrades. |\n| **Vertical integration space** | Allocate separate, climate‑controlled zones for trimming, drying, curing, and extraction to avoid bottlenecks. |\n| **Security & access control** | Install scalable video‑analytics and badge‑based zones; design the system to add cameras without rewiring. |\n\n---\n\n## 3. Genetics & Propagation  \n\n1. **Select high‑yield, stable cultivars** that match your market (e.g., high THC, high CBD, terpene profile).  \n2. **Establish a mother‑plant bank** (minimum 10 % of total plant count) to guarantee clone consistency.  \n3. **Implement a cloning SOP** with a 2‑week vegetative cycle; use automated mist‑cloning stations to increase throughput.  \n4. **Consider tissue‑culture (micropropagation)** for large‑scale, pathogen‑free stock once you have a proven genotype.\n\n---\n\n## 4. Automation & Data‑Driven Controls  \n\n| Automation layer | Typical ROI (payback) |\n|------------------|-----------------------|\n| **Environmental control (CO₂, temperature, RH, PAR)** | 12–18 months |\n| **Nutrient dosing & irrigation (drip or ebb‑and‑flow)** | 9–15 months |\n| **Canopy imaging (NDVI, 3‑D mapping)** | 6–12 months (early detection of stress) |\n| **Trim & harvest robotics** | 18–24 months (high labor cost markets) |\n\n**Implementation tip:** Start with a central SCADA platform (e.g., Growlink, Agrify, or a custom PLC‑based system) that can ingest sensor data via MQTT and trigger alerts. Add modules as you add grow pods.\n\n---\n\n## 5. Standard Operating Procedures (SOPs) & Quality Management  \n\n1. **Write SOPs for every critical step** (clone prep, veg transition, flower induction, pest management, harvest, drying, curing, extraction).  \n2. **Adopt a GMP‑style batch record system** (electronic LIMS) to track each lot from seed to sale.  \n3. **Implement a QA/QC lab** with:  \n   - Potency testing (HPLC)  \n   - Microbial & pesticide screens (ISO 17025)  \n   - Moisture & terpene profiling (GC‑MS)  \n4. **Perform regular internal audits** (monthly) and schedule external compliance audits (quarterly) to stay ahead of regulator inspections.\n\n---\n\n## 6. Work\n\n---\n*Agent: f8_agent | Tokens: 1138 (138→1000) | Cost: $0.000000*",
+        "agent": "f8_agent",
+        "timestamp": "2025-10-13T01:48:30.623Z",
+        "model": "openai/gpt-oss-120b",
+        "usage": {
+          "prompt_tokens": 138,
+          "completion_tokens": 1000,
+          "total_tokens": 1138,
+          "cost": 0
+        }
+      },
+      "responseTime": 4902
+    },
+    {
+      "agent": "f8_agent",
+      "question": "I want to start a cannabis business",
+      "success": true,
+      "statusCode": 200,
+      "response": {
+        "success": true,
+        "response": "**Starting a Cannabis Business – Quick‑Start Guide**\n\nBelow is a high‑level roadmap you can follow, plus key resources for each step. Adapt the timeline and depth to your jurisdiction (U.S. state, Canadian province, EU country, etc.) and the type of operation you want (cultivation, processing, retail, delivery, or ancillary services).\n\n---\n\n## 1️⃣ Define Your Business Model & Niche\n| Option | Typical Revenue Streams | Key Considerations |\n|--------|------------------------|--------------------|\n| **Cultivation** | Wholesale flower, extracts, seed sales | Heavy capital, strict cultivation permits, environmental controls |\n| **Processing/Extraction** | Concentrates, edibles, topicals, tinctures | Requires GMP/ISO‑7 labs, hazardous waste handling, product testing |\n| **Retail (Dispensuring)** | Direct sales to consumers | Location zoning, security, POS compliance |\n| **Delivery/Online** | Same‑day delivery, subscription boxes | Logistics, age‑verification tech, local delivery permits |\n| **Ancillary (software, packaging, consulting)** | Service contracts, SaaS, branding | No plant‑handling license needed, lower regulatory burden |\n\n**Action:** Write a one‑sentence value proposition (e.g., “Premium, terpene‑rich indoor flower for the wellness market”). This will guide all later decisions.\n\n---\n\n## 2️⃣ Market & Competitive Research\n| Task | Tools/Resources |\n|------|-----------------|\n| **Demand analysis** – consumer demographics, consumption trends | BDSA, New Frontier Data, Statista, local health department data |\n| **Competitive mapping** – who’s already operating locally | State cannabis board licensee list, Leafly/Weedmaps directories |\n| **Pricing & margin modeling** | Spreadsheet with cost of goods sold (COGS) vs. market price |\n| **Regulatory climate** – pending bills, licensing windows | State legislature trackers, cannabis law firms (e.g., Harris Bricken) |\n\n**Deliverable:** 2‑page market snapshot with TAM, SAM, SOM, and a SWOT matrix.\n\n---\n\n## 3️⃣ Build a Formal Business Plan\nInclude:\n\n1. **Executive Summary** – mission, legal structure (LLC, C‑Corp, etc.)  \n2. **Product/Service Offering** – strain portfolio, extraction methods, packaging  \n3. **Regulatory Pathway** – licensing authority, application timeline, fees  \n4. **Operations Plan** – facility size, HVAC, security, staffing, SOPs  \n5. **Financial Model** – startup capex, working capital, cash‑flow forecast (3‑5 yr)  \n6. **Risk Management** – compliance, insurance, supply chain disruptions  \n\nUse a template from the Small Business Administration (SBA) or SCORE and add cannabis‑specific sections.\n\n---\n\n## 4️⃣ Licensing & Compliance (the “hard part”)\n\n| Step | Typical Timeline | Tips |\n|------|-------------------|------|\n| **Identify licensing authority** (state board, provincial regulator) | 1–2 weeks | Some jurisdictions have multiple license types (cultivation, processing, retail). |\n| **Pre‑application feasibility** – site eligibility, zoning, environmental impact | 2–4 weeks | Use GIS tools (ArcGIS, Google Earth) to verify that the parcel is in a “qualified zone.” |\n| **Prepare application package** – business plan, security plan, SOPs, financial disclosures, background checks | 1–3 months (depends on state) | Hire a cannabis‑law specialist to review. |\n| **Submit & pay fees** | Immediate after package ready | Fees can range from $5 k (ancillary) to >$100 k (cultivation). |\n| **State inspection & approval** | 30–90 days post‑submission | Ensure all SOPs are documented, staff trained, and the facility meets fire, building, and health codes. |\n| **Post‑license compliance** – seed‑to‑sale tracking (METRC, BioTrackTHC, etc.), regular testing, reporting | Ongoing | Build a compliance calendar (monthly/quarterly tasks). |\n\n**Key Resources**  \n- **U.S.:** State cannabis board websites, METRC (for many states)  \n- **Canada:** Health Canada licensing portal, Cannabis Tracking System (CTS)  \n- **EU:** National regulatory bodies + EU‑CANNABIS (for cross‑\n\n---\n*Agent: f8_agent | Tokens: 1131 (131→1000) | Cost: $0.000000*",
+        "agent": "f8_agent",
+        "timestamp": "2025-10-13T01:48:34.540Z",
+        "model": "openai/gpt-oss-120b",
+        "usage": {
+          "prompt_tokens": 131,
+          "completion_tokens": 1000,
+          "total_tokens": 1131,
+          "cost": 0
+        }
+      },
+      "responseTime": 2916
+    },
+    {
+      "agent": "f8_agent",
+      "question": "What is the meaning of life?",
+      "success": true,
+      "statusCode": 200,
+      "response": {
+        "success": true,
+        "response": "The question “What is the meaning of life?” is a classic philosophical inquiry rather than a technical one, so there’s no single, universally‑accepted answer. People typically find meaning through a combination of personal values, relationships, purpose, and experiences—whether that’s pursuing a career, nurturing family, contributing to community, or exploring personal growth.\n\nIf you’re looking for a perspective that ties into the cannabis industry, many professionals find purpose in:\n\n1. **Improving Health & Wellness** – Developing products that alleviate pain, anxiety, or help patients manage chronic conditions.  \n2. **Advancing Science** – Contributing to research on cannabinoids, terpenes, and their therapeutic potentials.  \n3. **Promoting Responsible Use** – Educating consumers and shaping policies that ensure safe, legal access.  \n4. **Building Community** – Supporting growers, dispensaries, and consumers through sustainable, ethical practices.\n\nUltimately, the “meaning” you assign to life is personal, and the cannabis field offers several avenues to create impact and fulfillment if that aligns with your values. Let me know if you’d like to explore any of these areas in more detail!\n\n---\n*Agent: f8_agent | Tokens: 430 (131→299) | Cost: $0.000000*",
+        "agent": "f8_agent",
+        "timestamp": "2025-10-13T01:48:40.938Z",
+        "model": "openai/gpt-oss-120b",
+        "usage": {
+          "prompt_tokens": 131,
+          "completion_tokens": 299,
+          "total_tokens": 430,
+          "cost": 0
+        }
+      },
+      "responseTime": 5390
+    },
+    {
+      "agent": "f8_agent",
+      "question": "I need help with something completely unrelated to cannabis or business",
+      "success": true,
+      "statusCode": 200,
+      "response": {
+        "success": true,
+        "response": "I’m a Formul8 assistant focused on the cannabis industry, but I’m happy to try to help with general questions as well. What do you need assistance with?\n\n---\n*Agent: f8_agent | Tokens: 285 (134→151) | Cost: $0.000000*",
+        "agent": "f8_agent",
+        "timestamp": "2025-10-13T01:48:44.930Z",
+        "model": "openai/gpt-oss-120b",
+        "usage": {
+          "prompt_tokens": 134,
+          "completion_tokens": 151,
+          "total_tokens": 285,
+          "cost": 0
+        }
+      },
+      "responseTime": 2992
+    },
+    {
+      "agent": "compliance",
+      "question": "What are the compliance requirements for cannabis businesses in California?",
+      "success": true,
+      "statusCode": 200,
+      "response": {
+        "success": true,
+        "response": "## California Cannabis Business Compliance – Quick‑Start Checklist  \n\nBelow is a high‑level, “what‑you‑need‑to‑do” guide for any cannabis‑related operation in California (cultivation, manufacturing, distribution, retail, testing, transportation, or micro‑business).  The rules are a moving target, so treat this as a baseline and verify the latest text on the agencies’ websites before filing or launching.\n\n| Area | Governing Agency | Core Requirements | Typical Documentation | Key Deadlines / Frequency |\n|------|------------------|-------------------|-----------------------|---------------------------|\n| **State Licensing** | • **Department of Cannabis Control (DCC)** – formerly Bureau of Cannabis Control  <br>• **California Department of Public Health (CDPH)** – medical‑use manufacturers <br>• **California Department of Food & Agriculture (CDFA)** – cultivators <br>• **California Department of Tax and Fee Administration (CDTFA)** – tax permits | • Obtain the appropriate **type‑specific license** (Cultivation, Manufacturing, Distribution, Retail, Testing, Micro‑business, etc.). <br>• Submit **Application for Cannabis License (Form 1)**, pay non‑refundable fees, and pass background checks. <br>• For medical manufacturers, secure a **CDPH “Medical Device”** license. | • Completed application forms, fees receipt, background check clearance, proof of local approval, lease or ownership documents, SOPs, security plan. | • Licenses are **annual** (renewal 30 days before expiration).  Application windows vary; most are rolling, but some (e.g., new retail) open only during DCC “application windows.” |\n| **Local Authorization** | City/County Planning/Health/Police | • Obtain **local permit** (conditional use, business license, zoning compliance). <br>• Some jurisdictions require a **local cannabis ordinance** compliance review. | • Zoning clearance, site plan, community impact analysis, local tax registration. | • Must be secured **before** state license issuance; renew locally per city/county schedule (often annual). |\n| **Track‑and‑Trace (Seed‑to‑Sale)** | **California Cannabis Track‑and‑Trace (CCT)** – administered by DCC | • All commercial cannabis must be entered into the **CCT system** at every transaction point (cultivation → manufacturing → distribution → retail). <br>• Use a **CCT‑approved METRC‑compatible** software vendor. | • CCT user ID & password, transaction logs, batch numbers, weight records, transfer manifests. | • Real‑time entry; weekly “Inventory Reconciliation” reports required. |\n| **Packaging, Labeling & Advertising** | DCC (Packaging), CDPH (Medical), FTC (Truth in Advertising) | • **Child‑resistant, tamper‑evident** packaging. <br>• Labels must include: **CCT batch/track ID, potency (THC/CBD), net weight, universal symbol, warning statements, QR code linking to lab results, and “For adult use only”**. <br>• **No health claims**, no “medical” language unless a licensed medical manufacturer. <br>• **Advertising restrictions** – no targeting minors, no false statements, no billboards within 1,000 ft of schools, no free samples. | • Approved packaging mock‑ups, label artwork files, QR code generation, advertising copy approvals. | • Labels must be printed **before** product leaves the lab; any change triggers a new CCT batch. Advertising material reviewed **ad‑hoc** if DCC requests. |\n| **Testing & Product Safety** | CDPH (Medical), DCC (Adult‑Use) | • All products must be **lab‑tested** for cannabinoids, pesticides, heavy metals, residual solvents, microbiology, and mycotoxins. <br>• Use a **licensed California cannabis testing laboratory**. <br>• Test results must be uploaded to CCT and linked via QR code. | • Certificate of Analysis (CoA), lab chain‑of‑\n\n---\n*Agent: f8_agent | Tokens: 1119 (119→1000) | Cost: $0.000000*",
+        "agent": "f8_agent",
+        "timestamp": "2025-10-13T01:48:50.927Z",
+        "model": "openai/gpt-oss-120b",
+        "usage": {
+          "prompt_tokens": 119,
+          "completion_tokens": 1000,
+          "total_tokens": 1119,
+          "cost": 0
+        }
+      },
+      "responseTime": 4996
+    },
+    {
+      "agent": "compliance",
+      "question": "What are the multi-state compliance challenges for cannabis?",
+      "success": true,
+      "statusCode": 200,
+      "response": {
+        "success": true,
+        "response": "**Multi‑State Cannabis Compliance – Key Challenges**\n\n| Area | Typical Challenge | Why It Matters | Practical Tips |\n|------|-------------------|----------------|----------------|\n| **Federal vs. State Law** | Cannabis remains a Schedule I drug federally. | Creates banking bans, tax (IRC 280E) issues, and limits on interstate movement. | Use state‑level banking solutions, maintain separate corporate entities per state, and work with tax advisors familiar with 280E. |\n| **Licensing & Permit Variability** | Each state (and sometimes county/city) has its own licensing tiers, fees, and renewal cycles. | Missing a deadline or applying for the wrong license can halt operations. | Build a master licensing calendar; keep a “state‑specific checklist” for each jurisdiction. |\n| **Seed‑to‑Sale Tracking** | Different METRC‑style track‑and‑trace systems (e.g., METRC, BioTrackTHC, Leaf Data) with unique data fields and reporting frequencies. | Inconsistent data can trigger audit findings, fines, or product recalls. | Deploy a centralized compliance platform that can map to each state’s API; conduct weekly data validation runs. |\n| **Testing Requirements** | Varying potency, pesticide, microbial, and residual solvent limits; some states require separate testing for flower, edibles, concentrates, topicals, etc. | Non‑conforming batches must be destroyed or re‑tested, costing time and money. | Contract with a lab that is accredited in every target state or use a “multi‑state lab network” with consistent SOPs. |\n| **Packaging & Labeling** | Differences in child‑proof requirements, barcode placement, warning statements, QR‑code mandates, THC/CBD limits, and allowed health claims. | Incorrect packaging can be seized, leading to product loss and penalties. | Maintain a master label template with conditional fields (e.g., “if THC > 10 mg per serving, add warning X”). Use a dynamic label‑generation software that pulls state‑specific rules. |\n| **Advertising & Marketing** | Restrictions on media channels, age‑gating, health claim language, and location‑based promotions. | Violations can result in license suspensions and hefty fines. | Develop a “state‑by‑state marketing matrix”; use geofencing tools to enforce age‑gate and location restrictions. |\n| **Product Formulation Limits** | THC caps per product (e.g., 0.3 % THC in hemp‑derived products, 100 mg THC per edible serving in many states). | Exceeding limits forces recalls and may trigger criminal penalties. | Implement formulation software that auto‑calculates THC/CBD per dose and flags any exceedance before batch release. |\n| **Transportation & Logistics** | Some states allow only state‑licensed transporters; others require a “transport manifest” and GPS tracking. | Cross‑state shipments can be deemed illegal trafficking. | Use a licensed carrier for each state and keep electronic manifests synced with the state’s tracking system. |\n| **Banking & Payments** | Limited access to traditional banks; many states require cash‑handling SOPs and detailed cash‑flow reporting. | Cash‑heavy operations increase security risk and audit complexity. | Adopt a compliant cash‑management service (e.g., crypto‑based or state‑chartered C‑corp) and maintain detailed cash logs for each location. |\n| **Taxation & Reporting** | Varying excise tax structures (per weight, per THC content, per unit) and differing filing frequencies. | Mis‑calculated taxes lead to penalties and potential audit triggers. | Use a tax engine that can apply state‑specific rates automatically; reconcile tax reports with sales data before filing. |\n| **Regulatory Change Management** | States update statutes and rules quarterly; some introduce “sunset” provisions or retroactive compliance dates. | Failure to adapt quickly can cause non‑compliance retroactively. | Subscribe to a regulatory‑watch service; assign a compliance officer to run a monthly “rule‑change impact analysis.” |\n| **Employee Training & Documentation** | Each state may require documented\n\n---\n*Agent: f8_agent | Tokens: 1134 (134→1000) | Cost: $0.000000*",
+        "agent": "f8_agent",
+        "timestamp": "2025-10-13T01:49:06.149Z",
+        "model": "openai/gpt-oss-120b",
+        "usage": {
+          "prompt_tokens": 134,
+          "completion_tokens": 1000,
+          "total_tokens": 1134,
+          "cost": 0
+        }
+      },
+      "responseTime": 14222
+    },
+    {
+      "agent": "compliance",
+      "question": "How do I maintain compliance records for cannabis cultivation?",
+      "success": true,
+      "statusCode": 200,
+      "response": {
+        "success": true,
+        "response": "**Maintaining Compliance Records for Cannabis Cultivation – A Practical Checklist**\n\n| # | What to Track | Why It Matters | How to Capture & Store |\n|---|---------------|----------------|------------------------|\n| 1 | **Licenses & Permits** | Proof you’re legally authorized to grow. | Keep scanned copies in a secure, access‑controlled folder (e.g., encrypted cloud + off‑site backup). |\n| 2 | **‑to‑Sale (STS) / Track‑and‑Trace Data** | State‑mandated traceability of every plant. | Use the state‑approved METRC, BioTrackTHC, or equivalent system. Export daily logs (JSON/CSV) and archive for the required retention period (usually 3‑5 years). |\n| 3 | **Plant Inventory** (counts, growth stage, location, genotype) | Verifies you’re not over‑ or under‑producing. | Daily/weekly spreadsheet synced with STS; label each plant with a QR code linked to its record. |\n| 4 | **Cultivation SOPs** (lighting, nutrients, pest control, sanitation) | Demonstrates “standard of care” and helps defend against violations. | Store SOP PDFs in a version‑controlled document management system (e.g., SharePoint, Google Workspace). Keep a change log. |\n| 5 | **Environmental Monitoring** (temperature, humidity, CO₂, pH, EC, water quality) | Required for product safety & to prove good‑manufacturing practices. | Automated data loggers → export to CSV → archive; flag out‑of‑range events and attach corrective‑action reports. |\n| 6 | **Pesticide & Chemical Use** (product, batch #, application rate, date, location, safety data sheet) | Most states require a “pesticide log” and a 14‑day withdrawal period. | Electronic log linked to each plant batch; attach SDS PDFs. |\n| 7 | **Harvest & Post‑Harvest Records** (date, weight, trim method, wet/dry weight, batch number) | Needed for inventory reconciliation and lab testing linkage. | Harvest forms auto‑populated from STS; store as PDFs with a unique batch ID. |\n| 8 | **Lab Test Results** (potency, microbial, pesticide, residual solvents) | Must be attached to each sellable batch. | Receive lab CSV/PDF → import into compliance software; keep original lab certificates in a tamper‑evident folder. |\n| 9 | **Security Logs** (access control, video footage, alarm events) | Many states require 24 h video, restricted access logs, and incident reports. | Centralized NVR → export daily digest; retain footage for the mandated period (often 90 days) and store a checksum‑verified copy off‑site. |\n| 10 | **Employee Training & Attendance** (compliance, safety, SOPs) | Demonstrates workforce competence. | LMS records → export completion certificates; keep signed acknowledgment forms. |\n| 11 | **Waste & Disposal Records** (type, quantity, method, disposal vendor) | Required to show proper handling of unusable plant material. | Waste manifests filed with the state’s waste‑tracking portal; keep vendor receipts. |\n| 12 | **Financial & Tax Records** (cost of goods, sales, excise tax filings) | State audit readiness. | Use accounting software that integrates with your STS; retain all reports for at least 3 years. |\n| 13 | **Audit Trail** (who edited what, when) | Proves data integrity. | Enable audit‑logging in all digital platforms; export logs quarterly. |\n\n---\n\n### Step‑by‑Step Workflow (Monthly Cycle)\n\n1. **Data Capture (Daily)**\n   - Plant counts & locations entered into STS.\n   - Environmental sensors auto‑log; flag anomalies.\n   - Security system records access events.\n\n2. **Reconciliation (Weekly)**\n   - Compare physical inventory with STS totals.\n   - Verify harvest weights against batch records.\n   - Cross‑check pesticide applications with plant IDs.\n\n3. **Documentation (Monthly)**\n   - Export all STS reports (plant, inventory, movement) and store\n\n---\n*Agent: f8_agent | Tokens: 1133 (133→1000) | Cost: $0.000000*",
+        "agent": "f8_agent",
+        "timestamp": "2025-10-13T01:49:21.051Z",
+        "model": "openai/gpt-oss-120b",
+        "usage": {
+          "prompt_tokens": 133,
+          "completion_tokens": 1000,
+          "total_tokens": 1133,
+          "cost": 0
+        }
+      },
+      "responseTime": 13904
+    },
+    {
+      "agent": "compliance",
+      "question": "What are the testing requirements for cannabis products?",
+      "success": true,
+      "statusCode": 200,
+      "response": {
+        "success": true,
+        "response": "**Cannabis Product Testing – Core Requirements (2024‑2025)**  \n\nBelow is a “one‑page” checklist that covers the most common mandatory tests you’ll encounter in the major regulated markets (U.S. state programs, Canada, EU‑type jurisdictions).  Adjust the list to the specific rules of the state or country where you’ll sell, but the elements below are almost universally required.\n\n| **Test Category** | **What’s Measured** | **Typical Acceptance Limits** | **Why It Matters** |\n|-------------------|---------------------|------------------------------|--------------------|\n| **Potency / Cannabinoid Profile** | Δ⁹‑THC, Δ⁹‑THC‑A, CBD, CBD‑A, CBG, CBC, CBN, other major cannabinoids | ±10 % of label claim (most states) | Guarantees dosing accuracy & consumer safety. |\n| **Pesticides** | > 300‑plus pesticides & metabolites (e.g., myclobutanil, imidacloprid, spinosad) | State‑specific limits; many adopt the **EPA Pesticide Residue Limits (PRLs)** or **Health Canada MRLs** (typically 0.1‑5 ppm). | Prevents toxic exposure. |\n| **Heavy Metals** | Lead, arsenic, cadmium, mercury (sometimes nickel & chromium) | ≤ 0.5 ppm (lead, cadmium), ≤ 0.1 ppm (arsenic, mercury) – varies by jurisdiction. | Chronic toxicity risk. |\n| **Microbiological** | Total aerobic microbial count (TAMC), total yeast & mold count (TYMC), *E. coli*, *Salmonella*, *Staphylococcus aureus*, *Pseudomonas aeruginosa*, *Listeria monocytogenes* | TAMC ≤ 10⁵ CFU/g, TYMC ≤ 10⁴ CFU/g; pathogenic bacteria = “Not detected” in 10 g. | Prevents food‑borne illness. |\n| **Mycotoxins** | Aflatoxins (B1, B2, G1, G2) | ≤ 20 ppb (U.S. states), ≤ 10 ppb (Canada) | Toxic fungal metabolites. |\n| **Residual Solvents** (for extracts & vape cartridges) | Acetone, ethanol, isopropanol, n‑butane, propane, CO₂, etc. | Generally ≤ 1 % v/v (dry weight) for most solvents; < 500 ppm for some (e.g., butane). | Prevents inhalation of harmful vapors. |\n| **Foreign Matter / Physical Contaminants** | Plant debris, insects, hair, glass, metal fragments | “Not detected” or ≤ 0.1 % w/w | Product integrity. |\n| **Terpene Profile** (optional in many states, required in Canada for “flavoured” products) | Major terpenes (myrcene, limonene, pinene, linalool, etc.) | ±15 % of measured value (if claimed) | Supports accurate labeling & consumer expectations. |\n| **Water Activity (a_w)** (optional, increasingly common for edibles) | a_w value | ≤ 0.6 for low‑moisture products | Shelf‑life & microbial risk. |\n\n---\n\n### 1. How Testing Is Structured in Practice  \n\n| **Step** | **What to Do** | **Key Tips** |\n|----------|----------------|--------------|\n| **Batch Definition** | Define a “batch” (usually a production lot, or a single press/run). All products from that batch must be tested. | Use a unique batch/lot code that ties back to raw material lot numbers and SOPs. |\n| **Sample Collection** | Collect representative samples (usually 30 g for edibles, 10 g for flower, 10 mL for oil). Follow the state‑mandated **Standard Operating Procedure (SOP)** for sampling (e.g., random, composite sampling). | Use\n\n---\n*Agent: f8_agent | Tokens: 1117 (117→1000) | Cost: $0.000000*",
+        "agent": "f8_agent",
+        "timestamp": "2025-10-13T01:49:25.558Z",
+        "model": "openai/gpt-oss-120b",
+        "usage": {
+          "prompt_tokens": 117,
+          "completion_tokens": 1000,
+          "total_tokens": 1117,
+          "cost": 0
+        }
+      },
+      "responseTime": 3501
+    },
+    {
+      "agent": "formulation",
+      "question": "How do I calculate THC dosage?",
+      "success": true,
+      "statusCode": 200,
+      "response": {
+        "success": true,
+        "response": "### Quick‑Start Formula  \n\n| Variable | What it means | Units |\n|----------|---------------|-------|\n| **W**    | Weight of product you’ll use | grams (g) |\n| **P**    | THC potency of the product | % THC (by weight) |\n| **B**    | Bioavailability factor for the route of administration* | decimal (0‑1) |\n| **D**    | Desired dose of **active THC** | milligrams (mg) |\n\n**Basic dose (raw THC in the material)**  \n\n\\[\n\\text{Raw THC (mg)} = W \\times P \\times 10\n\\]\n\n*(Because 1 g = 1000 mg and % = /100, so 1000 × P/100 = 10 × P.)*  \n\n**Adjusted dose (what actually reaches the bloodstream)**  \n\n\\[\n\\text{Effective THC (mg)} = \\text{Raw THC} \\times B\n\\]\n\n---\n\n## Step‑by‑Step Example  \n\n**Scenario:** You have a 0.5 g (500 mg) vape cartridge labeled **18 % THC** and you want a ~10 mg effective dose.\n\n1. **Raw THC in the cartridge**  \n   \\[\n   0.5\\text{ g} \\times 0.18 \\times 10 = 0.9\\text{ mg × 10} = 9\\text{ mg}\n   \\]\n\n2. **Choose bioavailability** – inhalation ≈ 25 % (0.25).  \n   \\[\n   \\text{Effective THC} = 9\\text{ mg} \\times 0.25 = 2.25\\text{ mg}\n   \\]\n\n3. **How much to inhale for ~10 mg effective?**  \n   \\[\n   \\frac{10\\text{ mg}}{0.25}=40\\text{ mg raw THC}\n   \\]  \n   Convert back to product weight:  \n   \\[\n   W = \\frac{40}{P \\times 10}= \\frac{40}{0.18 \\times 10}=2.22\\text{ g}\n   \\]  \n\n   Since the cartridge is only 0.5 g, you’d need **four full cartridges** (≈2 g) to hit ~10 mg effective via inhalation.\n\n---\n\n## Bioavailability Cheat Sheet  \n\n| Route | Typical Bioavailability (B) | Practical Note |\n|-------|-----------------------------|----------------|\n| **Inhalation (vape, smoke)** | 0.20 – 0.30 | Fast onset (minutes); dose is less “wasted”. |\n| **Oral (edibles, capsules)** | 0.04 – 0.20 (average ≈ 0.12) | Slower onset (30 min‑2 h); first‑pass metabolism creates 11‑OH‑THC (more potent). |\n| **Sublingual/tincture** | 0.10 – 0.30 | Bypasses most first‑pass; onset 15‑45 min. |\n| **Topical (creams, patches)** | <0.01 (systemic) | Mostly local; systemic dose negligible unless transdermal. |\n\n*Use the low end of the range for conservative dosing, especially for beginners.*\n\n---\n\n## Practical Dosage Guidelines (Adults, No Tolerance)\n\n| Desired Effect | Approx. Effective THC (mg) |\n|----------------|----------------------------|\n| **Micro‑dose / subtle** | 1‑2 mg |\n| **Mild relaxation / focus** | 2‑5 mg |\n| **Standard recreational** | 5‑10 mg |\n| **Strong / therapeutic** | 10‑20 mg |\n| **High tolerance** | 20 mg+ |\n\n> **Rule of thumb:** **Start Low, Go Slow** – begin with 1‑2 mg effective THC, wait the\n\n---\n*Agent: f8_agent | Tokens: 1131 (131→1000) | Cost: $0.000000*",
+        "agent": "f8_agent",
+        "timestamp": "2025-10-13T01:49:29.126Z",
+        "model": "openai/gpt-oss-120b",
+        "usage": {
+          "prompt_tokens": 131,
+          "completion_tokens": 1000,
+          "total_tokens": 1131,
+          "cost": 0
+        }
+      },
+      "responseTime": 2570
+    },
+    {
+      "agent": "formulation",
+      "question": "How do I make cannabis edibles?",
+      "success": true,
+      "statusCode": 200,
+      "response": {
+        "success": true,
+        "response": "**Quick‑Start Guide to Making Cannabis Edibles**\n\nBelow is a concise, step‑by‑step workflow that covers the core science, safety, and compliance points you’ll need to produce consistent, legal edibles (assuming you’re operating in a jurisdiction where it’s permitted).\n\n---\n\n## 1. Legal & Compliance Checklist\n| Item | What to Do |\n|------|------------|\n| **Licensing** | Verify you have the required state/ provincial license for manufacturing edibles. |\n| **Labeling** | Include: product name, net weight, total THC/CBD per package, serving size, potency per serving, allergen info, batch/lot number, expiration date, and a “keep out of reach of children” warning. |\n| **Testing** | Submit each batch to a certified lab for cannabinoids, terpenes, residual solvents, pesticides, and microbial contaminants. |\n| **Packaging** | Use child‑resistant, tamper‑evident containers as required by most regulations. |\n| **Dosage Limits** | Many jurisdictions cap THC per serving (e.g., 10 mg in the U.S.) and per package (e.g., 100 mg). Design your recipe accordingly. |\n\n---\n\n## 2. Core Science – Decarboxylation & Infusion\n\n### 2.1 Decarboxylate the Flower\n| Parameter | Typical Value |\n|-----------|----------------|\n| **Temperature** | 105‑115 °C (220‑240 °F) |\n| **Time** | 30‑45 min (depends on moisture) |\n| **Method** | Spread ground bud in a thin layer on a parchment‑lined tray; stir once halfway through. |\n\n*Why?* Decarboxylation converts THCA → THC (and CBDA → CBD), making the cannabinoids bio‑available for oral consumption.\n\n### 2.2 Choose an Infusion Base\n| Base | Typical Use | THC Extraction Efficiency |\n|------|--------------|---------------------------|\n| **Butter (cannabutter)** | Baked goods, pastries | 70‑80 % |\n| **MCT or Coconut Oil** | Gummies, chocolate, low‑temp desserts | 75‑85 % |\n| **Soy/Olive Oil** | Salad dressings, sauces | 60‑70 % |\n\n*Tip:* Use a **fat‑to‑cannabinoid ratio** of **1 g of decarboxylated flower per 10 ml of oil** for a ~10 mg THC per ml concentrate (assuming ~15 % THC flower). Adjust based on desired potency.\n\n### 2.3 Infusion Process (Oil/Butter)\n1. **Combine** decarboxylated flower with your chosen fat in a sealed, heat‑stable container (e.g., a mason jar).\n2. **Heat** using a double boiler or a low‑temperature sous‑vide bath:\n   - **Temp:** 70‑85 °C (158‑185 °F)\n   - **Time:** 2‑4 h, stirring every 30 min.\n3. **Filter** through a cheesecloth or fine mesh to remove plant material.\n4. **Cool** and store the infused fat in a dark, airtight container at 4 °C (refrigerated) or freeze for longer shelf life.\n\n---\n\n## 3. Dosage Calculations\n\n1. **Determine Total THC in Your Infusion**  \n   \\[\n   \\text{Total THC (mg)} = \\text{Weight of flower (g)} \\times \\text{THC % (as decimal)} \\times 1000 \\times \\text{Extraction efficiency}\n   \\]\n\n   *Example:* 10 g of 15 % THC flower, 80 % efficiency →  \n   \\[\n   10 \\times 0.15 \\times 1000 \\times 0.80 = 1{,}200 \\text{ mg THC}\n   \\]\n\n2. **Calculate Potency per Volume**  \n   \\[\n   \\text{mg THC per ml} = \\frac{\\text{Total THC (mg)}}{\\text{Final volume (ml)}}\n   \\]\n\n3. **Set Serving Size**  \n   - If the legal limit is 10 mg THC per serving, aim for 1 ml of oil = 10 mg THC, or 1 g of butter = 10 mg THC, etc.\n   - Adjust the total batch volume accordingly (e.g., 120 ml oil for the example above gives 10 mg per ml).\n\n---\n\n## 4. Typical Edible Formats & Recipe Adjustments\n\n| Format | Base Ingredient | Typical Ratio (Infused Fat) | Example Serving |\n|--------|----------------|----------------------------|-----------------|\n| **Brownies** | Cannabutter | ½ cup butter per 12‑oz pan | 10 mg THC per 1‑inch square |\n| **Gummies** | MCT oil + gelatin | 1 ml oil per 30 g gummy mix | 5‑10 mg THC per gummy |\n| **Chocolate Bars** | Infused cocoa butter | ¼ cup per 200 g chocolate | 10 mg THC per 15‑g piece |\n| **Sauces/Drizzles** | Infused olive oil | 2 ml per 100 g sauce | 5 mg THC per tablespoon |\n\n*Key tip:* Keep the **total infused fat** constant across a batch; then scale the number of servings to meet legal limits.\n\n---\n\n## 5. Safety & Quality Controls\n\n| Control | Action |\n|---------|--------|\n| **Potency Verification** | Send a random sample from each batch to a certified lab; compare to calculated potency. |\n| **Microbial Testing** | Test for *E. coli*, *Salmonella*, and mold—especially for low‑water, high‑fat products. |\n| **Allergen Management** | Document any cross‑contamination (e.g., nuts, dairy). |\n| **Shelf‑Life** | Conduct stability testing (usually 6‑12 months for baked goods, longer for oils). |\n| **Consumer Education** | Include clear “Start low, go slow” guidance on packaging. |\n\n---\n\n## 6. Quick Recipe Blueprint (Cannabutter Brownies)\n\n| Ingredient | Amount | Notes |\n|------------|--------|-------|\n| Unsalted butter (infused) | ½ cup (≈113 g) | 10 mg THC per tbsp (≈15 g) |\n| Granulated sugar | 1 cup | |\n| Eggs | 2 large | |\n| Vanilla extract | 1 tsp | |\n| Cocoa powder | ⅓ cup | |\n| All‑purpose flour | ½ cup | |\n| Baking powder | ¼ tsp | |\n| Salt | pinch | |\n| Optional nuts | ½ cup | |\n\n**Procedure**  \n1. Pre‑heat oven to 175 °C (350 °F).  \n2. Melt infused butter; whisk in sugar, then eggs & vanilla.  \n3. Sift cocoa, flour, baking powder, salt; fold into wet mix.  \n4. Spread in a greased 8×8‑in pan; bake 20‑25 min.  \n5. Cool, cut into 12 equal squares → **≈10 mg THC per square** (adjust based on your infusion potency).\n\n---\n\n## 7. Final Checklist Before Release\n\n- [ ] All required licenses active?  \n- [ ] Lab results on file and within potency limits?  \n- [ ] Labels printed with accurate THC/CBD per serving?  \n- [ ] Child‑resistant packaging used?  \n- [ ] Batch records (flower source, decarb log, infusion log) archived?  \n- [ ] Consumer usage instructions included?  \n\n---\n\n**Bottom Line:**  \n1. **Decarboxylate** → 2. **Infuse** → 3. **Calculate potency** → 4. **Formulate** → 5. **Test & label**. Follow this loop for every batch and you’ll produce safe, compliant, and consistently dosed cannabis edibles.  \n\n*If you need deeper guidance on a specific product line (e.g., gummies, beverages) or help drafting compliant labels, just let me know!*\n\n---\n*Agent: f8_agent | Tokens: 1978 (132→1846) | Cost: $0.000000*",
+        "agent": "f8_agent",
+        "timestamp": "2025-10-13T01:49:53.560Z",
+        "model": "openai/gpt-oss-120b",
+        "usage": {
+          "prompt_tokens": 132,
+          "completion_tokens": 1846,
+          "total_tokens": 1978,
+          "cost": 0
+        }
+      },
+      "responseTime": 23428
+    },
+    {
+      "agent": "formulation",
+      "question": "Create a recipe for cannabis gummies with 10mg THC each",
+      "success": true,
+      "statusCode": 200,
+      "response": {
+        "success": true,
+        "response": "**Cannabis‑Infused Gummies – 10 mg THC per piece**  \n*(Yield: ~30 gummies – adjust batch size as needed)*  \n\n---\n\n## 1. Core Calculations  \n\n| Parameter | Value |\n|-----------|-------|\n| Desired THC per gummy | **10 mg** |\n| Target number of gummies | **30** |\n| Total THC needed | 10 mg × 30 = 300 mg |\n| THC concentration of your carrier (e.g., THC‑distillate, CO₂‑extract) | **1000 mg THC / mL** (typical) |\n| Volume of THC‑infused oil required | 300 mg ÷ 1000 mg mL⁻¹ = **0.30 mL** |\n| Dilution factor (to mix with carrier oil) | 1 mL distillate + 9 mL MCT oil → **10 % THC** (100 mg THC / mL) |\n| Final oil volume to add to batch | 300 mg ÷ 100 mg mL⁻¹ = **3 mL** of 10 % THC oil |\n\n*If your concentrate is stronger or weaker, adjust the volume accordingly.*  \n\n---\n\n## 2. Ingredients (per 30‑piece batch)\n\n| Ingredient | Amount | Notes |\n|------------|--------|-------|\n| **Gelatin (unflavored, bloom‑type)** | 30 g (≈3 Tbsp) | Gives a firm chew |\n| **Water** | 120 mL (½ cup) | Dissolves gelatin |\n| **Fruit juice or flavored beverage** | 120 mL (½ cup) | Choose sugar‑free if desired |\n| **Granulated sugar** | 30 g (¼ cup) | Adjust for sweetness |\n| **Corn syrup (light)** | 30 g (¼ cup) | Improves texture & prevents crystallization |\n| **Citric acid** | ½ tsp | Gives a slight tang & helps preserve |\n| **Flavor extract** (e.g., raspberry, orange) | ½ tsp | Optional, enhances taste |\n| **Food‑grade coloring** | ¼ tsp (optional) | For visual appeal |\n| **MCT oil (or other neutral carrier)** | 9 mL (≈2 tsp) | Base for THC dilution |\n| **THC distillate (or CO₂ extract)** | 0.30 mL (≈6 drops) | 1000 mg THC / mL |\n| **Vitamin C (ascorbic acid)** | pinch (optional) | Antioxidant, extends shelf life |\n\n**Total batch volume ≈ 300 mL liquid + 30 g gelatin → final set gummies ≈ 30 × 10 g each.**\n\n---\n\n## 3. Equipment\n\n| Item | Purpose |\n|------|---------|\n| Small saucepan (double‑boiler preferred) | Gentle heating |\n| Silicone gummy molds (≈10 g per cavity) | Uniform dosing |\n| Digital kitchen scale (±0.1 g) | Accurate measurements |\n| Thermometer (°F/°C) | Monitor 120 °F / 49 °C gelatin melt |\n| Whisk or silicone spatula | Homogenize |\n| Dropper or syringe (1 mL) | Precise oil addition |\n| Airtight container (glass or PET) | Storage |\n| Protective gloves & mask (optional) | Safety when handling concentrates |\n\n---\n\n## 4. Step‑by‑Step Procedure  \n\n1. **Prepare THC‑Infused Oil**  \n   - Warm 9 mL MCT oil to ~40 °C (just warm, not hot).  \n   - Add 0.30 mL THC distillate. Stir gently until fully dissolved (≈1 min).  \n   - Set aside; keep at room temperature.\n\n2. **Create the Gelatin Base**  \n   - In a saucepan, combine 120 mL water + 120 mL fruit juice.  \n\n\n---\n*Agent: f8_agent | Tokens: 1136 (136→1000) | Cost: $0.000000*",
+        "agent": "f8_agent",
+        "timestamp": "2025-10-13T01:49:59.447Z",
+        "model": "openai/gpt-oss-120b",
+        "usage": {
+          "prompt_tokens": 136,
+          "completion_tokens": 1000,
+          "total_tokens": 1136,
+          "cost": 0
+        }
+      },
+      "responseTime": 4937
+    },
+    {
+      "agent": "formulation",
+      "question": "What extraction method is best for high-CBD products?",
+      "success": true,
+      "statusCode": 200,
+      "response": {
+        "success": true,
+        "response": "### Quick Recommendation  \n**Supercritical CO₂ (scCO₂) extraction** is generally the best choice when the goal is a **high‑CBD, high‑purity, low‑solvent‑residue product** that meets U.S. FDA‑GMP and state‑level cannabis‑compliance standards.  \n\n---\n\n## Why scCO₂ Wins for High‑CBD\n\n| Factor | scCO₂ | Ethanol (cold/heat) | Hydrocarbons (butane, propane) |\n|--------|-------|---------------------|--------------------------------|\n| **Selectivity for CBD** | Adjustable pressure (1500‑3500 psi) & temperature (35‑65 °C) lets you pull CBD while leaving most chlorophyll & waxes behind. | Broad‑spectrum; extracts more sugars, chlorophyll, and pigments – more downstream polishing needed. | Very non‑selective; extracts a full lipid profile, requiring extensive winterization and distillation. |\n| **Residual Solvent** | CO₂ → gas at room temp → < 2 ppm solvent residue (often below detection). | Ethanol residues can remain if not fully evaporated; requires vacuum stripping. | Hydrocarbon residues are a regulatory red flag; strict limits (≤ 5 ppm) and costly testing. |\n| **Terpene & Labile Cannabinoid Preservation** | Gentle temperatures preserve terpenes & minor cannabinoids (CBC, CBG) that add entourage benefits. | Heat‑based ethanol can degrade some terpenes; cold‑ethanol mitigates but requires large solvent volumes. | Can strip terpenes unless a “full‑spectrum” run is done; often lost during post‑processing. |\n| **Scalability & Reproducibility** | Commercial‑scale units (200 L‑10,000 L) are common; process parameters are highly repeatable. | Batch‑scale ethanol is easy, but scale‑up can introduce solvent‑handling safety issues. | Scale‑up is possible but requires explosion‑proof equipment and rigorous safety protocols. |\n| **Regulatory Acceptance** | Widely accepted by state cannabis boards and FDA‑GMP facilities; easier audit trail. | Accepted, but extra steps (winterization, solvent recovery) increase audit complexity. | Often scrutinized; many jurisdictions impose extra testing or disallow for certain product categories. |\n| **Cost** | Higher capital cost (≈ $300‑$800 k for a 500 L system) but lower operating cost per gram of CBD after amortization. | Lower upfront cost; higher solvent purchase, recovery, and waste‑disposal expenses. | Moderate capital; high ongoing solvent loss & safety‑related overhead. |\n\n---\n\n## Typical scCO₂ Process Flow for a High‑CBD Extract\n\n1. **Feedstock Prep**  \n   - **Material**: CBD‑rich flower or trim (≥ 15 % CBD, low THC).  \n   - **Drying**: ≤ 10 % moisture (dry‑ice or low‑temp oven).  \n   - **Grinding**: 1‑3 mm particle size for uniform flow.\n\n2. **Extraction Parameters (starting point)**  \n   - **Pressure**: 2500 psi (≈ 170 bar) – good balance of CBD solubility & selectivity.  \n   - **Temperature**: 45 °C – keeps terpene profile intact.  \n   - **CO₂ Flow Rate**: 15‑20 kg h⁻¹ for a 500 L extractor.  \n   - **Co‑solvent (optional)**: 5‑10 % ethanol as a “modifier” to boost CBD yield if the matrix is dense.\n\n3. **Fractionation (optional but recommended)**  \n   - **First fraction (35 °C, 1500 psi)** – strips light terpenes (for a “full‑spectrum” product).  \n   - **Second fraction (45‑55 °C, 2500‑3000 psi)** – captures bulk CBD.  \n  \n\n---\n*Agent: f8_agent | Tokens: 1134 (134→1000) | Cost: $0.000000*",
+        "agent": "f8_agent",
+        "timestamp": "2025-10-13T01:50:10.617Z",
+        "model": "openai/gpt-oss-120b",
+        "usage": {
+          "prompt_tokens": 134,
+          "completion_tokens": 1000,
+          "total_tokens": 1134,
+          "cost": 0
+        }
+      },
+      "responseTime": 10118
+    },
+    {
+      "agent": "science",
+      "question": "What is THC?",
+      "success": true,
+      "statusCode": 200,
+      "response": {
+        "success": true,
+        "response": "**Δ⁹‑Tetrahydrocannabinol (THC)**  \n\n- **Chemical identity**: Δ⁹‑THC (C₂₁H₃₀O₂) is the principal psychoactive cannabinoid found in the *Cannabis sativa* plant. It’s a terpenophenolic compound that exists primarily as Δ⁹‑THC‑A (the acidic precursor) in fresh plant material; heat or decarboxylation converts Δ⁹‑THC‑A to active Δ⁹‑THC.  \n\n- **Pharmacology**  \n  - **Receptor binding**: Partial agonist at CB₁ receptors (central nervous system) and CB₂ receptors (immune cells).  \n  - **Effects**: Euphoria, altered perception of time, appetite stimulation, analgesia, muscle relaxation, short‑term memory impairment, and increased heart rate.  \n  - **Metabolism**: Primarily hepatic via CYP2C9, CYP2C19, and CYP3A4 to 11‑hydroxy‑THC (still active) and then to inactive THC‑COOH, which is excreted in urine and feces.  \n\n- **Therapeutic uses (FDA‑approved)**  \n  - **Marinol®/Synera®** (synthetic Δ⁹‑THC) for chemotherapy‑induced nausea/vomiting and appetite stimulation in AIDS‑related wasting.  \n  - **Nabiximols (Sativex®)** – a 1:1 THC:CBD oromucosal spray approved in several countries for multiple sclerosis spasticity and cancer pain.  \n\n- **Common delivery formats**  \n  - Flower (smoked/vaped) – decarboxylated on‑site.  \n  - Concentrates (distillate, wax, shatter).  \n  - Edibles and beverages (THC is infused after decarboxylation).  \n  - Sublingual tinctures, transdermal patches, and inhalers.  \n\n- **Legal landscape (U.S.)**  \n  - **Federal**: Δ⁹‑THC is a Schedule I controlled substance under the Controlled Substances Act.  \n  - **State**: Over 20 states have legalized recreational THC; ~37 states permit medical THC. Regulations vary on potency limits, testing, packaging, and labeling.  \n\n- **Safety & compliance considerations**  \n  - **Potency labeling**: Must state total Δ⁹‑THC (mg) per package and per serving.  \n  - **Testing**: Mandatory for potency, pesticides, residual solvents, heavy metals, and microbiology in most jurisdictions.  \n  - **Packaging**: Child‑resistant, tamper‑evident, and often requires THC‑specific warning statements.  \n  - **Dosage**: Begin low (2–5 mg Δ⁹‑THC) and titrate upward; higher doses increase risk of anxiety, paranoia, and cardiovascular effects.  \n\nIn short, THC is the main psychoactive cannabinoid responsible for the “high” associated with cannabis, with recognized medical applications and a complex regulatory environment that must be navigated for product development, marketing, and compliance.\n\n---\n*Agent: f8_agent | Tokens: 860 (128→732) | Cost: $0.000000*",
+        "agent": "f8_agent",
+        "timestamp": "2025-10-13T01:50:14.689Z",
+        "model": "openai/gpt-oss-120b",
+        "usage": {
+          "prompt_tokens": 128,
+          "completion_tokens": 732,
+          "total_tokens": 860,
+          "cost": 0
+        }
+      },
+      "responseTime": 3103
+    },
+    {
+      "agent": "science",
+      "question": "What are terpenes?",
+      "success": true,
+      "statusCode": 200,
+      "response": {
+        "success": true,
+        "response": "**Terpenes – the basics**\n\n- **What they are**  \n  Terpenes are a large family of aromatic organic compounds (hydrocarbons) built from repeating isoprene (C₅H₈) units. In plants they are synthesized via the methyl‑erythritol phosphate (MEP) pathway (in plastids) or the mevalonate pathway (in the cytosol).\n\n- **Why they matter in cannabis**  \n  - **Aroma & flavor:** Each terpene has a distinct scent (e.g., myrcene = earthy, limonene = citrus, linalool = floral). The unique “smell profile” of a cannabis strain is almost entirely determined by its terpene blend.  \n  - **Entourage effect:** Terpenes can modulate the pharmacology of cannabinoids (THC, CBD, etc.) by influencing receptor binding, blood‑brain barrier permeability, and metabolism. This synergy can enhance or soften effects such as relaxation, focus, pain relief, or anxiety reduction.  \n  - **Therapeutic potential:** Many terpenes have documented bioactivities—anti‑inflammatory, analgesic, anxiolytic, anti‑oxidant, antimicrobial, and neuroprotective—often at concentrations achievable in whole‑plant extracts.\n\n- **Common cannabis terpenes & key traits**  \n\n| Terpene | Aroma | Notable Effects (pre‑clinical/clinical) | Typical Concentration |\n|---------|-------|------------------------------------------|-----------------------|\n| **Myrcene** | Earthy, musky, clove | Sedative, muscle relaxant, enhances THC permeability | 0.5‑2 % (often the highest) |\n| **Limonene** | Citrus, sweet | Mood‑elevating, anti‑depressant, may improve bioavailability of other compounds | 0.1‑0.5 % |\n| **Pinene** | Pine, fresh | Bronchodilator, anti‑inflammatory, may counteract THC‑induced memory impairment | 0.05‑0.5 % |\n| **Linalool** | Lavender, floral | Anxiolytic, analgesic, anti‑convulsant | 0.1‑0.3 % |\n| **Caryophyllene** | Spicy, peppery | Selective CB₂ agonist → anti‑inflammatory, analgesic | 0.1‑0.5 % |\n| **Humulene** | Earthy, woody | Appetite suppressant, anti‑bacterial | ≤0.2 % |\n| **Terpinolene** | Herbal, piney | Antioxidant, mild sedative | ≤0.2 % |\n| **Ocimene** | Sweet, herbaceous | Antiviral, antifungal | Trace‑to‑low % |\n\n- **Safety & regulatory notes**  \n  - Terpenes are Generally Recognized As Safe (GRAS) for food and fragrance use.  \n  - Inhalation at high concentrations can be irritating; vaporizer temperature control (≤210 °C) helps avoid thermal degradation into potentially harmful by‑products.  \n  - For product labeling (U.S. FDA, EU, Canada), terpene content may be disclosed voluntarily but is not yet a mandatory requirement for cannabis, though many jurisdictions are moving toward “full spectrum” disclosure.\n\n- **Practical implications for industry**  \n  1. **Strain selection & breeding:** Manipulating terpene synthase genes (e.g., TPS1, TPS2) enables developers to craft desired aroma/therapeutic profiles.  \n  2. **Extraction & formulation:** Terpenes are volatile; low‑temperature CO₂ or hydrocarbon extraction preserves them better than high‑heat methods. Formulations often re‑add isolated terpenes (“terpene boosting”) to standardize profiles.  \n  3. **Marketing:** Highlighting terpene profiles (“citrus‑limonene, pine‑pinene”) resonates with consumers seeking specific effects or flavors.  \n  4. **Stability:** Store in amber, airtight containers, and keep below 25 °C to minimize oxidation and loss of volatile terpenes.\n\n**Bottom line:** Terpenes are the aromatic, biologically active hydrocarbons that give cannabis its signature scents, contribute to its therapeutic nuances, and are a key lever for product differentiation, formulation stability, and regulatory compliance.\n\n---\n*Agent: f8_agent | Tokens: 1106 (129→977) | Cost: $0.000000*",
+        "agent": "f8_agent",
+        "timestamp": "2025-10-13T01:50:26.384Z",
+        "model": "openai/gpt-oss-120b",
+        "usage": {
+          "prompt_tokens": 129,
+          "completion_tokens": 977,
+          "total_tokens": 1106,
+          "cost": 0
+        }
+      },
+      "responseTime": 10659
+    },
+    {
+      "agent": "science",
+      "question": "How do I test cannabis potency?",
+      "success": true,
+      "statusCode": 200,
+      "response": {
+        "success": true,
+        "response": "**Cannabis potency testing = quantifying Δ⁹‑THC, THCA, CBD, CBDA, and other cannabinoids**  \nBelow is a practical, step‑by‑step framework that you can use in‑house (if you have the equipment) or to evaluate third‑party labs.\n\n---\n\n## 1. Choose the analytical method  \n\n| Method | Strengths | Limitations | Typical Use |\n|--------|-----------|-------------|-------------|\n| **HPLC (High‑Performance Liquid Chromatography)** | ‑ No decarboxylation → measures both acid and neutral forms (THCA/Δ⁹‑THC, CBDA/CBD). <br>‑ Fast (2‑5 min per run). <br>‑ Low thermal degradation. | ‑ Slightly lower resolution for minor cannabinoids vs. GC‑MS. | **Standard for potency** in most U.S. states & Canada. |\n| **GC‑FID (Gas Chromatography – Flame Ionization Detector)** | ‑ Very sensitive to major cannabinoids. <br>‑ Lower equipment cost. | ‑ Requires decarboxylation → acid cannabinoids are lost (THCA → Δ⁹‑THC). <br>‑ Possible thermal degradation of labile cannabinoids. | Used when only total Δ⁹‑THC (acid + neutral) is needed. |\n| **GC‑MS (Gas Chromatography – Mass Spectrometry)** | ‑ Provides confirmatory identification of minor cannabinoids, terpenes, and contaminants. | ‑ Same decarboxylation issue as GC‑FID. <br>‑ More expensive, longer method development. | Confirmatory work, research, or when a full profile (cannabinoids + terpenes) is required. |\n| **LC‑MS/MS (Liquid Chromatography – Tandem MS)** | ‑ Highest sensitivity for trace cannabinoids and metabolites. <br>‑ No decarboxylation needed. | ‑ Higher cost, more complex data processing. | Research, medical‑grade products, or when you need picogram‑level detection. |\n\n**Bottom line:** For routine compliance testing, **HPLC** (UV‑Vis or DAD) is the industry standard.\n\n---\n\n## 2. Sample collection & preparation  \n\n| Step | Details |\n|------|---------|\n| **a. Sampling plan** | Follow ISO 17025 or AOAC 977.24 guidelines: random, representative, composite if needed. Typical sample size = **1 g** (dry weight). |\n| **b. Homogenization** | Grind to a fine, uniform powder (≤ 0.5 mm) using a cryogenic mill or stainless‑steel grinder. Keep the material cold to avoid premature decarboxylation. |\n| **c. Extraction solvent** | **95 % ethanol** (or methanol) is most common. Ratio ≈ **10 mL solvent / 1 g sample**. |\n| **d. Extraction protocol** | 1. Add solvent, vortex 30 s. <br>2. Sonicate 10 min (ambient temperature). <br>3. Centrifuge 3000 g, 5 min. <br>4. Collect supernatant. <br>5. Filter (0.2 µm PTFE) into HPLC vial. |\n| **e. Dilution** | Dilute to fall within calibration range (usually 0.1–10 µg/mL). Use the same solvent as the calibration standards. |\n| **f. Storage** | Keep extracts at ≤ ‑20 °C, protected from light. Analyze within 48 h for best accuracy. |\n\n*If you must use GC, add a **thermal decarboxylation step** (e.g., 105 °C for 30 min) before extraction.*\n\n---\n\n## 3. Calibration & standards  \n\n1. **Reference Materials** – Purchase USP‑grade cannabinoid standards (THC, THCA, CBD, CBDA, CBG, CBN, etc.) from a certified supplier (e.g., Cerilliant, Sigma‑Aldrich).  \n2. **Calibration curve** – Prepare at least **6 points** covering the expected range (e.g., 0.1, 0.5, 1, \n\n---\n*Agent: f8_agent | Tokens: 1130 (130→1000) | Cost: $0.000000*",
+        "agent": "f8_agent",
+        "timestamp": "2025-10-13T01:50:34.465Z",
+        "model": "openai/gpt-oss-120b",
+        "usage": {
+          "prompt_tokens": 130,
+          "completion_tokens": 1000,
+          "total_tokens": 1130,
+          "cost": 0
+        }
+      },
+      "responseTime": 7079
+    },
+    {
+      "agent": "science",
+      "question": "What is the difference between indica and sativa?",
+      "success": true,
+      "statusCode": 200,
+      "response": {
+        "success": true,
+        "response": "**Indica vs. Sativa – A Quick Reference for Cannabis Professionals**\n\n| Aspect | **Cannabis Indica** | **Cannabis Sativa** |\n|--------|--------------------|---------------------|\n| **Botanical Traits** | • Short, bushy plants<br>• Broad, dark‑green leaves<br>• Faster flowering (≈ 8–10 weeks)<br>• Higher yield per square foot | • Tall, lanky plants<br>• Narrow, light‑green leaves<br>• Longer flowering (≈ 10–14 weeks)<br>• Lower yield density but larger canopy |\n| **Typical Cannabinoid/Terpene Profile** | • Often higher **CBD** to THC ratios (e.g., 1:1 or 2:1) in medicinal strains<br>• Dominant terpenes: **myrcene**, **caryophyllene**, **linalool** (earthy, sedative) | • Usually higher **THC** dominance (e.g., 15–25 % THC, low CBD)<br>• Dominant terpenes: **limonene**, **pinene**, **terpinolene** (citrus, pine, uplifting) |\n| **Pharmacological Effects** | • “Body‑high” → muscle relaxation, analgesia, sleep aid<br>• Often used for chronic pain, insomnia, anxiety (when CBD‑rich) | • “Head‑high” → cerebral stimulation, mood elevation, creativity<br>• Common for daytime use, depression, fatigue, focus |\n| **Common Use Cases** | • Night‑time formulations (e.g., sleep tinctures, topical analgesics)<br>• Products targeting muscle spasm, arthritis, PTSD | • Day‑time products (e.g., vape cartridges, seltzers, edibles for mood boost)<br>• Formulations aimed at energy, focus, or social settings |\n| **Regulatory & Compliance Notes** | • Higher CBD content may affect scheduling in jurisdictions where CBD is regulated separately.<br>• Some regions restrict “high‑THC” indica strains for medical use only. | • Pure‑THC sativas often fall under stricter recreational limits (e.g., ≤ 0.3 % THC for hemp).<br>• Labeling must reflect THC potency and any psychoactive claims. |\n| **Cultivation Considerations** | • Better suited for indoor, limited‑height spaces.<br>• Faster turnaround → quicker product cycles. | • Requires taller grow rooms or outdoor space.<br>• Longer cycle → more planning for seasonal harvests. |\n\n### Key Take‑aways for Professionals\n1. **Effect vs. Genetics** – While “indica = sedating” and “sativa = energizing” are useful heuristics, the actual experience is driven by the **full cannabinoid‑terpene matrix**, not just species classification.\n2. **Formulation Strategy** – Choose indica‑dominant extracts for **sleep‑aid, analgesic, or anti‑anxiety** products; select sativa‑dominant extracts for **mood‑enhancing, focus‑boosting, or daytime** offerings.\n3. **Compliance** – Verify local THC/CBD thresholds for each strain type. In many jurisdictions, **CBD‑rich indica hybrids** may be classified differently than **high‑THC sativa hybrids**.\n4. **Marketing Language** – Avoid absolute claims (“induces sleep”) and instead use **effect‑based descriptors** supported by analytical data (e.g., “contains 1 % CBD and 0.5 % THC; terpene profile rich in myrcene”). This aligns with FDA/FTC guidance on cannabis product advertising.\n\nFeel free to ask for deeper details—e.g., terpene‑synergy charts, extraction methods tailored to each phenotype, or compliance checklists for a specific market.\n\n---\n*Agent: f8_agent | Tokens: 998 (134→864) | Cost: $0.000000*",
+        "agent": "f8_agent",
+        "timestamp": "2025-10-13T01:50:47.292Z",
+        "model": "openai/gpt-oss-120b",
+        "usage": {
+          "prompt_tokens": 134,
+          "completion_tokens": 864,
+          "total_tokens": 998,
+          "cost": 0
+        }
+      },
+      "responseTime": 11828
+    },
+    {
+      "agent": "operations",
+      "question": "How do I optimize my cannabis facility operations?",
+      "success": true,
+      "statusCode": 200,
+      "response": {
+        "success": true,
+        "response": "### 1. Facility Layout & Workflow (Lean‑style)\n\n| Goal | Action |\n|------|--------|\n| **Minimize travel distance** | Map the “value stream” from seed → harvest → post‑harvest → packaging. Place each stage in a linear, unidirectional flow; avoid back‑tracking or cross‑traffic. |\n| **Separate “clean” vs. “dirty” zones** | Keep vegetative, flowering, drying, extraction, and packaging in distinct, pressure‑controlled zones with dedicated entry/exit points. |\n| **Standardize workstations** | Use modular work‑stations (e.g., 4‑ft × 8‑ft benches) that can be re‑configured as product mix changes. |\n| **Create “quick‑change” zones** | Install mobile walls or curtains so you can repurpose space for new strains or product lines without major construction. |\n\n**Quick tip:** Conduct a “spaghetti diagram” of a typical shift. Every line crossing is a waste‑reduction opportunity.\n\n---\n\n### 2. Process Automation & Technology\n\n| Area | Recommended Tech | Benefit |\n|------|------------------|---------|\n| **Environmental control** | IoT‑linked HVAC, CO₂, RH, and light sensors with AI‑driven set‑points | Consistent canopy health → higher yields, lower energy spikes |\n| **Irrigation & nutrients** | Closed‑loop fertigation controllers + real‑time EC/pH probes | Reduce water use 15‑30 % and eliminate nutrient drift |\n| **Harvest & trimming** | Robotic trimmers (e.g., TrimBot) + conveyor‑belt sorting | Labor cost ↓ 25‑40 %; uniform flower size |\n| **Extraction** | PLC‑controlled short‑path distillation or supercritical CO₂ with batch‑tracking software | Consistent potency, easier compliance reporting |\n| **Packaging** | Automated weighing, labeling, and child‑proof sealing stations integrated with a LIMS/ERP | Faster line speeds, zero‑error labeling for compliance |\n| **Inventory & traceability** | RFID/QR‑code tags linked to a cloud ERP (e.g., BioTrackTHC, MJ Platform) | Real‑time lot tracking, recall readiness, audit‑ready reports |\n\n**Implementation tip:** Pilot a single line before scaling; collect KPI data (throughput, downtime) to validate ROI.\n\n---\n\n### 3. Compliance, QA & Documentation\n\n1. **Master SOP Library** – Create version‑controlled SOPs for every critical step (cultivation, testing, packaging). Store them in a centralized, searchable system (e.g., SharePoint + audit trail).\n2. **Built‑in Compliance Checks** – Embed validation rules in your ERP/LIMS (e.g., “THC > 30 % requires extra testing”). Trigger alerts before batch release.\n3. **Batch‑Level QA** – Use a “digital batch passport” that records:\n   - Genetics & seed lot\n   - Environmental logs (temp, RH, CO₂)\n   - Nutrient and pesticide applications\n   - Lab results (potency, contaminants)\n   - Packaging details\n4. **Audit Calendar** – Schedule internal audits quarterly; map findings to corrective‑action plans with due dates.\n\n---\n\n### 4. Inventory, Supply‑Chain & Demand Planning\n\n| Practice | How to Execute |\n|----------|----------------|\n| **Just‑in‑Time (JIT) stocking** | Use ERP demand forecasts to keep raw material safety stock at ≤ 2 weeks. |\n| **First‑Expire‑First‑Out (FEFO)** | RFID tags auto‑sort inventory by expiration/harvest date. |\n| **Vendor Scorecard** | Rate suppliers on lead‑time, quality, and cost; renegotiate quarterly. |\n| **Dynamic batch sizing** | Adjust harvest batch size based on real‑time market orders to reduce over‑production. |\n\n---\n\n### 5. Energy Efficiency & Sustainability\n\n| Initiative\n\n---\n*Agent: f8_agent | Tokens: 1132 (132→1000) | Cost: $0.000000*",
+        "agent": "f8_agent",
+        "timestamp": "2025-10-13T01:50:59.557Z",
+        "model": "openai/gpt-oss-120b",
+        "usage": {
+          "prompt_tokens": 132,
+          "completion_tokens": 1000,
+          "total_tokens": 1132,
+          "cost": 0
+        }
+      },
+      "responseTime": 11268
+    },
+    {
+      "agent": "operations",
+      "question": "What are the best practices for cannabis cultivation?",
+      "success": true,
+      "statusCode": 200,
+      "response": {
+        "success": true,
+        "response": "**Best‑Practice Checklist for Cannabis Cultivation**  \n*(Applicable to indoor, greenhouse, and outdoor operations – adapt the specifics to your local climate and regulatory framework.)*\n\n---\n\n### 1. Genetics & Planning\n| Step | Why it matters | Quick tip |\n|------|----------------|-----------|\n| **Select proven strains** | Guarantees predictable yield, potency, and disease resistance. | Use certified seed/clones from reputable breeders; keep a genetics register. |\n| **Match strain to environment** | Some varieties thrive in warm, humid climates; others prefer cooler, drier conditions. | Choose indica‑dominant for cooler zones, sativa‑dominant for long‑day light cycles. |\n| **Create a crop calendar** | Aligns vegetative/flowering phases with legal harvest windows and market demand. | Plot sow‑to‑harvest dates, buffer for “dry‑run” tests, and plan staggered flushes for continuous supply. |\n\n---\n\n### 2. Growing Medium & Nutrition\n| Parameter | Best practice |\n|-----------|---------------|\n| **Soil** | Use a well‑draining, organic mix (e.g., 40 % coco coir, 30 % peat, 20 % perlite, 10 % compost). Amend with mycorrhizae and beneficial bacteria. |\n| **Hydroponics** | Keep EC 1.2–2.0 mS/cm (veg) and 1.8–2.5 mS/cm (flower). Use a recirculating NFT or DWC system with UV‑sterilized water. |\n| **Nutrients** | Follow a 3‑stage feeding schedule (veg → transition → bloom). Keep N‑P‑K ratios around 3‑1‑2 in veg, 1‑3‑2 in bloom, plus micronutrients (Ca, Mg, Fe, Zn). |\n| **pH control** | Maintain 6.0–6.5 for soil, 5.5–5.8 for hydroponics. Use calibrated pH meters and automatic dosing pumps. |\n\n---\n\n### 3. Environmental Controls\n| Factor | Optimal Range | Management tools |\n|--------|--------------|------------------|\n| **Light** | 400–600 µmol·m⁻²·s⁻¹ PPFD (veg), 600–1000 µmol·m⁻²·s⁻¹ (flower). 12 h light/12 h dark for photoperiod strains. | Full‑spectrum LEDs, PAR meters, programmable timers. |\n| **Temperature** | 22‑28 °C (veg), 20‑26 °C (flower). Keep ΔT ≤ 5 °C day/night. | HVAC, inline fans, thermostatic controllers. |\n| **Relative Humidity** | 60‑70 % (veg), 40‑55 % (flower). | Humidifiers/dehumidifiers with hygrometers; vent placement. |\n| **CO₂** | 1200‑1500 ppm (optional boost). | CO₂ tanks or generators with safety shut‑offs. |\n| **Airflow** | 1–2 ft·s⁻¹ across canopy; fresh‑air exchange every 5‑10 min. | Oscillating fans, exhaust ducts, HEPA filters (if pathogen‑free). |\n\n---\n\n### 4. Water Management\n| Practice | Detail |\n|----------|--------|\n| **Filtration** | Use 5 µm carbon pre‑filter + UV sterilizer to remove chlorine, pathogens, and algae spores. |\n| **Irrigation scheduling** | Water when the top 2‑3 cm of medium are dry; avoid standing water to prevent root rot. |\n| **Recycling** | Capture runoff, adjust EC/pH, and reuse for sustainability (subject to local water‑use regulations). |\n\n---\n\n### 5. Integrated Pest & Disease Management (IPM)\n| Component | Action |\n|-----------|--------|\n| **Preventive sanitation** | Clean/disinfect tools, benches, and grow rooms weekly; use foot‑dips and air showers. |\n| **Biological controls** | Introduce predatory mites (e.g., *Neoseiulus californicus*), *Bacillus thuringiensis*, and beneficial nematodes. |\n| **Monitoring** | Deploy sticky traps, pheromone lures,\n\n---\n*Agent: f8_agent | Tokens: 1133 (133→1000) | Cost: $0.000000*",
+        "agent": "f8_agent",
+        "timestamp": "2025-10-13T01:51:13.461Z",
+        "model": "openai/gpt-oss-120b",
+        "usage": {
+          "prompt_tokens": 133,
+          "completion_tokens": 1000,
+          "total_tokens": 1133,
+          "cost": 0
+        }
+      },
+      "responseTime": 12905
+    },
+    {
+      "agent": "operations",
+      "question": "How do I manage cannabis inventory?",
+      "success": false,
+      "statusCode": 504,
+      "response": {
+        "message": "Endpoint request timed out"
+      },
+      "responseTime": 29053
+    },
+    {
+      "agent": "marketing",
+      "question": "How should I market my cannabis brand on social media?",
+      "success": true,
+      "statusCode": 200,
+      "response": {
+        "success": true,
+        "response": "**Marketing a Cannabis Brand on Social Media – A Compliance‑First Playbook**\n\nBelow is a practical, step‑by‑step framework you can adapt to any platform. It balances growth‑driven tactics with the strict legal and platform rules that govern cannabis advertising.\n\n---\n\n### 1️⃣ Know the Legal Landscape (Your First Guardrail)\n\n| Jurisdiction | Key Restrictions | What to Do |\n|--------------|------------------|------------|\n| **U.S. Federal** | No paid ads that promote THC products; no health‑claim language | Stick to **organic** content; use “CBD” only where legal; avoid “medical” statements. |\n| **State‑level** | Age‑gating, limited targeting, no false claims | Verify your state’s advertising rules; add a **18+ (or 21+) age gate** on landing pages. |\n| **Canada** | Similar to U.S., but Canada allows paid ads on some platforms with age‑gate | Follow Health Canada guidelines; include required **mandatory health warnings**. |\n| **EU** | Varies by country; many prohibit paid THC ads | Treat each market separately; use **generic “well‑being”** language where needed. |\n\n**Action:** Draft a compliance checklist (age gate, disclaimer, no medical claims, product‑specific labeling) and have it reviewed by legal counsel before any post goes live.\n\n---\n\n### 2️⃣ Choose the Right Platforms & Understand Their Policies\n\n| Platform | Cannabis Policy Highlights | Viable Tactics |\n|----------|----------------------------|----------------|\n| **Instagram / Facebook** | No paid promotion of THC; organic posts allowed if age‑gated via bio link. | High‑quality visuals, behind‑the‑scenes stories, user‑generated content (UGC). |\n| **Twitter** | More permissive for organic content; no paid ads for THC. | Real‑time conversation, industry news, AMA sessions. |\n| **TikTok** | Strictly bans THC content; can showcase *culture* (music, lifestyle) without product shots. | Short‑form lifestyle clips, plant‑care tips, “day‑in‑the‑life”. |\n| **YouTube** | Allowed if age‑restricted; no direct product sales in video description. | Educational series (e.g., “How to Choose a Strain”), brand story, lab‑tour. |\n| **LinkedIn** | Business‑to‑business focus; fine for corporate news, partnerships, hiring. | Thought‑leadership articles, sustainability reports. |\n| **Pinterest** | Allows “CBD” content with age gating; no THC. | Infographics, recipe boards, wellness mood boards. |\n\n**Tip:** Keep a **platform‑specific compliance matrix** so the creative team knows what’s allowed where.\n\n---\n\n### 3️⃣ Build a Cohesive Brand Narrative\n\n| Element | Why It Matters | Example Execution |\n|---------|----------------|-------------------|\n| **Brand Voice** | Consistency builds trust & recognizability. | Friendly, knowledgeable, “cannabis‑curated”. |\n| **Storytelling** | People buy *experience*, not just product. | Share founder’s journey, sustainability practices, farm‑to‑shelf process. |\n| **Visual Identity** | Cannabis is still stigmatized; clean design reduces bias. | Use muted earth tones, high‑resolution macro shots of buds, minimalist packaging photography. |\n| **Community Values** | Align with the “green” consumer ethos. | Highlight charitable initiatives, eco‑packaging, local sourcing. |\n\n---\n\n### 4️⃣ Content Pillars & Calendar (What to Post)\n\n| Pillar | Frequency | Content Ideas |\n|--------|-----------|---------------|\n| **Education** | 2‑3×/week | “Terpene 101”, dosage guides, legal updates. |\n| **Product Showcases** (organic only) | 1‑2×/week | Lifestyle shots, “unboxing” videos, strain highlights (no price). |\n| **User‑Generated Content** | Ongoing | Re‑post customer photos (with consent), hashtag contests. |\n| **Behind‑the‑Scenes** | 1×/week | Grow‑room tours, lab testing, staff spotlights. |\n| **Community & CSR** | 1×/month | Partnerships with local nonprofits, sustainability metrics. |\n| **Interactive** | 1‑2×/week | Polls, Q&A, “Ask Me Anything” sessions, quizzes on strain preferences. |\n\n**Tool:** Use a simple spreadsheet or a free content‑calendar tool (e.g., Trello) with columns for *Platform, Pillar, Copy, Visual, Compliance Check, Publish Date*.\n\n---\n\n### 5️⃣ Leverage Influencers—But Stay Compliant\n\n1. **Select Influencers Who Are 21+ (or 18+ where legal) and Have a Clear Age‑Gated Audience.**\n2. **Draft a Written Influencer Agreement** that includes:\n   - Mandatory disclaimer (“This post is for adults 21+ only. Not medical advice.”)\n   - No false health claims.\n   - Requirement to tag your brand with a **designated hashtag**.\n3. **Micro‑Influencers (5k‑50k followers)** often have higher engagement and are easier to manage compliance‑wise.\n4. **Track Performance** with UTM parameters and a simple KPI dashboard (reach, engagement, click‑through to age‑gate page).\n\n---\n\n### 6️⃣ Paid Promotion (Where Permitted)\n\n| Platform | Allowed? | How to Execute Safely |\n|----------|----------|------------------------|\n| **Facebook/Instagram** | Only for *CBD* or *non‑THC* products in jurisdictions that allow it. | Use **age‑gate landing pages**, restrict audience to 21+, include mandatory health warnings in ad copy. |\n| **Google Ads** | Generally blocked for THC; allowed for “educational” content. | Focus on SEO and content marketing instead of direct ads. |\n| **Programmatic Display** | Some networks have cannabis‑friendly sections. | Vet the network’s compliance policies; use **transparent labeling**. |\n\n**Rule of Thumb:** If you’re unsure, default to **organic** only. Paid spend can be risky and costly if a platform flags your account.\n\n---\n\n### 7️⃣ Community Management & Crisis Protocol\n\n1. **Moderate Comments** – Remove any under‑18 users, health‑claim questions, or illegal requests.\n2. **Rapid Response Plan** – Draft templated replies for:\n   - “Is this product safe for pregnancy?” → “We do not provide medical advice; please consult a healthcare professional.”\n   - “Can I buy this in my state?” → Direct them to your compliance‑checked website for state‑specific availability.\n3. **Escalation** – If a comment triggers legal concern, forward to compliance/legal team within 24 hrs.\n\n---\n\n### 8️⃣ Metrics & Continuous Optimization\n\n| KPI | What It Tells You | Target (Typical) |\n|-----|-------------------|------------------|\n| **Follower Growth (monthly)** | Brand awareness | +5‑10 % month‑over‑month |\n| **Engagement Rate (likes+comments / impressions)** | Content relevance | 2‑5 % for Instagram, 1‑2 % for Twitter |\n| **Click‑Through Rate to Age‑Gate Page** | Funnel effectiveness | 1‑3 % |\n| **UGC Volume (posts per month)** | Community enthusiasm | 50+ tagged posts/month |\n| **Sentiment Score (positive vs. negative comments)** | Brand perception | >80 % positive |\n\nUse a free analytics dashboard (e.g., Google Data Studio) to pull data from each platform’s native insights and track trends weekly.\n\n---\n\n### 9️⃣ Quick‑Start Checklist (First 30 Days)\n\n| Day | Action |\n|-----|--------|\n| 1‑2 | Compile state‑by‑state advertising rules & create compliance matrix. |\n| 3‑5 | Audit existing social accounts for age‑gate, disclaimer, and prohibited language. |\n| 6‑10 | Define brand voice, visual style guide, and 3‑5 core hashtags. |\n| 11‑15 | Build a 4‑week content calendar using the pillars above. |\n| 16‑20 | Identify 5‑10 micro‑influencers; send outreach with compliance brief. |\n| 21‑25 | Create age‑gate landing page (simple form + “You must be 21+”). |\n| 26‑30 | Launch first batch of posts; monitor metrics and adjust copy/visuals. |\n\n---\n\n## TL;DR – Your Social Media Playbook\n\n1. **Compliance first** – age‑gate, no medical claims, platform‑specific rules.  \n2. **Pick platforms wisely** – organic on Instagram, Twitter, TikTok; age‑restricted YouTube.  \n3. **Tell a story** – brand voice, sustainability, founder journey.  \n4. **Diversify content** – education, lifestyle, behind‑the‑scenes, UGC.  \n5. **Use influencers responsibly** – 21+, clear contracts, mandatory disclaimer.  \n6. **Paid ads only where legally allowed** – always with age‑gate landing pages.  \n7. **Moderate, respond, and have a crisis plan**.  \n8. **Track KPIs** – growth, engagement, click‑through, sentiment.  \n9. **Iterate weekly** – refine creative based on data.\n\nFollow this framework, keep your legal team in the loop, and you’ll build a strong, compliant social presence that drives brand loyalty and sales without risking platform bans or regulatory penalties. Good luck! 🚀\n\n---\n*Agent: f8_agent | Tokens: 2336 (135→2201) | Cost: $0.000000*",
+        "agent": "f8_agent",
+        "timestamp": "2025-10-13T01:52:11.933Z",
+        "model": "openai/gpt-oss-120b",
+        "usage": {
+          "prompt_tokens": 135,
+          "completion_tokens": 2201,
+          "total_tokens": 2336,
+          "cost": 0
+        }
+      },
+      "responseTime": 27414
+    },
+    {
+      "agent": "marketing",
+      "question": "What are the best practices for cannabis advertising?",
+      "success": true,
+      "statusCode": 200,
+      "response": {
+        "success": true,
+        "response": "**Cannabis Advertising – Best‑Practice Playbook**\n\nBelow is a concise, step‑by‑step framework that works for most U.S. state‑legal markets. Because each jurisdiction has its own statutes and regulator‑issued guidance (e.g., California Department of Cannabis Control, Colorado Department of Revenue, Massachusetts Cannabis Control Commission, etc.), treat this as a “baseline” and then layer on the local rules that apply to you.\n\n---\n\n## 1️⃣ Compliance First – The Legal “Must‑Do” Checklist  \n\n| Area | What to Do | Typical Prohibition |\n|------|------------|---------------------|\n| **Age gating** | All digital assets must require a 21+ age verification before any content is displayed. | No content reachable by persons < 21 (e‑mail, social, website, QR codes). |\n| **Geofencing** | Use IP‑based or GPS‑based filters to block impressions in states where you have no license. | Advertising that could be viewed in a non‑licensed jurisdiction (including out‑of‑state TV, radio, or programmatic ads). |\n| **Health & therapeutic claims** | Limit language to “product‑specific effects” (e.g., “relaxing,” “uplifting”) and avoid disease‑cure language. | No statements that a product treats, prevents, or cures any medical condition unless you hold a state‑approved medical‑use permit and have the specific wording approved. |\n| **Pricing & promotions** | Clearly disclose any taxes, fees, or surcharges; do not offer “buy‑one‑get‑one‑free” or “free samples” unless the state explicitly permits it. | No “price‑discount” or “free‑gift” incentives that could be deemed inducement for a purchase. |\n| **Product imagery** | Show the product in a neutral context (e.g., packaging, lab‑tested product) without depicting consumption. | No images of people smoking, vaping, or ingesting cannabis; no hand‑holding of a joint, vape pen, or edible. |\n| **Branding & logos** | Avoid using cartoon characters, mascots, or imagery that appeals to children. | No child‑friendly fonts, bright candy‑colors, or mascots. |\n| **Social‑media platform policies** | Verify that each platform (Meta, Google, TikTok, etc.) allows cannabis‑related ads in the target state and that you meet their age‑targeting rules. | Many platforms block “recreational” cannabis ads altogether; some allow “CBD” or “medical‑only.” |\n| **Record‑keeping** | Keep a master copy of every ad, the date it ran, the channel, targeting parameters, and proof of age‑gating. | Audits can be triggered by the state; missing documentation can lead to fines or license suspension. |\n| **Legal review** | Have a qualified cannabis‑law attorney sign‑off on all creative assets before launch. | No “self‑serve” assumption that a compliance checklist is sufficient. |\n\n> **Tip:** Create a “Compliance Playbook” (Google Drive/SharePoint) with a template sign‑off sheet. Every new campaign must be logged and signed by the compliance officer.\n\n---\n\n## 2️⃣ Know Your Audience – Targeting Without Crossing the Line  \n\n| Audience | Messaging Focus | Channel Preference |\n|----------|----------------|---------------------|\n| **Adult recreational users (21‑35)** | Lifestyle & experience (“Elevate your night out,” “Crafted for the connoisseur”) | Instagram, TikTok (where allowed), Spotify audio ads, programmatic display with age‑gate. |\n| **Adult medical patients (35‑\n\n---\n*Agent: f8_agent | Tokens: 1132 (132→1000) | Cost: $0.000000*",
+        "agent": "f8_agent",
+        "timestamp": "2025-10-13T01:52:23.948Z",
+        "model": "openai/gpt-oss-120b",
+        "usage": {
+          "prompt_tokens": 132,
+          "completion_tokens": 1000,
+          "total_tokens": 1132,
+          "cost": 0
+        }
+      },
+      "responseTime": 11019
+    },
+    {
+      "agent": "marketing",
+      "question": "How do I build brand awareness for cannabis products?",
+      "success": true,
+      "statusCode": 200,
+      "response": {
+        "success": true,
+        "response": "Below is a practical, compliance‑first playbook you can follow to lift brand awareness for a cannabis product line.\n\n---\n\n## 1. Lay the Compliance Groundwork  \n\n| What to Do | Why It Matters | Quick Tips |\n|------------|----------------|------------|\n| **Map State/Provincial Rules** | Advertising restrictions (e.g., no targeting minors, no health claims, limits on visual content) vary by jurisdiction. | Keep a spreadsheet of each market’s “no‑go” items (e.g., “no edible images” in CO, “no price promos” in Canada). |\n| **Create a Brand‑Compliance Checklist** | Ensures every asset (social post, packaging, website) clears legal review before launch. | Include fields for: age‑gate, required warnings, THC/CBD % disclosure, QR code for lab results. |\n| **Secure All Required Licenses** | Some states require a “marketing license” or pre‑approval for campaigns. | Verify with your state cannabis board; keep copies on file. |\n| **Develop a “Medical Disclaimer”** | Prevents implied therapeutic claims. | Use language like: “This product is not intended to diagnose, treat, or cure any disease.” |\n\n---\n\n## 2. Define Your Brand Identity & Target Persona  \n\n| Element | Action |\n|---------|--------|\n| **Core Value Proposition** | E.g., “premium, lab‑tested, sustainably grown for the wellness‑focused adult.” |\n| **Audience Segments** | • Recreational socializers (21‑35) <br>• Wellness‑oriented adults (35‑55) <br>• Connoisseurs/collectors (30‑45) |\n| **Visual & Voice Guidelines** | Consistent color palette, logo placement, tone (e.g., friendly‑expert, not “party‑hard”). |\n| **Storytelling Hooks** | Farm origin, extraction method, sustainability, community impact. |\n\n---\n\n## 3. Build a Multi‑Channel Awareness Engine  \n\n### A. Digital Presence (Compliance‑First)\n\n| Channel | Tactics | Compliance Note |\n|---------|---------|-----------------|\n| **Website** | • SEO‑optimized blog with educational content (e.g., “How to read a lab report”). <br>• Age‑gate (21+). <br>• QR‑linked Certificate of Analysis (COA). | No health claims; display required THC/CBD percentages. |\n| **Search (SEM)** | • Google Ads only in states where cannabis advertising is permitted. <br>• Use “generic” keywords like “premium hemp oil” rather than brand name if restrictions apply. | Use age‑verified landing pages. |\n| **Social Media** | • Instagram, TikTok, Facebook (where allowed) – focus on lifestyle, behind‑the‑scenes, product art. <br>• Use “Story Highlights” for lab results, sustainability. | No direct calls‑to‑action to purchase; no minors in comments. |\n| **Email & SMS** | • Opt‑in list with age verification. <br>• Monthly “Education & Updates” newsletter. | Include unsubscribe link; do not promote discounts in jurisdictions that ban price promos. |\n\n### B. Community & Experiential\n\n| Tactic | How to Execute | Compliance |\n|--------|----------------|------------|\n| **Pop‑up Tastings / “Education Sessions”** | Partner with licensed dispensaries or cannabis lounges; provide product demos, hand out QR‑linked COAs. | All attendees must be 21+. No free product giveaways unless state permits. |\n| **Sponsorship of Local Events** | Music festivals, art shows, wellness retreats – provide branded swag (e.g., reusable tote, water bottle). | Swag cannot contain THC/CBD; no direct product sampling without a licensed venue. |\n| **Influencer Partnerships** | Choose creators with a verified 21+ audience; have them discuss “the experience” not “the effect.” | Influencers must include a disclaimer: “Not a medical endorsement.” |\n| **Affiliate/Referral Program** | Reward verified adult customers for referrals (discount on next purchase). | Verify age before credit is applied; ensure referral links go to age‑gated site. |\n\n### C. Traditional Media (\n\n---\n*Agent: f8_agent | Tokens: 1134 (134→1000) | Cost: $0.000000*",
+        "agent": "f8_agent",
+        "timestamp": "2025-10-13T01:52:38.570Z",
+        "model": "openai/gpt-oss-120b",
+        "usage": {
+          "prompt_tokens": 134,
+          "completion_tokens": 1000,
+          "total_tokens": 1134,
+          "cost": 0
+        }
+      },
+      "responseTime": 13614
+    },
+    {
+      "agent": "sourcing",
+      "question": "Where can I source high-quality cannabis seeds?",
+      "success": true,
+      "statusCode": 200,
+      "response": {
+        "success": true,
+        "response": "### How to Source High‑Quality Cannabis Seeds — A Quick‑Start Guide\n\n| Step | What to Do | Why It Matters |\n|------|------------|----------------|\n| **1️⃣ Verify Legal Status** | • Confirm that purchasing, importing, or growing cannabis seeds is legal in your jurisdiction (state, province, country).  <br>• Check any licensing or registration requirements for growers or seed distributors. | Non‑compliance can result in fines, confiscation, or criminal charges. |\n| **2️⃣ Choose a Reputable Seed Bank** | **Domestic (U.S./Canada)** – <br>• **ILGM (I Love Growing Marijuana)** – U.S.‑based, germination guarantee, wholesale program. <br>• **Seedsman** – U.S. & EU warehouses, extensive catalog, COA on request. <br>• **True North Seed Bank** – Canada‑licensed, third‑party lab tested, bulk discounts. <br>**International (EU/Asia)** – <br>• **Royal Queen Seeds** (Spain) – EU‑GMP facility, >95 % germination, GMO‑free. <br>• **Sensi Seeds** (Netherlands) – 30‑yr pedigree, seed bank & breeding program. <br>• **The Vault** (Netherlands) – High‑THC & high‑CBD lines, COA available. | Established banks have: <br>• Proven genetics & breeding history. <br>• Transparent lab results (potency, pesticide screens). <br>• Secure packaging & tracking. |\n| **3️⃣ Look for Quality Indicators** | • **Germination rate** (≥ 90 % advertised). <br>• **Genetic pedigree** (parent strain info, phenotype stability). <br>• **Third‑party COA** (potency, contaminants). <br>• **Packaging** – vacuum‑sealed, desiccant packets, UV‑protected. | Guarantees you receive viable, true‑to‑type seeds and reduces risk of pests/contaminants. |\n| **4️⃣ Consider Wholesale / Bulk Options** | • Most seed banks offer “grower” or “wholesale” accounts (10 k‑100 k+ seeds). <br>• Ask for tiered pricing, dedicated account reps, and custom packaging. <br>• Verify that bulk shipments meet your state’s import limits (if applicable). | Bulk buying drives down cost per seed and eases supply chain planning for large‑scale operations. |\n| **5️⃣ Vet the Supplier** | • Check **customer reviews** on forums (e.g., Roll‑It‑Your‑Own, Reddit r/seedbanks). <br>• Request **sample packs** (10‑20 seeds) before committing to large orders. <br>• Confirm **payment security** (Escrow, credit card, ACH). | Reduces risk of counterfeit or low‑viability seed lots. |\n| **6️⃣ Secure Logistics** | • Use **trackable, temperature‑controlled shipping** (dry ice or insulated packaging for long hauls). <br>• Keep **customs documentation** (COA, seed‑origin certificates) ready if crossing borders. <br>• Store received seeds **cool, dark, low‑humidity** (≈ 4 °C, < 30 % RH). | Maintains germination potential and keeps you compliant with import/export regulations. |\n| **7️⃣ Build Relationships** | • Attend industry trade shows (e.g., **MJBizCon**, **Cannabis Science Conference**, **CPhI Pharma**). <br>• Join **seed‑bank affiliate programs** for early access to new genetics. <br>• Network with local **licensed growers** for seed swapping and quality feedback. | Long‑term partnerships can give you first‑pick on limited‑edition strains and insider cultivation tips. |\n\n---\n\n#### Quick List of Trusted Seed Banks (with wholesale options\n\n---\n*Agent: f8_agent | Tokens: 1132 (132→1000) | Cost: $0.000000*",
+        "agent": "f8_agent",
+        "timestamp": "2025-10-13T01:52:50.927Z",
+        "model": "openai/gpt-oss-120b",
+        "usage": {
+          "prompt_tokens": 132,
+          "completion_tokens": 1000,
+          "total_tokens": 1132,
+          "cost": 0
+        }
+      },
+      "responseTime": 11355
+    },
+    {
+      "agent": "sourcing",
+      "question": "How do I evaluate cannabis suppliers?",
+      "success": true,
+      "statusCode": 200,
+      "response": {
+        "success": true,
+        "response": "### How to Evaluate Cannabis Suppliers – A Practical Checklist  \n\n| Evaluation Area | What to Look For | How to Verify |\n|-----------------|------------------|---------------|\n| **Regulatory Compliance** | • State‑licensed (or federally‑licensed where applicable) <br>• Holds all required cultivation, processing, and distribution permits <br>• Current Good Manufacturing Practice (cGMP) or ISO‑9001 certification (if claimed) | • Request copy of the license(s) and expiration dates <br>• Check the state’s licensing portal (e.g., METRC, BCL, OCS) <br>• Ask for audit reports or third‑party certification documents |\n| **Product Quality & Consistency** | • Full spectrum analytical reports (potency, terpenes, residual solvents, pesticides, heavy metals, microbiology) <br>• Batch‑to‑batch variance ≤ 10 % for key metrics <br>• Proven stability data for the formats you’ll receive | • Review a recent Certificate of Analysis (CoA) for multiple batches <br>• Request a “sample pack” with raw material and finished product for in‑house testing <br>• Verify that the lab performing the analysis is state‑approved or ISO‑17025 accredited |\n| **Supply Chain Transparency** | • Seed‑to‑sale traceability (barcode, QR, RFID) <br>• Clear documentation of cultivation method (indoor, greenhouse, outdoor) and harvest dates <br>• Proven track‑and‑trace integration (e.g., METRC, BioTrackTHC) | • Walk through a sample traceability report <br>• Test the data feed into your own ERP or compliance system |\n| **Capacity & Scalability** | • Minimum order size vs. your demand forecasts <br>• Ability to ramp up production on short notice (e.g., seasonal spikes) <br>• Redundancy (multiple grow sites or partner farms) | • Review monthly production schedules and lead‑time metrics <br> • Ask for historical fill‑rate percentages |\n| **Pricing & Terms** | • Transparent cost breakdown (raw material, processing, testing, packaging) <br>• Volume discounts, early‑payment rebates, or consignment options <br>• Return‑or‑reject policy for out‑of‑spec batches | • Obtain a formal quotation with all fees disclosed <br>• Compare against market benchmarks (e.g., BDS, New Frontier data) |\n| **Packaging & Labeling** | • Child‑resistant, tamper‑evident packaging that meets state requirements <br>• Accurate, compliant label content (potency, warnings, QR for traceability) <br>• Ability to co‑brand or use private‑label formats | • Request packaging samples <br>• Verify label compliance with your state’s labeling guide |\n| **Sustainability & ESG** *(optional but increasingly important)* | • Energy‑efficient grow methods, water‑recycling, waste‑reduction programs <br>• Third‑party ESG certifications (e.g., ISO 14001) | • Ask for sustainability reports or carbon‑footprint calculations |\n| **Customer Service & Communication** | • Dedicated account manager <br>• Real‑time order status portal <br>• Rapid response to quality issues (≤ 48 h) | • Conduct a trial order and measure response times <br>• Review SLA (Service Level Agreement) clauses |\n| **Legal & Liability Protection** | • Product liability insurance (minimum coverage often $5‑10 M) <br>• Indemnification clauses in contract <br>• Clear recall procedures | • Request certificate of insurance and copy of the contract template |\n\n---\n\n#### Step‑by‑Step Evaluation Process  \n\n1. **Pre‑Screening**  \n   - Compile a shortlist (3‑5 suppliers) using industry directories (e.g., Leafly Business, Cannabis Business Times).  \n   - Verify licensing status via the state’s online portal.\n\n2. **Documentation Review**  \n   - Collect CoAs, certificates, insurance docs, and SOP excerpts.  \n   - Flag any missing or expired items.\n\n3. **On‑Site or Virtual Audit**  \n   - If feasible, tour the cultivation/processing facility (or request a live video walkthrough).  \n   - Confirm SOPs for hygiene, pest management, and solvent recovery are being followed.\n\n4. **Sample Testing**  \n   - Order a pilot batch (≈ 5 kg) and run it through your own QC lab or a third‑party accredited\n\n---\n*Agent: f8_agent | Tokens: 1130 (130→1000) | Cost: $0.000000*",
+        "agent": "f8_agent",
+        "timestamp": "2025-10-13T01:53:01.087Z",
+        "model": "openai/gpt-oss-120b",
+        "usage": {
+          "prompt_tokens": 130,
+          "completion_tokens": 1000,
+          "total_tokens": 1130,
+          "cost": 0
+        }
+      },
+      "responseTime": 9167
+    },
+    {
+      "agent": "sourcing",
+      "question": "What are the best practices for cannabis supply chain management?",
+      "success": false,
+      "statusCode": 504,
+      "response": {
+        "message": "Endpoint request timed out"
+      },
+      "responseTime": 29062
+    },
+    {
+      "agent": "patent",
+      "question": "Can I patent my cannabis extraction process?",
+      "success": true,
+      "statusCode": 200,
+      "response": {
+        "success": true,
+        "response": "**Short answer:** Yes, you can seek a U.S. (and foreign) patent on a novel, non‑obvious cannabis‑extraction process, provided you meet the normal patent requirements and the invention is not “off‑limits” because of federal drug‑law restrictions at the time of filing.\n\n---\n\n## 1. Why a process can be patented\n\n| Requirement | What it means for an extraction method |\n|-------------|------------------------------------------|\n| **Statutory subject matter** (35 U.S.C. § 101) | A *method* of making or using a product is patent‑eligible. Plant‑derived compounds are not “products of nature” when you apply a specific series of steps. |\n| **Novelty** (§ 102) | No single prior‑art reference must disclose *all* the same steps and conditions. |\n| **Non‑obviousness** (§ 103) | The combination of steps, parameters (temperature, pressure, solvents, catalysts, time, etc.) must not be an obvious improvement to a person of ordinary skill in the art (POSITA). |\n| **Utility** (§ 101) | The process must produce a useful result (e.g., a concentrate with a defined cannabinoid profile, purity, or bioavailability). |\n| **Written description & enablement** (§ 112) | Your application must describe the process in enough detail that a POSITA could practice it without undue experimentation. |\n\n---\n\n## 2. Federal drug‑law considerations\n\n| Issue | Current status (2025) |\n|-------|-----------------------|\n| **Schedule I status of cannabis** | The USPTO still allows patents on cannabis‑related inventions as long as the claims are *not directed to a “contraband” activity* prohibited by federal law at the time of filing. Extraction, purification, and formulation of cannabinoids are permissible because the USPTO treats the *process* as a technical invention, not as the act of growing illegal plants. |\n| **DEA registration** | If the process uses controlled‑substance precursors (e.g., Δ⁹‑THC from a Schedule I plant), you may need a DEA registration to legally conduct the work that underlies the invention. The registration itself is not a patent hurdle, but lack of it could be cited as “non‑enablement.” |\n| **Export/International filing** | Many countries (Canada, EU, Israel, etc.) have legalized cannabis. When filing abroad, you must respect each jurisdiction’s drug‑law stance. A U.S. patent will not automatically protect you in a country where cannabis remains illegal. |\n\n*Bottom line:*  As long as you can describe the process without relying on an illegal activity and you have any required DEA permissions for the experimental work, the USPTO will consider the application.\n\n---\n\n## 3. Typical claim strategy for an extraction process\n\n1. **Independent method claim** – list each critical step (e.g., “(a) contacting dried cannabis biomass with supercritical CO₂ at 350 bar and 45 °C for 30 min; (b) depressurizing to precipitate cannabinoids; (c) collecting the fraction and washing with ethanol”).  \n2. **Dependent claims** – add optional parameters (solvent ratios, catalyst, multi‑stage extraction, in‑line filtration, temperature ramps).  \n3. **Composition‑of‑matter claims** – optionally claim the resulting concentrate (e.g., “a cannabis oil comprising ≥80 % Δ⁹‑THC and ≤5 % chlorophyll”).  \n4. **Device claims** – if you invented a unique extractor (e.g., a custom nozzle or pressure‑control system), claim the apparatus.\n\n*Tip:*  Focus on **specific, reproducible parameters**. Broad “solvent‑based extraction” language is likely to be rejected as obvious.\n\n---\n\n## 4. Practical steps to protect your\n\n---\n*Agent: f8_agent | Tokens: 1132 (132→1000) | Cost: $0.000000*",
+        "agent": "f8_agent",
+        "timestamp": "2025-10-13T01:53:37.091Z",
+        "model": "openai/gpt-oss-120b",
+        "usage": {
+          "prompt_tokens": 132,
+          "completion_tokens": 1000,
+          "total_tokens": 1132,
+          "cost": 0
+        }
+      },
+      "responseTime": 4934
+    },
+    {
+      "agent": "patent",
+      "question": "How do I conduct patent research for cannabis innovations?",
+      "success": true,
+      "statusCode": 200,
+      "response": {
+        "success": true,
+        "response": "**Patent‑Research Playbook for Cannabis Innovations**  \n*(Tailored for the unique legal landscape of the cannabis sector)*  \n\n---\n\n## 1. Define Your Invention Scope  \n| Question | Why it matters |\n|----------|----------------|\n| **What problem does it solve?** | Guides keyword & classification selection. |\n| **Is it a product, process, composition, device, or method?** | Determines the relevant IPC/CPC codes. |\n| **What are the key ingredients, steps, or materials?** | Refines search strings (e.g., “Δ⁹‑THC nano‑emulsion”). |\n| **Are there any existing trade‑secret or proprietary elements?** | Helps you avoid “off‑label” prior art. |\n\n*Write a 2‑sentence “invention abstract” and keep it handy for every search iteration.*\n\n---\n\n## 2. Choose the Right Databases  \n\n| Platform | Strengths | Access |\n|----------|-----------|--------|\n| **USPTO Patent Full‑Text & Image Database (PatFT)** | Full US filings, downloadable PDFs, PAIR status checks. | Free |\n| **Google Patents** | Easy keyword search, auto‑translation of foreign patents, citation graph. | Free |\n| **EPO Espacenet** | Broad European coverage, advanced classification filters. | Free |\n| **WIPO PATENTSCOPE** | International PCT applications, searchable by CPC/IPC. | Free |\n| **Derwent World Patents Index (DWPI)** (via subscription) | Curated abstracts, standardized terminology. | Paid |\n| **CANNABIS‑specific IP portals** (e.g., **IP.com’s Cannabis IP Tracker**, **Marijuana Business Daily Patent Watch**) | Pre‑filtered cannabis‑related filings, alerts. | Usually subscription/paid |\n\n*Tip:* Start with free sources; move to paid tools only if you need deeper analytics or bulk export.\n\n---\n\n## 3. Build an Effective Search Strategy  \n\n### a. Keyword Lists  \n| Core terms | Synonyms/Variants |\n|-----------|-------------------|\n| cannabis, marijuana, hemp | *Cannabis sativa*, *Cannabis indica*, *industrial hemp* |\n| THC, Δ⁹‑THC, tetrahydrocannabinol | *Δ⁹‑tetrahydrocannabinol*, *THC‑A* |\n| CBD, cannabidiol | *Cannabidiol*, *CBDA* |\n| extraction, distillation, supercritical CO₂ | *solvent‑free extraction*, *CO₂ extraction* |\n| nano‑emulsion, liposome, microencapsulation | *nanoparticle*, *solid lipid nanoparticle* |\n| terpene, terpenoid, myrcene, limonene | *cannabinoid‑terpene synergy* |\n| topicals, edibles, vaporizer, transdermal | *infused*, *formulated* |\n\nCombine with Boolean operators:  \n\n```\n(cannabis OR hemp) AND (nano* OR liposome) AND (THC OR CBD) AND (delivery OR formulation)\n```\n\n### b. Classification Codes (IPC/CPC)  \n| IPC | Typical cannabis focus |\n|-----|------------------------|\n| **C07D** – Heterocyclic compounds (cannabinoids) |\n| **C12N** – Microorganisms, biotechnological processes (yeast‑produced cannabinoids) |\n| **A61K** – Pharmaceutical preparations (topicals, edibles) |\n| **A61P** – Specific therapeutic activity (pain, anxiety) |\n| **B01J** – Preparative chemistries (extraction, purification) |\n| **C08F** – Food or feed emulsions (edibles, beverages) |\n\n*Search the same term across multiple classes to capture “cross‑disciplinary” patents.*\n\n### c. Use “Citation Chaining”  \n1. **Backward search** – Look at all patents cited by a core patent.  \n2. **Forward\n\n---\n*Agent: f8_agent | Tokens: 1133 (133→1000) | Cost: $0.000000*",
+        "agent": "f8_agent",
+        "timestamp": "2025-10-13T01:53:46.497Z",
+        "model": "openai/gpt-oss-120b",
+        "usage": {
+          "prompt_tokens": 133,
+          "completion_tokens": 1000,
+          "total_tokens": 1133,
+          "cost": 0
+        }
+      },
+      "responseTime": 8404
+    },
+    {
+      "agent": "patent",
+      "question": "What are the IP considerations for cannabis businesses?",
+      "success": true,
+      "statusCode": 200,
+      "response": {
+        "success": true,
+        "response": "**Intellectual‑Property (IP) Roadmap for Cannabis Companies**  \n\n| Area | Key Considerations | Practical Steps |\n|------|-------------------|-----------------|\n| **Patents** | • **Utility patents** can protect novel cannabinoids, extraction methods, delivery devices, or formulations. <br>• **Plant patents** cover asexually reproduced cannabis varieties (must be “new and distinct”). <br>• The USPTO still grants patents despite federal Schedule I status, but you must disclose that the invention is “non‑human‑consumable” or “non‑controlled‑substance” where required. <br>• Prior‑art search is critical—many patents already exist on common cannabinoids and extraction tech. | 1. Conduct a professional freedom‑to‑operate (FTO) search before filing. <br>2. Draft claims that focus on technical improvements (e.g., higher bioavailability, novel carrier systems) rather than the plant itself. <br>3. File provisional applications early to lock in priority dates. <br>4. Keep detailed lab notebooks and electronic records to satisfy “first to invent” requirements. |\n| **Trademarks** | • Federal trademark registration is allowed for cannabis‑related goods **only if** the goods are **not** THC‑containing (e.g., “CBD oil,” “hemp apparel”). <br>• State‑level registrations are more permissive but vary widely. <br>• The USPTO may refuse marks that suggest illegal activity under federal law. | 1. Perform a comprehensive clearance search (USPTO + state databases). <br>2. Use “CBD” or “hemp‑derived” descriptors in the filing to avoid the “controlled substance” flag. <br>3. Secure domain names and social‑media handles early; consider defensive registrations. |\n| **Copyright** | • Protects original written content, software, packaging artwork, and marketing materials. <br>• Does **not** protect the plant itself or functional processes. | 1. Register key creative assets (website copy, label designs, software) with the U.S. Copyright Office. <br>2. Use clear copyright notices on all digital and physical assets. |\n| **Trade Secrets** | • Many extraction protocols, formulation recipes, and strain‑development data are best kept as trade secrets. <br>• Must be reasonable measures to maintain secrecy (NDAs, restricted access, encryption). | 1. Implement a written trade‑secret policy. <br>2. Use NDAs with employees, contractors, and partners. <br>3. Limit knowledge to “need‑to‑know” personnel and log access. |\n| **Domain Names & Online Presence** | • High demand for cannabis‑related domains; many are taken or held by squatters. <br>• Beware of “.weed” or “.cannabis” TLDs that may be restricted in certain jurisdictions. | 1. Register primary .com, .net, and relevant country‑code domains early. <br>2. Consider trademark‑based domain disputes (UDRP) if a squatter registers a confusingly similar name. |\n| **Licensing & Joint Ventures** | • IP ownership must be clearly defined in licensing agreements, especially when a partner supplies a patented extraction method or a proprietary strain. <br>• Federal illegality can affect enforceability; include “state‑law‑only” jurisdiction clauses. | 1. Draft licensing contracts that specify: (a) IP rights granted, (b) royalty structure, (c) compliance obligations, (d) termination triggers. <br>2. Use “IP indemnification” clauses to protect against infringement claims. |\n| **Regulatory & Compliance Overlap** | • State cannabis regulators may require disclosure of formulation ingredients, which could expose trade secrets. <br>• Some states have “public‑record” rules for licensing applications. | 1. Separate “public” product descriptions from internal formulation details. <br>2. Use “confidential” filing designations where permitted. |\n| **Employee & Contractor Agreements** | • IP created by staff (e.g., new strain, software) typically belongs to the employer if proper agreements are in place. | 1. Include invention assignment clauses in employment contracts. <br>2. Require contractors to sign IP assignment and confidentiality agreements. |\n| **International Considerations** | • Canada, Uruguay, and several EU nations allow cannabis patents, but each has its own filing requirements. <br>• Export‑related IP must comply with both U.S. export controls (EAR) and foreign regulations. | 1. Conduct jurisdiction‑specific IP landscape studies before expanding. <br>2. File PCT applications if global protection is desired. |\n\n---\n\n### Quick Action Checklist (First 30 Days)\n\n1. **IP Audit** – Inventory all inventions, brands, creative works, and confidential processes.  \n2. **Freedom‑to‑Operate Search** – Engage a patent attorney to run a USPTO + state‑level search on core technologies.  \n3. **Provisional Patent Filings** – File for any novel extraction method, formulation, or device.  \n4. **Trademark Clearance** – Run a USPTO + state search; file federal marks with “hemp‑derived” language.  \n5. **NDAs & Trade‑Secret Policy** – Implement company‑wide confidentiality agreements.  \n6. **Domain & Social‑Media Lock‑down** – Register primary domains and handles; consider defensive registrations.  \n7. **Employment Contracts** – Add IP assignment and confidentiality clauses for all staff and contractors.  \n\n---\n\n**Bottom Line:**  \n- **Patents** protect the *how* (processes, formulations, devices).  \n- **Trademarks** protect the *what* (brand identity) but must avoid federal‑controlled‑substance language.  \n- **Trade secrets** are your safety net for anything you can’t or don’t want to disclose publicly.  \n\nBalancing robust IP protection with the ever‑shifting regulatory landscape is essential for long‑term value creation in the cannabis sector. If you need a deeper dive on any specific area (e.g., filing a plant patent or drafting a licensing agreement), let me know!\n\n---\n*Agent: f8_agent | Tokens: 1514 (133→1381) | Cost: $0.000000*",
+        "agent": "f8_agent",
+        "timestamp": "2025-10-13T01:54:06.957Z",
+        "model": "openai/gpt-oss-120b",
+        "usage": {
+          "prompt_tokens": 133,
+          "completion_tokens": 1381,
+          "total_tokens": 1514,
+          "cost": 0
+        }
+      },
+      "responseTime": 19462
+    },
+    {
+      "agent": "spectra",
+      "question": "How do I analyze cannabis potency using spectroscopy?",
+      "success": true,
+      "statusCode": 200,
+      "response": {
+        "success": true,
+        "response": "**Analyzing Cannabis Potency with Spectroscopy – A Practical Guide**\n\nBelow is a streamlined workflow that can be adapted to most labs (R&D, quality‑control, or regulatory testing).  Choose the technique that best fits your throughput, equipment budget, and validation requirements.\n\n---\n\n## 1. What “potency” means in cannabis testing\n| Analyte | Typical Reporting Unit | Why it matters |\n|--------|-----------------------|----------------|\n| Δ⁹‑THC (total) | % w/w (or mg/g) | Primary psychoactive component |\n| CBD (total) | % w/w | Therapeutic interest, non‑psychoactive |\n| Minor cannabinoids (CBG, CBC, THCV, etc.) | % w/w | Emerging market claims |\n| **Total THC** = Δ⁹‑THC + 0.877 × Δ⁹‑THC‑acid (Δ⁹‑THCA) | | Required by most state regulations |\n| **Total CBD** = CBD + 0.877 × CBDA | | Same rationale as THC |\n\nSpectroscopic methods either **directly quantify** each cannabinoid (e.g., HPLC‑UV, GC‑MS) or **predict** them from a calibrated chemometric model (FTIR, NIR, Raman).\n\n---\n\n## 2. Choosing a Spectroscopic Technique\n\n| Technique | Typical LOD/LOQ* | Speed | Sample Prep | Quantification | Pros | Cons |\n|-----------|------------------|-------|-------------|----------------|------|------|\n| **HPLC‑UV/DAD** | 0.05 % w/w (≈ 0.5 mg/g) | 5–10 min/run | Solvent extraction (ethanol, methanol, ACN) + filtration | Direct, USP‑compliant | Well‑established, easy to validate | Requires chromatography hardware |\n| **GC‑MS (or GC‑FID)** | 0.02 % w/w | 5–8 min/run | Decarboxylation + derivatization (optional) | Direct, highly specific | Gold‑standard for forensic labs | Needs derivatization for acids; thermal degradation risk |\n| **FTIR (ATR)** | 0.2 % w/w (with chemometrics) | <1 min/sample | Minimal (grind + press onto ATR crystal) | Predictive (PLS model) | No solvents, portable options | Model must be built/validated for each matrix |\n| **NIR (Diffuse‑Reflectance)** | 0.5 % w/w (with chemometrics) | <30 s/sample | Minimal (powdered sample) | Predictive (PLS) | Very high throughput, non‑destructive | Requires robust calibration set |\n| **Raman (Hand‑Held)** | 0.5 % w/w (with chemometrics) | <1 min | Minimal (no extraction) | Predictive | Portable, can test intact flower | Fluorescence interference; lower sensitivity |\n\n\\*LOD/LOQ values are typical for a well‑optimized method; actual performance depends on instrument, sample matrix, and calibration quality.\n\n**Bottom‑line:**  \n- **Regulatory/commercial labs**: HPLC‑UV (or HPLC‑MS) is the de‑facto standard.  \n- **Rapid screening / on‑site testing**: FTIR, NIR, or Raman with chemometrics.  \n\n---\n\n## 3. General Sample Preparation (Extraction‑Based Spectroscopy)\n\n1\n\n---\n*Agent: f8_agent | Tokens: 1132 (132→1000) | Cost: $0.000000*",
+        "agent": "f8_agent",
+        "timestamp": "2025-10-13T01:54:19.010Z",
+        "model": "openai/gpt-oss-120b",
+        "usage": {
+          "prompt_tokens": 132,
+          "completion_tokens": 1000,
+          "total_tokens": 1132,
+          "cost": 0
+        }
+      },
+      "responseTime": 11055
+    },
+    {
+      "agent": "spectra",
+      "question": "What equipment is needed for cannabis testing?",
+      "success": true,
+      "statusCode": 200,
+      "response": {
+        "success": true,
+        "response": "**Cannabis‑Testing Lab – Core Equipment Checklist**  \n*(Designed to meet ASTM D7928, AOAC Official Methods, ISO 17025, and state‑specific requirements)*  \n\n| Testing Category | Primary Instruments | Supporting Gear & Consumables | Key Software / Documentation |\n|------------------|--------------------|------------------------------|------------------------------|\n| **Potency (THC, CBD, other cannabinoids)** | • HPLC‑UV or HPLC‑DAD (or UHPLC) <br>• HPLC‑MS/MS (optional for minor cannabinoids) | • Analytical‑grade mobile phases (acetonitrile, water, formic acid) <br>• C18 reverse‑phase columns (2.1 mm × 50 mm, 1.7 µm) <br>• Sample vials, filters (0.22 µm PTFE) <br>• Calibration standards (certified reference material) | • Chromatography data system (e.g., Waters Empower, Agilent OpenLab) <br>• LIMS integration for sample tracking |\n| **Terpene Profile** | • GC‑FID (fast screening) <br>• GC‑MS (full speciation) | • DB‑5ms or similar capillary columns <br>• Headspace or SPME fibers (if using HS‑GC) <br>• Solvents (hexane, isopropanol) <br>• Internal standards (e.g., menthol‑d₄) | • GC data software (e.g., ChemStation, TraceFinder) <br>• Reporting templates |\n| **Pesticides** | • LC‑MS/MS (multi‑residue) <br>• GC‑MS/MS (volatile/semivolatile) | • QuEChERS extraction kits (or in‑house sorbents) <br>• SPE cartridges (C18, PSA, GCB) <br>• Isotopically‑labelled internal standards <br>• 0.2 µm PTFE filters | • Pesticide‑specific libraries (e.g., Agilent Pesticide Panel) <br>• Validation software (e.g., Analyst) |\n| **Residual Solvents** | • GC‑FID (EPA‑Method 524.2) <br>• GC‑MS (confirmatory) | • Headspace vials (4 mL) <br>• HS‑autosampler <br>• Calibration gas standards (e.g., ethanol, acetone) | • Quantitative analysis packages (e.g., Chromeleon) |\n| **Heavy Metals** | • ICP‑MS (inductively coupled plasma‑mass spec) <br>• ICP‑OES (optional, lower cost) | • Microwave digestion system (EPA 3515) <br>• Acid‑cleaned TFM or PTFE digestion vessels <br>• Certified metal standards (Pb, Cd, As, Hg, etc.) <br>• Ultrapure water system (18 MΩ·cm) | • ICP data software (e.g., Qtegra, MassHunter) |\n| **Mycotoxins & Fungi** | • LC‑MS/MS (for aflatoxins, ochratoxin A) <br>• qPCR instrument (for fungal DNA) | • Immuno‑affinity columns (IAC) for cleanup <br>• Extraction solvents (methanol‑water) <br>• DNA extraction kits <br>• Sterile consumables (pipette tips, tubes) | • ELISA/LC‑MS integration modules <br>• qPCR analysis software (e.g., Applied Biosystems) |\n| **Microbiology (Total Aerobic Count, Pathogens)** | • Plate‑count incubator (30–37 °C) <br>• Aerobic count plates (PCA) <br>• MALDI‑TOF MS (optional for rapid ID) | • Sterile swabs, Petri dishes, pipettes <br>• Dilution blanks (PBS) <br>• Selective media for E. coli\n\n---\n*Agent: f8_agent | Tokens: 1116 (116→1000) | Cost: $0.000000*",
+        "agent": "f8_agent",
+        "timestamp": "2025-10-13T01:54:24.957Z",
+        "model": "openai/gpt-oss-120b",
+        "usage": {
+          "prompt_tokens": 116,
+          "completion_tokens": 1000,
+          "total_tokens": 1116,
+          "cost": 0
+        }
+      },
+      "responseTime": 4936
+    },
+    {
+      "agent": "spectra",
+      "question": "How do I interpret cannabis lab results?",
+      "success": false,
+      "statusCode": 504,
+      "response": {
+        "message": "Endpoint request timed out"
+      },
+      "responseTime": 29053
+    },
+    {
+      "agent": "customer_success",
+      "question": "What strategies improve customer retention in cannabis retail?",
+      "success": true,
+      "statusCode": 200,
+      "response": {
+        "success": true,
+        "response": "**Customer‑Retention Playbook for Cannabis Retail**  \n*(All tactics respect state‑level compliance, data‑privacy, and advertising rules.)*\n\n| Category | Actionable Strategy | Why It Works | Compliance Tips |\n|----------|--------------------|--------------|-----------------|\n| **Loyalty & Rewards** | • Tiered points program (e.g., 1 pt/ $1 spent; unlock “Gold” at 500 pts)  <br>• “Spend‑X‑Get‑Free” for consumables (e.g., 5th pre‑rolled joint free) | Encourages repeat purchases and higher basket size. | • No “guaranteed win” language; keep rewards non‑cash. <br>• Verify age at redemption; keep all data in a secure, HIPAA‑style vault. |\n| **Personalized Experience** | • CRM‑driven product recommendations (strain, dosage, consumption method) based on purchase history. <br>• Birthday/anniversary “thank‑you” discounts. | Makes shoppers feel known and valued; drives cross‑sell. | • Store only anonymized purchase data; never share with third‑party marketers without explicit consent. |\n| **Education & Content** | • In‑store “Learn‑Sessions” (e.g., terpene profiles, dosing, micro‑dosing) <br>• Monthly email newsletters with compliance‑approved product facts and responsible‑use tips. | Positions the store as a trusted source, reduces “buyer’s remorse”. | • All content must include age‑gate disclaimer and state‑required health warnings. |\n| **Community Building** | • Host local artist nights, yoga‑cannabis workshops, or “grow‑club” meet‑ups (invite‑only, age‑verified). <br>• Sponsor community events (e.g., clean‑up drives) and share photos on social. | Turns customers into brand advocates; word‑of‑mouth is powerful in a regulated market. | • No “free sample” giveaways; any product given must be purchased or otherwise compliant with gifting limits. |\n| **Omnichannel Convenience** | • Click‑&‑collect with QR‑code pickup lockers. <br>• Mobile app for refill orders + push‑notification of “your favorite strain is back”. | Reduces friction; meets the expectation of instant access. | • Verify ID at pickup (store staff or scanner). <br>• Secure all transaction logs for audit. |\n| **Subscription / Auto‑Refill** | • “Monthly Stash Box” (pre‑selected strains, accessories) shipped to verified address. <br>• Discounted auto‑refill for consumables (edibles, vape cartridges). | Guarantees recurring revenue; customers don’t have to think about re‑stocking. | • Each shipment must be accompanied by a printed age‑verification form signed by the recipient. |\n| **Feedback Loops** | • Post‑purchase SMS/Email survey (1‑question NPS + optional comment). <br>• Incentivize completion with 10 pts. | Identifies pain points quickly; shows you listen. | • Keep surveys opt‑in; do not collect health data unless necessary and with explicit consent. |\n| **Staff Training & Culture** | • Quarterly “Compliance & Customer Service” certification (role‑play knowledge). <br>• Empower staff to suggest “product pairings” (e.g., terpene‑matching). | Knowledgeable staff increase trust and upsell success. | • Record training logs for state audit; ensure all staff are 21+ and have proper background checks. |\n| **Inventory & Assortment Management** | • Use sales analytics to keep top‑selling strains in stock (90 % fill‑rate). <br>• Rotate limited‑edition products quarterly to create “FOMO”. | Reduces out‑of‑stock frustrations; creates excitement. | • Track batch/lot numbers for recall readiness; label all products with required THC/CBD percentages and warning statements. |\n| **Targeted Promotions** | • Geo‑fenced push alerts when a customer is within 1 mi of the store (e\n\n---\n*Agent: f8_agent | Tokens: 1132 (132→1000) | Cost: $0.000000*",
+        "agent": "f8_agent",
+        "timestamp": "2025-10-13T01:55:06.283Z",
+        "model": "openai/gpt-oss-120b",
+        "usage": {
+          "prompt_tokens": 132,
+          "completion_tokens": 1000,
+          "total_tokens": 1132,
+          "cost": 0
+        }
+      },
+      "responseTime": 10271
+    },
+    {
+      "agent": "customer_success",
+      "question": "How do I optimize customer onboarding for cannabis products?",
+      "success": true,
+      "statusCode": 200,
+      "response": {
+        "success": true,
+        "response": "**Optimizing Customer On‑boarding for Cannabis Products – A Practical Playbook**\n\nBelow is a step‑by‑step framework that blends compliance, education, personalization, and automation. Adapt each element to the state(s) you operate in and the specific channels (e‑commerce, dispensary POS, mobile app, etc.) you use.\n\n---\n\n## 1️⃣ Pre‑On‑boarding – Build a Trust‑Ready Funnel\n\n| Goal | Action | Why it matters |\n|------|--------|----------------|\n| **Legal Gate‑keeping** | • Integrate a real‑time age‑verification API (e.g., AgeChecked, Veratad).<br>• Capture government‑issued ID and run KYC/AML checks where required (especially for delivery services). | Prevents under‑age sales and protects you from regulator penalties. |\n| **Data‑Privacy Foundation** | • Publish a concise, state‑compliant privacy policy.<br>• Use consent‑management platforms to record opt‑ins for marketing, SMS, and data sharing. | Guarantees GDPR/CCPA/CPRA compliance and builds trust. |\n| **Segmentation Setup** | • Tag prospects by intent (recreational vs. medical), geography, and preferred product categories (flower, edibles, topicals, etc.). | Enables personalized onboarding flows later. |\n| **Educational Lead Magnets** | • Offer a “Beginner’s Guide to Cannabis” PDF, short video series, or quiz in exchange for email/phone. | Captures contact info while positioning your brand as an educator. |\n\n**Key Metrics:** Funnel drop‑off at age‑verification, consent capture rate, lead‑magnet conversion %.\n\n---\n\n## 2️⃣ First Interaction – The On‑boarding Experience\n\n### A. Welcome & Compliance Confirmation\n1. **Instant “Welcome” Message** – Email/SMS with brand story, compliance disclaimer, and a clear CTA (“Start Shopping”).  \n2. **Verification Reminder** – If the user hasn’t completed ID upload, embed a secure upload link and a progress bar (“2 of 3 steps complete”).\n\n### B. Guided Product Discovery\n| Tool | Implementation Tips |\n|------|---------------------|\n| **Interactive Quiz** | Ask 5–7 questions (e.g., desired effect, consumption method, experience level). Map answers to product clusters and generate a “Your Starter Pack” recommendation. |\n| **Dynamic Product Carousel** | Use the quiz results + segmentation tags to auto‑populate a carousel (e.g., “Best for Anxiety – 3 CBD‑rich options”). |\n| **Live Chat / AI Bot** | Pre‑trained on your SKU catalog and compliance FAQs. Offer real‑time help for dosage, THC/CBD ratios, and legal purchase limits. |\n\n### C. Education at Point‑of‑Sale\n* **Product Cards** – Include mandatory labeling (THC/CBD %, serving size, warning statements) *and* a short “Did you know?” blurb (e.g., “This indica is best for evening relaxation”).  \n* **Dosage Calculator** – Embedded widget that suggests micro‑doses based on user weight and tolerance (optional for medical customers).  \n\n### D. Seamless Checkout\n* **Purchase‑Limit Enforcement** – Auto‑cap cart totals per state (e.g., 1 oz per transaction).  \n* **Secure Payment** – Use cannabis‑friendly processors (e.g., Green Payments, Hypur) and display a trust badge.  \n* **Delivery Options** – Offer in‑store pickup, curb‑side, or licensed delivery with clear ETA and compliance‑required ID check at hand‑off.\n\n**Key Metrics:** Quiz completion rate, product‑recommendation click‑through, checkout conversion, compliance‑error flag rate.\n\n---\n\n## 3️⃣ Post‑On‑boarding – Turn First‑Time Buyers into Loyal Customers\n\n| Phase | Tactics | Compliance Note |\n|-------|---------|-----------------|\n| **Day 0–1** | • Send order confirmation with QR code for quick ID verification at delivery.<br>• Include a “How to\n\n---\n*Agent: f8_agent | Tokens: 1133 (133→1000) | Cost: $0.000000*",
+        "agent": "f8_agent",
+        "timestamp": "2025-10-13T01:55:19.527Z",
+        "model": "openai/gpt-oss-120b",
+        "usage": {
+          "prompt_tokens": 133,
+          "completion_tokens": 1000,
+          "total_tokens": 1133,
+          "cost": 0
+        }
+      },
+      "responseTime": 12249
+    },
+    {
+      "agent": "customer_success",
+      "question": "What are the best practices for cannabis customer support?",
+      "success": true,
+      "statusCode": 200,
+      "response": {
+        "success": true,
+        "response": "**Cannabis Customer‑Support – Best‑Practice Checklist**\n\n| Area | What to Do | Why It Matters (Compliance / Trust) |\n|------|------------|--------------------------------------|\n| **1. Regulatory Compliance** | • Verify the customer’s age and location before discussing product details (use a reliable age‑gate). <br>• Keep all communications free of medical claims unless you have a qualified health professional on record. <br>• Store any personal data (e‑mail, phone, purchase history) in a secure, GDPR/CCPA‑compliant system. | Prevents illegal sales, protects the brand from regulatory penalties, and builds consumer confidence. |\n| **2. Product Knowledge** | • Maintain an up‑to‑date internal knowledge base (strain profiles, terpene effects, potency, lab results). <br>• Train reps on reading and explaining COAs (Certificates of Analysis). <br>• Use “quick‑reference cards” for the most‑sold SKUs. | Enables accurate, transparent answers and reduces misinformation. |\n| **3. Empathy & Tone** | • Use a friendly, non‑judgmental voice; “We understand you’re looking for …”. <br>• Mirror the customer’s level of expertise (novice vs. connoisseur) and adjust explanations accordingly. | Improves satisfaction and loyalty, especially for new users who may feel nervous. |\n| **4. Multi‑Channel Availability** | • Offer support via phone, live chat, email, and SMS (opt‑in only). <br>• Provide a self‑service portal with FAQs, dosage calculators, and lab‑report downloads. <br>• Keep response‑time SLAs: ≤ 2 h for chat, ≤ 24 h for email. | Meets consumer expectations and reduces support load. |\n| **5. Privacy & Discretion** | • Package all outbound communications (order confirmations, receipts) with neutral branding if requested. <br>• Allow customers to choose “discreet shipping” and “private email subject lines”. | Addresses stigma concerns and complies with state privacy statutes. |\n| **6. Issue Resolution Workflow** | 1. **Identify** – Capture order #, product, and problem. <br>2. **Validate** – Confirm purchase and COA if needed. <br>3. **Escalate** – Route potency/contamination issues to Quality Assurance. <br>4. **Resolve** – Offer replacement, refund, or credit per policy. <br>5. **Document** – Log outcome in CRM for trend analysis. | Guarantees consistent handling and creates data for continuous improvement. |\n| **7. Education & Upsell (Compliance‑Safe)** | • Offer “product education kits” (e.g., terpene guide, dosing primer) after the issue is resolved. <br>• Suggest complementary items only when they fit the customer’s stated need; never imply a health cure. | Turns support interactions into value‑adding moments without crossing regulatory lines. |\n| **8. Continuous Training** | • Quarterly regulatory updates (state board changes, packaging warnings). <br>• Role‑play scenarios: returns, potency complaints, under‑age inquiries. <br>• KPI reviews: CSAT, First‑Contact Resolution, Compliance Errors. | Keeps the team sharp, reduces compliance risk, and lifts performance metrics. |\n| **9. Feedback Loop** | • After each ticket, send a brief (≤ 2 question) survey. <br>• Aggregate data monthly; feed insights to product, QA, and marketing teams. | Identifies product pain points early and demonstrates that you listen. |\n| **10. Crisis Management** | • Pre‑draft scripts for recalls, contamination alerts, or regulatory investigations. <br>• Designate a single “spokesperson” for external media. <br>• Notify affected customers within the legally required window (often 48 h). | Enables rapid, coordinated response and protects brand reputation. |\n\n---\n\n### Quick‑Start SOP for a New Support Agent\n\n1. **Log In** – Verify age‑gate and location check before any conversation.  \n2. **Gather Info** – Order #, product name, issue description, and consent to record.  \n3. **Consult Knowledge Base** – Pull the COA and terpene profile for the SKU.  \n4. **Respond** – Use the “Empathy‑Info‑Action” template:  \n   - *Empathy*: “I’m sorry you’re experiencing …”  \n  \n\n---\n*Agent: f8_agent | Tokens: 1134 (134→1000) | Cost: $0.000000*",
+        "agent": "f8_agent",
+        "timestamp": "2025-10-13T01:55:34.545Z",
+        "model": "openai/gpt-oss-120b",
+        "usage": {
+          "prompt_tokens": 134,
+          "completion_tokens": 1000,
+          "total_tokens": 1134,
+          "cost": 0
+        }
+      },
+      "responseTime": 14013
+    },
+    {
+      "agent": "f8_slackbot",
+      "question": "How do I integrate Slack notifications for my cannabis team?",
+      "success": true,
+      "statusCode": 200,
+      "response": {
+        "success": true,
+        "response": "**Integrating Slack notifications for your cannabis team can be done in a few simple steps. Below is a “plug‑and‑play” guide that works for most cannabis‑industry tools (POS, seed‑to‑sale, lab‑results, CRM, etc.) while staying compliant with state regulations.**\n\n---\n\n## 1️⃣ Choose the Integration Method\n\n| Method | When to Use | Effort | Cost |\n|--------|-------------|--------|------|\n| **Slack Incoming Webhook** | Simple alerts (e.g., inventory low, new lab result) | ★☆☆ | Free |\n| **Slack App + Bot (OAuth)** | Two‑way interaction (commands, status look‑ups) | ★★☆ | Free‑$ |\n| **Zapier / Make (Integromat)** | No‑code, multiple source connections (POS → Slack, Lab → Slack) | ★☆☆ | Free‑$ |\n| **Custom API Integration** | Complex logic, high volume, custom formatting | ★★★ | Development cost |\n\n> **Tip:** If you already use a cannabis SaaS platform (Metrc, BioTrackTHC, LeafLink, Greenbits, etc.), check their “Slack Integration” page first—most have a ready‑made webhook or Zapier template.\n\n---\n\n## 2️⃣ Set Up a Slack Incoming Webhook (quickest)\n\n1. **Create a dedicated channel** (e.g., `#cannabis‑ops`, `#lab‑results`, `#compliance‑alerts`).  \n2. In Slack → **Settings & administration → Manage apps → Custom Integrations → Incoming Webhooks**.  \n3. Click **“Add to Slack”**, select the channel, and copy the generated **Webhook URL**.  \n4. **Secure the URL** – treat it like a password (store in your 1Password, Vault, or environment variable).  \n\n---\n\n## 3️⃣ Send a Test Payload (cURL example)\n\n```bash\ncurl -X POST -H 'Content-type: application/json' \\\n-d '{\"text\":\"✅ Cannabis inventory update: 5 lb Δ‑9 THC flower remaining\"}' \\\nhttps://hooks.slack.com/services/T00000000/B00000000/XXXXXXXXXXXXXXXXXXXXXXXX\n```\n\nIf the message appears in your channel, you’re connected!\n\n---\n\n## 4️⃣ Hook Your Cannabis Systems to the Webhook\n\n| Source | Typical Trigger | Payload Example | How to Send |\n|--------|----------------|----------------|-------------|\n| **POS / Dispensary** | Sale, low‑stock, cash‑out | `{ \"type\":\"sale\", \"item\":\"Blue Dream\", \"qty\":2, \"price\":45 }` | API call from POS → webhook |\n| **Lab System** | New test result | `{ \"batch\":\"B123\", \"THC\":22.5, \"COA\":\"url\" }` | Lab software → webhook |\n| **Seed‑to‑Sale (Metrc)** | Harvest complete, transport, waste | `{ \"event\":\"harvest_complete\",\"plant_id\":\"12345\" }` | Metrc webhook → Slack |\n| **Compliance Dashboard** | Violation flag, audit due | `{ \"alert\":\"Missing COA for batch B123\" }` | Internal script → webhook |\n| **CRM / Scheduling** | New employee, shift change | `{ \"type\":\"shift\", \"employee\":\"J. Doe\", \"time\":\"09:00‑17:00\" }` | CRM → webhook |\n\n*Most SaaS platforms let you paste the webhook URL directly into a “Notification URL” field. If they only support **Zapier**, use the “Slack – Send Channel Message” action and paste the same URL.*\n\n---\n\n## 5️⃣ Using Zapier (No‑Code)\n\n1. **Create a Zap** → **\n\n---\n*Agent: f8_agent | Tokens: 1134 (134→1000) | Cost: $0.000000*",
+        "agent": "f8_agent",
+        "timestamp": "2025-10-13T01:55:38.885Z",
+        "model": "openai/gpt-oss-120b",
+        "usage": {
+          "prompt_tokens": 134,
+          "completion_tokens": 1000,
+          "total_tokens": 1134,
+          "cost": 0
+        }
+      },
+      "responseTime": 3343
+    },
+    {
+      "agent": "f8_slackbot",
+      "question": "How do I set up automated workflows for cannabis operations?",
+      "success": true,
+      "statusCode": 200,
+      "response": {
+        "success": true,
+        "response": "Below is a practical, step‑by‑step framework you can use to design and launch automated workflows that keep a cannabis operation running smoothly while staying compliant with state‑level seed‑to‑sale rules.\n\n---\n\n## 1️⃣ Define the Scope & Map the Process\n\n| Functional Area | Core Steps to Map | Typical Automation Triggers |\n|-----------------|-------------------|-----------------------------|\n| **Cultivation** | Strain selection → planting → vegetative cycle → flowering → harvest → curing | Calendar dates, sensor thresholds (temp, RH, CO₂), labor sign‑off |\n| **Manufacturing / Extraction** | Batch creation → material weighing → extraction → purification → packaging → QC testing | New batch record, weight receipt, lab result inbound |\n| **Distribution / Logistics** | Order receipt → pick‑list generation → vehicle dispatch → real‑time GPS tracking → delivery confirmation | Order status change, carrier ETA, temperature sensor alert |\n| **Retail (Dispensary)** | POS sale → inventory deduction → loyalty reward → compliance check → receipt generation | Sale event, low‑stock alert, age‑verification flag |\n| **Compliance & Reporting** | Seed‑to‑sale logging → waste tracking → tax calculation → state report filing | State‑mandated reporting window, waste event, inventory variance |\n\n*Tip:* Use a simple flow‑charting tool (draw.io, Lucidchart, Miro) to capture “who does what, when, and what data moves”.\n\n---\n\n## 2️⃣ Choose the Right Technology Stack\n\n| Layer | Recommended Options (cannabis‑friendly) | Why It Fits |\n|-------|------------------------------------------|-------------|\n| **Core ERP / Seed‑to‑Sale** | BioTrackTHC, MJ Freeway, LeafLogix, Metrc (where required) | Built‑in compliance, lot tracking, audit logs |\n| **Workflow Engine / iPaaS** | Make (formerly Integromat), Zapier, Microsoft Power Automate, n8n (self‑hosted) | Drag‑and‑drop triggers, API connectors, conditional logic |\n| **IoT & Sensor Platform** | Agrilyst (now **Agridata**), Growlink, Tado, custom MQTT broker | Real‑time environment data, alerts, auto‑adjustments |\n| **Lab Information Management System (LIMS)** | Labguru, LabCollector, Pure Analytical (cannabis‑focused) | Direct feed of test results into ERP |\n| **Mobile Labor & Task Management** | Trello + Power‑Automate, Asana, Monday.com, **KisanHub** | Field crew receives work orders, check‑ins, photo capture |\n| **Document & Record Storage** | SharePoint, Google Workspace (with e‑signature), DocuSign | Secure, searchable, version‑controlled compliance docs |\n| **Analytics / Dashboard** | Power BI, Tableau, Looker, **Canopy** (cannabis analytics) | Consolidates data from all sources for KPI monitoring |\n\n*Integration tip:* Most ERPs expose a **REST API** (or a GraphQL endpoint). Use the iPaaS to pull/push data between the ERP, sensors, LIMS, and labor apps. If your ERP is on‑premise, consider an API gateway (Kong, Apigee) to expose services securely.\n\n---\n\n## 3️⃣ Build Core Automated Workflows\n\nBelow are three “starter” automations that deliver immediate ROI and compliance value.\n\n### A. Cultivation – Environmental Alert → Work Order\n\n1. **Trigger:** Sensor reading (temp > 78 °F OR RH > 70 % for > 30 min) from Growlink MQTT broker.  \n2. **Action 1:** Post a Slack/Teams message to the “Cultivation Ops” channel with location, current reading, and a link to live dashboard.  \n3. **Action 2:** Create a work‑order in the ERP (or in a task board like Monday.com\n\n---\n*Agent: f8_agent | Tokens: 1134 (134→1000) | Cost: $0.000000*",
+        "agent": "f8_agent",
+        "timestamp": "2025-10-13T01:55:51.497Z",
+        "model": "openai/gpt-oss-120b",
+        "usage": {
+          "prompt_tokens": 134,
+          "completion_tokens": 1000,
+          "total_tokens": 1134,
+          "cost": 0
+        }
+      },
+      "responseTime": 11614
+    },
+    {
+      "agent": "mcr",
+      "question": "What are the MCR requirements for cannabis facilities?",
+      "success": true,
+      "statusCode": 200,
+      "response": {
+        "success": true,
+        "response": "**Minimum Control Requirements (MCR) for Cannabis Facilities**  \n*(A “MCR” is the set of baseline, state‑mandated standards that every licensed grow, processing, or testing operation must meet before it can be inspected, approved, and kept in compliance.  The exact wording varies by jurisdiction, but the core elements are essentially the same.)*  \n\nBelow is a concise, cross‑state overview of the typical MCR categories and the key items you’ll need to address in your facility design, SOPs, and ongoing operations.  Wherever a requirement is “state‑specific,” the note includes a quick reference to the most common states that codify it (CO, WA, CA, MA, OR, NV, etc.).\n\n---\n\n## 1. Facility Construction & Layout  \n\n| Requirement | What It Means | Typical State Reference |\n|-------------|---------------|--------------------------|\n| **Segregated Zones** | Separate **cultivation**, **processing**, **packaging**, **storage**, and **waste** areas with physical barriers (walls, doors, airlocks). | CO § 30‑001‑4, WA RCW 70.155.310 |\n| **Impermeable Floors & Walls** | Non‑porous, easily cleanable surfaces (sealed concrete, epoxy, stainless steel). | CA AURSA § 3005 |\n| **Controlled Access** | Only authorized personnel may enter each zone; access logged electronically. | MA Reg. 202‑2‑270 |\n| **Fire & Egress** | Adequate fire suppression (dry‑chemical, FM‑200), clearly marked exits, and fire‑rated doors. | OR Reg. DS‑306‑001 |\n| **Ventilation Separation** | Independent HVAC systems (or HEPA‑filtered ductwork) for each zone to prevent cross‑contamination. | CO § 30‑001‑5 |\n\n---\n\n## 2. Environmental Controls  \n\n| Requirement | Details |\n|-------------|---------|\n| **Temperature & Humidity** | Must be maintained within cultivar‑specific ranges (e.g., 68‑78 °F, 45‑65 % RH for vegetative; 58‑70 °F, 45‑55 % RH for flowering). Sensors with real‑time logging are required. |\n| **Airflow & Filtration** | Positive pressure in clean rooms; negative pressure in\n\n---\n*Agent: f8_agent | Tokens: 1133 (133→1000) | Cost: $0.000000*",
+        "agent": "f8_agent",
+        "timestamp": "2025-10-13T01:56:03.688Z",
+        "model": "openai/gpt-oss-120b",
+        "usage": {
+          "prompt_tokens": 133,
+          "completion_tokens": 1000,
+          "total_tokens": 1133,
+          "cost": 0
+        }
+      },
+      "responseTime": 11234
+    },
+    {
+      "agent": "mcr",
+      "question": "How do I maintain master control records for cannabis?",
+      "success": true,
+      "statusCode": 200,
+      "response": {
+        "success": true,
+        "response": "**Master Control Records (MCRs) – A Quick‑Start Guide**\n\nMaster Control Records are the “single source of truth” for every cannabis product that moves through your operation—from seed to sale. They must satisfy state‑level cannabis regulator requirements (e.g., California Bureau of Cannabis Control, Massachusetts Cannabis Control Commission, etc.) and, where applicable, federal SAMHSA/DEA guidelines for controlled‑substance tracking.\n\nBelow is a step‑by‑step framework you can adopt, plus a simple template you can customize for your business.\n\n---\n\n## 1️⃣ Define the Scope of Your MCR\n\n| Operation | What to Capture in the MCR |\n|-----------|----------------------------|\n| **Cultivation** | Seed/clone lot numbers, planting dates, nutrient regimens, pest‑control logs, harvest dates, canopy yields, lab test IDs. |\n| **Processing / Manufacturing** | Batch/lot numbers, ingredient lot numbers, formulation recipes, manufacturing SOPs, in‑process QC checks, final test results, packaging specifications. |\n| **Testing** | Sample receipt, chain‑of‑custody, analytical method, instrument calibration logs, result reports, QA sign‑offs. |\n| **Distribution / Retail** | Transfer manifests, carrier IDs, destination licensee, receipt confirmations, inventory adjustments. |\n\n---\n\n## 2️⃣ Choose a Record‑Keeping System\n\n| Option | Pros | Cons |\n|--------|------|------|\n| **Electronic Track‑and‑Trace (T&T) platform** (e.g., METRC, BioTrackTHC, Leaf Logix) | Automatic barcode scanning, real‑time state reporting, audit trails, secure backups. | Licensing fees, integration effort. |\n| **ERP/Manufacturing Execution System (MES)** with cannabis module | Handles formulation, batch costing, QC, and integrates with T&T. | Higher upfront cost, need for customization. |\n| **Hybrid (Electronic + Paper backups)** | Redundancy, meets jurisdictions that still accept paper logs. | Manual entry risk, more staff time. |\n\n**Best practice:** Use a T&T‑compliant electronic system as the primary MCR repository and export immutable PDFs for archival paper copies (if required).\n\n---\n\n## 3️⃣ Build a Standard Operating Procedure (SOP)\n\n1. **Create a unique identifier** for every batch/lot (e.g., `CULT‑2025‑001`, `PROC‑2025‑045`).  \n2. **Log entry points** – each time the product changes hands or undergoes a critical step, the operator must:\n   - Scan the barcode/QR code.\n   - Enter the activity code (e.g., “Harvest”, “Extraction”, “Packaging”, “Transfer”).\n   - Attach supporting documents (lab results, QC sign‑off, carrier manifest).  \n3. **Verification** – a second staff member (or QA manager) must review and digitally sign off each entry within 24 h.  \n4. **Error correction** – any amendment requires a documented “change log” with reason, date, and approver signature.  \n5. **Retention** – store records for the period mandated by your state (commonly **3‑5 years**) and maintain at least **one copy off‑site** (cloud backup or secure physical storage).  \n\n---\n\n## 4️⃣ Data Elements to Capture (Minimum Required)\n\n| Category | Data Fields |\n|----------|-------------|\n| **Product Identification** | Batch/lot number, SKU, product type, strain name, THC/CBD potency target. |\n| **Source Information** | Seed/clone vendor, lot number, cultivation start date, cultivation license number. |\n| **Process Details** | Date/time of each operation, operator ID, equipment ID, SOP version used. |\n| **Testing & QC** | Lab test ID, test date, results (THC, CBD, pesticides, microbial, residual solvents), QA sign‑off. |\n| **Packaging & Labeling** | Package type, label version, barcode/QR code, expiration date. |\n| **Distribution** | Transfer manifest number, carrier name, destination licensee, receipt timestamp. |\n| **Compliance Flags** | Any deviations, recalls, or corrective actions linked to the batch. |\n\n---\n\n## 5️⃣ Security & Access Controls\n\n| Control | Implementation |\n|---------|----------------|\n| **User authentication** | Role‑based login (e.g., Operator, QA, Manager). |\n| **Read‑only vs. edit rights** | Only QA/Managers can edit completed entries. |\n| **Audit trail** | System logs every login, data change, and export with timestamp. |\n| **Encryption** | Data at rest and in transit encrypted (AES‑256, TLS 1.2+). |\n| **Backup schedule** | Daily incremental, weekly full backup; test restore quarterly. |\n\n---\n\n## 6️⃣ Periodic Review & Audits\n\n1. **Weekly internal review** – QA manager runs a “batch completeness” report to flag missing test results or undocumented transfers.  \n2. **Monthly compliance check** – Cross‑reference MCR data with state‑provided reports (e.g., METRC “Inventory Reconciliation”).  \n3. **Quarterly external audit** – Invite a third‑party compliance consultant to verify that SOPs are followed and records are retained per regulation.  \n\n---\n\n## 7️⃣ Sample MCR Template (Excel/CSV Export)\n\n| Batch ID | Product | Source Lot | Plant Date | Harvest Date | Extraction Method | Test ID | THC % | CBD % | Pesticide Pass | Packaged Date | Carrier | Destination License | QA Sign‑off | Notes |\n|----------|---------|------------|------------|--------------|-------------------|--------|-------|-------|----------------|----------------|----------|----------------------|------------|-------|\n| CULT‑2025‑001 | Flower – “Blue Dream” | SEED‑A12 | 2025‑02‑15 | 2025‑04‑20 | – | LAB‑2025‑045 | 18.2 | 0.1 | ✅ | 2025‑04‑22 | GreenShip | RET‑12345 | J.Smith | – |\n| PROC‑2025‑045 | Distillate – 95% THC | CULT‑2025‑001 | – | – | CO₂ | LAB‑2025‑050 | 95.0 | 0.0 | ✅ | 2025‑05‑01 | GreenShip | RET‑12345 | L.Wang | Batch split into SKUs A/B |\n\n*Export this view from your T&T system weekly for backup and for regulator‑required submissions.*\n\n---\n\n## 8️⃣ Quick Checklist for New Set‑Up\n\n- [ ] Obtain state‑approved T&T platform credentials.  \n- [ ] Map each production step to a unique activity code in the system.  \n- [ ] Draft and train staff on the MCR SOP (including change‑log procedure).  \n- [ ] Configure role‑based access and enable audit‑trail logging.  \n- [ ] Set up automated daily backups to a secure cloud bucket.  \n- [ ] Schedule the first internal “completeness” review within 30 days.  \n\n---\n\n### TL;DR\n\n1. **Pick a compliant electronic tracking system** (METRC, BioTrack, etc.).  \n2. **Create a SOP** that mandates barcode scanning, dual‑sign‑off, and change‑log for every batch event.  \n3. **Capture core data fields** (batch ID, source lot, dates, test results, transfer info).  \n4. **Secure the records** with role‑based access, encryption, and off‑site backups.  \n5. **Retain for the required period** (usually 3‑5 years) and conduct regular internal & external audits.\n\nFollow this framework, tailor it to your state’s specific regulations, and you’ll have a robust Master Control Record system that satisfies both compliance auditors and internal quality goals. If you need help selecting a T&T platform or drafting a customized SOP, let me know!\n\n---\n*Agent: f8_agent | Tokens: 1943 (134→1809) | Cost: $0.000000*",
+        "agent": "f8_agent",
+        "timestamp": "2025-10-13T01:56:29.048Z",
+        "model": "openai/gpt-oss-120b",
+        "usage": {
+          "prompt_tokens": 134,
+          "completion_tokens": 1809,
+          "total_tokens": 1943,
+          "cost": 0
+        }
+      },
+      "responseTime": 24331
+    },
+    {
+      "agent": "ad",
+      "question": "How do I create effective cannabis advertising campaigns?",
+      "success": true,
+      "statusCode": 200,
+      "response": {
+        "success": true,
+        "response": "### How to Build an Effective Cannabis Advertising Campaign  \n\n| Phase | Key Actions | Why It Matters |\n|-------|-------------|----------------|\n| **1️⃣ Research & Compliance** | • Identify the jurisdiction(s) you’ll advertise in (state, province, local).  <br>• Read the specific cannabis advertising statutes (e.g., California Business and Professions Code §§ 26000‑26009, Ontario Cannabis Licence Act). <br>• Create a compliance checklist: no targeting minors, no health‑claim language, no false or exaggerated statements, mandatory warnings, proper licensing disclosures. <br>• Set up an internal “compliance gate” – a legal or regulatory reviewer who signs off on every creative piece before launch. | Cannabis advertising is heavily regulated; a single misstep can lead to fines, license suspension, or forced pull‑backs. |\n| **2️⃣ Audience & Positioning** | • Define **core personas** (e.g., “Wellness‑focused adult,” “Recreational socializer,” “Medical patient”). <br>• Map each persona’s pain points, motivations, and media habits. <br>• Craft a **brand promise** that aligns with those motivations (e.g., “Premium, lab‑tested relaxation” vs. “Therapeutic relief you can trust”). | Clear positioning guides creative tone, media mix, and messaging—making the campaign feel personal rather than generic. |\n| **3️⃣ Channel Strategy** | **Digital** – Social media (Instagram, TikTok, YouTube) *with age‑gating*, programmatic display on cannabis‑friendly sites, SEO‑optimized content blogs. <br>**Owned Media** – Website, email newsletters, loyalty apps (always age‑verified). <br>**Out‑of‑Home** – Billboards in adult‑only zones, transit ads with strict age‑gate signage. <br>**Events & Partnerships** – Sponsorship of music festivals, wellness retreats, dispensary pop‑ups (ensure venue permits). <br>**Traditional** – Print in adult‑oriented magazines, radio spots (dayparted to post‑21 audiences). | A mix maximizes reach while respecting platform restrictions (e.g., many social networks ban direct cannabis ads, so age‑gated or “indirect” content is needed). |\n| **4️⃣ Creative Development** | • Use **high‑quality, authentic imagery** (real product shots, lifestyle photography). <br>• Avoid any depiction of minors, school settings, or overtly “party‑hard” themes. <br>• Include **mandatory warnings** (e.g., “Contains THC – not for use by persons under 21”). <br>• Keep **copy factual** – reference lab results, THC/CBD percentages, or licensed strain names, never “cure anxiety” unless you have a qualified medical claim backed by state‑approved labeling. <br>• Add a **clear call‑to‑action** that drives to an age‑verified landing page (e.g., “Learn More →”). | Creative that meets both brand goals and legal limits avoids costly re‑work and builds trust with regulators and consumers. |\n| **5️⃣ Measurement & Optimization** | • Set **KPIs**: impressions, click‑through rate (CTR), cost‑per‑acquisition (CPA), conversion to email sign‑up or store visit, and compliance audit pass‑rate. <br>• Implement **UTM tagging** and a **privacy‑compliant analytics stack** (respect GDPR/CCPA). <br>• Run A/B tests on headlines, imagery, and offers while keeping each variant compliant. <br>• Review weekly: flag any ad that receives a platform warning or regulator notice and pull immediately. | Data‑driven tweaks improve ROI and ensure you stay within the tight regulatory window. |\n| **6️⃣ Ongoing Compliance Management** | • Schedule quarterly **regulatory refreshes** (laws change). <br>• Maintain a **central asset library** with version control and compliance notes. <br>• Train the marketing team on “what you can say” vs. “what you can’t say.” | Proactive compliance reduces risk and keeps the brand’s reputation intact. |\n\n---\n\n#### Quick‑\n\n---\n*Agent: f8_agent | Tokens: 1133 (133→1000) | Cost: $0.000000*",
+        "agent": "f8_agent",
+        "timestamp": "2025-10-13T01:56:47.690Z",
+        "model": "openai/gpt-oss-120b",
+        "usage": {
+          "prompt_tokens": 133,
+          "completion_tokens": 1000,
+          "total_tokens": 1133,
+          "cost": 0
+        }
+      },
+      "responseTime": 17619
+    },
+    {
+      "agent": "ad",
+      "question": "What are the compliance requirements for cannabis advertising?",
+      "success": true,
+      "statusCode": 200,
+      "response": {
+        "success": true,
+        "response": "**Cannabis‑Advertising Compliance – Quick Reference Guide**  \n\nBelow is a concise, jurisdiction‑by‑jurisdiction checklist of the most common legal and regulatory requirements that apply to any cannabis‑related marketing material (print, digital, outdoor, point‑of‑sale, TV/radio, influencer, etc.).  Adjust the list to the specific state/province/country where the ad will be displayed and to the medium you’re using.\n\n---\n\n## 1. United States (Federal + State)\n\n| Requirement | What It Means for Your Ad | Typical State Variations* |\n|-------------|---------------------------|---------------------------|\n| **No false or misleading statements** (FTC Act, 15 U.S.C. §§ 45(a), 45(b)) | All claims must be truthful, substantiated with scientific data, and not imply FDA approval. | All states adopt this baseline. |\n| **No health/medical claims unless FDA‑approved** (DEA, FDA) | “Cures,” “treats,” “prevents,” or “relieves” medical conditions are prohibited unless the product is an FDA‑approved drug (e.g., Epidiolex). | Some states (e.g., CO, WA) allow “medical‑use” statements if the product is sold through a licensed medical program and the claim is limited to “may help with…”. |\n| **Age‑gate / No targeting minors** | Ads must not be placed where >30 % of the audience is under 21, must not use cartoons, bright colors, or pop‑culture icons that appeal to children, and must include an age‑restriction notice where required. | CA, CO, MA, NY, OR, WA have explicit “no youth‑targeting” rules. |\n| **Location restrictions** | No billboards, transit ads, or signage within 1,000 ft of schools, playgrounds, or youth centers (varies 500‑1,000 ft). | Most states follow this; some (e.g., NV) use 500 ft. |\n| **Warning statements** | Must include a state‑mandated warning (e.g., “This product contains THC. Keep out of reach of children. May cause impairment”). | Exact wording differs; see each state’s “Cannabis Warning Label” sheet. |\n| **License identification** | Ads must display the license number or name of the licensed retailer/manufacturer. | Required in CO, WA, OR, MA, and many others. |\n| **No “free‑sample” or “giveaway” promotions** | Many states prohibit giving away free product or offering “buy‑one‑get‑one” deals. | CO, MA, NM, OR explicitly ban. |\n| **Social‑media platform policies** | Even if state law permits, Facebook, Instagram, Google, and TikTok have their own prohibitions (often “no paid promotion of cannabis”). Use organic content only, or partner with platforms that allow “cannabis‑friendly” accounts (e.g., Weedmaps). | Nationwide. |\n| **Record‑keeping** | Keep a copy of every ad, placement dates, and proof of compliance for at least 2 years (state audit requirement). | All states. |\n\n\\* *Only a few examples are shown; each state’s statutes can add nuances (e.g., “no depiction of consumption,” “no use of the word ‘organic’ unless certified”).  \n\n**Key Federal Sources**  \n- **FTC Truth‑in‑Advertising Guidelines** – https://www.ftc.gov/tips-advice/business-center/advertising-and-marketing  \n- **DEA “Controlled Substances Act”** – https://www.deadiversion.usdoj.gov/  \n- **FDA “Cannabis and Cannabinoids”** – https://www.fda.gov/food/cannabis-and-cannabinoids  \n\n---\n\n## 2. Canada (Federal + Provincial)\n\n| Requirement | Details |\n|-------------|---------|\n| **Cannabis Act (Bill C‑45)** | Prohibits any claim that the product is a “cure” or “treatment” unless supported by Health Canada‑approved scientific evidence. |\n| **Age ≥ 19 (≥ 18\n\n---\n*Agent: f8_agent | Tokens: 1132 (132→1000) | Cost: $0.000000*",
+        "agent": "f8_agent",
+        "timestamp": "2025-10-13T01:56:57.016Z",
+        "model": "openai/gpt-oss-120b",
+        "usage": {
+          "prompt_tokens": 132,
+          "completion_tokens": 1000,
+          "total_tokens": 1132,
+          "cost": 0
+        }
+      },
+      "responseTime": 8324
+    },
+    {
+      "agent": "editor_agent",
+      "question": "How do I configure agent routing for new users?",
+      "success": true,
+      "statusCode": 200,
+      "response": {
+        "success": true,
+        "response": "Below is a step‑by‑step guide you can follow to set up **agent routing for new users** in the Formul8 multi‑agent platform. The process is the same whether you’re using the built‑in UI or the API/JSON configuration file.\n\n---\n\n## 1. Define Your Routing Criteria\n| Criterion | Typical values for cannabis‑focused users | How to capture it |\n|-----------|-------------------------------------------|--------------------|\n| **User role** | `grower`, `formulator`, `regulatory`, `marketer`, `investor` | Ask a quick onboarding question or read the signup “role” field. |\n| **Region / jurisdiction** | `CO`, `CA`, `ON`, `EU` | Pull from the address or a “state/country” dropdown. |\n| **Topic intent** | `compliance`, `formulation`, `science`, `operations`, `marketing`, `patent`, `sourcing` | Use the first user query or a “topic” selector. |\n| **Priority / SLA** | `high`, `normal` | Flag accounts that need faster response (e.g., paid plans). |\n| **Language** | `en`, `es`, `fr` | Detect from browser locale or user profile. |\n\n---\n\n## 2. Map Criteria → Agent(s)\n\n| Criteria (example) | Primary Agent | Backup / Escalation |\n|--------------------|--------------|---------------------|\n| Role = **formulator** + Intent = **formulation** | `FormulationAgent` | `ScienceAgent` |\n| Role = **regulatory** + Jurisdiction = **CO** | `COComplianceAgent` | `GeneralComplianceAgent` |\n| Role = **marketer** + Intent = **marketing** | `MarketingAgent` | `CopywritingAgent` |\n| Priority = **high** | `PriorityRouter → any matching agent` | `EscalationAgent` |\n\nCreate a **routing matrix** (JSON or spreadsheet) that the router can read at runtime.\n\n---\n\n## 3. Implement the Router (JSON example)\n\nIf you prefer a declarative config, place a file like `routing_rules.json` in your `config/` folder:\n\n```json\n{\n  \"defaultAgent\": \"GeneralInfoAgent\",\n  \"rules\": [\n    {\n      \"conditions\": {\n        \"role\": \"formulator\",\n        \"intent\": \"formulation\"\n      },\n      \"agent\": \"FormulationAgent\"\n    },\n    {\n      \"conditions\": {\n        \"role\": \"regulatory\",\n        \"jurisdiction\": \"CO\"\n      },\n      \"agent\": \"COComplianceAgent\"\n    },\n    {\n      \"conditions\": {\n        \"role\": \"marketer\",\n        \"intent\": \"marketing\"\n      },\n      \"agent\": \"MarketingAgent\"\n    },\n    {\n      \"conditions\": {\n        \"priority\": \"high\"\n      },\n      \"agent\": \"PriorityRouter\"\n    }\n  ]\n}\n```\n\n**How the router works**\n\n1. **Parse** the incoming user payload (role, intent, jurisdiction, priority, language, etc.).\n2. **Iterate** through `rules` in order – first match wins.\n3. **Dispatch** the conversation to the `agent` field.\n4. If **no rule matches**, fall back to `defaultAgent`.\n\nYou can load this file at startup:\n\n```python\nimport json, pathlib\nrouter_cfg = json.loads(pathlib.Path('config/routing_rules.json').read_text())\n```\n\n---\n\n## 4. Hook the Router into the Conversation Flow\n\n### Using the built‑in UI\n1. **Admin → Routing** → “Add New Rule”.\n2. Fill the drop‑downs for *Role*, *Intent*, *Jurisdiction*, *Priority*, *Language*.\n3. Select the **Target Agent** from the list.\n4. Click **Save** – the UI writes the same JSON structure behind the scenes.\n\n### Using the API\n```http\nPOST /api/v1/routing/rules\nContent-Type: application/json\n\n{\n  \"conditions\": { \"role\": \"grower\", \"intent\": \"operations\" },\n  \"agent\": \"OperationsAgent\"\n}\n```\n*Response*: `201 Created` with the rule ID.\n\n---\n\n## 5. Test the Routing Logic\n\n| Test # | Input Payload (excerpt) | Expected Agent |\n|--------|\n\n---\n*Agent: f8_agent | Tokens: 1133 (133→1000) | Cost: $0.000000*",
+        "agent": "f8_agent",
+        "timestamp": "2025-10-13T01:57:05.090Z",
+        "model": "openai/gpt-oss-120b",
+        "usage": {
+          "prompt_tokens": 133,
+          "completion_tokens": 1000,
+          "total_tokens": 1133,
+          "cost": 0
+        }
+      },
+      "responseTime": 7072
+    },
+    {
+      "agent": "editor_agent",
+      "question": "Update the micro tier to include patent research capabilities",
+      "success": true,
+      "statusCode": 200,
+      "response": {
+        "success": true,
+        "response": "**Updated “Micro” Tier – Formul8 Multi‑Agent AI**\n\n| Feature | Description |\n|---|---|\n| **Compliance** | Real‑time checks against state, federal, and local cannabis regulations; automated audit trails. |\n| **Formulation** | AI‑driven recipe generation, potency modelling, terpene synergy analysis, and stability predictions. |\n| **Science** | Access to the latest peer‑reviewed studies, extraction‑method optimization, and bioavailability modeling. |\n| **Operations** | Inventory forecasting, batch tracking, SOP generation, and workflow automation. |\n| **Marketing** | Target‑audience segmentation, copywriting, campaign performance analytics, and brand‑voice consistency tools. |\n| **Patent Research** *(new)* | • Comprehensive prior‑art searches across USPTO, EPO, and international databases.<br>• AI‑assisted claim mapping and novelty scoring.<br>• Generation of draft patent outlines and freedom‑to‑operate (FTO) risk assessments.<br>• Ongoing monitoring of newly published patents in the cannabis sector. |\n| **Sourcing** | Supplier vetting, price‑comparison engine, and sustainability scoring for raw materials and equipment. |\n\n**What this adds:**  \n- **Depth:** Quickly identify existing cannabis‑related patents and gaps for new inventions.  \n- **Speed:** Automated summarization of key claims reduces research time from weeks to hours.  \n- **Risk Management:** Early FTO analysis helps avoid costly infringement issues.\n\nLet me know if you’d like a more detailed breakdown (pricing, usage limits, or integration options) for the updated Micro tier.\n\n---\n*Agent: f8_agent | Tokens: 538 (133→405) | Cost: $0.000000*",
+        "agent": "f8_agent",
+        "timestamp": "2025-10-13T01:57:14.875Z",
+        "model": "openai/gpt-oss-120b",
+        "usage": {
+          "prompt_tokens": 133,
+          "completion_tokens": 405,
+          "total_tokens": 538,
+          "cost": 0
+        }
+      },
+      "responseTime": 8781
+    }
+  ]
+}

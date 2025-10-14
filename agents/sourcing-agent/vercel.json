@@ -1,0 +1,26 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "lambda.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/health",
+      "dest": "/lambda.js"
+    },
+    {
+      "src": "/api/chat",
+      "dest": "/lambda.js"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/lambda.js"
+    }
+  ],
+  "env": {
+    "OPENROUTER_API_KEY": "@openrouter_api_key"
+  }
+}

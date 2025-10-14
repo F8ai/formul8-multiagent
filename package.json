@@ -1,25 +1,21 @@
 {
-  "name": "formul8-multiagent-lambda",
+  "name": "formul8-multiagent-tests",
   "version": "1.0.0",
-  "description": "Formul8 Multiagent Chat Lambda Function with OpenRouter API",
-  "main": "lambda.js",
+  "description": "Comprehensive Playwright tests for F8 Multiagent System",
   "scripts": {
-    "start": "node lambda.js",
-    "deploy": "zip -r formul8-multiagent-lambda.zip lambda.js package.json node_modules/"
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:ui": "playwright test --ui",
+    "test:debug": "playwright test --debug",
+    "test:report": "playwright show-report",
+    "test:install": "playwright install",
+    "test:validate": "node tests/validate-system.js"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.40.0",
+    "dotenv": "^16.3.1"
   },
   "dependencies": {
-    "@playwright/test": "^1.56.0",
-    "cors": "^2.8.5",
-    "express": "^4.21.2"
-  },
-  "keywords": [
-    "formul8",
-    "multiagent",
-    "chat",
-    "lambda",
-    "openrouter",
-    "cannabis"
-  ],
-  "author": "Formul8 AI",
-  "license": "MIT"
+    "axios": "^1.6.0"
+  }
 }

@@ -1,0 +1,18 @@
+{
+  "Comment": "Create A record for f8.syzygyx.com pointing to Vercel",
+  "Changes": [
+    {
+      "Action": "UPSERT",
+      "ResourceRecordSet": {
+        "Name": "f8.syzygyx.com",
+        "Type": "A",
+        "TTL": 300,
+        "ResourceRecords": [
+          {
+            "Value": "76.76.21.21"
+          }
+        ]
+      }
+    }
+  ]
+}

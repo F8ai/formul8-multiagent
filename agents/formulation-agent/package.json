@@ -1,0 +1,27 @@
+{
+  "name": "formulation-agent",
+  "version": "1.0.0",
+  "description": "Cannabis product formulation specialist",
+  "main": "lambda.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "formulation",
+    "recipe",
+    "dosage",
+    "extraction",
+    "ingredient",
+    "thc",
+    "cbd",
+    "concentrate",
+    "edible",
+    "tincture"
+  ],
+  "author": "Formul8",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0",
+    "cors": "^2.8.5"
+  }
+}

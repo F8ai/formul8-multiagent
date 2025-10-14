@@ -1,0 +1,24 @@
+{
+  "name": "customer-success-agent",
+  "version": "1.0.0",
+  "description": "Cannabis customer success and retention specialist",
+  "main": "lambda.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "customer",
+    "success",
+    "retention",
+    "support",
+    "satisfaction",
+    "onboarding",
+    "service"
+  ],
+  "author": "Formul8",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0",
+    "cors": "^2.8.5"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "name": "mcr-agent",
+  "version": "1.0.0",
+  "description": "Cannabis MCR (Master Control Record) management specialist",
+  "main": "lambda.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "mcr",
+    "master",
+    "control",
+    "record",
+    "documentation",
+    "compliance",
+    "tracking"
+  ],
+  "author": "Formul8",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0",
+    "cors": "^2.8.5"
+  }
+}

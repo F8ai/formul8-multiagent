@@ -1,0 +1,49 @@
+name: Setup Vercel Environment Variables
+
+on:
+  workflow_dispatch:
+    inputs:
+      openrouter_key:
+        description: 'OpenRouter API Key'
+        required: true
+        type: string
+  push:
+    branches: [main]
+    paths: ['scripts/setup-vercel-env.sh']
+
+jobs:
+  setup-env:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'workflow_dispatch'
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          
+      - name: Install Vercel CLI
+        run: npm install -g vercel@latest
+        
+      - name: Login to Vercel
+        run: vercel login --token ${{ secrets.VERCEL_TOKEN }}
+        
+      - name: Setup environment variables
+        run: |
+          export OPENROUTER_API_KEY="${{ github.event.inputs.openrouter_key }}"
+          ./scripts/setup-vercel-env.sh
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          
+      - name: Redeploy main agent
+        run: |
+          cd lambda-package
+          vercel --prod --yes
+          
+      - name: Redeploy future-agent
+        run: |
+          cd ../future-agent
+          vercel --prod --yes

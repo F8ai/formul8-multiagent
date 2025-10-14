@@ -1,0 +1,141 @@
+name: Monitor Formul8 Agents
+
+on:
+  schedule:
+    # Run every 5 minutes
+    - cron: '*/5 * * * *'
+  workflow_dispatch:
+
+jobs:
+  monitor-agents:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Check main agent health
+        run: |
+          echo "🔍 Checking main agent health..."
+          response=$(curl -s -o /dev/null -w "%{http_code}" https://lambda-package.vercel.app/health)
+          if [ "$response" = "200" ]; then
+            echo "✅ Main agent is healthy"
+          else
+            echo "❌ Main agent health check failed: HTTP $response"
+            exit 1
+          fi
+      
+      - name: Check individual agent health
+        run: |
+          agents=(
+            "compliance-agent"
+            "formulation-agent" 
+            "science-agent"
+            "operations-agent"
+            "marketing-agent"
+            "sourcing-agent"
+            "patent-agent"
+            "spectra-agent"
+            "customer-success-agent"
+            "f8-slackbot"
+            "mcr-agent"
+            "ad-agent"
+            "editor-agent"
+          )
+          
+          failed_agents=()
+          
+          for agent in "${agents[@]}"; do
+            echo "🔍 Checking $agent health..."
+            response=$(curl -s -o /dev/null -w "%{http_code}" "https://$agent.vercel.app/health")
+            if [ "$response" = "200" ]; then
+              echo "✅ $agent is healthy"
+            else
+              echo "❌ $agent health check failed: HTTP $response"
+              failed_agents+=("$agent")
+            fi
+          done
+          
+          if [ ${#failed_agents[@]} -gt 0 ]; then
+            echo "❌ Failed agents: ${failed_agents[*]}"
+            exit 1
+          else
+            echo "✅ All agents are healthy"
+          fi
+      
+      - name: Test authentication flow
+        run: |
+          echo "🔐 Testing authentication flow..."
+          
+          # Test free API key generation
+          free_key_response=$(curl -s https://lambda-package.vercel.app/api/free-key)
+          if echo "$free_key_response" | grep -q "apiKey"; then
+            echo "✅ Free API key generation working"
+            
+            # Extract API key and test chat endpoint
+            api_key=$(echo "$free_key_response" | grep -o '"apiKey":"[^"]*"' | cut -d'"' -f4)
+            echo "Generated API key: ${api_key:0:20}..."
+            
+            # Test chat endpoint with free API key
+            chat_response=$(curl -s -X POST https://lambda-package.vercel.app/api/chat \
+              -H "Content-Type: application/json" \
+              -H "X-API-Key: $api_key" \
+              -d '{"message": "Hello, this is a test"}')
+            
+            if echo "$chat_response" | grep -q "success"; then
+              echo "✅ Chat endpoint working with free API key"
+            else
+              echo "❌ Chat endpoint failed with free API key"
+              echo "Response: $chat_response"
+              exit 1
+            fi
+          else
+            echo "❌ Free API key generation failed"
+            echo "Response: $free_key_response"
+            exit 1
+          fi
+      
+      - name: Check rate limiting
+        run: |
+          echo "⏱️ Testing rate limiting..."
+          
+          # Generate a test API key
+          free_key_response=$(curl -s https://lambda-package.vercel.app/api/free-key)
+          api_key=$(echo "$free_key_response" | grep -o '"apiKey":"[^"]*"' | cut -d'"' -f4)
+          
+          # Test rate limiting (should work for first few requests)
+          for i in {1..5}; do
+            response=$(curl -s -o /dev/null -w "%{http_code}" -X POST https://lambda-package.vercel.app/api/chat \
+              -H "Content-Type: application/json" \
+              -H "X-API-Key: $api_key" \
+              -d '{"message": "Test message '$i'"}')
+            
+            if [ "$response" = "200" ]; then
+              echo "✅ Request $i successful"
+            else
+              echo "⚠️ Request $i returned HTTP $response"
+            fi
+          done
+      
+      - name: Performance check
+        run: |
+          echo "⚡ Testing performance..."
+          
+          # Test response times
+          start_time=$(date +%s%3N)
+          curl -s https://lambda-package.vercel.app/health > /dev/null
+          end_time=$(date +%s%3N)
+          response_time=$((end_time - start_time))
+          
+          echo "Main agent response time: ${response_time}ms"
+          
+          if [ $response_time -lt 1000 ]; then
+            echo "✅ Response time is good (< 1s)"
+          else
+            echo "⚠️ Response time is slow (> 1s): ${response_time}ms"
+          fi
+      
+      - name: Send notification on failure
+        if: failure()
+        run: |
+          echo "🚨 Agent monitoring failed!"
+          echo "Please check the Vercel dashboard and agent logs"
+          # Add Slack/Discord notification here if needed

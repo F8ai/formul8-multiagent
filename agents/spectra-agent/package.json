@@ -1,0 +1,25 @@
+{
+  "name": "spectra-agent",
+  "version": "1.0.0",
+  "description": "Cannabis spectral analysis and quality testing specialist",
+  "main": "lambda.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "spectra",
+    "analysis",
+    "testing",
+    "lab",
+    "equipment",
+    "chemistry",
+    "spectroscopy",
+    "quality"
+  ],
+  "author": "Formul8",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0",
+    "cors": "^2.8.5"
+  }
+}

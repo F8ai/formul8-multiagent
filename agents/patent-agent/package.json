@@ -1,0 +1,25 @@
+{
+  "name": "patent-agent",
+  "version": "1.0.0",
+  "description": "Cannabis intellectual property and patent research expert",
+  "main": "lambda.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "patent",
+    "intellectual",
+    "property",
+    "ip",
+    "research",
+    "legal",
+    "innovation",
+    "invention"
+  ],
+  "author": "Formul8",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0",
+    "cors": "^2.8.5"
+  }
+}

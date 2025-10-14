@@ -1,0 +1,25 @@
+{
+  "name": "operations-agent",
+  "version": "1.0.0",
+  "description": "Cannabis facility operations and management specialist",
+  "main": "lambda.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "operations",
+    "facility",
+    "management",
+    "production",
+    "quality",
+    "control",
+    "logistics",
+    "manufacturing"
+  ],
+  "author": "Formul8",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0",
+    "cors": "^2.8.5"
+  }
+}

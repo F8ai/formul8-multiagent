@@ -1,0 +1,25 @@
+{
+  "name": "marketing-agent",
+  "version": "1.0.0",
+  "description": "Cannabis marketing and brand strategy expert",
+  "main": "lambda.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "marketing",
+    "brand",
+    "advertising",
+    "promotion",
+    "customer",
+    "acquisition",
+    "strategy",
+    "campaign"
+  ],
+  "author": "Formul8",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0",
+    "cors": "^2.8.5"
+  }
+}

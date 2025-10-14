@@ -1,5 +1,12 @@
 const express = require('express');
 const cors = require('cors');
+const { 
+  authenticate, 
+  rateLimiter, 
+  checkAgentAccess, 
+  selectAgent,
+  generateFreeApiKey 
+} = require('./auth-middleware');
 
 // Create Express app
 const app = express();
@@ -61,7 +68,8 @@ app.use((req, res, next) => {
   next();
 });
 
-// Apply rate limiting to API endpoints
+// Apply authentication and rate limiting to API endpoints
+app.use('/api/', authenticate);
 app.use('/api/', rateLimiter);
 
 // Health endpoint
@@ -78,6 +86,25 @@ app.get('/health', (req, res) => {
         unhealthy: 0
       }
     }
+  });
+});
+
+// Free API key generation endpoint
+app.get('/api/free-key', (req, res) => {
+  const freeApiKey = generateFreeApiKey();
+  res.json({
+    success: true,
+    apiKey: freeApiKey,
+    plan: 'free',
+    limits: {
+      requestsPerHour: 10,
+      availableAgents: ['compliance', 'formulation', 'science']
+    },
+    usage: {
+      header: 'X-API-Key',
+      value: freeApiKey
+    },
+    message: 'Use this API key in the X-API-Key header for free access'
   });
 });
 
@@ -1339,21 +1366,49 @@ app.post('/api/chat', async (req, res) => {
       });
     }
     
-    // Determine which agent to use based on message content and available agents
-    let selectedAgent = 'compliance'; // Default fallback
+    // Determine which agent to use based on message content and user plan
+    const userPlan = req.user?.plan || 'free';
+    const selectedAgent = selectAgent(sanitizedMessage, userPlan);
     
-    // Simple keyword-based routing (can be enhanced with more sophisticated logic)
-    const messageLower = sanitizedMessage.toLowerCase();
-    for (const agentKey of availableAgents) {
-      const agent = agentsConfig.agents[agentKey];
-      if (agent && agent.keywords) {
-        const hasKeyword = agent.keywords.some(keyword => 
-          messageLower.includes(keyword.toLowerCase())
-        );
-        if (hasKeyword) {
-          selectedAgent = agentKey;
-          break;
+    // Check if user has access to the selected agent
+    if (!checkAgentAccess(selectedAgent)) {
+      return res.status(403).json({
+        error: 'Agent not available in your plan',
+        selectedAgent: selectedAgent,
+        plan: userPlan
+      });
+    }
+    
+    // If user has future4200 plan access, get community threads first
+    let threadContext = '';
+    if (userPlan === 'future4200' || userPlan === 'standard' || userPlan === 'enterprise' || userPlan === 'admin') {
+      try {
+        const future4200Response = await fetch('https://future-agent.vercel.app/api/threads', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-API-Key': process.env.FUTURE4200_API_KEY || 'free-key'
+          },
+          body: JSON.stringify({
+            query: sanitizedMessage,
+            max_results: 5
+          })
+        });
+        
+        if (future4200Response.ok) {
+          const threadData = await future4200Response.json();
+          if (threadData.threads && threadData.threads.length > 0) {
+            threadContext = `\n\nCommunity Context from Future4200:\n`;
+            threadData.threads.forEach((thread, index) => {
+              threadContext += `${index + 1}. ${thread.title} by ${thread.author}\n`;
+              threadContext += `   ${thread.content.substring(0, 200)}...\n`;
+              threadContext += `   Relevance: ${thread.relevance_score}\n\n`;
+            });
+          }
         }
+      } catch (error) {
+        console.log('Future4200 integration unavailable:', error.message);
+        // Continue without thread context
       }
     }
     
@@ -1412,13 +1467,55 @@ app.post('/api/chat', async (req, res) => {
     // Calculate cost (openai/gpt-oss-120b is free, so cost is $0.00)
     const totalCost = 0.00; // Free model
     
-    // Create footer with metadata
+    // If user has ad access, get advertising content
+    let adContent = '';
+    if (userPlan === 'enterprise' || userPlan === 'admin') {
+      try {
+        const adResponse = await fetch('https://ad-agent.vercel.app/api/chat', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-API-Key': process.env.AD_AGENT_API_KEY || 'free-key'
+          },
+          body: JSON.stringify({
+            message: sanitizedMessage,
+            context: aiResponse,
+            plan: userPlan
+          })
+        });
+        
+        if (adResponse.ok) {
+          const adData = await adResponse.json();
+          if (adData.success && adData.response) {
+            adContent = adData.response;
+          }
+        }
+      } catch (error) {
+        console.log('Ad agent integration unavailable:', error.message);
+        // Continue without ad content
+      }
+    }
+    
+    // Structure the complete response
+    let completeResponse = aiResponse;
+    
+    // Add Future4200 threads if available
+    if (threadContext) {
+      completeResponse += threadContext;
+    }
+    
+    // Add ad content if available
+    if (adContent) {
+      completeResponse += `\n\n---\n**Sponsored Content:**\n${adContent}`;
+    }
+    
+    // Add metadata footer
     const footer = `\n\n---\n*Agent: ${agentName} | Plan: ${planConfig.name} | Tokens: ${totalTokens} (${promptTokens}→${completionTokens}) | Cost: $${totalCost.toFixed(6)}*`;
-    const responseWithFooter = aiResponse + footer;
+    completeResponse += footer;
     
     res.json({
       success: true,
-      response: responseWithFooter,
+      response: completeResponse,
       agent: selectedAgent,
       agentName: agentName,
       plan: plan,

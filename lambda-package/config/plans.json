@@ -1,0 +1,109 @@
+{
+  "plans": {
+    "free": {
+      "name": "Free Plan",
+      "description": "Basic access with limited agents",
+      "price": 0,
+      "agents": {
+        "compliance": true,
+        "formulation": true,
+        "science": true,
+        "operations": false,
+        "marketing": false,
+        "sourcing": false,
+        "patent": false,
+        "spectra": false,
+        "customer_success": false,
+        "f8_slackbot": false,
+        "mcr": false,
+        "ad": false,
+        "editor_agent": false,
+        "future4200": false
+      }
+    },
+    "standard": {
+      "name": "Standard Plan",
+      "description": "Full access to core agents",
+      "price": 29,
+      "agents": {
+        "compliance": true,
+        "formulation": true,
+        "science": true,
+        "operations": true,
+        "marketing": true,
+        "sourcing": false,
+        "patent": false,
+        "spectra": false,
+        "customer_success": false,
+        "f8_slackbot": false,
+        "mcr": false,
+        "ad": false,
+        "editor_agent": false,
+        "future4200": true
+      }
+    },
+    "enterprise": {
+      "name": "Enterprise Plan",
+      "description": "Full access to all agents including community data",
+      "price": 99,
+      "agents": {
+        "compliance": true,
+        "formulation": true,
+        "science": true,
+        "operations": true,
+        "marketing": true,
+        "sourcing": true,
+        "patent": true,
+        "spectra": true,
+        "customer_success": true,
+        "f8_slackbot": true,
+        "mcr": true,
+        "ad": true,
+        "editor_agent": false,
+        "future4200": true
+      }
+    },
+    "admin": {
+      "name": "Admin Plan",
+      "description": "Full access including admin tools",
+      "price": 0,
+      "agents": {
+        "compliance": true,
+        "formulation": true,
+        "science": true,
+        "operations": true,
+        "marketing": true,
+        "sourcing": true,
+        "patent": true,
+        "spectra": true,
+        "customer_success": true,
+        "f8_slackbot": true,
+        "mcr": true,
+        "ad": true,
+        "editor_agent": true,
+        "future4200": true
+      }
+    },
+    "future4200": {
+      "name": "Future4200 Community Plan",
+      "description": "Access to Future4200 community insights and discussions",
+      "price": 19,
+      "agents": {
+        "compliance": true,
+        "formulation": true,
+        "science": true,
+        "operations": false,
+        "marketing": false,
+        "sourcing": false,
+        "patent": false,
+        "spectra": false,
+        "customer_success": false,
+        "f8_slackbot": false,
+        "mcr": false,
+        "ad": false,
+        "editor_agent": false,
+        "future4200": true
+      }
+    }
+  }
+}

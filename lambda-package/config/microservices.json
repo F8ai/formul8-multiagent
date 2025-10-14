@@ -1,0 +1,117 @@
+{
+  "microservices": {
+    "timeout": 30000,
+    "retries": 2,
+    "retryDelay": 1000,
+    "healthCheck": {
+      "enabled": true,
+      "interval": 60000,
+      "timeout": 5000,
+      "endpoint": "/health"
+    },
+    "circuitBreaker": {
+      "enabled": true,
+      "failureThreshold": 5,
+      "recoveryTimeout": 30000,
+      "monitoringPeriod": 10000
+    },
+    "loadBalancing": {
+      "enabled": false,
+      "strategy": "round_robin",
+      "healthCheckWeight": 0.3
+    },
+    "services": {
+      "f8_agent": {
+        "url": "https://f8.syzygyx.com",
+        "type": "lambda",
+        "timeout": 30000,
+        "retries": 2,
+        "healthCheck": true
+      },
+      "compliance": {
+        "url": "https://compliance-agent.f8.syzygyx.com",
+        "type": "microservice",
+        "timeout": 30000,
+        "retries": 2,
+        "healthCheck": true
+      },
+      "formulation": {
+        "url": "https://formulation-agent.f8.syzygyx.com",
+        "type": "microservice",
+        "timeout": 30000,
+        "retries": 2,
+        "healthCheck": true
+      },
+      "science": {
+        "url": "https://science-agent.f8.syzygyx.com",
+        "type": "microservice",
+        "timeout": 30000,
+        "retries": 2,
+        "healthCheck": true
+      },
+      "operations": {
+        "url": "https://operations-agent.f8.syzygyx.com",
+        "type": "microservice",
+        "timeout": 30000,
+        "retries": 2,
+        "healthCheck": true
+      },
+      "marketing": {
+        "url": "https://marketing-agent.f8.syzygyx.com",
+        "type": "microservice",
+        "timeout": 30000,
+        "retries": 2,
+        "healthCheck": true
+      },
+      "sourcing": {
+        "url": "https://sourcing-agent.f8.syzygyx.com",
+        "type": "microservice",
+        "timeout": 30000,
+        "retries": 2,
+        "healthCheck": true
+      },
+      "patent": {
+        "url": "https://patent-agent.f8.syzygyx.com",
+        "type": "microservice",
+        "timeout": 30000,
+        "retries": 2,
+        "healthCheck": true
+      },
+      "spectra": {
+        "url": "https://spectra-agent.f8.syzygyx.com",
+        "type": "microservice",
+        "timeout": 30000,
+        "retries": 2,
+        "healthCheck": true
+      },
+      "customer_success": {
+        "url": "https://customer-success-agent.f8.syzygyx.com",
+        "type": "microservice",
+        "timeout": 30000,
+        "retries": 2,
+        "healthCheck": true
+      },
+      "f8_slackbot": {
+        "url": "https://f8-slackbot.f8.syzygyx.com",
+        "type": "microservice",
+        "timeout": 30000,
+        "retries": 2,
+        "healthCheck": true
+      },
+      "mcr": {
+        "url": "https://mcr-agent.f8.syzygyx.com",
+        "type": "microservice",
+        "timeout": 30000,
+        "retries": 2,
+        "healthCheck": true
+      },
+      "ad": {
+        "url": "https://ad-agent.f8.syzygyx.com",
+        "type": "microservice",
+        "timeout": 30000,
+        "retries": 2,
+        "healthCheck": true
+      }
+    }
+  }
+}

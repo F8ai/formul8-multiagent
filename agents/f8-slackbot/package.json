@@ -1,0 +1,24 @@
+{
+  "name": "f8-slackbot",
+  "version": "1.0.0",
+  "description": "Formul8 Slack integration and team collaboration agent",
+  "main": "lambda.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "slack",
+    "integration",
+    "team",
+    "collaboration",
+    "notification",
+    "workflow",
+    "communication"
+  ],
+  "author": "Formul8",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0",
+    "cors": "^2.8.5"
+  }
+}

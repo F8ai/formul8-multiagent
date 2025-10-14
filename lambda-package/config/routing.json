@@ -1,0 +1,48 @@
+{
+  "routing": {
+    "strategy": "langchain_semantic",
+    "fallback": "keyword_matching",
+    "timeout": 10000,
+    "retries": 2,
+    "confidence_threshold": 0.8,
+    "strategies": {
+      "langchain_semantic": {
+        "enabled": true,
+        "model": "meta-llama/llama-3.1-8b-instruct",
+        "temperature": 0.3,
+        "maxTokens": 50,
+        "prompt_template": "routing_prompt"
+      },
+      "keyword_matching": {
+        "enabled": true,
+        "case_sensitive": false,
+        "exact_match": false,
+        "weighted_keywords": true
+      },
+      "embedding_similarity": {
+        "enabled": false,
+        "model": "text-embedding-ada-002",
+        "similarity_threshold": 0.85,
+        "top_k": 3
+      }
+    },
+    "prompts": {
+      "routing_prompt": "You are an intelligent agent router for the Formul8 cannabis industry AI system. Your job is to analyze user messages and route them to the most appropriate specialized agent.\n\nAvailable agents:\n{agents_list}\n\nUser message: {message}\n\nAnalyze the message and respond with ONLY the agent name from the list above.\nDo not include any other text or explanation."
+    },
+    "agent_priorities": {
+      "f8_agent": 1,
+      "compliance": 2,
+      "formulation": 2,
+      "science": 2,
+      "operations": 3,
+      "marketing": 3,
+      "sourcing": 3,
+      "patent": 3,
+      "spectra": 3,
+      "customer_success": 3,
+      "f8_slackbot": 4,
+      "mcr": 4,
+      "ad": 4
+    }
+  }
+}
