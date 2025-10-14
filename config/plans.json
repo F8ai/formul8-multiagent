@@ -1,5 +1,34 @@
 {
   "plans": {
+    "free": {
+      "name": "Free",
+      "description": "Basic access with limited agents",
+      "price": "$0",
+      "period": "/month",
+      "features": [
+        "Basic formulation tools",
+        "Limited compliance checking",
+        "Basic science support",
+        "Community support"
+      ],
+      "agents": {
+        "f8_agent": true,
+        "compliance": true,
+        "formulation": true,
+        "science": true,
+        "operations": false,
+        "marketing": false,
+        "sourcing": false,
+        "patent": false,
+        "spectra": false,
+        "customer_success": false,
+        "f8_slackbot": false,
+        "mcr": false,
+        "ad": false,
+        "editor_agent": false,
+        "future4200": false
+      }
+    },
     "standard": {
       "name": "Standard",
       "description": "Perfect for Artesians",

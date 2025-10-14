@@ -44,12 +44,14 @@
             max-width: 1200px;
             margin: 0 auto;
             background: var(--formul8-bg-primary);
+            position: relative;
         }
 
         .chat-header {
             background: linear-gradient(135deg, var(--formul8-bg-secondary), #2a2a2a);
             padding: 20px;
             border-bottom: 1px solid var(--formul8-border);
+            position: relative;
         }
 
         .chat-header h2 {
@@ -58,6 +60,48 @@
             color: var(--formul8-text-primary);
             margin-bottom: 15px;
             text-align: center;
+        }
+
+        .auth-buttons {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .auth-button {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .login-button {
+            background: transparent;
+            color: var(--formul8-text-primary);
+            border: 1px solid var(--formul8-border);
+        }
+
+        .login-button:hover {
+            background: var(--formul8-bg-surface);
+            border-color: var(--formul8-border-light);
+        }
+
+        .signup-button {
+            background: var(--formul8-primary);
+            color: var(--formul8-bg-primary);
+        }
+
+        .signup-button:hover {
+            background: var(--formul8-secondary);
+            transform: translateY(-1px);
         }
 
         .chat-controls {
@@ -118,6 +162,7 @@
         .chat-messages {
             flex: 1;
             padding: 20px;
+            padding-bottom: 120px; /* Add space for fixed input */
             overflow-y: auto;
             background: var(--formul8-bg-primary);
         }
@@ -208,9 +253,25 @@
         }
 
         .chat-input-container {
+            position: fixed;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            max-width: 1200px;
             padding: 20px;
             background: var(--formul8-bg-secondary);
             border-top: 1px solid var(--formul8-border);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .chat-input-container.focused {
+            padding: 25px 20px;
+            background: var(--formul8-bg-surface);
+            border-top: 2px solid var(--formul8-primary);
+            box-shadow: 0 -4px 20px rgba(0, 255, 136, 0.1);
         }
 
         .chat-input-group {
@@ -229,10 +290,20 @@
             color: var(--formul8-text-primary);
             font-size: 1rem;
             outline: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateY(0);
         }
 
         .chat-input:focus {
             border-color: var(--formul8-primary);
+            box-shadow: 0 0 0 3px rgba(0, 255, 136, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .chat-input-container.focused .chat-input {
+            padding: 14px 18px;
+            font-size: 1.05rem;
+            border-radius: 30px;
         }
 
         .send-button {
@@ -244,7 +315,8 @@
             font-size: 1rem;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateY(0);
         }
 
         .send-button:hover {
@@ -256,6 +328,13 @@
             opacity: 0.6;
             cursor: not-allowed;
             transform: none;
+        }
+
+        .chat-input-container.focused .send-button {
+            padding: 14px 26px;
+            font-size: 1.05rem;
+            border-radius: 30px;
+            transform: translateY(-2px);
         }
 
         .loading {
@@ -288,12 +367,35 @@
             .message-content {
                 max-width: 85%;
             }
+
+            .auth-buttons {
+                position: static;
+                justify-content: center;
+                margin-bottom: 15px;
+            }
+
+            .auth-button {
+                padding: 6px 12px;
+                font-size: 0.8rem;
+            }
+
+            .chat-input-container {
+                padding: 15px;
+            }
+
+            .chat-messages {
+                padding-bottom: 100px; /* Adjust for mobile */
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="chat-header">
+            <div class="auth-buttons">
+                <a href="#" class="auth-button login-button" id="loginButton">Log in</a>
+                <a href="#" class="auth-button signup-button" id="signupButton">Sign up for free</a>
+            </div>
             <h2>Formul8 Multiagent Chat</h2>
             <div class="chat-controls">
                 <div class="user-field">
@@ -359,10 +461,78 @@
         document.getElementById('sendButton').addEventListener('click', function() {
             sendMessage();
         });
+
+        // Auth button functionality
+        document.getElementById('loginButton').addEventListener('click', function(e) {
+            e.preventDefault();
+            handleLogin();
+        });
+
+        document.getElementById('signupButton').addEventListener('click', function(e) {
+            e.preventDefault();
+            handleSignup();
+        });
+
+        function handleLogin() {
+            // For now, show a simple prompt - in production this would open a login modal or redirect
+            const username = prompt('Enter your username:');
+            if (username && username.trim()) {
+                document.getElementById('username').value = username.trim();
+                showMessage('Logged in as: ' + username.trim(), 'success');
+            }
+        }
+
+        function handleSignup() {
+            // For now, show a simple prompt - in production this would open a signup modal or redirect
+            const username = prompt('Choose a username:');
+            if (username && username.trim()) {
+                document.getElementById('username').value = username.trim();
+                showMessage('Account created! Logged in as: ' + username.trim(), 'success');
+            }
+        }
+
+        function showMessage(message, type = 'info') {
+            const chatMessages = document.getElementById('chatMessages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message assistant-message`;
+            messageDiv.innerHTML = `
+                <div class="message-content">
+                    <div class="message-header">
+                        <span class="agent-name">System</span>
+                        <span class="timestamp">${new Date().toLocaleTimeString()}</span>
+                    </div>
+                    <div class="message-text" style="color: ${type === 'success' ? 'var(--formul8-primary)' : 'var(--formul8-text-primary)'}">${message}</div>
+                </div>
+            `;
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
         
         document.getElementById('chatInput').addEventListener('keypress', function(e) {
             if (e.key === 'Enter') {
                 sendMessage();
+            }
+        });
+
+        // Input focus/blur animations
+        document.getElementById('chatInput').addEventListener('focus', function() {
+            const container = document.querySelector('.chat-input-container');
+            container.classList.add('focused');
+        });
+
+        document.getElementById('chatInput').addEventListener('blur', function() {
+            const container = document.querySelector('.chat-input-container');
+            // Only remove focused class if input is empty
+            if (this.value.trim() === '') {
+                container.classList.remove('focused');
+            }
+        });
+
+        // Keep focused state when typing
+        document.getElementById('chatInput').addEventListener('input', function() {
+            const container = document.querySelector('.chat-input-container');
+            if (this.value.trim() !== '') {
+                container.classList.add('focused');
             }
         });
         
@@ -453,6 +623,10 @@
                 sendToAPI(sanitizedMessage, validatedUsername, plan);
                 
                 input.value = '';
+                
+                // Remove focused state after sending
+                const container = document.querySelector('.chat-input-container');
+                container.classList.remove('focused');
                 
             } catch (error) {
                 console.error('Validation error:', error);
