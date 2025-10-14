@@ -840,39 +840,35 @@
                 </div>
 
                 <div class="highlight-box">
-                    <h3>Detailed Cost Breakdown by Feature</h3>
-                    <p><strong>Future4200 Forum Integration:</strong><br>
-                    • Web scraping & API calls: $0.05/user/month<br>
-                    • Data processing & indexing: $0.08/user/month<br>
-                    • Search & retrieval: $0.02/user/month</p>
+                    <h3>Detailed Cost Breakdown by Compute & Storage</h3>
+                    <p><strong>Compute Costs (AWS Lambda + API Gateway):</strong><br>
+                    • Lambda execution: $0.0000166667 per GB-second<br>
+                    • API Gateway: $3.50 per million requests<br>
+                    • Average: 100 requests/user/month = $0.35/user/month</p>
                     
-                    <p><strong>Chat History Storage:</strong><br>
-                    • Supabase database: $0.125/GB/month<br>
-                    • Average 1MB per user per month: $0.13/user/month</p>
+                    <p><strong>Storage Costs (AWS S3 + Supabase):</strong><br>
+                    • S3 Standard: $0.023/GB/month<br>
+                    • Supabase Database: $0.125/GB/month<br>
+                    • Average storage per tier: 0.1GB-50GB = $0.01-$6.25/user/month</p>
                     
-                    <p><strong>File Upload & Document Storage:</strong><br>
-                    • AWS S3 storage: $0.023/GB/month<br>
-                    • CDN delivery: $0.085/GB/month<br>
-                    • File processing: $0.10 per 1,000 files</p>
+                    <p><strong>AI/LLM Processing (OpenRouter):</strong><br>
+                    • GPT-4: $0.03 per 1K input tokens, $0.06 per 1K output tokens<br>
+                    • Average: 2K input + 1K output tokens per request<br>
+                    • 100 requests/month = $12/user/month (high usage)<br>
+                    • 20 requests/month = $2.40/user/month (low usage)</p>
                     
-                    <p><strong>Personal RAG System:</strong><br>
-                    • Vector database (Pinecone): $0.40/GB/month<br>
-                    • Embedding generation: $0.0001 per 1K tokens<br>
-                    • Query processing: $0.0004 per 1K tokens</p>
+                    <p><strong>Vector Database (Pinecone):</strong><br>
+                    • Starter plan: $70/month for 1M vectors<br>
+                    • Pro plan: $0.0004 per vector per month<br>
+                    • Average: 1K-10K vectors per user = $0.07-$4.00/user/month</p>
                     
-                    <p><strong>Google Workspace Integration:</strong><br>
-                    • Google API calls: $0.01 per 1,000 requests<br>
-                    • OAuth token management: $0.05/user/month<br>
-                    • Data synchronization: $0.02/user/month</p>
+                    <p><strong>Data Transfer & CDN:</strong><br>
+                    • CloudFront: $0.085/GB for first 10TB<br>
+                    • Average: 0.1-5GB transfer per user = $0.01-$0.43/user/month</p>
                     
-                    <p><strong>AI/LLM Processing:</strong><br>
-                    • OpenRouter API: $0.002-0.06 per 1K tokens<br>
-                    • Average 10K tokens per user per month: $0.20-3.00/user/month</p>
-                    
-                    <p><strong>Infrastructure & Monitoring:</strong><br>
-                    • AWS Lambda: $0.20 per 1M requests<br>
-                    • CloudWatch logging: $0.50/GB ingested<br>
-                    • Rate limiting & security: $0.10/user/month</p>
+                    <p><strong>Monitoring & Logging:</strong><br>
+                    • CloudWatch: $0.50/GB ingested<br>
+                    • Average: 0.01GB logs per user = $0.005/user/month</p>
                 </div>
 
                 <div class="highlight-box">
