@@ -216,6 +216,15 @@ async function buildPages() {
             </ul>
         </div>
         
+        <div class="endpoints">
+            <h3>📚 Documentation:</h3>
+            <ul>
+                <li><a href="/architecture.html" target="_blank">🏗️ System Architecture & Sequence Diagram</a> - Complete authentication and request flow</li>
+                <li><a href="https://github.com/F8ai/formul8-multiagent" target="_blank">📖 GitHub Repository</a> - Source code and documentation</li>
+                <li><a href="https://f8.syzygyx.com/api/agents" target="_blank">🤖 Agent API Documentation</a> - Live agent endpoints</li>
+            </ul>
+        </div>
+        
         <p style="text-align: center; color: #7f8c8d; margin-top: 40px;">
             Formul8 Multiagent Chat - AI-Powered Cannabis Solutions
         </p>
@@ -353,6 +362,388 @@ async function buildPages() {
 </html>`;
 
   await fs.writeFile(path.join(pagesDir, '404.html'), notFoundHtml);
+
+  // Create sequence diagram page
+  const sequenceDiagramHtml = `<!DOCTYPE html>
+<html>
+<head>
+    <title>Formul8 System Architecture - Sequence Diagram</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+    <style>
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; 
+            margin: 0; 
+            padding: 20px; 
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .container { 
+            max-width: 1400px; 
+            margin: 0 auto; 
+            background: white; 
+            padding: 40px; 
+            border-radius: 15px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        h1 { 
+            color: #2c3e50; 
+            text-align: center; 
+            margin-bottom: 30px;
+            font-size: 2.5em;
+        }
+        .nav {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .nav a {
+            color: #007bff;
+            text-decoration: none;
+            margin: 0 15px;
+            padding: 8px 16px;
+            border-radius: 5px;
+            background: #f8f9fa;
+            transition: all 0.3s ease;
+        }
+        .nav a:hover {
+            background: #007bff;
+            color: white;
+        }
+        .diagram-container {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            overflow-x: auto;
+        }
+        .mermaid {
+            text-align: center;
+        }
+        .description {
+            background: #e8f5e8;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 4px solid #4CAF50;
+        }
+        .components {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .component {
+            background: #f0f8ff;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #007bff;
+        }
+        .component h3 {
+            margin-top: 0;
+            color: #2c3e50;
+        }
+        .security-features {
+            background: #fff3cd;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 4px solid #ffc107;
+        }
+        .subscription-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .subscription-table th {
+            background: linear-gradient(135deg, #00ff88 0%, #00d4aa 100%);
+            color: #0a0a0a;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+        }
+        .subscription-table td {
+            padding: 12px;
+            border-bottom: 1px solid #eee;
+        }
+        .subscription-table tr:hover {
+            background: #f8f9fa;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🏗️ Formul8 System Architecture</h1>
+        
+        <div class="nav">
+            <a href="/">← Back to Chat</a>
+            <a href="https://f8.syzygyx.com" target="_blank">Live API</a>
+            <a href="https://github.com/F8ai/formul8-multiagent" target="_blank">GitHub</a>
+        </div>
+        
+        <div class="description">
+            <h2>📋 Overview</h2>
+            <p>This sequence diagram illustrates the complete authentication and request flow between the User, Supabase, Google OAuth, and the F8 Multiagent system.</p>
+        </div>
+        
+        <div class="diagram-container">
+            <div class="mermaid">
+sequenceDiagram
+    participant U as User
+    participant F as Formul8 Frontend<br/>(formul8.ai)
+    participant D as Formul8 Dashboard<br/>(formul8-ai-dashboard.vercel.app)
+    participant G as Google OAuth<br/>(OAuth 2.0)
+    participant S as Supabase<br/>(Database & Auth)
+    participant API as F8 API<br/>(f8.syzygyx.com)
+    participant A as Specialized Agents<br/>(compliance, formulation, etc.)
+    participant AD as Ad Server<br/>(Ad Agent)
+
+    Note over U,A: Authentication Flow
+
+    U->>F: 1. Access formul8.ai
+    F->>U: 2. Display login page
+    U->>F: 3. Click "Login with Google"
+    
+    F->>G: 4. Redirect to Google OAuth
+    G->>U: 5. Google login prompt
+    U->>G: 6. Enter credentials
+    G->>F: 7. Return authorization code
+    
+    F->>G: 8. Exchange code for tokens
+    G->>F: 9. Return JWT access token
+    
+    F->>S: 10. Verify JWT token
+    S->>F: 11. Token validation response
+    
+    F->>S: 12. Create/update user profile
+    S->>S: 13. Auto-create profile record
+    S->>S: 14. Assign default subscription (free)
+    S->>S: 15. Set user role with permissions
+    S->>F: 16. Return user data (ID, plan, permissions)
+    
+    F->>U: 17. Login successful, show dashboard
+
+    Note over U,A: Request Processing Flow
+
+    U->>F: 18. Send chat message
+    F->>API: 19. POST /api/chat<br/>Authorization: Bearer JWT<br/>Body: {message, plan, username}
+    
+    API->>S: 20. Verify JWT token
+    S->>API: 21. Return user data (profile, subscription, role)
+    
+    API->>API: 22. Check plan permissions
+    API->>API: 23. Apply rate limiting
+    API->>API: 24. Select appropriate agent<br/>(based on keywords)
+    
+    alt Agent Selection
+        API->>A: 25. Route to specialized agent<br/>(compliance, formulation, etc.)
+        A->>A: 26. Validate plan access
+        A->>A: 27. Process request with OpenRouter API
+        A->>API: 28. Return agent response
+    else Direct API Response
+        API->>API: 25. Process with F8 agent
+    end
+    
+    API->>F: 29. Return response with agent info
+    F->>U: 30. Display response
+
+    Note over U,A: Subscription & Plan Management
+
+    U->>F: 31. Request plan upgrade
+    F->>S: 32. Update subscription plan
+    S->>S: 33. Update user_roles table
+    S->>S: 34. Update permissions
+    S->>F: 35. Return updated plan data
+    F->>U: 36. Show new plan features
+
+    Note over U,A: Security & Rate Limiting
+
+    rect rgb(255, 240, 240)
+        Note over API: Rate Limiting by Plan:<br/>Free: 10 req/hour<br/>Standard: 100 req/hour<br/>Enterprise: 1000 req/hour<br/>Admin: Unlimited
+    end
+
+    rect rgb(240, 255, 240)
+        Note over S: Row Level Security (RLS):<br/>- User can only access own data<br/>- Plan-based feature access<br/>- Automatic profile creation<br/>- Permission validation
+    end
+
+    rect rgb(240, 240, 255)
+        Note over G: OAuth 2.0 Security:<br/>- Secure token exchange<br/>- JWT token validation<br/>- Token refresh handling<br/>- Scope-based permissions
+    end
+
+    Note over U,AD: Ad Serving Flow
+
+    U->>F: 37. Access free plan features
+    F->>API: 38. Check user plan status
+    API->>S: 39. Verify user subscription
+    S->>API: 40. Return plan: "free"
+    
+    API->>AD: 41. Request ad content<br/>User plan: free<br/>Context: cannabis industry
+    AD->>AD: 42. Select relevant ad<br/>Target: cannabis businesses<br/>Format: banner/video
+    AD->>API: 43. Return ad content<br/>{ad_id, content, placement}
+    
+    API->>F: 44. Return response + ad content
+    F->>U: 45. Display response with ads
+    
+    Note over U,AD: Ad Interaction Tracking
+
+    U->>F: 46. Click on ad
+    F->>AD: 47. Track ad click<br/>ad_id, user_id, timestamp
+    AD->>AD: 48. Log interaction<br/>Update click metrics
+    AD->>F: 49. Redirect to advertiser
+    F->>U: 50. Open advertiser page
+
+    Note over U,AD: Ad Revenue & Analytics
+
+    rect rgb(255, 245, 240)
+        Note over AD: Ad Revenue Model:<br/>- Free users see targeted ads<br/>- Paid users see no ads<br/>- Revenue sharing with advertisers<br/>- Analytics for ad performance
+    end
+
+    rect rgb(240, 255, 240)
+        Note over S: Ad-Free Upgrade Path:<br/>- Free users see upgrade prompts<br/>- Ad-free experience for paid plans<br/>- Conversion tracking<br/>- Revenue optimization
+    end
+
+    Note over U,S: Token Usage & Cost Tracking
+
+    U->>F: 51. Send chat request
+    F->>API: 52. POST /api/chat with JWT
+    API->>S: 53. Verify user & check plan limits
+    S->>API: 54. Return user data & usage limits
+    
+    API->>A: 55. Process with OpenRouter API
+    A->>A: 56. Calculate tokens: input + output
+    A->>A: 57. Calculate cost: tokens × rate
+    A->>API: 58. Return response + usage data
+    
+    API->>S: 59. Log usage to database<br/>{user_id, tokens, cost, model, timestamp}
+    S->>S: 60. Update user usage totals
+    S->>S: 61. Check against plan limits
+    
+    API->>F: 62. Return response with usage<br/>{response, usage: {tokens, cost, remaining}}
+    F->>U: 63. Display response + usage info
+
+    Note over U,S: Billing & Usage Analytics
+
+    rect rgb(255, 248, 240)
+        Note over API: Token Cost Calculation:<br/>- Input tokens: $0.001/1K tokens<br/>- Output tokens: $0.002/1K tokens<br/>- Model: GPT-OSS-120B pricing<br/>- Real-time cost tracking
+    end
+
+    rect rgb(248, 255, 248)
+        Note over S: Usage Tracking:<br/>- Per-user token consumption<br/>- Monthly usage limits by plan<br/>- Cost accumulation tracking<br/>- Billing cycle management
+    end
+            </div>
+        </div>
+        
+        <div class="components">
+            <div class="component">
+                <h3>👤 User</h3>
+                <p>End user accessing the Formul8 system. Authenticates via Google OAuth and sends chat requests.</p>
+            </div>
+            
+            <div class="component">
+                <h3>🌐 Formul8 Frontend (formul8.ai)</h3>
+                <p>React/HTML interface that handles user authentication flow, manages JWT token storage, and routes requests to F8 API.</p>
+            </div>
+            
+            <div class="component">
+                <h3>🔐 Google OAuth (OAuth 2.0)</h3>
+                <p>Provides secure authentication, issues JWT access tokens, handles token refresh, and manages user consent and scopes.</p>
+            </div>
+            
+            <div class="component">
+                <h3>🗄️ Supabase (Database & Auth)</h3>
+                <p>Stores user profiles and subscription data, manages Row Level Security (RLS) policies, handles JWT token verification, and manages 8-tier subscription system.</p>
+            </div>
+            
+            <div class="component">
+                <h3>⚡ F8 API (f8.syzygyx.com)</h3>
+                <p>Central routing and coordination hub that validates JWT tokens with Supabase, applies rate limiting based on user plan, routes requests to specialized agents, and manages plan-based permissions.</p>
+            </div>
+            
+            <div class="component">
+                <h3>🤖 Specialized Agents</h3>
+                <p>12 domain-specific AI assistants (compliance, formulation, science, operations, etc.) that validate plan access permissions, process requests via OpenRouter API, and return specialized responses.</p>
+            </div>
+            
+            <div class="component">
+                <h3>📺 Ad Server (Ad Agent)</h3>
+                <p>Cannabis industry-focused ad serving system that targets relevant advertisements to free plan users, tracks ad interactions and click-through rates, manages ad revenue and performance analytics, and provides upgrade prompts for ad-free experience.</p>
+            </div>
+        </div>
+        
+        <div class="security-features">
+            <h3>🔒 Security Features</h3>
+            <ul>
+                <li><strong>JWT Token Verification:</strong> All requests validated through Supabase</li>
+                <li><strong>Row Level Security:</strong> Users can only access their own data</li>
+                <li><strong>Plan-based Access Control:</strong> Features gated by subscription tier</li>
+                <li><strong>Rate Limiting:</strong> Prevents abuse with tier-based limits</li>
+                <li><strong>Input Sanitization:</strong> All user inputs validated and sanitized</li>
+                <li><strong>CORS Configuration:</strong> Secure cross-origin request handling</li>
+            </ul>
+        </div>
+        
+        <div class="security-features" style="background: #f0f8ff; border-left: 4px solid #007bff;">
+            <h3>💰 Token Usage & Cost Tracking</h3>
+            <ul>
+                <li><strong>Real-time Cost Calculation:</strong> Input tokens ($0.001/1K) + Output tokens ($0.002/1K)</li>
+                <li><strong>Usage Logging:</strong> All token consumption tracked per user with timestamps</li>
+                <li><strong>Plan Limits:</strong> Monthly usage limits enforced by subscription tier</li>
+                <li><strong>Transparency:</strong> Users see token consumption and remaining limits</li>
+                <li><strong>Billing Integration:</strong> Usage data feeds into subscription management</li>
+                <li><strong>Model Tracking:</strong> Cost calculation based on GPT-OSS-120B pricing</li>
+            </ul>
+        </div>
+        
+        <div class="description">
+            <h3>📊 Subscription Tiers</h3>
+            <table class="subscription-table">
+                <thead>
+                    <tr>
+                        <th>Tier</th>
+                        <th>Plan</th>
+                        <th>Features</th>
+                        <th>Rate Limit</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>1</td><td>free</td><td>Basic chat, Standard responses</td><td>10 req/hour</td></tr>
+                    <tr><td>2</td><td>standard</td><td>+ Formulation help</td><td>100 req/hour</td></tr>
+                    <tr><td>3</td><td>micro</td><td>+ Compliance assistance, Basic analytics</td><td>100 req/hour</td></tr>
+                    <tr><td>4</td><td>operator</td><td>+ Operations support, Advanced analytics</td><td>100 req/hour</td></tr>
+                    <tr><td>5</td><td>enterprise</td><td>+ Marketing tools, Custom integrations</td><td>1000 req/hour</td></tr>
+                    <tr><td>6</td><td>beta</td><td>All standard + Beta features, Early access</td><td>1000 req/hour</td></tr>
+                    <tr><td>7</td><td>admin</td><td>All features + Admin tools, System management</td><td>Unlimited</td></tr>
+                    <tr><td>8</td><td>future4200</td><td>All + Future4200 integration, Community tools</td><td>Unlimited</td></tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <p style="text-align: center; color: #7f8c8d; margin-top: 40px;">
+            Formul8 Multiagent System Architecture - AI-Powered Cannabis Solutions
+        </p>
+    </div>
+    
+    <script>
+        mermaid.initialize({ 
+            startOnLoad: true,
+            theme: 'default',
+            themeVariables: {
+                primaryColor: '#00ff88',
+                primaryTextColor: '#0a0a0a',
+                primaryBorderColor: '#00d4aa',
+                lineColor: '#333333',
+                secondaryColor: '#f8f9fa',
+                tertiaryColor: '#ffffff'
+            }
+        });
+    </script>
+</body>
+</html>`;
+
+  await fs.writeFile(path.join(pagesDir, 'architecture.html'), sequenceDiagramHtml);
   
   console.log('✅ Static pages built successfully!');
   console.log(`📁 Pages directory: ${pagesDir}`);
