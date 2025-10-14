@@ -347,6 +347,79 @@
             color: #555;
         }
         
+        /* Search Results Dropdown */
+        .search-results-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background-color: #2a2a2a;
+            border: 1px solid #333;
+            border-top: none;
+            border-radius: 0 0 8px 8px;
+            max-height: 500px;
+            overflow-y: auto;
+            z-index: 1000;
+            display: none;
+        }
+        
+        .search-result-item {
+            padding: 15px 16px;
+            border-bottom: 1px solid #333;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        
+        .search-result-item:hover {
+            background-color: #333;
+        }
+        
+        .search-result-item:last-child {
+            border-bottom: none;
+        }
+        
+        .search-result-title {
+            color: #007bff;
+            font-size: 14px;
+            font-weight: 500;
+            margin: 0 0 8px 0;
+            line-height: 1.3;
+        }
+        
+        .search-result-tags {
+            margin-bottom: 8px;
+        }
+        
+        .search-tag {
+            display: inline-block;
+            padding: 2px 6px;
+            margin-right: 6px;
+            margin-bottom: 4px;
+            border-radius: 3px;
+            font-size: 11px;
+            font-weight: 500;
+            text-transform: uppercase;
+        }
+        
+        .tag-orange { background-color: #ff8c00; color: #fff; }
+        .tag-blue { background-color: #87ceeb; color: #000; }
+        .tag-green { background-color: #32cd32; color: #000; }
+        .tag-gray { background-color: #666; color: #fff; }
+        .tag-default { background-color: #555; color: #fff; }
+        
+        .search-result-desc {
+            color: #d1d1d1;
+            font-size: 12px;
+            line-height: 1.4;
+            margin: 0;
+        }
+        
+        .search-no-results {
+            padding: 20px;
+            text-align: center;
+            color: #888;
+        }
+        
         .search-icon-left {
             position: absolute;
             left: 15px;
@@ -961,10 +1034,11 @@
                 }
             });
             
-            // Hide suggestions when clicking outside
+            // Hide suggestions and results when clicking outside
             document.addEventListener('click', function(e) {
                 if (!e.target.closest('.search-container')) {
                     hideSearchSuggestions();
+                    closeSearchResults();
                 }
             });
             
@@ -1061,100 +1135,104 @@
         }
         
         function displaySearchResults(data, query) {
-            // Create or update search results container
-            let resultsContainer = document.getElementById('search-results');
+            // Create or update search results dropdown
+            let resultsContainer = document.getElementById('search-results-dropdown');
             if (!resultsContainer) {
                 resultsContainer = document.createElement('div');
-                resultsContainer.id = 'search-results';
-                resultsContainer.className = 'search-results';
+                resultsContainer.id = 'search-results-dropdown';
+                resultsContainer.className = 'search-results-dropdown';
                 
-                // Insert after the ad banners
-                const adBanners = document.querySelector('.ad-banners');
-                adBanners.parentNode.insertBefore(resultsContainer, adBanners.nextSibling);
+                // Insert into search container
+                const searchContainer = document.querySelector('.search-container');
+                searchContainer.appendChild(resultsContainer);
             }
             
             // Clear previous results
             resultsContainer.innerHTML = '';
             
-            // Add search query header
-            const queryHeader = document.createElement('div');
-            queryHeader.className = 'search-query-header';
-            queryHeader.innerHTML = `
-                <h3>Search Results for: "${query}"</h3>
-                <button class="close-search" onclick="closeSearchResults()">×</button>
-            `;
-            resultsContainer.appendChild(queryHeader);
-            
-            // Add paragraph response
-            if (data.paragraph) {
-                const paragraphDiv = document.createElement('div');
-                paragraphDiv.className = 'search-paragraph';
-                paragraphDiv.innerHTML = `<p>${data.paragraph}</p>`;
-                resultsContainer.appendChild(paragraphDiv);
-            }
-            
-            // Add threads list
+            // Add threads if available
             if (data.threads && data.threads.length > 0) {
-                const threadsDiv = document.createElement('div');
-                threadsDiv.className = 'search-threads';
-                threadsDiv.innerHTML = '<h4>Related Threads:</h4>';
-                
-                const threadsList = document.createElement('ul');
                 data.threads.forEach(thread => {
-                    const threadItem = document.createElement('li');
-                    threadItem.innerHTML = `
-                        <a href="${thread.url || '#'}" class="thread-link">
-                            <strong>${thread.title}</strong>
-                            ${thread.description ? `<br><span class="thread-desc">${thread.description}</span>` : ''}
-                        </a>
+                    const resultItem = document.createElement('div');
+                    resultItem.className = 'search-result-item';
+                    
+                    // Create tags HTML
+                    let tagsHtml = '';
+                    if (thread.tags) {
+                        thread.tags.forEach(tag => {
+                            const tagClass = getTagClass(tag);
+                            tagsHtml += `<span class="search-tag ${tagClass}">${tag}</span>`;
+                        });
+                    }
+                    
+                    resultItem.innerHTML = `
+                        <div class="search-result-content">
+                            <h4 class="search-result-title">${thread.title}</h4>
+                            <div class="search-result-tags">${tagsHtml}</div>
+                            <p class="search-result-desc">${thread.description}</p>
+                        </div>
                     `;
-                    threadsList.appendChild(threadItem);
+                    
+                    resultItem.addEventListener('click', () => {
+                        window.open(thread.url, '_blank');
+                    });
+                    
+                    resultsContainer.appendChild(resultItem);
                 });
-                threadsDiv.appendChild(threadsList);
-                resultsContainer.appendChild(threadsDiv);
+            } else {
+                // Show no results message
+                const noResults = document.createElement('div');
+                noResults.className = 'search-no-results';
+                noResults.innerHTML = '<p>No results found for your search.</p>';
+                resultsContainer.appendChild(noResults);
             }
             
-            // Add advertisement
-            if (data.advertisement) {
-                const adDiv = document.createElement('div');
-                adDiv.className = 'search-advertisement';
-                adDiv.innerHTML = `
-                    <h4>Sponsored Content:</h4>
-                    <div class="ad-content">${data.advertisement}</div>
-                `;
-                resultsContainer.appendChild(adDiv);
-            }
-            
-            // Show results container
             resultsContainer.style.display = 'block';
             
-            // Scroll to results
-            resultsContainer.scrollIntoView({ behavior: 'smooth' });
+            // Hide suggestions
+            hideSearchSuggestions();
+        }
+        
+        function getTagClass(tag) {
+            const tagClasses = {
+                'Cart Peddler': 'tag-orange',
+                'cbd': 'tag-blue',
+                'Terps': 'tag-orange',
+                'terpenes': 'tag-orange',
+                'Botany and Cultivation': 'tag-green',
+                'cannabis': 'tag-gray',
+                'minor': 'tag-gray',
+                'medicinalgenomics': 'tag-gray',
+                'Data Dump': 'tag-blue'
+            };
+            return tagClasses[tag] || 'tag-default';
         }
         
         function showSearchError(message) {
-            let resultsContainer = document.getElementById('search-results');
+            let resultsContainer = document.getElementById('search-results-dropdown');
             if (!resultsContainer) {
                 resultsContainer = document.createElement('div');
-                resultsContainer.id = 'search-results';
-                resultsContainer.className = 'search-results';
+                resultsContainer.id = 'search-results-dropdown';
+                resultsContainer.className = 'search-results-dropdown';
                 
-                const adBanners = document.querySelector('.ad-banners');
-                adBanners.parentNode.insertBefore(resultsContainer, adBanners.nextSibling);
+                // Insert into search container
+                const searchContainer = document.querySelector('.search-container');
+                searchContainer.appendChild(resultsContainer);
             }
             
             resultsContainer.innerHTML = `
-                <div class="search-error">
-                    <h3>Search Error</h3>
+                <div class="search-no-results">
                     <p>${message}</p>
-                    <button class="close-search" onclick="closeSearchResults()">×</button>
                 </div>
             `;
             resultsContainer.style.display = 'block';
+            
+            // Hide suggestions
+            hideSearchSuggestions();
         }
         
         function closeSearchResults() {
-            const resultsContainer = document.getElementById('search-results');
+            const resultsContainer = document.getElementById('search-results-dropdown');
             if (resultsContainer) {
                 resultsContainer.style.display = 'none';
             }
