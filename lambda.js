@@ -1486,12 +1486,13 @@ exports.handler = async (event, context) => {
             * { margin: 0; padding: 0; box-sizing: border-box; }
             
             body {
-                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+                font-family: ui-sans-serif, -apple-system, system-ui, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
                 background: #ffffff;
-                color: #000000;
+                color: #0d0d0d;
                 min-height: 100vh;
                 display: flex;
                 flex-direction: column;
+                font-size: 16px;
             }
             
             /* Header with login button */
@@ -1499,7 +1500,8 @@ exports.handler = async (event, context) => {
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
-                padding: 12px 16px;
+                padding: 8px;
+                height: 52px;
                 border-bottom: 1px solid #e5e5e5;
                 background: #ffffff;
             }
@@ -1507,23 +1509,23 @@ exports.handler = async (event, context) => {
             .logo {
                 font-size: 18px;
                 font-weight: 600;
-                color: #000000;
+                color: #0d0d0d;
             }
             
             .login-button {
-                background: #10a37f;
+                background: #0d0d0d;
                 color: white;
                 border: none;
-                padding: 8px 16px;
-                border-radius: 6px;
-                font-size: 14px;
+                padding: 0px 10px;
+                border-radius: 3.35544e+07px;
+                font-size: 12px;
                 font-weight: 500;
                 cursor: pointer;
                 transition: background-color 0.2s;
             }
             
             .login-button:hover {
-                background: #0d8a6b;
+                background: #0d0d0dcc;
             }
             
             /* Main chat container - dynamic layout */
@@ -1553,7 +1555,7 @@ exports.handler = async (event, context) => {
             .chat-title {
                 font-size: 32px;
                 font-weight: 600;
-                color: #000000;
+                color: #0d0d0d;
                 margin-bottom: 8px;
                 text-align: center;
                 transition: all 0.3s ease;
@@ -1561,7 +1563,7 @@ exports.handler = async (event, context) => {
             
             .chat-subtitle {
                 font-size: 16px;
-                color: #6b7280;
+                color: #5d5d5d;
                 margin-bottom: 40px;
                 text-align: center;
                 transition: all 0.3s ease;
@@ -1704,10 +1706,11 @@ exports.handler = async (event, context) => {
                 max-height: 120px;
                 font-family: inherit;
                 background: transparent;
+                padding: 0px 0px 16px;
             }
             
             .chat-input::placeholder {
-                color: #9ca3af;
+                color: #000000b3;
             }
             
             .send-button {
@@ -1811,7 +1814,7 @@ exports.handler = async (event, context) => {
                     <textarea 
                         class="chat-input" 
                         id="messageInput" 
-                        placeholder="What do you want to Formul8 today?"
+                        placeholder="Ask anything"
                         rows="1"
                     ></textarea>
                     <button class="send-button" id="sendButton" onclick="sendMessage()">
