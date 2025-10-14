@@ -606,6 +606,132 @@
             margin-bottom: 15px;
         }
         
+        /* API Key Modal */
+        .api-key-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+        }
+        
+        .modal-content {
+            background-color: #2a2a2a;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 0;
+            max-width: 500px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+        
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            border-bottom: 1px solid #333;
+        }
+        
+        .modal-header h3 {
+            color: #fff;
+            margin: 0;
+            font-size: 18px;
+        }
+        
+        .close-modal {
+            background: none;
+            border: none;
+            color: #888;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 0;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .close-modal:hover {
+            color: #fff;
+        }
+        
+        .modal-body {
+            padding: 20px;
+        }
+        
+        .modal-body p {
+            color: #d1d1d1;
+            margin-bottom: 15px;
+        }
+        
+        .api-key-input {
+            width: 100%;
+            padding: 12px;
+            background-color: #333;
+            border: 1px solid #555;
+            border-radius: 4px;
+            color: #d1d1d1;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+        
+        .api-key-input:focus {
+            outline: none;
+            border-color: #007bff;
+            box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+        }
+        
+        .modal-actions {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .api-key-status {
+            padding: 10px;
+            background-color: #1a1a1a;
+            border-radius: 4px;
+            border: 1px solid #333;
+        }
+        
+        .api-key-status span {
+            font-size: 14px;
+            font-weight: 500;
+        }
+        
+        /* Notification */
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #28a745;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 4px;
+            font-size: 14px;
+            z-index: 10001;
+            animation: slideIn 0.3s ease-out;
+        }
+        
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
         /* Responsive */
         @media (max-width: 768px) {
             .content-wrapper {
@@ -654,6 +780,7 @@
             <div class="header-right">
                 <button class="btn btn-primary">Sign Up</button>
                 <button class="btn btn-secondary">👤 Log In</button>
+                <button class="btn btn-secondary" onclick="showApiKeySettings()">⚙️</button>
                 <div class="search-icon">🔍</div>
             </div>
         </header>
@@ -912,10 +1039,23 @@
             searchBar.disabled = true;
             
             try {
+                // Get API key from localStorage or prompt user
+                let apiKey = localStorage.getItem('f8_api_key');
+                if (!apiKey) {
+                    apiKey = prompt('Please enter your API key to search:');
+                    if (!apiKey) {
+                        showSearchError('API key required for search functionality.');
+                        return;
+                    }
+                    localStorage.setItem('f8_api_key', apiKey);
+                }
+                
                 const response = await fetch('/api/chat', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${apiKey}`,
+                        'X-API-Key': apiKey
                     },
                     body: JSON.stringify({
                         message: query,
@@ -924,6 +1064,12 @@
                 });
                 
                 if (!response.ok) {
+                    if (response.status === 401) {
+                        // Invalid API key, clear it and prompt again
+                        localStorage.removeItem('f8_api_key');
+                        showSearchError('Invalid API key. Please try again.');
+                        return;
+                    }
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
                 
@@ -1040,6 +1186,87 @@
             if (resultsContainer) {
                 resultsContainer.style.display = 'none';
             }
+        }
+        
+        // API Key Management
+        function showApiKeySettings() {
+            const modal = document.createElement('div');
+            modal.className = 'api-key-modal';
+            modal.innerHTML = `
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3>API Key Settings</h3>
+                        <button class="close-modal" onclick="closeApiKeyModal()">×</button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Enter your API key to enable search functionality:</p>
+                        <input type="password" id="api-key-input" placeholder="Enter your API key" class="api-key-input">
+                        <div class="modal-actions">
+                            <button class="btn btn-primary" onclick="saveApiKey()">Save</button>
+                            <button class="btn btn-secondary" onclick="clearApiKey()">Clear</button>
+                            <button class="btn btn-secondary" onclick="closeApiKeyModal()">Cancel</button>
+                        </div>
+                        <div class="api-key-status">
+                            <span id="api-key-status">No API key set</span>
+                        </div>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(modal);
+            
+            // Load current API key status
+            updateApiKeyStatus();
+        }
+        
+        function closeApiKeyModal() {
+            const modal = document.querySelector('.api-key-modal');
+            if (modal) {
+                modal.remove();
+            }
+        }
+        
+        function saveApiKey() {
+            const input = document.getElementById('api-key-input');
+            const apiKey = input.value.trim();
+            
+            if (apiKey) {
+                localStorage.setItem('f8_api_key', apiKey);
+                updateApiKeyStatus();
+                showNotification('API key saved successfully!');
+            } else {
+                showNotification('Please enter a valid API key.');
+            }
+        }
+        
+        function clearApiKey() {
+            localStorage.removeItem('f8_api_key');
+            updateApiKeyStatus();
+            showNotification('API key cleared.');
+        }
+        
+        function updateApiKeyStatus() {
+            const statusElement = document.getElementById('api-key-status');
+            if (statusElement) {
+                const apiKey = localStorage.getItem('f8_api_key');
+                if (apiKey) {
+                    statusElement.textContent = `API key set (${apiKey.substring(0, 8)}...)`;
+                    statusElement.style.color = '#28a745';
+                } else {
+                    statusElement.textContent = 'No API key set';
+                    statusElement.style.color = '#dc3545';
+                }
+            }
+        }
+        
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.className = 'notification';
+            notification.textContent = message;
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.remove();
+            }, 3000);
         }
     </script>
 </body>
