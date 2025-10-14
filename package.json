@@ -2,6 +2,7 @@
   "name": "formul8-multiagent-tests",
   "version": "1.0.0",
   "description": "Comprehensive Playwright tests for F8 Multiagent System",
+  "type": "module",
   "scripts": {
     "test": "playwright test",
     "test:headed": "playwright test --headed",

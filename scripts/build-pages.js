@@ -751,6 +751,6 @@ sequenceDiagram
 }
 
 // Run if this file is executed directly
-if (import.meta.url === \`file://\${process.argv[1]}\`) {
+if (import.meta.url === `file://${process.argv[1]}`) {
   buildPages().catch(console.error);
 }
