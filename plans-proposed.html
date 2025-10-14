@@ -859,35 +859,56 @@
                 </div>
 
                 <div class="highlight-box">
-                    <h3>Detailed Cost Breakdown by Compute & Storage</h3>
-                    <p><strong>Compute Costs (AWS Lambda + API Gateway):</strong><br>
-                    • Lambda execution: $0.0000166667 per GB-second<br>
-                    • API Gateway: $3.50 per million requests<br>
-                    • Average: 100 requests/user/month = $0.35/user/month</p>
+                    <h3>Detailed Cost Breakdown by Tier</h3>
                     
-                    <p><strong>Storage Costs (AWS S3 + Supabase):</strong><br>
-                    • S3 Standard: $0.023/GB/month<br>
-                    • Supabase Database: $0.125/GB/month<br>
-                    • Average storage per tier: 0.1GB-50GB = $0.01-$6.25/user/month</p>
+                    <p><strong>Future4200 Tier ($0.12 cost - $0.10 ads = $0.02 net):</strong><br>
+                    • <strong>Compute:</strong> $0.02 (Lambda + API Gateway for 300 requests/month)<br>
+                    • <strong>Tokens:</strong> $0.05 (Future4200 thread RAG + ad-agent tokens)<br>
+                    • <strong>Storage:</strong> $0.01 (minimal document storage)<br>
+                    • <strong>Vector DB:</strong> $0.02 (forum thread embeddings)<br>
+                    • <strong>Data Transfer:</strong> $0.02 (forum scraping + responses)</p>
                     
-                    <p><strong>AI/LLM Processing (OpenRouter):</strong><br>
-                    • GPT-4: $0.03 per 1K input tokens, $0.06 per 1K output tokens<br>
-                    • Average: 2K input + 1K output tokens per request<br>
-                    • 100 requests/month = $12/user/month (high usage)<br>
-                    • 20 requests/month = $2.40/user/month (low usage)</p>
+                    <p><strong>Unregistered Tier ($0.08 cost - $0.05 ads = $0.03 net):</strong><br>
+                    • <strong>Compute:</strong> $0.01 (Lambda + API Gateway for 150 requests/month)<br>
+                    • <strong>Tokens:</strong> $0.03 (basic agent + ad-agent tokens)<br>
+                    • <strong>Storage:</strong> $0.01 (session data only)<br>
+                    • <strong>Vector DB:</strong> $0.01 (basic embeddings)<br>
+                    • <strong>Data Transfer:</strong> $0.02 (basic responses)</p>
                     
-                    <p><strong>Vector Database (Pinecone):</strong><br>
-                    • Starter plan: $70/month for 1M vectors<br>
-                    • Pro plan: $0.0004 per vector per month<br>
-                    • Average: 1K-10K vectors per user = $0.07-$4.00/user/month</p>
+                    <p><strong>Registered Tier ($0.35 cost - $0.25 ads = $0.10 net):</strong><br>
+                    • <strong>Compute:</strong> $0.05 (Lambda + API Gateway for 600 requests/month)<br>
+                    • <strong>Tokens:</strong> $0.15 (enhanced agents + ad-agent tokens)<br>
+                    • <strong>Storage:</strong> $0.10 (chat history + 100MB documents)<br>
+                    • <strong>Vector DB:</strong> $0.02 (document embeddings)<br>
+                    • <strong>Data Transfer:</strong> $0.03 (file uploads + responses)</p>
                     
-                    <p><strong>Data Transfer & CDN:</strong><br>
-                    • CloudFront: $0.085/GB for first 10TB<br>
-                    • Average: 0.1-5GB transfer per user = $0.01-$0.43/user/month</p>
+                    <p><strong>Bronze Tier ($1.50 cost):</strong><br>
+                    • <strong>Compute:</strong> $0.10 (Lambda + API Gateway for 3,000 requests/month)<br>
+                    • <strong>Tokens:</strong> $0.60 (full agents + basic RAG processing)<br>
+                    • <strong>Storage:</strong> $0.15 (1GB documents + chat history)<br>
+                    • <strong>Vector DB:</strong> $0.40 (1K document vectors)<br>
+                    • <strong>Data Transfer:</strong> $0.25 (file processing + responses)</p>
                     
-                    <p><strong>Monitoring & Logging:</strong><br>
-                    • CloudWatch: $0.50/GB ingested<br>
-                    • Average: 0.01GB logs per user = $0.005/user/month</p>
+                    <p><strong>Silver Tier ($3.75 cost):</strong><br>
+                    • <strong>Compute:</strong> $0.25 (Lambda + API Gateway for 7,500 requests/month)<br>
+                    • <strong>Tokens:</strong> $1.50 (advanced RAG + cross-document analysis)<br>
+                    • <strong>Storage:</strong> $0.75 (10GB documents + chat history)<br>
+                    • <strong>Vector DB:</strong> $1.00 (2.5K document vectors)<br>
+                    • <strong>Data Transfer:</strong> $0.25 (advanced file processing)</p>
+                    
+                    <p><strong>Gold Tier ($7.50 cost):</strong><br>
+                    • <strong>Compute:</strong> $0.50 (Lambda + API Gateway for 15,000 requests/month)<br>
+                    • <strong>Tokens:</strong> $3.00 (premium RAG + trend analysis)<br>
+                    • <strong>Storage:</strong> $1.50 (50GB documents + chat history)<br>
+                    • <strong>Vector DB:</strong> $2.00 (5K document vectors)<br>
+                    • <strong>Data Transfer:</strong> $0.50 (team collaboration + large files)</p>
+                    
+                    <p><strong>Platinum Tier ($9.80 cost):</strong><br>
+                    • <strong>Compute:</strong> $0.80 (Lambda + API Gateway for unlimited requests)<br>
+                    • <strong>Tokens:</strong> $4.00 (enterprise RAG + predictive analytics)<br>
+                    • <strong>Storage:</strong> $2.00 (unlimited documents + chat history)<br>
+                    • <strong>Vector DB:</strong> $2.50 (10K+ document vectors)<br>
+                    • <strong>Data Transfer:</strong> $0.50 (enterprise integrations + large files)</p>
                 </div>
 
                 <div class="highlight-box">
