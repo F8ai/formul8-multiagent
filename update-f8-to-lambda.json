@@ -1,0 +1,19 @@
+{
+    "Comment": "Point f8.syzygyx.com to Lambda Function URL",
+    "Changes": [
+        {
+            "Action": "UPSERT",
+            "ResourceRecordSet": {
+                "Name": "f8.syzygyx.com.",
+                "Type": "CNAME",
+                "TTL": 300,
+                "ResourceRecords": [
+                    {
+                        "Value": "wxe3lwel4llwaom56mthdt4gry0zkpxr.lambda-url.us-east-1.on.aws"
+                    }
+                ]
+            }
+        }
+    ]
+}
+

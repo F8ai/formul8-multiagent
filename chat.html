@@ -59,7 +59,7 @@
             font-weight: 600;
             color: var(--formul8-text-primary);
             margin-bottom: 15px;
-            text-align: center;
+            text-align: left;
         }
 
         .auth-buttons {
@@ -239,7 +239,7 @@
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
-            justify-content: center;
+            justify-content: flex-start;
             margin-top: 20px;
         }
 
@@ -535,6 +535,23 @@
                 container.classList.add('focused');
             }
         });
+
+        // Ensure chat scrolls to bottom on page load
+        window.addEventListener('load', function() {
+            const chatMessages = document.getElementById('chatMessages');
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        });
+
+        // Auto-scroll to bottom when new content is added
+        function scrollToBottom() {
+            const chatMessages = document.getElementById('chatMessages');
+            setTimeout(() => {
+                chatMessages.scrollTo({
+                    top: chatMessages.scrollHeight,
+                    behavior: 'smooth'
+                });
+            }, 50);
+        }
         
         // Client-side input validation and sanitization
         function validateAndSanitizeInput(input) {
@@ -662,7 +679,14 @@
             }
             
             chatMessages.appendChild(messageDiv);
-            chatMessages.scrollTop = chatMessages.scrollHeight;
+            
+            // Smooth scroll to bottom
+            setTimeout(() => {
+                chatMessages.scrollTo({
+                    top: chatMessages.scrollHeight,
+                    behavior: 'smooth'
+                });
+            }, 100);
         }
         
         async function sendToAPI(message, username, plan) {
@@ -690,9 +714,13 @@
                 } else {
                     addMessageToChat('assistant', 'Sorry, I encountered an error. Please try again.', 'Formul8 AI');
                 }
+                
+                // Ensure we're at the bottom after response
+                scrollToBottom();
             } catch (error) {
                 console.error('Error sending message:', error);
                 addMessageToChat('assistant', 'Sorry, I\'m having trouble connecting. Please try again.', 'Formul8 AI');
+                scrollToBottom();
             } finally {
                 showLoading(false);
             }

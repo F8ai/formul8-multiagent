@@ -121,6 +121,46 @@
             align-items: center;
         }
 
+        .auth-buttons {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            margin-right: 20px;
+        }
+
+        .auth-button {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .login-button {
+            background: transparent;
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .login-button:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .signup-button {
+            background: linear-gradient(135deg, #00ff88 0%, #00d4aa 100%);
+            color: #0a0a0a;
+        }
+
+        .signup-button:hover {
+            background: linear-gradient(135deg, #00d4aa 0%, #00ff88 100%);
+            transform: translateY(-1px);
+        }
+
         .content {
             padding: 30px;
         }
@@ -540,6 +580,12 @@
             
             .header-controls {
                 justify-content: center;
+                flex-wrap: wrap;
+            }
+            
+            .auth-buttons {
+                margin-right: 0;
+                margin-bottom: 10px;
             }
             
             .content {
@@ -575,6 +621,10 @@
                     <p>Configure which agents are available for each pricing plan</p>
                 </div>
                 <div class="header-controls">
+                    <div class="auth-buttons">
+                        <a href="#" class="auth-button login-button" id="loginButton">Log in</a>
+                        <a href="#" class="auth-button signup-button" id="signupButton">Sign up for free</a>
+                    </div>
                     <button class="btn btn-secondary" onclick="resetConfiguration()">Reset</button>
                     <button class="btn btn-primary" onclick="saveConfiguration()">Save & Create PR</button>
                 </div>
@@ -1640,8 +1690,56 @@
             }
         }
 
-        // Initialize on page load
-        document.addEventListener('DOMContentLoaded', loadConfigurations);
+        // Auth button functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            loadConfigurations();
+            
+            // Add auth button event listeners
+            const loginBtn = document.getElementById('loginButton');
+            const signupBtn = document.getElementById('signupButton');
+            
+            if (loginBtn) {
+                loginBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    handleLogin();
+                });
+            }
+            
+            if (signupBtn) {
+                signupBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    handleSignup();
+                });
+            }
+        });
+
+        function handleLogin() {
+            // For now, show a simple prompt - in production this would open a login modal or redirect
+            const username = prompt('Enter your username:');
+            if (username && username.trim()) {
+                showStatus('Logged in as: ' + username.trim(), 'success');
+                // Update the login button to show user is logged in
+                const loginBtn = document.getElementById('loginButton');
+                if (loginBtn) {
+                    loginBtn.textContent = '👤 ' + username.trim();
+                    loginBtn.style.background = 'rgba(255, 255, 255, 0.2)';
+                }
+            }
+        }
+
+        function handleSignup() {
+            // For now, show a simple prompt - in production this would open a signup modal or redirect
+            const username = prompt('Choose a username:');
+            if (username && username.trim()) {
+                showStatus('Account created! Logged in as: ' + username.trim(), 'success');
+                // Update the login button to show user is logged in
+                const loginBtn = document.getElementById('loginButton');
+                if (loginBtn) {
+                    loginBtn.textContent = '👤 ' + username.trim();
+                    loginBtn.style.background = 'rgba(255, 255, 255, 0.2)';
+                }
+            }
+        }
     </script>
 </body>
 </html><!-- Updated Sun Oct 12 10:36:29 EDT 2025 -->
