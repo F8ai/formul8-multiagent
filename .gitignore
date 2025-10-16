@@ -32,3 +32,6 @@ dist/
 lambda-proxy.zip
 formul8-multiagent-lambda.zip
 .vercel
+
+# Temporary utility scripts
+convert-html-to-pdf.js
