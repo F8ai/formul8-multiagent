@@ -20,6 +20,10 @@
       "dest": "/lambda-package/lambda.js"
     },
     {
+      "src": "/chat",
+      "dest": "/public/chat.html"
+    },
+    {
       "src": "/(.*)",
       "dest": "/public/$1"
     }
