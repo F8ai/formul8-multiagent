@@ -186,8 +186,8 @@ app.post('/api/chat', async (req, res) => {
   }
 });
 
-// Vercel serverless function handler
-module.exports = async (req, res) => {
+// Lambda/Vercel serverless function handler
+const handler = async (req, res) => {
   // Set CORS headers
   res.setHeader('Access-Control-Allow-Credentials', true);
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -203,3 +203,7 @@ module.exports = async (req, res) => {
   // Route to Express app
   return app(req, res);
 };
+
+// Export for both Lambda and Vercel
+module.exports = handler;
+module.exports.handler = handler;
