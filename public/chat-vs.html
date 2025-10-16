@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>F8 vs ChatGPT - Side by Side Comparison</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            background: #0e1117;
+            color: #ffffff;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1a1f2e, #0e1117);
+            padding: 1rem 2rem;
+            border-bottom: 2px solid #00ff88;
+            box-shadow: 0 4px 20px rgba(0, 255, 136, 0.1);
+        }
+
+        .header h1 {
+            font-size: 1.5rem;
+            color: #00ff88;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .header p {
+            font-size: 0.9rem;
+            color: #8e8e8e;
+        }
+
+        .comparison-container {
+            display: flex;
+            flex: 1;
+            overflow: hidden;
+        }
+
+        .chat-panel {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            border-right: 1px solid #2a2a2a;
+            position: relative;
+        }
+
+        .chat-panel:last-child {
+            border-right: none;
+        }
+
+        .panel-header {
+            padding: 1rem;
+            background: #1a1f2e;
+            border-bottom: 1px solid #2a2a2a;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .panel-logo {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .f8-logo {
+            background: linear-gradient(135deg, #00ff88, #00cc6a);
+        }
+
+        .gpt-logo {
+            background: linear-gradient(135deg, #10a37f, #1a7f64);
+        }
+
+        .panel-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .panel-subtitle {
+            font-size: 0.75rem;
+            color: #8e8e8e;
+            margin-top: 0.2rem;
+        }
+
+        .messages-container {
+            flex: 1;
+            overflow-y: auto;
+            padding: 1.5rem;
+            padding-bottom: 2rem;
+        }
+
+        .message {
+            margin-bottom: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            animation: fadeIn 0.3s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .message.user {
+            align-items: flex-end;
+        }
+
+        .message.assistant {
+            align-items: flex-start;
+        }
+
+        .message-content {
+            max-width: 85%;
+            padding: 1rem 1.25rem;
+            border-radius: 12px;
+            position: relative;
+            word-wrap: break-word;
+        }
+
+        .message.user .message-content {
+            background: linear-gradient(135deg, #00ff88, #00cc6a);
+            color: #000;
+            font-weight: 500;
+        }
+
+        .message.assistant .message-content {
+            background: #1e2230;
+            border: 1px solid #2a2a2a;
+            color: #ffffff;
+        }
+
+        .message-meta {
+            font-size: 0.7rem;
+            color: #666;
+            margin-top: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .loading {
+            display: inline-block;
+            padding: 1rem 1.25rem;
+            background: #1e2230;
+            border: 1px solid #2a2a2a;
+            border-radius: 12px;
+            color: #8e8e8e;
+            font-style: italic;
+        }
+
+        .loading::after {
+            content: '...';
+            animation: dots 1.5s steps(4, end) infinite;
+        }
+
+        @keyframes dots {
+            0%, 20% { content: '.'; }
+            40% { content: '..'; }
+            60%, 100% { content: '...'; }
+        }
+
+        .input-container {
+            padding: 1.5rem 2rem;
+            background: #1a1f2e;
+            border-top: 2px solid #00ff88;
+            box-shadow: 0 -4px 20px rgba(0, 255, 136, 0.1);
+        }
+
+        .input-wrapper {
+            display: flex;
+            gap: 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .input-field {
+            flex: 1;
+            padding: 1rem 1.5rem;
+            background: #0e1117;
+            border: 2px solid #2a2a2a;
+            border-radius: 12px;
+            color: #ffffff;
+            font-size: 1rem;
+            resize: none;
+            font-family: inherit;
+            transition: all 0.3s ease;
+        }
+
+        .input-field:focus {
+            outline: none;
+            border-color: #00ff88;
+            box-shadow: 0 0 0 4px rgba(0, 255, 136, 0.1);
+        }
+
+        .send-button {
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, #00ff88, #00cc6a);
+            color: #000;
+            border: none;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .send-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 255, 136, 0.3);
+        }
+
+        .send-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .error-message {
+            background: #ff4444;
+            color: white;
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            margin: 1rem;
+            text-align: center;
+            animation: shake 0.5s ease;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-10px); }
+            75% { transform: translateX(10px); }
+        }
+
+        .stats {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            padding: 0.5rem;
+            background: #0e1117;
+            border-top: 1px solid #2a2a2a;
+            font-size: 0.75rem;
+            color: #666;
+        }
+
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .stat-label {
+            color: #8e8e8e;
+        }
+
+        .stat-value {
+            color: #00ff88;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .comparison-container {
+                flex-direction: column;
+            }
+
+            .chat-panel {
+                border-right: none;
+                border-bottom: 1px solid #2a2a2a;
+            }
+
+            .message-content {
+                max-width: 95%;
+            }
+
+            .input-wrapper {
+                flex-direction: column;
+            }
+        }
+
+        /* Scrollbar styling */
+        .messages-container::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .messages-container::-webkit-scrollbar-track {
+            background: #0e1117;
+        }
+
+        .messages-container::-webkit-scrollbar-thumb {
+            background: #2a2a2a;
+            border-radius: 4px;
+        }
+
+        .messages-container::-webkit-scrollbar-thumb:hover {
+            background: #3a3a3a;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🆚 F8 vs ChatGPT - Side by Side Comparison</h1>
+        <p>Ask the same question to both AI systems and compare their responses in real-time</p>
+    </div>
+
+    <div class="comparison-container">
+        <!-- F8 Panel -->
+        <div class="chat-panel">
+            <div class="panel-header">
+                <div class="panel-logo f8-logo">🧪</div>
+                <div>
+                    <div class="panel-title">F8 Multiagent</div>
+                    <div class="panel-subtitle">Cannabis Industry Specialist</div>
+                </div>
+            </div>
+            <div class="messages-container" id="f8-messages"></div>
+            <div class="stats">
+                <div class="stat-item">
+                    <span class="stat-label">Responses:</span>
+                    <span class="stat-value" id="f8-count">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Avg Time:</span>
+                    <span class="stat-value" id="f8-time">--</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ChatGPT Panel -->
+        <div class="chat-panel">
+            <div class="panel-header">
+                <div class="panel-logo gpt-logo">🤖</div>
+                <div>
+                    <div class="panel-title">ChatGPT</div>
+                    <div class="panel-subtitle">OpenAI GPT-4o-mini</div>
+                </div>
+            </div>
+            <div class="messages-container" id="gpt-messages"></div>
+            <div class="stats">
+                <div class="stat-item">
+                    <span class="stat-label">Responses:</span>
+                    <span class="stat-value" id="gpt-count">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Avg Time:</span>
+                    <span class="stat-value" id="gpt-time">--</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="input-container">
+        <div class="input-wrapper">
+            <textarea 
+                id="user-input" 
+                class="input-field" 
+                placeholder="Ask a question to compare both AI systems..."
+                rows="1"
+            ></textarea>
+            <button id="send-button" class="send-button">
+                Compare ⚡
+            </button>
+        </div>
+    </div>
+
+    <script>
+        let f8ResponseCount = 0;
+        let gptResponseCount = 0;
+        let f8TotalTime = 0;
+        let gptTotalTime = 0;
+
+        const f8Messages = document.getElementById('f8-messages');
+        const gptMessages = document.getElementById('gpt-messages');
+        const userInput = document.getElementById('user-input');
+        const sendButton = document.getElementById('send-button');
+
+        // Auto-resize textarea
+        userInput.addEventListener('input', function() {
+            this.style.height = 'auto';
+            this.style.height = Math.min(this.scrollHeight, 150) + 'px';
+        });
+
+        // Send on Enter (Shift+Enter for new line)
+        userInput.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                sendMessage();
+            }
+        });
+
+        sendButton.addEventListener('click', sendMessage);
+
+        function addMessage(container, type, content, meta = '') {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${type}`;
+            
+            const contentDiv = document.createElement('div');
+            contentDiv.className = 'message-content';
+            contentDiv.textContent = content;
+            
+            messageDiv.appendChild(contentDiv);
+            
+            if (meta) {
+                const metaDiv = document.createElement('div');
+                metaDiv.className = 'message-meta';
+                metaDiv.innerHTML = meta;
+                messageDiv.appendChild(metaDiv);
+            }
+            
+            container.appendChild(messageDiv);
+            container.scrollTop = container.scrollHeight;
+            
+            return messageDiv;
+        }
+
+        function addLoadingIndicator(container) {
+            const loadingDiv = document.createElement('div');
+            loadingDiv.className = 'message assistant';
+            loadingDiv.innerHTML = '<div class="loading">Thinking</div>';
+            container.appendChild(loadingDiv);
+            container.scrollTop = container.scrollHeight;
+            return loadingDiv;
+        }
+
+        function showError(container, message) {
+            const errorDiv = document.createElement('div');
+            errorDiv.className = 'error-message';
+            errorDiv.textContent = message;
+            container.appendChild(errorDiv);
+            container.scrollTop = container.scrollHeight;
+            
+            setTimeout(() => {
+                if (errorDiv.parentNode) {
+                    errorDiv.parentNode.removeChild(errorDiv);
+                }
+            }, 5000);
+        }
+
+        function updateStats() {
+            document.getElementById('f8-count').textContent = f8ResponseCount;
+            document.getElementById('gpt-count').textContent = gptResponseCount;
+            
+            if (f8ResponseCount > 0) {
+                document.getElementById('f8-time').textContent = 
+                    (f8TotalTime / f8ResponseCount / 1000).toFixed(2) + 's';
+            }
+            
+            if (gptResponseCount > 0) {
+                document.getElementById('gpt-time').textContent = 
+                    (gptTotalTime / gptResponseCount / 1000).toFixed(2) + 's';
+            }
+        }
+
+        async function sendToF8(message) {
+            const startTime = Date.now();
+            const loadingIndicator = addLoadingIndicator(f8Messages);
+            
+            try {
+                const response = await fetch('https://f8.syzygyx.com/api/chat', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        message: message,
+                        plan: 'standard'
+                    })
+                });
+
+                const data = await response.json();
+                const endTime = Date.now();
+                const duration = endTime - startTime;
+                
+                f8Messages.removeChild(loadingIndicator);
+                
+                if (data.success && data.response) {
+                    f8ResponseCount++;
+                    f8TotalTime += duration;
+                    
+                    addMessage(
+                        f8Messages, 
+                        'assistant', 
+                        data.response,
+                        `⏱️ ${(duration / 1000).toFixed(2)}s • 🤖 ${data.agent || 'F8'} • 📊 ${data.plan || 'standard'}`
+                    );
+                } else {
+                    showError(f8Messages, 'F8: ' + (data.error || 'Unknown error'));
+                }
+            } catch (error) {
+                f8Messages.removeChild(loadingIndicator);
+                showError(f8Messages, 'F8: Connection error - ' + error.message);
+            }
+            
+            updateStats();
+        }
+
+        async function sendToGPT(message) {
+            const startTime = Date.now();
+            const loadingIndicator = addLoadingIndicator(gptMessages);
+            
+            try {
+                // Using OpenRouter as a proxy for GPT-4o-mini
+                const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': 'Bearer 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',
+                        'HTTP-Referer': 'https://f8.syzygyx.com',
+                        'X-Title': 'F8 vs ChatGPT Comparison',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        model: 'openai/gpt-4o-mini',
+                        messages: [
+                            {
+                                role: 'user',
+                                content: message
+                            }
+                        ]
+                    })
+                });
+
+                const data = await response.json();
+                const endTime = Date.now();
+                const duration = endTime - startTime;
+                
+                gptMessages.removeChild(loadingIndicator);
+                
+                if (data.choices && data.choices[0] && data.choices[0].message) {
+                    gptResponseCount++;
+                    gptTotalTime += duration;
+                    
+                    addMessage(
+                        gptMessages, 
+                        'assistant', 
+                        data.choices[0].message.content,
+                        `⏱️ ${(duration / 1000).toFixed(2)}s • 🤖 GPT-4o-mini • 📊 OpenRouter`
+                    );
+                } else {
+                    showError(gptMessages, 'GPT: ' + (data.error?.message || 'Unknown error'));
+                }
+            } catch (error) {
+                gptMessages.removeChild(loadingIndicator);
+                showError(gptMessages, 'GPT: Connection error - ' + error.message);
+            }
+            
+            updateStats();
+        }
+
+        async function sendMessage() {
+            const message = userInput.value.trim();
+            
+            if (!message) {
+                return;
+            }
+            
+            // Add user message to both panels
+            addMessage(f8Messages, 'user', message, new Date().toLocaleTimeString());
+            addMessage(gptMessages, 'user', message, new Date().toLocaleTimeString());
+            
+            // Clear input
+            userInput.value = '';
+            userInput.style.height = 'auto';
+            
+            // Disable send button
+            sendButton.disabled = true;
+            
+            // Send to both APIs in parallel
+            await Promise.all([
+                sendToF8(message),
+                sendToGPT(message)
+            ]);
+            
+            // Re-enable send button
+            sendButton.disabled = false;
+            userInput.focus();
+        }
+
+        // Focus input on load
+        window.addEventListener('load', () => {
+            userInput.focus();
+        });
+    </script>
+</body>
+</html>
+
