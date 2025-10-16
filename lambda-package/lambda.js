@@ -78,7 +78,7 @@ app.post('/api/free-key', (req, res) => {
 });
 
 // Chat endpoint with plan-based routing
-app.post('/api/chat', (req, res) => {
+app.post('/api/chat', async (req, res) => {
   const { message, plan = 'standard' } = req.body;
   
   // No API key required for now - anyone can use the chat
