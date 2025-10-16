@@ -78,6 +78,53 @@ app.post('/api/free-key', (req, res) => {
   });
 });
 
+// Slack Events API - proxy to f8-slackbot service
+app.post('/api/slack/events', async (req, res) => {
+  try {
+    const SLACKBOT_URL = 'https://f8-slackbot-7j16okmn2-daniel-mcshans-projects.vercel.app';
+    
+    // Forward the Slack event to the slackbot service
+    const response = await fetch(`${SLACKBOT_URL}/api/slack/events`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Slack-Signature': req.headers['x-slack-signature'] || '',
+        'X-Slack-Request-Timestamp': req.headers['x-slack-request-timestamp'] || ''
+      },
+      body: JSON.stringify(req.body)
+    });
+    
+    const data = await response.json();
+    res.status(response.status).json(data);
+  } catch (error) {
+    console.error('Error proxying Slack event:', error);
+    res.status(500).json({ error: 'Failed to process Slack event' });
+  }
+});
+
+// Slack Commands API - proxy to f8-slackbot service
+app.post('/api/slack/commands', async (req, res) => {
+  try {
+    const SLACKBOT_URL = 'https://f8-slackbot-7j16okmn2-daniel-mcshans-projects.vercel.app';
+    
+    const response = await fetch(`${SLACKBOT_URL}/api/slack/commands`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': req.headers['content-type'] || 'application/x-www-form-urlencoded',
+        'X-Slack-Signature': req.headers['x-slack-signature'] || '',
+        'X-Slack-Request-Timestamp': req.headers['x-slack-request-timestamp'] || ''
+      },
+      body: JSON.stringify(req.body)
+    });
+    
+    const data = await response.json();
+    res.status(response.status).json(data);
+  } catch (error) {
+    console.error('Error proxying Slack command:', error);
+    res.status(500).json({ error: 'Failed to process Slack command' });
+  }
+});
+
 // Chat endpoint with plan-based routing
 app.post('/api/chat', async (req, res) => {
   const { message, plan = 'standard' } = req.body;
