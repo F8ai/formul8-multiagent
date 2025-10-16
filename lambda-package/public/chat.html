@@ -423,6 +423,14 @@
             
             if (!message || isTyping) return;
             
+            // Check if API key exists
+            if (!apiKey) {
+                console.log('No API key, generating...');
+                addMessage('assistant', 'Initializing... Please wait a moment and try again.');
+                await generateApiKey();
+                return;
+            }
+            
             // First message - start chat animation
             if (!hasStartedChat) {
                 startChat();
