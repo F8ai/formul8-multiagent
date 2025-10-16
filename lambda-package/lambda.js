@@ -83,7 +83,7 @@ app.post('/api/free-key', (req, res) => {
 // Slack Events API - proxy to f8-slackbot service
 app.post('/api/slack/events', async (req, res) => {
   try {
-    const SLACKBOT_URL = 'https://f8-slackbot-7j16okmn2-daniel-mcshans-projects.vercel.app';
+    const SLACKBOT_URL = 'https://f8-slackbot-six.vercel.app';
     
     // Forward the Slack event to the slackbot service
     const response = await fetch(`${SLACKBOT_URL}/api/slack/events`, {
@@ -107,7 +107,7 @@ app.post('/api/slack/events', async (req, res) => {
 // Slack Commands API - proxy to f8-slackbot service
 app.post('/api/slack/commands', async (req, res) => {
   try {
-    const SLACKBOT_URL = 'https://f8-slackbot-7j16okmn2-daniel-mcshans-projects.vercel.app';
+    const SLACKBOT_URL = 'https://f8-slackbot-six.vercel.app';
     
     const response = await fetch(`${SLACKBOT_URL}/api/slack/commands`, {
       method: 'POST',
