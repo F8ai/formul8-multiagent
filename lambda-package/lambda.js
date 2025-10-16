@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const fetch = require('node-fetch');
 
 // Create Express app
 const app = express();
@@ -132,10 +133,48 @@ app.post('/api/chat', (req, res) => {
       timestamp: new Date().toISOString()
     });
   } else {
-    // Free plan - basic response
-    response = `I received your message: "${message}". This is a free response from the F8 Multiagent system. For enhanced features, consider upgrading to the future4200 plan.`;
-    agent = 'f8_agent';
-    planType = 'free';
+    // Use OpenRouter API for real AI responses
+    try {
+      const openrouterResponse = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${process.env.OPENROUTER_API_KEY}`,
+          'HTTP-Referer': 'https://f8.syzygyx.com',
+          'X-Title': 'F8 Multiagent Cannabis Assistant',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          model: 'openai/gpt-4o-mini',
+          messages: [
+            {
+              role: 'system',
+              content: 'You are a helpful AI assistant specializing in the cannabis industry. You provide expert guidance on compliance, formulation, science, operations, and other cannabis-related topics.'
+            },
+            {
+              role: 'user',
+              content: message
+            }
+          ]
+        })
+      });
+
+      const data = await openrouterResponse.json();
+      
+      if (data.choices && data.choices[0] && data.choices[0].message) {
+        response = data.choices[0].message.content;
+        agent = 'openrouter_gpt4o-mini';
+        planType = plan;
+      } else {
+        response = 'Sorry, I encountered an error processing your request. Please try again.';
+        agent = 'error';
+        planType = plan;
+      }
+    } catch (error) {
+      console.error('OpenRouter API error:', error);
+      response = 'Sorry, I\'m having trouble connecting to the AI service. Please try again.';
+      agent = 'error';
+      planType = plan;
+    }
     
     res.json({
       success: true,
