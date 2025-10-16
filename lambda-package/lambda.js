@@ -79,12 +79,12 @@ app.post('/api/free-key', (req, res) => {
 // Chat endpoint with plan-based routing
 app.post('/api/chat', (req, res) => {
   const { message, plan = 'standard' } = req.body;
-  const apiKey = req.headers['x-api-key'];
   
-  // Only require API key for free plan
-  if (plan === 'free' && !apiKey) {
-    return res.status(401).json({ error: 'API key required for free plan' });
-  }
+  // No API key required for now - anyone can use the chat
+  // const apiKey = req.headers['x-api-key'];
+  // if (plan === 'free' && !apiKey) {
+  //   return res.status(401).json({ error: 'API key required for free plan' });
+  // }
   
   // Plan-based response logic
   let response, agent, planType;
