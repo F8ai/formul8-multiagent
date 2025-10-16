@@ -6,7 +6,7 @@ echo "🚀 Deploying Formul8 Multiagent Lambda Function..."
 # Create deployment package
 echo "📦 Creating deployment package..."
 mkdir -p lambda-deploy
-cp lambda.js lambda-deploy/
+cp -r lambda-package/* lambda-deploy/
 cp lambda-package.json lambda-deploy/package.json
 
 # Install dependencies

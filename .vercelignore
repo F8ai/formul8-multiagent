@@ -1,0 +1,57 @@
+# Dependencies
+node_modules/
+
+# Test files
+tests/
+playwright-report/
+test-results/
+*.spec.js
+*test*.js
+*.test.js
+
+# Documentation
+docs/
+*.md
+!README.md
+
+# Logs
+logs/
+*.log
+
+# Environment variables
+.env
+.env.local
+.env.example
+
+# Build artifacts
+dist/
+lambda-deployment.zip
+*.zip
+
+# Screenshots and test artifacts
+*.png
+!public/*.png
+
+# Scripts not needed in deployment
+scripts/
+deploy-*.sh
+cleanup-*.sh
+run-*.js
+analyze-*.js
+compare-*.js
+test-*.cjs
+
+# AWS and other cloud configs
+*.json
+!vercel.json
+!vercel-protected.json
+!package.json
+!package-lock.json
+!tsconfig.json
+
+# Miscellaneous
+.DS_Store
+*.swp
+*.swo
+*~
+

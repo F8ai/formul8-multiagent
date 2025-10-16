@@ -1,0 +1,75 @@
+name: Rotate OpenRouter API Key
+
+# Schedule: Run monthly on the 1st at 2 AM UTC
+on:
+  schedule:
+    - cron: '0 2 1 * *'  # Monthly at 2 AM UTC on the 1st
+  workflow_dispatch:  # Allow manual trigger
+    inputs:
+      delete_old_keys:
+        description: 'Delete old keys after rotation'
+        required: false
+        default: 'false'
+        type: boolean
+
+jobs:
+  rotate-key:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+      
+      - name: Install Vercel CLI
+        run: npm install -g vercel
+      
+      - name: Configure Vercel
+        run: |
+          echo "Installing Vercel..."
+          vercel --version
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+      
+      - name: Rotate OpenRouter API Key
+        env:
+          OPENROUTER_PROVISIONING_KEY: ${{ secrets.OPENROUTER_PROVISIONING_KEY }}
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        run: |
+          chmod +x scripts/openrouter-key-manager.js
+          if [ "${{ github.event.inputs.delete_old_keys }}" = "true" ]; then
+            node scripts/openrouter-key-manager.js rotate --delete-old
+          else
+            node scripts/openrouter-key-manager.js rotate
+          fi
+      
+      - name: List current keys
+        env:
+          OPENROUTER_PROVISIONING_KEY: ${{ secrets.OPENROUTER_PROVISIONING_KEY }}
+        run: |
+          node scripts/openrouter-key-manager.js list
+      
+      - name: Upload rotation log
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: rotation-log-${{ github.run_number }}
+          path: logs/
+          retention-days: 90
+      
+      - name: Notify on success
+        if: success()
+        run: |
+          echo "✅ Key rotation completed successfully!"
+          # Add your notification logic here (Slack, Discord, email, etc.)
+      
+      - name: Notify on failure
+        if: failure()
+        run: |
+          echo "❌ Key rotation failed! Check the logs."
+          # Add your notification logic here (Slack, Discord, email, etc.)
+

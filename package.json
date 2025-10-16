@@ -14,7 +14,10 @@
     "test:chatgpt": "node tests/run-chatgpt-comparison.js",
     "test:chatgpt:visual": "playwright test tests/visual-chatgpt-comparison.spec.js",
     "test:chatgpt:functionality": "playwright test tests/chatgpt-functionality-mirror.spec.js",
-    "test:chatgpt:comparison": "playwright test tests/chatgpt-comparison.spec.js"
+    "test:chatgpt:comparison": "playwright test tests/chatgpt-comparison.spec.js",
+    "deploy:vercel": "vercel --prod",
+    "deploy:protected": "./deploy-protected.sh",
+    "dev:vercel": "vercel dev"
   },
   "devDependencies": {
     "@playwright/test": "^1.40.0",
