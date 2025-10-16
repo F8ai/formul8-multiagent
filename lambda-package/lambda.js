@@ -10,7 +10,9 @@ const app = express();
 const corsOptions = {
   origin: '*',
   credentials: true,
-  optionsSuccessStatus: 200
+  optionsSuccessStatus: 200,
+  allowedHeaders: ['Content-Type', 'X-API-Key', 'Authorization'],
+  exposedHeaders: ['X-API-Key']
 };
 
 // Middleware
