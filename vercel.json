@@ -10,6 +10,12 @@
       "use": "@vercel/static"
     }
   ],
+  "rewrites": [
+    {
+      "source": "/chat",
+      "destination": "/public/chat.html"
+    }
+  ],
   "routes": [
     {
       "src": "/api/(.*)",
@@ -18,10 +24,6 @@
     {
       "src": "/health",
       "dest": "/lambda-package/lambda.js"
-    },
-    {
-      "src": "/chat$",
-      "dest": "/public/chat.html"
     },
     {
       "src": "/(.*)",
