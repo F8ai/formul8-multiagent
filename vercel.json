@@ -14,20 +14,14 @@
     {
       "source": "/chat",
       "destination": "/public/chat.html"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "/lambda-package/lambda.js"
     },
     {
-      "src": "/health",
-      "dest": "/lambda-package/lambda.js"
+      "source": "/api/(.*)",
+      "destination": "/lambda-package/lambda.js"
     },
     {
-      "src": "/(.*)",
-      "dest": "/public/$1"
+      "source": "/health",
+      "destination": "/lambda-package/lambda.js"
     }
   ],
   "env": {
