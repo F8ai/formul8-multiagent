@@ -3,27 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formul8 Multiagent Chat</title>
+    <title>Formul8 Chat</title>
     <link rel="icon" type="image/x-icon" href="https://formul8.ai/favicon.ico">
-    <link rel="shortcut icon" type="image/x-icon" href="https://formul8.ai/favicon.ico">
     <!-- Google Sign-In -->
     <script src="https://accounts.google.com/gsi/client" async defer></script>
     <style>
-        :root {
-            --formul8-primary: #00ff88;
-            --formul8-secondary: #00cc6a;
-            --formul8-accent: #ff6b35;
-            --formul8-bg-primary: #141920;
-            --formul8-bg-secondary: #1a1f2e;
-            --formul8-bg-surface: #232937;
-            --formul8-bg-card: #2a3142;
-            --formul8-text-primary: #ffffff;
-            --formul8-text-secondary: #b8c5d1;
-            --formul8-text-muted: #7a8a9a;
-            --formul8-border: #3a4553;
-            --formul8-border-light: #4a5563;
-        }
-
         * {
             margin: 0;
             padding: 0;
@@ -31,11 +15,10 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: var(--formul8-bg-primary);
-            color: var(--formul8-text-primary);
-            line-height: 1.6;
-            min-height: 100vh;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+            background: #343541;
+            color: #ececf1;
+            height: 100vh;
             overflow: hidden;
         }
 
@@ -43,473 +26,355 @@
             display: flex;
             flex-direction: column;
             height: 100vh;
-            max-width: 1200px;
-            margin: 0 auto;
-            background: var(--formul8-bg-primary);
-            position: relative;
         }
 
-        .chat-header {
-            background: linear-gradient(135deg, var(--formul8-bg-secondary), #2a2a2a);
-            padding: 20px;
-            border-bottom: 1px solid var(--formul8-border);
-            position: relative;
-        }
-
-        .chat-header h2 {
-            font-size: 1.8rem;
-            font-weight: 600;
-            color: var(--formul8-text-primary);
-            margin-bottom: 15px;
-            text-align: left;
-        }
-
-        .auth-buttons {
-            position: absolute;
-            top: 20px;
-            right: 20px;
+        /* Header */
+        .header {
+            background: #343541;
+            border-bottom: 1px solid #565869;
+            padding: 12px 16px;
             display: flex;
-            gap: 10px;
+            justify-content: space-between;
             align-items: center;
         }
 
-        .auth-button {
-            padding: 8px 16px;
-            border: none;
-            border-radius: 6px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-            background: transparent;
-        }
-        
-        .google-signin-button {
-            padding: 0 !important;
-            border: none !important;
-            background: transparent !important;
+        .header h1 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #ececf1;
         }
 
-        .login-button {
-            background: transparent;
-            color: var(--formul8-text-primary);
-            border: 1px solid var(--formul8-border);
+        .auth-section {
+            display: flex;
+            align-items: center;
+            gap: 12px;
         }
 
-        .login-button:hover {
-            background: var(--formul8-bg-surface);
-            border-color: var(--formul8-border-light);
+        #authButtons {
+            display: flex;
         }
 
-        .signup-button {
-            background: var(--formul8-primary);
-            color: var(--formul8-bg-primary);
-        }
-
-        .signup-button:hover {
-            background: var(--formul8-secondary);
-            transform: translateY(-1px);
-        }
-        
         .user-info {
             display: none;
             align-items: center;
             gap: 10px;
         }
-        
+
         .user-info.active {
             display: flex;
         }
-        
+
         .user-avatar {
             width: 32px;
             height: 32px;
             border-radius: 50%;
-            border: 2px solid var(--formul8-primary);
         }
-        
+
         .user-name {
-            color: var(--formul8-text-primary);
             font-size: 0.9rem;
-            font-weight: 500;
+            color: #ececf1;
         }
-        
+
         .logout-button {
-            background: transparent;
-            color: var(--formul8-text-secondary);
-            border: 1px solid var(--formul8-border);
             padding: 6px 12px;
+            background: transparent;
+            border: 1px solid #565869;
             border-radius: 6px;
-            font-size: 0.8rem;
+            color: #ececf1;
+            font-size: 0.85rem;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.2s;
         }
-        
+
         .logout-button:hover {
-            background: var(--formul8-bg-surface);
-            color: var(--formul8-text-primary);
+            background: #40414f;
         }
 
-        .chat-controls {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .user-field, .plan-selector {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .user-field label, .plan-selector label {
-            color: var(--formul8-text-secondary);
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
-
-        .user-field input, .plan-selector select {
-            background: var(--formul8-bg-surface);
-            border: 1px solid var(--formul8-border);
-            color: var(--formul8-text-primary);
-            padding: 6px 10px;
-            border-radius: 4px;
-            font-size: 0.9rem;
-        }
-
-        .user-field input:focus, .plan-selector select:focus {
-            outline: none;
-            border-color: var(--formul8-primary);
-        }
-
-        .status-indicator {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            color: var(--formul8-text-secondary);
-            font-size: 0.9rem;
-        }
-
-        .status-dot {
-            width: 8px;
-            height: 8px;
-            background: #4ade80;
-            border-radius: 50%;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
-        }
-
-        .chat-messages {
+        /* Messages Container */
+        .messages-container {
             flex: 1;
-            padding: 20px;
-            padding-bottom: 120px; /* Add space for fixed input */
             overflow-y: auto;
-            background: var(--formul8-bg-primary);
-        }
-
-        .message {
-            margin-bottom: 15px;
             display: flex;
+            flex-direction: column;
         }
 
-        .user-message {
-            justify-content: flex-end;
+        .messages-wrapper {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            max-width: 768px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 20px;
         }
 
-        .assistant-message {
+        .messages-container:not(.has-messages) .messages-wrapper {
+            justify-content: center;
+        }
+
+        .messages-container.has-messages .messages-wrapper {
             justify-content: flex-start;
+            padding-top: 40px;
+        }
+
+        .welcome {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .welcome h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #ececf1;
+        }
+
+        .welcome p {
+            font-size: 1rem;
+            color: #c5c5d2;
+        }
+
+        /* Messages */
+        .message {
+            display: flex;
+            padding: 24px 16px;
+            margin-bottom: 0;
+        }
+
+        .message.user {
+            background: #343541;
+        }
+
+        .message.assistant {
+            background: #444654;
+            border-top: 1px solid #565869;
+            border-bottom: 1px solid #565869;
         }
 
         .message-content {
-            max-width: 70%;
-            padding: 12px 16px;
-            border-radius: 12px;
-            position: relative;
-        }
-
-        .user-message .message-content {
-            background: var(--formul8-primary);
-            color: var(--formul8-bg-primary);
-        }
-
-        .assistant-message .message-content {
-            background: var(--formul8-bg-surface);
-            color: var(--formul8-text-primary);
-            border: 1px solid var(--formul8-border);
-        }
-
-        .message-header {
+            max-width: 768px;
+            width: 100%;
+            margin: 0 auto;
             display: flex;
-            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .message-icon {
+            width: 30px;
+            height: 30px;
+            border-radius: 4px;
+            display: flex;
             align-items: center;
-            margin-bottom: 6px;
-            font-size: 0.8rem;
-            opacity: 0.8;
-        }
-
-        .username, .agent-name {
+            justify-content: center;
+            flex-shrink: 0;
             font-weight: 600;
+            font-size: 0.9rem;
         }
 
-        .timestamp {
-            font-size: 0.75rem;
+        .message.user .message-icon {
+            background: #5436da;
+            color: white;
+        }
+
+        .message.assistant .message-icon {
+            background: #19c37d;
+            color: white;
         }
 
         .message-text {
-            line-height: 1.4;
-        }
-
-        .welcome-message {
-            text-align: center;
-            color: var(--formul8-text-secondary);
-            margin: 40px 0;
-            padding: 30px;
-            background: var(--formul8-bg-card);
-            border-radius: 12px;
-            border: 1px solid var(--formul8-border);
-        }
-
-        .welcome-message h3 {
-            color: var(--formul8-primary);
-            margin-bottom: 15px;
-            font-size: 1.5rem;
-        }
-
-        .feature-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            justify-content: flex-start;
-            margin-top: 20px;
-        }
-
-        .feature-tag {
-            background: var(--formul8-primary);
-            color: var(--formul8-bg-primary);
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
-
-        .chat-input-container {
-            position: fixed;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100%;
-            max-width: 1200px;
-            padding: 20px;
-            background: var(--formul8-bg-secondary);
-            border-top: 1px solid var(--formul8-border);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .chat-input-container.focused {
-            padding: 25px 20px;
-            background: var(--formul8-bg-surface);
-            border-top: 2px solid var(--formul8-primary);
-            box-shadow: 0 -4px 20px rgba(0, 255, 136, 0.1);
-        }
-
-        .chat-input-group {
-            display: flex;
-            gap: 10px;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .chat-input {
             flex: 1;
-            padding: 12px 16px;
-            border: 1px solid var(--formul8-border);
-            border-radius: 25px;
-            background: var(--formul8-bg-surface);
-            color: var(--formul8-text-primary);
+            line-height: 1.7;
+            padding-top: 4px;
+        }
+
+        .message-header {
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+        }
+
+        /* Input Container */
+        .input-container {
+            padding: 20px;
+            background: #343541;
+            border-top: 1px solid #565869;
+        }
+
+        .input-wrapper {
+            max-width: 768px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .input-form {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        #chatInput {
+            flex: 1;
+            background: #40414f;
+            border: 1px solid #565869;
+            border-radius: 8px;
+            color: #ececf1;
+            padding: 14px 16px;
             font-size: 1rem;
             outline: none;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            transform: translateY(0);
+            resize: none;
+            min-height: 52px;
+            max-height: 200px;
+            font-family: inherit;
         }
 
-        .chat-input:focus {
-            border-color: var(--formul8-primary);
-            box-shadow: 0 0 0 3px rgba(0, 255, 136, 0.1);
-            transform: translateY(-2px);
+        #chatInput:focus {
+            border-color: #8e8ea0;
         }
 
-        .chat-input-container.focused .chat-input {
-            padding: 14px 18px;
-            font-size: 1.05rem;
-            border-radius: 30px;
+        #chatInput::placeholder {
+            color: #8e8ea0;
         }
 
-        .send-button {
-            padding: 12px 24px;
-            background: var(--formul8-primary);
-            color: var(--formul8-bg-primary);
+        #sendButton {
+            background: #19c37d;
             border: none;
-            border-radius: 25px;
-            font-size: 1rem;
+            border-radius: 8px;
+            color: white;
+            padding: 12px 20px;
+            font-size: 0.95rem;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            transform: translateY(0);
+            transition: all 0.2s;
+            height: 52px;
         }
 
-        .send-button:hover {
-            background: var(--formul8-secondary);
-            transform: translateY(-2px);
+        #sendButton:hover:not(:disabled) {
+            background: #1a7f5a;
         }
 
-        .send-button:disabled {
-            opacity: 0.6;
+        #sendButton:disabled {
+            opacity: 0.4;
             cursor: not-allowed;
-            transform: none;
         }
 
-        .chat-input-container.focused .send-button {
-            padding: 14px 26px;
-            font-size: 1.05rem;
-            border-radius: 30px;
-            transform: translateY(-2px);
+        /* Controls (hidden by default like ChatGPT) */
+        .controls {
+            display: none;
+            max-width: 768px;
+            margin: 0 auto 16px;
+            padding: 0 16px;
+            gap: 12px;
+            align-items: center;
         }
 
+        .controls select,
+        .controls input {
+            background: #40414f;
+            border: 1px solid #565869;
+            border-radius: 6px;
+            color: #ececf1;
+            padding: 6px 10px;
+            font-size: 0.85rem;
+        }
+
+        /* Scrollbar */
+        .messages-container::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .messages-container::-webkit-scrollbar-track {
+            background: #343541;
+        }
+
+        .messages-container::-webkit-scrollbar-thumb {
+            background: #565869;
+            border-radius: 4px;
+        }
+
+        .messages-container::-webkit-scrollbar-thumb:hover {
+            background: #6e6e80;
+        }
+
+        /* Loading indicator */
         .loading {
             display: none;
+            color: #8e8ea0;
+            font-size: 0.9rem;
             text-align: center;
-            color: var(--formul8-text-secondary);
-            font-style: italic;
-            margin: 10px 0;
-        }
-
-        .error-message {
-            background: #ef4444;
-            color: white;
             padding: 10px;
-            border-radius: 8px;
-            margin: 10px 0;
-            text-align: center;
         }
 
+        .loading.active {
+            display: block;
+        }
+
+        /* Mobile responsive */
         @media (max-width: 768px) {
-            .chat-controls {
-                flex-direction: column;
-                gap: 10px;
-            }
-            
-            .chat-input-group {
-                flex-direction: column;
-            }
-            
-            .message-content {
-                max-width: 85%;
+            .welcome h2 {
+                font-size: 1.5rem;
             }
 
-            .auth-buttons {
-                position: static;
-                justify-content: center;
-                margin-bottom: 15px;
-                flex-wrap: wrap;
+            .message {
+                padding: 16px 12px;
             }
 
-            .auth-button {
-                padding: 6px 12px;
-                font-size: 0.8rem;
-            }
-            
-            .user-info {
-                flex-direction: column;
-                gap: 5px;
+            .input-container {
+                padding: 12px;
             }
 
-            .chat-input-container {
-                padding: 15px;
-            }
-
-            .chat-messages {
-                padding-bottom: 100px; /* Adjust for mobile */
+            #chatInput {
+                font-size: 16px; /* Prevents zoom on iOS */
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="chat-header">
-            <div class="auth-buttons" id="authButtons">
-                <div id="googleSignInButton"></div>
-            </div>
-            <div class="user-info" id="userInfo">
-                <img class="user-avatar" id="userAvatar" alt="User avatar">
-                <span class="user-name" id="userName"></span>
-                <button class="logout-button" id="logoutButton">Log out</button>
-            </div>
-            <h2>Formul8 Multiagent Chat</h2>
-            <div class="chat-controls">
-                <div class="user-field">
-                    <label for="username">User:</label>
-                    <input type="text" id="username" placeholder="Enter username" value="guest">
+        <!-- Header -->
+        <div class="header">
+            <h1>Formul8</h1>
+            <div class="auth-section">
+                <div id="authButtons"></div>
+                <div class="user-info" id="userInfo">
+                    <img class="user-avatar" id="userAvatar" alt="User avatar">
+                    <span class="user-name" id="userName"></span>
+                    <button class="logout-button" id="logoutButton">Log out</button>
                 </div>
-                <div class="plan-selector">
-                    <label for="planSelect">Plan:</label>
+            </div>
+        </div>
+
+        <!-- Messages -->
+        <div class="messages-container" id="messagesContainer">
+            <div class="messages-wrapper">
+                <div class="welcome">
+                    <h2>Formul8 Multiagent Chat</h2>
+                    <p>Start a conversation with our intelligent agents</p>
+                </div>
+                <div id="chatMessages"></div>
+            </div>
+        </div>
+
+        <!-- Input -->
+        <div class="input-container">
+            <div class="controls" id="controls">
+                <label>User: <input type="text" id="username" value="guest" /></label>
+                <label>Plan: 
                     <select id="planSelect">
                         <option value="free">Free</option>
-                        <option value="standard" selected>Standard</option>
                         <option value="micro">Micro</option>
-                        <option value="operator">Operator</option>
+                        <option value="standard" selected>Standard</option>
                         <option value="enterprise">Enterprise</option>
-                        <option value="beta">Beta</option>
                         <option value="admin">Admin</option>
-                        <option value="future4200">Future4200.com</option>
                     </select>
-                </div>
-                <div class="status-indicator">
-                    <span class="status-dot"></span>
-                    <span>Online</span>
-                </div>
+                </label>
             </div>
-        </div>
-        
-        <div class="chat-messages" id="chatMessages">
-            <div class="welcome-message">
-                <h3>Welcome to Formul8 Multiagent Chat!</h3>
-                <p>I'm your intelligent cannabis industry assistant.</p>
-                <p>Ask me about compliance, formulation, science, operations, and more!</p>
-                
-                <div class="feature-list">
-                    <span class="feature-tag">Compliance</span>
-                    <span class="feature-tag">Formulation</span>
-                    <span class="feature-tag">Science</span>
-                    <span class="feature-tag">Operations</span>
-                    <span class="feature-tag">Marketing</span>
-                    <span class="feature-tag">Patent Research</span>
+            <div class="input-wrapper">
+                <div class="loading" id="loading">Thinking...</div>
+                <div class="input-form">
+                    <textarea id="chatInput" placeholder="Send a message..." rows="1"></textarea>
+                    <button id="sendButton">Send</button>
                 </div>
-            </div>
-        </div>
-        
-        <div class="chat-input-container">
-            <div class="loading" id="loading">AI is thinking...</div>
-            <div class="chat-input-group">
-                <input 
-                    type="text" 
-                    class="chat-input" 
-                    id="chatInput" 
-                    placeholder="Ask me anything about cannabis industry..."
-                    autocomplete="off"
-                >
-                <button class="send-button" id="sendButton" type="button">
-                    Send
-                </button>
             </div>
         </div>
     </div>
@@ -519,7 +384,6 @@
         const GOOGLE_CLIENT_ID = '732977829559-sm9erni1diasjrfdqdccal0htmeb2crg.apps.googleusercontent.com';
         const API_ENDPOINT = 'https://wxe3lwel4llwaom56mthdt4gry0zkpxr.lambda-url.us-east-1.on.aws';
         
-        // User session
         let currentUser = null;
         let authToken = null;
         
@@ -534,65 +398,43 @@
                 });
                 
                 google.accounts.id.renderButton(
-                    document.getElementById('googleSignInButton'),
+                    document.getElementById('authButtons'),
                     {
                         theme: 'filled_black',
                         size: 'large',
                         text: 'signin_with',
                         shape: 'rectangular',
-                        logo_alignment: 'left',
                     }
                 );
                 
-                // Check for existing session
                 checkExistingSession();
             } else {
-                // Retry after a delay
                 setTimeout(initializeGoogleSignIn, 100);
             }
         }
         
-        // Handle Google Sign-In response
         async function handleGoogleSignIn(response) {
             try {
-                console.log('Google Sign-In successful, verifying token...');
-                
-                // Send ID token to our backend for verification
                 const result = await fetch(`${API_ENDPOINT}/api/google-auth-callback`, {
                     method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        idToken: response.credential,
-                    }),
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ idToken: response.credential }),
                 });
                 
                 const data = await result.json();
                 
                 if (data.success) {
-                    // Store authentication
                     authToken = data.token;
                     currentUser = data.user;
-                    
-                    // Save to localStorage
                     localStorage.setItem('authToken', authToken);
                     localStorage.setItem('currentUser', JSON.stringify(currentUser));
-                    
-                    // Update UI
                     updateUIAfterLogin();
-                    
-                    showMessage(`Welcome ${currentUser.name}! You're signed in with ${currentUser.plan} plan.`, 'success');
-                } else {
-                    showError('Authentication failed. Please try again.');
                 }
             } catch (error) {
-                console.error('Error during authentication:', error);
-                showError('Authentication error. Please try again.');
+                console.error('Authentication error:', error);
             }
         }
         
-        // Check for existing session
         function checkExistingSession() {
             const token = localStorage.getItem('authToken');
             const user = localStorage.getItem('currentUser');
@@ -604,269 +446,76 @@
             }
         }
         
-        // Update UI after successful login
         function updateUIAfterLogin() {
-            // Hide auth buttons
             document.getElementById('authButtons').style.display = 'none';
-            
-            // Show user info
             const userInfo = document.getElementById('userInfo');
             userInfo.classList.add('active');
-            
             document.getElementById('userAvatar').src = currentUser.picture || '';
             document.getElementById('userName').textContent = currentUser.name || currentUser.email;
-            
-            // Update username field
             document.getElementById('username').value = currentUser.name || currentUser.email;
-            
-            // Update plan selector
             if (currentUser.plan) {
                 document.getElementById('planSelect').value = currentUser.plan;
             }
         }
         
-        // Logout
         function handleLogout() {
-            // Clear session
             authToken = null;
             currentUser = null;
             localStorage.removeItem('authToken');
             localStorage.removeItem('currentUser');
             
-            // Sign out from Google
             if (google && google.accounts && google.accounts.id) {
                 google.accounts.id.disableAutoSelect();
             }
             
-            // Update UI
             document.getElementById('authButtons').style.display = 'flex';
             document.getElementById('userInfo').classList.remove('active');
             document.getElementById('username').value = 'guest';
-            
-            showMessage('You have been logged out.', 'info');
         }
         
-        // Enhanced chat functionality with plan and user support
-        document.getElementById('sendButton').addEventListener('click', function() {
-            sendMessage();
+        document.getElementById('logoutButton').addEventListener('click', handleLogout);
+        
+        // Chat functionality
+        const chatInput = document.getElementById('chatInput');
+        const sendButton = document.getElementById('sendButton');
+        const chatMessages = document.getElementById('chatMessages');
+        const messagesContainer = document.getElementById('messagesContainer');
+        const loading = document.getElementById('loading');
+        
+        // Auto-resize textarea
+        chatInput.addEventListener('input', function() {
+            this.style.height = 'auto';
+            this.style.height = Math.min(this.scrollHeight, 200) + 'px';
         });
         
-        // Logout button
-        document.getElementById('logoutButton').addEventListener('click', function() {
-            handleLogout();
-        });
-
-        function showMessage(message, type = 'info') {
-            const chatMessages = document.getElementById('chatMessages');
-            const messageDiv = document.createElement('div');
-            messageDiv.className = `message assistant-message`;
-            messageDiv.innerHTML = `
-                <div class="message-content">
-                    <div class="message-header">
-                        <span class="agent-name">System</span>
-                        <span class="timestamp">${new Date().toLocaleTimeString()}</span>
-                    </div>
-                    <div class="message-text" style="color: ${type === 'success' ? 'var(--formul8-primary)' : 'var(--formul8-text-primary)'}">${message}</div>
-                </div>
-            `;
-            chatMessages.appendChild(messageDiv);
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-        }
-        
-        // Initialize on page load
-        window.addEventListener('load', function() {
-            initializeGoogleSignIn();
-        });
-        
-        document.getElementById('chatInput').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
+        // Send message on Enter (but Shift+Enter for new line)
+        chatInput.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
                 sendMessage();
             }
         });
-
-        // Input focus/blur animations
-        document.getElementById('chatInput').addEventListener('focus', function() {
-            const container = document.querySelector('.chat-input-container');
-            container.classList.add('focused');
-        });
-
-        document.getElementById('chatInput').addEventListener('blur', function() {
-            const container = document.querySelector('.chat-input-container');
-            // Only remove focused class if input is empty
-            if (this.value.trim() === '') {
-                container.classList.remove('focused');
-            }
-        });
-
-        // Keep focused state when typing
-        document.getElementById('chatInput').addEventListener('input', function() {
-            const container = document.querySelector('.chat-input-container');
-            if (this.value.trim() !== '') {
-                container.classList.add('focused');
-            }
-        });
-
-        // Ensure chat scrolls to bottom on page load
-        window.addEventListener('load', function() {
-            const chatMessages = document.getElementById('chatMessages');
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-        });
-
-        // Auto-scroll to bottom when new content is added
-        function scrollToBottom() {
-            const chatMessages = document.getElementById('chatMessages');
-            setTimeout(() => {
-                chatMessages.scrollTo({
-                    top: chatMessages.scrollHeight,
-                    behavior: 'smooth'
-                });
-            }, 50);
-        }
         
-        // Client-side input validation and sanitization
-        function validateAndSanitizeInput(input) {
-            if (!input || typeof input !== 'string') {
-                return null;
-            }
+        sendButton.addEventListener('click', sendMessage);
+        
+        async function sendMessage() {
+            const message = chatInput.value.trim();
+            if (!message) return;
             
-            // Trim whitespace
-            let sanitized = input.trim();
-            
-            // Check length limits
-            if (sanitized.length === 0) {
-                return null;
-            }
-            if (sanitized.length > 2000) {
-                throw new Error('Message too long. Maximum 2000 characters allowed.');
-            }
-            
-            // Basic XSS protection
-            sanitized = sanitized
-                .replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '')
-                .replace(/javascript:/gi, '')
-                .replace(/on\w+\s*=/gi, '')
-                .replace(/<iframe\b[^<]*(?:(?!<\/iframe>)<[^<]*)*<\/iframe>/gi, '');
-            
-            return sanitized;
-        }
-
-        function validateUsername(username) {
-            if (!username || typeof username !== 'string') {
-                return 'guest';
-            }
-            
-            const sanitized = username.trim();
-            if (sanitized.length === 0) {
-                return 'guest';
-            }
-            if (sanitized.length > 50) {
-                throw new Error('Username too long. Maximum 50 characters allowed.');
-            }
-            
-            return sanitized;
-        }
-
-        function showError(message, type = 'error') {
-            const chatMessages = document.getElementById('chatMessages');
-            const errorDiv = document.createElement('div');
-            errorDiv.className = `error-message ${type}`;
-            errorDiv.textContent = message;
-            chatMessages.appendChild(errorDiv);
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-            
-            // Auto-remove after 5 seconds
-            setTimeout(() => {
-                if (errorDiv.parentNode) {
-                    errorDiv.parentNode.removeChild(errorDiv);
-                }
-            }, 5000);
-        }
-
-        function sendMessage() {
-            const input = document.getElementById('chatInput');
-            const message = input.value;
             const username = document.getElementById('username').value;
-            const plan = document.getElementById('planSelect').value || 'standard';
+            const plan = document.getElementById('planSelect').value;
+            
+            // Add user message
+            addMessage(message, 'user', username);
+            chatInput.value = '';
+            chatInput.style.height = 'auto';
+            
+            // Show loading
+            sendButton.disabled = true;
+            loading.classList.add('active');
             
             try {
-                // Validate and sanitize inputs
-                const sanitizedMessage = validateAndSanitizeInput(message);
-                if (!sanitizedMessage) {
-                    showError('Please enter a message.');
-                    return;
-                }
-                
-                const validatedUsername = validateUsername(username);
-                
-                console.log('Sending message:', sanitizedMessage, 'User:', validatedUsername, 'Plan:', plan);
-                
-                // Add user message to chat
-                addMessageToChat('user', sanitizedMessage, validatedUsername);
-                
-                // Show loading
-                showLoading(true);
-                
-                // Send to API
-                sendToAPI(sanitizedMessage, validatedUsername, plan);
-                
-                input.value = '';
-                
-                // Remove focused state after sending
-                const container = document.querySelector('.chat-input-container');
-                container.classList.remove('focused');
-                
-            } catch (error) {
-                console.error('Validation error:', error);
-                showError(error.message);
-            }
-        }
-        
-        function addMessageToChat(sender, message, username) {
-            const chatMessages = document.getElementById('chatMessages');
-            const messageDiv = document.createElement('div');
-            messageDiv.className = `message ${sender}-message`;
-            
-            if (sender === 'user') {
-                messageDiv.innerHTML = `
-                    <div class="message-content">
-                        <div class="message-header">
-                            <span class="username">${username}</span>
-                            <span class="timestamp">${new Date().toLocaleTimeString()}</span>
-                        </div>
-                        <div class="message-text">${message}</div>
-                    </div>
-                `;
-            } else {
-                messageDiv.innerHTML = `
-                    <div class="message-content">
-                        <div class="message-header">
-                            <span class="agent-name">Formul8 AI</span>
-                            <span class="timestamp">${new Date().toLocaleTimeString()}</span>
-                        </div>
-                        <div class="message-text">${message}</div>
-                    </div>
-                `;
-            }
-            
-            chatMessages.appendChild(messageDiv);
-            
-            // Smooth scroll to bottom
-            setTimeout(() => {
-                chatMessages.scrollTo({
-                    top: chatMessages.scrollHeight,
-                    behavior: 'smooth'
-                });
-            }, 100);
-        }
-        
-        async function sendToAPI(message, username, plan) {
-            try {
-                // Prepare headers
-                const headers = {
-                    'Content-Type': 'application/json',
-                };
-                
-                // Add authorization header if user is logged in
+                const headers = { 'Content-Type': 'application/json' };
                 if (authToken) {
                     headers['Authorization'] = `Bearer ${authToken}`;
                 }
@@ -874,50 +523,47 @@
                 const response = await fetch(`${API_ENDPOINT}/api/chat`, {
                     method: 'POST',
                     headers: headers,
-                    body: JSON.stringify({
-                        message: message,
-                        username: username,
-                        plan: plan
-                    })
+                    body: JSON.stringify({ message, username, plan })
                 });
-                
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
                 
                 const data = await response.json();
                 
-                if (data.success) {
-                    addMessageToChat('assistant', data.response, 'Formul8 AI');
-                } else {
-                    addMessageToChat('assistant', 'Sorry, I encountered an error. Please try again.', 'Formul8 AI');
+                if (data.response) {
+                    addMessage(data.response, 'assistant', data.agent || 'F8');
                 }
-                
-                // Ensure we're at the bottom after response
-                scrollToBottom();
             } catch (error) {
-                console.error('Error sending message:', error);
-                addMessageToChat('assistant', 'Sorry, I\'m having trouble connecting. Please try again.', 'Formul8 AI');
-                scrollToBottom();
+                console.error('Error:', error);
+                addMessage('Sorry, something went wrong. Please try again.', 'assistant', 'System');
             } finally {
-                showLoading(false);
+                sendButton.disabled = false;
+                loading.classList.remove('active');
             }
         }
         
-        function showLoading(show) {
-            const loading = document.getElementById('loading');
-            const sendButton = document.getElementById('sendButton');
+        function addMessage(text, type, name) {
+            messagesContainer.classList.add('has-messages');
             
-            if (show) {
-                loading.style.display = 'block';
-                sendButton.disabled = true;
-                sendButton.textContent = 'Sending...';
-            } else {
-                loading.style.display = 'none';
-                sendButton.disabled = false;
-                sendButton.textContent = 'Send';
-            }
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${type}`;
+            
+            const initial = name.charAt(0).toUpperCase();
+            
+            messageDiv.innerHTML = `
+                <div class="message-content">
+                    <div class="message-icon">${initial}</div>
+                    <div class="message-text">
+                        <div class="message-header">${name}</div>
+                        ${text}
+                    </div>
+                </div>
+            `;
+            
+            chatMessages.appendChild(messageDiv);
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
         }
+        
+        // Initialize on load
+        window.addEventListener('load', initializeGoogleSignIn);
     </script>
 </body>
 </html>
