@@ -20,7 +20,7 @@
       "dest": "/lambda-package/lambda.js"
     },
     {
-      "src": "/chat",
+      "src": "/chat$",
       "dest": "/public/chat.html"
     },
     {
