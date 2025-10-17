@@ -38,6 +38,17 @@
             align-items: center;
         }
 
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo {
+            height: 32px;
+            width: auto;
+        }
+
         .header h1 {
             font-size: 1rem;
             font-weight: 600;
@@ -371,7 +382,10 @@
     <div class="container">
         <!-- Header -->
         <div class="header">
-            <h1>Formul8</h1>
+            <div class="header-left">
+                <img src="https://formul8.ai/logo.png" alt="Formul8" class="logo" onerror="this.style.display='none'">
+                <h1>Formul8</h1>
+            </div>
             <div class="auth-section">
                 <div id="authButtons"></div>
                 <div class="user-info" id="userInfo">
