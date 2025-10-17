@@ -113,12 +113,22 @@
             position: relative;
         }
 
+        /* Empty state - everything centered */
+        .app:not(.has-messages) .main {
+            justify-content: center;
+        }
+
         /* Messages Area */
         .messages {
             flex: 1;
             overflow-y: auto;
             display: flex;
             flex-direction: column;
+        }
+
+        .app:not(.has-messages) .messages {
+            flex: 0;
+            overflow: visible;
         }
 
         .messages-inner {
@@ -218,7 +228,8 @@
         }
 
         .app:not(.has-messages) .input-container {
-            padding-top: 0;
+            padding: 24px 0;
+            flex: 0;
         }
 
         .input-wrapper {
