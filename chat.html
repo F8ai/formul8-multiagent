@@ -110,6 +110,10 @@
             padding-top: 40px;
         }
 
+        .container.has-messages .messages-wrapper {
+            padding-bottom: 120px;
+        }
+
         /* Center everything when empty */
         .container:not(.has-messages) {
             justify-content: center;
@@ -134,6 +138,13 @@
         .container:not(.has-messages) .input-container {
             position: relative;
             border-top: none;
+        }
+
+        .container.has-messages .input-container {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
         }
 
         .welcome {
@@ -225,6 +236,7 @@
             padding: 20px;
             background: #343541;
             border-top: 1px solid #565869;
+            z-index: 10;
         }
 
         .input-wrapper {
