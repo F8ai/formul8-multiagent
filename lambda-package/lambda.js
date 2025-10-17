@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const fetch = require('node-fetch');
 const serverlessHttp = require('serverless-http');
+const { handleGoogleAuthCallback, extractUserFromRequest } = require('./google-auth-handler');
 
 // Create Express app
 const app = express();
@@ -80,6 +81,11 @@ app.post('/api/free-key', (req, res) => {
   });
 });
 
+// Google OAuth callback endpoint
+app.post('/api/google-auth-callback', async (req, res) => {
+  await handleGoogleAuthCallback(req, res);
+});
+
 // Slack Events API - proxy to f8-slackbot service
 app.post('/api/slack/events', async (req, res) => {
   try {
@@ -131,11 +137,18 @@ app.post('/api/slack/commands', async (req, res) => {
 app.post('/api/chat', async (req, res) => {
   const { message, plan = 'standard' } = req.body;
   
-  // No API key required for now - anyone can use the chat
-  // const apiKey = req.headers['x-api-key'];
-  // if (plan === 'free' && !apiKey) {
-  //   return res.status(401).json({ error: 'API key required for free plan' });
-  // }
+  // Extract user from JWT if provided
+  const user = await extractUserFromRequest(req);
+  
+  // Use authenticated user's plan if available, otherwise use provided plan
+  const effectivePlan = user?.plan || plan;
+  
+  // Log authentication status
+  if (user) {
+    console.log(`Authenticated user: ${user.email} (${effectivePlan})`);
+  } else {
+    console.log(`Unauthenticated request (plan: ${effectivePlan})`);
+  }
   
   // Plan-based response logic
   let response, agent, planType;
