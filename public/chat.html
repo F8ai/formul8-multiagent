@@ -617,8 +617,78 @@
             messagesContainer.scrollTop = messagesContainer.scrollHeight;
         }
         
+        // Typewriter effect for placeholder
+        const exampleQuestions = [
+            "Design a new sunscreen formulation...",
+            "Create a natural shampoo formula...",
+            "Develop an anti-aging serum...",
+            "Formulate a moisturizing face cream...",
+            "Design a vitamin C serum...",
+            "Create a gentle body wash...",
+            "Develop a hair repair treatment...",
+            "Formulate an acne-fighting cleanser..."
+        ];
+        
+        let currentQuestionIndex = 0;
+        let currentCharIndex = 0;
+        let isTyping = false;
+        let typingInterval = null;
+        let userHasTyped = false;
+        
+        function typewriterEffect() {
+            if (userHasTyped || app.classList.contains('has-messages')) {
+                return;
+            }
+            
+            const currentQuestion = exampleQuestions[currentQuestionIndex];
+            
+            if (currentCharIndex < currentQuestion.length) {
+                chatInput.placeholder = currentQuestion.substring(0, currentCharIndex + 1);
+                currentCharIndex++;
+                typingInterval = setTimeout(typewriterEffect, 50);
+            } else {
+                // Wait 2 seconds before moving to next question
+                typingInterval = setTimeout(() => {
+                    currentCharIndex = 0;
+                    currentQuestionIndex = (currentQuestionIndex + 1) % exampleQuestions.length;
+                    chatInput.placeholder = '';
+                    typewriterEffect();
+                }, 2000);
+            }
+        }
+        
+        // Stop typewriter when user types
+        chatInput.addEventListener('input', function() {
+            if (this.value.length > 0) {
+                userHasTyped = true;
+                clearTimeout(typingInterval);
+                chatInput.placeholder = 'Ask anything';
+            }
+        });
+        
+        // Start typewriter effect when input is cleared
+        chatInput.addEventListener('blur', function() {
+            if (this.value.length === 0 && !app.classList.contains('has-messages')) {
+                setTimeout(() => {
+                    if (chatInput.value.length === 0) {
+                        userHasTyped = false;
+                        currentCharIndex = 0;
+                        typewriterEffect();
+                    }
+                }, 1000);
+            }
+        });
+        
         // Initialize
-        window.addEventListener('load', initializeGoogleSignIn);
+        window.addEventListener('load', () => {
+            initializeGoogleSignIn();
+            // Start typewriter effect after a short delay
+            setTimeout(() => {
+                if (!app.classList.contains('has-messages')) {
+                    typewriterEffect();
+                }
+            }, 1000);
+        });
     </script>
 </body>
 </html>
