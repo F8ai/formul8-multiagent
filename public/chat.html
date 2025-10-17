@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formul8 Chat</title>
+    <title>Formul8</title>
     <link rel="icon" type="image/x-icon" href="https://formul8.ai/favicon.ico">
     <!-- Google Sign-In -->
     <script src="https://accounts.google.com/gsi/client" async defer></script>
@@ -15,27 +15,30 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
-            background: #343541;
-            color: #ececf1;
+            font-family: ui-sans-serif, -apple-system, system-ui, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif;
+            background: #212121;
+            color: #ececec;
             height: 100vh;
             overflow: hidden;
         }
 
-        .container {
+        .app {
             display: flex;
             flex-direction: column;
             height: 100vh;
+            width: 100%;
         }
 
         /* Header */
         .header {
-            background: #343541;
-            border-bottom: 1px solid #565869;
-            padding: 12px 16px;
+            height: 52px;
+            background: #212121;
+            border-bottom: 1px solid #4d4d4d;
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            justify-content: space-between;
+            padding: 0 16px;
+            flex-shrink: 0;
         }
 
         .header-left {
@@ -45,17 +48,17 @@
         }
 
         .logo {
-            height: 32px;
+            height: 24px;
             width: auto;
         }
 
-        .header h1 {
-            font-size: 1rem;
+        .header-title {
+            font-size: 14px;
             font-weight: 600;
-            color: #ececf1;
+            color: #ececec;
         }
 
-        .auth-section {
+        .header-right {
             display: flex;
             align-items: center;
             gap: 12px;
@@ -82,203 +85,178 @@
         }
 
         .user-name {
-            font-size: 0.9rem;
-            color: #ececf1;
+            font-size: 14px;
+            color: #ececec;
         }
 
         .logout-button {
             padding: 6px 12px;
             background: transparent;
-            border: 1px solid #565869;
+            border: 1px solid #4d4d4d;
             border-radius: 6px;
-            color: #ececf1;
-            font-size: 0.85rem;
+            color: #ececec;
+            font-size: 13px;
             cursor: pointer;
             transition: all 0.2s;
         }
 
         .logout-button:hover {
-            background: #40414f;
+            background: #2f2f2f;
         }
 
-        /* Messages Container */
-        .messages-container {
+        /* Main Content */
+        .main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Messages Area */
+        .messages {
             flex: 1;
             overflow-y: auto;
             display: flex;
             flex-direction: column;
         }
 
-        .messages-wrapper {
+        .messages-inner {
             flex: 1;
             display: flex;
             flex-direction: column;
-            justify-content: flex-start;
-            max-width: 768px;
-            width: 100%;
-            margin: 0 auto;
-            padding: 20px;
-            padding-top: 40px;
         }
 
-        .container.has-messages .messages-wrapper {
-            padding-bottom: 120px;
-        }
-
-        /* Center everything when empty */
-        .container:not(.has-messages) {
-            justify-content: center;
-        }
-
-        .container:not(.has-messages) .messages-container {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            display: flex;
+        /* Empty state - centered */
+        .app:not(.has-messages) .messages-inner {
             justify-content: center;
             align-items: center;
-            overflow: hidden;
         }
 
-        .container:not(.has-messages) .messages-wrapper {
-            padding: 0 20px;
-        }
-
-        .container:not(.has-messages) .input-container {
-            position: relative;
-            border-top: none;
-        }
-
-        .container.has-messages .input-container {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
+        /* With messages - normal flow */
+        .app.has-messages .messages-inner {
+            justify-content: flex-start;
         }
 
         .welcome {
             text-align: center;
-            margin-bottom: 40px;
+            padding: 40px 20px;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
-        .container:not(.has-messages) .welcome {
-            margin-bottom: 60px;
-        }
-
-        .welcome h2 {
-            font-size: 2rem;
-            font-weight: 600;
-            margin-bottom: 12px;
-            color: #ececf1;
-        }
-
-        .welcome p {
-            font-size: 1rem;
-            color: #c5c5d2;
-        }
-
-        .container.has-messages .welcome {
+        .app.has-messages .welcome {
             display: none;
         }
 
-        /* Messages */
+        .welcome h1 {
+            font-size: 36px;
+            font-weight: 600;
+            color: #ececec;
+            margin-bottom: 16px;
+        }
+
+        .welcome p {
+            font-size: 16px;
+            color: #b4b4b4;
+        }
+
+        /* Message */
         .message {
+            width: 100%;
+            padding: 24px 0;
             display: flex;
-            padding: 24px 16px;
-            margin-bottom: 0;
+            justify-content: center;
         }
 
         .message.user {
-            background: #343541;
+            background: #212121;
         }
 
         .message.assistant {
-            background: #444654;
-            border-top: 1px solid #565869;
-            border-bottom: 1px solid #565869;
+            background: #2f2f2f;
         }
 
         .message-content {
-            max-width: 768px;
             width: 100%;
-            margin: 0 auto;
+            max-width: 768px;
+            padding: 0 20px;
             display: flex;
-            gap: 16px;
+            gap: 24px;
         }
 
-        .message-icon {
+        .message-avatar {
             width: 30px;
             height: 30px;
-            border-radius: 4px;
+            border-radius: 2px;
+            background: #19c37d;
             display: flex;
             align-items: center;
             justify-content: center;
-            flex-shrink: 0;
             font-weight: 600;
-            font-size: 0.9rem;
+            font-size: 14px;
+            color: white;
+            flex-shrink: 0;
         }
 
-        .message.user .message-icon {
-            background: #5436da;
-            color: white;
-        }
-
-        .message.assistant .message-icon {
-            background: #19c37d;
-            color: white;
+        .message.user .message-avatar {
+            background: #5536da;
         }
 
         .message-text {
             flex: 1;
-            line-height: 1.7;
-            padding-top: 4px;
+            padding-top: 2px;
+            line-height: 1.75;
+            color: #ececec;
         }
 
-        .message-header {
-            font-weight: 600;
-            margin-bottom: 8px;
-            font-size: 0.9rem;
-        }
-
-        /* Input Container */
+        /* Input Area */
         .input-container {
-            padding: 20px;
-            background: #343541;
-            border-top: 1px solid #565869;
-            z-index: 10;
+            padding: 24px 0 24px;
+            background: #212121;
+            flex-shrink: 0;
+        }
+
+        .app:not(.has-messages) .input-container {
+            padding-top: 0;
         }
 
         .input-wrapper {
             max-width: 768px;
             margin: 0 auto;
-            position: relative;
+            padding: 0 20px;
         }
 
         .input-form {
+            position: relative;
+            background: #2f2f2f;
+            border: 1px solid #4d4d4d;
+            border-radius: 26px;
+            padding: 12px 12px 12px 16px;
             display: flex;
-            gap: 12px;
-            align-items: center;
+            align-items: flex-end;
+            gap: 8px;
+            transition: all 0.2s;
+        }
+
+        .input-form:focus-within {
+            border-color: #565656;
+            box-shadow: 0 0 0 1px #565656;
         }
 
         #chatInput {
             flex: 1;
-            background: #40414f;
-            border: 1px solid #565869;
-            border-radius: 8px;
-            color: #ececf1;
-            padding: 14px 16px;
-            font-size: 1rem;
+            background: transparent;
+            border: none;
+            color: #ececec;
+            font-size: 16px;
+            font-family: inherit;
             outline: none;
             resize: none;
-            min-height: 52px;
+            min-height: 24px;
             max-height: 200px;
-            font-family: inherit;
-        }
-
-        #chatInput:focus {
-            border-color: #8e8ea0;
+            line-height: 24px;
+            padding: 0;
         }
 
         #chatInput::placeholder {
@@ -286,20 +264,17 @@
         }
 
         #sendButton {
-            background: #19c37d;
+            width: 32px;
+            height: 32px;
+            background: #fff;
             border: none;
-            border-radius: 8px;
-            color: white;
-            padding: 12px 20px;
-            font-size: 0.95rem;
-            font-weight: 600;
+            border-radius: 16px;
             cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
             transition: all 0.2s;
-            height: 52px;
-        }
-
-        #sendButton:hover:not(:disabled) {
-            background: #1a7f5a;
         }
 
         #sendButton:disabled {
@@ -307,127 +282,129 @@
             cursor: not-allowed;
         }
 
-        /* Controls (hidden by default like ChatGPT) */
-        .controls {
-            display: none;
-            max-width: 768px;
-            margin: 0 auto 16px;
-            padding: 0 16px;
-            gap: 12px;
-            align-items: center;
+        #sendButton:not(:disabled):hover {
+            background: #e6e6e6;
         }
 
-        .controls select,
-        .controls input {
-            background: #40414f;
-            border: 1px solid #565869;
-            border-radius: 6px;
-            color: #ececf1;
-            padding: 6px 10px;
-            font-size: 0.85rem;
-        }
-
-        /* Scrollbar */
-        .messages-container::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        .messages-container::-webkit-scrollbar-track {
-            background: #343541;
-        }
-
-        .messages-container::-webkit-scrollbar-thumb {
-            background: #565869;
-            border-radius: 4px;
-        }
-
-        .messages-container::-webkit-scrollbar-thumb:hover {
-            background: #6e6e80;
+        #sendButton svg {
+            width: 20px;
+            height: 20px;
         }
 
         /* Loading indicator */
         .loading {
             display: none;
-            color: #8e8ea0;
-            font-size: 0.9rem;
             text-align: center;
-            padding: 10px;
+            color: #8e8ea0;
+            font-size: 14px;
+            padding: 12px;
         }
 
         .loading.active {
             display: block;
         }
 
-        /* Mobile responsive */
+        /* Scrollbar */
+        .messages::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .messages::-webkit-scrollbar-track {
+            background: #212121;
+        }
+
+        .messages::-webkit-scrollbar-thumb {
+            background: #4d4d4d;
+            border-radius: 4px;
+        }
+
+        .messages::-webkit-scrollbar-thumb:hover {
+            background: #5d5d5d;
+        }
+
+        /* Hidden controls */
+        .controls {
+            display: none;
+        }
+
+        /* Mobile */
         @media (max-width: 768px) {
-            .welcome h2 {
-                font-size: 1.5rem;
+            .welcome h1 {
+                font-size: 28px;
             }
 
-            .message {
-                padding: 16px 12px;
+            .message-content {
+                padding: 0 16px;
+                gap: 16px;
             }
 
-            .input-container {
-                padding: 12px;
-            }
-
-            #chatInput {
-                font-size: 16px; /* Prevents zoom on iOS */
+            .input-wrapper {
+                padding: 0 16px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
+    <div class="app">
         <!-- Header -->
         <div class="header">
             <div class="header-left">
                 <img src="https://formul8.ai/logo.png" alt="Formul8" class="logo" onerror="this.style.display='none'">
-                <h1>Formul8</h1>
+                <span class="header-title">Formul8</span>
             </div>
-            <div class="auth-section">
+            <div class="header-right">
                 <div id="authButtons"></div>
                 <div class="user-info" id="userInfo">
-                    <img class="user-avatar" id="userAvatar" alt="User avatar">
+                    <img class="user-avatar" id="userAvatar" alt="">
                     <span class="user-name" id="userName"></span>
                     <button class="logout-button" id="logoutButton">Log out</button>
                 </div>
             </div>
         </div>
 
-        <!-- Messages -->
-        <div class="messages-container" id="messagesContainer">
-            <div class="messages-wrapper">
-                <div class="welcome">
-                    <h2>What do you want to Formul8 today?</h2>
-                    <p>Start a conversation with our intelligent agents</p>
+        <!-- Main Content -->
+        <div class="main">
+            <!-- Messages -->
+            <div class="messages" id="messages">
+                <div class="messages-inner">
+                    <div class="welcome">
+                        <h1>What do you want to Formul8 today?</h1>
+                        <p>Start a conversation with our intelligent agents</p>
+                    </div>
+                    <div id="messagesList"></div>
                 </div>
-                <div id="chatMessages"></div>
+            </div>
+
+            <!-- Input -->
+            <div class="input-container">
+                <div class="input-wrapper">
+                    <div class="loading" id="loading">Thinking...</div>
+                    <div class="input-form">
+                        <textarea 
+                            id="chatInput" 
+                            placeholder="Ask anything" 
+                            rows="1"
+                        ></textarea>
+                        <button id="sendButton" disabled>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M7 11l5-5m0 0l5 5m-5-5v12"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <!-- Input -->
-        <div class="input-container">
-            <div class="controls" id="controls">
-                <label>User: <input type="text" id="username" value="guest" /></label>
-                <label>Plan: 
-                    <select id="planSelect">
-                        <option value="free">Free</option>
-                        <option value="micro">Micro</option>
-                        <option value="standard" selected>Standard</option>
-                        <option value="enterprise">Enterprise</option>
-                        <option value="admin">Admin</option>
-                    </select>
-                </label>
-            </div>
-            <div class="input-wrapper">
-                <div class="loading" id="loading">Thinking...</div>
-                <div class="input-form">
-                    <textarea id="chatInput" placeholder="Send a message..." rows="1"></textarea>
-                    <button id="sendButton">Send</button>
-                </div>
-            </div>
+        <!-- Hidden controls -->
+        <div class="controls">
+            <input type="text" id="username" value="guest" />
+            <select id="planSelect">
+                <option value="free">Free</option>
+                <option value="micro">Micro</option>
+                <option value="standard" selected>Standard</option>
+                <option value="enterprise">Enterprise</option>
+                <option value="admin">Admin</option>
+            </select>
         </div>
     </div>
 
@@ -453,7 +430,7 @@
                     document.getElementById('authButtons'),
                     {
                         theme: 'filled_black',
-                        size: 'large',
+                        size: 'medium',
                         text: 'signin_with',
                         shape: 'rectangular',
                     }
@@ -530,21 +507,27 @@
         // Chat functionality
         const chatInput = document.getElementById('chatInput');
         const sendButton = document.getElementById('sendButton');
-        const chatMessages = document.getElementById('chatMessages');
-        const messagesContainer = document.getElementById('messagesContainer');
+        const messagesList = document.getElementById('messagesList');
+        const messagesContainer = document.getElementById('messages');
         const loading = document.getElementById('loading');
+        const app = document.querySelector('.app');
         
-        // Auto-resize textarea
+        // Enable/disable send button based on input
         chatInput.addEventListener('input', function() {
+            sendButton.disabled = !this.value.trim();
+            
+            // Auto-resize textarea
             this.style.height = 'auto';
             this.style.height = Math.min(this.scrollHeight, 200) + 'px';
         });
         
-        // Send message on Enter (but Shift+Enter for new line)
+        // Send on Enter, new line on Shift+Enter
         chatInput.addEventListener('keydown', function(e) {
             if (e.key === 'Enter' && !e.shiftKey) {
                 e.preventDefault();
-                sendMessage();
+                if (!sendButton.disabled) {
+                    sendMessage();
+                }
             }
         });
         
@@ -559,11 +542,13 @@
             
             // Add user message
             addMessage(message, 'user', username);
+            
+            // Clear and reset input
             chatInput.value = '';
             chatInput.style.height = 'auto';
+            sendButton.disabled = true;
             
             // Show loading
-            sendButton.disabled = true;
             loading.classList.add('active');
             
             try {
@@ -587,13 +572,12 @@
                 console.error('Error:', error);
                 addMessage('Sorry, something went wrong. Please try again.', 'assistant', 'System');
             } finally {
-                sendButton.disabled = false;
                 loading.classList.remove('active');
             }
         }
         
         function addMessage(text, type, name) {
-            document.querySelector('.container').classList.add('has-messages');
+            app.classList.add('has-messages');
             
             const messageDiv = document.createElement('div');
             messageDiv.className = `message ${type}`;
@@ -602,19 +586,16 @@
             
             messageDiv.innerHTML = `
                 <div class="message-content">
-                    <div class="message-icon">${initial}</div>
-                    <div class="message-text">
-                        <div class="message-header">${name}</div>
-                        ${text}
-                    </div>
+                    <div class="message-avatar">${initial}</div>
+                    <div class="message-text">${text}</div>
                 </div>
             `;
             
-            chatMessages.appendChild(messageDiv);
+            messagesList.appendChild(messageDiv);
             messagesContainer.scrollTop = messagesContainer.scrollHeight;
         }
         
-        // Initialize on load
+        // Initialize
         window.addEventListener('load', initializeGoogleSignIn);
     </script>
 </body>

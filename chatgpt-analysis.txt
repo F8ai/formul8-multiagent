@@ -1,0 +1,121 @@
+📱 Navigating to ChatGPT...
+
+🔍 Getting all computed styles and structure...
+
+===== BODY =====
+{
+  "backgroundColor": "rgb(255, 255, 255)",
+  "color": "rgb(13, 13, 13)",
+  "fontFamily": "ui-sans-serif, -apple-system, system-ui, \"Segoe UI\", Helvetica, \"Apple Color Emoji\", Arial, sans-serif, \"Segoe UI Emoji\", \"Segoe UI Symbol\""
+}
+
+===== MAIN CONTAINER =====
+{
+  "tag": "MAIN",
+  "classes": "transition-width relative h-full w-full flex-1 overflow-auto -translate-y-[calc(env(safe-area-inset-bottom,0px)/2)] pt-[calc(env(safe-area-inset-bottom,0px)/2)]",
+  "backgroundColor": "rgba(0, 0, 0, 0)",
+  "display": "block",
+  "maxWidth": "none",
+  "padding": "0px",
+  "width": "1920px"
+}
+
+===== TEXTAREAS =====
+
+--- Textarea 0 ---
+{
+  "index": 0,
+  "id": "",
+  "placeholder": "Ask anything",
+  "rows": 2,
+  "classes": "_fallbackTextarea_198md_2",
+  "styles": {
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "border": "0px solid rgb(155, 155, 155)",
+    "borderRadius": "0px",
+    "padding": "0px 0px 16px",
+    "fontSize": "16px",
+    "color": "rgb(13, 13, 13)",
+    "width": "100%",
+    "minHeight": "0px"
+  },
+  "parentClasses": "_prosemirror-parent_198md_2 text-token-text-primary max-h-[max(35svh,5rem)] max-h-52 flex-1 overflow-auto [scrollbar-width:thin] default-browser vertical-scroll-fade-mask",
+  "parentStyles": {
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "padding": "0px",
+    "position": "static",
+    "bottom": "auto",
+    "maxWidth": "none"
+  }
+}
+
+===== POSITIONED DIVS =====
+
+--- Div 0 ---
+{
+  "classes": "draggable h-header-height bg-token-bg-primary sticky top-0 z-10 flex items-center border-transparent px-2 md:hidden [box-shadow:var(--sharp-edge-top-shadow-placeholder)]",
+  "position": "sticky",
+  "top": "0px",
+  "bottom": "auto",
+  "left": "auto",
+  "right": "auto",
+  "backgroundColor": "rgb(255, 255, 255)",
+  "zIndex": "10",
+  "textContent": "ChatGPTLog in"
+}
+
+--- Div 1 ---
+{
+  "classes": "absolute start-1/2 flex flex-col items-center gap-2 ltr:-translate-x-1/2 rtl:translate-x-1/2",
+  "position": "absolute",
+  "top": "26px",
+  "bottom": "26px",
+  "left": "960px",
+  "right": "960px",
+  "backgroundColor": "rgba(0, 0, 0, 0)",
+  "zIndex": "auto",
+  "textContent": ""
+}
+
+--- Div 2 ---
+{
+  "classes": "[display:var(--display-hidden-until-loaded,block)] md:absolute md:start-0 md:bottom-8 md:w-full",
+  "position": "absolute",
+  "top": "594.406px",
+  "bottom": "32px",
+  "left": "0px",
+  "right": "0px",
+  "backgroundColor": "rgba(0, 0, 0, 0)",
+  "zIndex": "auto",
+  "textContent": ""
+}
+
+--- Div 3 ---
+{
+  "classes": "sr-only",
+  "position": "absolute",
+  "top": "1080px",
+  "bottom": "1px",
+  "left": "0px",
+  "right": "1921px",
+  "backgroundColor": "rgba(0, 0, 0, 0)",
+  "zIndex": "auto",
+  "textContent": ""
+}
+
+--- Div 4 ---
+{
+  "classes": "sr-only",
+  "position": "absolute",
+  "top": "1080px",
+  "bottom": "1px",
+  "left": "0px",
+  "right": "1921px",
+  "backgroundColor": "rgba(0, 0, 0, 0)",
+  "zIndex": "auto",
+  "textContent": ""
+}
+
+📸 Taking screenshot...
+
+✅ Complete! Screenshot saved as chatgpt-full-analysis.png
