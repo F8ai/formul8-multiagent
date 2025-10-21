@@ -1,0 +1,66 @@
+name: Update Baseline Questions
+
+on:
+  schedule:
+    # Run daily at 2 AM UTC
+    - cron: '0 2 * * *'
+  workflow_dispatch:  # Manual trigger
+  repository_dispatch:
+    types: [agent-baseline-updated]
+
+jobs:
+  update-baseline:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout main repo
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Collect baselines from agent repos
+        run: |
+          node scripts/collect-baselines-from-repos.js
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Check for changes
+        id: changes
+        run: |
+          if git diff --quiet baseline.json; then
+            echo "changed=false" >> $GITHUB_OUTPUT
+          else
+            echo "changed=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Commit and push if changed
+        if: steps.changes.outputs.changed == 'true'
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add baseline.json baseline-summary.md
+          git commit -m "Update baseline questions from agent repos
+
+          - Collected from all agent repositories
+          - $(cat baseline-summary.md | grep 'Total Questions:')
+          - Generated: $(date -u +"%Y-%m-%d %H:%M:%S UTC")"
+          git push
+
+      - name: Create summary
+        if: steps.changes.outputs.changed == 'true'
+        run: |
+          echo "## 📊 Baseline Updated" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          cat baseline-summary.md >> $GITHUB_STEP_SUMMARY
+
+      - name: No changes detected
+        if: steps.changes.outputs.changed == 'false'
+        run: |
+          echo "✅ No changes to baseline questions"
+          echo "## ✅ No Changes" >> $GITHUB_STEP_SUMMARY
+          echo "Baseline questions are up to date" >> $GITHUB_STEP_SUMMARY

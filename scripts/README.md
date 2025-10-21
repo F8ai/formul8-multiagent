@@ -1,265 +1,117 @@
-# Baseline Integration Scripts
+# Formul8 Scripts
 
-This directory contains scripts for fetching, merging, and testing baseline.json files from agent repositories across the F8ai organization.
+## Baseline Management
 
-## Scripts
+### collect-baselines-from-repos.js
 
-### fetch-baselines.js
-Fetches baseline.json files from all agent repositories in the F8ai organization.
-
-**Usage:**
-```bash
-GITHUB_TOKEN=your_token node scripts/fetch-baselines.js
-```
-
-**Environment Variables:**
-- `GITHUB_TOKEN` (optional): GitHub personal access token for higher API rate limits
-
-**Output:**
-- Creates `baselines-raw/` directory with individual baseline files
-- Generates `baselines-raw/fetch-summary.json` with fetch statistics
-
-### merge-baselines.js
-Merges individual baseline.json files into a unified baseline.json.
+Collects `baseline.json` from all agent repositories and creates a master baseline file.
 
 **Usage:**
 ```bash
-node scripts/merge-baselines.js
+node scripts/collect-baselines-from-repos.js
 ```
 
-**Input:**
-- Reads from `baselines-raw/` directory
+**What it does:**
+1. Clones/pulls all agent repositories to `.agent-repos/`
+2. Searches for `baseline.json` in each repo
+3. Concatenates all questions into master `baseline.json`
+4. Generates `baseline-summary.md` with statistics
+5. Updates `.gitignore` to exclude temp repos
 
 **Output:**
-- Creates/updates `baseline.json` in the root directory
-- Removes duplicate questions
-- Adds metadata about sources and merge statistics
+- `baseline.json` - Master baseline with all questions
+- `baseline-summary.md` - Statistics and samples
+- `.agent-repos/` - Temporary cloned repos (gitignored)
 
-### test-baselines.js
-Tests the merged baseline.json against the /api/chat endpoint.
+### concat-baselines.js
+
+Concatenates `baseline.json` from agent subdirectories in this monorepo.
 
 **Usage:**
 ```bash
-API_ENDPOINT=https://f8.syzygyx.com/api/chat node scripts/test-baselines.js
+node scripts/concat-baselines.js
 ```
 
-**Environment Variables:**
-- `API_ENDPOINT` (optional): API endpoint to test against (default: https://f8.syzygyx.com/api/chat)
+**Note:** Use `collect-baselines-from-repos.js` instead if agents are in separate repositories.
 
-**Output:**
-- Creates `baseline-results.json` with detailed test results
-- Includes pass/fail status for each question
-- Calculates success rates and response times
-- Grades overall performance (A+ to F)
+## Automation
 
-## Baseline File Format
+### GitHub Actions
 
-### Input Format (from agent repositories)
-Individual agent repositories can have baseline.json in various formats:
+The baseline is automatically updated:
 
-**Format 1: Array of strings**
-```json
-[
-  "What are the benefits of cannabis?",
-  "How do I scale up production?"
-]
-```
+- **Daily**: At 2 AM UTC via scheduled workflow
+- **On-demand**: Manual workflow dispatch
+- **Triggered**: When agent repos push updates
 
-**Format 2: Array of objects**
-```json
-[
-  {
-    "question": "What are the benefits of cannabis?",
-    "expected_answer": "Cannabis has therapeutic benefits...",
-    "category": "general"
-  }
-]
-```
+See `.github/workflows/update-baseline.yml`
 
-**Format 3: Object with questions array**
-```json
-{
-  "questions": [
-    {
-      "question": "What are the benefits of cannabis?",
-      "expected_answer": "..."
-    }
-  ]
-}
-```
+## Agent Repositories
 
-**Format 4: Object with categorized arrays**
-```json
-{
-  "compliance": ["What are compliance requirements?"],
-  "formulation": ["How do I calculate THC dosage?"]
-}
-```
+Expected repositories under GitHub org `F8ai`:
 
-### Output Format (merged baseline.json)
+- compliance-agent
+- science-agent
+- formulation-agent
+- marketing-agent
+- patent-agent
+- operations-agent
+- sourcing-agent
+- spectra-agent
+- mcr-agent
+- customer-success-agent
+- ad-agent
+- editor-agent
+- f8-slackbot
+
+## Baseline Format
+
+Each agent's `baseline.json` should follow this format:
+
 ```json
 {
   "metadata": {
-    "generatedAt": "2025-10-13T10:21:00.000Z",
-    "sourceRepos": ["agent1", "agent2"],
-    "totalSources": 2,
+    "generatedAt": "2025-10-21T00:00:00.000Z",
+    "agent": "compliance-agent",
     "version": "1.0",
-    "stats": {
-      "totalSources": 2,
-      "uniqueQuestions": 50,
-      "questionsWithExpectedAnswers": 25,
-      "questionsFromMultipleSources": 5,
-      "categoryCounts": {
-        "compliance": 10,
-        "formulation": 8
-      }
-    }
+    "description": "Baseline questions for compliance agent"
   },
   "questions": [
     {
-      "question": "What are the benefits of cannabis?",
-      "expected_answer": "Cannabis has therapeutic benefits...",
-      "category": "general",
-      "sources": ["agent1", "agent2"],
-      "metadata": {}
+      "id": "compliance-001",
+      "question": "What are compliance requirements?",
+      "category": "compliance",
+      "expectedAgent": "compliance",
+      "tier": "micro",
+      "tags": ["regulatory", "requirements"],
+      "difficulty": "medium"
     }
   ]
 }
 ```
-
-### Results Format (baseline-results.json)
-```json
-{
-  "timestamp": "2025-10-13T10:21:00.000Z",
-  "endpoint": "https://f8.syzygyx.com/api/chat",
-  "baselineMetadata": {},
-  "overallStats": {
-    "totalQuestions": 50,
-    "totalSuccessful": 45,
-    "totalFailed": 5,
-    "totalValidated": 40,
-    "successRate": "90.00",
-    "validationRate": "80.00",
-    "avgResponseTime": 1234,
-    "minResponseTime": 500,
-    "maxResponseTime": 3000
-  },
-  "categoryStats": {
-    "compliance": {
-      "total": 10,
-      "successful": 9,
-      "failed": 1,
-      "validated": 8,
-      "successRate": "90.00",
-      "validationRate": "80.00",
-      "avgResponseTime": 1200
-    }
-  },
-  "results": [
-    {
-      "question": "What are the benefits of cannabis?",
-      "category": "general",
-      "expectedAnswer": "Cannabis has therapeutic benefits...",
-      "status": 200,
-      "success": true,
-      "responseTime": 1234,
-      "response": "Cannabis has various therapeutic benefits including...",
-      "error": null,
-      "comparison": {
-        "matched": true,
-        "score": 75.50,
-        "matchedKeywords": 5,
-        "totalKeywords": 7
-      },
-      "passedValidation": true
-    }
-  ]
-}
-```
-
-## GitHub Actions Workflow
-
-The `baseline-integration.yml` workflow automates this process:
-
-1. **Scheduled runs**: Daily at 2 AM UTC
-2. **Manual trigger**: Can be run manually via workflow_dispatch
-3. **Steps**:
-   - Fetch baseline.json files from all agent repos
-   - Merge into unified baseline.json
-   - Test against /api/chat endpoint
-   - Generate results and upload as artifacts
-   - Commit updated baseline.json (if changes detected)
-   - Check success rate threshold (80% required)
-
-## Validation and Grading
-
-### Question Validation
-When an `expected_answer` is provided, the script validates responses using keyword matching:
-- Extracts keywords from the expected answer (words > 3 characters)
-- Checks how many keywords appear in the actual response
-- Calculates a match score (% of keywords found)
-- Marks as validated if match score ≥ 50%
-
-### Performance Grading
-Overall performance is graded based on success rate:
-- **A+** (95-100%): 🏆 Exceptional
-- **A** (90-95%): 🌟 Excellent
-- **B+** (85-90%): ✅ Very Good
-- **B** (80-85%): 👍 Good
-- **C+** (75-80%): ⚠️ Needs Improvement
-- **C** (70-75%): ⚠️ Poor
-- **F** (<70%): ❌ Failing
-
-## Example Usage
-
-### Run the complete workflow locally:
-```bash
-# 1. Fetch baselines from organization
-GITHUB_TOKEN=your_token node scripts/fetch-baselines.js
-
-# 2. Merge into unified baseline
-node scripts/merge-baselines.js
-
-# 3. Test against API endpoint
-node scripts/test-baselines.js
-
-# 4. View results
-cat baseline-results.json
-```
-
-### Test existing baseline without fetching:
-```bash
-node scripts/test-baselines.js
-```
-
-### Use custom API endpoint:
-```bash
-API_ENDPOINT=https://custom.api.com/chat node scripts/test-baselines.js
-```
-
-## Troubleshooting
-
-### GitHub API Rate Limiting
-If you encounter rate limiting when fetching baselines:
-- Set the `GITHUB_TOKEN` environment variable with a personal access token
-- The token needs `repo` scope to read from private repositories
-- Authenticated requests have a limit of 5,000 requests/hour vs 60 for unauthenticated
-
-### No baseline.json files found
-Make sure agent repositories have a `baseline.json` file in their root directory. The file can be in any of the supported formats listed above.
-
-### Test failures
-If tests are failing:
-1. Check that the API endpoint is accessible
-2. Verify the endpoint URL is correct
-3. Review the `baseline-results.json` for specific error messages
-4. Check response times - slow responses may indicate API issues
 
 ## Contributing
 
-When adding new agent repositories:
-1. Ensure they have a `baseline.json` file in the root directory
-2. Use one of the supported formats
-3. Include `expected_answer` fields for validation when possible
-4. Categorize questions appropriately
-5. The workflow will automatically pick them up on the next run
+To add new baseline questions:
+
+1. Add questions to your agent's `baseline.json`
+2. Commit and push to your agent repo
+3. Run collection script or wait for daily update
+4. Verify in master `baseline.json`
+
+## Troubleshooting
+
+**Script fails to clone repos:**
+- Check GitHub access token
+- Verify repository names
+- Ensure repos exist under org
+
+**No questions collected:**
+- Verify `baseline.json` exists in agent repo
+- Check JSON format is valid
+- Ensure `questions` array exists
+
+**Questions not appearing in chat:**
+- Check `chat.html` loads `/baseline.json`
+- Verify baseline.json is deployed
+- Clear browser cache
