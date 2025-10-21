@@ -1,0 +1,60 @@
+name: Deploy Chat Interface
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'chat.html'
+      - 'baseline.json'
+      - '.github/workflows/deploy-chat.yml'
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Update version info with commit ID
+        run: |
+          COMMIT_ID=$(git rev-parse --short HEAD)
+          TIMESTAMP=$(date -u +"%Y%m%d-%H%M")
+          sed -i "s/v1\.0\.0-COMMIT_ID/v1.0.0-${COMMIT_ID} (${TIMESTAMP})/" chat.html
+          echo "✅ Updated version to: v1.0.0-${COMMIT_ID} (${TIMESTAMP})"
+
+      - name: Install Vercel CLI
+        run: npm install --global vercel@latest
+
+      - name: Deploy to Vercel
+        run: vercel --prod --token=${{ secrets.VERCEL_TOKEN }} --yes
+        env:
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_CHAT_PROJECT_ID }}
+
+      - name: Verify Deployment
+        run: |
+          echo "✅ Chat interface deployed!"
+          echo "🔗 URL: https://f8.syzygyx.com/chat"
+          echo "📊 Commit: $(git rev-parse --short HEAD)"
+
+      - name: Create deployment comment
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const commitId = context.sha.substring(0, 7);
+            const timestamp = new Date().toISOString();
+            
+            github.rest.repos.createCommitComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              commit_sha: context.sha,
+              body: `✅ Chat interface deployed!\n\n🔗 https://f8.syzygyx.com/chat\n📊 Version: v1.0.0-${commitId}\n⏰ ${timestamp}`
+            })
