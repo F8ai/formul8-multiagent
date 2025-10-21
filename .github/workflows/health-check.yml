@@ -1,0 +1,135 @@
+name: Agent Health Check
+
+on:
+  schedule:
+    # Run every 15 minutes
+    - cron: '*/15 * * * *'
+  workflow_dispatch:  # Manual trigger
+  push:
+    branches:
+      - main
+    paths:
+      - 'health-monitor.js'
+      - '.github/workflows/health-check.yml'
+
+jobs:
+  health-check:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Run Health Check
+        id: health
+        run: |
+          node health-monitor.js
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        continue-on-error: true
+
+      - name: Upload Health Report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: health-report-${{ github.run_number }}
+          path: health-reports/
+          retention-days: 30
+
+      - name: Create Issue on Failure
+        if: steps.health.outcome == 'failure'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const reports = fs.readdirSync('health-reports')
+              .sort()
+              .reverse();
+            
+            if (reports.length === 0) {
+              console.log('No health reports found');
+              return;
+            }
+            
+            const latestReport = JSON.parse(
+              fs.readFileSync(`health-reports/${reports[0]}`, 'utf8')
+            );
+            
+            let body = '## 🚨 Agent Health Check Failed\n\n';
+            body += `**Timestamp:** ${latestReport.timestamp}\n`;
+            body += `**Uptime:** ${latestReport.summary.uptime}\n\n`;
+            body += '### Summary\n';
+            body += `- ✅ Healthy: ${latestReport.summary.healthy}\n`;
+            body += `- ⚠️ Unhealthy: ${latestReport.summary.unhealthy}\n`;
+            body += `- ❌ Down: ${latestReport.summary.down}\n\n`;
+            
+            if (latestReport.alerts.length > 0) {
+              body += '### Alerts\n';
+              latestReport.alerts.forEach(alert => {
+                const icon = alert.severity === 'critical' ? '🔴' : '🟡';
+                body += `${icon} **${alert.agent}**: ${alert.message}\n`;
+              });
+              body += '\n';
+            }
+            
+            body += '### Agent Details\n';
+            body += '| Agent | Status | Response Time | Status Code |\n';
+            body += '|-------|--------|---------------|-------------|\n';
+            latestReport.agents.forEach(agent => {
+              const icon = agent.status === 'healthy' ? '✅' : 
+                          agent.status === 'unhealthy' ? '⚠️' : '❌';
+              body += `| ${icon} ${agent.name} | ${agent.status} | ${agent.responseTime}ms | ${agent.statusCode} |\n`;
+            });
+            
+            // Check if there's already an open issue
+            const issues = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              labels: 'health-check'
+            });
+            
+            if (issues.data.length > 0) {
+              // Update existing issue
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issues.data[0].number,
+                body: body
+              });
+              console.log('Updated existing health check issue');
+            } else {
+              // Create new issue
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title: `🚨 Agent Health Check Failed - ${latestReport.timestamp}`,
+                body: body,
+                labels: ['health-check', 'urgent']
+              });
+              console.log('Created new health check issue');
+            }
+
+      - name: Update Status Badge
+        if: always()
+        run: |
+          mkdir -p badges
+          if [ "${{ steps.health.outcome }}" == "success" ]; then
+            echo "[![Health](https://img.shields.io/badge/health-passing-brightgreen)](https://github.com/${{ github.repository }}/actions/workflows/health-check.yml)" > badges/health.md
+          else
+            echo "[![Health](https://img.shields.io/badge/health-failing-red)](https://github.com/${{ github.repository }}/actions/workflows/health-check.yml)" > badges/health.md
+          fi
+
+      - name: Commit Health Badge
+        if: always()
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add badges/health.md || true
+          git commit -m "Update health check badge" || true
+          git push || true

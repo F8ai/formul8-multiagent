@@ -1,0 +1,55 @@
+name: Deploy All Agents
+
+on:
+  workflow_dispatch:  # Manual trigger
+  push:
+    branches:
+      - main
+    paths:
+      - 'agents/**/lambda.js'
+      - 'agents/**/package.json'
+      - 'agents/**/vercel.json'
+
+jobs:
+  deploy-agents:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        agent:
+          - compliance-agent
+          - science-agent
+          - formulation-agent
+          - marketing-agent
+          - patent-agent
+          - operations-agent
+          - sourcing-agent
+          - spectra-agent
+          - mcr-agent
+          - customer-success-agent
+          - ad-agent
+          - editor-agent
+          - f8-slackbot
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install Vercel CLI
+        run: npm install --global vercel@latest
+
+      - name: Deploy ${{ matrix.agent }}
+        run: |
+          echo "🚀 Deploying ${{ matrix.agent }}..."
+          cd agents/${{ matrix.agent }}
+          vercel --prod --token=${{ secrets.VERCEL_TOKEN }} --yes
+        env:
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+
+      - name: Verify ${{ matrix.agent }} Deployment
+        run: |
+          echo "✅ ${{ matrix.agent }} deployed successfully!"
