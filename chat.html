@@ -78,6 +78,71 @@
             padding: 8px;
         }
 
+        .sign-in-prompt {
+            display: none;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .sign-in-prompt.active {
+            display: block;
+        }
+
+        .sign-in-prompt h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #ececec;
+            margin-bottom: 12px;
+        }
+
+        .sign-in-prompt p {
+            font-size: 14px;
+            color: #8e8ea0;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .sign-in-prompt .google-signin-wrapper {
+            display: flex;
+            justify-content: center;
+        }
+
+        .sign-in-benefits {
+            margin-top: 20px;
+            text-align: left;
+            padding: 16px;
+            background: #2f2f2f;
+            border-radius: 8px;
+        }
+
+        .sign-in-benefits h4 {
+            font-size: 13px;
+            font-weight: 600;
+            color: #ececec;
+            margin-bottom: 12px;
+        }
+
+        .sign-in-benefits ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sign-in-benefits li {
+            font-size: 13px;
+            color: #b4b4b4;
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .sign-in-benefits li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #19c37d;
+            font-weight: bold;
+        }
+
         .conversation-item {
             padding: 12px;
             margin-bottom: 4px;
@@ -571,6 +636,24 @@
             <div class="conversations" id="conversationsList">
                 <!-- Conversations will be loaded here -->
             </div>
+            
+            <!-- Sign In Prompt for Free Users -->
+            <div class="sign-in-prompt" id="signInPrompt">
+                <h3>💬 Save Your Conversations</h3>
+                <p>Sign in to access your chat history across devices</p>
+                
+                <div class="google-signin-wrapper" id="sidebarGoogleSignIn"></div>
+                
+                <div class="sign-in-benefits">
+                    <h4>With a free account you get:</h4>
+                    <ul>
+                        <li>Conversation history</li>
+                        <li>Access from any device</li>
+                        <li>Personalized experience</li>
+                        <li>Save your favorite chats</li>
+                    </ul>
+                </div>
+            </div>
         </div>
 
         <!-- Main Content -->
@@ -653,6 +736,8 @@
         // Conversation management
         let currentConversationId = null;
         let conversations = {};
+        let messageCount = 0;
+        let hasShownSidebar = false;
         
         // Initialize Google Sign-In
         function initializeGoogleSignIn() {
@@ -664,6 +749,7 @@
                     cancel_on_tap_outside: true,
                 });
                 
+                // Render in header
                 google.accounts.id.renderButton(
                     document.getElementById('authButtons'),
                     {
@@ -671,6 +757,18 @@
                         size: 'medium',
                         text: 'signin_with',
                         shape: 'rectangular',
+                    }
+                );
+                
+                // Render in sidebar
+                google.accounts.id.renderButton(
+                    document.getElementById('sidebarGoogleSignIn'),
+                    {
+                        theme: 'filled_black',
+                        size: 'large',
+                        text: 'signin_with',
+                        shape: 'rectangular',
+                        width: 200
                     }
                 );
                 
@@ -728,6 +826,10 @@
                 // Logged in users without a plan get free tier
                 document.getElementById('planSelect').value = 'free';
             }
+            
+            // Hide sign-in prompt, show conversations
+            document.getElementById('signInPrompt').classList.remove('active');
+            document.getElementById('conversationsList').style.display = 'block';
         }
         
         function handleLogout() {
@@ -746,6 +848,10 @@
             
             // Reset to free plan on logout
             document.getElementById('planSelect').value = 'free';
+            
+            // Show sign-in prompt instead of conversations
+            document.getElementById('conversationsList').style.display = 'none';
+            document.getElementById('signInPrompt').classList.add('active');
         }
         
         document.getElementById('logoutButton').addEventListener('click', handleLogout);
@@ -756,6 +862,13 @@
         }
         
         function loadConversations() {
+            // Only load conversations if user is logged in
+            if (!authToken) {
+                document.getElementById('conversationsList').style.display = 'none';
+                document.getElementById('signInPrompt').classList.add('active');
+                return;
+            }
+            
             try {
                 const stored = localStorage.getItem('formul8_conversations');
                 if (stored) {
@@ -765,6 +878,9 @@
                 console.error('Error loading conversations:', error);
                 conversations = {};
             }
+            
+            document.getElementById('conversationsList').style.display = 'block';
+            document.getElementById('signInPrompt').classList.remove('active');
             renderConversations();
         }
         
@@ -834,6 +950,16 @@
         }
         
         function renderConversations() {
+            // Show sign-in prompt if not logged in
+            if (!authToken) {
+                document.getElementById('conversationsList').style.display = 'none';
+                document.getElementById('signInPrompt').classList.add('active');
+                return;
+            }
+            
+            document.getElementById('conversationsList').style.display = 'block';
+            document.getElementById('signInPrompt').classList.remove('active');
+            
             const container = document.getElementById('conversationsList');
             container.innerHTML = '';
             
@@ -998,8 +1124,26 @@
             messagesList.appendChild(messageDiv);
             messagesContainer.scrollTop = messagesContainer.scrollHeight;
             
-            // Save to conversation history
-            if (saveToHistory && currentConversationId) {
+            // Increment message count
+            messageCount++;
+            
+            // Show sidebar occasionally for free tier users who aren't logged in
+            if (!authToken && !hasShownSidebar) {
+                // Show after 2nd message (first Q&A complete)
+                if (messageCount === 4) {
+                    setTimeout(() => {
+                        const sidebar = document.getElementById('sidebar');
+                        const toggle = document.getElementById('sidebarToggle');
+                        if (sidebar.classList.contains('collapsed')) {
+                            toggleSidebar();
+                        }
+                        hasShownSidebar = true;
+                    }, 1000);
+                }
+            }
+            
+            // Save to conversation history (only for logged in users)
+            if (saveToHistory && currentConversationId && authToken) {
                 if (!conversations[currentConversationId]) {
                     conversations[currentConversationId] = {
                         id: currentConversationId,
@@ -1106,13 +1250,21 @@
         window.addEventListener('load', () => {
             initializeGoogleSignIn();
             
+            // Start with sidebar collapsed on mobile
+            if (window.innerWidth < 768) {
+                const sidebar = document.getElementById('sidebar');
+                const toggle = document.getElementById('sidebarToggle');
+                sidebar.classList.add('collapsed');
+                toggle.classList.remove('sidebar-open');
+            }
+            
             // Load conversations
             loadConversations();
             
-            // Create first conversation if none exist
-            if (Object.keys(conversations).length === 0) {
+            // Create first conversation if logged in and none exist
+            if (authToken && Object.keys(conversations).length === 0) {
                 createNewConversation();
-            } else {
+            } else if (authToken) {
                 // Load most recent conversation
                 const sortedConvs = Object.values(conversations).sort((a, b) => 
                     new Date(b.updatedAt) - new Date(a.updatedAt)
@@ -1120,6 +1272,9 @@
                 if (sortedConvs.length > 0) {
                     loadConversation(sortedConvs[0].id);
                 }
+            } else {
+                // For non-logged in users, create a temporary conversation
+                currentConversationId = 'temp_' + Date.now();
             }
             
             // Start typewriter effect after a short delay
