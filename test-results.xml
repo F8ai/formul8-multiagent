@@ -1,830 +1,169 @@
-<testsuites id="" name="" tests="84" failures="30" skipped="54" errors="0" time="5.579846000000001">
-<testsuite name="chatgpt-comparison.spec.js" timestamp="2025-10-14T03:23:02.074Z" hostname="chromium" tests="14" failures="5" skipped="9" time="0" errors="0">
-<testcase name="F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like visual design" classname="chatgpt-comparison.spec.js" time="0">
-<failure message="chatgpt-comparison.spec.js:16:3 should have ChatGPT-like visual design" type="FAILURE">
-<![CDATA[  [chromium] › chatgpt-comparison.spec.js:16:3 › F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like visual design 
+<testsuites id="" name="" tests="5" failures="5" skipped="0" errors="0" time="19.690577">
+<testsuite name="chat-smoke.spec.js" timestamp="2025-10-18T11:43:31.431Z" hostname="chromium" tests="5" failures="5" skipped="0" time="56.714" errors="0">
+<testcase name="Formul8 Chat - Smoke Tests › Basic chat functionality works" classname="chat-smoke.spec.js" time="11.372">
+<failure message="chat-smoke.spec.js:16:3 Basic chat functionality works" type="FAILURE">
+<![CDATA[  [chromium] › chat-smoke.spec.js:16:3 › Formul8 Chat - Smoke Tests › Basic chat functionality works 
 
-    Error: expect(received).toBe(expected) // Object.is equality
+    TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.
+    Call log:
+      - waiting for locator('textarea[placeholder*="message"], input[placeholder*="message"]') to be visible
 
-    Expected: 200
-    Received: 500
 
-       9 |       data: { username: 'chatgpt-comparison-test' }
-      10 |     });
-    > 11 |     expect(response.status()).toBe(200);
-         |                               ^
-      12 |     const data = await response.json();
-      13 |     freeApiKey = data.apiKey;
-      14 |   });
-        at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js:11:31
+       7 |     page = await browser.newPage();
+       8 |     await page.goto('https://f8.syzygyx.com/chat');
+    >  9 |     await page.waitForSelector('textarea[placeholder*="message"], input[placeholder*="message"]', { timeout: 10000 });
+         |                ^
+      10 |   });
+      11 |
+      12 |   test.afterEach(async () => {
+        at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chat-smoke.spec.js:9:16
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/chat-smoke-Formul8-Chat----c30da-ic-chat-functionality-works-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/chat-smoke-Formul8-Chat----c30da-ic-chat-functionality-works-chromium/error-context.md
 ]]>
 </failure>
-</testcase>
-<testcase name="F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like welcome screen" classname="chatgpt-comparison.spec.js" time="0">
-<skipped>
-</skipped>
-</testcase>
-<testcase name="F8 Chat vs ChatGPT Interface Comparison › should handle API key setup like ChatGPT" classname="chatgpt-comparison.spec.js" time="0">
-<skipped>
-</skipped>
-</testcase>
-<testcase name="F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like message flow" classname="chatgpt-comparison.spec.js" time="0">
-<failure message="chatgpt-comparison.spec.js:98:3 should have ChatGPT-like message flow" type="FAILURE">
-<![CDATA[  [chromium] › chatgpt-comparison.spec.js:98:3 › F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like message flow 
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results/chat-smoke-Formul8-Chat----c30da-ic-chat-functionality-works-chromium/test-failed-1.png]]
 
-    Error: expect(received).toBe(expected) // Object.is equality
+[[ATTACHMENT|test-results/chat-smoke-Formul8-Chat----c30da-ic-chat-functionality-works-chromium/error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Formul8 Chat - Smoke Tests › Agent routing works for different question types" classname="chat-smoke.spec.js" time="11.354">
+<failure message="chat-smoke.spec.js:39:3 Agent routing works for different question types" type="FAILURE">
+<![CDATA[  [chromium] › chat-smoke.spec.js:39:3 › Formul8 Chat - Smoke Tests › Agent routing works for different question types 
 
-    Expected: 200
-    Received: 500
+    TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.
+    Call log:
+      - waiting for locator('textarea[placeholder*="message"], input[placeholder*="message"]') to be visible
 
-       9 |       data: { username: 'chatgpt-comparison-test' }
-      10 |     });
-    > 11 |     expect(response.status()).toBe(200);
-         |                               ^
-      12 |     const data = await response.json();
-      13 |     freeApiKey = data.apiKey;
-      14 |   });
-        at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js:11:31
+
+       7 |     page = await browser.newPage();
+       8 |     await page.goto('https://f8.syzygyx.com/chat');
+    >  9 |     await page.waitForSelector('textarea[placeholder*="message"], input[placeholder*="message"]', { timeout: 10000 });
+         |                ^
+      10 |   });
+      11 |
+      12 |   test.afterEach(async () => {
+        at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chat-smoke.spec.js:9:16
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/chat-smoke-Formul8-Chat----11fff-or-different-question-types-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/chat-smoke-Formul8-Chat----11fff-or-different-question-types-chromium/error-context.md
 ]]>
 </failure>
-</testcase>
-<testcase name="F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like input behavior" classname="chatgpt-comparison.spec.js" time="0">
-<skipped>
-</skipped>
-</testcase>
-<testcase name="F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like message styling" classname="chatgpt-comparison.spec.js" time="0">
-<skipped>
-</skipped>
-</testcase>
-<testcase name="F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like responsive design" classname="chatgpt-comparison.spec.js" time="0">
-<failure message="chatgpt-comparison.spec.js:215:3 should have ChatGPT-like responsive design" type="FAILURE">
-<![CDATA[  [chromium] › chatgpt-comparison.spec.js:215:3 › F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like responsive design 
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results/chat-smoke-Formul8-Chat----11fff-or-different-question-types-chromium/test-failed-1.png]]
 
-    Error: expect(received).toBe(expected) // Object.is equality
+[[ATTACHMENT|test-results/chat-smoke-Formul8-Chat----11fff-or-different-question-types-chromium/error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Formul8 Chat - Smoke Tests › Health endpoint is accessible" classname="chat-smoke.spec.js" time="11.3">
+<failure message="chat-smoke.spec.js:61:3 Health endpoint is accessible" type="FAILURE">
+<![CDATA[  [chromium] › chat-smoke.spec.js:61:3 › Formul8 Chat - Smoke Tests › Health endpoint is accessible 
 
-    Expected: 200
-    Received: 500
+    TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.
+    Call log:
+      - waiting for locator('textarea[placeholder*="message"], input[placeholder*="message"]') to be visible
 
-       9 |       data: { username: 'chatgpt-comparison-test' }
-      10 |     });
-    > 11 |     expect(response.status()).toBe(200);
-         |                               ^
-      12 |     const data = await response.json();
-      13 |     freeApiKey = data.apiKey;
-      14 |   });
-        at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js:11:31
+
+       7 |     page = await browser.newPage();
+       8 |     await page.goto('https://f8.syzygyx.com/chat');
+    >  9 |     await page.waitForSelector('textarea[placeholder*="message"], input[placeholder*="message"]', { timeout: 10000 });
+         |                ^
+      10 |   });
+      11 |
+      12 |   test.afterEach(async () => {
+        at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chat-smoke.spec.js:9:16
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/chat-smoke-Formul8-Chat----a3e67-alth-endpoint-is-accessible-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/chat-smoke-Formul8-Chat----a3e67-alth-endpoint-is-accessible-chromium/error-context.md
 ]]>
 </failure>
-</testcase>
-<testcase name="F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like error handling" classname="chatgpt-comparison.spec.js" time="0">
-<skipped>
-</skipped>
-</testcase>
-<testcase name="F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like status indicators" classname="chatgpt-comparison.spec.js" time="0">
-<skipped>
-</skipped>
-</testcase>
-<testcase name="F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like message formatting" classname="chatgpt-comparison.spec.js" time="0">
-<failure message="chatgpt-comparison.spec.js:290:3 should have ChatGPT-like message formatting" type="FAILURE">
-<![CDATA[  [chromium] › chatgpt-comparison.spec.js:290:3 › F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like message formatting 
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results/chat-smoke-Formul8-Chat----a3e67-alth-endpoint-is-accessible-chromium/test-failed-1.png]]
 
-    Error: expect(received).toBe(expected) // Object.is equality
+[[ATTACHMENT|test-results/chat-smoke-Formul8-Chat----a3e67-alth-endpoint-is-accessible-chromium/error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Formul8 Chat - Smoke Tests › API endpoints are accessible" classname="chat-smoke.spec.js" time="11.39">
+<failure message="chat-smoke.spec.js:71:3 API endpoints are accessible" type="FAILURE">
+<![CDATA[  [chromium] › chat-smoke.spec.js:71:3 › Formul8 Chat - Smoke Tests › API endpoints are accessible ─
 
-    Expected: 200
-    Received: 500
+    TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.
+    Call log:
+      - waiting for locator('textarea[placeholder*="message"], input[placeholder*="message"]') to be visible
 
-       9 |       data: { username: 'chatgpt-comparison-test' }
-      10 |     });
-    > 11 |     expect(response.status()).toBe(200);
-         |                               ^
-      12 |     const data = await response.json();
-      13 |     freeApiKey = data.apiKey;
-      14 |   });
-        at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js:11:31
+
+       7 |     page = await browser.newPage();
+       8 |     await page.goto('https://f8.syzygyx.com/chat');
+    >  9 |     await page.waitForSelector('textarea[placeholder*="message"], input[placeholder*="message"]', { timeout: 10000 });
+         |                ^
+      10 |   });
+      11 |
+      12 |   test.afterEach(async () => {
+        at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chat-smoke.spec.js:9:16
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/chat-smoke-Formul8-Chat----912e5-PI-endpoints-are-accessible-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/chat-smoke-Formul8-Chat----912e5-PI-endpoints-are-accessible-chromium/error-context.md
 ]]>
 </failure>
-</testcase>
-<testcase name="F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like example prompt interactions" classname="chatgpt-comparison.spec.js" time="0">
-<skipped>
-</skipped>
-</testcase>
-<testcase name="F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like loading states" classname="chatgpt-comparison.spec.js" time="0">
-<skipped>
-</skipped>
-</testcase>
-<testcase name="F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like scroll behavior" classname="chatgpt-comparison.spec.js" time="0">
-<failure message="chatgpt-comparison.spec.js:377:3 should have ChatGPT-like scroll behavior" type="FAILURE">
-<![CDATA[  [chromium] › chatgpt-comparison.spec.js:377:3 › F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like scroll behavior 
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results/chat-smoke-Formul8-Chat----912e5-PI-endpoints-are-accessible-chromium/test-failed-1.png]]
 
-    Error: expect(received).toBe(expected) // Object.is equality
+[[ATTACHMENT|test-results/chat-smoke-Formul8-Chat----912e5-PI-endpoints-are-accessible-chromium/error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Formul8 Chat - Smoke Tests › Chat interface is responsive" classname="chat-smoke.spec.js" time="11.298">
+<failure message="chat-smoke.spec.js:82:3 Chat interface is responsive" type="FAILURE">
+<![CDATA[  [chromium] › chat-smoke.spec.js:82:3 › Formul8 Chat - Smoke Tests › Chat interface is responsive ─
 
-    Expected: 200
-    Received: 500
+    TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.
+    Call log:
+      - waiting for locator('textarea[placeholder*="message"], input[placeholder*="message"]') to be visible
 
-       9 |       data: { username: 'chatgpt-comparison-test' }
-      10 |     });
-    > 11 |     expect(response.status()).toBe(200);
-         |                               ^
-      12 |     const data = await response.json();
-      13 |     freeApiKey = data.apiKey;
-      14 |   });
-        at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js:11:31
+
+       7 |     page = await browser.newPage();
+       8 |     await page.goto('https://f8.syzygyx.com/chat');
+    >  9 |     await page.waitForSelector('textarea[placeholder*="message"], input[placeholder*="message"]', { timeout: 10000 });
+         |                ^
+      10 |   });
+      11 |
+      12 |   test.afterEach(async () => {
+        at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chat-smoke.spec.js:9:16
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/chat-smoke-Formul8-Chat----0017a-hat-interface-is-responsive-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/chat-smoke-Formul8-Chat----0017a-hat-interface-is-responsive-chromium/error-context.md
 ]]>
 </failure>
-</testcase>
-<testcase name="F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like accessibility features" classname="chatgpt-comparison.spec.js" time="0">
-<skipped>
-</skipped>
-</testcase>
-</testsuite>
-<testsuite name="chatgpt-comparison.spec.js" timestamp="2025-10-14T03:23:02.074Z" hostname="firefox" tests="14" failures="5" skipped="9" time="0" errors="0">
-<testcase name="F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like visual design" classname="chatgpt-comparison.spec.js" time="0">
-<failure message="chatgpt-comparison.spec.js:16:3 should have ChatGPT-like visual design" type="FAILURE">
-<![CDATA[  [firefox] › chatgpt-comparison.spec.js:16:3 › F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like visual design 
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results/chat-smoke-Formul8-Chat----0017a-hat-interface-is-responsive-chromium/test-failed-1.png]]
 
-    Error: expect(received).toBe(expected) // Object.is equality
-
-    Expected: 200
-    Received: 500
-
-       9 |       data: { username: 'chatgpt-comparison-test' }
-      10 |     });
-    > 11 |     expect(response.status()).toBe(200);
-         |                               ^
-      12 |     const data = await response.json();
-      13 |     freeApiKey = data.apiKey;
-      14 |   });
-        at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js:11:31
+[[ATTACHMENT|test-results/chat-smoke-Formul8-Chat----0017a-hat-interface-is-responsive-chromium/error-context.md]]
 ]]>
-</failure>
-</testcase>
-<testcase name="F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like welcome screen" classname="chatgpt-comparison.spec.js" time="0">
-<skipped>
-</skipped>
-</testcase>
-<testcase name="F8 Chat vs ChatGPT Interface Comparison › should handle API key setup like ChatGPT" classname="chatgpt-comparison.spec.js" time="0">
-<skipped>
-</skipped>
-</testcase>
-<testcase name="F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like message flow" classname="chatgpt-comparison.spec.js" time="0">
-<failure message="chatgpt-comparison.spec.js:98:3 should have ChatGPT-like message flow" type="FAILURE">
-<![CDATA[  [firefox] › chatgpt-comparison.spec.js:98:3 › F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like message flow 
-
-    Error: expect(received).toBe(expected) // Object.is equality
-
-    Expected: 200
-    Received: 500
-
-       9 |       data: { username: 'chatgpt-comparison-test' }
-      10 |     });
-    > 11 |     expect(response.status()).toBe(200);
-         |                               ^
-      12 |     const data = await response.json();
-      13 |     freeApiKey = data.apiKey;
-      14 |   });
-        at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js:11:31
-]]>
-</failure>
-</testcase>
-<testcase name="F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like input behavior" classname="chatgpt-comparison.spec.js" time="0">
-<skipped>
-</skipped>
-</testcase>
-<testcase name="F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like message styling" classname="chatgpt-comparison.spec.js" time="0">
-<skipped>
-</skipped>
-</testcase>
-<testcase name="F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like responsive design" classname="chatgpt-comparison.spec.js" time="0">
-<failure message="chatgpt-comparison.spec.js:215:3 should have ChatGPT-like responsive design" type="FAILURE">
-<![CDATA[  [firefox] › chatgpt-comparison.spec.js:215:3 › F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like responsive design 
-
-    Error: expect(received).toBe(expected) // Object.is equality
-
-    Expected: 200
-    Received: 500
-
-       9 |       data: { username: 'chatgpt-comparison-test' }
-      10 |     });
-    > 11 |     expect(response.status()).toBe(200);
-         |                               ^
-      12 |     const data = await response.json();
-      13 |     freeApiKey = data.apiKey;
-      14 |   });
-        at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js:11:31
-]]>
-</failure>
-</testcase>
-<testcase name="F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like error handling" classname="chatgpt-comparison.spec.js" time="0">
-<skipped>
-</skipped>
-</testcase>
-<testcase name="F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like status indicators" classname="chatgpt-comparison.spec.js" time="0">
-<skipped>
-</skipped>
-</testcase>
-<testcase name="F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like message formatting" classname="chatgpt-comparison.spec.js" time="0">
-<failure message="chatgpt-comparison.spec.js:290:3 should have ChatGPT-like message formatting" type="FAILURE">
-<![CDATA[  [firefox] › chatgpt-comparison.spec.js:290:3 › F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like message formatting 
-
-    Error: expect(received).toBe(expected) // Object.is equality
-
-    Expected: 200
-    Received: 500
-
-       9 |       data: { username: 'chatgpt-comparison-test' }
-      10 |     });
-    > 11 |     expect(response.status()).toBe(200);
-         |                               ^
-      12 |     const data = await response.json();
-      13 |     freeApiKey = data.apiKey;
-      14 |   });
-        at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js:11:31
-]]>
-</failure>
-</testcase>
-<testcase name="F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like example prompt interactions" classname="chatgpt-comparison.spec.js" time="0">
-<skipped>
-</skipped>
-</testcase>
-<testcase name="F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like loading states" classname="chatgpt-comparison.spec.js" time="0">
-<skipped>
-</skipped>
-</testcase>
-<testcase name="F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like scroll behavior" classname="chatgpt-comparison.spec.js" time="0">
-<failure message="chatgpt-comparison.spec.js:377:3 should have ChatGPT-like scroll behavior" type="FAILURE">
-<![CDATA[  [firefox] › chatgpt-comparison.spec.js:377:3 › F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like scroll behavior 
-
-    Error: expect(received).toBe(expected) // Object.is equality
-
-    Expected: 200
-    Received: 500
-
-       9 |       data: { username: 'chatgpt-comparison-test' }
-      10 |     });
-    > 11 |     expect(response.status()).toBe(200);
-         |                               ^
-      12 |     const data = await response.json();
-      13 |     freeApiKey = data.apiKey;
-      14 |   });
-        at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js:11:31
-]]>
-</failure>
-</testcase>
-<testcase name="F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like accessibility features" classname="chatgpt-comparison.spec.js" time="0">
-<skipped>
-</skipped>
-</testcase>
-</testsuite>
-<testsuite name="chatgpt-comparison.spec.js" timestamp="2025-10-14T03:23:02.074Z" hostname="webkit" tests="14" failures="5" skipped="9" time="0" errors="0">
-<testcase name="F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like visual design" classname="chatgpt-comparison.spec.js" time="0">
-<failure message="chatgpt-comparison.spec.js:16:3 should have ChatGPT-like visual design" type="FAILURE">
-<![CDATA[  [webkit] › chatgpt-comparison.spec.js:16:3 › F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like visual design 
-
-    Error: expect(received).toBe(expected) // Object.is equality
-
-    Expected: 200
-    Received: 500
-
-       9 |       data: { username: 'chatgpt-comparison-test' }
-      10 |     });
-    > 11 |     expect(response.status()).toBe(200);
-         |                               ^
-      12 |     const data = await response.json();
-      13 |     freeApiKey = data.apiKey;
-      14 |   });
-        at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js:11:31
-]]>
-</failure>
-</testcase>
-<testcase name="F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like welcome screen" classname="chatgpt-comparison.spec.js" time="0">
-<skipped>
-</skipped>
-</testcase>
-<testcase name="F8 Chat vs ChatGPT Interface Comparison › should handle API key setup like ChatGPT" classname="chatgpt-comparison.spec.js" time="0">
-<skipped>
-</skipped>
-</testcase>
-<testcase name="F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like message flow" classname="chatgpt-comparison.spec.js" time="0">
-<failure message="chatgpt-comparison.spec.js:98:3 should have ChatGPT-like message flow" type="FAILURE">
-<![CDATA[  [webkit] › chatgpt-comparison.spec.js:98:3 › F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like message flow 
-
-    Error: expect(received).toBe(expected) // Object.is equality
-
-    Expected: 200
-    Received: 500
-
-       9 |       data: { username: 'chatgpt-comparison-test' }
-      10 |     });
-    > 11 |     expect(response.status()).toBe(200);
-         |                               ^
-      12 |     const data = await response.json();
-      13 |     freeApiKey = data.apiKey;
-      14 |   });
-        at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js:11:31
-]]>
-</failure>
-</testcase>
-<testcase name="F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like input behavior" classname="chatgpt-comparison.spec.js" time="0">
-<skipped>
-</skipped>
-</testcase>
-<testcase name="F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like message styling" classname="chatgpt-comparison.spec.js" time="0">
-<skipped>
-</skipped>
-</testcase>
-<testcase name="F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like responsive design" classname="chatgpt-comparison.spec.js" time="0">
-<failure message="chatgpt-comparison.spec.js:215:3 should have ChatGPT-like responsive design" type="FAILURE">
-<![CDATA[  [webkit] › chatgpt-comparison.spec.js:215:3 › F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like responsive design 
-
-    Error: expect(received).toBe(expected) // Object.is equality
-
-    Expected: 200
-    Received: 500
-
-       9 |       data: { username: 'chatgpt-comparison-test' }
-      10 |     });
-    > 11 |     expect(response.status()).toBe(200);
-         |                               ^
-      12 |     const data = await response.json();
-      13 |     freeApiKey = data.apiKey;
-      14 |   });
-        at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js:11:31
-]]>
-</failure>
-</testcase>
-<testcase name="F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like error handling" classname="chatgpt-comparison.spec.js" time="0">
-<skipped>
-</skipped>
-</testcase>
-<testcase name="F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like status indicators" classname="chatgpt-comparison.spec.js" time="0">
-<skipped>
-</skipped>
-</testcase>
-<testcase name="F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like message formatting" classname="chatgpt-comparison.spec.js" time="0">
-<failure message="chatgpt-comparison.spec.js:290:3 should have ChatGPT-like message formatting" type="FAILURE">
-<![CDATA[  [webkit] › chatgpt-comparison.spec.js:290:3 › F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like message formatting 
-
-    Error: expect(received).toBe(expected) // Object.is equality
-
-    Expected: 200
-    Received: 500
-
-       9 |       data: { username: 'chatgpt-comparison-test' }
-      10 |     });
-    > 11 |     expect(response.status()).toBe(200);
-         |                               ^
-      12 |     const data = await response.json();
-      13 |     freeApiKey = data.apiKey;
-      14 |   });
-        at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js:11:31
-]]>
-</failure>
-</testcase>
-<testcase name="F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like example prompt interactions" classname="chatgpt-comparison.spec.js" time="0">
-<skipped>
-</skipped>
-</testcase>
-<testcase name="F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like loading states" classname="chatgpt-comparison.spec.js" time="0">
-<skipped>
-</skipped>
-</testcase>
-<testcase name="F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like scroll behavior" classname="chatgpt-comparison.spec.js" time="0">
-<failure message="chatgpt-comparison.spec.js:377:3 should have ChatGPT-like scroll behavior" type="FAILURE">
-<![CDATA[  [webkit] › chatgpt-comparison.spec.js:377:3 › F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like scroll behavior 
-
-    Error: expect(received).toBe(expected) // Object.is equality
-
-    Expected: 200
-    Received: 500
-
-       9 |       data: { username: 'chatgpt-comparison-test' }
-      10 |     });
-    > 11 |     expect(response.status()).toBe(200);
-         |                               ^
-      12 |     const data = await response.json();
-      13 |     freeApiKey = data.apiKey;
-      14 |   });
-        at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js:11:31
-]]>
-</failure>
-</testcase>
-<testcase name="F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like accessibility features" classname="chatgpt-comparison.spec.js" time="0">
-<skipped>
-</skipped>
-</testcase>
-</testsuite>
-<testsuite name="chatgpt-comparison.spec.js" timestamp="2025-10-14T03:23:02.074Z" hostname="Mobile Chrome" tests="14" failures="5" skipped="9" time="0" errors="0">
-<testcase name="F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like visual design" classname="chatgpt-comparison.spec.js" time="0">
-<failure message="chatgpt-comparison.spec.js:16:3 should have ChatGPT-like visual design" type="FAILURE">
-<![CDATA[  [Mobile Chrome] › chatgpt-comparison.spec.js:16:3 › F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like visual design 
-
-    Error: expect(received).toBe(expected) // Object.is equality
-
-    Expected: 200
-    Received: 500
-
-       9 |       data: { username: 'chatgpt-comparison-test' }
-      10 |     });
-    > 11 |     expect(response.status()).toBe(200);
-         |                               ^
-      12 |     const data = await response.json();
-      13 |     freeApiKey = data.apiKey;
-      14 |   });
-        at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js:11:31
-]]>
-</failure>
-</testcase>
-<testcase name="F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like welcome screen" classname="chatgpt-comparison.spec.js" time="0">
-<skipped>
-</skipped>
-</testcase>
-<testcase name="F8 Chat vs ChatGPT Interface Comparison › should handle API key setup like ChatGPT" classname="chatgpt-comparison.spec.js" time="0">
-<skipped>
-</skipped>
-</testcase>
-<testcase name="F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like message flow" classname="chatgpt-comparison.spec.js" time="0">
-<failure message="chatgpt-comparison.spec.js:98:3 should have ChatGPT-like message flow" type="FAILURE">
-<![CDATA[  [Mobile Chrome] › chatgpt-comparison.spec.js:98:3 › F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like message flow 
-
-    Error: expect(received).toBe(expected) // Object.is equality
-
-    Expected: 200
-    Received: 500
-
-       9 |       data: { username: 'chatgpt-comparison-test' }
-      10 |     });
-    > 11 |     expect(response.status()).toBe(200);
-         |                               ^
-      12 |     const data = await response.json();
-      13 |     freeApiKey = data.apiKey;
-      14 |   });
-        at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js:11:31
-]]>
-</failure>
-</testcase>
-<testcase name="F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like input behavior" classname="chatgpt-comparison.spec.js" time="0">
-<skipped>
-</skipped>
-</testcase>
-<testcase name="F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like message styling" classname="chatgpt-comparison.spec.js" time="0">
-<skipped>
-</skipped>
-</testcase>
-<testcase name="F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like responsive design" classname="chatgpt-comparison.spec.js" time="0">
-<failure message="chatgpt-comparison.spec.js:215:3 should have ChatGPT-like responsive design" type="FAILURE">
-<![CDATA[  [Mobile Chrome] › chatgpt-comparison.spec.js:215:3 › F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like responsive design 
-
-    Error: expect(received).toBe(expected) // Object.is equality
-
-    Expected: 200
-    Received: 500
-
-       9 |       data: { username: 'chatgpt-comparison-test' }
-      10 |     });
-    > 11 |     expect(response.status()).toBe(200);
-         |                               ^
-      12 |     const data = await response.json();
-      13 |     freeApiKey = data.apiKey;
-      14 |   });
-        at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js:11:31
-]]>
-</failure>
-</testcase>
-<testcase name="F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like error handling" classname="chatgpt-comparison.spec.js" time="0">
-<skipped>
-</skipped>
-</testcase>
-<testcase name="F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like status indicators" classname="chatgpt-comparison.spec.js" time="0">
-<skipped>
-</skipped>
-</testcase>
-<testcase name="F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like message formatting" classname="chatgpt-comparison.spec.js" time="0">
-<failure message="chatgpt-comparison.spec.js:290:3 should have ChatGPT-like message formatting" type="FAILURE">
-<![CDATA[  [Mobile Chrome] › chatgpt-comparison.spec.js:290:3 › F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like message formatting 
-
-    Error: expect(received).toBe(expected) // Object.is equality
-
-    Expected: 200
-    Received: 500
-
-       9 |       data: { username: 'chatgpt-comparison-test' }
-      10 |     });
-    > 11 |     expect(response.status()).toBe(200);
-         |                               ^
-      12 |     const data = await response.json();
-      13 |     freeApiKey = data.apiKey;
-      14 |   });
-        at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js:11:31
-]]>
-</failure>
-</testcase>
-<testcase name="F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like example prompt interactions" classname="chatgpt-comparison.spec.js" time="0">
-<skipped>
-</skipped>
-</testcase>
-<testcase name="F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like loading states" classname="chatgpt-comparison.spec.js" time="0">
-<skipped>
-</skipped>
-</testcase>
-<testcase name="F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like scroll behavior" classname="chatgpt-comparison.spec.js" time="0">
-<failure message="chatgpt-comparison.spec.js:377:3 should have ChatGPT-like scroll behavior" type="FAILURE">
-<![CDATA[  [Mobile Chrome] › chatgpt-comparison.spec.js:377:3 › F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like scroll behavior 
-
-    Error: expect(received).toBe(expected) // Object.is equality
-
-    Expected: 200
-    Received: 500
-
-       9 |       data: { username: 'chatgpt-comparison-test' }
-      10 |     });
-    > 11 |     expect(response.status()).toBe(200);
-         |                               ^
-      12 |     const data = await response.json();
-      13 |     freeApiKey = data.apiKey;
-      14 |   });
-        at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js:11:31
-]]>
-</failure>
-</testcase>
-<testcase name="F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like accessibility features" classname="chatgpt-comparison.spec.js" time="0">
-<skipped>
-</skipped>
-</testcase>
-</testsuite>
-<testsuite name="chatgpt-comparison.spec.js" timestamp="2025-10-14T03:23:02.074Z" hostname="Mobile Safari" tests="14" failures="5" skipped="9" time="0" errors="0">
-<testcase name="F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like visual design" classname="chatgpt-comparison.spec.js" time="0">
-<failure message="chatgpt-comparison.spec.js:16:3 should have ChatGPT-like visual design" type="FAILURE">
-<![CDATA[  [Mobile Safari] › chatgpt-comparison.spec.js:16:3 › F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like visual design 
-
-    Error: expect(received).toBe(expected) // Object.is equality
-
-    Expected: 200
-    Received: 500
-
-       9 |       data: { username: 'chatgpt-comparison-test' }
-      10 |     });
-    > 11 |     expect(response.status()).toBe(200);
-         |                               ^
-      12 |     const data = await response.json();
-      13 |     freeApiKey = data.apiKey;
-      14 |   });
-        at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js:11:31
-]]>
-</failure>
-</testcase>
-<testcase name="F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like welcome screen" classname="chatgpt-comparison.spec.js" time="0">
-<skipped>
-</skipped>
-</testcase>
-<testcase name="F8 Chat vs ChatGPT Interface Comparison › should handle API key setup like ChatGPT" classname="chatgpt-comparison.spec.js" time="0">
-<skipped>
-</skipped>
-</testcase>
-<testcase name="F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like message flow" classname="chatgpt-comparison.spec.js" time="0">
-<failure message="chatgpt-comparison.spec.js:98:3 should have ChatGPT-like message flow" type="FAILURE">
-<![CDATA[  [Mobile Safari] › chatgpt-comparison.spec.js:98:3 › F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like message flow 
-
-    Error: expect(received).toBe(expected) // Object.is equality
-
-    Expected: 200
-    Received: 500
-
-       9 |       data: { username: 'chatgpt-comparison-test' }
-      10 |     });
-    > 11 |     expect(response.status()).toBe(200);
-         |                               ^
-      12 |     const data = await response.json();
-      13 |     freeApiKey = data.apiKey;
-      14 |   });
-        at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js:11:31
-]]>
-</failure>
-</testcase>
-<testcase name="F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like input behavior" classname="chatgpt-comparison.spec.js" time="0">
-<skipped>
-</skipped>
-</testcase>
-<testcase name="F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like message styling" classname="chatgpt-comparison.spec.js" time="0">
-<skipped>
-</skipped>
-</testcase>
-<testcase name="F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like responsive design" classname="chatgpt-comparison.spec.js" time="0">
-<failure message="chatgpt-comparison.spec.js:215:3 should have ChatGPT-like responsive design" type="FAILURE">
-<![CDATA[  [Mobile Safari] › chatgpt-comparison.spec.js:215:3 › F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like responsive design 
-
-    Error: expect(received).toBe(expected) // Object.is equality
-
-    Expected: 200
-    Received: 500
-
-       9 |       data: { username: 'chatgpt-comparison-test' }
-      10 |     });
-    > 11 |     expect(response.status()).toBe(200);
-         |                               ^
-      12 |     const data = await response.json();
-      13 |     freeApiKey = data.apiKey;
-      14 |   });
-        at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js:11:31
-]]>
-</failure>
-</testcase>
-<testcase name="F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like error handling" classname="chatgpt-comparison.spec.js" time="0">
-<skipped>
-</skipped>
-</testcase>
-<testcase name="F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like status indicators" classname="chatgpt-comparison.spec.js" time="0">
-<skipped>
-</skipped>
-</testcase>
-<testcase name="F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like message formatting" classname="chatgpt-comparison.spec.js" time="0">
-<failure message="chatgpt-comparison.spec.js:290:3 should have ChatGPT-like message formatting" type="FAILURE">
-<![CDATA[  [Mobile Safari] › chatgpt-comparison.spec.js:290:3 › F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like message formatting 
-
-    Error: expect(received).toBe(expected) // Object.is equality
-
-    Expected: 200
-    Received: 500
-
-       9 |       data: { username: 'chatgpt-comparison-test' }
-      10 |     });
-    > 11 |     expect(response.status()).toBe(200);
-         |                               ^
-      12 |     const data = await response.json();
-      13 |     freeApiKey = data.apiKey;
-      14 |   });
-        at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js:11:31
-]]>
-</failure>
-</testcase>
-<testcase name="F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like example prompt interactions" classname="chatgpt-comparison.spec.js" time="0">
-<skipped>
-</skipped>
-</testcase>
-<testcase name="F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like loading states" classname="chatgpt-comparison.spec.js" time="0">
-<skipped>
-</skipped>
-</testcase>
-<testcase name="F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like scroll behavior" classname="chatgpt-comparison.spec.js" time="0">
-<failure message="chatgpt-comparison.spec.js:377:3 should have ChatGPT-like scroll behavior" type="FAILURE">
-<![CDATA[  [Mobile Safari] › chatgpt-comparison.spec.js:377:3 › F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like scroll behavior 
-
-    Error: expect(received).toBe(expected) // Object.is equality
-
-    Expected: 200
-    Received: 500
-
-       9 |       data: { username: 'chatgpt-comparison-test' }
-      10 |     });
-    > 11 |     expect(response.status()).toBe(200);
-         |                               ^
-      12 |     const data = await response.json();
-      13 |     freeApiKey = data.apiKey;
-      14 |   });
-        at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js:11:31
-]]>
-</failure>
-</testcase>
-<testcase name="F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like accessibility features" classname="chatgpt-comparison.spec.js" time="0">
-<skipped>
-</skipped>
-</testcase>
-</testsuite>
-<testsuite name="chatgpt-comparison.spec.js" timestamp="2025-10-14T03:23:02.074Z" hostname="chatgpt-comparison" tests="14" failures="5" skipped="9" time="0.001" errors="0">
-<testcase name="F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like visual design" classname="chatgpt-comparison.spec.js" time="0.001">
-<failure message="chatgpt-comparison.spec.js:16:3 should have ChatGPT-like visual design" type="FAILURE">
-<![CDATA[  [chatgpt-comparison] › chatgpt-comparison.spec.js:16:3 › F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like visual design 
-
-    Error: expect(received).toBe(expected) // Object.is equality
-
-    Expected: 200
-    Received: 500
-
-       9 |       data: { username: 'chatgpt-comparison-test' }
-      10 |     });
-    > 11 |     expect(response.status()).toBe(200);
-         |                               ^
-      12 |     const data = await response.json();
-      13 |     freeApiKey = data.apiKey;
-      14 |   });
-        at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js:11:31
-]]>
-</failure>
-</testcase>
-<testcase name="F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like welcome screen" classname="chatgpt-comparison.spec.js" time="0">
-<skipped>
-</skipped>
-</testcase>
-<testcase name="F8 Chat vs ChatGPT Interface Comparison › should handle API key setup like ChatGPT" classname="chatgpt-comparison.spec.js" time="0">
-<skipped>
-</skipped>
-</testcase>
-<testcase name="F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like message flow" classname="chatgpt-comparison.spec.js" time="0">
-<failure message="chatgpt-comparison.spec.js:98:3 should have ChatGPT-like message flow" type="FAILURE">
-<![CDATA[  [chatgpt-comparison] › chatgpt-comparison.spec.js:98:3 › F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like message flow 
-
-    Error: expect(received).toBe(expected) // Object.is equality
-
-    Expected: 200
-    Received: 500
-
-       9 |       data: { username: 'chatgpt-comparison-test' }
-      10 |     });
-    > 11 |     expect(response.status()).toBe(200);
-         |                               ^
-      12 |     const data = await response.json();
-      13 |     freeApiKey = data.apiKey;
-      14 |   });
-        at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js:11:31
-]]>
-</failure>
-</testcase>
-<testcase name="F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like input behavior" classname="chatgpt-comparison.spec.js" time="0">
-<skipped>
-</skipped>
-</testcase>
-<testcase name="F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like message styling" classname="chatgpt-comparison.spec.js" time="0">
-<skipped>
-</skipped>
-</testcase>
-<testcase name="F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like responsive design" classname="chatgpt-comparison.spec.js" time="0">
-<failure message="chatgpt-comparison.spec.js:215:3 should have ChatGPT-like responsive design" type="FAILURE">
-<![CDATA[  [chatgpt-comparison] › chatgpt-comparison.spec.js:215:3 › F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like responsive design 
-
-    Error: expect(received).toBe(expected) // Object.is equality
-
-    Expected: 200
-    Received: 500
-
-       9 |       data: { username: 'chatgpt-comparison-test' }
-      10 |     });
-    > 11 |     expect(response.status()).toBe(200);
-         |                               ^
-      12 |     const data = await response.json();
-      13 |     freeApiKey = data.apiKey;
-      14 |   });
-        at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js:11:31
-]]>
-</failure>
-</testcase>
-<testcase name="F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like error handling" classname="chatgpt-comparison.spec.js" time="0">
-<skipped>
-</skipped>
-</testcase>
-<testcase name="F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like status indicators" classname="chatgpt-comparison.spec.js" time="0">
-<skipped>
-</skipped>
-</testcase>
-<testcase name="F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like message formatting" classname="chatgpt-comparison.spec.js" time="0">
-<failure message="chatgpt-comparison.spec.js:290:3 should have ChatGPT-like message formatting" type="FAILURE">
-<![CDATA[  [chatgpt-comparison] › chatgpt-comparison.spec.js:290:3 › F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like message formatting 
-
-    Error: expect(received).toBe(expected) // Object.is equality
-
-    Expected: 200
-    Received: 500
-
-       9 |       data: { username: 'chatgpt-comparison-test' }
-      10 |     });
-    > 11 |     expect(response.status()).toBe(200);
-         |                               ^
-      12 |     const data = await response.json();
-      13 |     freeApiKey = data.apiKey;
-      14 |   });
-        at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js:11:31
-]]>
-</failure>
-</testcase>
-<testcase name="F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like example prompt interactions" classname="chatgpt-comparison.spec.js" time="0">
-<skipped>
-</skipped>
-</testcase>
-<testcase name="F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like loading states" classname="chatgpt-comparison.spec.js" time="0">
-<skipped>
-</skipped>
-</testcase>
-<testcase name="F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like scroll behavior" classname="chatgpt-comparison.spec.js" time="0">
-<failure message="chatgpt-comparison.spec.js:377:3 should have ChatGPT-like scroll behavior" type="FAILURE">
-<![CDATA[  [chatgpt-comparison] › chatgpt-comparison.spec.js:377:3 › F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like scroll behavior 
-
-    Error: expect(received).toBe(expected) // Object.is equality
-
-    Expected: 200
-    Received: 500
-
-       9 |       data: { username: 'chatgpt-comparison-test' }
-      10 |     });
-    > 11 |     expect(response.status()).toBe(200);
-         |                               ^
-      12 |     const data = await response.json();
-      13 |     freeApiKey = data.apiKey;
-      14 |   });
-        at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chatgpt-comparison.spec.js:11:31
-]]>
-</failure>
-</testcase>
-<testcase name="F8 Chat vs ChatGPT Interface Comparison › should have ChatGPT-like accessibility features" classname="chatgpt-comparison.spec.js" time="0">
-<skipped>
-</skipped>
+</system-out>
 </testcase>
 </testsuite>
 </testsuites>

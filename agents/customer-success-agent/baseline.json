@@ -1,0 +1,17 @@
+{
+  "metadata": {
+    "generatedAt": "2025-10-21T17:43:57.310Z",
+    "agent": "customer-success-agent",
+    "version": "1.0",
+    "description": "Baseline questions for customer-success-agent"
+  },
+  "questions": [
+    {
+      "id": "customer-success-agent-001",
+      "question": "Example question for customer-success-agent",
+      "category": "customer-success",
+      "expectedAgent": "customer-success-agent",
+      "tier": "standard"
+    }
+  ]
+}

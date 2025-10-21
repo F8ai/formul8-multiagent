@@ -1,0 +1,17 @@
+{
+  "metadata": {
+    "generatedAt": "2025-10-21T17:43:57.309Z",
+    "agent": "compliance-agent",
+    "version": "1.0",
+    "description": "Baseline questions for compliance-agent"
+  },
+  "questions": [
+    {
+      "id": "compliance-agent-001",
+      "question": "Example question for compliance-agent",
+      "category": "compliance",
+      "expectedAgent": "compliance-agent",
+      "tier": "standard"
+    }
+  ]
+}

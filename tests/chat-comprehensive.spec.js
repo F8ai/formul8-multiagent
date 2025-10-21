@@ -1,4 +1,4 @@
-const { test, expect } = require('@playwright/test');
+import { test, expect } from '@playwright/test';
 
 // Test data for comprehensive chat testing
 const testScenarios = [

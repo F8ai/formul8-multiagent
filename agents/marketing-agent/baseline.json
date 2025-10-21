@@ -1,0 +1,17 @@
+{
+  "metadata": {
+    "generatedAt": "2025-10-21T17:43:57.310Z",
+    "agent": "marketing-agent",
+    "version": "1.0",
+    "description": "Baseline questions for marketing-agent"
+  },
+  "questions": [
+    {
+      "id": "marketing-agent-001",
+      "question": "Example question for marketing-agent",
+      "category": "marketing",
+      "expectedAgent": "marketing-agent",
+      "tier": "standard"
+    }
+  ]
+}

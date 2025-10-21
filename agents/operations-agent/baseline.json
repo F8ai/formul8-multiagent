@@ -1,0 +1,17 @@
+{
+  "metadata": {
+    "generatedAt": "2025-10-21T17:43:57.310Z",
+    "agent": "operations-agent",
+    "version": "1.0",
+    "description": "Baseline questions for operations-agent"
+  },
+  "questions": [
+    {
+      "id": "operations-agent-001",
+      "question": "Example question for operations-agent",
+      "category": "operations",
+      "expectedAgent": "operations-agent",
+      "tier": "standard"
+    }
+  ]
+}

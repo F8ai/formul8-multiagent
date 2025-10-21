@@ -1,0 +1,17 @@
+{
+  "metadata": {
+    "generatedAt": "2025-10-21T17:43:57.310Z",
+    "agent": "mcr-agent",
+    "version": "1.0",
+    "description": "Baseline questions for mcr-agent"
+  },
+  "questions": [
+    {
+      "id": "mcr-agent-001",
+      "question": "Example question for mcr-agent",
+      "category": "mcr",
+      "expectedAgent": "mcr-agent",
+      "tier": "standard"
+    }
+  ]
+}

@@ -1,0 +1,179 @@
+{
+  "pricing_tiers": {
+    "standard": {
+      "name": "Standard",
+      "description": "Perfect for Artesians",
+      "price": 20,
+      "currency": "USD",
+      "billing": "monthly",
+      "features": [
+        "Standard formulation tools",
+        "Future4200 Search and Summarize",
+        "Calculations",
+        "Basic SOP starter templates"
+      ],
+      "agents": [
+        "f8_agent",
+        "formulation",
+        "science"
+      ],
+      "limits": {
+        "api_calls_per_month": 1000,
+        "calculations_per_month": 100,
+        "sop_templates": 5
+      }
+    },
+    "micro": {
+      "name": "Micro",
+      "description": "Designed for micro and social equity licenses",
+      "price": 99,
+      "currency": "USD",
+      "billing": "monthly",
+      "features": [
+        "Enhanced single state compliance checking",
+        "Everything in Standard",
+        "Advanced formulation tools",
+        "Single state marketing data",
+        "Compliant SOP templates",
+        "Scenario Mapping",
+        "Metrc API"
+      ],
+      "agents": [
+        "f8_agent",
+        "formulation",
+        "science",
+        "compliance",
+        "marketing",
+        "mcr"
+      ],
+      "limits": {
+        "api_calls_per_month": 5000,
+        "calculations_per_month": 500,
+        "sop_templates": 20,
+        "compliance_checks_per_month": 100
+      }
+    },
+    "operator": {
+      "name": "Operator",
+      "description": "Ideal for growing cannabis businesses",
+      "price": 499,
+      "currency": "USD",
+      "billing": "monthly",
+      "features": [
+        "Live 50 state compliance monitoring",
+        "Full formulation suite",
+        "Priority support",
+        "Unlimited calculations",
+        "Custom SOP generation",
+        "Extraction optimization",
+        "Document Upload and Storage (Coming soon)",
+        "Google Drive integration (Coming soon)",
+        "Marketing Strategy",
+        "Manuals/Troubleshooting",
+        "FTO Search"
+      ],
+      "agents": [
+        "f8_agent",
+        "formulation",
+        "science",
+        "compliance",
+        "marketing",
+        "operations",
+        "sourcing",
+        "patent",
+        "spectra",
+        "customer_success",
+        "mcr",
+        "ad"
+      ],
+      "limits": {
+        "api_calls_per_month": 50000,
+        "calculations_per_month": -1,
+        "sop_templates": -1,
+        "compliance_checks_per_month": -1,
+        "document_storage_gb": 10
+      }
+    },
+    "enterprise": {
+      "name": "Enterprise",
+      "description": "For large operations and multi-state businesses",
+      "price": "Custom",
+      "currency": "USD",
+      "billing": "custom",
+      "features": [
+        "Everything in Operator",
+        "Customer Service agents",
+        "White-label solutions",
+        "Dedicated account manager",
+        "Custom Workflow integrations",
+        "Advanced analytics",
+        "Multi-user management",
+        "API access",
+        "Custom training",
+        "SLA guarantees"
+      ],
+      "agents": [
+        "f8_agent",
+        "formulation",
+        "science",
+        "compliance",
+        "marketing",
+        "operations",
+        "sourcing",
+        "patent",
+        "spectra",
+        "customer_success",
+        "f8_slackbot",
+        "mcr",
+        "ad"
+      ],
+      "limits": {
+        "api_calls_per_month": -1,
+        "calculations_per_month": -1,
+        "sop_templates": -1,
+        "compliance_checks_per_month": -1,
+        "document_storage_gb": -1,
+        "users": -1
+      }
+    },
+    "admin": {
+      "name": "Admin",
+      "description": "Administrative access with editor capabilities",
+      "price": 0,
+      "currency": "USD",
+      "billing": "free",
+      "features": [
+        "All agent access",
+        "Editor agent capabilities",
+        "System configuration",
+        "User management",
+        "Analytics and monitoring",
+        "API administration"
+      ],
+      "agents": [
+        "f8_agent",
+        "formulation",
+        "science",
+        "compliance",
+        "marketing",
+        "operations",
+        "sourcing",
+        "patent",
+        "spectra",
+        "customer_success",
+        "f8_slackbot",
+        "mcr",
+        "ad",
+        "editor_agent"
+      ],
+      "limits": {
+        "api_calls_per_month": -1,
+        "calculations_per_month": -1,
+        "sop_templates": -1,
+        "compliance_checks_per_month": -1,
+        "document_storage_gb": -1,
+        "users": -1
+      }
+    }
+  }
+}
