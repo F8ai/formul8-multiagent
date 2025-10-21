@@ -1,4 +1,5 @@
 {
+  "name": "patent-agent",
   "version": 2,
   "builds": [
     {

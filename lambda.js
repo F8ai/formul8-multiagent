@@ -1434,13 +1434,6 @@ app.post('/api/chat', async (req, res) => {
     });
     
   } catch (error) {
-    console.error('Error calling OpenRouter API:', error);
-    res.status(500).json({ 
-      error: 'Internal server error',
-      response: 'I apologize, but I encountered an error processing your request. Please try again.'
-    });
-  }
-  } catch (error) {
     console.error('Error in chat endpoint:', error);
     res.status(500).json({ 
       error: 'Internal server error',

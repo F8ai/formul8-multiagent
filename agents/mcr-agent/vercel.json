@@ -1,4 +1,5 @@
 {
+  "name": "mcr-agent",
   "version": 2,
   "builds": [
     {
