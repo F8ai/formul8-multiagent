@@ -1412,8 +1412,24 @@ app.post('/api/chat', async (req, res) => {
     // Calculate cost (openai/gpt-oss-120b is free, so cost is $0.00)
     const totalCost = 0.00; // Free model
     
-    // Create footer with metadata
-    const footer = `\n\n---\n*Agent: ${agentName} | Plan: ${planConfig.name} | Tokens: ${totalTokens} (${promptTokens}→${completionTokens}) | Cost: $${totalCost.toFixed(6)}*`;
+    // Create footer with metadata and ads for free tier
+    let footer = `\n\n---\n*Agent: ${agentName} | Plan: ${planConfig.name} | Tokens: ${totalTokens} (${promptTokens}→${completionTokens}) | Cost: $${totalCost.toFixed(6)}*`;
+    
+    // Add upgrade prompt for free tier
+    if (validatedPlan === 'free') {
+      const ads = [
+        '\n\n💡 **Want more?** Upgrade to access advanced agents and features. [View Plans](https://formul8.ai/plans)',
+        '\n\n🎯 **Unlock Full Access** - Get compliance, patent, and operations agents. [Upgrade Now](https://formul8.ai/plans)',
+        '\n\n✨ **Ad-Free Experience** - Remove ads with any paid plan. [Compare Plans](https://formul8.ai/plans)',
+        '\n\n🚀 **Priority Support** - Paid plans get faster responses. [Learn More](https://formul8.ai/plans)',
+        '\n\n📊 **Advanced Features** - Access all specialized agents. [Upgrade](https://formul8.ai/plans)'
+      ];
+      
+      // Rotate ads based on timestamp
+      const adIndex = Math.floor(Date.now() / 60000) % ads.length;
+      footer += ads[adIndex];
+    }
+    
     const responseWithFooter = aiResponse + footer;
     
     res.json({

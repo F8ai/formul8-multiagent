@@ -454,9 +454,9 @@
         <div class="controls">
             <input type="text" id="username" value="guest" />
             <select id="planSelect">
-                <option value="free">Free</option>
+                <option value="free" selected>Free</option>
                 <option value="micro">Micro</option>
-                <option value="standard" selected>Standard</option>
+                <option value="standard">Standard</option>
                 <option value="enterprise">Enterprise</option>
                 <option value="admin">Admin</option>
             </select>
@@ -537,8 +537,13 @@
             document.getElementById('userAvatar').src = currentUser.picture || '';
             document.getElementById('userName').textContent = currentUser.name || currentUser.email;
             document.getElementById('username').value = currentUser.name || currentUser.email;
+            
+            // Update plan if user has one, otherwise keep free plan
             if (currentUser.plan) {
                 document.getElementById('planSelect').value = currentUser.plan;
+            } else {
+                // Logged in users without a plan get free tier
+                document.getElementById('planSelect').value = 'free';
             }
         }
         
@@ -555,6 +560,9 @@
             document.getElementById('authButtons').style.display = 'flex';
             document.getElementById('userInfo').classList.remove('active');
             document.getElementById('username').value = 'guest';
+            
+            // Reset to free plan on logout
+            document.getElementById('planSelect').value = 'free';
         }
         
         document.getElementById('logoutButton').addEventListener('click', handleLogout);
@@ -621,7 +629,19 @@
                 const data = await response.json();
                 
                 if (data.response) {
-                    addMessage(data.response, 'assistant', data.agent || 'F8');
+                    let responseText = data.response;
+                    
+                    // Add upgrade prompt for free tier users
+                    if (plan === 'free' && !authToken) {
+                        responseText += '\n\n---\n\n💡 **Want more features?** Upgrade to unlock:\n';
+                        responseText += '• Advanced agent capabilities\n';
+                        responseText += '• Priority response times\n';
+                        responseText += '• No ads\n';
+                        responseText += '• Specialized agents (compliance, patent, operations)\n\n';
+                        responseText += '[View Plans](https://formul8.ai/plans) | [Sign Up Free](https://f8.syzygyx.com/chat)';
+                    }
+                    
+                    addMessage(responseText, 'assistant', data.agent || 'F8');
                 }
             } catch (error) {
                 console.error('Error:', error);

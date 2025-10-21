@@ -1,0 +1,64 @@
+{
+  "free_tier_ads": {
+    "enabled": true,
+    "frequency": "every_response",
+    "ads": [
+      {
+        "id": "upgrade-standard",
+        "title": "Upgrade to Standard",
+        "message": "Get access to advanced formulation and science agents with our Standard plan.",
+        "cta": "Learn More",
+        "url": "https://formul8.ai/plans",
+        "weight": 30
+      },
+      {
+        "id": "upgrade-micro",
+        "title": "Unlock Compliance & Marketing",
+        "message": "Access compliance, marketing, and patent agents with the Micro plan.",
+        "cta": "Upgrade Now",
+        "url": "https://formul8.ai/plans",
+        "weight": 25
+      },
+      {
+        "id": "upgrade-operator",
+        "title": "Enterprise Features Available",
+        "message": "Scale your business with operations, sourcing, and custom agent support.",
+        "cta": "View Plans",
+        "url": "https://formul8.ai/plans",
+        "weight": 20
+      },
+      {
+        "id": "feature-priority",
+        "title": "Skip the Wait",
+        "message": "Paid plans get priority response times and faster agent routing.",
+        "cta": "Compare Plans",
+        "url": "https://formul8.ai/plans",
+        "weight": 15
+      },
+      {
+        "id": "feature-noads",
+        "title": "Ad-Free Experience",
+        "message": "Remove ads and enjoy uninterrupted conversations with any paid plan.",
+        "cta": "Upgrade",
+        "url": "https://formul8.ai/plans",
+        "weight": 10
+      }
+    ]
+  },
+  "ad_templates": {
+    "inline": "\n\n---\n\n💡 **{title}** - {message}\n\n[{cta}]({url})",
+    "footer": "\n\n---\n*💡 Upgrade tip: {message}* [Learn more]({url})",
+    "banner": "\n\n🎯 **{title}**\n{message}\n\n➡️ [{cta}]({url})"
+  },
+  "targeting": {
+    "by_category": {
+      "compliance": ["upgrade-micro", "upgrade-operator"],
+      "formulation": ["upgrade-standard", "upgrade-micro"],
+      "science": ["upgrade-standard"],
+      "marketing": ["upgrade-micro"],
+      "patent": ["upgrade-micro"],
+      "operations": ["upgrade-operator"],
+      "sourcing": ["upgrade-operator"]
+    }
+  }
+}
