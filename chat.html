@@ -78,6 +78,194 @@
             padding: 8px;
         }
 
+        /* Project Section */
+        .project-section {
+            margin-bottom: 8px;
+        }
+
+        .project-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 8px 12px;
+            cursor: pointer;
+            color: #ececec;
+            font-weight: 500;
+            font-size: 13px;
+            border-radius: 6px;
+            transition: background 0.2s;
+        }
+
+        .project-header:hover {
+            background: #2f2f2f;
+        }
+
+        .project-header-left {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .project-chevron {
+            font-size: 12px;
+            transition: transform 0.2s;
+        }
+
+        .project-section.collapsed .project-chevron {
+            transform: rotate(-90deg);
+        }
+
+        .project-content {
+            padding-left: 8px;
+            max-height: 1000px;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .project-section.collapsed .project-content {
+            max-height: 0;
+        }
+
+        /* Conversation Item */
+        .conversation-item {
+            padding: 8px 12px;
+            margin: 2px 0;
+            border-radius: 6px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.2s;
+            color: #b4b4b4;
+            font-size: 13px;
+            padding-left: 24px;
+        }
+
+        .conversation-item:hover {
+            background: #2f2f2f;
+            color: #ececec;
+        }
+
+        .conversation-item.active {
+            background: #2f2f2f;
+            color: #ececec;
+        }
+
+        .conversation-item.has-files {
+            cursor: default;
+        }
+
+        .conversation-header {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            flex: 1;
+            overflow: hidden;
+        }
+
+        .conversation-chevron {
+            font-size: 10px;
+            transition: transform 0.2s;
+            color: #666;
+        }
+
+        .conversation-item.collapsed .conversation-chevron {
+            transform: rotate(-90deg);
+        }
+
+        .conversation-text {
+            flex: 1;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .conversation-date {
+            font-size: 11px;
+            color: #666;
+            margin-top: 4px;
+        }
+
+        .conversation-actions {
+            display: flex;
+            gap: 4px;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+
+        .conversation-item:hover .conversation-actions {
+            opacity: 1;
+        }
+
+        .conversation-action-btn {
+            padding: 2px 6px;
+            background: transparent;
+            border: none;
+            color: #999;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 14px;
+            transition: all 0.2s;
+        }
+
+        .conversation-action-btn:hover {
+            background: #4d4d4d;
+            color: #ececec;
+        }
+
+        .delete-conversation:hover {
+            background: #dc3545;
+            color: white;
+        }
+
+        /* File List */
+        .file-list {
+            padding-left: 16px;
+            max-height: 500px;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .conversation-item.collapsed .file-list {
+            max-height: 0;
+        }
+
+        .file-item {
+            padding: 6px 12px;
+            margin: 2px 0;
+            border-radius: 4px;
+            cursor: pointer;
+            color: #8e8ea0;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: background 0.2s;
+        }
+
+        .file-item:hover {
+            background: #2f2f2f;
+            color: #ececec;
+        }
+
+        .file-item.active {
+            background: #2f2f2f;
+            color: #ececec;
+        }
+
+        .file-icon {
+            font-size: 12px;
+            color: #666;
+        }
+
+        .file-name {
+            flex: 1;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        /* Sign In Prompt */
         .sign-in-prompt {
             display: none;
             padding: 20px;
@@ -141,63 +329,6 @@
             left: 0;
             color: #19c37d;
             font-weight: bold;
-        }
-
-        .conversation-item {
-            padding: 12px;
-            margin-bottom: 4px;
-            border-radius: 8px;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: background 0.2s;
-            color: #b4b4b4;
-            font-size: 14px;
-        }
-
-        .conversation-item:hover {
-            background: #2f2f2f;
-            color: #ececec;
-        }
-
-        .conversation-item.active {
-            background: #2f2f2f;
-            color: #ececec;
-        }
-
-        .conversation-text {
-            flex: 1;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-        }
-
-        .conversation-date {
-            font-size: 11px;
-            color: #666;
-            margin-top: 4px;
-        }
-
-        .delete-conversation {
-            opacity: 0;
-            padding: 4px 8px;
-            background: transparent;
-            border: none;
-            color: #999;
-            cursor: pointer;
-            border-radius: 4px;
-            font-size: 16px;
-            transition: all 0.2s;
-        }
-
-        .conversation-item:hover .delete-conversation {
-            opacity: 1;
-        }
-
-        .delete-conversation:hover {
-            background: #dc3545;
-            color: white;
         }
 
         .sidebar-toggle {
@@ -735,7 +866,8 @@
         
         // Conversation management
         let currentConversationId = null;
-        let conversations = {};
+        let currentProjectId = 'default';
+        let projects = {};
         let messageCount = 0;
         let hasShownSidebar = false;
         
@@ -870,13 +1002,32 @@
             }
             
             try {
-                const stored = localStorage.getItem('formul8_conversations');
+                const stored = localStorage.getItem('formul8_projects');
                 if (stored) {
-                    conversations = JSON.parse(stored);
+                    projects = JSON.parse(stored);
+                } else {
+                    // Create default project
+                    projects = {
+                        'default': {
+                            id: 'default',
+                            name: 'Default',
+                            conversations: {},
+                            createdAt: new Date().toISOString(),
+                            collapsed: false
+                        }
+                    };
                 }
             } catch (error) {
-                console.error('Error loading conversations:', error);
-                conversations = {};
+                console.error('Error loading projects:', error);
+                projects = {
+                    'default': {
+                        id: 'default',
+                        name: 'Default',
+                        conversations: {},
+                        createdAt: new Date().toISOString(),
+                        collapsed: false
+                    }
+                };
             }
             
             document.getElementById('conversationsList').style.display = 'block';
@@ -886,22 +1037,35 @@
         
         function saveConversations() {
             try {
-                localStorage.setItem('formul8_conversations', JSON.stringify(conversations));
+                localStorage.setItem('formul8_projects', JSON.stringify(projects));
             } catch (error) {
-                console.error('Error saving conversations:', error);
+                console.error('Error saving projects:', error);
             }
         }
         
-        function createNewConversation() {
+        function createNewConversation(projectId = 'default') {
             const conversationId = generateConversationId();
             currentConversationId = conversationId;
+            currentProjectId = projectId;
             
-            conversations[conversationId] = {
+            if (!projects[projectId]) {
+                projects[projectId] = {
+                    id: projectId,
+                    name: projectId === 'default' ? 'Default' : projectId,
+                    conversations: {},
+                    createdAt: new Date().toISOString(),
+                    collapsed: false
+                };
+            }
+            
+            projects[projectId].conversations[conversationId] = {
                 id: conversationId,
                 title: 'New Conversation',
                 messages: [],
+                files: [],
                 createdAt: new Date().toISOString(),
-                updatedAt: new Date().toISOString()
+                updatedAt: new Date().toISOString(),
+                collapsed: true
             };
             
             saveConversations();
@@ -909,9 +1073,11 @@
             renderConversations();
         }
         
-        function loadConversation(conversationId) {
+        function loadConversation(projectId, conversationId) {
             currentConversationId = conversationId;
-            const conversation = conversations[conversationId];
+            currentProjectId = projectId;
+            
+            const conversation = projects[projectId]?.conversations[conversationId];
             
             if (!conversation) return;
             
@@ -925,25 +1091,60 @@
             renderConversations();
         }
         
-        function deleteConversation(conversationId, event) {
+        function deleteConversation(projectId, conversationId, event) {
             event.stopPropagation();
             
             if (confirm('Delete this conversation?')) {
-                delete conversations[conversationId];
+                delete projects[projectId].conversations[conversationId];
                 saveConversations();
                 
                 if (currentConversationId === conversationId) {
-                    createNewConversation();
+                    createNewConversation(projectId);
                 } else {
                     renderConversations();
                 }
             }
         }
         
-        function updateConversationTitle(conversationId, firstMessage) {
-            if (conversations[conversationId]) {
-                conversations[conversationId].title = firstMessage.substring(0, 50);
-                conversations[conversationId].updatedAt = new Date().toISOString();
+        function toggleProject(projectId, event) {
+            event.stopPropagation();
+            if (projects[projectId]) {
+                projects[projectId].collapsed = !projects[projectId].collapsed;
+                saveConversations();
+                renderConversations();
+            }
+        }
+        
+        function toggleConversation(projectId, conversationId, event) {
+            event.stopPropagation();
+            const conversation = projects[projectId]?.conversations[conversationId];
+            if (conversation) {
+                conversation.collapsed = !conversation.collapsed;
+                saveConversations();
+                renderConversations();
+            }
+        }
+        
+        function addFileToConversation(projectId, conversationId, fileName, fileType = 'note') {
+            const conversation = projects[projectId]?.conversations[conversationId];
+            if (conversation) {
+                conversation.files = conversation.files || [];
+                conversation.files.push({
+                    id: 'file_' + Date.now(),
+                    name: fileName,
+                    type: fileType,
+                    createdAt: new Date().toISOString()
+                });
+                saveConversations();
+                renderConversations();
+            }
+        }
+        
+        function updateConversationTitle(projectId, conversationId, firstMessage) {
+            const conversation = projects[projectId]?.conversations[conversationId];
+            if (conversation) {
+                conversation.title = firstMessage.substring(0, 50);
+                conversation.updatedAt = new Date().toISOString();
                 saveConversations();
                 renderConversations();
             }
@@ -963,28 +1164,80 @@
             const container = document.getElementById('conversationsList');
             container.innerHTML = '';
             
-            // Sort by updatedAt descending
-            const sortedConvs = Object.values(conversations).sort((a, b) => 
-                new Date(b.updatedAt) - new Date(a.updatedAt)
-            );
-            
-            sortedConvs.forEach(conv => {
-                const item = document.createElement('div');
-                item.className = 'conversation-item' + (conv.id === currentConversationId ? ' active' : '');
-                item.onclick = () => loadConversation(conv.id);
+            // Render each project
+            Object.values(projects).forEach(project => {
+                const projectDiv = document.createElement('div');
+                projectDiv.className = 'project-section' + (project.collapsed ? ' collapsed' : '');
                 
-                const date = new Date(conv.updatedAt);
-                const dateStr = formatDate(date);
+                // Count conversations in project
+                const convCount = Object.keys(project.conversations || {}).length;
                 
-                item.innerHTML = `
-                    <div style="flex: 1; overflow: hidden;">
-                        <div class="conversation-text">${conv.title || 'New Conversation'}</div>
-                        <div class="conversation-date">${dateStr}</div>
+                projectDiv.innerHTML = `
+                    <div class="project-header" onclick="toggleProject('${project.id}', event)">
+                        <div class="project-header-left">
+                            <span class="project-chevron">▼</span>
+                            <span>📁 ${project.name}</span>
+                            <span style="color: #666; font-size: 11px;">(${convCount})</span>
+                        </div>
                     </div>
-                    <button class="delete-conversation" onclick="deleteConversation('${conv.id}', event)">×</button>
+                    <div class="project-content" id="project-${project.id}">
+                    </div>
                 `;
                 
-                container.appendChild(item);
+                container.appendChild(projectDiv);
+                
+                // Render conversations in this project
+                const projectContent = projectDiv.querySelector('.project-content');
+                const conversations = project.conversations || {};
+                
+                // Sort conversations by updatedAt descending
+                const sortedConvs = Object.values(conversations).sort((a, b) => 
+                    new Date(b.updatedAt) - new Date(a.updatedAt)
+                );
+                
+                sortedConvs.forEach(conv => {
+                    const convDiv = document.createElement('div');
+                    const isActive = conv.id === currentConversationId;
+                    const hasFiles = conv.files && conv.files.length > 0;
+                    
+                    convDiv.className = 'conversation-item' + 
+                        (isActive ? ' active' : '') + 
+                        (conv.collapsed ? ' collapsed' : '') +
+                        (hasFiles ? ' has-files' : '');
+                    
+                    const fileCount = conv.files?.length || 0;
+                    
+                    convDiv.innerHTML = `
+                        <div class="conversation-header" onclick="loadConversation('${project.id}', '${conv.id}')">
+                            ${hasFiles ? `<span class="conversation-chevron" onclick="toggleConversation('${project.id}', '${conv.id}', event)">▼</span>` : ''}
+                            <span class="conversation-text">💬 ${conv.title || 'New Conversation'}</span>
+                        </div>
+                        <div class="conversation-actions">
+                            ${hasFiles ? `<span style="font-size: 10px; color: #666;">${fileCount}</span>` : ''}
+                            <button class="conversation-action-btn delete-conversation" onclick="deleteConversation('${project.id}', '${conv.id}', event)" title="Delete">×</button>
+                        </div>
+                    `;
+                    
+                    projectContent.appendChild(convDiv);
+                    
+                    // Render files if conversation has them and is expanded
+                    if (hasFiles && !conv.collapsed) {
+                        const fileListDiv = document.createElement('div');
+                        fileListDiv.className = 'file-list';
+                        
+                        conv.files.forEach(file => {
+                            const fileDiv = document.createElement('div');
+                            fileDiv.className = 'file-item';
+                            fileDiv.innerHTML = `
+                                <span class="file-icon">📄</span>
+                                <span class="file-name">${file.name}</span>
+                            `;
+                            fileListDiv.appendChild(fileDiv);
+                        });
+                        
+                        convDiv.appendChild(fileListDiv);
+                    }
+                });
             });
         }
         
@@ -1144,17 +1397,31 @@
             
             // Save to conversation history (only for logged in users)
             if (saveToHistory && currentConversationId && authToken) {
-                if (!conversations[currentConversationId]) {
-                    conversations[currentConversationId] = {
+                const conversation = projects[currentProjectId]?.conversations[currentConversationId];
+                
+                if (!conversation) {
+                    if (!projects[currentProjectId]) {
+                        projects[currentProjectId] = {
+                            id: currentProjectId,
+                            name: currentProjectId === 'default' ? 'Default' : currentProjectId,
+                            conversations: {},
+                            createdAt: new Date().toISOString(),
+                            collapsed: false
+                        };
+                    }
+                    
+                    projects[currentProjectId].conversations[currentConversationId] = {
                         id: currentConversationId,
                         title: 'New Conversation',
                         messages: [],
+                        files: [],
                         createdAt: new Date().toISOString(),
-                        updatedAt: new Date().toISOString()
+                        updatedAt: new Date().toISOString(),
+                        collapsed: true
                     };
                 }
                 
-                conversations[currentConversationId].messages.push({
+                projects[currentProjectId].conversations[currentConversationId].messages.push({
                     text: text,
                     type: type,
                     name: name,
@@ -1162,10 +1429,11 @@
                 });
                 
                 // Update title from first user message
-                if (type === 'user' && conversations[currentConversationId].messages.filter(m => m.type === 'user').length === 1) {
-                    updateConversationTitle(currentConversationId, text);
+                const conv = projects[currentProjectId].conversations[currentConversationId];
+                if (type === 'user' && conv.messages.filter(m => m.type === 'user').length === 1) {
+                    updateConversationTitle(currentProjectId, currentConversationId, text);
                 } else {
-                    conversations[currentConversationId].updatedAt = new Date().toISOString();
+                    conv.updatedAt = new Date().toISOString();
                     saveConversations();
                     renderConversations();
                 }
@@ -1262,19 +1530,34 @@
             loadConversations();
             
             // Create first conversation if logged in and none exist
-            if (authToken && Object.keys(conversations).length === 0) {
-                createNewConversation();
-            } else if (authToken) {
-                // Load most recent conversation
-                const sortedConvs = Object.values(conversations).sort((a, b) => 
-                    new Date(b.updatedAt) - new Date(a.updatedAt)
-                );
-                if (sortedConvs.length > 0) {
-                    loadConversation(sortedConvs[0].id);
+            if (authToken) {
+                const defaultProject = projects['default'];
+                const hasConversations = defaultProject && Object.keys(defaultProject.conversations || {}).length > 0;
+                
+                if (!hasConversations) {
+                    createNewConversation('default');
+                } else {
+                    // Load most recent conversation from any project
+                    let mostRecent = null;
+                    let mostRecentProject = null;
+                    
+                    Object.values(projects).forEach(project => {
+                        Object.values(project.conversations || {}).forEach(conv => {
+                            if (!mostRecent || new Date(conv.updatedAt) > new Date(mostRecent.updatedAt)) {
+                                mostRecent = conv;
+                                mostRecentProject = project.id;
+                            }
+                        });
+                    });
+                    
+                    if (mostRecent) {
+                        loadConversation(mostRecentProject, mostRecent.id);
+                    }
                 }
             } else {
                 // For non-logged in users, create a temporary conversation
                 currentConversationId = 'temp_' + Date.now();
+                currentProjectId = 'default';
             }
             
             // Start typewriter effect after a short delay
