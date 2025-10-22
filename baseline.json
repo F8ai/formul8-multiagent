@@ -1,26 +1,13 @@
 {
   "metadata": {
-    "generatedAt": "2025-10-21T17:43:57.305Z",
+    "generatedAt": "2025-10-22T03:07:52.580Z",
     "sourceRepos": [
-      "compliance-agent",
-      "science-agent",
-      "formulation-agent",
-      "marketing-agent",
-      "patent-agent",
-      "operations-agent",
-      "sourcing-agent",
-      "spectra-agent",
-      "mcr-agent",
-      "customer-success-agent",
-      "ad-agent",
-      "editor-agent",
-      "f8-slackbot"
+      "formul8-multiagent"
     ],
-    "totalSources": 0,
+    "totalSources": 1,
     "version": "1.0",
-    "description": "Master baseline questions for Formul8 multiagent system",
     "stats": {
-      "totalSources": 0,
+      "totalSources": 1,
       "uniqueQuestions": 0,
       "categoryCounts": {},
       "questionsWithExpectedAnswers": 0,
