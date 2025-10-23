@@ -33,13 +33,17 @@ app.use('/api/', rateLimiter);
 app.use(validateApiKey);
 app.use(contentFilter);
 
+// Import data loader
+const dataLoader = require('./data-loader');
+
 // Agent-specific configuration
 const AGENT_CONFIG = {
   name: 'Compliance Agent',
   description: 'Cannabis regulatory compliance expert',
   keywords: ["compliance","regulation","license","legal","audit","inspection","permit","regulatory"],
   specialties: ["State-specific cannabis regulations","Licensing applications and processes","Compliance audits and inspections","Record keeping and documentation","Testing requirements and standards","Security and safety protocols"],
-  tierRestriction: null
+  tierRestriction: null,
+  useS3Data: true // Enable S3 data access
 };
 
 // Health endpoint
@@ -92,11 +96,27 @@ app.post('/api/chat', async (req, res) => {
       });
     }
     
+    // Detect state from message
+    const stateMatch = message.match(/\b([A-Z]{2})\b|California|Colorado|Washington|Oregon|New York|Florida/i);
+    let contextData = '';
+    
+    // If state detected, try to load relevant data from S3
+    if (AGENT_CONFIG.useS3Data && stateMatch) {
+      try {
+        const stateCode = stateMatch[1] || this.stateNameToCode(stateMatch[0]);
+        const regulations = await dataLoader.getStateData(stateCode);
+        contextData = `\n\nRelevant ${stateCode} Regulations: ${JSON.stringify(regulations).substring(0, 2000)}`;
+      } catch (error) {
+        console.log('Could not load state data:', error.message);
+        // Continue without state data
+      }
+    }
+    
     // Create system prompt
     const systemPrompt = `You are a ${AGENT_CONFIG.name} specializing in ${AGENT_CONFIG.description}. 
     Your specialties include: ${AGENT_CONFIG.specialties.join(', ')}. 
-    You are part of the Formul8 Multiagent system. 
-    Provide helpful, accurate, and professional responses. Keep responses concise but informative.`;
+    You are part of the Formul8 Multiagent system with access to a comprehensive database of cannabis regulations.
+    Provide helpful, accurate, and professional responses citing specific regulations when possible.${contextData}`;
     
     // Call OpenRouter API
     const openRouterResponse = await fetch('https://openrouter.ai/api/v1/chat/completions', {

@@ -1,7 +1,7 @@
 {
   "name": "compliance-agent",
   "version": "1.0.0",
-  "description": "Cannabis regulatory compliance expert",
+  "description": "Cannabis regulatory compliance expert with S3 data access",
   "main": "lambda.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -20,6 +20,7 @@
   "license": "ISC",
   "dependencies": {
     "express": "^5.1.0",
-    "cors": "^2.8.5"
+    "cors": "^2.8.5",
+    "@aws-sdk/client-s3": "^3.682.0"
   }
 }

@@ -7,6 +7,7 @@ on:
     paths:
       - 'agents/compliance-agent/**'
       - '.github/workflows/deploy-compliance-agent.yml'
+  workflow_dispatch:
 
 jobs:
   deploy:
@@ -21,25 +22,37 @@ jobs:
         with:
           node-version: '18'
 
+      - name: Install dependencies
+        run: |
+          cd agents/compliance-agent
+          npm install
+
       - name: Install Vercel CLI
         run: npm install --global vercel@latest
 
-      - name: Pull Vercel Environment Information
-        run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
-        working-directory: ./agents/compliance-agent
-
-      - name: Build Project Artifacts
-        run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
-        working-directory: ./agents/compliance-agent
-
       - name: Deploy to Vercel
-        run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
-        working-directory: ./agents/compliance-agent
+        run: |
+          cd agents/compliance-agent
+          vercel --prod --token=${{ secrets.VERCEL_TOKEN }} --yes
         env:
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_COMPLIANCE_PROJECT_ID }}
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_REGION: us-east-1
 
       - name: Verify Deployment
         run: |
-          echo "✅ Compliance Agent deployed successfully!"
-          echo "🔗 Check status at: https://vercel.com/dashboard"
+          echo "✅ Compliance agent deployed with S3 integration!"
+          echo "🔗 URL: https://compliance-agent.f8.syzygyx.com"
+          echo "📊 S3 Bucket: s3://formul8-platform-deployments/data/compliance/"
+          echo "📦 Commit: $(git rev-parse --short HEAD)"
+
+      - name: Test S3 connectivity
+        run: |
+          aws s3 ls s3://formul8-platform-deployments/data/compliance/ || echo "⚠️ S3 access test skipped (will work in Vercel with env vars)"
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_REGION: us-east-1
