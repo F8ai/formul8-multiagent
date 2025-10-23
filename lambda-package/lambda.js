@@ -39,6 +39,15 @@ app.get('/health', (req, res) => {
   });
 });
 
+// Serve HTML files
+app.get('/future4200.html', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'future4200.html'));
+});
+
+app.get('/chat.html', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'chat.html'));
+});
+
 // Free API key generation endpoint
 app.get('/api/free-key', (req, res) => {
   const freeApiKey = generateFreeApiKey();
