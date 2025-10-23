@@ -3,15 +3,10 @@
   "builds": [
     {
       "src": "lambda.js",
-      "use": "@vercel/node"
-    },
-    {
-      "src": "future4200.html",
-      "use": "@vercel/static"
-    },
-    {
-      "src": "public/**",
-      "use": "@vercel/static"
+      "use": "@vercel/node",
+      "config": {
+        "includeFiles": ["public/**"]
+      }
     }
   ],
   "routes": [
@@ -24,12 +19,8 @@
       "dest": "/lambda.js"
     },
     {
-      "src": "/future4200.html",
-      "dest": "/future4200.html"
-    },
-    {
       "src": "/(.*)",
-      "dest": "/public/$1"
+      "dest": "/lambda.js"
     }
   ]
 }
