@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const fetch = require('node-fetch');
 const path = require('path');
+const fs = require('fs');
 const serverlessHttp = require('serverless-http');
 const { handleGoogleAuthCallback, extractUserFromRequest } = require('./google-auth-handler');
 
@@ -42,11 +43,33 @@ app.get('/health', (req, res) => {
 
 // Serve HTML files
 app.get('/future4200.html', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'future4200.html'));
+  try {
+    const filePath = path.join(__dirname, 'public', 'future4200.html');
+    if (fs.existsSync(filePath)) {
+      const html = fs.readFileSync(filePath, 'utf8');
+      res.setHeader('Content-Type', 'text/html');
+      res.send(html);
+    } else {
+      res.status(404).send('File not found');
+    }
+  } catch (error) {
+    res.status(500).send('Error loading file: ' + error.message);
+  }
 });
 
 app.get('/chat.html', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'chat.html'));
+  try {
+    const filePath = path.join(__dirname, 'public', 'chat.html');
+    if (fs.existsSync(filePath)) {
+      const html = fs.readFileSync(filePath, 'utf8');
+      res.setHeader('Content-Type', 'text/html');
+      res.send(html);
+    } else {
+      res.status(404).send('File not found');
+    }
+  } catch (error) {
+    res.status(500).send('Error loading file: ' + error.message);
+  }
 });
 
 // Free API key generation endpoint
