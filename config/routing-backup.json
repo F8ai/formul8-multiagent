@@ -1,0 +1,48 @@
+{
+  "routing": {
+    "strategy": "langchain_semantic",
+    "fallback": "keyword_matching",
+    "timeout": 10000,
+    "retries": 2,
+    "confidence_threshold": 0.8,
+    "strategies": {
+      "langchain_semantic": {
+        "enabled": true,
+        "model": "meta-llama/llama-3.1-8b-instruct",
+        "temperature": 0.3,
+        "maxTokens": 50,
+        "prompt_template": "routing_prompt"
+      },
+      "keyword_matching": {
+        "enabled": true,
+        "case_sensitive": false,
+        "exact_match": false,
+        "weighted_keywords": true
+      },
+      "embedding_similarity": {
+        "enabled": false,
+        "model": "text-embedding-ada-002",
+        "similarity_threshold": 0.85,
+        "top_k": 3
+      }
+    },
+    "prompts": {
+      "routing_prompt": "You are an expert routing system for the Formul8 cannabis industry AI platform. Analyze the user's message and route it to the MOST SPECIFIC specialized agent.\n\n## Available Specialized Agents:\n{agents_list}\n\n## Routing Rules with Examples:\n\n### COMPLIANCE (regulations, licenses, SOPs, legal requirements, packaging rules, testing requirements)\nExamples:\n- \"Can you make me a compliant SOP for Cannabis Transport in New Jersey?\"\n- \"What are the labeling requirements for packaged concentrates?\"\n- \"What testing requirements must cannabis products meet before retail sale?\"\n- \"How potent can our edibles be in California?\"\n- \"What am I allowed to cut my vape cartridge APIs with that is safe and compliant?\"\nNOT: General operations, branding questions, or production optimization\n\n### OPERATIONS (facility management, production processes, equipment, cultivation, quality control, logistics)\nExamples:\n- \"Can you help me create a batch tracker sheet for employees?\"\n- \"How do I set up a daily production log?\"\n- \"What are the best KPIs to track in my extraction lab?\"\n- \"My chiller is overheating—what should I check first?\"\n- \"How do I design a workflow checklist for my lab techs?\"\nNOT: Regulatory compliance, branding/marketing, or legal requirements\n\n### MARKETING (branding, advertising, customer acquisition, social media, positioning, retail promotion)\nExamples:\n- \"What makes our cannabis brand stand out compared to competitors?\"\n- \"How do I promote my cannabis products on social media without getting banned?\"\n- \"Can you help me build a brand story that connects with consumers?\"\n- \"What loyalty strategies are most effective for dispensaries?\"\n- \"How can I collaborate with local cultivators on special products?\"\nNOT: Operational processes, compliance rules, or product formulation\n\n### FORMULATION (recipes, dosage calculations, extraction methods, ingredient selection)\nExamples:\n- \"How do I calculate THC dosage for gummy formulations?\"\n- \"What extraction method is best for live resin?\"\n- \"Can you help me develop a tincture recipe with specific CBD:THC ratios?\"\nNOT: Marketing strategies, facility operations, or regulatory compliance\n\n### SCIENCE (cannabinoids, terpenes, lab testing, COA interpretation, research)\nExamples:\n- \"What are the effects of different terpene profiles?\"\n- \"How do I interpret this COA lab result?\"\n- \"What's the difference between THC-A and Delta-9 THC?\"\nNOT: Marketing, operations, or business strategy\n\n### F8_AGENT (general questions, multi-topic questions, business strategy, when no specific agent fits)\nUse ONLY when the question:\n- Spans multiple domains\n- Is very general/broad\n- Doesn't clearly fit any specialized agent\n\n## User Message:\n{message}\n\n## Your Task:\nAnalyze the message and respond with ONLY the agent ID: compliance, operations, marketing, formulation, science, or f8_agent.\nNo explanation—just the agent ID."
+    },
+    "agent_priorities": {
+      "f8_agent": 1,
+      "compliance": 2,
+      "formulation": 2,
+      "science": 2,
+      "operations": 3,
+      "marketing": 3,
+      "sourcing": 3,
+      "patent": 3,
+      "spectra": 3,
+      "customer_success": 3,
+      "f8_slackbot": 4,
+      "mcr": 4,
+      "ad": 4
+    }
+  }
+}

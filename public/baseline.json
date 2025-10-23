@@ -1,18 +1,364 @@
 {
   "metadata": {
-    "generatedAt": "2025-10-23T03:00:43.080Z",
+    "generatedAt": "2025-10-23T23:08:24.895Z",
     "sourceRepos": [
       "formul8-multiagent"
     ],
-    "totalSources": 1,
+    "totalSources": 13,
     "version": "1.0",
     "stats": {
-      "totalSources": 1,
-      "uniqueQuestions": 0,
-      "categoryCounts": {},
-      "questionsWithExpectedAnswers": 0,
+      "totalSources": 13,
+      "uniqueQuestions": 26,
+      "categoryCounts": {
+        "ad": 1,
+        "compliance": 4,
+        "customer-success": 1,
+        "editor": 1,
+        "slackbot": 1,
+        "formulation": 4,
+        "marketing": 3,
+        "mcr": 1,
+        "operations": 3,
+        "patent": 1,
+        "science": 4,
+        "sourcing": 1,
+        "spectra": 1
+      },
+      "questionsWithExpectedAnswers": 18,
       "questionsFromMultipleSources": 0
     }
   },
-  "questions": []
+  "questions": [
+    {
+      "id": "ad-agent-001",
+      "question": "Example question for ad-agent",
+      "category": "ad",
+      "expectedAgent": "ad-agent",
+      "tier": "standard",
+      "source": "ad-agent",
+      "sourceAgent": "ad-agent"
+    },
+    {
+      "id": "compliance-001",
+      "question": "What are the compliance requirements for cannabis businesses in California?",
+      "category": "compliance",
+      "expectedAgent": "compliance",
+      "expectedKeywords": [
+        "compliance",
+        "california",
+        "license",
+        "regulation",
+        "dcc"
+      ],
+      "tier": "standard",
+      "source": "compliance-agent",
+      "sourceAgent": "compliance"
+    },
+    {
+      "id": "compliance-002",
+      "question": "What are the multi-state compliance challenges for cannabis?",
+      "category": "compliance",
+      "expectedAgent": "compliance",
+      "expectedKeywords": [
+        "multi-state",
+        "compliance",
+        "regulation",
+        "jurisdiction"
+      ],
+      "tier": "standard",
+      "source": "compliance-agent",
+      "sourceAgent": "compliance"
+    },
+    {
+      "id": "compliance-003",
+      "question": "How do I maintain compliance records for cannabis cultivation?",
+      "category": "compliance",
+      "expectedAgent": "compliance",
+      "expectedKeywords": [
+        "records",
+        "documentation",
+        "compliance",
+        "cultivation"
+      ],
+      "tier": "standard",
+      "source": "compliance-agent",
+      "sourceAgent": "compliance"
+    },
+    {
+      "id": "compliance-004",
+      "question": "What are the testing requirements for cannabis products?",
+      "category": "compliance",
+      "expectedAgent": "compliance",
+      "expectedKeywords": [
+        "testing",
+        "requirements",
+        "lab",
+        "compliance"
+      ],
+      "tier": "standard",
+      "source": "compliance-agent",
+      "sourceAgent": "compliance"
+    },
+    {
+      "id": "customer-success-agent-001",
+      "question": "Example question for customer-success-agent",
+      "category": "customer-success",
+      "expectedAgent": "customer-success-agent",
+      "tier": "standard",
+      "source": "customer-success-agent",
+      "sourceAgent": "customer-success-agent"
+    },
+    {
+      "id": "editor-agent-001",
+      "question": "Example question for editor-agent",
+      "category": "editor",
+      "expectedAgent": "editor-agent",
+      "tier": "standard",
+      "source": "editor-agent",
+      "sourceAgent": "editor-agent"
+    },
+    {
+      "id": "f8-slackbot-001",
+      "question": "Example question for f8-slackbot",
+      "category": "slackbot",
+      "expectedAgent": "f8-slackbot",
+      "tier": "standard",
+      "source": "f8-slackbot",
+      "sourceAgent": "f8-slackbot"
+    },
+    {
+      "id": "formulation-001",
+      "question": "How do I calculate THC dosage?",
+      "category": "formulation",
+      "expectedAgent": "formulation",
+      "expectedKeywords": [
+        "calculate",
+        "thc",
+        "dosage"
+      ],
+      "tier": "standard",
+      "source": "formulation-agent",
+      "sourceAgent": "formulation"
+    },
+    {
+      "id": "formulation-002",
+      "question": "How do I make cannabis edibles?",
+      "category": "formulation",
+      "expectedAgent": "formulation",
+      "expectedKeywords": [
+        "make",
+        "edibles",
+        "cannabis"
+      ],
+      "tier": "standard",
+      "source": "formulation-agent",
+      "sourceAgent": "formulation"
+    },
+    {
+      "id": "formulation-003",
+      "question": "Create a recipe for cannabis gummies with 10mg THC each",
+      "category": "formulation",
+      "expectedAgent": "formulation",
+      "expectedKeywords": [
+        "recipe",
+        "gummies",
+        "thc"
+      ],
+      "tier": "standard",
+      "source": "formulation-agent",
+      "sourceAgent": "formulation"
+    },
+    {
+      "id": "formulation-004",
+      "question": "What extraction method is best for high-CBD products?",
+      "category": "formulation",
+      "expectedAgent": "formulation",
+      "expectedKeywords": [
+        "extraction",
+        "method",
+        "cbd"
+      ],
+      "tier": "standard",
+      "source": "formulation-agent",
+      "sourceAgent": "formulation"
+    },
+    {
+      "id": "marketing-001",
+      "question": "How should I market my cannabis brand on social media?",
+      "category": "marketing",
+      "expectedAgent": "marketing",
+      "expectedKeywords": [
+        "market",
+        "brand",
+        "social media",
+        "marketing"
+      ],
+      "tier": "standard",
+      "source": "marketing-agent",
+      "sourceAgent": "marketing"
+    },
+    {
+      "id": "marketing-002",
+      "question": "What are the best practices for cannabis advertising?",
+      "category": "marketing",
+      "expectedAgent": "marketing",
+      "expectedKeywords": [
+        "advertising",
+        "best practices",
+        "marketing"
+      ],
+      "tier": "standard",
+      "source": "marketing-agent",
+      "sourceAgent": "marketing"
+    },
+    {
+      "id": "marketing-003",
+      "question": "How do I build brand awareness for cannabis products?",
+      "category": "marketing",
+      "expectedAgent": "marketing",
+      "expectedKeywords": [
+        "brand",
+        "awareness",
+        "marketing"
+      ],
+      "tier": "standard",
+      "source": "marketing-agent",
+      "sourceAgent": "marketing"
+    },
+    {
+      "id": "mcr-agent-001",
+      "question": "Example question for mcr-agent",
+      "category": "mcr",
+      "expectedAgent": "mcr-agent",
+      "tier": "standard",
+      "source": "mcr-agent",
+      "sourceAgent": "mcr-agent"
+    },
+    {
+      "id": "operations-001",
+      "question": "How do I optimize my cannabis facility operations?",
+      "category": "operations",
+      "expectedAgent": "operations",
+      "expectedKeywords": [
+        "optimize",
+        "facility",
+        "operations",
+        "management"
+      ],
+      "tier": "standard",
+      "source": "operations-agent",
+      "sourceAgent": "operations"
+    },
+    {
+      "id": "operations-002",
+      "question": "What are the best practices for cannabis cultivation?",
+      "category": "operations",
+      "expectedAgent": "operations",
+      "expectedKeywords": [
+        "best practices",
+        "cultivation",
+        "growing"
+      ],
+      "tier": "standard",
+      "source": "operations-agent",
+      "sourceAgent": "operations"
+    },
+    {
+      "id": "operations-003",
+      "question": "How do I manage cannabis inventory?",
+      "category": "operations",
+      "expectedAgent": "operations",
+      "expectedKeywords": [
+        "manage",
+        "inventory",
+        "tracking"
+      ],
+      "tier": "standard",
+      "source": "operations-agent",
+      "sourceAgent": "operations"
+    },
+    {
+      "id": "patent-agent-001",
+      "question": "Example question for patent-agent",
+      "category": "patent",
+      "expectedAgent": "patent-agent",
+      "tier": "standard",
+      "source": "patent-agent",
+      "sourceAgent": "patent-agent"
+    },
+    {
+      "id": "science-001",
+      "question": "What is THC?",
+      "category": "science",
+      "expectedAgent": "science",
+      "expectedKeywords": [
+        "thc",
+        "tetrahydrocannabinol",
+        "cannabinoid"
+      ],
+      "tier": "standard",
+      "source": "science-agent",
+      "sourceAgent": "science"
+    },
+    {
+      "id": "science-002",
+      "question": "What are terpenes?",
+      "category": "science",
+      "expectedAgent": "science",
+      "expectedKeywords": [
+        "terpenes",
+        "aromatic",
+        "compounds"
+      ],
+      "tier": "standard",
+      "source": "science-agent",
+      "sourceAgent": "science"
+    },
+    {
+      "id": "science-003",
+      "question": "How do I test cannabis potency?",
+      "category": "science",
+      "expectedAgent": "science",
+      "expectedKeywords": [
+        "test",
+        "potency",
+        "lab"
+      ],
+      "tier": "standard",
+      "source": "science-agent",
+      "sourceAgent": "science"
+    },
+    {
+      "id": "science-004",
+      "question": "What is the difference between indica and sativa?",
+      "category": "science",
+      "expectedAgent": "science",
+      "expectedKeywords": [
+        "indica",
+        "sativa",
+        "difference"
+      ],
+      "tier": "standard",
+      "source": "science-agent",
+      "sourceAgent": "science"
+    },
+    {
+      "id": "sourcing-agent-001",
+      "question": "Example question for sourcing-agent",
+      "category": "sourcing",
+      "expectedAgent": "sourcing-agent",
+      "tier": "standard",
+      "source": "sourcing-agent",
+      "sourceAgent": "sourcing-agent"
+    },
+    {
+      "id": "spectra-agent-001",
+      "question": "Example question for spectra-agent",
+      "category": "spectra",
+      "expectedAgent": "spectra-agent",
+      "tier": "standard",
+      "source": "spectra-agent",
+      "sourceAgent": "spectra-agent"
+    }
+  ]
 }
