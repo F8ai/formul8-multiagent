@@ -24,7 +24,7 @@
         "customer_success": false,
         "f8_slackbot": false,
         "mcr": false,
-        "ad": false,
+        "ad": true,
         "editor_agent": false,
         "future4200": false
       }

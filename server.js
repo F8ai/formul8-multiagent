@@ -553,10 +553,10 @@ app.get('/chat', (req, res) => {
 });
 
 /**
- * Chat API endpoint
+ * Chat API endpoint - Using consolidated chat service
  */
 app.post('/api/chat', async (req, res) => {
-  const { message, agent, user_id, context } = req.body;
+  const { message, agent, user_id, context, plan, username } = req.body;
 
   if (!message) {
     return res.status(400).json({
@@ -566,37 +566,18 @@ app.post('/api/chat', async (req, res) => {
   }
 
   try {
-    const selectedAgent = agent || 'f8_agent';
-    const agentConfig = agents[selectedAgent];
+    // Use consolidated chat service with LangChain integration
+    const ChatService = require('./services/chat-service');
+    const chatService = new ChatService();
     
-    if (!agentConfig) {
-      return res.status(400).json({
-        success: false,
-        message: `Agent not found: ${selectedAgent}`,
-      });
-    }
-
-    console.log(`🤖 Routing to ${agentConfig.name} for: "${message}"`);
-    
-    const startTime = Date.now();
-    const response = agentConfig.getResponse(message);
-    const duration = Date.now() - startTime;
-    
-    console.log(`✅ Response in ${duration}ms`);
-
-    const estimatedTokens = Math.ceil((message.length + response.length) / 4);
-
-    res.json({
-      success: true,
-      response: response,
-      agent: selectedAgent,
-      usage: {
-        total_tokens: estimatedTokens,
-        cost: 0, // Free model
-        model: 'formul8-multiagent'
-      },
-      timestamp: new Date().toISOString(),
+    const result = await chatService.processChat({
+      message,
+      agent,
+      plan: plan || 'free',
+      username: username || user_id || 'anonymous'
     });
+
+    res.json(result);
   } catch (error) {
     console.error('Chat API error:', error);
     res.status(500).json({
