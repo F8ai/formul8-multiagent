@@ -583,16 +583,18 @@
             display: inline-flex;
             align-items: center;
             gap: 4px;
-            padding: 4px 10px;
-            background: #2f2f2f;
-            border-radius: 12px;
-            font-size: 11px;
-            color: #b4b4b4;
-            border: 1px solid #3f3f3f;
+            padding: 3px 8px;
+            background: rgba(47, 47, 47, 0.4);
+            border-radius: 10px;
+            font-size: 10px;
+            color: #666;
+            border: 1px solid rgba(63, 63, 63, 0.3);
+            opacity: 0.7;
         }
 
         .metadata-badge strong {
             color: #19c37d;
+            opacity: 0.8;
         }
 
         .message-main-content {
@@ -1515,50 +1517,57 @@
                 `;
             }
             
-            // Add upgrade prompts as callouts
-            upgradePrompts.forEach(prompt => {
-                // Parse the content for bullet points
-                const lines = prompt.content.split(/\n|<br>/);
-                const bullets = [];
-                const links = [];
-                
-                lines.forEach(line => {
-                    line = line.trim();
-                    if (line.startsWith('•')) {
-                        bullets.push(line.substring(1).trim());
-                    } else if (line.includes('<a href=')) {
-                        // Extract links
-                        const linkMatches = line.matchAll(/<a href="([^"]+)"[^>]*>([^<]+)<\/a>/g);
-                        for (const linkMatch of linkMatches) {
-                            links.push({ url: linkMatch[1], text: linkMatch[2] });
+            // Add upgrade prompts as callouts (only from ad-agent for free and future4200 plans)
+            const isAdAgent = metadata && (
+                metadata.agent.toLowerCase().includes('ad agent')
+            );
+            
+            // Only show callouts if they come from ad-agent (free and future4200 plans)
+            if (isAdAgent && upgradePrompts.length > 0) {
+                upgradePrompts.forEach(prompt => {
+                    // Parse the content for bullet points
+                    const lines = prompt.content.split(/\n|<br>/);
+                    const bullets = [];
+                    const links = [];
+                    
+                    lines.forEach(line => {
+                        line = line.trim();
+                        if (line.startsWith('•')) {
+                            bullets.push(line.substring(1).trim());
+                        } else if (line.includes('<a href=')) {
+                            // Extract links
+                            const linkMatches = line.matchAll(/<a href="([^"]+)"[^>]*>([^<]+)<\/a>/g);
+                            for (const linkMatch of linkMatches) {
+                                links.push({ url: linkMatch[1], text: linkMatch[2] });
+                            }
                         }
+                    });
+                    
+                    html += `
+                        <div class="upgrade-callout">
+                            <h4>${prompt.emoji} ${prompt.title}</h4>
+                    `;
+                    
+                    if (bullets.length > 0) {
+                        html += '<ul>';
+                        bullets.forEach(bullet => {
+                            html += `<li>${bullet}</li>`;
+                        });
+                        html += '</ul>';
                     }
-                });
-                
-                html += `
-                    <div class="upgrade-callout">
-                        <h4>${prompt.emoji} ${prompt.title}</h4>
-                `;
-                
-                if (bullets.length > 0) {
-                    html += '<ul>';
-                    bullets.forEach(bullet => {
-                        html += `<li>${bullet}</li>`;
-                    });
-                    html += '</ul>';
-                }
-                
-                if (links.length > 0) {
-                    html += '<div class="upgrade-callout-actions">';
-                    links.forEach((link, index) => {
-                        const className = index === 0 ? 'upgrade-link' : 'upgrade-link secondary';
-                        html += `<a href="${link.url}" class="${className}" target="_blank">${link.text}</a>`;
-                    });
+                    
+                    if (links.length > 0) {
+                        html += '<div class="upgrade-callout-actions">';
+                        links.forEach((link, index) => {
+                            const className = index === 0 ? 'upgrade-link' : 'upgrade-link secondary';
+                            html += `<a href="${link.url}" class="${className}" target="_blank">${link.text}</a>`;
+                        });
+                        html += '</div>';
+                    }
+                    
                     html += '</div>';
-                }
-                
-                html += '</div>';
-            });
+                });
+            }
             
             return html;
         }

@@ -943,16 +943,18 @@ app.get('/chat', (req, res) => {
                 display: inline-flex;
                 align-items: center;
                 gap: 4px;
-                padding: 4px 10px;
-                background: var(--formul8-bg-card);
-                border-radius: 12px;
-                font-size: 11px;
-                color: var(--formul8-text-secondary);
-                border: 1px solid var(--formul8-border);
+                padding: 3px 8px;
+                background: rgba(30, 30, 30, 0.4);
+                border-radius: 10px;
+                font-size: 10px;
+                color: #666;
+                border: 1px solid rgba(51, 51, 51, 0.3);
+                opacity: 0.7;
             }
 
             .metadata-badge strong {
                 color: var(--formul8-primary);
+                opacity: 0.8;
             }
 
             .message-main-content {
@@ -1679,22 +1681,49 @@ app.post('/api/chat', async (req, res) => {
     // Calculate cost (openai/gpt-oss-120b is free, so cost is $0.00)
     const totalCost = 0.00; // Free model
     
-    // Create footer with metadata and ads for free tier
+    // Create footer with metadata
     let footer = `\n\n---\n*Agent: ${agentName} | Plan: ${planConfig.name} | Tokens: ${totalTokens} (${promptTokens}→${completionTokens}) | Cost: $${totalCost.toFixed(6)}*`;
     
-    // Add upgrade prompt for free tier
-    if (validatedPlan === 'free') {
-      const ads = [
-        '\n\n💡 **Want more?** Upgrade to access advanced agents and features. [View Plans](https://formul8.ai/plans)',
-        '\n\n🎯 **Unlock Full Access** - Get compliance, patent, and operations agents. [Upgrade Now](https://formul8.ai/plans)',
-        '\n\n✨ **Ad-Free Experience** - Remove ads with any paid plan. [Compare Plans](https://formul8.ai/plans)',
-        '\n\n🚀 **Priority Support** - Paid plans get faster responses. [Learn More](https://formul8.ai/plans)',
-        '\n\n📊 **Advanced Features** - Access all specialized agents. [Upgrade](https://formul8.ai/plans)'
-      ];
-      
-      // Rotate ads based on timestamp
-      const adIndex = Math.floor(Date.now() / 60000) % ads.length;
-      footer += ads[adIndex];
+    // Call ad-agent for free and future4200 plans (contextual advertisements)
+    if (validatedPlan === 'free' || validatedPlan === 'future4200') {
+      try {
+        // Get ad-agent configuration
+        const adAgent = agentsConfig.agents['ad'];
+        if (adAgent && adAgent.url) {
+          // Call ad-agent with Q&A context to generate contextual advertisement
+          const adAgentResponse = await fetch(`${adAgent.url}/generate-ad`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': `Bearer ${openRouterApiKey}`
+            },
+            body: JSON.stringify({
+              question: sanitizedMessage,
+              answer: aiResponse,
+              plan: validatedPlan,
+              context: {
+                agent: selectedAgent,
+                agentName: agentName
+              }
+            }),
+            timeout: 5000 // 5 second timeout
+          });
+          
+          if (adAgentResponse.ok) {
+            const adData = await adAgentResponse.json();
+            if (adData.advertisement) {
+              // Add contextual advertisement from ad-agent
+              footer += `\n\n---\n*Agent: Ad Agent | Plan: ${planConfig.name} | Tokens: ${adData.tokens || 0} | Cost: $0.000000*\n\n${adData.advertisement}`;
+            }
+          } else {
+            console.warn('Ad-agent returned non-OK status:', adAgentResponse.status);
+          }
+        }
+      } catch (adError) {
+        // If ad-agent fails, log but don't show fallback ads
+        console.warn(`Ad-agent call failed for ${validatedPlan} plan:`, adError.message);
+        // Free and future4200 plans get contextual ads or nothing - no generic fallback ads
+      }
     }
     
     const responseWithFooter = aiResponse + footer;
