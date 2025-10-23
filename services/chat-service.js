@@ -160,7 +160,8 @@ class ChatService {
         return await this.langChainService.getAgentResponse(agentId, message);
       }
     } catch (error) {
-      console.error(`Error getting LangChain response from ${agentId}:`, error);
+      // Safely log error without using user input in format string
+      console.error('Error getting LangChain response:', { agentId, error: error.message });
     }
 
     // Fallback to basic response
@@ -268,7 +269,7 @@ class ChatService {
   }
 
   /**
-   * Sanitize input string
+   * Sanitize input string using a proper HTML entity encoder
    * @param {string} input - Input string
    * @returns {string} Sanitized string
    */
@@ -283,12 +284,15 @@ class ChatService {
       sanitized = sanitized.substring(0, 2000);
     }
 
-    // Basic XSS protection
+    // Escape HTML entities to prevent XSS
+    // This is safer than regex-based tag removal which can be bypassed
     sanitized = sanitized
-      .replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '')
-      .replace(/javascript:/gi, '')
-      .replace(/on\w+\s*=/gi, '')
-      .replace(/<iframe\b[^<]*(?:(?!<\/iframe>)<[^<]*)*<\/iframe>/gi, '');
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#x27;')
+      .replace(/\//g, '&#x2F;');
 
     return sanitized;
   }
