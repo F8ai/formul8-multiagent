@@ -447,7 +447,7 @@ jobs:
           TEST_SUBSET: ${{ inputs.test_subset || 'all' }}
           HEADLESS: ${{ inputs.headless || 'true' }}
         run: |
-          npx playwright test tests/chat-ui-test.spec.js --reporter=html --headed=${{ inputs.headless == 'false' }}
+          npx playwright test tests/chat-ui-test.spec.js --reporter=html ${{ inputs.headless == false && '--headed' || '' }}
       
       - name: Upload Playwright report
         uses: actions/upload-artifact@v4
