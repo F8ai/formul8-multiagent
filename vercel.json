@@ -2,32 +2,18 @@
   "version": 2,
   "builds": [
     {
-      "src": "lambda-package/lambda.js",
+      "src": "lambda.js",
       "use": "@vercel/node"
-    },
-    {
-      "src": "public/**",
-      "use": "@vercel/static"
     }
   ],
-  "rewrites": [
+  "routes": [
     {
-      "source": "/chat.html",
-      "destination": "/public/chat.html"
+      "src": "/api/(.*)",
+      "dest": "/lambda.js"
     },
     {
-      "source": "/chat",
-      "destination": "/public/chat.html"
-    },
-    {
-      "source": "/api/(.*)",
-      "destination": "/lambda-package/lambda.js"
-    },
-    {
-      "source": "/health",
-      "destination": "/lambda-package/lambda.js"
+      "src": "/health",
+      "dest": "/lambda.js"
     }
-  ],
-  "env": {
-  }
+  ]
 }
