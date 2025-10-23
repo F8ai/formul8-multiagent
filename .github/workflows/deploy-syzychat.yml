@@ -1,0 +1,75 @@
+name: Deploy SyzyChat Demo
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'docs/syzychat.js'
+      - 'public/syzychat-demo.html'
+      - 'public/syzychat.js'
+      - 'vercel-syzychat.json'
+      - '.github/workflows/deploy-syzychat.yml'
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Sync SyzyChat library
+        run: |
+          cp docs/syzychat.js public/syzychat.js
+          echo "✅ Synced syzychat.js to public/"
+
+      - name: Update version info
+        run: |
+          COMMIT_ID=$(git rev-parse --short HEAD)
+          TIMESTAMP=$(date -u +"%Y-%m-%d %H:%M UTC")
+          sed -i "s/SyzyChat v2\.5\.0/SyzyChat v2.5.0-${COMMIT_ID}/" public/syzychat-demo.html
+          echo "✅ Updated version to: v2.5.0-${COMMIT_ID}"
+
+      - name: Install Vercel CLI
+        run: npm install --global vercel@latest
+
+      - name: Deploy to Vercel
+        run: |
+          vercel deploy \
+            --prod \
+            --token=${{ secrets.VERCEL_TOKEN }} \
+            --yes \
+            --cwd . \
+            --config vercel-syzychat.json
+        env:
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_SYZYCHAT_PROJECT_ID }}
+
+      - name: Verify Deployment
+        run: |
+          echo "✅ SyzyChat demo deployed!"
+          echo "🔗 Live at: https://chat.syzygyx.com"
+          echo "📊 Commit: $(git rev-parse --short HEAD)"
+          echo "📦 Version: v2.5.0"
+
+      - name: Create deployment comment
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const commitId = context.sha.substring(0, 7);
+            const timestamp = new Date().toISOString();
+            
+            github.rest.repos.createCommitComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              commit_sha: context.sha,
+              body: `✅ SyzyChat Demo Deployed!\n\n💬 https://chat.syzygyx.com\n📊 Version: v2.5.0-${commitId}\n⏰ ${timestamp}\n\n**Features:**\n- Universal chat library\n- Markdown & emoji support\n- Pluggable formatters\n- Production-ready`
+            })
+

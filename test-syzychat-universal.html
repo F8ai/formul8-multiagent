@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SyzyChat Universal Test</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #212121;
+            color: #ececec;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            color: #00ff88;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .test-options {
+            background: #2f2f2f;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .test-options label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .test-options select {
+            width: 100%;
+            padding: 8px;
+            background: #1a1a1a;
+            color: #ececec;
+            border: 1px solid #4d4d4d;
+            border-radius: 4px;
+        }
+
+        .chat-container {
+            background: #2f2f2f;
+            border-radius: 12px;
+            overflow: hidden;
+            height: 500px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+        }
+
+        .message {
+            margin-bottom: 16px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .message.user {
+            justify-content: flex-end;
+        }
+
+        .message-content {
+            display: flex;
+            gap: 12px;
+            max-width: 80%;
+        }
+
+        .message-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: #00ff88;
+            color: #212121;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .message.assistant .message-avatar {
+            background: #4d4d4d;
+            color: #ececec;
+        }
+
+        .message-text {
+            background: #1a1a1a;
+            padding: 12px 16px;
+            border-radius: 12px;
+            line-height: 1.5;
+        }
+
+        .message.user .message-text {
+            background: #00ff88;
+            color: #212121;
+        }
+
+        .message-text code {
+            background: #000;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+
+        .message-text pre {
+            background: #000;
+            padding: 12px;
+            border-radius: 6px;
+            overflow-x: auto;
+            margin: 8px 0;
+        }
+
+        .message-text pre code {
+            background: none;
+            padding: 0;
+        }
+
+        .message-text strong {
+            font-weight: 600;
+        }
+
+        .message-text a {
+            color: #00d4aa;
+            text-decoration: none;
+        }
+
+        .message-text a:hover {
+            text-decoration: underline;
+        }
+
+        .message-metadata {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 8px;
+            font-size: 11px;
+        }
+
+        .metadata-badge {
+            background: #2f2f2f;
+            border: 1px solid #3f3f3f;
+            padding: 4px 8px;
+            border-radius: 12px;
+            opacity: 0.8;
+        }
+
+        .upgrade-callout {
+            background: linear-gradient(135deg, rgba(0, 255, 136, 0.1), rgba(138, 43, 226, 0.1));
+            border-left: 3px solid #00ff88;
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 12px;
+        }
+
+        .upgrade-callout h4 {
+            margin-bottom: 8px;
+            color: #00ff88;
+        }
+
+        .upgrade-callout ul {
+            margin-left: 20px;
+            margin-bottom: 8px;
+        }
+
+        .upgrade-callout li {
+            margin-bottom: 4px;
+        }
+
+        .upgrade-links {
+            display: flex;
+            gap: 8px;
+            margin-top: 8px;
+        }
+
+        .upgrade-link {
+            background: #00ff88;
+            color: #212121;
+            padding: 6px 12px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .upgrade-link:hover {
+            background: #00d4aa;
+        }
+
+        .typing-indicator {
+            display: flex;
+            gap: 4px;
+            padding: 12px;
+            align-items: center;
+        }
+
+        .typing-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #4d4d4d;
+            animation: typing 1.4s infinite;
+        }
+
+        .typing-dot:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .typing-dot:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes typing {
+            0%, 60%, 100% {
+                opacity: 0.3;
+                transform: scale(0.8);
+            }
+            30% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .input-container {
+            padding: 16px;
+            background: #1a1a1a;
+            border-top: 1px solid #4d4d4d;
+            display: flex;
+            gap: 12px;
+        }
+
+        #input {
+            flex: 1;
+            padding: 12px;
+            background: #2f2f2f;
+            border: 1px solid #4d4d4d;
+            border-radius: 8px;
+            color: #ececec;
+            font-size: 14px;
+            font-family: inherit;
+        }
+
+        #input:focus {
+            outline: none;
+            border-color: #00ff88;
+        }
+
+        #send-btn {
+            padding: 12px 24px;
+            background: #00ff88;
+            color: #212121;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        #send-btn:hover {
+            background: #00d4aa;
+        }
+
+        .status {
+            margin-top: 20px;
+            padding: 16px;
+            background: #2f2f2f;
+            border-radius: 8px;
+            font-size: 12px;
+            font-family: 'Courier New', monospace;
+        }
+
+        .status h3 {
+            margin-bottom: 12px;
+            color: #00ff88;
+            font-size: 14px;
+        }
+
+        .status pre {
+            background: #1a1a1a;
+            padding: 12px;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 SyzyChat Universal Test</h1>
+        
+        <div class="test-options">
+            <label>
+                <strong>Formatter:</strong>
+                <select id="formatter-select">
+                    <option value="default">Default (Universal)</option>
+                    <option value="formul8">Formul8 Plugin</option>
+                </select>
+            </label>
+        </div>
+
+        <div class="chat-container">
+            <div id="messages"></div>
+            <div class="input-container">
+                <input type="text" id="input" placeholder="Type a message..." />
+                <button id="send-btn">Send</button>
+            </div>
+        </div>
+
+        <div class="status">
+            <h3>Status</h3>
+            <pre id="status-output">Initializing...</pre>
+        </div>
+    </div>
+
+    <!-- Load SyzyChat Universal -->
+    <script src="docs/syzychat.js"></script>
+    <!-- Load Formul8 Plugin -->
+    <script src="src/syzychat-formul8-plugin.js"></script>
+
+    <script>
+        let chat = null;
+        
+        // Initialize chat
+        function initChat(formatterType) {
+            console.log('Initializing chat with formatter:', formatterType);
+            
+            const formatter = formatterType === 'formul8' ? Formul8MessageFormatter : DefaultMessageFormatter;
+            
+            // Destroy existing chat if any
+            if (chat) {
+                chat.destroy();
+            }
+            
+            // Create new chat instance
+            chat = new SyzyChat({
+                messagesContainer: '#messages',
+                inputElement: '#input',
+                sendButton: '#send-btn',
+                backendUrl: 'https://f8.syzygyx.com/api/chat',
+                formatter: formatter,
+                config: {
+                    tier: 'free',
+                    username: 'tester',
+                    autoRender: true,
+                    formatMessages: true
+                },
+                onMessage: (message) => {
+                    console.log('Message:', message);
+                    updateStatus();
+                },
+                onError: (error) => {
+                    console.error('Error:', error);
+                    updateStatus();
+                },
+                onBeforeSend: (message) => {
+                    console.log('Sending:', message);
+                },
+                onAfterReceive: (response) => {
+                    console.log('Received:', response);
+                }
+            });
+            
+            chat.init();
+            chat.setDebugMode(true);
+            
+            // Add welcome message
+            const welcomeMsg = formatterType === 'formul8' 
+                ? `Welcome to SyzyChat! 🚀
+
+Testing **Formul8 plugin** with:
+- Metadata badges
+- Upgrade prompts  
+- Token usage
+- Custom formatting
+
+Try asking something! For example:
+- "What is THC?"
+- "Tell me about compliance"
+
+---
+*Agent: System | Plan: Free | Tokens: 0 (0->0) | Cost: $0.00*
+
+---
+💡 **Upgrade Available**
+Get access to:
+• Advanced AI models
+• Priority support  
+• Custom agents
+[Upgrade Now](https://formul8.ai/plans) | [Learn More](https://formul8.ai/features)`
+                : `Welcome to SyzyChat! 🚀
+
+Testing **universal/default formatter** with:
+- Markdown support
+- **Bold** and *italic* text
+- \`code blocks\`
+- Links and more
+
+Try sending a message!`;
+            
+            chat.renderMessage(welcomeMsg, 'assistant', 'SyzyChat');
+            
+            updateStatus();
+        }
+        
+        // Update status display
+        function updateStatus() {
+            const status = chat.getStatus();
+            document.getElementById('status-output').textContent = JSON.stringify(status, null, 2);
+        }
+        
+        // Handle formatter change
+        document.getElementById('formatter-select').addEventListener('change', (e) => {
+            initChat(e.target.value);
+        });
+        
+        // Initialize with default formatter
+        initChat('default');
+        
+        // Add some test messages
+        setTimeout(() => {
+            const testMessage = `Here's a test with **markdown**:
+
+- Bullet list
+- With *italic* text
+- And \`inline code\`
+
+\`\`\`javascript
+console.log('Code block!');
+\`\`\`
+
+[Link example](https://example.com)`;
+            
+            chat.renderMessage(testMessage, 'assistant', 'Test');
+        }, 500);
+    </script>
+</body>
+</html>
+

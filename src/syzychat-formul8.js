@@ -1,25 +1,28 @@
 /**
- * SyzyChat - Universal Chat Library
+ * SyzyChat for Formul8 - Hybrid Edition
  * 
- * A comprehensive, production-ready chat library with:
+ * Combines the best features from:
+ * - Official SyzyChat (https://syzygyx.github.io/syzychat)
+ * - Custom Formul8 requirements
+ * 
+ * Features:
  * - Markdown & emoji rendering
- * - Pluggable message formatters
+ * - Formul8-specific message formatting with metadata
  * - Authentication token support
  * - Robust error handling with retry logic
  * - DOM rendering with auto-inject
  * - Theme management
  * - Secure configuration management
  * 
- * @version 2.5.0
- * @author Syzygyx (enhanced for universal use)
- * @license MIT
+ * @version 2.1.0
+ * @author Formul8 AI (based on Syzygyx SyzyChat)
  */
 
 (function(global) {
     'use strict';
 
     /**
-     * ConfigManager - Secure configuration management
+     * ConfigManager - Secure configuration management (from official SyzyChat)
      */
     class ConfigManager {
         constructor() {
@@ -96,9 +99,9 @@
     }
 
     /**
-     * Default Message Formatter - Handles markdown and basic formatting
+     * Message Formatter - Handles Formul8-specific formatting
      */
-    class DefaultMessageFormatter {
+    class MessageFormatter {
         static escapeHtml(text) {
             const div = document.createElement('div');
             div.textContent = text;
@@ -106,10 +109,91 @@
         }
 
         /**
-         * Format assistant message with markdown
+         * Format assistant message with Formul8 metadata and upgrade prompts
          */
-        static formatAssistantMessage(text, options = {}) {
-            return this.markdownToHtml(text);
+        static formatAssistantMessage(text) {
+            // Extract metadata (Agent, Plan, Tokens, Cost)
+            const metadataRegex = /---\s*\*Agent:\s*([^|]+)\s*\|\s*Plan:\s*([^|]+)\s*\|\s*Tokens:\s*([^|]+)\s*\|\s*Cost:\s*([^)]+)\)\s*\*\s*/;
+            const metadataMatch = text.match(metadataRegex);
+            
+            let metadata = null;
+            let mainContent = text;
+            
+            if (metadataMatch) {
+                metadata = {
+                    agent: metadataMatch[1].trim(),
+                    plan: metadataMatch[2].trim(),
+                    tokens: metadataMatch[3].trim(),
+                    cost: metadataMatch[4].trim()
+                };
+                mainContent = text.replace(metadataRegex, '');
+            }
+            
+            // Extract upgrade prompts
+            const upgradeRegex = /---\s*(💎|💡|🔓)\s*\*\*([^*]+)\*\*([^]*?)(?=---|$)/g;
+            let upgradePrompts = [];
+            let match;
+            
+            while ((match = upgradeRegex.exec(mainContent)) !== null) {
+                upgradePrompts.push({
+                    emoji: match[1],
+                    title: match[2].trim(),
+                    content: match[3].trim()
+                });
+            }
+            
+            // Remove upgrade prompts from main content
+            mainContent = mainContent.replace(upgradeRegex, '');
+            mainContent = mainContent.replace(/---\s*$/g, '').trim();
+            
+            // Convert markdown
+            mainContent = this.markdownToHtml(mainContent);
+            
+            // Build formatted HTML
+            let html = `<div class="message-main-content">${mainContent}</div>`;
+            
+            // Add metadata badges
+            if (metadata) {
+                html += `
+                    <div class="message-metadata">
+                        <span class="metadata-badge">🤖 <strong>${metadata.agent}</strong></span>
+                        <span class="metadata-badge">📋 ${metadata.plan}</span>
+                        <span class="metadata-badge">🎯 ${metadata.tokens} tokens</span>
+                        <span class="metadata-badge">💰 ${metadata.cost}</span>
+                    </div>
+                `;
+            }
+            
+            // Add upgrade prompts
+            if (upgradePrompts.length > 0) {
+                upgradePrompts.forEach(prompt => {
+                    const lines = prompt.content.split(/\n|<br>/);
+                    const bullets = [];
+                    const links = [];
+                    
+                    lines.forEach(line => {
+                        line = line.trim();
+                        if (line.startsWith('•')) {
+                            bullets.push(line.substring(1).trim());
+                        } else if (line.includes('<a href=')) {
+                            const linkMatches = line.matchAll(/<a href="([^"]+)"[^>]*>([^<]+)<\/a>/g);
+                            for (const linkMatch of linkMatches) {
+                                links.push({ url: linkMatch[1], text: linkMatch[2] });
+                            }
+                        }
+                    });
+                    
+                    html += `
+                        <div class="upgrade-callout">
+                            <h4>${prompt.emoji} ${prompt.title}</h4>
+                            ${bullets.length > 0 ? `<ul>${bullets.map(b => `<li>${b}</li>`).join('')}</ul>` : ''}
+                            ${links.length > 0 ? `<div class="upgrade-links">${links.map(l => `<a href="${l.url}" class="upgrade-link" target="_blank" rel="noopener noreferrer">${l.text}</a>`).join('')}</div>` : ''}
+                        </div>
+                    `;
+                });
+            }
+            
+            return html;
         }
 
         /**
@@ -123,7 +207,7 @@
          * Markdown to HTML conversion
          */
         static markdownToHtml(text) {
-            // Code blocks with syntax highlighting
+            // Code blocks with syntax
             text = text.replace(/```(\w+)?\n([\s\S]*?)```/g, (match, lang, code) => {
                 return `<pre><code class="language-${lang || 'text'}">${this.escapeHtml(code)}</code></pre>`;
             });
@@ -143,28 +227,9 @@
             text = text.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>');
             
             // Headers
-            text = text.replace(/^#### (.+)$/gm, '<h4>$1</h4>');
             text = text.replace(/^### (.+)$/gm, '<h3>$1</h3>');
             text = text.replace(/^## (.+)$/gm, '<h2>$1</h2>');
             text = text.replace(/^# (.+)$/gm, '<h1>$1</h1>');
-            
-            // Blockquotes
-            text = text.replace(/^> (.+)$/gm, '<blockquote>$1</blockquote>');
-            
-            // Horizontal rules
-            text = text.replace(/^---$/gm, '<hr>');
-            text = text.replace(/^\*\*\*$/gm, '<hr>');
-            
-            // Lists (simple implementation)
-            text = text.replace(/^- (.+)$/gm, '<li>$1</li>');
-            text = text.replace(/^• (.+)$/gm, '<li>$1</li>');
-            text = text.replace(/^\* (.+)$/gm, '<li>$1</li>');
-            text = text.replace(/^(\d+)\. (.+)$/gm, '<li>$2</li>');
-            
-            // Wrap consecutive <li> tags in <ul>
-            text = text.replace(/(<li>.*<\/li>\n?)+/g, (match) => {
-                return `<ul>${match}</ul>`;
-            });
             
             // Line breaks
             text = text.replace(/\n/g, '<br>');
@@ -174,16 +239,16 @@
     }
 
     /**
-     * SyzyChat - Main chat library class
+     * SyzyChat - Main class
      */
     class SyzyChat {
         constructor(options = {}) {
             this.configManager = new ConfigManager();
             this.logger = new Logger('SyzyChat');
-            this.logger.log('Initializing SyzyChat...');
+            this.logger.log('Initializing SyzyChat Formul8 Edition...');
 
             try {
-                // Theme management
+                // Theme management (from official SyzyChat)
                 this.currentTheme = localStorage.getItem('syzychat-theme') || 'dark';
                 localStorage.setItem('syzychat-theme', this.currentTheme);
 
@@ -192,13 +257,10 @@
                 this.messagesContainer = options.messagesContainer || null;
                 this.inputElement = options.inputElement || null;
                 this.sendButton = options.sendButton || null;
-                this.backendUrl = options.backendUrl || '/api/chat';
+                this.backendUrl = options.backendUrl || 'https://f8.syzygyx.com/api/chat';
                 this.authToken = this.configManager.get('authToken', options);
 
-                // Pluggable formatter
-                this.formatter = options.formatter || DefaultMessageFormatter;
-
-                // Feature flags
+                // Feature flags (from official SyzyChat)
                 this.features = {
                     enableEmoji: options.enableEmoji !== false,
                     enableMarkdown: options.enableMarkdown !== false,
@@ -210,6 +272,7 @@
                 // Configuration options
                 this.config = {
                     enableTypingIndicator: true,
+                    enableAgentRouting: true,
                     tier: 'free',
                     username: 'guest',
                     maxMessageLength: 4000,
@@ -355,25 +418,24 @@
         /**
          * Render a message to the DOM
          */
-        renderMessage(message, type = 'assistant', name = null) {
+        renderMessage(message, type = 'assistant', name = 'F8') {
             if (!this.messagesElement || !this.config.autoRender) return;
 
             const messageDiv = document.createElement('div');
             messageDiv.className = `message ${type}`;
             
-            const displayName = name || (type === 'user' ? this.config.username : 'Assistant');
-            const initial = displayName.charAt(0).toUpperCase();
+            const initial = name.charAt(0).toUpperCase();
             
-            // Format content using pluggable formatter
+            // Format content
             let formattedContent = message;
-            if (this.config.formatMessages && this.formatter) {
+            if (this.config.formatMessages) {
                 if (type === 'assistant' && this.features.enableMarkdown) {
-                    formattedContent = this.formatter.formatAssistantMessage(message);
+                    formattedContent = MessageFormatter.formatAssistantMessage(message);
                 } else {
-                    formattedContent = this.formatter.formatUserMessage(message);
+                    formattedContent = MessageFormatter.formatUserMessage(message);
                 }
             } else if (this.features.enableMarkdown) {
-                formattedContent = DefaultMessageFormatter.markdownToHtml(message);
+                formattedContent = MessageFormatter.markdownToHtml(message);
             }
             
             messageDiv.innerHTML = `
@@ -453,7 +515,7 @@
 
                     // Render assistant message
                     if (this.config.autoRender && response.response) {
-                        this.renderMessage(response.response, 'assistant', response.agent || null);
+                        this.renderMessage(response.response, 'assistant', response.agent || 'F8');
                     }
 
                     // Add to history
@@ -522,7 +584,9 @@
                     message: message,
                     tier: this.config.tier,
                     username: this.config.username,
-                    ...options
+                    agent: options.agent || undefined,
+                    user_id: options.user_id || 'web-user',
+                    context: options.context || undefined
                 };
 
                 this.logger.log('Request body:', requestBody);
@@ -666,14 +730,6 @@
         }
 
         /**
-         * Set custom formatter
-         */
-        setFormatter(formatter) {
-            this.formatter = formatter;
-            this.logger.log('Custom formatter set');
-        }
-
-        /**
          * Cancel ongoing request
          */
         cancelRequest() {
@@ -700,14 +756,14 @@
         }
 
         /**
-         * Sleep utility for retries
+         * Sleep utility
          */
         sleep(ms) {
             return new Promise(resolve => setTimeout(resolve, ms));
         }
 
         /**
-         * Get status information
+         * Get status
          */
         getStatus() {
             return {
@@ -733,13 +789,13 @@
 
     // Export to global scope
     global.SyzyChat = SyzyChat;
-    global.DefaultMessageFormatter = DefaultMessageFormatter;
+    global.MessageFormatter = MessageFormatter;
     global.ConfigManager = ConfigManager;
-    global.Logger = Logger;
 
     // Log library loaded
-    console.log('%c[SyzyChat] Library Loaded Successfully', 'color: #4CAF50; font-weight: bold; font-size: 14px;');
-    console.log('%c[SyzyChat] Version 2.5.0 - Universal Edition', 'color: #2196F3;');
-    console.log('%c[SyzyChat] Markdown ✓ | Emoji ✓ | Auth ✓ | Pluggable Formatters ✓', 'color: #19c37d;');
+    console.log('%c[SyzyChat] Formul8 Edition Loaded Successfully', 'color: #00ff88; font-weight: bold; font-size: 14px;');
+    console.log('%c[SyzyChat] Version 2.1.0 - Hybrid: Official SyzyChat + Formul8 Custom', 'color: #00d4aa;');
+    console.log('%c[SyzyChat] Features: Markdown ✓ | Emoji ✓ | Auth ✓ | Formul8 Metadata ✓', 'color: #19c37d;');
 
 })(typeof window !== 'undefined' ? window : this);
+

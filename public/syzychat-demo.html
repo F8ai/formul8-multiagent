@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SyzyChat - Universal Chat Library</title>
+    <meta name="description" content="SyzyChat - A universal, production-ready chat library with markdown, emoji support, and pluggable formatters">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💬</text></svg>">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #ececec;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .logo-icon {
+            font-size: 32px;
+        }
+
+        .logo-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .header-links a {
+            color: #ececec;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            transition: all 0.2s;
+        }
+
+        .header-links a:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 40px 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .hero {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: #b0b0b0;
+            margin-bottom: 24px;
+        }
+
+        .features {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .feature-badge {
+            background: rgba(102, 126, 234, 0.2);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            border: 1px solid rgba(102, 126, 234, 0.3);
+        }
+
+        .chat-wrapper {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            max-height: 600px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        #messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 24px;
+            scroll-behavior: smooth;
+        }
+
+        #messages::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        #messages::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        #messages::-webkit-scrollbar-thumb {
+            background: rgba(102, 126, 234, 0.5);
+            border-radius: 4px;
+        }
+
+        #messages::-webkit-scrollbar-thumb:hover {
+            background: rgba(102, 126, 234, 0.7);
+        }
+
+        .message {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: flex-start;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .message.user {
+            justify-content: flex-end;
+        }
+
+        .message-content {
+            display: flex;
+            gap: 12px;
+            max-width: 75%;
+        }
+
+        .message.user .message-content {
+            flex-direction: row-reverse;
+        }
+
+        .message-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 18px;
+            flex-shrink: 0;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+        }
+
+        .message.user .message-avatar {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            box-shadow: 0 4px 12px rgba(245, 87, 108, 0.3);
+        }
+
+        .message-text {
+            background: rgba(255, 255, 255, 0.08);
+            padding: 12px 16px;
+            border-radius: 12px;
+            line-height: 1.6;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .message.user .message-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+        }
+
+        .message-text code {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Monaco', 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+
+        .message-text pre {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 12px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 10px 0;
+        }
+
+        .message-text pre code {
+            background: none;
+            padding: 0;
+        }
+
+        .message-text a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .message.user .message-text a {
+            color: white;
+            text-decoration: underline;
+        }
+
+        .message-text a:hover {
+            text-decoration: underline;
+        }
+
+        .message-text strong {
+            font-weight: 600;
+        }
+
+        .message-text h1, .message-text h2, .message-text h3, .message-text h4 {
+            margin: 12px 0 8px 0;
+            color: #667eea;
+        }
+
+        .message-text ul {
+            margin-left: 20px;
+            margin-top: 8px;
+        }
+
+        .message-text li {
+            margin-bottom: 4px;
+        }
+
+        .typing-indicator {
+            display: flex;
+            gap: 6px;
+            padding: 16px;
+            align-items: center;
+        }
+
+        .typing-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(102, 126, 234, 0.6);
+            animation: typing 1.4s infinite;
+        }
+
+        .typing-dot:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .typing-dot:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes typing {
+            0%, 60%, 100% {
+                opacity: 0.3;
+                transform: scale(0.8);
+            }
+            30% {
+                opacity: 1;
+                transform: scale(1.2);
+            }
+        }
+
+        .input-container {
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.3);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            gap: 12px;
+        }
+
+        #input {
+            flex: 1;
+            padding: 14px 18px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            color: #ececec;
+            font-size: 15px;
+            font-family: inherit;
+            transition: all 0.2s;
+        }
+
+        #input:focus {
+            outline: none;
+            border-color: #667eea;
+            background: rgba(255, 255, 255, 0.12);
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+        }
+
+        #input::placeholder {
+            color: #888;
+        }
+
+        #send-btn {
+            padding: 14px 28px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 15px;
+            cursor: pointer;
+            transition: all 0.2s;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+        }
+
+        #send-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        #send-btn:active {
+            transform: translateY(0);
+        }
+
+        .footer {
+            text-align: center;
+            padding: 30px 20px;
+            color: #888;
+            font-size: 14px;
+        }
+
+        .footer a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .message-content {
+                max-width: 85%;
+            }
+
+            .chat-wrapper {
+                max-height: 500px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <span class="logo-icon">💬</span>
+                <span class="logo-text">SyzyChat</span>
+            </div>
+            <nav class="header-links">
+                <a href="https://github.com/syzygyx/syzychat" target="_blank">GitHub</a>
+                <a href="#docs">Docs</a>
+                <a href="https://formul8.ai" target="_blank">Formul8</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="hero">
+            <h1>SyzyChat</h1>
+            <p>Universal Chat Library for Modern Web Apps</p>
+            <div class="features">
+                <span class="feature-badge">✨ Markdown Support</span>
+                <span class="feature-badge">😊 Emoji Ready</span>
+                <span class="feature-badge">🔌 Pluggable</span>
+                <span class="feature-badge">🔒 Secure</span>
+                <span class="feature-badge">⚡ Fast</span>
+                <span class="feature-badge">🎨 Themeable</span>
+            </div>
+        </div>
+
+        <div class="chat-wrapper">
+            <div id="messages"></div>
+            <div class="input-container">
+                <input type="text" id="input" placeholder="Try: 'What is SyzyChat?' or 'Show me markdown examples'" />
+                <button id="send-btn">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>
+            SyzyChat v2.5.0 - Universal Edition | 
+            <a href="https://github.com/syzygyx/syzychat" target="_blank">Open Source</a> | 
+            Built with ❤️ by <a href="https://formul8.ai" target="_blank">Formul8 AI</a>
+        </p>
+    </footer>
+
+    <!-- Load SyzyChat Universal -->
+    <script src="/syzychat.js"></script>
+
+    <script>
+        // Initialize SyzyChat
+        const chat = new SyzyChat({
+            messagesContainer: '#messages',
+            inputElement: '#input',
+            sendButton: '#send-btn',
+            backendUrl: 'https://f8.syzygyx.com/api/chat',
+            config: {
+                tier: 'free',
+                username: 'demo',
+                autoRender: true,
+                formatMessages: true,
+                enableTypingIndicator: true
+            },
+            onError: (error) => {
+                console.error('Chat error:', error);
+                // Show friendly error message
+                chat.renderMessage(
+                    '⚠️ Sorry, I\'m having trouble connecting right now. Please try again in a moment.',
+                    'assistant',
+                    'SyzyChat'
+                );
+            }
+        });
+
+        chat.init();
+        chat.setDebugMode(false); // Disable in production
+
+        // Welcome message
+        const welcomeMessage = `# Welcome to SyzyChat! 👋
+
+I'm a **universal chat library** that makes building chat interfaces easy and beautiful.
+
+## ✨ Features
+
+- **Markdown Support** - Format text with \`code\`, **bold**, *italic*, and more
+- **Emoji Ready** - 😊 🚀 💬 Native emoji support
+- **Pluggable** - Extend with custom formatters
+- **Secure** - Built-in auth and config management
+- **Error Handling** - Automatic retries and graceful failures
+
+## 🎯 Try It Out
+
+Ask me about:
+- "What is SyzyChat?"
+- "Show me markdown examples"
+- "How do I integrate this?"
+- "What features do you support?"
+
+Or just chat about anything! This is powered by **Formul8's multiagent AI system**.`;
+
+        chat.renderMessage(welcomeMessage, 'assistant', 'SyzyChat');
+
+        // Log initialization
+        console.log('%c[SyzyChat Demo] Initialized', 'color: #667eea; font-weight: bold;');
+        console.log('Status:', chat.getStatus());
+    </script>
+</body>
+</html>
+
