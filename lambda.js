@@ -89,6 +89,11 @@ app.get('/chat', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'chat.html'));
 });
 
+// Future4200 route
+app.get('/future4200.html', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'future4200.html'));
+});
+
 // Health endpoint
 app.get('/health', (req, res) => {
   res.json({
