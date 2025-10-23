@@ -4,6 +4,14 @@
     {
       "src": "lambda.js",
       "use": "@vercel/node"
+    },
+    {
+      "src": "future4200.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "public/**",
+      "use": "@vercel/static"
     }
   ],
   "routes": [
@@ -16,12 +24,12 @@
       "dest": "/lambda.js"
     },
     {
-      "handle": "filesystem"
+      "src": "/future4200.html",
+      "dest": "/future4200.html"
     },
     {
       "src": "/(.*)",
-      "dest": "/lambda.js"
+      "dest": "/public/$1"
     }
-  ],
-  "outputDirectory": "public"
+  ]
 }
