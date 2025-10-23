@@ -195,6 +195,7 @@ module.exports = {
   getUserPlan,
   createOrUpdateUser,
   authenticateGoogleUser,
+  ALLOWED_EMAIL_DOMAINS,
 };
 
 

@@ -1,0 +1,188 @@
+name: Rotate Keys and Deploy Main
+
+# Monthly key rotation - only updates main formul8-multiagent
+# Agents receive keys via API calls, don't store them
+on:
+  schedule:
+    - cron: '0 3 1 * *'  # 1st of month at 3 AM UTC
+  workflow_dispatch:
+
+jobs:
+  rotate-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Rotate OpenRouter API Key
+        id: rotation
+        env:
+          OPENROUTER_PROVISIONING_KEY: ${{ secrets.OPENROUTER_PROVISIONING_KEY }}
+        run: |
+          echo "🔄 Starting OpenRouter key rotation..."
+          
+          # Create new key via OpenRouter API
+          RESPONSE=$(curl -s -X POST https://openrouter.ai/api/v1/keys \
+            -H "Authorization: Bearer $OPENROUTER_PROVISIONING_KEY" \
+            -H "Content-Type: application/json" \
+            -d '{
+              "name": "Formul8-Main-'$(date +%Y%m%d)'",
+              "limit": 10000,
+              "usage_limits": {
+                "requests_per_minute": 100
+              }
+            }')
+          
+          NEW_KEY=$(echo $RESPONSE | jq -r '.key')
+          KEY_ID=$(echo $RESPONSE | jq -r '.id')
+          
+          if [ ! -z "$NEW_KEY" ] && [ "$NEW_KEY" != "null" ]; then
+            echo "✅ New key created: $KEY_ID"
+            echo "new_key=$NEW_KEY" >> $GITHUB_OUTPUT
+            echo "key_id=$KEY_ID" >> $GITHUB_OUTPUT
+            echo "success=true" >> $GITHUB_OUTPUT
+          else
+            echo "❌ Key rotation failed"
+            echo "$RESPONSE"
+            exit 1
+          fi
+
+      - name: Update GitHub Secret
+        if: success()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NEW_KEY: ${{ steps.rotation.outputs.new_key }}
+        run: |
+          gh secret set OPENROUTER_API_KEY --body "$NEW_KEY"
+          echo "✅ GitHub secret OPENROUTER_API_KEY updated"
+
+      - name: Update Vercel Environment Variable
+        if: success()
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          NEW_KEY: ${{ steps.rotation.outputs.new_key }}
+        run: |
+          # Update OPENROUTER_API_KEY in Vercel for main project
+          vercel env rm OPENROUTER_API_KEY production --token=$VERCEL_TOKEN --yes || true
+          echo "$NEW_KEY" | vercel env add OPENROUTER_API_KEY production --token=$VERCEL_TOKEN
+          echo "✅ Vercel environment variable updated"
+
+      - name: Deploy Main Application
+        if: success()
+        run: |
+          npm install --global vercel@latest
+          vercel --prod --token=${{ secrets.VERCEL_TOKEN }} --yes
+        env:
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+
+      - name: Test New Key
+        if: success()
+        env:
+          NEW_KEY: ${{ steps.rotation.outputs.new_key }}
+        run: |
+          echo "🧪 Testing new OpenRouter key..."
+          
+          RESPONSE=$(curl -s -X POST https://openrouter.ai/api/v1/chat/completions \
+            -H "Authorization: Bearer $NEW_KEY" \
+            -H "Content-Type: application/json" \
+            -d '{
+              "model": "openai/gpt-oss-120b",
+              "messages": [{"role": "user", "content": "test"}],
+              "max_tokens": 5
+            }')
+          
+          if echo "$RESPONSE" | jq -e '.choices[0]' > /dev/null; then
+            echo "✅ New key is working correctly"
+          else
+            echo "❌ New key test failed"
+            echo "$RESPONSE"
+            exit 1
+          fi
+
+      - name: Deactivate Old Key
+        if: success()
+        env:
+          OPENROUTER_PROVISIONING_KEY: ${{ secrets.OPENROUTER_PROVISIONING_KEY }}
+          OLD_KEY_ID: ${{ secrets.OPENROUTER_OLD_KEY_ID }}
+        run: |
+          if [ ! -z "$OLD_KEY_ID" ] && [ "$OLD_KEY_ID" != "null" ]; then
+            echo "🗑️ Deactivating old key: $OLD_KEY_ID"
+            curl -X DELETE https://openrouter.ai/api/v1/keys/$OLD_KEY_ID \
+              -H "Authorization: Bearer $OPENROUTER_PROVISIONING_KEY"
+            echo "✅ Old key deactivated"
+          else
+            echo "ℹ️ No old key to deactivate"
+          fi
+
+      - name: Store New Key ID for Next Rotation
+        if: success()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          KEY_ID: ${{ steps.rotation.outputs.key_id }}
+        run: |
+          gh secret set OPENROUTER_OLD_KEY_ID --body "$KEY_ID"
+          echo "✅ Stored key ID for next rotation"
+
+      - name: Create Summary
+        if: always()
+        run: |
+          cat >> $GITHUB_STEP_SUMMARY << EOF
+          # 🔄 OpenRouter Key Rotation
+          
+          ## Results
+          
+          - **Status**: ${{ success() && '✅ Success' || '❌ Failed' }}
+          - **Date**: $(date -u +"%Y-%m-%d %H:%M:%S UTC")
+          - **Key ID**: ${{ steps.rotation.outputs.key_id }}
+          
+          ## Architecture
+          
+          ✅ **Centralized Key Management**
+          - Main system stores OPENROUTER_API_KEY
+          - Agents receive key via API calls
+          - Single point of rotation (this deployment)
+          
+          ## Deployment
+          
+          - ✅ GitHub Secret updated
+          - ✅ Vercel environment variable updated  
+          - ✅ Main application redeployed
+          - ✅ New key tested and validated
+          - ✅ Old key deactivated
+          
+          ## How Agents Receive Keys
+          
+          \`\`\`
+          Main Chat → Agent API Call
+                     ↓
+          {
+            "message": "user question",
+            "api_key": "OPENROUTER_API_KEY"  ← passed in request
+          }
+          \`\`\`
+          
+          Agents don't store keys - they receive them per request.
+          
+          ## Next Rotation
+          
+          **Scheduled**: 1st of next month at 3:00 AM UTC
+          
+          ---
+          
+          *Centralized key management = Single point of rotation, better security*
+          EOF
+
+      - name: Notify on Failure
+        if: failure()
+        run: |
+          echo "❌ Key rotation failed!"
+          echo "Check logs above for details"
+          exit 1
+

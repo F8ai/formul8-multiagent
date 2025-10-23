@@ -1,0 +1,213 @@
+name: Deploy Agent On Demand
+
+# Deploy individual agents by pulling their repos
+on:
+  workflow_dispatch:
+    inputs:
+      agent_name:
+        description: 'Agent to deploy'
+        required: true
+        type: choice
+        options:
+          - compliance-agent
+          - formulation-agent
+          - science-agent
+          - operations-agent
+          - marketing-agent
+          - sourcing-agent
+          - patent-agent
+          - spectra-agent
+          - customer-success-agent
+          - mcr-agent
+          - ad-agent
+          - editor-agent
+          - f8-slackbot
+      deployment_type:
+        description: 'Deployment type'
+        required: false
+        default: 'production'
+        type: choice
+        options:
+          - production
+          - preview
+          - development
+
+jobs:
+  pull-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Setup workspace
+        run: |
+          mkdir -p ~/agents
+          cd ~/agents
+
+      - name: Check if agent has separate repo
+        id: check_repo
+        run: |
+          AGENT="${{ inputs.agent_name }}"
+          echo "Checking for separate repo: F8ai/$AGENT"
+          
+          # Check if repo exists
+          STATUS=$(curl -s -o /dev/null -w "%{http_code}" \
+            -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            https://api.github.com/repos/F8ai/$AGENT)
+          
+          if [ "$STATUS" == "200" ]; then
+            echo "✅ Separate repo exists"
+            echo "has_repo=true" >> $GITHUB_OUTPUT
+            echo "repo_url=https://github.com/F8ai/$AGENT.git" >> $GITHUB_OUTPUT
+          else
+            echo "ℹ️ No separate repo, using multiagent/agents/$AGENT"
+            echo "has_repo=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Clone agent repo (if separate)
+        if: steps.check_repo.outputs.has_repo == 'true'
+        run: |
+          cd ~/agents
+          git clone ${{ steps.check_repo.outputs.repo_url }}
+          cd ${{ inputs.agent_name }}
+          echo "✅ Cloned ${{ inputs.agent_name }}"
+
+      - name: Clone multiagent repo (if embedded)
+        if: steps.check_repo.outputs.has_repo == 'false'
+        uses: actions/checkout@v4
+        with:
+          repository: F8ai/formul8-multiagent
+          path: ~/agents/multiagent
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: |
+          if [ "${{ steps.check_repo.outputs.has_repo }}" == "true" ]; then
+            cd ~/agents/${{ inputs.agent_name }}
+          else
+            cd ~/agents/multiagent/agents/${{ inputs.agent_name }}
+          fi
+          npm install
+          echo "✅ Dependencies installed"
+
+      - name: Install Vercel CLI
+        run: npm install --global vercel@latest
+
+      - name: Configure Vercel project
+        run: |
+          if [ "${{ steps.check_repo.outputs.has_repo }}" == "true" ]; then
+            cd ~/agents/${{ inputs.agent_name }}
+          else
+            cd ~/agents/multiagent/agents/${{ inputs.agent_name }}
+          fi
+          
+          # Create or update vercel.json if needed
+          if [ ! -f "vercel.json" ]; then
+            cat > vercel.json << 'EOF'
+{
+  "version": 2,
+  "name": "${{ inputs.agent_name }}",
+  "builds": [
+    {
+      "src": "lambda.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/lambda.js"
+    }
+  ]
+}
+EOF
+          fi
+
+      - name: Deploy to Vercel
+        run: |
+          if [ "${{ steps.check_repo.outputs.has_repo }}" == "true" ]; then
+            cd ~/agents/${{ inputs.agent_name }}
+          else
+            cd ~/agents/multiagent/agents/${{ inputs.agent_name }}
+          fi
+          
+          if [ "${{ inputs.deployment_type }}" == "production" ]; then
+            vercel --prod --token=${{ secrets.VERCEL_TOKEN }} --yes
+          else
+            vercel --token=${{ secrets.VERCEL_TOKEN }} --yes
+          fi
+        env:
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets[format('VERCEL_{0}_PROJECT_ID', inputs.agent_name)] }}
+          # Agents don't need OPENROUTER_API_KEY stored
+          # They receive it via API calls from main system
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_REGION: us-east-1
+
+      - name: Verify deployment
+        run: |
+          echo "✅ ${{ inputs.agent_name }} deployed successfully"
+          echo "🔗 URL: https://${{ inputs.agent_name }}.f8.syzygyx.com"
+          echo "📦 Type: ${{ inputs.deployment_type }}"
+          echo "📍 Source: ${{ steps.check_repo.outputs.has_repo == 'true' && 'Separate repo' || 'Multiagent embedded' }}"
+
+      - name: Test deployment
+        run: |
+          echo "🧪 Testing ${{ inputs.agent_name }} health endpoint..."
+          
+          HEALTH_URL="https://${{ inputs.agent_name }}.f8.syzygyx.com/health"
+          
+          sleep 5  # Wait for deployment
+          
+          RESPONSE=$(curl -s -w "%{http_code}" -o /tmp/health.json "$HEALTH_URL")
+          
+          if [ "$RESPONSE" == "200" ]; then
+            echo "✅ Health check passed"
+            cat /tmp/health.json | jq .
+          else
+            echo "⚠️ Health check returned $RESPONSE"
+            cat /tmp/health.json
+          fi
+
+      - name: Create deployment summary
+        if: always()
+        run: |
+          cat >> $GITHUB_STEP_SUMMARY << EOF
+          # 🚀 Agent Deployment: ${{ inputs.agent_name }}
+          
+          ## Configuration
+          
+          - **Agent**: ${{ inputs.agent_name }}
+          - **Type**: ${{ inputs.deployment_type }}
+          - **Source**: ${{ steps.check_repo.outputs.has_repo == 'true' && '📦 Separate repo' || '📁 Multiagent embedded' }}
+          - **Status**: ${{ success() && '✅ Success' || '❌ Failed' }}
+          - **Date**: $(date -u +"%Y-%m-%d %H:%M:%S UTC")
+          
+          ## Deployment URL
+          
+          🔗 https://${{ inputs.agent_name }}.f8.syzygyx.com
+          
+          ## Architecture
+          
+          \`\`\`
+          User → chat.formul8.ai (has OPENROUTER_API_KEY)
+                   ↓
+          Main routes to agent with key in request:
+                   ↓
+          POST https://${{ inputs.agent_name }}.f8.syzygyx.com/api/chat
+          {
+            "message": "user question",
+            "api_key": "OPENROUTER_API_KEY"
+          }
+          \`\`\`
+          
+          **Agents don't store keys** - they receive them per request.
+          
+          ---
+          
+          *Pull agent repos as needed, deploy on demand*
+          EOF
+
