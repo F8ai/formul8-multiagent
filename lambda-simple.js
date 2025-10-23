@@ -378,20 +378,34 @@ app.get('/chat', (req, res) => {
 });
 
 // API chat endpoint
-app.post('/api/chat', (req, res) => {
-  const { message } = req.body;
+app.post('/api/chat', async (req, res) => {
+  const { message, plan = 'free', username = 'anonymous', agent } = req.body;
   
   if (!message) {
     return res.status(400).json({ error: 'Message is required' });
   }
   
-  // Simple response for now
-  res.json({
-    success: true,
-    response: `I received your message: "${message}". This is a placeholder response from the Formul8 Multiagent system.`,
-    agent: 'f8_agent',
-    timestamp: new Date().toISOString()
-  });
+  try {
+    // Use consolidated chat service with LangChain integration
+    const ChatService = require('./services/chat-service');
+    const chatService = new ChatService();
+    
+    const result = await chatService.processChat({
+      message,
+      agent,
+      plan,
+      username
+    });
+
+    res.json(result);
+  } catch (error) {
+    console.error('Chat API error:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Internal server error',
+      error: error.message
+    });
+  }
 });
 
 // Lambda handler
