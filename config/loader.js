@@ -111,8 +111,12 @@ class ConfigLoader {
   getAgentsList() {
     const agents = this.getAllAgents();
     return Object.entries(agents)
-      .map(([id, agent]) => `- ${id}: ${agent.description}`)
-      .join('\n');
+      .map(([id, agent]) => {
+        const keywords = agent.keywords ? agent.keywords.join(', ') : 'N/A';
+        const specialties = agent.specialties ? agent.specialties.slice(0, 3).join('; ') : 'N/A';
+        return `- **${id}**: ${agent.description}\n  Keywords: ${keywords}\n  Specialties: ${specialties}`;
+      })
+      .join('\n\n');
   }
 
   // Helper method to get agent specialties for prompt

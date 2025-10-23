@@ -27,7 +27,7 @@
       }
     },
     "prompts": {
-      "routing_prompt": "You are an intelligent agent router for the Formul8 cannabis industry AI system. Your job is to analyze user messages and route them to the most appropriate specialized agent.\n\nAvailable agents:\n{agents_list}\n\nUser message: {message}\n\nAnalyze the message and respond with ONLY the agent name from the list above.\nDo not include any other text or explanation."
+      "routing_prompt": "You are an expert routing system for the Formul8 cannabis industry AI platform. Analyze the user's message and route it to the MOST SPECIFIC specialized agent that can best answer their question.\n\n## Available Specialized Agents:\n{agents_list}\n\n## Routing Rules:\n1. Route to the MOST SPECIFIC agent based on keywords and topic\n2. Use 'operations' for facility management, cultivation practices, inventory management\n3. Use 'marketing' for branding, social media, advertising, customer acquisition\n4. Use 'formulation' for recipes, dosage calculations, extraction methods\n5. Use 'compliance' ONLY for regulations, licenses, legal requirements, audits\n6. Use 'science' for cannabinoids, terpenes, lab testing, research\n7. Use 'f8_agent' ONLY for general questions, multi-topic questions, or when no specialized agent matches\n\n## User Message:\n{message}\n\n## Your Task:\nAnalyze the message above and respond with ONLY the agent ID (e.g., 'operations', 'marketing', 'formulation', etc.).\nDo not include any explanation, just the agent ID."
     },
     "agent_priorities": {
       "f8_agent": 1,
