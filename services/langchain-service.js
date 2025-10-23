@@ -160,7 +160,7 @@ class LangChainService {
         return response;
       }
     } catch (error) {
-      console.error(`Error getting response from ${agentId}:`, error);
+      console.error('Error getting agent response:', { agentId, error: error.message });
       throw error;
     }
   }

@@ -1244,7 +1244,7 @@ const validatePlan = (plan) => {
 // API chat endpoint with enhanced security
 app.post('/api/chat', async (req, res) => {
   try {
-    const { message, plan = 'standard', username = 'anonymous' } = req.body;
+    const { message, plan = 'free', username = 'anonymous', agent } = req.body;
     
     // Validate required fields
     if (!message) {
@@ -1286,152 +1286,18 @@ app.post('/api/chat', async (req, res) => {
     // Log the request for monitoring
     console.log(`Chat request - User: ${sanitizedUsername}, Plan: ${validatedPlan}, Message length: ${sanitizedMessage.length}`);
     
-    // Continue with the original logic using sanitized inputs
-    // message and plan are already available from the destructuring above
+    // Use consolidated chat service with LangChain integration
+    const ChatService = require('./services/chat-service');
+    const chatService = new ChatService();
     
-    // Get OpenRouter API key from environment
-    const openRouterApiKey = process.env.OPENROUTER_API_KEY;
-    
-    if (!openRouterApiKey) {
-      console.error('OpenRouter API key not found in environment variables');
-      return res.status(500).json({ 
-        error: 'API configuration error',
-        response: 'I apologize, but I\'m currently experiencing a configuration issue. Please try again later.'
-      });
-    }
-    
-    // Load plans configuration
-    const fs = require('fs');
-    let plansConfig;
-    try {
-      plansConfig = JSON.parse(fs.readFileSync(__dirname + '/config/plans.json', 'utf8'));
-    } catch (error) {
-      console.error('Error loading plans.json:', error);
-      return res.status(500).json({ 
-        error: 'Configuration error',
-        response: 'I apologize, but I\'m currently experiencing a configuration issue. Please try again later.'
-      });
-    }
-    
-    // Get the requested plan configuration
-    const planConfig = plansConfig.plans[validatedPlan];
-    if (!planConfig) {
-      return res.status(400).json({ 
-        error: 'Invalid plan',
-        response: `The plan '${validatedPlan}' is not available. Please select a valid plan.`
-      });
-    }
-    
-    // Get available agents for this plan
-    const availableAgents = Object.entries(planConfig.agents)
-      .filter(([agentKey, enabled]) => enabled)
-      .map(([agentKey, enabled]) => agentKey);
-    
-    // Load agents configuration to get agent details
-    let agentsConfig;
-    try {
-      agentsConfig = JSON.parse(fs.readFileSync(__dirname + '/config/agents.json', 'utf8'));
-    } catch (error) {
-      console.error('Error loading agents.json:', error);
-      return res.status(500).json({ 
-        error: 'Configuration error',
-        response: 'I apologize, but I\'m currently experiencing a configuration issue. Please try again later.'
-      });
-    }
-    
-    // Determine which agent to use based on message content and available agents
-    let selectedAgent = 'compliance'; // Default fallback
-    
-    // Simple keyword-based routing (can be enhanced with more sophisticated logic)
-    const messageLower = sanitizedMessage.toLowerCase();
-    for (const agentKey of availableAgents) {
-      const agent = agentsConfig.agents[agentKey];
-      if (agent && agent.keywords) {
-        const hasKeyword = agent.keywords.some(keyword => 
-          messageLower.includes(keyword.toLowerCase())
-        );
-        if (hasKeyword) {
-          selectedAgent = agentKey;
-          break;
-        }
-      }
-    }
-    
-    // Get selected agent details
-    const selectedAgentDetails = agentsConfig.agents[selectedAgent];
-    const agentName = selectedAgentDetails ? selectedAgentDetails.name : selectedAgent;
-    
-    // Create system prompt based on selected agent and plan
-    const systemPrompt = selectedAgentDetails 
-      ? `You are a ${agentName} specializing in ${selectedAgentDetails.description}. You are part of the Formul8 Multiagent system with access to the ${planConfig.name} plan. ${selectedAgentDetails.specialties ? 'Your specialties include: ' + selectedAgentDetails.specialties.join(', ') + '.' : ''} Provide helpful, accurate, and professional responses. Keep responses concise but informative.`
-      : `You are a Formul8 Multiagent AI assistant specializing in the cannabis industry. You are using the ${planConfig.name} plan. Provide helpful, accurate, and professional responses. Keep responses concise but informative.`;
-    
-    // Call OpenRouter API
-    const openRouterResponse = await fetch('https://openrouter.ai/api/v1/chat/completions', {
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${openRouterApiKey}`,
-        'Content-Type': 'application/json',
-        'HTTP-Referer': 'https://f8.syzygyx.com',
-        'X-Title': 'Formul8 Multiagent Chat'
-      },
-      body: JSON.stringify({
-        model: 'openai/gpt-oss-120b',
-        messages: [
-          {
-            role: 'system',
-            content: systemPrompt
-          },
-          {
-            role: 'user',
-            content: message
-          }
-        ],
-        max_tokens: 1000,
-        temperature: 0.7
-      })
+    const result = await chatService.processChat({
+      message: sanitizedMessage,
+      agent,
+      plan: validatedPlan,
+      username: sanitizedUsername
     });
-    
-    if (!openRouterResponse.ok) {
-      console.error('OpenRouter API error:', openRouterResponse.status, openRouterResponse.statusText);
-      return res.status(500).json({ 
-        error: 'AI service temporarily unavailable',
-        response: 'I apologize, but I\'m currently unable to process your request. Please try again in a moment.'
-      });
-    }
-    
-    const aiData = await openRouterResponse.json();
-    const aiResponse = aiData.choices?.[0]?.message?.content || 'I apologize, but I couldn\'t generate a response. Please try again.';
-    
-    // Extract usage information
-    const usage = aiData.usage || {};
-    const promptTokens = usage.prompt_tokens || 0;
-    const completionTokens = usage.completion_tokens || 0;
-    const totalTokens = usage.total_tokens || (promptTokens + completionTokens);
-    
-    // Calculate cost (openai/gpt-oss-120b is free, so cost is $0.00)
-    const totalCost = 0.00; // Free model
-    
-    // Create footer with metadata
-    const footer = `\n\n---\n*Agent: ${agentName} | Plan: ${planConfig.name} | Tokens: ${totalTokens} (${promptTokens}→${completionTokens}) | Cost: $${totalCost.toFixed(6)}*`;
-    const responseWithFooter = aiResponse + footer;
-    
-    res.json({
-      success: true,
-      response: responseWithFooter,
-      agent: selectedAgent,
-      agentName: agentName,
-      plan: plan,
-      planName: planConfig.name,
-      timestamp: new Date().toISOString(),
-      model: 'openai/gpt-oss-120b',
-      usage: {
-        prompt_tokens: promptTokens,
-        completion_tokens: completionTokens,
-        total_tokens: totalTokens,
-        cost: totalCost
-      }
-    });
+
+    res.json(result);
     
   } catch (error) {
     console.error('Error in chat endpoint:', error);
