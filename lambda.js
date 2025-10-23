@@ -47,7 +47,9 @@ const corsOptions = {
     'https://f8ai.github.io',
     'https://formul8.ai',
     'https://chat.formul8.ai',
-    'https://www.formul8.ai'
+    'https://www.formul8.ai',
+    'https://staqs.io',
+    'https://www.staqs.io'
   ],
   credentials: true,
   optionsSuccessStatus: 200

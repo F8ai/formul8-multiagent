@@ -1,0 +1,31 @@
+{
+  "Comment": "Update f8.syzygyx.com DNS for Vercel verification",
+  "Changes": [
+    {
+      "Action": "UPSERT",
+      "ResourceRecordSet": {
+        "Name": "f8.syzygyx.com",
+        "Type": "CNAME",
+        "TTL": 300,
+        "ResourceRecords": [
+          {
+            "Value": "a7b8d2003fc0873f.vercel-dns-017.com"
+          }
+        ]
+      }
+    },
+    {
+      "Action": "UPSERT",
+      "ResourceRecordSet": {
+        "Name": "_vercel.f8.syzygyx.com",
+        "Type": "TXT",
+        "TTL": 300,
+        "ResourceRecords": [
+          {
+            "Value": "\"vc-domain-verify=f8.syzygyx.com,974588c66e74179935e8\""
+          }
+        ]
+      }
+    }
+  ]
+}

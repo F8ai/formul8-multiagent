@@ -6,6 +6,7 @@ on:
       - main
     paths:
       - 'chat.html'
+      - 'lambda-package/public/future4200.html'
       - 'baseline.json'
       - '.github/workflows/deploy-chat.yml'
   workflow_dispatch:
@@ -42,7 +43,8 @@ jobs:
       - name: Verify Deployment
         run: |
           echo "✅ Chat interface deployed!"
-          echo "🔗 URL: https://f8.syzygyx.com/chat"
+          echo "🔗 Chat: https://f8.syzygyx.com/chat"
+          echo "🔗 Future4200: https://f8.syzygyx.com/future4200.html"
           echo "📊 Commit: $(git rev-parse --short HEAD)"
 
       - name: Create deployment comment
@@ -56,5 +58,5 @@ jobs:
               owner: context.repo.owner,
               repo: context.repo.repo,
               commit_sha: context.sha,
-              body: `✅ Chat interface deployed!\n\n🔗 https://f8.syzygyx.com/chat\n📊 Version: v1.0.0-${commitId}\n⏰ ${timestamp}`
+              body: `✅ Chat interface deployed!\n\n🔗 Chat: https://f8.syzygyx.com/chat\n🔗 Future4200: https://f8.syzygyx.com/future4200.html\n📊 Version: v1.0.0-${commitId}\n⏰ ${timestamp}`
             })

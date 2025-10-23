@@ -1,0 +1,18 @@
+{
+  "metadata": {
+    "generatedAt": "2025-10-23T03:00:43.080Z",
+    "sourceRepos": [
+      "formul8-multiagent"
+    ],
+    "totalSources": 1,
+    "version": "1.0",
+    "stats": {
+      "totalSources": 1,
+      "uniqueQuestions": 0,
+      "categoryCounts": {},
+      "questionsWithExpectedAnswers": 0,
+      "questionsFromMultipleSources": 0
+    }
+  },
+  "questions": []
+}

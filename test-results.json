@@ -144,20 +144,20 @@
   },
   "suites": [
     {
-      "title": "chat-smoke.spec.js",
-      "file": "chat-smoke.spec.js",
+      "title": "chat-formatting.spec.js",
+      "file": "chat-formatting.spec.js",
       "column": 0,
       "line": 0,
       "specs": [],
       "suites": [
         {
-          "title": "Formul8 Chat - Smoke Tests",
-          "file": "chat-smoke.spec.js",
+          "title": "Chat Message Formatting",
+          "file": "chat-formatting.spec.js",
           "line": 3,
           "column": 6,
           "specs": [
             {
-              "title": "Basic chat functionality works",
+              "title": "should display main chat interface",
               "ok": false,
               "tags": [],
               "tests": [
@@ -172,62 +172,67 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "failed",
-                      "duration": 11372,
+                      "duration": 6665,
                       "error": {
-                        "message": "TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('textarea[placeholder*=\"message\"], input[placeholder*=\"message\"]') to be visible\u001b[22m\n",
-                        "stack": "TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('textarea[placeholder*=\"message\"], input[placeholder*=\"message\"]') to be visible\u001b[22m\n\n    at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chat-smoke.spec.js:9:16",
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('#messagesList')\nExpected: visible\nReceived: hidden\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#messagesList')\u001b[22m\n\u001b[2m    9 × locator resolved to <div id=\"messagesList\"></div>\u001b[22m\n\u001b[2m      - unexpected value \"hidden\"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('#messagesList')\nExpected: visible\nReceived: hidden\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#messagesList')\u001b[22m\n\u001b[2m    9 × locator resolved to <div id=\"messagesList\"></div>\u001b[22m\n\u001b[2m      - unexpected value \"hidden\"\u001b[22m\n\n    at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chat-formatting.spec.js:14:49",
                         "location": {
-                          "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chat-smoke.spec.js",
-                          "column": 16,
-                          "line": 9
+                          "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chat-formatting.spec.js",
+                          "column": 49,
+                          "line": 14
                         },
-                        "snippet": "   7 |     page = await browser.newPage();\n   8 |     await page.goto('https://f8.syzygyx.com/chat');\n>  9 |     await page.waitForSelector('textarea[placeholder*=\"message\"], input[placeholder*=\"message\"]', { timeout: 10000 });\n     |                ^\n  10 |   });\n  11 |\n  12 |   test.afterEach(async () => {"
+                        "snippet": "  12 |     await expect(page.locator('#chatInput')).toBeVisible();\n  13 |     await expect(page.locator('#sendButton')).toBeVisible();\n> 14 |     await expect(page.locator('#messagesList')).toBeVisible();\n     |                                                 ^\n  15 |     \n  16 |     // Take screenshot of initial state\n  17 |     await page.screenshot({ "
                       },
                       "errors": [
                         {
                           "location": {
-                            "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chat-smoke.spec.js",
-                            "column": 16,
-                            "line": 9
+                            "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chat-formatting.spec.js",
+                            "column": 49,
+                            "line": 14
                           },
-                          "message": "TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('textarea[placeholder*=\"message\"], input[placeholder*=\"message\"]') to be visible\u001b[22m\n\n\n   7 |     page = await browser.newPage();\n   8 |     await page.goto('https://f8.syzygyx.com/chat');\n>  9 |     await page.waitForSelector('textarea[placeholder*=\"message\"], input[placeholder*=\"message\"]', { timeout: 10000 });\n     |                ^\n  10 |   });\n  11 |\n  12 |   test.afterEach(async () => {\n    at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chat-smoke.spec.js:9:16"
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('#messagesList')\nExpected: visible\nReceived: hidden\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#messagesList')\u001b[22m\n\u001b[2m    9 × locator resolved to <div id=\"messagesList\"></div>\u001b[22m\n\u001b[2m      - unexpected value \"hidden\"\u001b[22m\n\n\n  12 |     await expect(page.locator('#chatInput')).toBeVisible();\n  13 |     await expect(page.locator('#sendButton')).toBeVisible();\n> 14 |     await expect(page.locator('#messagesList')).toBeVisible();\n     |                                                 ^\n  15 |     \n  16 |     // Take screenshot of initial state\n  17 |     await page.screenshot({ \n    at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chat-formatting.spec.js:14:49"
                         }
                       ],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-10-18T11:43:32.023Z",
+                      "startTime": "2025-10-23T17:48:50.418Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "screenshot",
                           "contentType": "image/png",
-                          "path": "/Users/danielmcshan/GitHub/formul8-multiagent/test-results/chat-smoke-Formul8-Chat----c30da-ic-chat-functionality-works-chromium/test-failed-1.png"
+                          "path": "/Users/danielmcshan/GitHub/formul8-multiagent/test-results/chat-formatting-Chat-Messa-cf6f0-display-main-chat-interface-chromium/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/Users/danielmcshan/GitHub/formul8-multiagent/test-results/chat-formatting-Chat-Messa-cf6f0-display-main-chat-interface-chromium/video.webm"
                         },
                         {
                           "name": "error-context",
                           "contentType": "text/markdown",
-                          "path": "/Users/danielmcshan/GitHub/formul8-multiagent/test-results/chat-smoke-Formul8-Chat----c30da-ic-chat-functionality-works-chromium/error-context.md"
+                          "path": "/Users/danielmcshan/GitHub/formul8-multiagent/test-results/chat-formatting-Chat-Messa-cf6f0-display-main-chat-interface-chromium/error-context.md"
                         }
                       ],
                       "errorLocation": {
-                        "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chat-smoke.spec.js",
-                        "column": 16,
-                        "line": 9
+                        "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chat-formatting.spec.js",
+                        "column": 49,
+                        "line": 14
                       }
                     }
                   ],
                   "status": "unexpected"
                 }
               ],
-              "id": "ba36bf138da039e72a2a-469f0c462398dfecea6c",
-              "file": "chat-smoke.spec.js",
-              "line": 16,
-              "column": 3
+              "id": "1b9a421914ea3440a112-adde4365cd9e0dbd1175",
+              "file": "chat-formatting.spec.js",
+              "line": 10,
+              "column": 7
             },
             {
-              "title": "Agent routing works for different question types",
-              "ok": false,
+              "title": "should format assistant messages with metadata badges",
+              "ok": true,
               "tags": [],
               "tests": [
                 {
@@ -240,63 +245,32 @@
                     {
                       "workerIndex": 1,
                       "parallelIndex": 1,
-                      "status": "failed",
-                      "duration": 11354,
-                      "error": {
-                        "message": "TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('textarea[placeholder*=\"message\"], input[placeholder*=\"message\"]') to be visible\u001b[22m\n",
-                        "stack": "TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('textarea[placeholder*=\"message\"], input[placeholder*=\"message\"]') to be visible\u001b[22m\n\n    at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chat-smoke.spec.js:9:16",
-                        "location": {
-                          "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chat-smoke.spec.js",
-                          "column": 16,
-                          "line": 9
-                        },
-                        "snippet": "   7 |     page = await browser.newPage();\n   8 |     await page.goto('https://f8.syzygyx.com/chat');\n>  9 |     await page.waitForSelector('textarea[placeholder*=\"message\"], input[placeholder*=\"message\"]', { timeout: 10000 });\n     |                ^\n  10 |   });\n  11 |\n  12 |   test.afterEach(async () => {"
-                      },
-                      "errors": [
+                      "status": "passed",
+                      "duration": 3636,
+                      "errors": [],
+                      "stdout": [
                         {
-                          "location": {
-                            "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chat-smoke.spec.js",
-                            "column": 16,
-                            "line": 9
-                          },
-                          "message": "TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('textarea[placeholder*=\"message\"], input[placeholder*=\"message\"]') to be visible\u001b[22m\n\n\n   7 |     page = await browser.newPage();\n   8 |     await page.goto('https://f8.syzygyx.com/chat');\n>  9 |     await page.waitForSelector('textarea[placeholder*=\"message\"], input[placeholder*=\"message\"]', { timeout: 10000 });\n     |                ^\n  10 |   });\n  11 |\n  12 |   test.afterEach(async () => {\n    at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chat-smoke.spec.js:9:16"
+                          "text": "Found 0 metadata badges\n"
                         }
                       ],
-                      "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-10-18T11:43:32.032Z",
+                      "startTime": "2025-10-23T17:48:50.395Z",
                       "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "/Users/danielmcshan/GitHub/formul8-multiagent/test-results/chat-smoke-Formul8-Chat----11fff-or-different-question-types-chromium/test-failed-1.png"
-                        },
-                        {
-                          "name": "error-context",
-                          "contentType": "text/markdown",
-                          "path": "/Users/danielmcshan/GitHub/formul8-multiagent/test-results/chat-smoke-Formul8-Chat----11fff-or-different-question-types-chromium/error-context.md"
-                        }
-                      ],
-                      "errorLocation": {
-                        "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chat-smoke.spec.js",
-                        "column": 16,
-                        "line": 9
-                      }
+                      "attachments": []
                     }
                   ],
-                  "status": "unexpected"
+                  "status": "expected"
                 }
               ],
-              "id": "ba36bf138da039e72a2a-529d201496a3fcda2148",
-              "file": "chat-smoke.spec.js",
-              "line": 39,
-              "column": 3
+              "id": "1b9a421914ea3440a112-90908b1a5848153f487b",
+              "file": "chat-formatting.spec.js",
+              "line": 23,
+              "column": 7
             },
             {
-              "title": "Health endpoint is accessible",
-              "ok": false,
+              "title": "should render clickable links in messages",
+              "ok": true,
               "tags": [],
               "tests": [
                 {
@@ -309,63 +283,32 @@
                     {
                       "workerIndex": 2,
                       "parallelIndex": 2,
-                      "status": "failed",
-                      "duration": 11300,
-                      "error": {
-                        "message": "TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('textarea[placeholder*=\"message\"], input[placeholder*=\"message\"]') to be visible\u001b[22m\n",
-                        "stack": "TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('textarea[placeholder*=\"message\"], input[placeholder*=\"message\"]') to be visible\u001b[22m\n\n    at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chat-smoke.spec.js:9:16",
-                        "location": {
-                          "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chat-smoke.spec.js",
-                          "column": 16,
-                          "line": 9
-                        },
-                        "snippet": "   7 |     page = await browser.newPage();\n   8 |     await page.goto('https://f8.syzygyx.com/chat');\n>  9 |     await page.waitForSelector('textarea[placeholder*=\"message\"], input[placeholder*=\"message\"]', { timeout: 10000 });\n     |                ^\n  10 |   });\n  11 |\n  12 |   test.afterEach(async () => {"
-                      },
-                      "errors": [
+                      "status": "passed",
+                      "duration": 3633,
+                      "errors": [],
+                      "stdout": [
                         {
-                          "location": {
-                            "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chat-smoke.spec.js",
-                            "column": 16,
-                            "line": 9
-                          },
-                          "message": "TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('textarea[placeholder*=\"message\"], input[placeholder*=\"message\"]') to be visible\u001b[22m\n\n\n   7 |     page = await browser.newPage();\n   8 |     await page.goto('https://f8.syzygyx.com/chat');\n>  9 |     await page.waitForSelector('textarea[placeholder*=\"message\"], input[placeholder*=\"message\"]', { timeout: 10000 });\n     |                ^\n  10 |   });\n  11 |\n  12 |   test.afterEach(async () => {\n    at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chat-smoke.spec.js:9:16"
+                          "text": "Found 0 clickable links\n"
                         }
                       ],
-                      "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-10-18T11:43:32.014Z",
+                      "startTime": "2025-10-23T17:48:50.411Z",
                       "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "/Users/danielmcshan/GitHub/formul8-multiagent/test-results/chat-smoke-Formul8-Chat----a3e67-alth-endpoint-is-accessible-chromium/test-failed-1.png"
-                        },
-                        {
-                          "name": "error-context",
-                          "contentType": "text/markdown",
-                          "path": "/Users/danielmcshan/GitHub/formul8-multiagent/test-results/chat-smoke-Formul8-Chat----a3e67-alth-endpoint-is-accessible-chromium/error-context.md"
-                        }
-                      ],
-                      "errorLocation": {
-                        "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chat-smoke.spec.js",
-                        "column": 16,
-                        "line": 9
-                      }
+                      "attachments": []
                     }
                   ],
-                  "status": "unexpected"
+                  "status": "expected"
                 }
               ],
-              "id": "ba36bf138da039e72a2a-befc86cfba209ea4a4a1",
-              "file": "chat-smoke.spec.js",
-              "line": 61,
-              "column": 3
+              "id": "1b9a421914ea3440a112-88fa22b6317523cfb274",
+              "file": "chat-formatting.spec.js",
+              "line": 63,
+              "column": 7
             },
             {
-              "title": "API endpoints are accessible",
-              "ok": false,
+              "title": "should display upgrade callouts with proper styling",
+              "ok": true,
               "tags": [],
               "tests": [
                 {
@@ -378,62 +321,140 @@
                     {
                       "workerIndex": 3,
                       "parallelIndex": 3,
-                      "status": "failed",
-                      "duration": 11390,
-                      "error": {
-                        "message": "TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('textarea[placeholder*=\"message\"], input[placeholder*=\"message\"]') to be visible\u001b[22m\n",
-                        "stack": "TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('textarea[placeholder*=\"message\"], input[placeholder*=\"message\"]') to be visible\u001b[22m\n\n    at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chat-smoke.spec.js:9:16",
-                        "location": {
-                          "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chat-smoke.spec.js",
-                          "column": 16,
-                          "line": 9
-                        },
-                        "snippet": "   7 |     page = await browser.newPage();\n   8 |     await page.goto('https://f8.syzygyx.com/chat');\n>  9 |     await page.waitForSelector('textarea[placeholder*=\"message\"], input[placeholder*=\"message\"]', { timeout: 10000 });\n     |                ^\n  10 |   });\n  11 |\n  12 |   test.afterEach(async () => {"
-                      },
-                      "errors": [
+                      "status": "passed",
+                      "duration": 3625,
+                      "errors": [],
+                      "stdout": [
                         {
-                          "location": {
-                            "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chat-smoke.spec.js",
-                            "column": 16,
-                            "line": 9
-                          },
-                          "message": "TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('textarea[placeholder*=\"message\"], input[placeholder*=\"message\"]') to be visible\u001b[22m\n\n\n   7 |     page = await browser.newPage();\n   8 |     await page.goto('https://f8.syzygyx.com/chat');\n>  9 |     await page.waitForSelector('textarea[placeholder*=\"message\"], input[placeholder*=\"message\"]', { timeout: 10000 });\n     |                ^\n  10 |   });\n  11 |\n  12 |   test.afterEach(async () => {\n    at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chat-smoke.spec.js:9:16"
+                          "text": "Found 0 upgrade callouts\n"
                         }
                       ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-23T17:48:50.399Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1b9a421914ea3440a112-1dceec28517581fdbeb6",
+              "file": "chat-formatting.spec.js",
+              "line": 90,
+              "column": 7
+            },
+            {
+              "title": "should properly separate main content from metadata",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 4,
+                      "status": "passed",
+                      "duration": 3634,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "Has main content: false\n"
+                        },
+                        {
+                          "text": "Has metadata: false\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-23T17:48:50.407Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1b9a421914ea3440a112-8edc7a7e355f9c419869",
+              "file": "chat-formatting.spec.js",
+              "line": 133,
+              "column": 7
+            },
+            {
+              "title": "should be mobile responsive",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 2239,
+                      "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-10-18T11:43:32.007Z",
+                      "startTime": "2025-10-23T17:48:54.478Z",
                       "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "/Users/danielmcshan/GitHub/formul8-multiagent/test-results/chat-smoke-Formul8-Chat----912e5-PI-endpoints-are-accessible-chromium/test-failed-1.png"
-                        },
-                        {
-                          "name": "error-context",
-                          "contentType": "text/markdown",
-                          "path": "/Users/danielmcshan/GitHub/formul8-multiagent/test-results/chat-smoke-Formul8-Chat----912e5-PI-endpoints-are-accessible-chromium/error-context.md"
-                        }
-                      ],
-                      "errorLocation": {
-                        "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chat-smoke.spec.js",
-                        "column": 16,
-                        "line": 9
-                      }
+                      "attachments": []
                     }
                   ],
-                  "status": "unexpected"
+                  "status": "expected"
                 }
               ],
-              "id": "ba36bf138da039e72a2a-c8c5dc26d3498ed8b368",
-              "file": "chat-smoke.spec.js",
-              "line": 71,
-              "column": 3
+              "id": "1b9a421914ea3440a112-19699c30df8b5bb72f55",
+              "file": "chat-formatting.spec.js",
+              "line": 176,
+              "column": 7
             },
             {
-              "title": "Chat interface is responsive",
+              "title": "should have proper CSS styling applied",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 2235,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-23T17:48:54.486Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1b9a421914ea3440a112-e1e25c3d2c1d5eb31a63",
+              "file": "chat-formatting.spec.js",
+              "line": 205,
+              "column": 7
+            },
+            {
+              "title": "should escape HTML in user messages",
               "ok": false,
               "tags": [],
               "tests": [
@@ -448,58 +469,109 @@
                       "workerIndex": 4,
                       "parallelIndex": 4,
                       "status": "failed",
-                      "duration": 11298,
+                      "duration": 1221,
                       "error": {
-                        "message": "TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('textarea[placeholder*=\"message\"], input[placeholder*=\"message\"]') to be visible\u001b[22m\n",
-                        "stack": "TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('textarea[placeholder*=\"message\"], input[placeholder*=\"message\"]') to be visible\u001b[22m\n\n    at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chat-smoke.spec.js:9:16",
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoContain\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // indexOf\u001b[22m\n\nExpected substring: \u001b[32m\"<script>\"\u001b[39m\nReceived string:    \u001b[31m\"alert(\\\"XSS\\\")Bold text\"\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoContain\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // indexOf\u001b[22m\n\nExpected substring: \u001b[32m\"<script>\"\u001b[39m\nReceived string:    \u001b[31m\"alert(\\\"XSS\\\")Bold text\"\u001b[39m\n    at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chat-formatting.spec.js:273:25",
                         "location": {
-                          "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chat-smoke.spec.js",
-                          "column": 16,
-                          "line": 9
+                          "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chat-formatting.spec.js",
+                          "column": 25,
+                          "line": 273
                         },
-                        "snippet": "   7 |     page = await browser.newPage();\n   8 |     await page.goto('https://f8.syzygyx.com/chat');\n>  9 |     await page.waitForSelector('textarea[placeholder*=\"message\"], input[placeholder*=\"message\"]', { timeout: 10000 });\n     |                ^\n  10 |   });\n  11 |\n  12 |   test.afterEach(async () => {"
+                        "snippet": "  271 |     \n  272 |     // The HTML should be escaped (visible as text, not executed)\n> 273 |     expect(messageText).toContain('<script>');\n      |                         ^\n  274 |     expect(messageText).toContain('</script>');\n  275 |     \n  276 |     console.log('✓ XSS protection working - HTML is escaped');"
                       },
                       "errors": [
                         {
                           "location": {
-                            "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chat-smoke.spec.js",
-                            "column": 16,
-                            "line": 9
+                            "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chat-formatting.spec.js",
+                            "column": 25,
+                            "line": 273
                           },
-                          "message": "TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('textarea[placeholder*=\"message\"], input[placeholder*=\"message\"]') to be visible\u001b[22m\n\n\n   7 |     page = await browser.newPage();\n   8 |     await page.goto('https://f8.syzygyx.com/chat');\n>  9 |     await page.waitForSelector('textarea[placeholder*=\"message\"], input[placeholder*=\"message\"]', { timeout: 10000 });\n     |                ^\n  10 |   });\n  11 |\n  12 |   test.afterEach(async () => {\n    at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chat-smoke.spec.js:9:16"
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoContain\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // indexOf\u001b[22m\n\nExpected substring: \u001b[32m\"<script>\"\u001b[39m\nReceived string:    \u001b[31m\"alert(\\\"XSS\\\")Bold text\"\u001b[39m\n\n  271 |     \n  272 |     // The HTML should be escaped (visible as text, not executed)\n> 273 |     expect(messageText).toContain('<script>');\n      |                         ^\n  274 |     expect(messageText).toContain('</script>');\n  275 |     \n  276 |     console.log('✓ XSS protection working - HTML is escaped');\n    at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chat-formatting.spec.js:273:25"
                         }
                       ],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-10-18T11:43:32.019Z",
+                      "startTime": "2025-10-23T17:48:54.487Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "screenshot",
                           "contentType": "image/png",
-                          "path": "/Users/danielmcshan/GitHub/formul8-multiagent/test-results/chat-smoke-Formul8-Chat----0017a-hat-interface-is-responsive-chromium/test-failed-1.png"
+                          "path": "/Users/danielmcshan/GitHub/formul8-multiagent/test-results/chat-formatting-Chat-Messa-11527-scape-HTML-in-user-messages-chromium/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/Users/danielmcshan/GitHub/formul8-multiagent/test-results/chat-formatting-Chat-Messa-11527-scape-HTML-in-user-messages-chromium/video.webm"
                         },
                         {
                           "name": "error-context",
                           "contentType": "text/markdown",
-                          "path": "/Users/danielmcshan/GitHub/formul8-multiagent/test-results/chat-smoke-Formul8-Chat----0017a-hat-interface-is-responsive-chromium/error-context.md"
+                          "path": "/Users/danielmcshan/GitHub/formul8-multiagent/test-results/chat-formatting-Chat-Messa-11527-scape-HTML-in-user-messages-chromium/error-context.md"
                         }
                       ],
                       "errorLocation": {
-                        "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chat-smoke.spec.js",
-                        "column": 16,
-                        "line": 9
+                        "file": "/Users/danielmcshan/GitHub/formul8-multiagent/tests/chat-formatting.spec.js",
+                        "column": 25,
+                        "line": 273
                       }
                     }
                   ],
                   "status": "unexpected"
                 }
               ],
-              "id": "ba36bf138da039e72a2a-67d3035be656f3bd2719",
-              "file": "chat-smoke.spec.js",
-              "line": 82,
-              "column": 3
+              "id": "1b9a421914ea3440a112-1aabc2437669cb3b1244",
+              "file": "chat-formatting.spec.js",
+              "line": 258,
+              "column": 7
+            }
+          ]
+        },
+        {
+          "title": "Chat Formatting Visual Regression",
+          "file": "chat-formatting.spec.js",
+          "line": 288,
+          "column": 6,
+          "specs": [
+            {
+              "title": "visual comparison - complete chat flow",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 5403,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "✓ Visual regression screenshots captured\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-23T17:48:54.489Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1b9a421914ea3440a112-4ffa15380e1bc57429dc",
+              "file": "chat-formatting.spec.js",
+              "line": 289,
+              "column": 7
             }
           ]
         }
@@ -508,11 +580,11 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2025-10-18T11:43:31.398Z",
-    "duration": 19690.577,
-    "expected": 0,
+    "startTime": "2025-10-23T17:48:49.756Z",
+    "duration": 10163.378999999999,
+    "expected": 7,
     "skipped": 0,
-    "unexpected": 5,
+    "unexpected": 2,
     "flaky": 0
   }
 }

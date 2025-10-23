@@ -1,167 +1,124 @@
-<testsuites id="" name="" tests="5" failures="5" skipped="0" errors="0" time="19.690577">
-<testsuite name="chat-smoke.spec.js" timestamp="2025-10-18T11:43:31.431Z" hostname="chromium" tests="5" failures="5" skipped="0" time="56.714" errors="0">
-<testcase name="Formul8 Chat - Smoke Tests › Basic chat functionality works" classname="chat-smoke.spec.js" time="11.372">
-<failure message="chat-smoke.spec.js:16:3 Basic chat functionality works" type="FAILURE">
-<![CDATA[  [chromium] › chat-smoke.spec.js:16:3 › Formul8 Chat - Smoke Tests › Basic chat functionality works 
+<testsuites id="" name="" tests="9" failures="2" skipped="0" errors="0" time="10.163378999999999">
+<testsuite name="chat-formatting.spec.js" timestamp="2025-10-23T17:48:49.794Z" hostname="chromium" tests="9" failures="2" skipped="0" time="32.291" errors="0">
+<testcase name="Chat Message Formatting › should display main chat interface" classname="chat-formatting.spec.js" time="6.665">
+<failure message="chat-formatting.spec.js:10:7 should display main chat interface" type="FAILURE">
+<![CDATA[  [chromium] › chat-formatting.spec.js:10:7 › Chat Message Formatting › should display main chat interface 
 
-    TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.
+    Error: expect(locator).toBeVisible() failed
+
+    Locator:  locator('#messagesList')
+    Expected: visible
+    Received: hidden
+    Timeout:  5000ms
+
     Call log:
-      - waiting for locator('textarea[placeholder*="message"], input[placeholder*="message"]') to be visible
+      - Expect "toBeVisible" with timeout 5000ms
+      - waiting for locator('#messagesList')
+        9 × locator resolved to <div id="messagesList"></div>
+          - unexpected value "hidden"
 
 
-       7 |     page = await browser.newPage();
-       8 |     await page.goto('https://f8.syzygyx.com/chat');
-    >  9 |     await page.waitForSelector('textarea[placeholder*="message"], input[placeholder*="message"]', { timeout: 10000 });
-         |                ^
-      10 |   });
-      11 |
-      12 |   test.afterEach(async () => {
-        at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chat-smoke.spec.js:9:16
+      12 |     await expect(page.locator('#chatInput')).toBeVisible();
+      13 |     await expect(page.locator('#sendButton')).toBeVisible();
+    > 14 |     await expect(page.locator('#messagesList')).toBeVisible();
+         |                                                 ^
+      15 |     
+      16 |     // Take screenshot of initial state
+      17 |     await page.screenshot({ 
+        at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chat-formatting.spec.js:14:49
 
     attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ../test-results/chat-smoke-Formul8-Chat----c30da-ic-chat-functionality-works-chromium/test-failed-1.png
+    ../test-results/chat-formatting-Chat-Messa-cf6f0-display-main-chat-interface-chromium/test-failed-1.png
     ────────────────────────────────────────────────────────────────────────────────────────────────
 
-    Error Context: ../test-results/chat-smoke-Formul8-Chat----c30da-ic-chat-functionality-works-chromium/error-context.md
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../test-results/chat-formatting-Chat-Messa-cf6f0-display-main-chat-interface-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/chat-formatting-Chat-Messa-cf6f0-display-main-chat-interface-chromium/error-context.md
 ]]>
 </failure>
 <system-out>
 <![CDATA[
-[[ATTACHMENT|test-results/chat-smoke-Formul8-Chat----c30da-ic-chat-functionality-works-chromium/test-failed-1.png]]
+[[ATTACHMENT|test-results/chat-formatting-Chat-Messa-cf6f0-display-main-chat-interface-chromium/test-failed-1.png]]
 
-[[ATTACHMENT|test-results/chat-smoke-Formul8-Chat----c30da-ic-chat-functionality-works-chromium/error-context.md]]
+[[ATTACHMENT|test-results/chat-formatting-Chat-Messa-cf6f0-display-main-chat-interface-chromium/video.webm]]
+
+[[ATTACHMENT|test-results/chat-formatting-Chat-Messa-cf6f0-display-main-chat-interface-chromium/error-context.md]]
 ]]>
 </system-out>
 </testcase>
-<testcase name="Formul8 Chat - Smoke Tests › Agent routing works for different question types" classname="chat-smoke.spec.js" time="11.354">
-<failure message="chat-smoke.spec.js:39:3 Agent routing works for different question types" type="FAILURE">
-<![CDATA[  [chromium] › chat-smoke.spec.js:39:3 › Formul8 Chat - Smoke Tests › Agent routing works for different question types 
-
-    TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.
-    Call log:
-      - waiting for locator('textarea[placeholder*="message"], input[placeholder*="message"]') to be visible
-
-
-       7 |     page = await browser.newPage();
-       8 |     await page.goto('https://f8.syzygyx.com/chat');
-    >  9 |     await page.waitForSelector('textarea[placeholder*="message"], input[placeholder*="message"]', { timeout: 10000 });
-         |                ^
-      10 |   });
-      11 |
-      12 |   test.afterEach(async () => {
-        at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chat-smoke.spec.js:9:16
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ../test-results/chat-smoke-Formul8-Chat----11fff-or-different-question-types-chromium/test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: ../test-results/chat-smoke-Formul8-Chat----11fff-or-different-question-types-chromium/error-context.md
-]]>
-</failure>
+<testcase name="Chat Message Formatting › should format assistant messages with metadata badges" classname="chat-formatting.spec.js" time="3.636">
 <system-out>
-<![CDATA[
-[[ATTACHMENT|test-results/chat-smoke-Formul8-Chat----11fff-or-different-question-types-chromium/test-failed-1.png]]
-
-[[ATTACHMENT|test-results/chat-smoke-Formul8-Chat----11fff-or-different-question-types-chromium/error-context.md]]
+<![CDATA[Found 0 metadata badges
 ]]>
 </system-out>
 </testcase>
-<testcase name="Formul8 Chat - Smoke Tests › Health endpoint is accessible" classname="chat-smoke.spec.js" time="11.3">
-<failure message="chat-smoke.spec.js:61:3 Health endpoint is accessible" type="FAILURE">
-<![CDATA[  [chromium] › chat-smoke.spec.js:61:3 › Formul8 Chat - Smoke Tests › Health endpoint is accessible 
-
-    TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.
-    Call log:
-      - waiting for locator('textarea[placeholder*="message"], input[placeholder*="message"]') to be visible
-
-
-       7 |     page = await browser.newPage();
-       8 |     await page.goto('https://f8.syzygyx.com/chat');
-    >  9 |     await page.waitForSelector('textarea[placeholder*="message"], input[placeholder*="message"]', { timeout: 10000 });
-         |                ^
-      10 |   });
-      11 |
-      12 |   test.afterEach(async () => {
-        at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chat-smoke.spec.js:9:16
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ../test-results/chat-smoke-Formul8-Chat----a3e67-alth-endpoint-is-accessible-chromium/test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: ../test-results/chat-smoke-Formul8-Chat----a3e67-alth-endpoint-is-accessible-chromium/error-context.md
-]]>
-</failure>
+<testcase name="Chat Message Formatting › should render clickable links in messages" classname="chat-formatting.spec.js" time="3.633">
 <system-out>
-<![CDATA[
-[[ATTACHMENT|test-results/chat-smoke-Formul8-Chat----a3e67-alth-endpoint-is-accessible-chromium/test-failed-1.png]]
-
-[[ATTACHMENT|test-results/chat-smoke-Formul8-Chat----a3e67-alth-endpoint-is-accessible-chromium/error-context.md]]
+<![CDATA[Found 0 clickable links
 ]]>
 </system-out>
 </testcase>
-<testcase name="Formul8 Chat - Smoke Tests › API endpoints are accessible" classname="chat-smoke.spec.js" time="11.39">
-<failure message="chat-smoke.spec.js:71:3 API endpoints are accessible" type="FAILURE">
-<![CDATA[  [chromium] › chat-smoke.spec.js:71:3 › Formul8 Chat - Smoke Tests › API endpoints are accessible ─
-
-    TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.
-    Call log:
-      - waiting for locator('textarea[placeholder*="message"], input[placeholder*="message"]') to be visible
-
-
-       7 |     page = await browser.newPage();
-       8 |     await page.goto('https://f8.syzygyx.com/chat');
-    >  9 |     await page.waitForSelector('textarea[placeholder*="message"], input[placeholder*="message"]', { timeout: 10000 });
-         |                ^
-      10 |   });
-      11 |
-      12 |   test.afterEach(async () => {
-        at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chat-smoke.spec.js:9:16
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ../test-results/chat-smoke-Formul8-Chat----912e5-PI-endpoints-are-accessible-chromium/test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: ../test-results/chat-smoke-Formul8-Chat----912e5-PI-endpoints-are-accessible-chromium/error-context.md
-]]>
-</failure>
+<testcase name="Chat Message Formatting › should display upgrade callouts with proper styling" classname="chat-formatting.spec.js" time="3.625">
 <system-out>
-<![CDATA[
-[[ATTACHMENT|test-results/chat-smoke-Formul8-Chat----912e5-PI-endpoints-are-accessible-chromium/test-failed-1.png]]
-
-[[ATTACHMENT|test-results/chat-smoke-Formul8-Chat----912e5-PI-endpoints-are-accessible-chromium/error-context.md]]
+<![CDATA[Found 0 upgrade callouts
 ]]>
 </system-out>
 </testcase>
-<testcase name="Formul8 Chat - Smoke Tests › Chat interface is responsive" classname="chat-smoke.spec.js" time="11.298">
-<failure message="chat-smoke.spec.js:82:3 Chat interface is responsive" type="FAILURE">
-<![CDATA[  [chromium] › chat-smoke.spec.js:82:3 › Formul8 Chat - Smoke Tests › Chat interface is responsive ─
+<testcase name="Chat Message Formatting › should properly separate main content from metadata" classname="chat-formatting.spec.js" time="3.634">
+<system-out>
+<![CDATA[Has main content: false
+Has metadata: false
+]]>
+</system-out>
+</testcase>
+<testcase name="Chat Message Formatting › should be mobile responsive" classname="chat-formatting.spec.js" time="2.239">
+</testcase>
+<testcase name="Chat Message Formatting › should have proper CSS styling applied" classname="chat-formatting.spec.js" time="2.235">
+</testcase>
+<testcase name="Chat Message Formatting › should escape HTML in user messages" classname="chat-formatting.spec.js" time="1.221">
+<failure message="chat-formatting.spec.js:258:7 should escape HTML in user messages" type="FAILURE">
+<![CDATA[  [chromium] › chat-formatting.spec.js:258:7 › Chat Message Formatting › should escape HTML in user messages 
 
-    TimeoutError: page.waitForSelector: Timeout 10000ms exceeded.
-    Call log:
-      - waiting for locator('textarea[placeholder*="message"], input[placeholder*="message"]') to be visible
+    Error: expect(received).toContain(expected) // indexOf
 
+    Expected substring: "<script>"
+    Received string:    "alert(\"XSS\")Bold text"
 
-       7 |     page = await browser.newPage();
-       8 |     await page.goto('https://f8.syzygyx.com/chat');
-    >  9 |     await page.waitForSelector('textarea[placeholder*="message"], input[placeholder*="message"]', { timeout: 10000 });
-         |                ^
-      10 |   });
-      11 |
-      12 |   test.afterEach(async () => {
-        at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chat-smoke.spec.js:9:16
+      271 |     
+      272 |     // The HTML should be escaped (visible as text, not executed)
+    > 273 |     expect(messageText).toContain('<script>');
+          |                         ^
+      274 |     expect(messageText).toContain('</script>');
+      275 |     
+      276 |     console.log('✓ XSS protection working - HTML is escaped');
+        at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chat-formatting.spec.js:273:25
 
     attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ../test-results/chat-smoke-Formul8-Chat----0017a-hat-interface-is-responsive-chromium/test-failed-1.png
+    ../test-results/chat-formatting-Chat-Messa-11527-scape-HTML-in-user-messages-chromium/test-failed-1.png
     ────────────────────────────────────────────────────────────────────────────────────────────────
 
-    Error Context: ../test-results/chat-smoke-Formul8-Chat----0017a-hat-interface-is-responsive-chromium/error-context.md
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../test-results/chat-formatting-Chat-Messa-11527-scape-HTML-in-user-messages-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/chat-formatting-Chat-Messa-11527-scape-HTML-in-user-messages-chromium/error-context.md
 ]]>
 </failure>
 <system-out>
 <![CDATA[
-[[ATTACHMENT|test-results/chat-smoke-Formul8-Chat----0017a-hat-interface-is-responsive-chromium/test-failed-1.png]]
+[[ATTACHMENT|test-results/chat-formatting-Chat-Messa-11527-scape-HTML-in-user-messages-chromium/test-failed-1.png]]
 
-[[ATTACHMENT|test-results/chat-smoke-Formul8-Chat----0017a-hat-interface-is-responsive-chromium/error-context.md]]
+[[ATTACHMENT|test-results/chat-formatting-Chat-Messa-11527-scape-HTML-in-user-messages-chromium/video.webm]]
+
+[[ATTACHMENT|test-results/chat-formatting-Chat-Messa-11527-scape-HTML-in-user-messages-chromium/error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Chat Formatting Visual Regression › visual comparison - complete chat flow" classname="chat-formatting.spec.js" time="5.403">
+<system-out>
+<![CDATA[✓ Visual regression screenshots captured
 ]]>
 </system-out>
 </testcase>

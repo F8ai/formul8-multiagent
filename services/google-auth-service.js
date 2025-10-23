@@ -6,6 +6,14 @@
 const { OAuth2Client } = require('google-auth-library');
 const jwt = require('jsonwebtoken');
 
+// Allowed email domains for authentication
+const ALLOWED_EMAIL_DOMAINS = [
+  'formul8.ai',
+  'staqs.io',
+  'f8.syzygyx.com',
+  // Add more domains as needed
+];
+
 // Initialize Google OAuth client
 const getGoogleClient = () => {
   const clientId = process.env.GOOGLE_CLIENT_ID;
@@ -30,6 +38,14 @@ async function verifyGoogleToken(idToken) {
     
     const payload = ticket.getPayload();
     
+    // Check if email domain is allowed
+    const email = payload.email;
+    const emailDomain = email.split('@')[1];
+    
+    if (!ALLOWED_EMAIL_DOMAINS.includes(emailDomain)) {
+      throw new Error(`Email domain @${emailDomain} is not authorized. Allowed domains: ${ALLOWED_EMAIL_DOMAINS.join(', ')}`);
+    }
+    
     return {
       googleId: payload.sub,
       email: payload.email,
@@ -41,7 +57,7 @@ async function verifyGoogleToken(idToken) {
     };
   } catch (error) {
     console.error('Error verifying Google token:', error);
-    throw new Error('Invalid Google token');
+    throw new Error(error.message || 'Invalid Google token');
   }
 }
 
@@ -180,4 +196,5 @@ module.exports = {
   createOrUpdateUser,
   authenticateGoogleUser,
 };
+
 

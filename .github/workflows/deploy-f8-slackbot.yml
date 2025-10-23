@@ -1,4 +1,4 @@
-name: Deploy f8 slackuot
+name: Deploy f8 slackbot
 
 on:
   push:
@@ -41,5 +41,5 @@ jobs:
 
       - name: Verify Deployment
         run: |
-          echo "✅ f8 slackuot deployed successfully!"
+          echo "✅ f8 slackbot deployed successfully!"
           echo "🔗 Check status at: https://vercel.com/dashboard"
