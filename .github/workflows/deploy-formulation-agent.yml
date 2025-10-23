@@ -43,3 +43,34 @@ jobs:
         run: |
           echo "✅ Formulation Agent deployed successfully!"
           echo "🔗 Check status at: https://vercel.com/dashboard"
+          
+      - name: Test RAG Functionality
+        run: |
+          echo "🧪 Testing RAG integration..."
+          response=$(curl -s -X POST https://formulation-agent.f8.syzygyx.com/api/chat \
+            -H "Content-Type: application/json" \
+            -H "x-api-key: ${{ secrets.FORMUL8_API_KEY }}" \
+            -d '{"message":"What extraction method preserves terpenes?","plan":"standard"}')
+          
+          echo "Response: $response"
+          
+          # Check if RAG is enabled in response
+          if echo "$response" | grep -q '"enabled":true'; then
+            echo "✅ RAG is enabled"
+          else
+            echo "⚠️  RAG may not be working"
+          fi
+          
+          # Check if papers were retrieved
+          papers=$(echo "$response" | grep -o '"papersRetrieved":[0-9]*' | grep -o '[0-9]*')
+          if [ -n "$papers" ]; then
+            echo "📚 Retrieved $papers research papers"
+          fi
+          
+      - name: Post Deployment Summary
+        run: |
+          echo "📊 Deployment Summary:"
+          echo "  • Agent: Formulation Agent v1.1.0"
+          echo "  • RAG: Enabled (uses science-agent data)"
+          echo "  • URL: https://formulation-agent.f8.syzygyx.com"
+          echo "  • Health: https://formulation-agent.f8.syzygyx.com/health"

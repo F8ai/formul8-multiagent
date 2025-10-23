@@ -44,17 +44,17 @@ s3://formul8-platform-deployments/data/
 
 ## Agent Data Summary
 
-| Agent | Size | Contents | Priority |
-|-------|------|----------|----------|
-| **sourcing-agent** | 12GB | Supplier databases, pricing, availability | High |
-| **compliance-agent** | 3.3GB | State regulations (30 jurisdictions) | ✅ Synced |
-| **metabolomics-agent** | 1.3GB | Metabolite profiles, spectra | High |
-| **future-agent** | 410MB | Market trends, forecasts | Medium |
-| **patent-agent** | 4.2MB | Patent records, IP research | Medium |
-| **science-agent** | 324KB | Research papers, studies | Low |
-| **mcr-agent** | 228KB | Documentation, templates | Low |
-| **formulation-agent** | 4KB | Directory structure (empty) | Low |
-| **operations-agent** | 4KB | Templates (minimal) | Low |
+| Agent | Size | Contents | Priority | RAG Usage |
+|-------|------|----------|----------|-----------|
+| **sourcing-agent** | 12GB | Supplier databases, pricing, availability | High | - |
+| **compliance-agent** | 3.3GB | State regulations (30 jurisdictions) | ✅ Synced | - |
+| **metabolomics-agent** | 1.3GB | Metabolite profiles, spectra | High | - |
+| **future-agent** | 410MB | Market trends, forecasts | Medium | - |
+| **patent-agent** | 4.2MB | Patent records, IP research | Medium | - |
+| **science-agent** | 324KB | Research papers, studies | ✅ Synced | ⭐ RAG Source |
+| **mcr-agent** | 228KB | Documentation, templates | Low | - |
+| **formulation-agent** | 4KB | Directory structure (empty) | Low | ✅ Uses science-agent RAG |
+| **operations-agent** | 4KB | Templates (minimal) | Low | - |
 
 ## Data Loading Pattern
 
@@ -205,6 +205,62 @@ const results = await astraDb.search({
   limit: 5
 });
 ```
+
+### Pattern 5: RAG (Retrieval Augmented Generation) - Cross-Agent Data Access
+
+**NEW**: Agents can now access data from other agents for RAG!
+
+#### Example: formulation-agent uses science-agent data
+
+```javascript
+// formulation-agent/lambda.js
+async function retrieveRelevantResearch(query) {
+  const AWS = require('aws-sdk');
+  const s3 = new AWS.S3({ region: 'us-east-1' });
+  
+  // Access science-agent's data
+  const params = {
+    Bucket: 'formul8-platform-deployments',
+    Key: 'data/science/index.json'  // Cross-agent access!
+  };
+  
+  const data = await s3.getObject(params).promise();
+  const scienceIndex = JSON.parse(data.Body.toString('utf-8'));
+  
+  // Filter relevant papers
+  const keywords = query.toLowerCase().split(' ').filter(w => w.length > 3);
+  const relevantPapers = scienceIndex.papers?.filter(paper => {
+    const paperText = `${paper.title} ${paper.abstract || ''}`.toLowerCase();
+    return keywords.some(keyword => paperText.includes(keyword));
+  }).slice(0, 3);
+  
+  return relevantPapers;
+}
+
+// In chat endpoint
+const relevantResearch = await retrieveRelevantResearch(message);
+const researchContext = relevantResearch.map(paper => 
+  `${paper.title}\n${paper.abstract}`
+).join('\n\n');
+
+// Add to system prompt
+const systemPrompt = `${basePrompt}\n\nRelevant research:\n${researchContext}`;
+```
+
+#### Benefits of RAG
+
+1. **Enhanced Responses**: AI has access to real scientific data
+2. **Transparency**: Users see which papers informed the response
+3. **Cross-Agent Synergy**: Agents leverage each other's data
+4. **Cost Effective**: No vector database needed for small datasets
+
+#### Current RAG Implementations
+
+| Agent | Uses RAG From | Status |
+|-------|---------------|--------|
+| **formulation-agent** | science-agent (PubMed papers) | ✅ Active |
+| **operations-agent** | compliance-agent (regulations) | 🔄 Planned |
+| **marketing-agent** | future-agent (trends) | 🔄 Planned |
 
 ## Storage Costs
 

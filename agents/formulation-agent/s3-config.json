@@ -12,13 +12,24 @@
     "description": "Agent data configuration",
     "paths": {
       "index": "index.json",
-      "main": "data/"
+      "main": "data/",
+      "scienceData": "../science/data/"
     }
+  },
+  "rag": {
+    "enabled": true,
+    "sources": [
+      {
+        "name": "science-agent",
+        "prefix": "data/science",
+        "description": "PubMed research papers and scientific studies"
+      }
+    ]
   },
   "metadata": {
     "agentName": "formulation",
-    "version": "1.0.0",
-    "lastUpdated": "2025-10-23T21:19:36Z"
+    "version": "1.1.0",
+    "lastUpdated": "2025-10-23T22:00:00Z"
   }
 }
 

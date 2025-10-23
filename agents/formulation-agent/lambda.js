@@ -1,6 +1,7 @@
 /**
- * Formulation Agent - Secure Implementation
+ * Formulation Agent - Secure Implementation with RAG
  * Generated from secure-agent-template.js
+ * Enhanced with RAG from science-agent (PubMed data)
  */
 
 const express = require('express');
@@ -19,6 +20,7 @@ const {
   SECURITY_CONFIG,
   getClientIP
 } = require('./security-module');
+const dataLoader = require('./data-loader');
 
 // Create Express app
 const app = express();
@@ -58,6 +60,35 @@ app.get('/health', (req, res) => {
   });
 });
 
+// RAG Helper: Retrieve relevant research data from science-agent
+async function retrieveRelevantResearch(query) {
+  try {
+    // Try to load science agent index
+    const AWS = require('aws-sdk');
+    const s3 = new AWS.S3({ region: 'us-east-1' });
+    
+    const params = {
+      Bucket: 'formul8-platform-deployments',
+      Key: 'data/science/index.json'
+    };
+    
+    const data = await s3.getObject(params).promise();
+    const scienceIndex = JSON.parse(data.Body.toString('utf-8'));
+    
+    // Simple keyword-based filtering (can be enhanced with vector embeddings later)
+    const keywords = query.toLowerCase().split(' ').filter(w => w.length > 3);
+    const relevantPapers = scienceIndex.papers?.filter(paper => {
+      const paperText = `${paper.title} ${paper.abstract || ''} ${paper.keywords?.join(' ') || ''}`.toLowerCase();
+      return keywords.some(keyword => paperText.includes(keyword));
+    }).slice(0, 3) || []; // Top 3 most relevant
+    
+    return relevantPapers;
+  } catch (error) {
+    console.log(`⚠️  Could not retrieve research data: ${error.message}`);
+    return [];
+  }
+}
+
 // Main chat endpoint
 app.post('/api/chat', async (req, res) => {
   try {
@@ -92,11 +123,25 @@ app.post('/api/chat', async (req, res) => {
       });
     }
     
-    // Create system prompt
+    // Retrieve relevant research papers (RAG)
+    const relevantResearch = await retrieveRelevantResearch(message);
+    console.log(`📚 Found ${relevantResearch.length} relevant research papers`);
+    
+    // Build research context for RAG
+    let researchContext = '';
+    if (relevantResearch.length > 0) {
+      researchContext = '\n\nRelevant scientific research from PubMed:\n' + 
+        relevantResearch.map((paper, i) => 
+          `${i + 1}. ${paper.title}\n   ${paper.abstract || paper.summary || ''}`
+        ).join('\n\n');
+    }
+    
+    // Create system prompt with RAG context
     const systemPrompt = `You are a ${AGENT_CONFIG.name} specializing in ${AGENT_CONFIG.description}. 
     Your specialties include: ${AGENT_CONFIG.specialties.join(', ')}. 
     You are part of the Formul8 Multiagent system. 
-    Provide helpful, accurate, and professional responses. Keep responses concise but informative.`;
+    Provide helpful, accurate, and professional responses. Keep responses concise but informative.
+    ${researchContext ? '\n\nUse the following scientific research to inform your response when relevant:' + researchContext : ''}`;
     
     // Call OpenRouter API
     const openRouterResponse = await fetch('https://openrouter.ai/api/v1/chat/completions', {
@@ -142,8 +187,9 @@ app.post('/api/chat', async (req, res) => {
     const totalTokens = usage.total_tokens || (promptTokens + completionTokens);
     const totalCost = 0.00; // Free model
     
-    // Create footer with metadata
-    const footer = `\n\n---\n*Agent: ${AGENT_CONFIG.name} | Plan: ${plan} | Tokens: ${totalTokens} (${promptTokens}→${completionTokens}) | Cost: $${totalCost.toFixed(6)}*`;
+    // Create footer with metadata including RAG info
+    const ragInfo = relevantResearch.length > 0 ? ` | RAG: ${relevantResearch.length} papers from science-agent` : '';
+    const footer = `\n\n---\n*Agent: ${AGENT_CONFIG.name} | Plan: ${plan} | Tokens: ${totalTokens} (${promptTokens}→${completionTokens}) | Cost: $${totalCost.toFixed(6)}${ragInfo}*`;
     
     res.json({
       success: true,
@@ -156,6 +202,11 @@ app.post('/api/chat', async (req, res) => {
         completion_tokens: completionTokens,
         total_tokens: totalTokens,
         cost: totalCost
+      },
+      rag: {
+        enabled: true,
+        papersRetrieved: relevantResearch.length,
+        source: 'science-agent'
       }
     });
     

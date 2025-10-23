@@ -1,7 +1,7 @@
 {
   "name": "formulation-agent",
-  "version": "1.0.0",
-  "description": "Cannabis product formulation specialist",
+  "version": "1.1.0",
+  "description": "Cannabis product formulation specialist with RAG from science-agent",
   "main": "lambda.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

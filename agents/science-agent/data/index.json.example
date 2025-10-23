@@ -1,0 +1,85 @@
+{
+  "version": "1.0.0",
+  "lastUpdated": "2025-10-23T22:00:00Z",
+  "totalPapers": 69,
+  "description": "PubMed research papers and scientific studies for cannabis industry",
+  "papers": [
+    {
+      "id": "pubmed-12345678",
+      "title": "Cannabinoid Effects on Inflammation and Pain",
+      "authors": ["Smith J", "Johnson A", "Williams B"],
+      "abstract": "This study examines the anti-inflammatory properties of cannabinoids. Results show significant reduction in inflammation markers when CBD is administered at therapeutic doses. THC showed similar but less pronounced effects...",
+      "keywords": ["cannabinoid", "inflammation", "CBD", "THC", "pain", "anti-inflammatory"],
+      "pubmedId": "12345678",
+      "doi": "10.1234/example.2024.001",
+      "publishedDate": "2024-03-15",
+      "journal": "Journal of Cannabis Research",
+      "summary": "CBD and THC demonstrate anti-inflammatory properties in clinical studies.",
+      "relevantTo": ["formulation", "science", "operations"]
+    },
+    {
+      "id": "pubmed-87654321",
+      "title": "Terpene Profiles and Therapeutic Effects",
+      "authors": ["Brown C", "Davis R"],
+      "abstract": "Analysis of terpene profiles in various cannabis strains reveals distinct therapeutic potential. Myrcene shows sedative properties while limonene demonstrates mood elevation effects. Combination of cannabinoids and terpenes exhibits entourage effect...",
+      "keywords": ["terpene", "myrcene", "limonene", "entourage effect", "cannabis", "therapeutic"],
+      "pubmedId": "87654321",
+      "doi": "10.1234/example.2024.002",
+      "publishedDate": "2024-05-22",
+      "journal": "Cannabis Science & Technology",
+      "summary": "Terpene profiles significantly impact therapeutic outcomes through entourage effect.",
+      "relevantTo": ["formulation", "science"]
+    },
+    {
+      "id": "pubmed-11223344",
+      "title": "Extraction Methods and Cannabinoid Preservation",
+      "authors": ["Garcia M", "Martinez L", "Rodriguez P"],
+      "abstract": "Comparison of extraction methods (CO2, ethanol, hydrocarbon) on cannabinoid and terpene preservation. CO2 extraction maintains highest terpene retention while ethanol provides better cannabinoid yield. Temperature control is critical for quality...",
+      "keywords": ["extraction", "CO2", "ethanol", "cannabinoid", "terpene", "quality control"],
+      "pubmedId": "11223344",
+      "doi": "10.1234/example.2024.003",
+      "publishedDate": "2024-07-10",
+      "journal": "Extraction Science",
+      "summary": "Extraction method selection impacts cannabinoid and terpene preservation significantly.",
+      "relevantTo": ["formulation", "operations"]
+    },
+    {
+      "id": "pubmed-99887766",
+      "title": "Dosage Optimization for Cannabis Edibles",
+      "authors": ["Lee K", "Park S", "Kim J"],
+      "abstract": "Study on optimal dosing strategies for cannabis edibles. Findings indicate that 5-10mg THC is effective for most patients with minimal adverse effects. CBD ratios of 1:1 to 2:1 (CBD:THC) improve therapeutic outcomes while reducing psychoactive effects...",
+      "keywords": ["dosage", "edibles", "THC", "CBD", "optimization", "therapeutic"],
+      "pubmedId": "99887766",
+      "doi": "10.1234/example.2024.004",
+      "publishedDate": "2024-08-18",
+      "journal": "Clinical Cannabis Research",
+      "summary": "Optimal dosing for edibles is 5-10mg THC with CBD ratios improving outcomes.",
+      "relevantTo": ["formulation", "science", "compliance"]
+    },
+    {
+      "id": "pubmed-55443322",
+      "title": "Stability and Shelf Life of Cannabis Products",
+      "authors": ["Taylor R", "Anderson M"],
+      "abstract": "Investigation of cannabinoid degradation over time under various storage conditions. THC converts to CBN with light and heat exposure. Proper storage (cool, dark, airtight) extends shelf life to 12-18 months. Packaging materials significantly impact stability...",
+      "keywords": ["stability", "shelf life", "storage", "degradation", "packaging", "quality"],
+      "pubmedId": "55443322",
+      "doi": "10.1234/example.2024.005",
+      "publishedDate": "2024-09-05",
+      "journal": "Product Stability Journal",
+      "summary": "Proper storage conditions extend cannabis product shelf life to 12-18 months.",
+      "relevantTo": ["formulation", "operations", "compliance"]
+    }
+  ],
+  "categories": {
+    "cannabinoids": 15,
+    "terpenes": 12,
+    "extraction": 8,
+    "formulation": 10,
+    "dosage": 9,
+    "stability": 7,
+    "clinical": 8
+  },
+  "dataSource": "PubMed API",
+  "accessPattern": "RAG for formulation-agent and other specialized agents"
+}
+
