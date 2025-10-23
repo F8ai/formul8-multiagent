@@ -1,0 +1,24 @@
+{
+  "s3": {
+    "bucketName": "formul8-platform-deployments",
+    "prefix": "data/{{AGENT_NAME}}",
+    "region": "us-east-1"
+  },
+  "cache": {
+    "enabled": true,
+    "ttl": 3600000
+  },
+  "dataStructure": {
+    "description": "{{AGENT_DESCRIPTION}}",
+    "paths": {
+      "index": "index.json",
+      "main": "{{MAIN_DATA_PATH}}"
+    }
+  },
+  "metadata": {
+    "agentName": "{{AGENT_NAME}}",
+    "version": "1.0.0",
+    "lastUpdated": "{{TIMESTAMP}}"
+  }
+}
+

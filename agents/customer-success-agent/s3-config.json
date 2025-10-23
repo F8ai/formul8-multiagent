@@ -1,0 +1,24 @@
+{
+  "s3": {
+    "bucketName": "formul8-platform-deployments",
+    "prefix": "data/customer-success",
+    "region": "us-east-1"
+  },
+  "cache": {
+    "enabled": true,
+    "ttl": 3600000
+  },
+  "dataStructure": {
+    "description": "Agent data configuration",
+    "paths": {
+      "index": "index.json",
+      "main": "data/"
+    }
+  },
+  "metadata": {
+    "agentName": "customer-success",
+    "version": "1.0.0",
+    "lastUpdated": "2025-10-23T21:19:39Z"
+  }
+}
+
