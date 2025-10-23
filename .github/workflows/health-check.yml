@@ -41,8 +41,8 @@ jobs:
           path: health-reports/
           retention-days: 30
 
-      - name: Create Issue on Failure
-        if: steps.health.outcome == 'failure'
+      - name: Create Issue on Critical Failure
+        if: steps.health.outcome == 'failure' && github.event_name == 'schedule'
         uses: actions/github-script@v7
         with:
           script: |
