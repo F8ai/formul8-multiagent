@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Formatting Test</title>
+    <style>
+        body {
+            font-family: ui-sans-serif, -apple-system, system-ui, "Segoe UI", Helvetica, sans-serif;
+            background: #212121;
+            color: #ececec;
+            padding: 40px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .message-text {
+            background: #2f2f2f;
+            padding: 20px;
+            border-radius: 12px;
+            line-height: 1.75;
+        }
+
+        .message-main-content {
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .message-main-content p {
+            margin-bottom: 12px;
+        }
+
+        .message-main-content a {
+            color: #19c37d;
+            text-decoration: none;
+            border-bottom: 1px solid #19c37d;
+            transition: all 0.2s;
+        }
+
+        .message-main-content a:hover {
+            color: #20e68c;
+            border-bottom-color: #20e68c;
+        }
+
+        .message-metadata {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid #333;
+        }
+
+        .metadata-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 4px 10px;
+            background: #2f2f2f;
+            border-radius: 12px;
+            font-size: 11px;
+            color: #b4b4b4;
+            border: 1px solid #3f3f3f;
+        }
+
+        .metadata-badge strong {
+            color: #19c37d;
+        }
+
+        .upgrade-callout {
+            margin-top: 16px;
+            padding: 16px;
+            background: linear-gradient(135deg, rgba(25, 195, 125, 0.1), rgba(85, 54, 218, 0.1));
+            border-left: 3px solid #19c37d;
+            border-radius: 8px;
+        }
+
+        .upgrade-callout h4 {
+            font-size: 14px;
+            font-weight: 600;
+            color: #19c37d;
+            margin-bottom: 8px;
+        }
+
+        .upgrade-callout ul {
+            list-style: none;
+            padding: 0;
+            margin: 12px 0;
+        }
+
+        .upgrade-callout li {
+            padding: 4px 0 4px 20px;
+            position: relative;
+            font-size: 13px;
+            color: #b4b4b4;
+        }
+
+        .upgrade-callout li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #19c37d;
+            font-weight: bold;
+        }
+
+        .upgrade-callout-actions {
+            display: flex;
+            gap: 12px;
+            margin-top: 12px;
+        }
+
+        .upgrade-link {
+            display: inline-block;
+            padding: 8px 16px;
+            background: #19c37d;
+            color: #212121;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .upgrade-link:hover {
+            background: #20e68c;
+            transform: translateY(-1px);
+        }
+
+        .upgrade-link.secondary {
+            background: transparent;
+            color: #19c37d;
+            border: 1px solid #19c37d;
+        }
+
+        .upgrade-link.secondary:hover {
+            background: rgba(25, 195, 125, 0.1);
+        }
+
+        h1 {
+            color: #19c37d;
+            margin-bottom: 20px;
+        }
+
+        .test-section {
+            margin-bottom: 40px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Chat Formatting Test</h1>
+    
+    <div class="test-section">
+        <h2>Example 1: Simple Message</h2>
+        <div id="test1" class="message-text"></div>
+    </div>
+    
+    <div class="test-section">
+        <h2>Example 2: Message with Metadata</h2>
+        <div id="test2" class="message-text"></div>
+    </div>
+    
+    <div class="test-section">
+        <h2>Example 3: Full Message with Upgrade Prompt</h2>
+        <div id="test3" class="message-text"></div>
+    </div>
+
+    <script>
+        function formatAssistantMessage(text) {
+            // Extract metadata (Agent, Plan, Tokens, Cost)
+            const metadataRegex = /---\s*\*Agent:\s*([^|]+)\s*\|\s*Plan:\s*([^|]+)\s*\|\s*Tokens:\s*([^|]+)\s*\|\s*Cost:\s*([^)]+)\)\s*\*\s*/;
+            const metadataMatch = text.match(metadataRegex);
+            
+            let metadata = null;
+            let mainContent = text;
+            
+            if (metadataMatch) {
+                metadata = {
+                    agent: metadataMatch[1].trim(),
+                    plan: metadataMatch[2].trim(),
+                    tokens: metadataMatch[3].trim(),
+                    cost: metadataMatch[4].trim()
+                };
+                // Remove metadata from main content
+                mainContent = text.replace(metadataRegex, '');
+            }
+            
+            // Extract upgrade prompts
+            const upgradeRegex = /---\s*(💎|💡|🔓)\s*\*\*([^*]+)\*\*([^]*?)(?=---|$)/g;
+            let upgradePrompts = [];
+            let match;
+            
+            while ((match = upgradeRegex.exec(mainContent)) !== null) {
+                const emoji = match[1];
+                const title = match[2].trim();
+                const content = match[3].trim();
+                
+                upgradePrompts.push({
+                    emoji,
+                    title,
+                    content
+                });
+                
+                // Remove this from main content
+                mainContent = mainContent.replace(match[0], '');
+            }
+            
+            // Clean up main content
+            mainContent = mainContent.replace(/^---\s*/gm, '').trim();
+            
+            // Convert URLs to links
+            mainContent = mainContent.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank">$1</a>');
+            
+            // Convert line breaks
+            mainContent = mainContent.replace(/\n/g, '<br>');
+            
+            // Build formatted HTML
+            let html = `<div class="message-main-content">${mainContent}</div>`;
+            
+            // Add metadata badges if present
+            if (metadata) {
+                html += `
+                    <div class="message-metadata">
+                        <span class="metadata-badge">🤖 <strong>${metadata.agent}</strong></span>
+                        <span class="metadata-badge">📋 ${metadata.plan}</span>
+                        <span class="metadata-badge">🎯 ${metadata.tokens} tokens</span>
+                        <span class="metadata-badge">💰 ${metadata.cost}</span>
+                    </div>
+                `;
+            }
+            
+            // Add upgrade prompts as callouts
+            upgradePrompts.forEach(prompt => {
+                // Parse the content for bullet points
+                const lines = prompt.content.split(/\n|<br>/);
+                const bullets = [];
+                const links = [];
+                
+                lines.forEach(line => {
+                    line = line.trim();
+                    if (line.startsWith('•')) {
+                        bullets.push(line.substring(1).trim());
+                    } else if (line.includes('<a href=')) {
+                        // Extract links
+                        const linkMatches = line.matchAll(/<a href="([^"]+)"[^>]*>([^<]+)<\/a>/g);
+                        for (const linkMatch of linkMatches) {
+                            links.push({ url: linkMatch[1], text: linkMatch[2] });
+                        }
+                    }
+                });
+                
+                html += `
+                    <div class="upgrade-callout">
+                        <h4>${prompt.emoji} ${prompt.title}</h4>
+                `;
+                
+                if (bullets.length > 0) {
+                    html += '<ul>';
+                    bullets.forEach(bullet => {
+                        html += `<li>${bullet}</li>`;
+                    });
+                    html += '</ul>';
+                }
+                
+                if (links.length > 0) {
+                    html += '<div class="upgrade-callout-actions">';
+                    links.forEach((link, index) => {
+                        const className = index === 0 ? 'upgrade-link' : 'upgrade-link secondary';
+                        html += `<a href="${link.url}" class="${className}" target="_blank">${link.text}</a>`;
+                    });
+                    html += '</div>';
+                }
+                
+                html += '</div>';
+            });
+            
+            return html;
+        }
+
+        // Test cases
+        const test1 = "Hello! How can I assist you with cannabis regulatory compliance today?";
+        
+        const test2 = `Hello! How can I assist you with cannabis regulatory compliance today? --- *Agent: Compliance Agent | Plan: Free | Tokens: 185 (153->32) | Cost: $0.000000*`;
+        
+        const test3 = `Hello! How can I assist you with cannabis regulatory compliance today? --- *Agent: Compliance Agent | Plan: Free | Tokens: 185 (153->32) | Cost: $0.000000* 💉 --- 💡 **Want more features?** Upgrade to unlock:
+• Advanced agent capabilities
+• Priority response times
+• No ads
+• Specialized agents (compliance, patent, operations)
+
+[View Plans](https://formul8.ai/plans) | [Sign Up Free](https://f8.syzygyx.com/chat)`;
+
+        document.getElementById('test1').innerHTML = formatAssistantMessage(test1);
+        document.getElementById('test2').innerHTML = formatAssistantMessage(test2);
+        document.getElementById('test3').innerHTML = formatAssistantMessage(test3);
+    </script>
+</body>
+</html>
+

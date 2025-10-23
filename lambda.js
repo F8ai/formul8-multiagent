@@ -1,5 +1,8 @@
 const express = require('express');
 const cors = require('cors');
+const serverless = require('serverless-http');
+const path = require('path');
+const fs = require('fs');
 
 // Create Express app
 const app = express();
@@ -42,7 +45,9 @@ const corsOptions = {
   origin: [
     'https://f8.syzygyx.com',
     'https://f8ai.github.io',
-    'https://formul8.ai'
+    'https://formul8.ai',
+    'https://chat.formul8.ai',
+    'https://www.formul8.ai'
   ],
   credentials: true,
   optionsSuccessStatus: 200
@@ -52,6 +57,14 @@ const corsOptions = {
 app.use(cors(corsOptions));
 app.use(express.json({ limit: '10mb' })); // Limit request size
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
+
+// Serve static files from public directory
+app.use(express.static(path.join(__dirname, 'public')));
+
+// Serve baseline.json from root
+app.get('/baseline.json', (req, res) => {
+  res.sendFile(path.join(__dirname, 'baseline.json'));
+});
 
 // Request logging middleware
 app.use((req, res, next) => {
@@ -63,6 +76,16 @@ app.use((req, res, next) => {
 
 // Apply rate limiting to API endpoints
 app.use('/api/', rateLimiter);
+
+// Root route - serve chat.html
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'chat.html'));
+});
+
+// Chat routes
+app.get('/chat', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'chat.html'));
+});
 
 // Health endpoint
 app.get('/health', (req, res) => {
@@ -904,6 +927,122 @@ app.get('/chat', (req, res) => {
                 line-height: 1.4;
             }
             
+            /* Message metadata and formatting */
+            .message-metadata {
+                display: flex;
+                gap: 8px;
+                flex-wrap: wrap;
+                margin-top: 12px;
+                padding-top: 12px;
+                border-top: 1px solid var(--formul8-border);
+            }
+
+            .metadata-badge {
+                display: inline-flex;
+                align-items: center;
+                gap: 4px;
+                padding: 4px 10px;
+                background: var(--formul8-bg-card);
+                border-radius: 12px;
+                font-size: 11px;
+                color: var(--formul8-text-secondary);
+                border: 1px solid var(--formul8-border);
+            }
+
+            .metadata-badge strong {
+                color: var(--formul8-primary);
+            }
+
+            .message-main-content {
+                font-size: 15px;
+                line-height: 1.6;
+            }
+
+            .message-main-content p {
+                margin-bottom: 12px;
+            }
+
+            .message-main-content a {
+                color: var(--formul8-primary);
+                text-decoration: none;
+                border-bottom: 1px solid var(--formul8-primary);
+                transition: all 0.2s;
+            }
+
+            .message-main-content a:hover {
+                color: var(--formul8-secondary);
+                border-bottom-color: var(--formul8-secondary);
+            }
+
+            .upgrade-callout {
+                margin-top: 16px;
+                padding: 16px;
+                background: linear-gradient(135deg, rgba(0, 255, 136, 0.1), rgba(255, 107, 53, 0.1));
+                border-left: 3px solid var(--formul8-primary);
+                border-radius: 8px;
+            }
+
+            .upgrade-callout h4 {
+                font-size: 14px;
+                font-weight: 600;
+                color: var(--formul8-primary);
+                margin-bottom: 8px;
+            }
+
+            .upgrade-callout ul {
+                list-style: none;
+                padding: 0;
+                margin: 12px 0;
+            }
+
+            .upgrade-callout li {
+                padding: 4px 0 4px 20px;
+                position: relative;
+                font-size: 13px;
+                color: var(--formul8-text-secondary);
+            }
+
+            .upgrade-callout li:before {
+                content: "✓";
+                position: absolute;
+                left: 0;
+                color: var(--formul8-primary);
+                font-weight: bold;
+            }
+
+            .upgrade-callout-actions {
+                display: flex;
+                gap: 12px;
+                margin-top: 12px;
+            }
+
+            .upgrade-link {
+                display: inline-block;
+                padding: 8px 16px;
+                background: var(--formul8-primary);
+                color: var(--formul8-bg-primary);
+                text-decoration: none;
+                border-radius: 6px;
+                font-size: 13px;
+                font-weight: 600;
+                transition: all 0.2s;
+            }
+
+            .upgrade-link:hover {
+                background: var(--formul8-secondary);
+                transform: translateY(-1px);
+            }
+
+            .upgrade-link.secondary {
+                background: transparent;
+                color: var(--formul8-primary);
+                border: 1px solid var(--formul8-primary);
+            }
+
+            .upgrade-link.secondary:hover {
+                background: rgba(0, 255, 136, 0.1);
+            }
+            
             .welcome-message {
                 text-align: center;
                 color: var(--formul8-text-secondary);
@@ -1133,10 +1272,136 @@ app.get('/chat', (req, res) => {
                 }
             }
             
+            // Helper functions for message formatting
+            function escapeHtml(text) {
+                const div = document.createElement('div');
+                div.textContent = text;
+                return div.innerHTML;
+            }
+            
+            function formatAssistantMessage(text) {
+                // Extract metadata (Agent, Plan, Tokens, Cost)
+                const metadataRegex = /---\s*\*Agent:\s*([^|]+)\s*\|\s*Plan:\s*([^|]+)\s*\|\s*Tokens:\s*([^|]+)\s*\|\s*Cost:\s*([^)]+)\)\s*\*\s*/;
+                const metadataMatch = text.match(metadataRegex);
+                
+                let metadata = null;
+                let mainContent = text;
+                
+                if (metadataMatch) {
+                    metadata = {
+                        agent: metadataMatch[1].trim(),
+                        plan: metadataMatch[2].trim(),
+                        tokens: metadataMatch[3].trim(),
+                        cost: metadataMatch[4].trim()
+                    };
+                    // Remove metadata from main content
+                    mainContent = text.replace(metadataRegex, '');
+                }
+                
+                // Extract upgrade prompts
+                const upgradeRegex = /---\s*(💎|💡|🔓)\s*\*\*([^*]+)\*\*([^]*?)(?=---|$)/g;
+                let upgradePrompts = [];
+                let match;
+                
+                while ((match = upgradeRegex.exec(mainContent)) !== null) {
+                    const emoji = match[1];
+                    const title = match[2].trim();
+                    const content = match[3].trim();
+                    
+                    upgradePrompts.push({
+                        emoji,
+                        title,
+                        content
+                    });
+                    
+                    // Remove this from main content
+                    mainContent = mainContent.replace(match[0], '');
+                }
+                
+                // Clean up main content
+                mainContent = mainContent.replace(/^---\s*/gm, '').trim();
+                
+                // Convert URLs to links
+                mainContent = mainContent.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank">$1</a>');
+                
+                // Convert line breaks
+                mainContent = mainContent.replace(/\n/g, '<br>');
+                
+                // Build formatted HTML
+                let html = \`<div class="message-main-content">\${mainContent}</div>\`;
+                
+                // Add metadata badges if present
+                if (metadata) {
+                    html += \`
+                        <div class="message-metadata">
+                            <span class="metadata-badge">🤖 <strong>\${metadata.agent}</strong></span>
+                            <span class="metadata-badge">📋 \${metadata.plan}</span>
+                            <span class="metadata-badge">🎯 \${metadata.tokens} tokens</span>
+                            <span class="metadata-badge">💰 \${metadata.cost}</span>
+                        </div>
+                    \`;
+                }
+                
+                // Add upgrade prompts as callouts
+                upgradePrompts.forEach(prompt => {
+                    // Parse the content for bullet points
+                    const lines = prompt.content.split(/\n|<br>/);
+                    const bullets = [];
+                    const links = [];
+                    
+                    lines.forEach(line => {
+                        line = line.trim();
+                        if (line.startsWith('•')) {
+                            bullets.push(line.substring(1).trim());
+                        } else if (line.includes('<a href=')) {
+                            // Extract links
+                            const linkMatches = line.matchAll(/<a href="([^"]+)"[^>]*>([^<]+)<\/a>/g);
+                            for (const linkMatch of linkMatches) {
+                                links.push({ url: linkMatch[1], text: linkMatch[2] });
+                            }
+                        }
+                    });
+                    
+                    html += \`
+                        <div class="upgrade-callout">
+                            <h4>\${prompt.emoji} \${prompt.title}</h4>
+                    \`;
+                    
+                    if (bullets.length > 0) {
+                        html += '<ul>';
+                        bullets.forEach(bullet => {
+                            html += \`<li>\${bullet}</li>\`;
+                        });
+                        html += '</ul>';
+                    }
+                    
+                    if (links.length > 0) {
+                        html += '<div class="upgrade-callout-actions">';
+                        links.forEach((link, index) => {
+                            const className = index === 0 ? 'upgrade-link' : 'upgrade-link secondary';
+                            html += \`<a href="\${link.url}" class="\${className}" target="_blank">\${link.text}</a>\`;
+                        });
+                        html += '</div>';
+                    }
+                    
+                    html += '</div>';
+                });
+                
+                return html;
+            }
+            
             function addMessageToChat(sender, message, username) {
                 const chatMessages = document.getElementById('chatMessages');
                 const messageDiv = document.createElement('div');
                 messageDiv.className = \`message \${sender}-message\`;
+                
+                // Format the message content
+                let formattedContent = message;
+                if (sender === 'assistant') {
+                    formattedContent = formatAssistantMessage(message);
+                } else {
+                    formattedContent = escapeHtml(message);
+                }
                 
                 if (sender === 'user') {
                     messageDiv.innerHTML = \`
@@ -1145,7 +1410,7 @@ app.get('/chat', (req, res) => {
                                 <span class="username">\${username}</span>
                                 <span class="timestamp">\${new Date().toLocaleTimeString()}</span>
                             </div>
-                            <div class="message-text">\${message}</div>
+                            <div class="message-text">\${formattedContent}</div>
                         </div>
                     \`;
                 } else {
@@ -1155,7 +1420,7 @@ app.get('/chat', (req, res) => {
                                 <span class="agent-name">Formul8 AI</span>
                                 <span class="timestamp">\${new Date().toLocaleTimeString()}</span>
                             </div>
-                            <div class="message-text">\${message}</div>
+                            <div class="message-text">\${formattedContent}</div>
                         </div>
                     \`;
                 }
@@ -2061,3 +2326,7 @@ exports.handler = async (event, context) => {
     body: JSON.stringify({ error: 'Not found' })
   };
 };
+
+// Export the Express app wrapped for Vercel serverless
+module.exports = app;
+module.exports.handler = serverless(app);
