@@ -883,7 +883,8 @@
     <script>
         // Google OAuth Configuration
         const GOOGLE_CLIENT_ID = '732977829559-sm9erni1diasjrfdqdccal0htmeb2crg.apps.googleusercontent.com';
-        const API_ENDPOINT = 'https://wxe3lwel4llwaom56mthdt4gry0zkpxr.lambda-url.us-east-1.on.aws';
+        // Use relative URL to call API on same domain (Vercel deployment)
+        const API_ENDPOINT = window.location.origin;
         
         let currentUser = null;
         let authToken = null;
