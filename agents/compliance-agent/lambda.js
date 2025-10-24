@@ -113,10 +113,13 @@ app.post('/api/chat', async (req, res) => {
     }
     
     // Create system prompt
-    const systemPrompt = `You are a ${AGENT_CONFIG.name} specializing in ${AGENT_CONFIG.description}. 
-    Your specialties include: ${AGENT_CONFIG.specialties.join(', ')}. 
-    You are part of the Formul8 Multiagent system with access to a comprehensive database of cannabis regulations.
-    Provide helpful, accurate, and professional responses citing specific regulations when possible.${contextData}`;
+    let systemPrompt;
+    if (usePromptEngineering) {
+      systemPrompt = `You are a specialized cannabis industry AI assistant. Provide helpful, accurate, and professional responses.`;
+    } else {
+      // Raw mode: minimal prompt engineering
+      systemPrompt = `You are a helpful AI assistant specializing in the cannabis industry.`;
+    }
     
     // Call OpenRouter API
     const openRouterResponse = await fetch('https://openrouter.ai/api/v1/chat/completions', {
@@ -128,7 +131,7 @@ app.post('/api/chat', async (req, res) => {
         'X-Title': `Formul8 ${AGENT_CONFIG.name}`
       },
       body: JSON.stringify({
-        model: 'openai/gpt-oss-120b',
+        model: selectedModel,
         messages: [
           {
             role: 'system',
@@ -170,7 +173,7 @@ app.post('/api/chat', async (req, res) => {
       response: aiResponse + footer,
       agent: AGENT_CONFIG.name.toLowerCase().replace(/\s+/g, '_'),
       timestamp: new Date().toISOString(),
-      model: 'openai/gpt-oss-120b',
+      model: selectedModel,
       usage: {
         prompt_tokens: promptTokens,
         completion_tokens: completionTokens,

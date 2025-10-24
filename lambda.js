@@ -1518,7 +1518,10 @@ const validatePlan = (plan) => {
 // API chat endpoint with enhanced security
 app.post('/api/chat', async (req, res) => {
   try {
-    const { message, plan = 'standard', username = 'anonymous' } = req.body;
+    const { message, plan = 'standard', username = 'anonymous', model: requestModel, usePromptEngineering = true } = req.body;
+    
+    // Use requested model or fall back to default
+    const selectedModel = requestModel || 'openai/gpt-oss-120b';
     
     // Validate required fields
     if (!message) {
@@ -1654,9 +1657,15 @@ app.post('/api/chat', async (req, res) => {
     const agentName = selectedAgentDetails ? selectedAgentDetails.name : selectedAgent;
     
     // Create system prompt based on selected agent and plan
-    const systemPrompt = selectedAgentDetails 
-      ? `You are a ${agentName} specializing in ${selectedAgentDetails.description}. You are part of the Formul8 Multiagent system with access to the ${planConfig.name} plan. ${selectedAgentDetails.specialties ? 'Your specialties include: ' + selectedAgentDetails.specialties.join(', ') + '.' : ''} Provide helpful, accurate, and professional responses. Keep responses concise but informative.`
-      : `You are a Formul8 Multiagent AI assistant specializing in the cannabis industry. You are using the ${planConfig.name} plan. Provide helpful, accurate, and professional responses. Keep responses concise but informative.`;
+    let systemPrompt;
+    if (usePromptEngineering) {
+      systemPrompt = selectedAgentDetails 
+        ? `You are a ${agentName} specializing in ${selectedAgentDetails.description}. You are part of the Formul8 Multiagent system with access to the ${planConfig.name} plan. ${selectedAgentDetails.specialties ? 'Your specialties include: ' + selectedAgentDetails.specialties.join(', ') + '.' : ''} Provide helpful, accurate, and professional responses. Keep responses concise but informative.`
+        : `You are a Formul8 Multiagent AI assistant specializing in the cannabis industry. You are using the ${planConfig.name} plan. Provide helpful, accurate, and professional responses. Keep responses concise but informative.`;
+    } else {
+      // Raw mode: minimal prompt engineering
+      systemPrompt = `You are a helpful AI assistant specializing in the cannabis industry.`;
+    }
     
     // Call OpenRouter API
     const openRouterResponse = await fetch('https://openrouter.ai/api/v1/chat/completions', {
@@ -1668,7 +1677,7 @@ app.post('/api/chat', async (req, res) => {
         'X-Title': 'Formul8 Multiagent Chat'
       },
       body: JSON.stringify({
-        model: 'openai/gpt-oss-120b',
+        model: selectedModel,
         messages: [
           {
             role: 'system',

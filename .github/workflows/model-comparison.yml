@@ -1,0 +1,192 @@
+name: Model Comparison Baseline
+
+on:
+  # Manual trigger only for expensive comprehensive tests
+  workflow_dispatch:
+    inputs:
+      models:
+        description: 'Models to test (comma-separated)'
+        required: true
+        default: 'gpt-4o,gpt-4o-raw,gpt-oss-120b,llama-405b,voiceflow'
+        type: string
+      
+  # Scheduled weekly comparison (Sundays at 3 AM UTC)
+  schedule:
+    - cron: '0 3 * * 0'
+
+jobs:
+  test-models:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        model: 
+          - gpt-4o
+          - gpt-4o-raw
+          - gpt-oss-120b
+          - llama-405b
+          - voiceflow
+      fail-fast: false # Continue testing other models even if one fails
+      max-parallel: 2 # Don't overwhelm the API
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run Model Comparison Test - ${{ matrix.model }}
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          VOICEFLOW_API_KEY: ${{ secrets.VOICEFLOW_API_KEY }}
+        run: |
+          echo "🧪 Testing model: ${{ matrix.model }}"
+          node test-model-comparison.js ${{ matrix.model }}
+
+      - name: Upload Test Results - ${{ matrix.model }}
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: model-results-${{ matrix.model }}
+          path: model-comparison-${{ matrix.model }}-*.json
+          retention-days: 90
+
+  generate-comparison-report:
+    needs: test-models
+    runs-on: ubuntu-latest
+    if: always()
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Download all test results
+        uses: actions/download-artifact@v4
+        with:
+          path: test-results/
+
+      - name: Generate Comparison Report
+        run: |
+          cat > generate-comparison-report.js << 'EOF'
+          const fs = require('fs');
+          const path = require('path');
+
+          // Find all result files
+          const resultsDir = 'test-results';
+          const results = [];
+          
+          function findJsonFiles(dir) {
+            const files = fs.readdirSync(dir);
+            files.forEach(file => {
+              const fullPath = path.join(dir, file);
+              if (fs.statSync(fullPath).isDirectory()) {
+                findJsonFiles(fullPath);
+              } else if (file.endsWith('.json')) {
+                const data = JSON.parse(fs.readFileSync(fullPath, 'utf8'));
+                results.push(data);
+              }
+            });
+          }
+          
+          findJsonFiles(resultsDir);
+          
+          // Sort by average score
+          results.sort((a, b) => b.summary.averageScore - a.summary.averageScore);
+          
+          // Generate markdown report
+          let report = `# 🏆 Model Comparison Report\n\n`;
+          report += `**Generated:** ${new Date().toISOString()}\n\n`;
+          report += `**Total Questions:** ${results[0]?.totalQuestions || 0}\n\n`;
+          report += `---\n\n`;
+          
+          report += `## 📊 Overall Rankings\n\n`;
+          report += `| Rank | Model | Avg Score | Routing Accuracy | High Scores | Low Scores | Errors |\n`;
+          report += `|------|-------|-----------|------------------|-------------|------------|--------|\n`;
+          
+          results.forEach((r, i) => {
+            report += `| ${i + 1} | **${r.model}** | ${r.summary.averageScore}% | ${r.summary.routingAccuracy}% | ${r.summary.highScores} | ${r.summary.lowScores} | ${r.summary.errors} |\n`;
+          });
+          
+          report += `\n---\n\n`;
+          
+          // Detailed breakdown for each model
+          report += `## 📈 Detailed Model Results\n\n`;
+          
+          results.forEach(r => {
+            report += `### ${r.model}\n\n`;
+            report += `- **Average Score:** ${r.summary.averageScore}%\n`;
+            report += `- **Routing Accuracy:** ${r.summary.routingAccuracy}%\n`;
+            report += `- **Score Distribution:**\n`;
+            report += `  - High (≥80%): ${r.summary.highScores} questions\n`;
+            report += `  - Medium (50-79%): ${r.summary.mediumScores} questions\n`;
+            report += `  - Low (<50%): ${r.summary.lowScores} questions\n`;
+            report += `- **Errors:** ${r.summary.errors}\n\n`;
+          });
+          
+          report += `---\n\n`;
+          
+          // Cost analysis
+          report += `## 💰 Estimated Cost Analysis\n\n`;
+          report += `Based on typical usage patterns:\n\n`;
+          report += `| Model | Per Question | Per 1000 Questions | Per Month (10K questions) |\n`;
+          report += `|-------|--------------|-------------------|---------------------------|\n`;
+          report += `| GPT-4o | ~$0.015 | ~$15.00 | ~$150.00 |\n`;
+          report += `| GPT-OSS-120B | ~$0.003 | ~$3.00 | ~$30.00 |\n`;
+          report += `| Llama 405B | ~$0.005 | ~$5.00 | ~$50.00 |\n`;
+          report += `| Voiceflow | ~$0.000 | ~$0.00 | Included in plan |\n`;
+          
+          report += `\n---\n\n`;
+          
+          // Winner analysis
+          const winner = results[0];
+          report += `## 🎯 Recommendation\n\n`;
+          report += `**Top Performer:** ${winner.model}\n\n`;
+          report += `- Average Score: **${winner.summary.averageScore}%**\n`;
+          report += `- Routing Accuracy: **${winner.summary.routingAccuracy}%**\n`;
+          report += `- ${winner.summary.highScores} questions scored ≥80%\n`;
+          
+          if (winner.summary.averageScore >= 80) {
+            report += `\n✅ **Excellent performance** - Consider using for production.\n`;
+          } else if (winner.summary.averageScore >= 60) {
+            report += `\n⚠️ **Good performance** - May need prompt tuning for optimal results.\n`;
+          } else {
+            report += `\n❌ **Needs improvement** - Significant prompt engineering required.\n`;
+          }
+          
+          fs.writeFileSync('MODEL_COMPARISON_REPORT.md', report);
+          console.log('✅ Comparison report generated: MODEL_COMPARISON_REPORT.md');
+          EOF
+          
+          node generate-comparison-report.js
+
+      - name: Upload Comparison Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: model-comparison-report
+          path: MODEL_COMPARISON_REPORT.md
+
+      - name: Comment on Workflow Run
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const report = fs.readFileSync('MODEL_COMPARISON_REPORT.md', 'utf8');
+            const summary = report.split('---')[0]; // Get first section
+            
+            // Create a comment on the workflow run
+            const runId = context.runId;
+            console.log('Workflow Summary:');
+            console.log(summary);
+            
+            // You can also create an issue or PR comment here if desired
+
