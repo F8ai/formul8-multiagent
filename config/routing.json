@@ -9,8 +9,8 @@
       "langchain_semantic": {
         "enabled": true,
         "model": "meta-llama/llama-3.1-405b-instruct",
-        "temperature": 0.1,
-        "maxTokens": 20,
+        "temperature": 0.0,
+        "maxTokens": 10,
         "prompt_template": "routing_prompt"
       },
       "keyword_matching": {
@@ -27,7 +27,7 @@
       }
     },
     "prompts": {
-      "routing_prompt": "Route this cannabis industry question to the correct agent.\n\nAGENTS:\n• compliance - Regulations, legal requirements, SOPs, licensing, \"can I\", \"am I allowed\"\n• operations - Production, equipment, troubleshooting, facility management, \"how do I\"\n• marketing - Branding, advertising, promotions, social media, customer engagement\n• formulation - Recipe development, dosage calculations, product design  \n• science - Cannabinoids, terpenes, COA interpretation, research\n\nQuestion: {message}\n\nRespond with ONLY ONE word - the agent name:"
+      "routing_prompt": "You are a routing assistant. Route this cannabis industry question to ONE agent.\n\nAGENTS (choose ONE):\ncompliance - Laws, regulations, licensing, SOPs, \"can I\", \"am I allowed\", legal requirements\noperations - Production, equipment, facility management, troubleshooting, \"how do I\", manufacturing\nmarketing - Branding, advertising, promotions, social media, customer acquisition\nformulation - Recipe development, dosage calculations, product design, ingredients\nscience - Cannabinoids, terpenes, COA interpretation, research, lab analysis\n\nEXAMPLES:\nQ: \"Can you make me a compliant SOP for Cannabis Transport in New Jersey?\"\nA: compliance\n\nQ: \"How do I troubleshoot my CO2 extraction system?\"\nA: operations\n\nQ: \"What are the best social media strategies for cannabis brands?\"\nA: marketing\n\nQ: \"How do I calculate THC dosage for gummy formulations?\"\nA: formulation\n\nQ: \"What terpenes are found in this COA?\"\nA: science\n\nNow route this question:\n{message}\n\nAgent:"
     },
     "agent_priorities": {
       "f8_agent": 1,
