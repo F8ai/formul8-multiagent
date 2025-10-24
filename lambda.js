@@ -1613,20 +1613,38 @@ app.post('/api/chat', async (req, res) => {
       });
     }
     
-    // Determine which agent to use based on message content and available agents
-    let selectedAgent = 'compliance'; // Default fallback
+    // Use LangChain routing service for intelligent agent selection
+    let selectedAgent = 'f8_agent'; // Default fallback
     
-    // Simple keyword-based routing (can be enhanced with more sophisticated logic)
-    const messageLower = sanitizedMessage.toLowerCase();
-    for (const agentKey of availableAgents) {
-      const agent = agentsConfig.agents[agentKey];
-      if (agent && agent.keywords) {
-        const hasKeyword = agent.keywords.some(keyword => 
-          messageLower.includes(keyword.toLowerCase())
-        );
-        if (hasKeyword) {
-          selectedAgent = agentKey;
-          break;
+    try {
+      // Initialize LangChain service for routing
+      const LangChainService = require('./services/langchain-service');
+      const langchainService = new LangChainService();
+      
+      // Route to appropriate agent using LangChain
+      selectedAgent = await langchainService.routeToAgent(sanitizedMessage);
+      console.log(`LangChain routing: "${sanitizedMessage.substring(0, 50)}..." → ${selectedAgent}`);
+      
+      // Verify agent is available in current plan
+      if (!availableAgents.includes(selectedAgent)) {
+        console.warn(`Routed agent ${selectedAgent} not available in plan ${validatedPlan}, using fallback`);
+        selectedAgent = availableAgents[0] || 'f8_agent';
+      }
+    } catch (routingError) {
+      console.error('LangChain routing failed, using keyword fallback:', routingError.message);
+      
+      // Fallback to keyword-based routing
+      const messageLower = sanitizedMessage.toLowerCase();
+      for (const agentKey of availableAgents) {
+        const agent = agentsConfig.agents[agentKey];
+        if (agent && agent.keywords) {
+          const hasKeyword = agent.keywords.some(keyword => 
+            messageLower.includes(keyword.toLowerCase())
+          );
+          if (hasKeyword) {
+            selectedAgent = agentKey;
+            break;
+          }
         }
       }
     }
