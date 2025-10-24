@@ -1,5 +1,4 @@
 {
-  "name": "formulation-agent",
   "version": 2,
   "builds": [
     {
@@ -20,8 +19,5 @@
       "src": "/(.*)",
       "dest": "/lambda.js"
     }
-  ],
-  "env": {
-    "OPENROUTER_API_KEY": "@openrouter_api_key"
-  }
+  ]
 }
