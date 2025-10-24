@@ -8,9 +8,9 @@
     "strategies": {
       "langchain_semantic": {
         "enabled": true,
-        "model": "meta-llama/llama-3.1-8b-instruct",
-        "temperature": 0.3,
-        "maxTokens": 50,
+        "model": "meta-llama/llama-3.1-70b-instruct",
+        "temperature": 0.1,
+        "maxTokens": 20,
         "prompt_template": "routing_prompt"
       },
       "keyword_matching": {
