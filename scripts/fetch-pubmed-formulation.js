@@ -283,7 +283,7 @@ async function main() {
   let allNewArticles = [];
   
   for (const query of SEARCH_QUERIES) {
-    const pmids = await searchPubMed(query, 20); // 20 most recent per query (increased for initial load)
+    const pmids = await searchPubMed(query, 5); // 5 most recent per query
     
     if (pmids.length > 0) {
       // Add small delay to respect NCBI rate limits (3 requests/second)
