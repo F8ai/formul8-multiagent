@@ -2,7 +2,7 @@
 
 ## Overview
 
-The formulation-agent now uses **Retrieval Augmented Generation (RAG)** to enhance responses with scientific research data from the science-agent (PubMed papers).
+The formulation-agent now uses **Retrieval Augmented Generation (RAG)** to enhance responses with scientific research data (PubMed papers). This agent has been enhanced to handle both product formulation AND scientific research queries, consolidating the capabilities of the deprecated science-agent.
 
 ## Architecture
 
@@ -30,8 +30,8 @@ The formulation-agent now uses **Retrieval Augmented Generation (RAG)** to enhan
 
 ## How It Works
 
-1. **User Query**: When a user asks a formulation question, the query is analyzed
-2. **Research Retrieval**: The agent searches the science-agent's S3 data for relevant PubMed papers
+1. **User Query**: When a user asks a formulation or scientific research question, the query is analyzed
+2. **Research Retrieval**: The agent searches S3 for relevant PubMed papers
 3. **Context Building**: Top 3 most relevant papers are added to the system prompt
 4. **Enhanced Response**: The AI model generates a response informed by scientific research
 5. **Transparency**: Response metadata includes RAG information (number of papers used)
@@ -40,7 +40,7 @@ The formulation-agent now uses **Retrieval Augmented Generation (RAG)** to enhan
 
 ```javascript
 async function retrieveRelevantResearch(query) {
-  // Loads science-agent index from S3
+  // Loads scientific research data index from S3
   // Filters papers by keyword matching
   // Returns top 3 most relevant papers
 }

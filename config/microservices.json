@@ -42,13 +42,6 @@
         "retries": 2,
         "healthCheck": true
       },
-      "science": {
-        "url": "https://science-agent.f8.syzygyx.com",
-        "type": "microservice",
-        "timeout": 30000,
-        "retries": 2,
-        "healthCheck": true
-      },
       "operations": {
         "url": "https://operations-agent.f8.syzygyx.com",
         "type": "microservice",

@@ -71,7 +71,6 @@ start_service() {
 services=(
     "compliance-agent:f8ai/compliance-agent:3001:npm start"
     "formulation-agent:f8ai/formulation-agent:3002:npm start"
-    "science-agent:f8ai/science-agent:3003:npm start"
     "operations-agent:f8ai/operations-agent:3004:npm start"
     "marketing-agent:f8ai/marketing-agent:3005:npm start"
     "sourcing-agent:f8ai/sourcing-agent:3006:npm start"
@@ -178,7 +177,7 @@ case "${1:-start}" in
         echo "  $0 start compliance-agent"
         echo "  $0 restart formulation-agent"
         echo "  $0 status"
-        echo "  $0 logs science-agent"
+        echo "  $0 logs formulation-agent"
         ;;
     
     *)

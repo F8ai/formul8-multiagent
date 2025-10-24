@@ -30,26 +30,17 @@
     },
     "formulation": {
       "name": "Formulation Agent",
-      "description": "Cannabis product formulation specialist",
+      "description": "Cannabis product formulation and scientific research specialist",
       "type": "microservice",
       "url": "https://formulation-agent.f8.syzygyx.com",
-      "keywords": ["formulation", "recipe", "dosage", "extraction", "ingredient", "thc", "cbd", "concentrate", "edible", "tincture"],
+      "keywords": ["formulation", "recipe", "dosage", "extraction", "ingredient", "thc", "cbd", "concentrate", "edible", "tincture", "science", "research", "cannabinoid", "terpene", "lab", "testing", "coa", "analysis", "study", "clinical"],
       "specialties": [
         "Recipe development and customization",
         "Dosage calculations for THC/CBD",
         "Extraction methods and techniques",
         "Ingredient selection and sourcing",
         "Quality control and consistency",
-        "Product stability and shelf life"
-      ]
-    },
-    "science": {
-      "name": "Science Agent",
-      "description": "Cannabis research and analysis expert",
-      "type": "microservice",
-      "url": "https://science-agent.f8.syzygyx.com",
-      "keywords": ["science", "research", "cannabinoid", "terpene", "lab", "testing", "coa", "analysis", "study", "clinical"],
-      "specialties": [
+        "Product stability and shelf life",
         "Scientific research analysis",
         "Cannabinoid and terpene profiles",
         "Lab results interpretation (COAs)",

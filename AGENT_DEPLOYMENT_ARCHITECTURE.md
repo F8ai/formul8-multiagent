@@ -38,14 +38,13 @@ Formul8 uses a **centralized key management** system where only the main applica
 
 ### Separate Repos (Pull on deploy)
 - `F8ai/compliance-agent` - Cannabis compliance expert with S3 data
-- `F8ai/formulation-agent` - Product formulation specialist
+- `F8ai/formulation-agent` - Product formulation and scientific research specialist (includes deprecated science-agent capabilities)
 - `F8ai/marketing-agent` - Brand and marketing strategy
 - `F8ai/customer-success-agent` - Customer retention expert
 - `F8ai/mcr-agent` - Master Control Records
 - `F8ai/ad-agent` - Advertising campaigns
 
 ### Embedded in Multiagent (Deploy directly)
-- `agents/science-agent` - Research and cannabinoids
 - `agents/operations-agent` - Facility management
 - `agents/sourcing-agent` - Supply chain
 - `agents/patent-agent` - IP research
@@ -96,7 +95,7 @@ vercel --prod
 
 For embedded agent:
 ```bash
-cd /Users/danielmcshan/GitHub/formul8-multiagent/agents/science-agent
+cd /Users/danielmcshan/GitHub/formul8-multiagent/agents/operations-agent
 npm install
 vercel --prod
 ```

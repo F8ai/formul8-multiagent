@@ -6,7 +6,7 @@
 
 ## Overview
 
-The formulation-agent has been successfully enhanced with **Retrieval Augmented Generation (RAG)** capabilities, enabling it to access and utilize scientific research data from the science-agent (PubMed papers) to provide more accurate, research-backed responses.
+The formulation-agent has been successfully enhanced with **Retrieval Augmented Generation (RAG)** capabilities, enabling it to access and utilize scientific research data (PubMed papers) to provide more accurate, research-backed responses. This enhancement also incorporates the functionality previously provided by the deprecated science-agent.
 
 ## What is RAG?
 
@@ -28,14 +28,14 @@ The formulation-agent has been successfully enhanced with **Retrieval Augmented 
 
 #### `agents/formulation-agent/lambda.js`
 - Added `retrieveRelevantResearch()` function for RAG
-- Integrated S3 access to science-agent data
+- Integrated S3 access to scientific research data
 - Enhanced system prompt with research context
 - Added RAG metadata to response footer
 - Implements keyword-based paper filtering
 
 #### `agents/formulation-agent/s3-config.json`
 - Added RAG configuration section
-- References science-agent as data source
+- References scientific research data sources
 - Updated version to 1.1.0
 
 #### `agents/formulation-agent/package.json`
@@ -57,8 +57,8 @@ The formulation-agent has been successfully enhanced with **Retrieval Augmented 
 - Troubleshooting guide
 - Rollback procedures
 
-#### `agents/science-agent/data/index.json.example`
-- Sample data structure for science-agent
+#### `agents/formulation-agent/data/index.json.example`
+- Sample data structure for scientific research data
 - Example PubMed papers with proper schema
 - Required fields specification
 
@@ -129,21 +129,21 @@ Responses now include RAG metadata:
   "rag": {
     "enabled": true,
     "papersRetrieved": 3,
-    "source": "science-agent"
+    "source": "formulation-agent"
   }
 }
 ```
 
 Footer includes RAG info:
 ```
-*Agent: Formulation Agent | Plan: standard | Tokens: 450 (350→100) | Cost: $0.000000 | RAG: 3 papers from science-agent*
+*Agent: Formulation Agent | Plan: standard | Tokens: 450 (350→100) | Cost: $0.000000 | RAG: 3 research papers*
 ```
 
 ## Data Requirements
 
-### Science Agent Data Structure
+### Scientific Research Data Structure
 
-The science-agent must have an `index.json` file at:
+The formulation-agent data directory must have an `index.json` file at:
 ```
 s3://formul8-platform-deployments/data/science/index.json
 ```
@@ -165,7 +165,7 @@ With this structure:
 
 ### Example Data
 
-See `agents/science-agent/data/index.json.example` for a complete example with 5 sample papers covering:
+See `agents/formulation-agent/data/index.json.example` for a complete example with 5 sample papers covering:
 - Cannabinoid effects on inflammation
 - Terpene profiles
 - Extraction methods
@@ -191,7 +191,7 @@ curl -X POST https://formulation-agent.f8.syzygyx.com/api/chat \
 1. **With relevant papers found**:
    - Response includes research-backed information
    - `papersRetrieved`: 1-3
-   - Footer shows "RAG: X papers from science-agent"
+   - Footer shows "RAG: X research papers"
 
 2. **With no relevant papers**:
    - Agent still responds (using AI knowledge)
@@ -288,7 +288,7 @@ curl https://formulation-agent.f8.syzygyx.com/health
 2. **More Agents**: Enable operations-agent, marketing-agent to use RAG
 3. **Citation Links**: Include PubMed URLs in responses
 4. **Real-time Updates**: Automatic sync when new papers added
-5. **Multi-source RAG**: Combine science-agent + patent-agent data
+5. **Multi-source RAG**: Combine formulation-agent research data + patent-agent data
 
 ## Rollback
 
@@ -319,7 +319,7 @@ git push origin main
 
 ## Status
 
-✅ **COMPLETE** - Formulation agent now uses RAG from science-agent downloads
+✅ **COMPLETE** - Formulation agent now uses RAG from scientific research data (previously science-agent, now deprecated and merged into formulation-agent)
 
 ---
 

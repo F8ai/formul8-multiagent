@@ -24,7 +24,6 @@ fi
 AGENTS=(
     "compliance-agent"
     "formulation-agent" 
-    "science-agent"
     "operations-agent"
     "marketing-agent"
     "sourcing-agent"

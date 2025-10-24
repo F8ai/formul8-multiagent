@@ -75,34 +75,22 @@ For specific regulations in your state, please consult the official regulatory w
   },
   formulation: {
     name: 'Formulation Agent', 
-    description: 'CBD/THC product formulation expert',
+    description: 'Cannabis product formulation and scientific research specialist',
     getResponse: (message: string) => {
-      return `As a formulation expert, I can help you with cannabis product development:
+      return `As a formulation and science expert, I can help you with cannabis product development and research:
 
 1. **Dosage Calculation**: Proper THC/CBD dosing is crucial
 2. **Extraction Methods**: Choose the right extraction technique
 3. **Ingredient Compatibility**: Ensure all ingredients work together
 4. **Stability**: Consider shelf life and storage requirements
 5. **Testing**: Regular potency and safety testing
+6. **Research Analysis**: Scientific research and data analysis
+7. **Lab Results**: COA interpretation and quality assessment
+8. **Cannabinoid Profiles**: Terpene and cannabinoid analysis
 
-For specific formulation questions, please provide more details about your product type.`;
+For specific formulation or scientific questions, please provide more details about your product type or research objectives.`;
     }
   },
-  science: {
-    name: 'Science Agent',
-    description: 'Research and analysis expert', 
-    getResponse: (message: string) => {
-      return `As a science expert, I can help you with cannabis research and analysis:
-
-1. **Research Design**: Proper experimental design with controls
-2. **Data Analysis**: Statistical analysis of results
-3. **Literature Review**: Current research findings
-4. **Testing Protocols**: Standardized testing procedures
-5. **Quality Control**: Ensuring reliable results
-
-For specific scientific questions, please provide details about your research objectives.`;
-    }
-  }
 };
 
 // Determine which agent to use based on message content
@@ -115,8 +103,8 @@ function determineAgent(message: string): string {
   if (lower.match(/\b(formulation|recipe|tincture|extract|cbd|thc)\b/)) {
     return 'formulation';
   }
-  if (lower.match(/\b(research|analysis|study|data|test|lab)\b/)) {
-    return 'science';
+  if (lower.match(/\b(research|analysis|study|data|test|lab|science|cannabinoid|terpene|coa)\b/)) {
+    return 'formulation';
   }
   
   return 'f8_agent'; // Default
@@ -271,8 +259,7 @@ app.get('/', (_req: Request, res: Response) => {
                         <option value="">Auto-select (Recommended)</option>
                         <option value="f8_agent">F8 Multi-Agent</option>
                         <option value="compliance">Compliance Agent</option>
-                        <option value="formulation">Formulation Agent</option>
-                        <option value="science">Science Agent</option>
+                        <option value="formulation">Formulation & Science Agent</option>
                     </select>
                 </div>
                 
@@ -306,8 +293,7 @@ app.get('/', (_req: Request, res: Response) => {
                 <ul>
                     <li><strong>F8 Multi-Agent</strong> - Main agent that routes to specialized agents</li>
                     <li><strong>Compliance Agent</strong> - Cannabis regulatory compliance expert</li>
-                    <li><strong>Formulation Agent</strong> - CBD/THC product formulation expert</li>
-                    <li><strong>Science Agent</strong> - Research and analysis expert</li>
+                    <li><strong>Formulation Agent</strong> - Cannabis product formulation and scientific research specialist</li>
                 </ul>
             </div>
             
@@ -473,7 +459,6 @@ app.get('/health', async (_req: Request, res: Response) => {
   const microservices = [
     { name: 'compliance-agent', port: 3001, url: 'http://localhost:3001' },
     { name: 'formulation-agent', port: 3002, url: 'http://localhost:3002' },
-    { name: 'science-agent', port: 3003, url: 'http://localhost:3003' },
     { name: 'operations-agent', port: 3004, url: 'http://localhost:3004' },
     { name: 'marketing-agent', port: 3005, url: 'http://localhost:3005' },
     { name: 'sourcing-agent', port: 3006, url: 'http://localhost:3006' },

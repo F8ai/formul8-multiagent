@@ -22,7 +22,6 @@ AGENTS=(
   "metabolomics-agent:/Users/danielmcshan/GitHub/metabolomics-agent/data"
   "future-agent:/Users/danielmcshan/GitHub/future-agent/data"
   "patent-agent:/Users/danielmcshan/GitHub/patent-agent/data"
-  "science-agent:/Users/danielmcshan/GitHub/science-agent/data"
   "mcr-agent:/Users/danielmcshan/GitHub/mcr-agent/data"
   "formulation-agent:/Users/danielmcshan/GitHub/formulation-agent/data"
   "operations-agent:/Users/danielmcshan/GitHub/operations-agent/data"

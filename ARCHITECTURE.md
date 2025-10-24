@@ -32,8 +32,7 @@ Security: Custom middleware with rate limiting
 |-------|--------|-------------|-------------|
 | F8 Agent | Main/Routing | `f8.syzygyx.com` | General queries, agent coordination |
 | Compliance | Regulatory | `compliance-agent.f8.syzygyx.com` | State regulations, licensing, audits |
-| Formulation | Product Development | `formulation-agent.f8.syzygyx.com` | Recipes, dosages, extraction methods |
-| Science | Research | `science-agent.f8.syzygyx.com` | Cannabinoids, terpenes, lab analysis |
+| Formulation | Product Development & Research | `formulation-agent.f8.syzygyx.com` | Recipes, dosages, extraction methods, cannabinoids, terpenes, lab analysis, COAs |
 | Operations | Facility Management | `operations-agent.f8.syzygyx.com` | Production, quality control, logistics |
 | Marketing | Brand Strategy | `marketing-agent.f8.syzygyx.com` | Campaigns, customer acquisition |
 | Sourcing | Supply Chain | `sourcing-agent.f8.syzygyx.com` | Vendor management, procurement |
@@ -517,8 +516,7 @@ Each agent deployed as separate Vercel project:
 # Agent URLs
 Main Agent: f8.syzygyx.com
 ├── compliance-agent-f8.vercel.app
-├── formulation-agent-f8.vercel.app
-├── science-agent-f8.vercel.app
+├── formulation-agent-f8.vercel.app (includes science capabilities)
 ├── operations-agent-f8.vercel.app
 ├── marketing-agent-f8.vercel.app
 ├── sourcing-agent-f8.vercel.app

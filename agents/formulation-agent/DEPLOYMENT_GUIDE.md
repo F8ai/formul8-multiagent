@@ -1,9 +1,11 @@
 # Formulation Agent - Deployment Guide with RAG
 
+**Note**: This agent now handles both product formulation AND scientific research capabilities (the science-agent has been deprecated and merged into this agent).
+
 ## Prerequisites
 
 1. **AWS Credentials** configured with S3 access
-2. **Science-agent data** synced to S3 at `s3://formul8-platform-deployments/data/science/`
+2. **Scientific research data** synced to S3 at `s3://formul8-platform-deployments/data/science/`
 3. **OpenRouter API key** for AI model access
 
 ## Environment Variables
@@ -17,12 +19,12 @@ AWS_REGION=us-east-1
 OPENROUTER_API_KEY=your-openrouter-key
 ```
 
-## Pre-Deployment: Science Agent Data Setup
+## Pre-Deployment: Scientific Research Data Setup
 
-### 1. Check Science Agent Data
+### 1. Check Scientific Research Data
 
 ```bash
-# Verify science-agent data exists in S3
+# Verify scientific research data exists in S3
 aws s3 ls s3://formul8-platform-deployments/data/science/
 
 # Expected output:
@@ -32,7 +34,7 @@ aws s3 ls s3://formul8-platform-deployments/data/science/
 
 ### 2. Validate index.json Structure
 
-The science-agent's `index.json` must have the following structure:
+The scientific research data `index.json` must have the following structure:
 
 ```json
 {
