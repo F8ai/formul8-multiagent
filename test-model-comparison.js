@@ -14,13 +14,13 @@ const MODEL_CONFIGS = {
     name: 'GPT-4o',
     model: 'openai/gpt-4o',
     usePromptEngineering: true,
-    description: 'Latest GPT-4 with full prompt engineering'
+    description: 'OpenAI GPT-4o with full prompt engineering'
   },
   'gpt-4o-raw': {
     name: 'GPT-4o (Raw)',
     model: 'openai/gpt-4o',
     usePromptEngineering: false,
-    description: 'Latest GPT-4 without prompt engineering'
+    description: 'OpenAI GPT-4o without prompt engineering'
   },
   'gpt-oss-120b': {
     name: 'GPT-OSS-120B (Qwen 2.5 Coder 32B)',
