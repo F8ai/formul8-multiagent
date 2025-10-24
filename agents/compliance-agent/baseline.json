@@ -1,16 +1,41 @@
 {
   "metadata": {
-    "generatedAt": "2025-10-21T17:43:57.309Z",
-    "agent": "compliance-agent",
+    "generatedAt": "2025-10-23T22:30:00.000Z",
+    "agent": "compliance",
     "version": "1.0",
-    "description": "Baseline questions for compliance-agent"
+    "description": "Baseline questions for compliance agent"
   },
   "questions": [
     {
-      "id": "compliance-agent-001",
-      "question": "Example question for compliance-agent",
+      "id": "compliance-001",
+      "question": "What are the compliance requirements for cannabis businesses in California?",
       "category": "compliance",
-      "expectedAgent": "compliance-agent",
+      "expectedAgent": "compliance",
+      "expectedKeywords": ["compliance", "california", "license", "regulation", "dcc"],
+      "tier": "standard"
+    },
+    {
+      "id": "compliance-002",
+      "question": "What are the multi-state compliance challenges for cannabis?",
+      "category": "compliance",
+      "expectedAgent": "compliance",
+      "expectedKeywords": ["multi-state", "compliance", "regulation", "jurisdiction"],
+      "tier": "standard"
+    },
+    {
+      "id": "compliance-003",
+      "question": "How do I maintain compliance records for cannabis cultivation?",
+      "category": "compliance",
+      "expectedAgent": "compliance",
+      "expectedKeywords": ["records", "documentation", "compliance", "cultivation"],
+      "tier": "standard"
+    },
+    {
+      "id": "compliance-004",
+      "question": "What are the testing requirements for cannabis products?",
+      "category": "compliance",
+      "expectedAgent": "compliance",
+      "expectedKeywords": ["testing", "requirements", "lab", "compliance"],
       "tier": "standard"
     }
   ]

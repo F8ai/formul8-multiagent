@@ -1,16 +1,33 @@
 {
   "metadata": {
-    "generatedAt": "2025-10-21T17:43:57.310Z",
-    "agent": "marketing-agent",
+    "generatedAt": "2025-10-23T22:30:00.000Z",
+    "agent": "marketing",
     "version": "1.0",
-    "description": "Baseline questions for marketing-agent"
+    "description": "Baseline questions for marketing agent"
   },
   "questions": [
     {
-      "id": "marketing-agent-001",
-      "question": "Example question for marketing-agent",
+      "id": "marketing-001",
+      "question": "How should I market my cannabis brand on social media?",
       "category": "marketing",
-      "expectedAgent": "marketing-agent",
+      "expectedAgent": "marketing",
+      "expectedKeywords": ["market", "brand", "social media", "marketing"],
+      "tier": "standard"
+    },
+    {
+      "id": "marketing-002",
+      "question": "What are the best practices for cannabis advertising?",
+      "category": "marketing",
+      "expectedAgent": "marketing",
+      "expectedKeywords": ["advertising", "best practices", "marketing"],
+      "tier": "standard"
+    },
+    {
+      "id": "marketing-003",
+      "question": "How do I build brand awareness for cannabis products?",
+      "category": "marketing",
+      "expectedAgent": "marketing",
+      "expectedKeywords": ["brand", "awareness", "marketing"],
       "tier": "standard"
     }
   ]

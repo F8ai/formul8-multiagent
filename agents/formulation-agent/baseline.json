@@ -1,16 +1,41 @@
 {
   "metadata": {
-    "generatedAt": "2025-10-21T17:43:57.310Z",
-    "agent": "formulation-agent",
+    "generatedAt": "2025-10-23T22:30:00.000Z",
+    "agent": "formulation",
     "version": "1.0",
-    "description": "Baseline questions for formulation-agent"
+    "description": "Baseline questions for formulation agent"
   },
   "questions": [
     {
-      "id": "formulation-agent-001",
-      "question": "Example question for formulation-agent",
+      "id": "formulation-001",
+      "question": "How do I calculate THC dosage?",
       "category": "formulation",
-      "expectedAgent": "formulation-agent",
+      "expectedAgent": "formulation",
+      "expectedKeywords": ["calculate", "thc", "dosage"],
+      "tier": "standard"
+    },
+    {
+      "id": "formulation-002",
+      "question": "How do I make cannabis edibles?",
+      "category": "formulation",
+      "expectedAgent": "formulation",
+      "expectedKeywords": ["make", "edibles", "cannabis"],
+      "tier": "standard"
+    },
+    {
+      "id": "formulation-003",
+      "question": "Create a recipe for cannabis gummies with 10mg THC each",
+      "category": "formulation",
+      "expectedAgent": "formulation",
+      "expectedKeywords": ["recipe", "gummies", "thc"],
+      "tier": "standard"
+    },
+    {
+      "id": "formulation-004",
+      "question": "What extraction method is best for high-CBD products?",
+      "category": "formulation",
+      "expectedAgent": "formulation",
+      "expectedKeywords": ["extraction", "method", "cbd"],
       "tier": "standard"
     }
   ]

@@ -1,0 +1,685 @@
+{
+  "timestamp": "2025-10-23T21:55:19.552Z",
+  "endpoint": "https://chat.formul8.ai",
+  "summary": {
+    "totalQuestions": 23,
+    "successfulResponses": 0,
+    "failedResponses": 23,
+    "successRate": "0.00",
+    "averageScore": "0.00",
+    "overallGrade": "F",
+    "gradeDistribution": {
+      "A": 0,
+      "B": 0,
+      "C": 0,
+      "D": 0,
+      "F": 23
+    }
+  },
+  "categoryResults": [
+    {
+      "category": "general",
+      "questions": 1,
+      "averageScore": "0.00",
+      "grade": "F",
+      "grades": [
+        "F"
+      ]
+    },
+    {
+      "category": "operations",
+      "questions": 4,
+      "averageScore": "0.00",
+      "grade": "F",
+      "grades": [
+        "F",
+        "F",
+        "F",
+        "F"
+      ]
+    },
+    {
+      "category": "business",
+      "questions": 1,
+      "averageScore": "0.00",
+      "grade": "F",
+      "grades": [
+        "F"
+      ]
+    },
+    {
+      "category": "off_topic",
+      "questions": 2,
+      "averageScore": "0.00",
+      "grade": "F",
+      "grades": [
+        "F",
+        "F"
+      ]
+    },
+    {
+      "category": "compliance",
+      "questions": 4,
+      "averageScore": "0.00",
+      "grade": "F",
+      "grades": [
+        "F",
+        "F",
+        "F",
+        "F"
+      ]
+    },
+    {
+      "category": "formulation",
+      "questions": 4,
+      "averageScore": "0.00",
+      "grade": "F",
+      "grades": [
+        "F",
+        "F",
+        "F",
+        "F"
+      ]
+    },
+    {
+      "category": "science",
+      "questions": 4,
+      "averageScore": "0.00",
+      "grade": "F",
+      "grades": [
+        "F",
+        "F",
+        "F",
+        "F"
+      ]
+    },
+    {
+      "category": "marketing",
+      "questions": 3,
+      "averageScore": "0.00",
+      "grade": "F",
+      "grades": [
+        "F",
+        "F",
+        "F"
+      ]
+    }
+  ],
+  "detailedResults": [
+    {
+      "questionNumber": 1,
+      "question": "What are the benefits of cannabis?",
+      "category": "general",
+      "agentContext": "f8_agent",
+      "apiResponse": {
+        "status": 308,
+        "response": "Redirecting...\n",
+        "success": false,
+        "error": "Unexpected token 'R', \"Redirecting...\n\" is not valid JSON",
+        "responseTime": 340
+      },
+      "grade": {
+        "score": 0,
+        "maxScore": 100,
+        "percentage": 0,
+        "details": {
+          "keywordScore": 0,
+          "topicScore": 0,
+          "lengthScore": 0,
+          "error": "Unexpected token 'R', \"Redirecting...\n\" is not valid JSON"
+        }
+      },
+      "gradeLetter": "F"
+    },
+    {
+      "questionNumber": 2,
+      "question": "How do I scale up my cannabis production?",
+      "category": "operations",
+      "agentContext": "f8_agent",
+      "apiResponse": {
+        "status": 308,
+        "response": "Redirecting...\n",
+        "success": false,
+        "error": "Unexpected token 'R', \"Redirecting...\n\" is not valid JSON",
+        "responseTime": 34
+      },
+      "grade": {
+        "score": 0,
+        "maxScore": 100,
+        "percentage": 0,
+        "details": {
+          "keywordScore": 0,
+          "topicScore": 0,
+          "lengthScore": 0,
+          "error": "Unexpected token 'R', \"Redirecting...\n\" is not valid JSON"
+        }
+      },
+      "gradeLetter": "F"
+    },
+    {
+      "questionNumber": 3,
+      "question": "I want to start a cannabis business",
+      "category": "business",
+      "agentContext": "f8_agent",
+      "apiResponse": {
+        "status": 308,
+        "response": "Redirecting...\n",
+        "success": false,
+        "error": "Unexpected token 'R', \"Redirecting...\n\" is not valid JSON",
+        "responseTime": 33
+      },
+      "grade": {
+        "score": 0,
+        "maxScore": 100,
+        "percentage": 0,
+        "details": {
+          "keywordScore": 0,
+          "topicScore": 0,
+          "lengthScore": 0,
+          "error": "Unexpected token 'R', \"Redirecting...\n\" is not valid JSON"
+        }
+      },
+      "gradeLetter": "F"
+    },
+    {
+      "questionNumber": 4,
+      "question": "What is the meaning of life?",
+      "category": "off_topic",
+      "agentContext": "f8_agent",
+      "apiResponse": {
+        "status": 308,
+        "response": "Redirecting...\n",
+        "success": false,
+        "error": "Unexpected token 'R', \"Redirecting...\n\" is not valid JSON",
+        "responseTime": 32
+      },
+      "grade": {
+        "score": 0,
+        "maxScore": 100,
+        "percentage": 0,
+        "details": {
+          "keywordScore": 0,
+          "topicScore": 0,
+          "lengthScore": 0,
+          "error": "Unexpected token 'R', \"Redirecting...\n\" is not valid JSON"
+        }
+      },
+      "gradeLetter": "F"
+    },
+    {
+      "questionNumber": 5,
+      "question": "I need help with something completely unrelated to cannabis or business",
+      "category": "off_topic",
+      "agentContext": "f8_agent",
+      "apiResponse": {
+        "status": 308,
+        "response": "Redirecting...\n",
+        "success": false,
+        "error": "Unexpected token 'R', \"Redirecting...\n\" is not valid JSON",
+        "responseTime": 47
+      },
+      "grade": {
+        "score": 0,
+        "maxScore": 100,
+        "percentage": 0,
+        "details": {
+          "keywordScore": 0,
+          "topicScore": 0,
+          "lengthScore": 0,
+          "error": "Unexpected token 'R', \"Redirecting...\n\" is not valid JSON"
+        }
+      },
+      "gradeLetter": "F"
+    },
+    {
+      "questionNumber": 6,
+      "question": "What are the compliance requirements for cannabis businesses in California?",
+      "category": "compliance",
+      "agentContext": "compliance",
+      "apiResponse": {
+        "status": 308,
+        "response": "Redirecting...\n",
+        "success": false,
+        "error": "Unexpected token 'R', \"Redirecting...\n\" is not valid JSON",
+        "responseTime": 139
+      },
+      "grade": {
+        "score": 0,
+        "maxScore": 100,
+        "percentage": 0,
+        "details": {
+          "keywordScore": 0,
+          "topicScore": 0,
+          "lengthScore": 0,
+          "error": "Unexpected token 'R', \"Redirecting...\n\" is not valid JSON"
+        }
+      },
+      "gradeLetter": "F"
+    },
+    {
+      "questionNumber": 7,
+      "question": "What are the multi-state compliance challenges for cannabis?",
+      "category": "compliance",
+      "agentContext": "compliance",
+      "apiResponse": {
+        "status": 308,
+        "response": "Redirecting...\n",
+        "success": false,
+        "error": "Unexpected token 'R', \"Redirecting...\n\" is not valid JSON",
+        "responseTime": 60
+      },
+      "grade": {
+        "score": 0,
+        "maxScore": 100,
+        "percentage": 0,
+        "details": {
+          "keywordScore": 0,
+          "topicScore": 0,
+          "lengthScore": 0,
+          "error": "Unexpected token 'R', \"Redirecting...\n\" is not valid JSON"
+        }
+      },
+      "gradeLetter": "F"
+    },
+    {
+      "questionNumber": 8,
+      "question": "How do I maintain compliance records for cannabis cultivation?",
+      "category": "compliance",
+      "agentContext": "compliance",
+      "apiResponse": {
+        "status": 308,
+        "response": "Redirecting...\n",
+        "success": false,
+        "error": "Unexpected token 'R', \"Redirecting...\n\" is not valid JSON",
+        "responseTime": 153
+      },
+      "grade": {
+        "score": 0,
+        "maxScore": 100,
+        "percentage": 0,
+        "details": {
+          "keywordScore": 0,
+          "topicScore": 0,
+          "lengthScore": 0,
+          "error": "Unexpected token 'R', \"Redirecting...\n\" is not valid JSON"
+        }
+      },
+      "gradeLetter": "F"
+    },
+    {
+      "questionNumber": 9,
+      "question": "What are the testing requirements for cannabis products?",
+      "category": "compliance",
+      "agentContext": "compliance",
+      "apiResponse": {
+        "status": 308,
+        "response": "Redirecting...\n",
+        "success": false,
+        "error": "Unexpected token 'R', \"Redirecting...\n\" is not valid JSON",
+        "responseTime": 42
+      },
+      "grade": {
+        "score": 0,
+        "maxScore": 100,
+        "percentage": 0,
+        "details": {
+          "keywordScore": 0,
+          "topicScore": 0,
+          "lengthScore": 0,
+          "error": "Unexpected token 'R', \"Redirecting...\n\" is not valid JSON"
+        }
+      },
+      "gradeLetter": "F"
+    },
+    {
+      "questionNumber": 10,
+      "question": "How do I calculate THC dosage?",
+      "category": "formulation",
+      "agentContext": "formulation",
+      "apiResponse": {
+        "status": 308,
+        "response": "Redirecting...\n",
+        "success": false,
+        "error": "Unexpected token 'R', \"Redirecting...\n\" is not valid JSON",
+        "responseTime": 35
+      },
+      "grade": {
+        "score": 0,
+        "maxScore": 100,
+        "percentage": 0,
+        "details": {
+          "keywordScore": 0,
+          "topicScore": 0,
+          "lengthScore": 0,
+          "error": "Unexpected token 'R', \"Redirecting...\n\" is not valid JSON"
+        }
+      },
+      "gradeLetter": "F"
+    },
+    {
+      "questionNumber": 11,
+      "question": "How do I make cannabis edibles?",
+      "category": "formulation",
+      "agentContext": "formulation",
+      "apiResponse": {
+        "status": 308,
+        "response": "Redirecting...\n",
+        "success": false,
+        "error": "Unexpected token 'R', \"Redirecting...\n\" is not valid JSON",
+        "responseTime": 34
+      },
+      "grade": {
+        "score": 0,
+        "maxScore": 100,
+        "percentage": 0,
+        "details": {
+          "keywordScore": 0,
+          "topicScore": 0,
+          "lengthScore": 0,
+          "error": "Unexpected token 'R', \"Redirecting...\n\" is not valid JSON"
+        }
+      },
+      "gradeLetter": "F"
+    },
+    {
+      "questionNumber": 12,
+      "question": "Create a recipe for cannabis gummies with 10mg THC each",
+      "category": "formulation",
+      "agentContext": "formulation",
+      "apiResponse": {
+        "status": 308,
+        "response": "Redirecting...\n",
+        "success": false,
+        "error": "Unexpected token 'R', \"Redirecting...\n\" is not valid JSON",
+        "responseTime": 34
+      },
+      "grade": {
+        "score": 0,
+        "maxScore": 100,
+        "percentage": 0,
+        "details": {
+          "keywordScore": 0,
+          "topicScore": 0,
+          "lengthScore": 0,
+          "error": "Unexpected token 'R', \"Redirecting...\n\" is not valid JSON"
+        }
+      },
+      "gradeLetter": "F"
+    },
+    {
+      "questionNumber": 13,
+      "question": "What extraction method is best for high-CBD products?",
+      "category": "formulation",
+      "agentContext": "formulation",
+      "apiResponse": {
+        "status": 308,
+        "response": "Redirecting...\n",
+        "success": false,
+        "error": "Unexpected token 'R', \"Redirecting...\n\" is not valid JSON",
+        "responseTime": 80
+      },
+      "grade": {
+        "score": 0,
+        "maxScore": 100,
+        "percentage": 0,
+        "details": {
+          "keywordScore": 0,
+          "topicScore": 0,
+          "lengthScore": 0,
+          "error": "Unexpected token 'R', \"Redirecting...\n\" is not valid JSON"
+        }
+      },
+      "gradeLetter": "F"
+    },
+    {
+      "questionNumber": 14,
+      "question": "What is THC?",
+      "category": "science",
+      "agentContext": "science",
+      "apiResponse": {
+        "status": 308,
+        "response": "Redirecting...\n",
+        "success": false,
+        "error": "Unexpected token 'R', \"Redirecting...\n\" is not valid JSON",
+        "responseTime": 78
+      },
+      "grade": {
+        "score": 0,
+        "maxScore": 100,
+        "percentage": 0,
+        "details": {
+          "keywordScore": 0,
+          "topicScore": 0,
+          "lengthScore": 0,
+          "error": "Unexpected token 'R', \"Redirecting...\n\" is not valid JSON"
+        }
+      },
+      "gradeLetter": "F"
+    },
+    {
+      "questionNumber": 15,
+      "question": "What are terpenes?",
+      "category": "science",
+      "agentContext": "science",
+      "apiResponse": {
+        "status": 308,
+        "response": "Redirecting...\n",
+        "success": false,
+        "error": "Unexpected token 'R', \"Redirecting...\n\" is not valid JSON",
+        "responseTime": 101
+      },
+      "grade": {
+        "score": 0,
+        "maxScore": 100,
+        "percentage": 0,
+        "details": {
+          "keywordScore": 0,
+          "topicScore": 0,
+          "lengthScore": 0,
+          "error": "Unexpected token 'R', \"Redirecting...\n\" is not valid JSON"
+        }
+      },
+      "gradeLetter": "F"
+    },
+    {
+      "questionNumber": 16,
+      "question": "How do I test cannabis potency?",
+      "category": "science",
+      "agentContext": "science",
+      "apiResponse": {
+        "status": 308,
+        "response": "Redirecting...\n",
+        "success": false,
+        "error": "Unexpected token 'R', \"Redirecting...\n\" is not valid JSON",
+        "responseTime": 92
+      },
+      "grade": {
+        "score": 0,
+        "maxScore": 100,
+        "percentage": 0,
+        "details": {
+          "keywordScore": 0,
+          "topicScore": 0,
+          "lengthScore": 0,
+          "error": "Unexpected token 'R', \"Redirecting...\n\" is not valid JSON"
+        }
+      },
+      "gradeLetter": "F"
+    },
+    {
+      "questionNumber": 17,
+      "question": "What is the difference between indica and sativa?",
+      "category": "science",
+      "agentContext": "science",
+      "apiResponse": {
+        "status": 308,
+        "response": "Redirecting...\n",
+        "success": false,
+        "error": "Unexpected token 'R', \"Redirecting...\n\" is not valid JSON",
+        "responseTime": 34
+      },
+      "grade": {
+        "score": 0,
+        "maxScore": 100,
+        "percentage": 0,
+        "details": {
+          "keywordScore": 0,
+          "topicScore": 0,
+          "lengthScore": 0,
+          "error": "Unexpected token 'R', \"Redirecting...\n\" is not valid JSON"
+        }
+      },
+      "gradeLetter": "F"
+    },
+    {
+      "questionNumber": 18,
+      "question": "How do I optimize my cannabis facility operations?",
+      "category": "operations",
+      "agentContext": "operations",
+      "apiResponse": {
+        "status": 308,
+        "response": "Redirecting...\n",
+        "success": false,
+        "error": "Unexpected token 'R', \"Redirecting...\n\" is not valid JSON",
+        "responseTime": 38
+      },
+      "grade": {
+        "score": 0,
+        "maxScore": 100,
+        "percentage": 0,
+        "details": {
+          "keywordScore": 0,
+          "topicScore": 0,
+          "lengthScore": 0,
+          "error": "Unexpected token 'R', \"Redirecting...\n\" is not valid JSON"
+        }
+      },
+      "gradeLetter": "F"
+    },
+    {
+      "questionNumber": 19,
+      "question": "What are the best practices for cannabis cultivation?",
+      "category": "operations",
+      "agentContext": "operations",
+      "apiResponse": {
+        "status": 308,
+        "response": "Redirecting...\n",
+        "success": false,
+        "error": "Unexpected token 'R', \"Redirecting...\n\" is not valid JSON",
+        "responseTime": 38
+      },
+      "grade": {
+        "score": 0,
+        "maxScore": 100,
+        "percentage": 0,
+        "details": {
+          "keywordScore": 0,
+          "topicScore": 0,
+          "lengthScore": 0,
+          "error": "Unexpected token 'R', \"Redirecting...\n\" is not valid JSON"
+        }
+      },
+      "gradeLetter": "F"
+    },
+    {
+      "questionNumber": 20,
+      "question": "How do I manage cannabis inventory?",
+      "category": "operations",
+      "agentContext": "operations",
+      "apiResponse": {
+        "status": 308,
+        "response": "Redirecting...\n",
+        "success": false,
+        "error": "Unexpected token 'R', \"Redirecting...\n\" is not valid JSON",
+        "responseTime": 95
+      },
+      "grade": {
+        "score": 0,
+        "maxScore": 100,
+        "percentage": 0,
+        "details": {
+          "keywordScore": 0,
+          "topicScore": 0,
+          "lengthScore": 0,
+          "error": "Unexpected token 'R', \"Redirecting...\n\" is not valid JSON"
+        }
+      },
+      "gradeLetter": "F"
+    },
+    {
+      "questionNumber": 21,
+      "question": "How should I market my cannabis brand on social media?",
+      "category": "marketing",
+      "agentContext": "marketing",
+      "apiResponse": {
+        "status": 308,
+        "response": "Redirecting...\n",
+        "success": false,
+        "error": "Unexpected token 'R', \"Redirecting...\n\" is not valid JSON",
+        "responseTime": 97
+      },
+      "grade": {
+        "score": 0,
+        "maxScore": 100,
+        "percentage": 0,
+        "details": {
+          "keywordScore": 0,
+          "topicScore": 0,
+          "lengthScore": 0,
+          "error": "Unexpected token 'R', \"Redirecting...\n\" is not valid JSON"
+        }
+      },
+      "gradeLetter": "F"
+    },
+    {
+      "questionNumber": 22,
+      "question": "What are the best practices for cannabis advertising?",
+      "category": "marketing",
+      "agentContext": "marketing",
+      "apiResponse": {
+        "status": 308,
+        "response": "Redirecting...\n",
+        "success": false,
+        "error": "Unexpected token 'R', \"Redirecting...\n\" is not valid JSON",
+        "responseTime": 94
+      },
+      "grade": {
+        "score": 0,
+        "maxScore": 100,
+        "percentage": 0,
+        "details": {
+          "keywordScore": 0,
+          "topicScore": 0,
+          "lengthScore": 0,
+          "error": "Unexpected token 'R', \"Redirecting...\n\" is not valid JSON"
+        }
+      },
+      "gradeLetter": "F"
+    },
+    {
+      "questionNumber": 23,
+      "question": "How do I build brand awareness for cannabis products?",
+      "category": "marketing",
+      "agentContext": "marketing",
+      "apiResponse": {
+        "status": 308,
+        "response": "Redirecting...\n",
+        "success": false,
+        "error": "Unexpected token 'R', \"Redirecting...\n\" is not valid JSON",
+        "responseTime": 94
+      },
+      "grade": {
+        "score": 0,
+        "maxScore": 100,
+        "percentage": 0,
+        "details": {
+          "keywordScore": 0,
+          "topicScore": 0,
+          "lengthScore": 0,
+          "error": "Unexpected token 'R', \"Redirecting...\n\" is not valid JSON"
+        }
+      },
+      "gradeLetter": "F"
+    }
+  ]
+}

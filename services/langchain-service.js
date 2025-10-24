@@ -20,8 +20,11 @@ class LangChainService {
       const langchainConfig = this.config.getLangChainConfig();
       const openrouterConfig = langchainConfig.providers?.openrouter;
       
-      if (!openrouterConfig?.apiKey) {
-        throw new Error('OpenRouter API key not found in configuration');
+      // Check for API key in environment first, then config
+      const apiKey = process.env.OPENROUTER_API_KEY || openrouterConfig?.apiKey;
+      if (!apiKey || apiKey.includes('${')) {
+        console.error('❌ OPENROUTER_API_KEY not found in environment variables');
+        throw new Error('OpenRouter API key not found. Set OPENROUTER_API_KEY environment variable.');
       }
 
       // Get routing model from config
@@ -29,13 +32,16 @@ class LangChainService {
       const routingModel = routingConfig.routing?.strategies?.langchain_semantic?.model || 'meta-llama/llama-3.1-405b-instruct';
       
       this.llm = new ChatOpenAI({
-        openAIApiKey: process.env.OPENROUTER_API_KEY || openrouterConfig.apiKey,
+        openAIApiKey: apiKey,
         modelName: routingModel,
         temperature: 0.1,
         maxTokens: 20,
         configuration: {
-          baseURL: openrouterConfig.baseURL,
-          defaultHeaders: openrouterConfig.defaultHeaders
+          baseURL: openrouterConfig?.baseURL || 'https://openrouter.ai/api/v1',
+          defaultHeaders: openrouterConfig?.defaultHeaders || {
+            'HTTP-Referer': 'https://f8.syzygyx.com',
+            'X-Title': 'Formul8 Multiagent Chat'
+          }
         }
       });
 
@@ -92,12 +98,39 @@ class LangChainService {
   async routeToAgent(message) {
     try {
       const routingConfig = this.config.getRoutingConfig();
-      const agentsList = this.config.getAgentsList();
+      const routingPrompt = routingConfig.routing?.prompts?.routing_prompt || '';
+      const model = routingConfig.routing?.strategies?.langchain_semantic?.model || 'meta-llama/llama-3.1-405b-instruct';
       
-      const result = await this.routingChain.invoke({
-        agents_list: agentsList,
-        message: message
+      // Call OpenRouter directly
+      const prompt = routingPrompt.replace('{message}', message);
+      
+      const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${process.env.OPENROUTER_API_KEY}`,
+          'Content-Type': 'application/json',
+          'HTTP-Referer': 'https://f8.syzygyx.com',
+          'X-Title': 'Formul8 Multiagent Chat'
+        },
+        body: JSON.stringify({
+          model: model,
+          messages: [
+            {
+              role: 'user',
+              content: prompt
+            }
+          ],
+          max_tokens: 20,
+          temperature: 0.1
+        })
       });
+
+      if (!response.ok) {
+        throw new Error(`OpenRouter API error: ${response.status}`);
+      }
+
+      const data = await response.json();
+      const result = data.choices?.[0]?.message?.content || '';
 
       // Clean up the result and validate
       const agentId = result.trim().toLowerCase();
@@ -111,7 +144,7 @@ class LangChainService {
         return this.fallbackRouting(message);
       }
     } catch (error) {
-      console.error('LangChain routing error:', error);
+      console.error('LangChain routing error:', error.message);
       return this.fallbackRouting(message);
     }
   }

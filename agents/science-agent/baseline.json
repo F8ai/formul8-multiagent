@@ -1,16 +1,41 @@
 {
   "metadata": {
-    "generatedAt": "2025-10-21T17:43:57.309Z",
-    "agent": "science-agent",
+    "generatedAt": "2025-10-23T22:30:00.000Z",
+    "agent": "science",
     "version": "1.0",
-    "description": "Baseline questions for science-agent"
+    "description": "Baseline questions for science agent"
   },
   "questions": [
     {
-      "id": "science-agent-001",
-      "question": "Example question for science-agent",
+      "id": "science-001",
+      "question": "What is THC?",
       "category": "science",
-      "expectedAgent": "science-agent",
+      "expectedAgent": "science",
+      "expectedKeywords": ["thc", "tetrahydrocannabinol", "cannabinoid"],
+      "tier": "standard"
+    },
+    {
+      "id": "science-002",
+      "question": "What are terpenes?",
+      "category": "science",
+      "expectedAgent": "science",
+      "expectedKeywords": ["terpenes", "aromatic", "compounds"],
+      "tier": "standard"
+    },
+    {
+      "id": "science-003",
+      "question": "How do I test cannabis potency?",
+      "category": "science",
+      "expectedAgent": "science",
+      "expectedKeywords": ["test", "potency", "lab"],
+      "tier": "standard"
+    },
+    {
+      "id": "science-004",
+      "question": "What is the difference between indica and sativa?",
+      "category": "science",
+      "expectedAgent": "science",
+      "expectedKeywords": ["indica", "sativa", "difference"],
       "tier": "standard"
     }
   ]

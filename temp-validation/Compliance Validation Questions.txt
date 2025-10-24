@@ -1,0 +1,88 @@
+Compliance Validation Questions
+
+Notes:
+
+	•	You can insert “in the state of XX” into any of these
+
+Questions
+SOP Generation & Compliance Documentation
+	•	Can you make me a compliant SOP for Cannabis Transport in New Jersey? 
+	•	Can you make me a compliant SOP for pre-roll production in New York? 
+	•	Can you make me a product recall SOP? 
+	•	(You can insert a ton of examples here obviously. This will single handedly be one of the most frequently asked types of questions.) 
+
+Product Testing & Infusion Rules
+	•	What are the requirements for testing regular pre-rolls when I bought the raw material from a cultivator that already tested it? 
+	•	Can I make an infused pre-roll without retesting it if I am using already tested flower and concentrate? 
+	•	Do I have to show harvest date or production date on infused products? 
+	•	Are there different rules for various types of infused products related to this same question? 
+	•	What are the requirements in my state for me to be able to introduce or infuse cannabis or botanical-derived terpenes into my products? 
+	•	Does this vary for different products? 
+
+Labeling & Packaging Compliance
+	•	What are the labeling requirements for packaged concentrates? 
+	•	Is my edibles packaging compliant to national, state, and local regulations? 
+	•	When is childproof packaging required for certain cannabis products? 
+	•	Can I use leftover packaging labels from last month if they’re still accurate? 
+
+Edibles Potency & Formulation
+	•	How potent can our edibles be? 
+	•	Can we do 100 or 200 mg packages? 
+	•	Can we do more than 200 mg? 
+	•	Is there a per-piece requirement for max dosage? 
+
+Formulation & Ingredient Compliance
+	•	What am I allowed to cut my vape cartridge APIs (distillate or decarbed resin) with that is safe and compliant? 
+	•	What are considered banned substances when formulating various cannabis products? 
+	•	Can I use hemp-based cannabinoids like CBD or CBG (or others) in production of my cannabis products? 
+	•	(Remember, you can insert “in the production of XXXX” instead, and be specific. I am being vague in my examples because they are relevant across several products.) 
+
+Facility Setup & Operational Procedures
+	•	Can I store finished products in the same room as raw biomass? 
+	•	Do I need to log the cleaning of the extraction booth before starting the next run? 
+	•	Is it okay to perform maintenance on the hydrocarbon extractor during operating hours? 
+	•	Am I allowed to have non-lab staff enter the extraction area if they’re just observing? 
+	•	Do I need to notify regulators before making changes to the lab layout? 
+
+Extraction & Batch Production Rules
+	•	Can I use ethanol I purchased from a non-cannabis supplier in today’s extraction? 
+	•	Is it compliant to run two different extraction methods in the same lab on the same day? 
+	•	Do I need to document the purge time for each batch of concentrate? 
+	•	Am I allowed to blend two different strain inputs into a single extraction batch? 
+	•	Do I need to label intermediary oils before refinement is complete? 
+
+Inventory, Repackaging & Tracking
+	•	Can I repackage bulk oil into smaller units without creating a new UID? 
+	•	Is it compliant to pre-fill vape cartridges before the lab test results are back? 
+	•	Do I have to update the batch weight in the system if I lose some product to spillage? 
+	•	Do I need to generate a new COA if I repackage the same batch in a different container? 
+	•	Can I submit test results to regulators before final packaging is complete? 
+
+Recordkeeping & Logs
+	•	Am I allowed to digitally sign the waste disposal manifest, or do I need a physical copy? 
+	•	How long do I need to retain extraction logbooks for compliance? 
+
+Waste Management Compliance
+	•	Can I dispose of spent biomass without mixing it with non-consumable waste first? 
+	•	Is it okay to store cannabis waste in the same area as general lab trash temporarily? 
+	•	Do I need a secondary person to verify destruction of cannabis waste? 
+	•	Can I incinerate solvent-contaminated material on-site? 
+	•	Am I allowed to treat ethanol waste differently than cannabis plant waste? 
+
+Employee Training & Operational Roles
+	•	Does every team member need to complete chemical safety training before using the fume hood? 
+	•	Is a glove change required between processing two different batches? 
+	•	Can a lab tech sign off on their own QC checklist? 
+	•	Am I allowed to let an intern shadow a live extraction session? 
+	•	Do I need to document breaks if they occur during active batch processing? 
+
+Transport & Transfer Regulations
+	•	Can I transfer crude oil to another facility before final testing? 
+	•	Is a licensed cannabis transporter required for in-state product transfers? 
+	•	Do I need to notify the receiving party before sending a partial product shipment? 
+	•	Can I transport cannabis waste using a standard courier service? 
+	•	Am I allowed to batch multiple COAs together for a single delivery manifest?
+
+
+
+

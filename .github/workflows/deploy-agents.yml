@@ -76,7 +76,6 @@ jobs:
         agent: [
           'compliance-agent',
           'formulation-agent',
-          'science-agent',
           'operations-agent',
           'marketing-agent',
           'sourcing-agent',
@@ -127,7 +126,7 @@ jobs:
           curl -f https://lambda-package.vercel.app/api/free-key || exit 1
           
           # Test agent health endpoints
-          for agent in compliance-agent formulation-agent science-agent; do
+          for agent in compliance-agent formulation-agent operations-agent; do
             echo "Testing $agent health"
             curl -f "https://$agent.vercel.app/health" || echo "Warning: $agent health check failed"
           done

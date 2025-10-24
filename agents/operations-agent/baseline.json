@@ -1,16 +1,33 @@
 {
   "metadata": {
-    "generatedAt": "2025-10-21T17:43:57.310Z",
-    "agent": "operations-agent",
+    "generatedAt": "2025-10-23T22:30:00.000Z",
+    "agent": "operations",
     "version": "1.0",
-    "description": "Baseline questions for operations-agent"
+    "description": "Baseline questions for operations agent"
   },
   "questions": [
     {
-      "id": "operations-agent-001",
-      "question": "Example question for operations-agent",
+      "id": "operations-001",
+      "question": "How do I optimize my cannabis facility operations?",
       "category": "operations",
-      "expectedAgent": "operations-agent",
+      "expectedAgent": "operations",
+      "expectedKeywords": ["optimize", "facility", "operations", "management"],
+      "tier": "standard"
+    },
+    {
+      "id": "operations-002",
+      "question": "What are the best practices for cannabis cultivation?",
+      "category": "operations",
+      "expectedAgent": "operations",
+      "expectedKeywords": ["best practices", "cultivation", "growing"],
+      "tier": "standard"
+    },
+    {
+      "id": "operations-003",
+      "question": "How do I manage cannabis inventory?",
+      "category": "operations",
+      "expectedAgent": "operations",
+      "expectedKeywords": ["manage", "inventory", "tracking"],
       "tier": "standard"
     }
   ]

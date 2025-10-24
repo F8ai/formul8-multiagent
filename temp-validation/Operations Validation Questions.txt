@@ -1,0 +1,256 @@
+Operations Validation Questions
+1) Production & Process Optimization
+	•	Can you help me create a batch tracker sheet for employees to log production data in a GMP-friendly format? 
+	•	How do I set up a daily production log that helps with compliance audits? 
+	•	What are the best KPIs to track in my extraction lab on a daily basis? 
+	•	What is the best way to standardize my formulations so batches stay consistent? 
+	•	How do I calculate expected yield from a given biomass input? 
+	•	Can you help me design a workflow checklist for my lab techs to reduce errors? 
+	•	What are the best ways to minimize loss when transferring concentrates between vessels? 
+	•	Can you help me make an SOP for preparing biomass before extraction? 
+	•	Can you design a downtime log so we can track equipment outages and repairs? 
+	•	How can I benchmark my extraction efficiency against industry averages? 
+	•	What tools can help me track real-time production metrics across multiple shifts? 
+	•	How do I set production goals that align with sales forecasts? 
+	•	Can you build a visual daily management board (SQDIP/5S-style) for the lab? 
+	•	How do I structure tiered sign-offs (operator → lead → manager) for critical steps? 
+	•	What’s the right cadence for cross-functional production meetings (ops, QA, sales)? 
+	•	How do I build a changeover checklist to reduce batch-to-batch carryover and loss? 
+	•	Can you design a first-article run protocol for new products before full scale? 
+	•	How do I validate a new process window (DOE plan, acceptance criteria, run count)? 
+	•	What’s a good template for a weekly operations scorecard (throughput, yield, scrap, OEE)? 
+2) Extraction & Processing – Cross-Cutting
+	•	My chiller is overheating and shutting off—what should I check first and why? 
+	•	My extract is coming out darker than normal in ethanol—what are the top causes to investigate? 
+	•	What might cause solvent recovery rates to drop, and how do I troubleshoot? 
+	•	Why am I seeing pressure spikes during hydrocarbon recovery? 
+	•	What’s the best way to prevent channeling or channel formation in extraction columns? 
+	•	How do I troubleshoot moisture ingress in an ethanol system? 
+	•	What’s the best way to reclaim as much material as possible from transfer glassware? 
+	•	My vacuum oven isn’t pulling full vacuum—what should I test and in what order? 
+	•	How do I know if my filter media is overloaded or misapplied? 
+	•	Why am I getting inconsistent potency results from the same biomass lot? 
+	•	What parameters should I monitor to reduce terpene loss during runs? 
+	•	Can you help me set acceptance limits for in-process checks (appearance, viscosity, temp, pressure)? 
+	•	What’s a reasonable startup/warmup sequence to reduce thermal shock and failures? 
+3) Hydrocarbon Extraction (BHO/PHO)
+	•	Can you provide good operating parameters for running fresh frozen on my hydrocarbon system? 
+	•	How do I choose solvent ratios (propane/butane blends) for target textures (sauce, batter, shatter)? 
+	•	What’s the best practice for dewaxing vs. in-line filtration with fresh frozen? 
+	•	How do I mitigate color remediation risking over-stripping terpenes? 
+	•	What’s the right approach to post-purge to balance residual solvents and terpene retention? 
+	•	Why am I seeing nucleation issues in my batter after purge—how do I fix it? 
+	•	How do I prevent icing at valves and critical restrictions during recovery? 
+	•	Can you help me map out my relief devices and MAWP considerations for safety logs? 
+	•	What records should I keep for hydrocarbon leak checks and detector calibrations? 
+4) Ethanol Extraction
+	•	What ethanol proof range is optimal for my target product and why? 
+	•	How do I optimize soak time and agitation without over-extracting chlorophyll? 
+	•	What’s the best winterization workflow (ratios, temps, dwell times, filter media steps)? 
+	•	How do I track solvent water content and correct for drift over time? 
+	•	What’s the best approach to polishing (carbon/clay) without over-adsorbing cannabinoids/terpenes? 
+	•	Why is my crude viscosity inconsistent between runs—how do I stabilize it? 
+	•	How can I balance throughput vs. quality on my centrifuge extraction setup? 
+	•	What are best practices for ethanol recovery stills (fouling prevention, defoamers, CIP)? 
+5) CO₂ Extraction
+	•	What’s a sensible starting point for SC-CO₂ parameters for terpene-rich vs. cannabinoid-rich fractions? 
+	•	How do I schedule fraction cuts to minimize co-extraction of waxes? 
+	•	Why am I seeing pressure instability in separators—what should I check? 
+	•	Can you help me develop a fraction collection log with target ranges and notes? 
+	•	How do I compare CO₂ runs on the same biomass for repeatability (SPC basics, run charts)? 
+6) Solventless (Ice Water Hash & Rosin)
+	•	How do I design a wash SOP (ice ratios, water temps, paddle rates, bag micron strategy)? 
+	•	What are indicators of over-agitation and contamination during wash? 
+	•	How do I manage dry/cure of hash to prevent grease-out or terp loss? 
+	•	Can you help me tune rosin press parameters (temp/pressure/time) by cultivar? 
+	•	Why are my rosin carts crystallizing—what upstream changes should I test? 
+7) Post-Processing: Distillation, Decarb, Remediation
+	•	What’s the right decarb profile for different matrices (crude vs. isolate blends)? 
+	•	Why is my heads/tails separation inconsistent on the wiped-film—how do I correct it? 
+	•	Can you help me set up a cleaning validation for my distillation path? 
+	•	What are safe, compliant approaches to pesticide remediation and how do I document them? 
+	•	How should I stage terpene reintroduction to avoid oxidation and off-notes? 
+8) Formulation & Manufacturing (Vapes, Edibles, Beverages, Topicals, Tinctures)
+	•	How do I build a master formula and controlled BOM for a new gummy? 
+	•	Can you help me design a Cpk/Cp monitoring plan for fill weights on vapes? 
+	•	What’s a good emulsion protocol for beverages (emulsifier choice, HLB, shear, stability testing)? 
+	•	How do I prevent sugar bloom or weeping in pectin gummies? 
+	•	Can you help me set torque/viscosity ranges for vape oil before filling? 
+	•	What’s a scalable workflow for topical creams (phase addition, homogenization, cooling)? 
+	•	How do I set finished-product specs (potency, moisture, water activity, micro) and release criteria? 
+	•	What’s the best small-batch R&D protocol before scale-up (pilot, line trial, validation lots)? 
+	•	How should I handle allergen controls and cross-contact documentation for edibles? 
+	•	Can you build a cleaning matrix by product type to avoid flavor cross-over? 
+9) Quality Assurance / Quality Control (QA/QC)
+	•	How do I structure a quality management system (QMS) that fits cannabis operations? 
+	•	Can you create a COA review checklist to catch lab inconsistencies? 
+	•	How do I build an incoming inspection SOP for packaging and ingredients? 
+	•	What’s a simple sampling plan (AQL) I can use for finished goods? 
+	•	How do I set up a hold-and-release workflow tied to QA approval? 
+	•	Can you help me track trending of out-of-spec results and CAPAs? 
+	•	How do I qualify a new third-party lab and monitor ongoing performance? 
+	•	What should a deviation report include, and who signs off? 
+	•	Can you generate a stability testing plan (real-time, accelerated) for vapes and edibles? 
+	•	How do I design sensory panels for flavor consistency while staying compliant? 
+10) Compliance, Recordkeeping, and Seed-to-Sale
+	•	How do I structure batch records to satisfy audits (state regs + GMP-friendly)? 
+	•	Can you build a chain-of-custody template for internal transfers? 
+	•	What reports should I pull weekly from METRC/BioTrack to reconcile inventory? 
+	•	How do I document and report waste destruction properly? 
+	•	What documents should be ready for a surprise inspection (binder contents)? 
+	•	How do I set electronic signatures and access controls for controlled records? 
+	•	Can you map my data fields so batch records sync correctly to seed-to-sale? 
+	•	What’s the best way to track transport manifests and retention periods? 
+11) Inventory, Warehousing, and Materials Control
+	•	How do I set min/max levels and reorder points by SKU? 
+	•	Can you help me implement FEFO/FIFO for ingredients and packaging? 
+	•	What cycle-count schedule should I run to reduce variance? 
+	•	How do I segregate quarantined, rejected, and released inventory in the WMS? 
+	•	Can you design a location codification (bin/shelf/aisle) and label schema? 
+	•	How do I measure and reduce inventory shrink in processing vs. retail? 
+	•	What are good KPIs for inventory health (DOH, turns, service level, fill rate)? 
+12) Packaging & Labeling Operations
+	•	Can you help me make a compliant packaging/labeling SOP for my state? 
+	•	How do I verify artwork (claims, warnings, font sizes, UPC/QR, lot/exp) before print? 
+	•	What’s a good in-line check for label placement and legibility? 
+	•	How do I choose child-resistant formats that balance cost and speed? 
+	•	Can you design a label release process with QA sign-off and revision control? 
+	•	How do I batch-print variable data (lot/UID/expiry) and prevent mix-ups? 
+	•	What packaging line speeds are realistic for my equipment and staff levels? 
+	•	How do I run a packaging line trial and document acceptance? 
+13) Equipment Selection, Qualification & Maintenance
+	•	Can you help me spec a new chiller (load calcs, tonnage, heat rejection, redundancy)? 
+	•	What’s a URS template for selecting a new extractor or centrifuge? 
+	•	How do I run IQ/OQ/PQ on a new piece of processing equipment? 
+	•	What spare parts and consumables should I stock for critical uptime? 
+	•	Can you create a PM calendar with OEM tasks vs. in-house tasks? 
+	•	How do I track MTBF/MTTR and convert that into uptime KPIs? 
+	•	What’s the right protocol after major repairs (re-qualification steps)? 
+	•	How do I set calibration intervals for scales, thermometers, sensors, HPLCs? 
+14) Facility, Utilities, and Rooms (C1D1/C1D2)
+	•	Can you help me validate air changes per hour and CFM for my classified rooms? 
+	•	How do I document hazardous area classifications and MAQs for solvents? 
+	•	What’s a good daily/weekly facility inspection checklist? 
+	•	How do I size compressed air and nitrogen for simultaneous equipment demand? 
+	•	What’s the best way to trend utility costs per unit produced? 
+	•	How do I monitor and alarm critical utilities (power, HVAC, vac, chilled water)? 
+	•	Can you create a room flow diagram to reduce cross-contamination risks? 
+15) Environmental, Health & Safety (EHS)
+	•	Can you build a solvent handling and storage SOP with training logs? 
+	•	What should my emergency response plan include for spills and fires? 
+	•	How do I set up a confined-space, hot-work, and LOTO program? 
+	•	What are appropriate gas detection setpoints and alarm responses? 
+	•	How do I prepare for fire marshal inspections (proofs, tests, signage, drills)? 
+	•	Can you create an incident/near-miss reporting form and investigation flow? 
+	•	How do I track SDSs and ensure they’re accessible and current? 
+	•	What’s the correct PPE matrix by room/process? 
+16) Cultivation Operations (Propagation → Harvest → Post-Harvest)
+	•	What’s the most efficient daily plant care checklist (by stage: mothers, clones, veg, flower)? 
+	•	How do I design an IPM calendar with rotations and thresholds? 
+	•	What environmental parameters should I monitor daily (temp, RH, VPD/DLI/CO₂)? 
+	•	How do I track mother plant health, clone success rate, and genetic drift? 
+	•	Can you help me schedule labor across defoliation, trellising, and harvest prep? 
+	•	How do I benchmark grams/sq ft and grams/watt and improve them? 
+	•	What are best practices for consistent dry/cure (targets, airspeed, racks, W/A)? 
+	•	How do I document strain-specific feeding programs and adjustments? 
+	•	What’s a good post-harvest trimming SOP and QC checks for visual grade? 
+	•	How do I implement sanitation between rooms and harvest cycles? 
+17) Retail Operations
+	•	What are profitable sales or bundles we can run with ~100% markup without killing margins? 
+	•	How do I design daily opening/closing checklists for budtenders and managers? 
+	•	What are the best ways to reduce inventory shrink and improve cash controls? 
+	•	How do I schedule staff against peak hours and events? 
+	•	Can you build a retail compliance checklist (ID checks, signage, purchase limits)? 
+	•	What training modules should new budtenders complete in week one? 
+	•	How do I set reorder points and safety stock for fast movers? 
+	•	Can you help me design a floor plan to improve flow and basket size? 
+	•	What’s a simple demand forecast model for weekly ordering? 
+	•	How do I set up curbside/express pickup and delivery operations cleanly? 
+	•	What’s a good playbook for moving slow inventory without risky discounts? 
+18) Delivery & Logistics
+	•	How do I plan delivery routes that respect time windows and compliance rules? 
+	•	What should my vehicle inspection and chain-of-custody paperwork include? 
+	•	Can you help me design a vault organization for outbound orders? 
+	•	How do I calculate optimal case pack and pallet configurations? 
+	•	What KPIs matter for delivery performance (OTIF, miles/stop, cost/order)? 
+19) Financial & COGS (Ops-Focused)
+	•	I’m making a new product—can you help me break down COGS and price it? 
+	•	What’s a reasonable wholesale margin for concentrates or edibles in my market? 
+	•	Can you build a pro forma for a new line with sensitivity to raw material cost swings? 
+	•	How do I allocate overhead into product COGS fairly (labor, utilities, depreciation)? 
+	•	Can you generate an Excel template to track cost per batch and per unit? 
+	•	How do I compare outsource vs. in-house processing from a unit economics view? 
+	•	Can you design a margin calculator for bulk oil vs. packaged SKUs? 
+	•	How do excise taxes and fees affect my wholesale and MSRP targets? 
+	•	What KPIs should Ops review weekly with Finance (yield $, scrap $, labor/hr, $/gram)? 
+20) Data, Systems & Integrations (LIMS, ERP, Seed-to-Sale)
+	•	Which data fields should live in LIMS vs. ERP vs. seed-to-sale to avoid duplication? 
+	•	Can you map integrations between METRC/BioTrack and our ERP for fewer manual entries? 
+	•	How do I design dashboards for throughput, yield, and compliance exceptions? 
+	•	What’s the right data retention policy for batch and QA records? 
+	•	How do I implement barcode/RFID to reduce mislabeling and speed inventory checks? 
+	•	Can you propose role-based access controls for sensitive operational data? 
+	•	How do I audit data integrity and reconcile daily between systems? 
+21) Training, Onboarding & Competency
+	•	Can you build a 30/60/90 plan for new lab techs? 
+	•	What should a skills matrix look like for operators by equipment/process? 
+	•	How do I run and document annual competency checks? 
+	•	Can you design microlearning modules for critical procedures (3–5 min each)? 
+	•	How do I structure train-the-trainer and version control for SOP updates? 
+	•	What’s a fair on-call rotation and escalation matrix for key roles? 
+22) SOPs, Work Instructions & Change Control
+	•	Can you draft a master SOP template with required sections and approvals? 
+	•	How do I split SOPs vs. Work Instructions vs. Forms to keep them usable? 
+	•	What’s a practical change control workflow (risk rating, validation needs, training)? 
+	•	How do I sunset old documents and prove only the latest is in circulation? 
+	•	Can you propose a periodic review schedule and owner assignments? 
+23) Risk Management, Deviations, CAPA & Recalls
+	•	Can you build a deviation form and triage rubric (minor/major/critical)? 
+	•	How do I run a root cause analysis (5 Whys/Fishbone) and document it? 
+	•	What does an effective CAPA plan look like, and how do I track closure? 
+	•	Can you help me write and test a mock recall (roles, comms, lot trace, timing)? 
+	•	How do I design a non-conformance log and trending dashboard? 
+	•	What leading indicators should I monitor to prevent recalls? 
+24) Supplier & Procurement Management
+	•	How do I qualify new suppliers (ingredients, packaging, labs) and maintain ASL status? 
+	•	Can you design an incoming COA verification checklist by material type? 
+	•	What KPIs should I hold suppliers to (OTIF, quality incidents, corrective actions)? 
+	•	How do I set MOQ/EOQ and safety stock given supplier lead times? 
+	•	Can you create a cost/quality/risk scorecard to compare vendors? 
+25) Sustainability & Resource Efficiency
+	•	How do I baseline and track energy, water, and solvent per unit produced? 
+	•	Can you suggest solvent recovery and reuse targets and controls? 
+	•	What waste segregation improvements would reduce disposal costs? 
+	•	How do I design a take-back/recycling program for packaging (where legal)? 
+	•	Can you build a simple carbon footprint model for my facility operations? 
+26) R&D, Pilot, and Tech Transfer
+	•	What’s a good R&D request form so production can evaluate feasibility? 
+	•	How do I run a pilot plan (objectives, success metrics, sample size, hazards)? 
+	•	Can you create a tech transfer checklist from R&D to Operations? 
+	•	How do I protect IP and document trade secrets in process docs? 
+	•	What is the right sampling and testing plan during pilot to de-risk scale-up? 
+27) Customer Service & Complaint Handling (Ops Interface)
+	•	Can you design a product complaint intake form that routes to QA and Ops? 
+	•	How do I investigate complaints tied to specific lots (trace-back plan)? 
+	•	What’s the correct replacement/credit decision flow and documentation? 
+	•	How do I trend complaint categories and feed improvements back to Ops? 
+	•	Can you propose standard reply templates that are compliant and non-admissive? 
+28) Security & Loss Prevention (Ops-Relevant)
+	•	What controls reduce diversion risk in processing (cameras, access, reconciliation)? 
+	•	Can you design a vault access log and dual-control policy? 
+	•	How do I run variance investigations tied to seed-to-sale discrepancies? 
+	•	What’s a good visitor/vendor escort SOP for production areas? 
+	•	How do I structure random audits to deter internal theft? 
+29) Project Management & Capacity Planning
+	•	Can you create a capacity model (people, equipment time, utility constraints) by SKU? 
+	•	How do I prioritize projects (RICE/WSJF) across Ops and QA? 
+	•	What’s a practical template for equipment commissioning/qualification timelines? 
+	•	How do I scenario-plan for seasonal demand spikes and promos? 
+	•	Can you design a line balancing exercise to remove bottlenecks? 
+30) Retail–Processing Coordination (Make-to-Order / Replenishment)
+	•	How do I align production run sizes with retail sell-through to reduce aged inventory? 
+	•	Can you build a simple S&OP cadence between Ops, Sales, and Retail? 
+	•	What’s the best way to set MOQ by SKU to keep changeovers efficient? 
+	•	How do I set freshness dating and rotation policy across warehouses and stores? 
+	•	Can you create a returns/RMA handling SOP that protects product integrity?
+

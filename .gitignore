@@ -32,3 +32,8 @@ dist/
 lambda-proxy.zip
 formul8-multiagent-lambda.zip
 .vercel
+
+# Temporary agent repositories
+.agent-repos/
+.env*.local
+chat-formul8-comprehensive-results-*.json

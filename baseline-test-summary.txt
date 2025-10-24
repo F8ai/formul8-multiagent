@@ -1,0 +1,98 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                  chat.formul8.ai BASELINE TEST RESULTS                       ║
+║                         October 23, 2025                                     ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+📊 OVERALL GRADE: F (55.73%)
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ GRADE DISTRIBUTION                                                           │
+├──────────────────────────────────────────────────────────────────────────────┤
+│ A (90-100%): ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 0  ( 0.0%)   │
+│ B (80-89%):  ████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 2  ( 8.7%)   │
+│ C (70-79%):  ██░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 1  ( 4.3%)   │
+│ D (60-69%):  ██████████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 7  (30.4%)   │
+│ F (<60%):    ██████████████████████████░░░░░░░░░░░░░░░░░░░░░ 13 (56.5%)   │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ CATEGORY PERFORMANCE                                                         │
+├──────────────────────────────────────────────────────────────────────────────┤
+│ 🏆 Business      ████████████████████████████████████████████  84.29%  (B)  │
+│    Science       ██████████████████████████████░░░░░░░░░░░░░░  61.07%  (D)  │
+│    Compliance    ██████████████████████████████░░░░░░░░░░░░░░  57.38%  (F)  │
+│    General       ██████████████████████████████░░░░░░░░░░░░░░  54.29%  (F)  │
+│    Marketing     ██████████████████████████████░░░░░░░░░░░░░░  54.29%  (F)  │
+│    Formulation   ██████████████████████████████░░░░░░░░░░░░░░  54.05%  (F)  │
+│    Off-topic     ██████████████████████████░░░░░░░░░░░░░░░░░░  50.84%  (F)  │
+│ ⚠️  Operations    ████████████████████████░░░░░░░░░░░░░░░░░░░  47.14%  (F)  │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ PERFORMANCE METRICS                                                          │
+├──────────────────────────────────────────────────────────────────────────────┤
+│ ✅ Success Rate:          100.00% (23/23 questions answered)                │
+│ ⏱️  Avg Response Time:     7.85 seconds                                     │
+│ 📏 Avg Word Count:         476 words                                         │
+│ 🔑 Avg Keyword Match:      75-87% (good)                                     │
+│ 📚 Avg Topic Coverage:     12-25% (needs improvement) ⚠️                     │
+│ 📊 Formatted Responses:    85% (tables/structure)                            │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ TOP ISSUES                                                                   │
+├──────────────────────────────────────────────────────────────────────────────┤
+│ 🔴 CRITICAL: Poor topic coverage (only 12-25% of expected topics)           │
+│              - Responses have keywords but lack depth                        │
+│              - Need multi-faceted answers                                    │
+│                                                                              │
+│ 🟡 IMPORTANT: Agent routing problems                                         │
+│              - Compliance agent handling too many non-compliance questions   │
+│              - Operations questions → compliance agent (should be ops)       │
+│              - Marketing questions → compliance agent (should be marketing)  │
+│                                                                              │
+│ 🟡 IMPORTANT: Formulation lacks specificity                                  │
+│              - Missing concrete recipes with measurements                    │
+│              - Vague instead of step-by-step instructions                    │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ WHAT'S WORKING WELL ✅                                                       │
+├──────────────────────────────────────────────────────────────────────────────┤
+│ • 100% success rate - all questions get answers                             │
+│ • Fast response times (7.8s average)                                         │
+│ • Long-form detailed content (476 words average)                             │
+│ • Well-formatted responses with tables and structure                         │
+│ • Good keyword matching (75-87%)                                             │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ FILES GENERATED                                                              │
+├──────────────────────────────────────────────────────────────────────────────┤
+│ 📄 chat-formul8-baseline-results-2025-10-23T21-59-36-684Z.json              │
+│    → Full detailed results with all API responses                            │
+│                                                                              │
+│ 📄 chat-formul8-baseline-summary-2025-10-23T21-59-36-684Z.md                │
+│    → Markdown summary with question-by-question breakdown                    │
+│                                                                              │
+│ 📄 CHAT_FORMUL8_BASELINE_ANALYSIS.md                                         │
+│    → Executive summary with strategic recommendations                        │
+│                                                                              │
+│ 📄 BASELINE_TEST_QUICK_GUIDE.md                                              │
+│    → Quick reference guide with key findings                                 │
+│                                                                              │
+│ 🔧 test-chat-formul8-baseline.js                                             │
+│    → Reusable test script (run anytime)                                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ NEXT STEPS                                                                   │
+├──────────────────────────────────────────────────────────────────────────────┤
+│ 1. Review detailed results in JSON file                                      │
+│ 2. Fix agent routing to reduce compliance over-utilization                   │
+│ 3. Update prompts to improve topic coverage (12% → 75%+)                     │
+│ 4. Enhance operations and formulation content                                │
+│ 5. Re-run tests to measure improvement                                       │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+🎯 TARGET: Improve from F (55.73%) to B (80%+) by addressing topic coverage
