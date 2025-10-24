@@ -24,9 +24,15 @@ class LangChainService {
         throw new Error('OpenRouter API key not found in configuration');
       }
 
+      // Get routing model from config
+      const routingConfig = this.config.getRoutingConfig();
+      const routingModel = routingConfig.routing?.strategies?.langchain_semantic?.model || 'meta-llama/llama-3.1-405b-instruct';
+      
       this.llm = new ChatOpenAI({
         openAIApiKey: process.env.OPENROUTER_API_KEY || openrouterConfig.apiKey,
-        modelName: 'meta-llama/llama-3.1-8b-instruct',
+        modelName: routingModel,
+        temperature: 0.1,
+        maxTokens: 20,
         configuration: {
           baseURL: openrouterConfig.baseURL,
           defaultHeaders: openrouterConfig.defaultHeaders
