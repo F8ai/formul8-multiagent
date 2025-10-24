@@ -210,35 +210,60 @@ function makeVoiceflowRequest(question) {
   });
 }
 
-// Simple keyword matching for grading
+// Simple grading function
 function gradeResponse(response, expectedKeywords, expectedTopics, expectedAgent, actualAgent) {
   const responseLower = response.toLowerCase();
   
-  // Keyword matching
-  const keywordMatches = expectedKeywords.filter(kw => 
-    responseLower.includes(kw.toLowerCase())
-  );
-  const keywordScore = (keywordMatches.length / expectedKeywords.length) * 100;
-  
-  // Topic coverage
-  const topicMatches = expectedTopics.filter(topic =>
-    responseLower.includes(topic.toLowerCase())
-  );
-  const topicScore = (topicMatches.length / expectedTopics.length) * 100;
-  
-  // Routing accuracy
+  // Routing accuracy (most important for this test)
   const routingScore = (actualAgent === expectedAgent) ? 100 : 0;
   
-  // Overall grade (weighted average)
-  const overallScore = (keywordScore * 0.4) + (topicScore * 0.3) + (routingScore * 0.3);
+  // Response quality - check if response is substantial
+  const responseLength = response.length;
+  let qualityScore = 0;
+  if (responseLength > 500) qualityScore = 100;
+  else if (responseLength > 200) qualityScore = 80;
+  else if (responseLength > 100) qualityScore = 60;
+  else if (responseLength > 50) qualityScore = 40;
+  else if (responseLength > 0) qualityScore = 20;
+  
+  // Keyword matching (if keywords provided)
+  let keywordScore = 0;
+  let keywordMatches = [];
+  if (expectedKeywords && expectedKeywords.length > 0) {
+    keywordMatches = expectedKeywords.filter(kw => 
+      responseLower.includes(kw.toLowerCase())
+    );
+    keywordScore = (keywordMatches.length / expectedKeywords.length) * 100;
+  } else {
+    // If no keywords, use quality score
+    keywordScore = qualityScore;
+  }
+  
+  // Topic coverage (if topics provided)
+  let topicScore = 0;
+  let topicMatches = [];
+  if (expectedTopics && expectedTopics.length > 0) {
+    topicMatches = expectedTopics.filter(topic =>
+      responseLower.includes(topic.toLowerCase())
+    );
+    topicScore = (topicMatches.length / expectedTopics.length) * 100;
+  } else {
+    // If no topics, use quality score
+    topicScore = qualityScore;
+  }
+  
+  // Overall grade - routing is most important, then quality
+  const overallScore = (routingScore * 0.5) + (qualityScore * 0.3) + (keywordScore * 0.1) + (topicScore * 0.1);
   
   return {
     overallScore: Math.round(overallScore),
     keywordScore: Math.round(keywordScore),
     topicScore: Math.round(topicScore),
+    qualityScore: Math.round(qualityScore),
     routingScore: Math.round(routingScore),
     keywordMatches,
-    topicMatches
+    topicMatches,
+    responseLength
   };
 }
 
