@@ -1,0 +1,106 @@
+name: Update PubMed Articles for Formulation Agent
+
+on:
+  schedule:
+    # Run nightly at 2 AM UTC
+    - cron: '0 2 * * *'
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  fetch-and-update:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Fetch latest PubMed articles
+        run: |
+          echo "📚 Fetching latest formulation-related articles from PubMed..."
+          node scripts/fetch-pubmed-formulation.js
+          
+      - name: Check if new articles were found
+        id: check_changes
+        run: |
+          if git diff --quiet agents/science-agent/data/index.json; then
+            echo "changed=false" >> $GITHUB_OUTPUT
+            echo "ℹ️  No new articles found"
+          else
+            echo "changed=true" >> $GITHUB_OUTPUT
+            echo "✅ New articles found!"
+            
+            # Show what changed
+            echo ""
+            echo "📊 Changes:"
+            git diff --stat agents/science-agent/data/index.json
+          fi
+
+      - name: Upload to S3
+        if: steps.check_changes.outputs.changed == 'true'
+        run: |
+          echo "📤 Uploading updated index to S3..."
+          aws s3 cp agents/science-agent/data/index.json \
+            s3://formul8-platform-deployments/data/science/index.json \
+            --storage-class INTELLIGENT_TIERING
+          
+          echo "✅ S3 upload complete"
+          echo "🔗 S3 URI: s3://formul8-platform-deployments/data/science/index.json"
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_REGION: us-east-1
+
+      - name: Commit updated index
+        if: steps.check_changes.outputs.changed == 'true'
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          
+          git add agents/science-agent/data/index.json
+          git commit -m "chore: Update PubMed articles for formulation RAG [automated]"
+          
+      - name: Push changes
+        if: steps.check_changes.outputs.changed == 'true'
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
+
+      - name: Summary
+        run: |
+          echo "════════════════════════════════════════════════"
+          echo "  PubMed Update Summary"
+          echo "════════════════════════════════════════════════"
+          
+          if [ "${{ steps.check_changes.outputs.changed }}" == "true" ]; then
+            echo "✅ New articles added"
+            echo "📤 Uploaded to S3"
+            echo "📝 Committed to repository"
+            
+            # Extract stats from index
+            if [ -f agents/science-agent/data/index.json ]; then
+              total=$(jq -r '.totalPapers' agents/science-agent/data/index.json)
+              updated=$(jq -r '.lastUpdated' agents/science-agent/data/index.json)
+              echo ""
+              echo "📊 Total papers: $total"
+              echo "🕒 Last updated: $updated"
+            fi
+          else
+            echo "ℹ️  No new articles found"
+            echo "📅 Next check: Tomorrow at 2 AM UTC"
+          fi
+          
+          echo ""
+          echo "🎯 Formulation-agent will use updated data for RAG"
+
+      - name: Notify on failure
+        if: failure()
+        run: |
+          echo "❌ PubMed update failed!"
+          echo "Check logs for details"
+
