@@ -8,7 +8,7 @@
     "strategies": {
       "langchain_semantic": {
         "enabled": true,
-        "model": "qwen/qwen-2.5-coder-32b-instruct",
+        "model": "openai/gpt-4o",
         "temperature": 0.1,
         "maxTokens": 20,
         "prompt_template": "routing_prompt"
