@@ -1,74 +1,42 @@
 #!/usr/bin/env node
 
 /**
- * OpenRouter Key Manager
- * Automated key creation, rotation, and management using OpenRouter Provisioning API
- * 
- * Usage:
- *   node openrouter-key-manager.js list                    # List all keys
- *   node openrouter-key-manager.js create [name] [limit]   # Create new key
- *   node openrouter-key-manager.js create-user <user-id>   # Create key for specific user
- *   node openrouter-key-manager.js rotate                  # Rotate all agent keys
- *   node openrouter-key-manager.js rotate-user <user-id>   # Rotate key for specific user
- *   node openrouter-key-manager.js delete <key-id>         # Delete a key
- *   node openrouter-key-manager.js info <key-id>           # Get key info
+ * OpenRouter API Key Manager
+ * Handles creation, rotation, and deletion of OpenRouter API keys
  */
 
-import https from 'https';
-import { execSync } from 'child_process';
-import fs from 'fs';
-import path from 'path';
-import { fileURLToPath } from 'url';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const https = require('https');
+const { execSync } = require('child_process');
+const fs = require('fs');
+const path = require('path');
 
 // Configuration
-const PROVISIONING_KEY = process.env.OPENROUTER_PROVISIONING_KEY || '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';
-const BASE_URL = 'openrouter.ai';
-const API_PATH = '/api/v1/keys';
+const OPENROUTER_API_BASE = 'https://openrouter.ai/api/v1';
+const PROVISIONING_KEY = process.env.OPENROUTER_PROVISIONING_KEY;
 
-// Colors
-const colors = {
-  red: '\x1b[31m',
-  green: '\x1b[32m',
-  yellow: '\x1b[33m',
-  blue: '\x1b[34m',
-  magenta: '\x1b[35m',
-  cyan: '\x1b[36m',
-  white: '\x1b[37m',
-  reset: '\x1b[0m'
-};
-
-function log(message, color = 'white') {
-  console.log(`${colors[color]}${message}${colors.reset}`);
+// Ensure logs directory exists
+const logsDir = path.join(__dirname, '..', 'logs');
+if (!fs.existsSync(logsDir)) {
+  fs.mkdirSync(logsDir, { recursive: true });
 }
 
-function logSuccess(message) {
-  log(`✅ ${message}`, 'green');
+const logFile = path.join(logsDir, `rotation-${new Date().toISOString()}.log`);
+
+function log(message) {
+  const timestamp = new Date().toISOString();
+  const logMessage = `[${timestamp}] ${message}`;
+  console.log(logMessage);
+  fs.appendFileSync(logFile, logMessage + '\n');
 }
 
-function logError(message) {
-  log(`❌ ${message}`, 'red');
-}
-
-function logWarning(message) {
-  log(`⚠️  ${message}`, 'yellow');
-}
-
-function logInfo(message) {
-  log(`ℹ️  ${message}`, 'blue');
-}
-
-/**
- * Make HTTPS request to OpenRouter API
- */
-function makeRequest(method, path, body = null) {
+function makeRequest(method, path, data = null) {
   return new Promise((resolve, reject) => {
+    const url = new URL(path, OPENROUTER_API_BASE);
+    
     const options = {
-      hostname: BASE_URL,
-      port: 443,
-      path: path,
+      hostname: url.hostname,
+      port: url.port || 443,
+      path: url.pathname + url.search,
       method: method,
       headers: {
         'Authorization': `Bearer ${PROVISIONING_KEY}`,
@@ -77,22 +45,22 @@ function makeRequest(method, path, body = null) {
     };
 
     const req = https.request(options, (res) => {
-      let data = '';
+      let body = '';
       
       res.on('data', (chunk) => {
-        data += chunk;
+        body += chunk;
       });
       
       res.on('end', () => {
         try {
-          const response = data ? JSON.parse(data) : {};
+          const jsonBody = JSON.parse(body);
           if (res.statusCode >= 200 && res.statusCode < 300) {
-            resolve({ statusCode: res.statusCode, data: response });
+            resolve(jsonBody);
           } else {
-            reject(new Error(`HTTP ${res.statusCode}: ${JSON.stringify(response)}`));
+            reject(new Error(`API Error ${res.statusCode}: ${JSON.stringify(jsonBody)}`));
           }
         } catch (error) {
-          reject(new Error(`Failed to parse response: ${error.message}`));
+          reject(new Error(`Failed to parse response: ${body}`));
         }
       });
     });
@@ -101,385 +69,261 @@ function makeRequest(method, path, body = null) {
       reject(error);
     });
 
-    if (body) {
-      req.write(JSON.stringify(body));
+    if (data) {
+      req.write(JSON.stringify(data));
     }
 
     req.end();
   });
 }
 
-/**
- * List all API keys
- */
-async function listKeys(limit = 100) {
-  logInfo('Fetching API keys...');
+async function listKeys() {
+  log('📋 Listing all API keys...');
   
   try {
-    const response = await makeRequest('GET', `${API_PATH}?limit=${limit}`);
-    const keys = response.data.data || [];
+    const response = await makeRequest('GET', '/keys');
     
-    log('\n' + '='.repeat(80), 'cyan');
-    log('API KEYS', 'cyan');
-    log('='.repeat(80), 'cyan');
-    
-    if (keys.length === 0) {
-      logWarning('No keys found');
-      return;
+    if (response.data && Array.isArray(response.data)) {
+      log(`Found ${response.data.length} keys:`);
+      response.data.forEach(key => {
+        log(`  • ${key.name} (${key.id}) - Created: ${key.created_at}`);
+      });
+      return response.data;
+    } else {
+      log('No keys found or unexpected response format');
+      return [];
     }
-    
-    keys.forEach((key, index) => {
-      log(`\n[${index + 1}] ${key.name || 'Unnamed'}`, 'yellow');
-      log(`    ID:          ${key.id}`, 'white');
-      log(`    Key:         ${key.key ? key.key.substring(0, 20) + '...' : 'N/A'}`, 'white');
-      log(`    Created:     ${new Date(key.created_at).toLocaleString()}`, 'white');
-      log(`    Limit:       ${key.limit ? `$${key.limit}` : 'Unlimited'}`, 'white');
-      log(`    Usage:       $${key.usage || 0}`, 'white');
-      log(`    Status:      ${key.is_free_tier ? 'Free Tier' : 'Paid'}`, 'white');
-      if (key.label) log(`    Label:       ${key.label}`, 'white');
-    });
-    
-    log('\n' + '='.repeat(80), 'cyan');
-    log(`Total Keys: ${keys.length}`, 'green');
-    
-    return keys;
   } catch (error) {
-    logError(`Failed to list keys: ${error.message}`);
+    log(`❌ Error listing keys: ${error.message}`);
     throw error;
   }
 }
 
-/**
- * Create a new API key
- */
-async function createKey(name = 'Formul8 Agent', limit = null, label = null) {
-  logInfo(`Creating new API key: ${name}...`);
-  
-  const body = {
-    name: name
-  };
-  
-  if (limit) body.limit = limit;
-  if (label) body.label = label;
+async function createKey(name, limit = 10000) {
+  log(`🔑 Creating new API key: ${name}`);
   
   try {
-    const response = await makeRequest('POST', API_PATH, body);
-    const key = response.data;
-    
-    logSuccess('Key created successfully!');
-    log('\n' + '='.repeat(80), 'cyan');
-    log('NEW API KEY', 'cyan');
-    log('='.repeat(80), 'cyan');
-    log(`Name:        ${key.name}`, 'yellow');
-    log(`ID:          ${key.id}`, 'white');
-    log(`Key:         ${key.key}`, 'green');
-    log(`Created:     ${new Date(key.created_at).toLocaleString()}`, 'white');
-    if (key.limit) log(`Limit:       $${key.limit}`, 'white');
-    log('='.repeat(80), 'cyan');
-    
-    logWarning('⚠️  IMPORTANT: Save this key! It won\'t be shown again.');
-    
-    return key;
-  } catch (error) {
-    logError(`Failed to create key: ${error.message}`);
-    throw error;
-  }
-}
-
-/**
- * Delete an API key
- */
-async function deleteKey(keyId) {
-  logInfo(`Deleting key ${keyId}...`);
-  
-  try {
-    await makeRequest('DELETE', `${API_PATH}/${keyId}`);
-    logSuccess(`Key ${keyId} deleted successfully!`);
-  } catch (error) {
-    logError(`Failed to delete key: ${error.message}`);
-    throw error;
-  }
-}
-
-/**
- * Get information about a specific key
- */
-async function getKeyInfo(keyId) {
-  logInfo(`Fetching key info for ${keyId}...`);
-  
-  try {
-    const response = await makeRequest('GET', `${API_PATH}/${keyId}`);
-    const key = response.data;
-    
-    log('\n' + '='.repeat(80), 'cyan');
-    log('API KEY INFO', 'cyan');
-    log('='.repeat(80), 'cyan');
-    log(`Name:        ${key.name}`, 'yellow');
-    log(`ID:          ${key.id}`, 'white');
-    log(`Created:     ${new Date(key.created_at).toLocaleString()}`, 'white');
-    log(`Limit:       ${key.limit ? `$${key.limit}` : 'Unlimited'}`, 'white');
-    log(`Usage:       $${key.usage || 0}`, 'white');
-    log(`Status:      ${key.is_free_tier ? 'Free Tier' : 'Paid'}`, 'white');
-    if (key.label) log(`Label:       ${key.label}`, 'white');
-    log('='.repeat(80), 'cyan');
-    
-    return key;
-  } catch (error) {
-    logError(`Failed to get key info: ${error.message}`);
-    throw error;
-  }
-}
-
-/**
- * Create a key for a specific user
- */
-async function createUserKey(userId, monthlyLimit = null) {
-  logInfo(`Creating API key for user ${userId}...`);
-  
-  const keyName = `Formul8 User ${userId}`;
-  const keyLabel = `user-${userId}`;
-  
-  try {
-    // Create the OpenRouter key
-    const newKey = await createKey(keyName, monthlyLimit, keyLabel);
-    
-    // TODO: Store in Supabase user_api_keys table
-    logInfo('Key created successfully!');
-    logWarning('⚠️  Remember to store this key in the user_api_keys table in Supabase');
-    
-    return {
-      ...newKey,
-      userId,
-      monthlyLimit
-    };
-  } catch (error) {
-    logError(`Failed to create user key: ${error.message}`);
-    throw error;
-  }
-}
-
-/**
- * Rotate key for a specific user
- */
-async function rotateUserKey(userId, deleteOld = false) {
-  logInfo(`Rotating API key for user ${userId}...`);
-  
-  try {
-    // TODO: Get current user key from Supabase
-    // const currentKey = await getUserApiKey(userId);
-    
-    // Create new key for user
-    const newKey = await createUserKey(userId);
-    
-    // TODO: Update user's key in Supabase
-    // await updateUserApiKey(userId, newKey);
-    
-    // TODO: Optionally delete old key
-    if (deleteOld) {
-      // await deleteKey(currentKey.openrouter_key_id);
-    }
-    
-    logSuccess(`User ${userId} key rotated successfully!`);
-    return newKey;
-  } catch (error) {
-    logError(`Failed to rotate user key: ${error.message}`);
-    throw error;
-  }
-}
-
-/**
- * Rotate all agent keys
- * Creates a new key, updates all Vercel environments, and optionally deletes the old key
- */
-async function rotateKeys(deleteOld = false) {
-  log('\n' + '='.repeat(80), 'cyan');
-  log('🔄 AUTOMATED KEY ROTATION', 'cyan');
-  log('='.repeat(80), 'cyan');
-  
-  try {
-    // Step 1: Create new key
-    log('\n📝 Step 1: Creating new API key...', 'yellow');
-    const newKey = await createKey('Formul8 Production Key', null, `rotated-${Date.now()}`);
-    
-    // Step 2: Update all Vercel projects
-    log('\n🔧 Step 2: Updating all Vercel projects...', 'yellow');
-    const rotateScript = path.join(__dirname, 'rotate-openrouter-key.sh');
-    
-    if (!fs.existsSync(rotateScript)) {
-      throw new Error('rotate-openrouter-key.sh not found');
-    }
-    
-    logInfo('Running key rotation script...');
-    execSync(`bash "${rotateScript}" "${newKey.key}"`, {
-      stdio: 'inherit',
-      cwd: path.join(__dirname, '..')
-    });
-    
-    // Step 3: Verify deployment
-    log('\n✅ Step 3: Verifying deployment...', 'yellow');
-    logInfo('Waiting 30 seconds for deployments to stabilize...');
-    await new Promise(resolve => setTimeout(resolve, 30000));
-    
-    // Step 4: Optionally delete old key
-    if (deleteOld) {
-      log('\n🗑️  Step 4: Cleaning up old keys...', 'yellow');
-      const keys = await listKeys();
-      const oldKeys = keys.filter(k => 
-        k.id !== newKey.id && 
-        k.name.includes('Formul8') &&
-        new Date(k.created_at) < new Date(newKey.created_at)
-      );
-      
-      if (oldKeys.length > 0) {
-        logWarning(`Found ${oldKeys.length} old key(s) to delete`);
-        for (const oldKey of oldKeys) {
-          await deleteKey(oldKey.id);
-        }
-      } else {
-        logInfo('No old keys to delete');
+    const response = await makeRequest('POST', '/keys', {
+      name: name,
+      limit: limit,
+      usage_limits: {
+        requests_per_minute: 100
       }
+    });
+
+    if (response.key) {
+      log(`✅ New key created successfully!`);
+      log(`   Key ID: ${response.id}`);
+      log(`   Key ends with: ...${response.key.slice(-4)}`);
+      return response;
+    } else {
+      throw new Error('No key in response');
     }
-    
-    log('\n' + '='.repeat(80), 'cyan');
-    logSuccess('🎉 KEY ROTATION COMPLETED SUCCESSFULLY!');
-    log('='.repeat(80), 'cyan');
-    
-    log('\nNext steps:', 'yellow');
-    log('1. Test a few agent endpoints to verify the new key works', 'white');
-    log('2. Update your .env files with the new key if needed', 'white');
-    log('3. Monitor logs for any issues over the next hour', 'white');
-    log('4. Save the new key in a secure location', 'white');
-    
-    return newKey;
   } catch (error) {
-    logError(`Key rotation failed: ${error.message}`);
-    log('\n⚠️  ROLLBACK REQUIRED!', 'red');
-    log('You may need to manually restore the previous key', 'yellow');
+    log(`❌ Error creating key: ${error.message}`);
     throw error;
   }
 }
 
-/**
- * Main CLI handler
- */
-async function main() {
-  const args = process.argv.slice(2);
-  const command = args[0];
-  
-  if (!PROVISIONING_KEY) {
-    logError('OPENROUTER_PROVISIONING_KEY environment variable is required');
-    process.exit(1);
-  }
+async function deleteKey(keyId) {
+  log(`🗑️  Deleting key: ${keyId}`);
   
   try {
-    switch (command) {
-      case 'list':
-        const limit = parseInt(args[1]) || 100;
-        await listKeys(limit);
-        break;
-        
-      case 'create':
-        const name = args[1] || 'Formul8 Agent';
-        const limitAmount = args[2] ? parseFloat(args[2]) : null;
-        const label = args[3] || null;
-        await createKey(name, limitAmount, label);
-        break;
-        
-      case 'create-user':
-        if (!args[1]) {
-          logError('User ID required');
-          process.exit(1);
-        }
-        const userId = args[1];
-        const userLimit = args[2] ? parseFloat(args[2]) : null;
-        await createUserKey(userId, userLimit);
-        break;
-        
-      case 'delete':
-        if (!args[1]) {
-          logError('Key ID required');
-          process.exit(1);
-        }
-        await deleteKey(args[1]);
-        break;
-        
-      case 'info':
-        if (!args[1]) {
-          logError('Key ID required');
-          process.exit(1);
-        }
-        await getKeyInfo(args[1]);
-        break;
-        
-      case 'rotate':
-        const deleteOld = args.includes('--delete-old');
-        await rotateKeys(deleteOld);
-        break;
-        
-      case 'rotate-user':
-        if (!args[1]) {
-          logError('User ID required');
-          process.exit(1);
-        }
-        const rotateUserId = args[1];
-        const rotateDeleteOld = args.includes('--delete-old');
-        await rotateUserKey(rotateUserId, rotateDeleteOld);
-        break;
-        
-      case 'help':
-      case '--help':
-      case '-h':
-        showHelp();
-        break;
-        
-      default:
-        logError(`Unknown command: ${command || '(none)'}`);
-        showHelp();
-        process.exit(1);
-    }
+    await makeRequest('DELETE', `/keys/${keyId}`);
+    log(`✅ Key ${keyId} deleted successfully`);
+    return true;
   } catch (error) {
-    logError(`Operation failed: ${error.message}`);
-    process.exit(1);
+    log(`❌ Error deleting key ${keyId}: ${error.message}`);
+    throw error;
   }
 }
 
-function showHelp() {
-  log('\n' + '='.repeat(80), 'cyan');
-  log('OPENROUTER KEY MANAGER', 'cyan');
-  log('='.repeat(80), 'cyan');
-  log('\nUsage: node openrouter-key-manager.js <command> [options]', 'yellow');
-  log('\nCommands:', 'yellow');
-  log('  list [limit]              List all API keys (default limit: 100)', 'white');
-  log('  create [name] [limit]     Create a new API key', 'white');
-  log('  create-user <user-id>     Create a key for a specific user', 'white');
-  log('  delete <key-id>           Delete an API key', 'white');
-  log('  info <key-id>             Get information about a key', 'white');
-  log('  rotate [--delete-old]     Rotate all agent keys (optionally delete old)', 'white');
-  log('  rotate-user <user-id>     Rotate key for a specific user', 'white');
-  log('  help                      Show this help message', 'white');
-  log('\nExamples:', 'cyan');
-  log('  node openrouter-key-manager.js list', 'white');
-  log('  node openrouter-key-manager.js create "Production Key" 100.00', 'white');
-  log('  node openrouter-key-manager.js rotate', 'white');
-  log('  node openrouter-key-manager.js rotate --delete-old', 'white');
-  log('  node openrouter-key-manager.js delete key_abc123', 'white');
-  log('\nEnvironment Variables:', 'yellow');
-  log('  OPENROUTER_PROVISIONING_KEY    OpenRouter Provisioning API key', 'white');
-  log('='.repeat(80), 'cyan');
+async function testKey(apiKey) {
+  log('🧪 Testing new API key...');
+  
+  return new Promise((resolve, reject) => {
+    const postData = JSON.stringify({
+      model: 'openai/gpt-oss-120b',
+      messages: [{ role: 'user', content: 'test' }],
+      max_tokens: 5
+    });
+
+    const options = {
+      hostname: 'openrouter.ai',
+      path: '/api/v1/chat/completions',
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${apiKey}`,
+        'Content-Type': 'application/json',
+        'Content-Length': Buffer.byteLength(postData)
+      }
+    };
+
+    const req = https.request(options, (res) => {
+      let body = '';
+      res.on('data', (chunk) => { body += chunk; });
+      res.on('end', () => {
+        try {
+          const json = JSON.parse(body);
+          if (json.choices && json.choices.length > 0) {
+            log('✅ New key is working correctly!');
+            resolve(true);
+          } else {
+            log(`❌ Unexpected response: ${body}`);
+            reject(new Error('Invalid response format'));
+          }
+        } catch (error) {
+          log(`❌ Test failed: ${error.message}`);
+          reject(error);
+        }
+      });
+    });
+
+    req.on('error', reject);
+    req.write(postData);
+    req.end();
+  });
 }
 
-// Run if called directly
-if (import.meta.url === `file://${process.argv[1]}`) {
-  main();
+async function updateGitHubSecret(secretName, value) {
+  log(`🔐 Updating GitHub Secret: ${secretName}`);
+  
+  try {
+    // Use GitHub CLI to update the secret
+    execSync(`gh secret set ${secretName} --body "${value}"`, {
+      stdio: ['pipe', 'pipe', 'pipe'],
+      env: { ...process.env, GH_TOKEN: process.env.GITHUB_TOKEN }
+    });
+    
+    log(`✅ GitHub Secret ${secretName} updated successfully`);
+    return true;
+  } catch (error) {
+    log(`❌ Error updating GitHub Secret: ${error.message}`);
+    throw error;
+  }
 }
 
-export {
-  listKeys,
-  createKey,
-  createUserKey,
-  deleteKey,
-  getKeyInfo,
-  rotateKeys,
-  rotateUserKey
-};
+async function rotateKey(deleteOld = false) {
+  log('');
+  log('='.repeat(80));
+  log('🔄 STARTING KEY ROTATION');
+  log('='.repeat(80));
+  log('');
 
+  if (!PROVISIONING_KEY) {
+    log('❌ OPENROUTER_PROVISIONING_KEY not found in environment');
+    throw new Error('OPENROUTER_PROVISIONING_KEY is required');
+  }
+
+  try {
+    // Step 1: List current keys
+    const currentKeys = await listKeys();
+    log('');
+
+    // Step 2: Create new key
+    const keyName = `Formul8-Main-${new Date().toISOString().split('T')[0]}`;
+    const newKeyData = await createKey(keyName);
+    log('');
+
+    // Step 3: Update GitHub Secret
+    await updateGitHubSecret('OPENROUTER_API_KEY', newKeyData.key);
+    log('');
+
+    // Step 4: Test the new key
+    await testKey(newKeyData.key);
+    log('');
+
+    // Step 5: Store new key ID for future rotation
+    await updateGitHubSecret('OPENROUTER_CURRENT_KEY_ID', newKeyData.id);
+    log('');
+
+    // Step 6: Delete old keys if requested
+    if (deleteOld && currentKeys.length > 0) {
+      log('🗑️  Deleting old keys...');
+      for (const key of currentKeys) {
+        // Don't delete the key we just created
+        if (key.id !== newKeyData.id) {
+          try {
+            await deleteKey(key.id);
+          } catch (error) {
+            log(`⚠️  Could not delete ${key.id}: ${error.message}`);
+          }
+        }
+      }
+      log('');
+    }
+
+    log('='.repeat(80));
+    log('✅ KEY ROTATION COMPLETED SUCCESSFULLY');
+    log('='.repeat(80));
+    log('');
+    log(`📊 Summary:`);
+    log(`   New Key ID: ${newKeyData.id}`);
+    log(`   Key ends with: ...${newKeyData.key.slice(-4)}`);
+    log(`   Old keys: ${deleteOld ? 'Deleted' : 'Retained'}`);
+    log('');
+
+    return newKeyData;
+  } catch (error) {
+    log('');
+    log('='.repeat(80));
+    log('❌ KEY ROTATION FAILED');
+    log('='.repeat(80));
+    log(`Error: ${error.message}`);
+    log('');
+    throw error;
+  }
+}
+
+// CLI
+const command = process.argv[2];
+const flags = process.argv.slice(3);
+
+(async () => {
+  try {
+    if (command === 'list') {
+      await listKeys();
+    } else if (command === 'rotate') {
+      const deleteOld = flags.includes('--delete-old');
+      await rotateKey(deleteOld);
+    } else if (command === 'create') {
+      const name = flags.find(f => f.startsWith('--name='))?.split('=')[1] || `Formul8-${Date.now()}`;
+      await createKey(name);
+    } else if (command === 'delete') {
+      const keyId = flags.find(f => f.startsWith('--key-id='))?.split('=')[1];
+      if (!keyId) {
+        console.error('Error: --key-id=<id> is required');
+        process.exit(1);
+      }
+      await deleteKey(keyId);
+    } else {
+      console.log(`
+OpenRouter API Key Manager
+
+Usage:
+  node openrouter-key-manager.js <command> [options]
+
+Commands:
+  list                    List all API keys
+  rotate [--delete-old]   Rotate API key (create new, update secrets, optionally delete old)
+  create [--name=<name>]  Create a new API key
+  delete --key-id=<id>    Delete a specific key
+
+Environment Variables:
+  OPENROUTER_PROVISIONING_KEY  Required: Master key for API key management
+  GITHUB_TOKEN                 Required for 'rotate': GitHub token to update secrets
+
+Examples:
+  node openrouter-key-manager.js list
+  node openrouter-key-manager.js rotate
+  node openrouter-key-manager.js rotate --delete-old
+  node openrouter-key-manager.js create --name=Formul8-Test
+  node openrouter-key-manager.js delete --key-id=abc123
+      `);
+      process.exit(command ? 1 : 0);
+    }
+  } catch (error) {
+    console.error(`\n❌ Fatal error: ${error.message}\n`);
+    process.exit(1);
+  }
+})();
