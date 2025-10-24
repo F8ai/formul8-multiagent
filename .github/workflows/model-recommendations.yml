@@ -1,0 +1,76 @@
+name: Agent Model Recommendations
+
+on:
+  # Manual trigger
+  workflow_dispatch:
+  
+  # Run monthly on the 1st at 2 AM UTC
+  schedule:
+    - cron: '0 2 1 * *'
+
+jobs:
+  generate-recommendations:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run Model Recommendation Tests
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+        run: |
+          echo "🧪 Generating model recommendations for all agents..."
+          node test-agent-model-recommendations.js
+
+      - name: Upload Recommendations Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: agent-model-recommendations
+          path: |
+            AGENT_MODEL_RECOMMENDATIONS.md
+            agent-model-recommendations-*.json
+          retention-days: 90
+
+      - name: Create Issue with Recommendations
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            
+            // Read the markdown report
+            const report = fs.readFileSync('AGENT_MODEL_RECOMMENDATIONS.md', 'utf8');
+            
+            // Extract summary (first 2000 chars)
+            const summary = report.substring(0, 2000) + '\n\n... (see full report in artifacts)';
+            
+            // Create an issue
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `🤖 Monthly Agent Model Recommendations - ${new Date().toISOString().split('T')[0]}`,
+              body: summary + '\n\n---\n\n📊 [View Full Report](https://github.com/' + context.repo.owner + '/' + context.repo.repo + '/actions/runs/' + context.runId + ')',
+              labels: ['recommendations', 'models', 'optimization']
+            });
+            
+            console.log('✅ Issue created with recommendations');
+
+      - name: Comment Summary
+        run: |
+          echo "📊 Model Recommendations Generated"
+          echo ""
+          echo "View the full report in the artifacts above."
+          echo ""
+          echo "To apply recommendations:"
+          echo "1. Download agent-model-recommendations-*.json"
+          echo "2. Run: node scripts/apply-model-recommendations.js <filename>"
+          echo "3. Review changes and commit"
+
