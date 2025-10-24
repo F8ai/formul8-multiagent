@@ -8,7 +8,7 @@
     "strategies": {
       "langchain_semantic": {
         "enabled": true,
-        "model": "openai/gpt-4o",
+        "model": "meta-llama/llama-3.1-405b-instruct",
         "temperature": 0.1,
         "maxTokens": 20,
         "prompt_template": "routing_prompt"
