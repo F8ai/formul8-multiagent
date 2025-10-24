@@ -58,7 +58,25 @@ console.log(`🔧 Prompt Engineering: ${config.usePromptEngineering ? 'Enabled' 
 console.log('='.repeat(80));
 
 // Load baseline questions
-const baselineQuestions = require('./baseline.json');
+let baselineQuestions = [];
+try {
+  const baselineData = require('./baseline.json');
+  // Handle both array format and object format with questions property
+  if (Array.isArray(baselineData)) {
+    baselineQuestions = baselineData;
+  } else if (baselineData.questions && Array.isArray(baselineData.questions)) {
+    baselineQuestions = baselineData.questions;
+  } else {
+    console.error('❌ baseline.json does not contain a valid questions array');
+    console.error('Expected either an array or an object with a "questions" property');
+    process.exit(1);
+  }
+  console.log(`✓ Loaded ${baselineQuestions.length} baseline questions`);
+} catch (error) {
+  console.error('❌ Could not load baseline.json:', error.message);
+  console.error('Make sure baseline.json exists in the project root');
+  process.exit(1);
+}
 
 // Test results
 const results = {
