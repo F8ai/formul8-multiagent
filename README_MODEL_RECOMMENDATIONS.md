@@ -13,7 +13,7 @@ Each agent has different priorities:
 - **patent** - Legal/patent accuracy required
 - **spectra** - Scientific accuracy for analysis
 
-**Recommended:** GPT-4o or Llama 405B
+**Recommended:** GPT-5 or Llama 405B
 
 ### ⚖️ Balanced Agents
 - **operations** - Practical accuracy with cost/speed balance
@@ -41,7 +41,7 @@ node test-agent-model-recommendations.js
 ```
 
 This will:
-- Test each agent with GPT-4o, Qwen 32B, Llama 405B, and Llama 70B
+- Test each agent with GPT-5, Qwen 32B, Llama 405B, and Llama 70B
 - Score responses based on accuracy, cost, and speed
 - Apply agent-specific weights (e.g., compliance prioritizes accuracy)
 - Generate recommendations and cost estimates
@@ -100,9 +100,9 @@ Examples:
 
 ## Models Tested
 
-1. **GPT-4o** - `openai/gpt-4o`
+1. **GPT-5** - `openai/gpt-5`
    - Best accuracy and reasoning
-   - Most expensive ($0.0025/$0.01 per 1k tokens)
+   - Most expensive ($0.003/$0.015 per 1k tokens)
    - Great for compliance, science, formulation
 
 2. **Qwen 2.5 Coder 32B** - `openai/gpt-oss-120b`
@@ -139,12 +139,12 @@ Example monthly costs with recommended models:
 
 | Agent | Queries/Month | Model | Monthly Cost |
 |-------|---------------|-------|--------------|
-| compliance | 5,000 | GPT-4o | $125.00 |
+| compliance | 5,000 | GPT-5 | $180.00 |
 | operations | 8,000 | Llama 70B | $9.60 |
 | marketing | 3,000 | Llama 70B | $3.60 |
-| formulation | 2,000 | GPT-4o | $50.00 |
+| formulation | 2,000 | GPT-5 | $72.00 |
 | ad | 50,000 | Qwen 32B | $7.50 |
-| **TOTAL** | | | **~$300/month** |
+| **TOTAL** | | | **~$350/month** |
 
 *Note: Actual costs vary based on query complexity and response length*
 
@@ -156,10 +156,10 @@ Users can still override the model per request:
 // Use agent's recommended default
 { "message": "How do I extract CBD?" }
 
-// Override to GPT-4o for this query
+// Override to GPT-5 for this query
 { 
   "message": "How do I extract CBD?",
-  "model": "openai/gpt-4o"
+  "model": "openai/gpt-5"
 }
 ```
 

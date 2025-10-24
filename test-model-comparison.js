@@ -10,17 +10,17 @@ const fs = require('fs');
 
 // Test configuration
 const MODEL_CONFIGS = {
-  'gpt-4o': {
-    name: 'GPT-4o',
-    model: 'openai/gpt-4o',
+  'gpt-5': {
+    name: 'GPT-5',
+    model: 'openai/gpt-5',
     usePromptEngineering: true,
-    description: 'OpenAI GPT-4o with full prompt engineering'
+    description: 'Latest OpenAI GPT-5 with full prompt engineering'
   },
-  'gpt-4o-raw': {
-    name: 'GPT-4o (Raw)',
-    model: 'openai/gpt-4o',
+  'gpt-5-raw': {
+    name: 'GPT-5 (Raw)',
+    model: 'openai/gpt-5',
     usePromptEngineering: false,
-    description: 'OpenAI GPT-4o without prompt engineering'
+    description: 'Latest OpenAI GPT-5 without prompt engineering'
   },
   'gpt-oss-120b': {
     name: 'GPT-OSS-120B (Qwen 2.5 Coder 32B)',

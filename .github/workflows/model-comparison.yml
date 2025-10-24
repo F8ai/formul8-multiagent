@@ -7,7 +7,7 @@ on:
       models:
         description: 'Models to test (comma-separated)'
         required: true
-        default: 'gpt-4o,gpt-4o-raw,gpt-oss-120b,llama-405b,voiceflow'
+        default: 'gpt-5,gpt-5-raw,gpt-oss-120b,llama-405b,voiceflow'
         type: string
       
   # Scheduled weekly comparison (Sundays at 3 AM UTC)
@@ -20,8 +20,8 @@ jobs:
     strategy:
       matrix:
         model: 
-          - gpt-4o
-          - gpt-4o-raw
+          - gpt-5
+          - gpt-5-raw
           - gpt-oss-120b
           - llama-405b
           - voiceflow

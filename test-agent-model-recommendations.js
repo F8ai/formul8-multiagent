@@ -11,10 +11,10 @@ const fs = require('fs');
 // Models to test for each agent
 const MODELS_TO_TEST = [
   {
-    id: 'gpt-4o',
-    name: 'GPT-4o',
-    model: 'openai/gpt-4o',
-    costPer1k: { input: 0.0025, output: 0.01 },
+    id: 'gpt-5',
+    name: 'GPT-5',
+    model: 'openai/gpt-5',
+    costPer1k: { input: 0.003, output: 0.015 },
     strengths: ['accuracy', 'reasoning', 'compliance', 'complex tasks']
   },
   {
