@@ -21,6 +21,7 @@ const {
   getClientIP
 } = require('./security-module');
 const dataLoader = require('./data-loader');
+const AWS = require('aws-sdk');
 
 // Create Express app
 const app = express();
@@ -50,7 +51,12 @@ app.get('/health', (req, res) => {
     status: 'healthy',
     timestamp: new Date().toISOString(),
     service: 'formulation-agent',
-    version: '1.0.0',
+    version: '1.1.0',
+    rag: {
+      enabled: true,
+      source: 'science-agent',
+      cacheEnabled: true
+    },
     security: {
       rateLimit: `${SECURITY_CONFIG.maxMessageLength} requests per ${RATE_LIMIT_WINDOW / 1000 / 60} minutes`,
       cors: SECURITY_CONFIG.allowedOrigins,
@@ -60,20 +66,71 @@ app.get('/health', (req, res) => {
   });
 });
 
+// In-memory S3 cache for RAG data
+const ragCache = {
+  data: null,
+  timestamp: null,
+  ttl: 3600000 // 1 hour
+};
+
+// Cache management endpoint
+app.post('/api/cache/clear', (req, res) => {
+  try {
+    const { source } = req.body;
+    
+    console.log(`🗑️  RAG cache clear requested from: ${source || 'unknown'}`);
+    
+    // Clear the RAG cache
+    ragCache.data = null;
+    ragCache.timestamp = null;
+    
+    // Also clear data-loader cache if available
+    if (dataLoader && dataLoader.clearCache) {
+      dataLoader.clearCache();
+    }
+    
+    res.json({
+      success: true,
+      message: 'RAG cache cleared successfully',
+      source: source || 'manual',
+      timestamp: new Date().toISOString(),
+      note: 'Next RAG query will fetch fresh data from S3'
+    });
+    
+    console.log(`✅ RAG cache cleared at ${new Date().toISOString()}`);
+  } catch (error) {
+    console.error('Error clearing RAG cache:', error);
+    res.status(500).json({ 
+      error: 'Failed to clear cache',
+      message: error.message
+    });
+  }
+});
+
 // RAG Helper: Retrieve relevant research data from science-agent
 async function retrieveRelevantResearch(query) {
   try {
-    // Try to load science agent index
-    const AWS = require('aws-sdk');
-    const s3 = new AWS.S3({ region: 'us-east-1' });
+    // Check cache first
+    const now = Date.now();
+    if (ragCache.data && ragCache.timestamp && (now - ragCache.timestamp) < ragCache.ttl) {
+      console.log(`✅ Using cached RAG data (age: ${Math.round((now - ragCache.timestamp) / 1000)}s)`);
+    } else {
+      // Load from S3
+      console.log(`📥 Loading fresh RAG data from S3`);
+      const s3 = new AWS.S3({ region: 'us-east-1' });
+      
+      const params = {
+        Bucket: 'formul8-platform-deployments',
+        Key: 'data/science/index.json'
+      };
+      
+      const data = await s3.getObject(params).promise();
+      ragCache.data = JSON.parse(data.Body.toString('utf-8'));
+      ragCache.timestamp = now;
+      console.log(`💾 RAG data cached (${ragCache.data.totalPapers || 0} papers)`);
+    }
     
-    const params = {
-      Bucket: 'formul8-platform-deployments',
-      Key: 'data/science/index.json'
-    };
-    
-    const data = await s3.getObject(params).promise();
-    const scienceIndex = JSON.parse(data.Body.toString('utf-8'));
+    const scienceIndex = ragCache.data;
     
     // Simple keyword-based filtering (can be enhanced with vector embeddings later)
     const keywords = query.toLowerCase().split(' ').filter(w => w.length > 3);

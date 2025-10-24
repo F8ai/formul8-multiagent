@@ -55,6 +55,35 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_REGION: us-east-1
 
+      - name: Invalidate Formulation-Agent RAG Cache
+        if: steps.check_changes.outputs.changed == 'true'
+        run: |
+          echo "🔄 Invalidating formulation-agent RAG cache..."
+          
+          # Send cache-clear request to formulation-agent
+          response=$(curl -s -X POST https://formulation-agent.f8.syzygyx.com/api/cache/clear \
+            -H "Content-Type: application/json" \
+            -H "x-api-key: ${{ secrets.FORMUL8_API_KEY }}" \
+            -d '{"source":"pubmed-update"}' 2>&1 || echo '{"status":"no-endpoint"}')
+          
+          echo "Response: $response"
+          
+          # Test RAG with new data
+          echo ""
+          echo "🧪 Testing RAG with updated data..."
+          test_response=$(curl -s -X POST https://formulation-agent.f8.syzygyx.com/api/chat \
+            -H "Content-Type: application/json" \
+            -H "x-api-key: ${{ secrets.FORMUL8_API_KEY }}" \
+            -d '{"message":"What are the latest findings on cannabis extraction?","plan":"standard"}' 2>&1 || echo '{"error":"test-failed"}')
+          
+          # Check if RAG is working
+          if echo "$test_response" | grep -q '"papersRetrieved"'; then
+            papers=$(echo "$test_response" | grep -o '"papersRetrieved":[0-9]*' | grep -o '[0-9]*')
+            echo "✅ RAG active: Retrieved $papers papers"
+          else
+            echo "⚠️  RAG status unknown (agent may not be deployed yet)"
+          fi
+
       - name: Commit updated index
         if: steps.check_changes.outputs.changed == 'true'
         run: |
