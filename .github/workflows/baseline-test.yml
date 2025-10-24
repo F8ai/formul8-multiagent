@@ -1,14 +1,9 @@
 name: Baseline Testing
 
 on:
-  # Run on push to main
+  # Run on every push to main
   push:
     branches: [main]
-    paths:
-      - 'config/routing.json'
-      - 'config/langchain.json'
-      - 'services/langchain-service.js'
-      - 'lambda.js'
   
   # Run on schedule (daily at 2 AM UTC)
   schedule:
