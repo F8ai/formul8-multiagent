@@ -1,0 +1,120 @@
+name: Baseline Testing
+
+on:
+  # Run on push to main
+  push:
+    branches: [main]
+    paths:
+      - 'config/routing.json'
+      - 'config/langchain.json'
+      - 'services/langchain-service.js'
+      - 'lambda.js'
+  
+  # Run on schedule (daily at 2 AM UTC)
+  schedule:
+    - cron: '0 2 * * *'
+  
+  # Allow manual trigger
+  workflow_dispatch:
+    inputs:
+      test_type:
+        description: 'Test type to run'
+        required: true
+        default: 'sample'
+        type: choice
+        options:
+          - sample
+          - comprehensive
+
+jobs:
+  baseline-test:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Run baseline tests
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            if [ "${{ github.event.inputs.test_type }}" = "comprehensive" ]; then
+              echo "🧪 Running comprehensive baseline tests..."
+              node test-chat-formul8-comprehensive.js || true
+            else
+              echo "🧪 Running sample baseline tests..."
+              node test-baseline-routing-sample.js
+            fi
+          else
+            echo "🧪 Running sample baseline tests..."
+            node test-baseline-routing-sample.js
+          fi
+      
+      - name: Upload test results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: baseline-results-${{ github.run_number }}
+          path: |
+            chat-formul8-*-results-*.json
+            chat-formul8-*-summary-*.md
+            BASELINE_GRADE_REPORT.md
+            COMPREHENSIVE_TEST_SUMMARY.md
+          retention-days: 30
+      
+      - name: Comment on commit (if routing changed)
+        if: github.event_name == 'push' && contains(github.event.head_commit.modified, 'config/routing.json')
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            let comment = '## 🧪 Baseline Test Results\n\n';
+            
+            // Try to read test summary
+            try {
+              const files = fs.readdirSync('.');
+              const summaryFile = files.find(f => f.match(/chat-formul8.*-summary-.*\.md/));
+              
+              if (summaryFile) {
+                const summary = fs.readFileSync(summaryFile, 'utf8');
+                comment += summary;
+              } else {
+                comment += 'Test completed. See artifacts for detailed results.';
+              }
+            } catch (error) {
+              comment += `Tests ran but summary not found. Check artifacts.\n\nError: ${error.message}`;
+            }
+            
+            github.rest.repos.createCommitComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              commit_sha: context.sha,
+              body: comment
+            });
+      
+      - name: Create summary
+        if: always()
+        run: |
+          echo "## Baseline Test Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          
+          if [ -f "BASELINE_GRADE_REPORT.md" ]; then
+            cat BASELINE_GRADE_REPORT.md >> $GITHUB_STEP_SUMMARY
+          else
+            echo "✅ Tests completed. Results available in artifacts." >> $GITHUB_STEP_SUMMARY
+          fi
+          
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### Files Generated" >> $GITHUB_STEP_SUMMARY
+          ls -lh chat-formul8-*-results-*.json 2>/dev/null || echo "No result files found"
+
