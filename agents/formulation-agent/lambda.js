@@ -149,7 +149,7 @@ async function retrieveRelevantResearch(query) {
 // Main chat endpoint
 app.post('/api/chat', async (req, res) => {
   try {
-    const { message, plan = 'standard', username = 'anonymous' } = req.body;
+    const { message, plan = 'standard', username = 'anonymous', model: requestModel, usePromptEngineering = true } = req.body;
     
     // Validate required fields
     if (!message) {
@@ -159,6 +159,9 @@ app.post('/api/chat', async (req, res) => {
       });
     }
     
+    
+    // Use requested model or fall back to default
+    const selectedModel = requestModel || 'openai/gpt-oss-120b';
     // Check agent access permissions
     if (!validateAgentAccess(AGENT_CONFIG.name.toLowerCase().replace(/\s+/g, '_'), plan)) {
       return res.status(403).json({

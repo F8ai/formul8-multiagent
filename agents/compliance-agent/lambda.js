@@ -65,7 +65,10 @@ app.get('/health', (req, res) => {
 // Main chat endpoint
 app.post('/api/chat', async (req, res) => {
   try {
-    const { message, plan = 'standard', username = 'anonymous' } = req.body;
+    const { message, plan = 'standard', username = 'anonymous', model: requestModel, usePromptEngineering = true } = req.body;
+    
+    // Use requested model or fall back to default
+    const selectedModel = requestModel || 'openai/gpt-oss-120b';
     
     // Validate required fields
     if (!message) {
