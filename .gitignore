@@ -37,3 +37,11 @@ formul8-multiagent-lambda.zip
 .agent-repos/
 .env*.local
 chat-formul8-comprehensive-results-*.json
+
+# Environment files - NEVER commit these
+.env
+.env.local
+.env.development
+.env.production
+.env.test
+.env*.local
