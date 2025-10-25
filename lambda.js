@@ -1768,7 +1768,7 @@ app.post('/api/chat', async (req, res) => {
       plan: plan,
       planName: planConfig.name,
       timestamp: new Date().toISOString(),
-      model: 'openai/gpt-oss-120b',
+      model: selectedModel,
       usage: {
         prompt_tokens: promptTokens,
         completion_tokens: completionTokens,
@@ -2270,7 +2270,10 @@ exports.handler = async (event, context) => {
   }
   
   if (request.method === 'POST' && request.url === '/api/chat') {
-    const { message } = request.body;
+    const { message, model: requestModel, usePromptEngineering = true } = request.body;
+    
+    // Use requested model or fall back to default
+    const selectedModel = requestModel || 'openai/gpt-oss-120b';
     
     if (!message) {
       return {
@@ -2306,7 +2309,7 @@ exports.handler = async (event, context) => {
           'X-Title': 'Formul8 Multiagent Chat'
         },
         body: JSON.stringify({
-          model: 'openai/gpt-oss-120b',
+          model: selectedModel,
           messages: [
             {
               role: 'system',
@@ -2360,7 +2363,7 @@ exports.handler = async (event, context) => {
           response: responseWithFooter,
           agent: 'f8_agent',
           timestamp: new Date().toISOString(),
-          model: 'openai/gpt-oss-120b',
+          model: selectedModel,
           usage: {
             prompt_tokens: promptTokens,
             completion_tokens: completionTokens,
