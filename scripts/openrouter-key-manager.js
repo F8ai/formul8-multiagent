@@ -21,12 +21,27 @@ if (!fs.existsSync(logsDir)) {
 }
 
 const logFile = path.join(logsDir, `rotation-${new Date().toISOString()}.log`);
+const keyHistoryFile = path.join(logsDir, 'key-history.jsonl');
 
 function log(message) {
   const timestamp = new Date().toISOString();
   const logMessage = `[${timestamp}] ${message}`;
   console.log(logMessage);
   fs.appendFileSync(logFile, logMessage + '\n');
+}
+
+function appendKeyHistory(entry) {
+  try {
+    const enriched = {
+      rotatedAt: new Date().toISOString(),
+      source: process.env.GITHUB_ACTIONS ? 'github_actions' : 'manual',
+      ...entry,
+    };
+    fs.appendFileSync(keyHistoryFile, JSON.stringify(enriched) + '\n');
+  } catch (error) {
+    // Non-fatal; continue rotation even if history write fails
+    console.error(`Failed to write key history: ${error.message}`);
+  }
 }
 
 function makeRequest(method, path, data = null) {
@@ -131,6 +146,7 @@ async function deleteKey(keyId) {
   try {
     await makeRequest('DELETE', `/keys/${keyId}`);
     log(`✅ Key ${keyId} deleted successfully`);
+    appendKeyHistory({ action: 'delete', keyId });
     return true;
   } catch (error) {
     log(`❌ Error deleting key ${keyId}: ${error.message}`);
@@ -167,6 +183,7 @@ async function testKey(apiKey) {
           const json = JSON.parse(body);
           if (json.choices && json.choices.length > 0) {
             log('✅ New key is working correctly!');
+            appendKeyHistory({ action: 'validate', keySuffix: apiKey.slice(-6) });
             resolve(true);
           } else {
             log(`❌ Unexpected response: ${body}`);
@@ -236,6 +253,16 @@ async function rotateKey(deleteOld = false) {
     // Step 5: Store new key ID for future rotation
     await updateGitHubSecret('OPENROUTER_CURRENT_KEY_ID', newKeyData.id);
     log('');
+
+    // Record key history locally (ID and suffix only)
+    appendKeyHistory({
+      action: 'rotate',
+      keyId: newKeyData.id,
+      name: keyName,
+      keySuffix: newKeyData.key.slice(-6),
+      previousKeyIds: Array.isArray(currentKeys) ? currentKeys.map(k => k.id).filter(Boolean) : undefined,
+      githubRunId: process.env.GITHUB_RUN_ID,
+    });
 
     // Step 6: Delete old keys if requested
     if (deleteOld && currentKeys.length > 0) {

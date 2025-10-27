@@ -206,7 +206,7 @@ jobs:
         echo "✅ Verification complete"
       continue-on-error: true
         
-    - name: Create Summary
+    - name: Create Summary (no key disclosure)
       run: |
         echo "## 🔑 API Key Distribution Complete" >> $GITHUB_STEP_SUMMARY
         echo "" >> $GITHUB_STEP_SUMMARY
@@ -217,12 +217,34 @@ jobs:
           echo "- ✅ Future Agent (future-agent)" >> $GITHUB_STEP_SUMMARY
         fi
         echo "" >> $GITHUB_STEP_SUMMARY
-        echo "**Key Format:** \`${KEY_PREFIX}...\`" >> $GITHUB_STEP_SUMMARY
+        KEY='${{ steps.get-key.outputs.key }}'
+        if [ -n "$KEY" ]; then
+          SUFFIX="${KEY: -6}"
+          echo "**Key suffix (for audit):** \`...$SUFFIX\`" >> $GITHUB_STEP_SUMMARY
+        fi
         echo "" >> $GITHUB_STEP_SUMMARY
         echo "**Next Steps:**" >> $GITHUB_STEP_SUMMARY
         echo "1. Monitor deployment status in Vercel dashboard" >> $GITHUB_STEP_SUMMARY
         echo "2. Run comprehensive tests to verify functionality" >> $GITHUB_STEP_SUMMARY
         echo "3. Check logs for any deployment issues" >> $GITHUB_STEP_SUMMARY
-      env:
-        KEY_PREFIX: ${{ steps.get-key.outputs.key }}
       continue-on-error: true
+    
+    - name: Append key history artifact (suffix only)
+      if: always()
+      run: |
+        mkdir -p logs
+        echo "rotation_at=${{ github.event.pull_request.merged_at || github.event.head_commit.timestamp || github.event.repository_pushed_at || github.run_started_at }}" > logs/key-distribution-${{ github.run_id }}.txt
+        echo "source=github_actions" >> logs/key-distribution-${{ github.run_id }}.txt
+        KEY='${{ steps.get-key.outputs.key }}'
+        if [ -n "$KEY" ]; then
+          SUFFIX="${KEY: -6}"
+          echo "key_suffix=$SUFFIX" >> logs/key-distribution-${{ github.run_id }}.txt
+        fi
+        echo "workflow=distribute-api-key" >> logs/key-distribution-${{ github.run_id }}.txt
+    
+    - name: Upload history artifact
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: key-distribution-${{ github.run_id }}
+        path: logs/key-distribution-${{ github.run_id }}.txt
