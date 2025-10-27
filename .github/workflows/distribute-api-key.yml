@@ -3,17 +3,7 @@ name: Distribute OpenRouter API Key
 on:
   repository_dispatch:
     types: [update-api-key]
-  workflow_dispatch:
-    inputs:
-      api_key:
-        description: 'OpenRouter API Key to distribute'
-        required: true
-        type: string
-      force_update:
-        description: 'Force update even if key appears to be the same'
-        required: false
-        type: boolean
-        default: false
+  workflow_dispatch: {}
 
 jobs:
   distribute-key:
@@ -36,14 +26,10 @@ jobs:
     - name: Login to Vercel
       run: vercel login --token ${{ secrets.VERCEL_TOKEN }}
       
-    - name: Get API Key
+    - name: Get API Key (from secrets only)
       id: get-key
       run: |
-        if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-          echo "key=${{ github.event.inputs.api_key }}" >> $GITHUB_OUTPUT
-        else
-          echo "key=${{ secrets.OPENROUTER_API_KEY }}" >> $GITHUB_OUTPUT
-        fi
+        echo "key=${{ secrets.OPENROUTER_API_KEY }}" >> $GITHUB_OUTPUT
         
     - name: Validate API Key Format
       run: |

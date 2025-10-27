@@ -516,7 +516,9 @@
                 const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
                     method: 'POST',
                     headers: {
-                        'Authorization': 'Bearer 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',
+                        // NOTE: Do not hardcode real API keys in client-side code.
+                        // For local demos, the server should proxy this request and inject the key securely.
+                        'Authorization': 'Bearer sk-or-v1-...',
                         'HTTP-Referer': 'https://f8.syzygyx.com',
                         'X-Title': 'F8 vs ChatGPT Comparison',
                         'Content-Type': 'application/json'
