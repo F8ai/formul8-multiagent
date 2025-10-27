@@ -158,6 +158,8 @@ crontab -e
 4. **Verify**: Wait 30 seconds for deployments to stabilize
 5. **Cleanup**: (Optional) Delete old keys
 6. **Log**: Save rotation details for audit trail
+   - Rotation events are appended to `logs/key-history.jsonl` with: action, key ID, name, and the last 6 chars of the key. No full keys are stored.
+   - The distribution workflow also uploads a run-scoped artifact containing the key suffix and timestamps for external audit.
 
 ## Best Practices
 
@@ -168,6 +170,7 @@ crontab -e
 3. **Rotate keys regularly** (monthly recommended)
 4. **Set usage limits** on keys to prevent abuse
 5. **Monitor key usage** regularly
+6. **Track rotation history**: Review `logs/key-history.jsonl` and workflow artifacts to know exactly which key was active when
 
 ### Key Naming Convention
 
