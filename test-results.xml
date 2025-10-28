@@ -1,124 +1,1917 @@
-<testsuites id="" name="" tests="9" failures="2" skipped="0" errors="0" time="10.163378999999999">
-<testsuite name="chat-formatting.spec.js" timestamp="2025-10-23T17:48:49.794Z" hostname="chromium" tests="9" failures="2" skipped="0" time="32.291" errors="0">
-<testcase name="Chat Message Formatting › should display main chat interface" classname="chat-formatting.spec.js" time="6.665">
-<failure message="chat-formatting.spec.js:10:7 should display main chat interface" type="FAILURE">
-<![CDATA[  [chromium] › chat-formatting.spec.js:10:7 › Chat Message Formatting › should display main chat interface 
+<testsuites id="" name="" tests="1" failures="1" skipped="0" errors="0" time="121.97194">
+<testsuite name="test-baseline-e2e.spec.js" timestamp="2025-10-28T20:39:23.681Z" hostname="webkit" tests="1" failures="1" skipped="0" time="120.647" errors="0">
+<testcase name="Baseline E2E Testing - chat.formul8.ai › Run all baseline questions" classname="test-baseline-e2e.spec.js" time="120.647">
+<failure message="test-baseline-e2e.spec.js:214:3 Run all baseline questions" type="FAILURE">
+<![CDATA[  [webkit] › test-baseline-e2e.spec.js:214:3 › Baseline E2E Testing - chat.formul8.ai › Run all baseline questions 
 
-    Error: expect(locator).toBeVisible() failed
+    Error: expect(received).toBeGreaterThan(expected)
 
-    Locator:  locator('#messagesList')
-    Expected: visible
-    Received: hidden
-    Timeout:  5000ms
+    Expected: > 0.5
+    Received:   0
 
-    Call log:
-      - Expect "toBeVisible" with timeout 5000ms
-      - waiting for locator('#messagesList')
-        9 × locator resolved to <div id="messagesList"></div>
-          - unexpected value "hidden"
-
-
-      12 |     await expect(page.locator('#chatInput')).toBeVisible();
-      13 |     await expect(page.locator('#sendButton')).toBeVisible();
-    > 14 |     await expect(page.locator('#messagesList')).toBeVisible();
-         |                                                 ^
-      15 |     
-      16 |     // Take screenshot of initial state
-      17 |     await page.screenshot({ 
-        at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chat-formatting.spec.js:14:49
+      394 |     
+      395 |     // Assert that at least 50% passed
+    > 396 |     expect(passCount / questions.length).toBeGreaterThan(0.5);
+          |                                          ^
+      397 |   });
+      398 | });
+      399 |
+        at /Users/danielmcshan/GitHub/formul8-multiagent/tests/test-baseline-e2e.spec.js:396:42
 
     attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ../test-results/chat-formatting-Chat-Messa-cf6f0-display-main-chat-interface-chromium/test-failed-1.png
+    ../test-results/test-baseline-e2e-Baseline-16f3e--Run-all-baseline-questions-webkit/test-failed-1.png
     ────────────────────────────────────────────────────────────────────────────────────────────────
 
     attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    ../test-results/chat-formatting-Chat-Messa-cf6f0-display-main-chat-interface-chromium/video.webm
+    ../test-results/test-baseline-e2e-Baseline-16f3e--Run-all-baseline-questions-webkit/video.webm
     ────────────────────────────────────────────────────────────────────────────────────────────────
 
-    Error Context: ../test-results/chat-formatting-Chat-Messa-cf6f0-display-main-chat-interface-chromium/error-context.md
+    Error Context: ../test-results/test-baseline-e2e-Baseline-16f3e--Run-all-baseline-questions-webkit/error-context.md
 ]]>
 </failure>
 <system-out>
 <![CDATA[
-[[ATTACHMENT|test-results/chat-formatting-Chat-Messa-cf6f0-display-main-chat-interface-chromium/test-failed-1.png]]
+======================================================================
+📊 BASELINE E2E TEST - chat.formul8.ai
+======================================================================
+Total Questions: 438
+Estimated Time: 73 minutes
+======================================================================
 
-[[ATTACHMENT|test-results/chat-formatting-Chat-Messa-cf6f0-display-main-chat-interface-chromium/video.webm]]
+🌐 Navigating to https://chat.formul8.ai...
+✅ Chat interface loaded
 
-[[ATTACHMENT|test-results/chat-formatting-Chat-Messa-cf6f0-display-main-chat-interface-chromium/error-context.md]]
-]]>
-</system-out>
-</testcase>
-<testcase name="Chat Message Formatting › should format assistant messages with metadata badges" classname="chat-formatting.spec.js" time="3.636">
-<system-out>
-<![CDATA[Found 0 metadata badges
-]]>
-</system-out>
-</testcase>
-<testcase name="Chat Message Formatting › should render clickable links in messages" classname="chat-formatting.spec.js" time="3.633">
-<system-out>
-<![CDATA[Found 0 clickable links
-]]>
-</system-out>
-</testcase>
-<testcase name="Chat Message Formatting › should display upgrade callouts with proper styling" classname="chat-formatting.spec.js" time="3.625">
-<system-out>
-<![CDATA[Found 0 upgrade callouts
-]]>
-</system-out>
-</testcase>
-<testcase name="Chat Message Formatting › should properly separate main content from metadata" classname="chat-formatting.spec.js" time="3.634">
-<system-out>
-<![CDATA[Has main content: false
-Has metadata: false
-]]>
-</system-out>
-</testcase>
-<testcase name="Chat Message Formatting › should be mobile responsive" classname="chat-formatting.spec.js" time="2.239">
-</testcase>
-<testcase name="Chat Message Formatting › should have proper CSS styling applied" classname="chat-formatting.spec.js" time="2.235">
-</testcase>
-<testcase name="Chat Message Formatting › should escape HTML in user messages" classname="chat-formatting.spec.js" time="1.221">
-<failure message="chat-formatting.spec.js:258:7 should escape HTML in user messages" type="FAILURE">
-<![CDATA[  [chromium] › chat-formatting.spec.js:258:7 › Chat Message Formatting › should escape HTML in user messages 
 
-    Error: expect(received).toContain(expected) // indexOf
+[1/438] Can you make me a compliant SOP for Cannabis Transport in New Jersey?
+   Category: sop-generation-compliance-documentation
+   ✅ Grade: F (15.0%) - 968ms
+      Agent: Unknown Agent ❌ (expected: compliance_agent)
+      I apologize, but I'm currently unable to process your request. Please try again ...
 
-    Expected substring: "<script>"
-    Received string:    "alert(\"XSS\")Bold text"
+[2/438] Can you make me a compliant SOP for pre-roll production in New York?
+   Category: sop-generation-compliance-documentation
+   ✅ Grade: F (15.0%) - 416ms
+      Agent: Unknown Agent ❌ (expected: compliance_agent)
+      I apologize, but I'm currently unable to process your request. Please try again ...
 
-      271 |     
-      272 |     // The HTML should be escaped (visible as text, not executed)
-    > 273 |     expect(messageText).toContain('<script>');
-          |                         ^
-      274 |     expect(messageText).toContain('</script>');
-      275 |     
-      276 |     console.log('✓ XSS protection working - HTML is escaped');
-        at /Users/danielmcshan/GitHub/formul8-multiagent/tests/chat-formatting.spec.js:273:25
+[3/438] Can you make me a product recall SOP?
+   Category: sop-generation-compliance-documentation
+   ✅ Grade: F (15.0%) - 731ms
+      Agent: Unknown Agent ❌ (expected: compliance_agent)
+      I apologize, but I'm currently unable to process your request. Please try again ...
 
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ../test-results/chat-formatting-Chat-Messa-11527-scape-HTML-in-user-messages-chromium/test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
+[4/438] What are the requirements for testing regular pre-rolls when I bought ...
+   Category: product-testing-infusion-rules
+   ✅ Grade: F (15.0%) - 687ms
+      Agent: Unknown Agent ❌ (expected: compliance_agent)
+      I apologize, but I'm currently unable to process your request. Please try again ...
 
-    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    ../test-results/chat-formatting-Chat-Messa-11527-scape-HTML-in-user-messages-chromium/video.webm
-    ────────────────────────────────────────────────────────────────────────────────────────────────
+[5/438] Can I make an infused pre-roll without retesting it if I am using alre...
+   Category: product-testing-infusion-rules
+   ✅ Grade: F (15.0%) - 656ms
+      Agent: Unknown Agent ❌ (expected: compliance_agent)
+      I apologize, but I'm currently unable to process your request. Please try again ...
 
-    Error Context: ../test-results/chat-formatting-Chat-Messa-11527-scape-HTML-in-user-messages-chromium/error-context.md
-]]>
-</failure>
-<system-out>
-<![CDATA[
-[[ATTACHMENT|test-results/chat-formatting-Chat-Messa-11527-scape-HTML-in-user-messages-chromium/test-failed-1.png]]
+[6/438] Do I have to show harvest date or production date on infused products?
+   Category: product-testing-infusion-rules
+   ✅ Grade: F (15.0%) - 416ms
+      Agent: Unknown Agent ❌ (expected: compliance_agent)
+      I apologize, but I'm currently unable to process your request. Please try again ...
 
-[[ATTACHMENT|test-results/chat-formatting-Chat-Messa-11527-scape-HTML-in-user-messages-chromium/video.webm]]
+[7/438] Are there different rules for various types of infused products relate...
+   Category: product-testing-infusion-rules
+   ✅ Grade: F (15.0%) - 392ms
+      Agent: Unknown Agent ❌ (expected: compliance_agent)
+      I apologize, but I'm currently unable to process your request. Please try again ...
 
-[[ATTACHMENT|test-results/chat-formatting-Chat-Messa-11527-scape-HTML-in-user-messages-chromium/error-context.md]]
-]]>
-</system-out>
-</testcase>
-<testcase name="Chat Formatting Visual Regression › visual comparison - complete chat flow" classname="chat-formatting.spec.js" time="5.403">
-<system-out>
-<![CDATA[✓ Visual regression screenshots captured
+[8/438] What are the requirements in my state for me to be able to introduce o...
+   Category: product-testing-infusion-rules
+   ✅ Grade: F (15.0%) - 623ms
+      Agent: Unknown Agent ❌ (expected: compliance_agent)
+      I apologize, but I'm currently unable to process your request. Please try again ...
+
+[9/438] Does this vary for different products?
+   Category: product-testing-infusion-rules
+   ✅ Grade: F (15.0%) - 412ms
+      Agent: Unknown Agent ❌ (expected: compliance_agent)
+      I apologize, but I'm currently unable to process your request. Please try again ...
+
+[10/438] What are the labeling requirements for packaged concentrates?
+   Category: labeling-packaging-compliance
+   ✅ Grade: F (15.0%) - 393ms
+      Agent: Unknown Agent ❌ (expected: compliance_agent)
+      I apologize, but I'm currently unable to process your request. Please try again ...
+
+[11/438] Is my edibles packaging compliant to national, state, and local regula...
+   Category: labeling-packaging-compliance
+   ✅ Grade: F (15.0%) - 389ms
+      Agent: Unknown Agent ❌ (expected: compliance_agent)
+      I apologize, but I'm currently unable to process your request. Please try again ...
+
+[12/438] When is childproof packaging required for certain cannabis products?
+   Category: labeling-packaging-compliance
+   ✅ Grade: F (15.0%) - 411ms
+      Agent: Unknown Agent ❌ (expected: compliance_agent)
+      I apologize, but I'm currently unable to process your request. Please try again ...
+
+[13/438] Can I use leftover packaging labels from last month if they’re still a...
+   Category: labeling-packaging-compliance
+   ❌ API Error: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+
+[14/438] How potent can our edibles be?
+   Category: edibles-potency-formulation
+   ❌ API Error: Unexpected non-whitespace character after JSON at position 4 (line 1 column 5)
+
+[15/438] Can we do 100 or 200 mg packages?
+   Category: edibles-potency-formulation
+   ✅ Grade: F (15.0%) - 977ms
+      Agent: Unknown Agent ❌ (expected: formulation_agent)
+      I apologize, but I'm currently unable to process your request. Please try again ...
+
+[16/438] Can we do more than 200 mg?
+   Category: edibles-potency-formulation
+   ✅ Grade: F (15.0%) - 422ms
+      Agent: Unknown Agent ❌ (expected: formulation_agent)
+      I apologize, but I'm currently unable to process your request. Please try again ...
+
+[17/438] Is there a per-piece requirement for max dosage?
+   Category: edibles-potency-formulation
+   ✅ Grade: F (15.0%) - 417ms
+      Agent: Unknown Agent ❌ (expected: formulation_agent)
+      I apologize, but I'm currently unable to process your request. Please try again ...
+
+[18/438] What am I allowed to cut my vape cartridge APIs (distillate or decarbe...
+   Category: formulation-ingredient-compliance
+   ✅ Grade: F (15.0%) - 465ms
+      Agent: Unknown Agent ❌ (expected: formulation_agent)
+      I apologize, but I'm currently unable to process your request. Please try again ...
+
+[19/438] What are considered banned substances when formulating various cannabi...
+   Category: formulation-ingredient-compliance
+   ✅ Grade: F (15.0%) - 443ms
+      Agent: Unknown Agent ❌ (expected: formulation_agent)
+      I apologize, but I'm currently unable to process your request. Please try again ...
+
+[20/438] Can I use hemp-based cannabinoids like CBD or CBG (or others) in produ...
+   Category: formulation-ingredient-compliance
+   ✅ Grade: F (15.0%) - 482ms
+      Agent: Unknown Agent ❌ (expected: formulation_agent)
+      I apologize, but I'm currently unable to process your request. Please try again ...
+
+[21/438] Can I store finished products in the same room as raw biomass?
+   Category: facility-setup-operational-procedures
+   ✅ Grade: F (15.0%) - 390ms
+      Agent: Unknown Agent ❌ (expected: compliance_agent)
+      I apologize, but I'm currently unable to process your request. Please try again ...
+
+[22/438] Do I need to log the cleaning of the extraction booth before starting ...
+   Category: facility-setup-operational-procedures
+   ✅ Grade: F (15.0%) - 376ms
+      Agent: Unknown Agent ❌ (expected: compliance_agent)
+      I apologize, but I'm currently unable to process your request. Please try again ...
+
+[23/438] Is it okay to perform maintenance on the hydrocarbon extractor during ...
+   Category: facility-setup-operational-procedures
+   ✅ Grade: F (15.0%) - 347ms
+      Agent: Unknown Agent ❌ (expected: compliance_agent)
+      I apologize, but I'm currently unable to process your request. Please try again ...
+
+[24/438] Am I allowed to have non-lab staff enter the extraction area if they’r...
+   Category: facility-setup-operational-procedures
+   ❌ API Error: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+
+[25/438] Do I need to notify regulators before making changes to the lab layout...
+   Category: facility-setup-operational-procedures
+   ❌ API Error: Unexpected non-whitespace character after JSON at position 4 (line 1 column 5)
+
+[26/438] Can I use ethanol I purchased from a non-cannabis supplier in today’s ...
+   Category: extraction-batch-production-rules
+   ❌ API Error: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+
+[27/438] Is it compliant to run two different extraction methods in the same la...
+   Category: extraction-batch-production-rules
+   ❌ API Error: Unexpected non-whitespace character after JSON at position 4 (line 1 column 5)
+
+[28/438] Do I need to document the purge time for each batch of concentrate?
+   Category: extraction-batch-production-rules
+   ✅ Grade: F (15.0%) - 624ms
+      Agent: Unknown Agent ❌ (expected: f8_agent)
+      I apologize, but I'm currently unable to process your request. Please try again ...
+
+[29/438] Am I allowed to blend two different strain inputs into a single extrac...
+   Category: extraction-batch-production-rules
+   ✅ Grade: F (15.0%) - 413ms
+      Agent: Unknown Agent ❌ (expected: f8_agent)
+      I apologize, but I'm currently unable to process your request. Please try again ...
+
+[30/438] Do I need to label intermediary oils before refinement is complete?
+   Category: extraction-batch-production-rules
+   ✅ Grade: F (15.0%) - 465ms
+      Agent: Unknown Agent ❌ (expected: f8_agent)
+      I apologize, but I'm currently unable to process your request. Please try again ...
+
+[31/438] Can I repackage bulk oil into smaller units without creating a new UID...
+   Category: inventory-repackaging-tracking
+   ✅ Grade: F (15.0%) - 447ms
+      Agent: Unknown Agent ❌ (expected: compliance_agent)
+      I apologize, but I'm currently unable to process your request. Please try again ...
+
+[32/438] Is it compliant to pre-fill vape cartridges before the lab test result...
+   Category: inventory-repackaging-tracking
+   ✅ Grade: F (15.0%) - 394ms
+      Agent: Unknown Agent ❌ (expected: compliance_agent)
+      I apologize, but I'm currently unable to process your request. Please try again ...
+
+[33/438] Do I have to update the batch weight in the system if I lose some prod...
+   Category: inventory-repackaging-tracking
+   ✅ Grade: F (15.0%) - 553ms
+      Agent: Unknown Agent ❌ (expected: compliance_agent)
+      I apologize, but I'm currently unable to process your request. Please try again ...
+
+[34/438] Do I need to generate a new COA if I repackage the same batch in a dif...
+   Category: inventory-repackaging-tracking
+   ✅ Grade: F (15.0%) - 410ms
+      Agent: Unknown Agent ❌ (expected: compliance_agent)
+      I apologize, but I'm currently unable to process your request. Please try again ...
+
+[35/438] Can I submit test results to regulators before final packaging is comp...
+   Category: inventory-repackaging-tracking
+   ✅ Grade: F (15.0%) - 436ms
+      Agent: Unknown Agent ❌ (expected: compliance_agent)
+      I apologize, but I'm currently unable to process your request. Please try again ...
+
+[36/438] Am I allowed to digitally sign the waste disposal manifest, or do I ne...
+   Category: recordkeeping-logs
+   ✅ Grade: F (15.0%) - 429ms
+      Agent: Unknown Agent ❌ (expected: compliance_agent)
+      I apologize, but I'm currently unable to process your request. Please try again ...
+
+[37/438] How long do I need to retain extraction logbooks for compliance?
+   Category: recordkeeping-logs
+   ✅ Grade: F (15.0%) - 491ms
+      Agent: Unknown Agent ❌ (expected: compliance_agent)
+      I apologize, but I'm currently unable to process your request. Please try again ...
+
+[38/438] Can I dispose of spent biomass without mixing it with non-consumable w...
+   Category: waste-management-compliance
+   ✅ Grade: F (15.0%) - 434ms
+      Agent: Unknown Agent ❌ (expected: compliance_agent)
+      I apologize, but I'm currently unable to process your request. Please try again ...
+
+[39/438] Is it okay to store cannabis waste in the same area as general lab tra...
+   Category: waste-management-compliance
+   ✅ Grade: F (15.0%) - 516ms
+      Agent: Unknown Agent ❌ (expected: compliance_agent)
+      I apologize, but I'm currently unable to process your request. Please try again ...
+
+[40/438] Do I need a secondary person to verify destruction of cannabis waste?
+   Category: waste-management-compliance
+   ✅ Grade: F (15.0%) - 517ms
+      Agent: Unknown Agent ❌ (expected: compliance_agent)
+      I apologize, but I'm currently unable to process your request. Please try again ...
+
+[41/438] Can I incinerate solvent-contaminated material on-site?
+   Category: waste-management-compliance
+   ✅ Grade: F (15.0%) - 442ms
+      Agent: Unknown Agent ❌ (expected: compliance_agent)
+      I apologize, but I'm currently unable to process your request. Please try again ...
+
+[42/438] Am I allowed to treat ethanol waste differently than cannabis plant wa...
+   Category: waste-management-compliance
+   ✅ Grade: F (15.0%) - 365ms
+      Agent: Unknown Agent ❌ (expected: compliance_agent)
+      I apologize, but I'm currently unable to process your request. Please try again ...
+
+[43/438] Does every team member need to complete chemical safety training befor...
+   Category: employee-training-operational-roles
+   ✅ Grade: F (15.0%) - 391ms
+      Agent: Unknown Agent ❌ (expected: compliance_agent)
+      I apologize, but I'm currently unable to process your request. Please try again ...
+
+[44/438] Is a glove change required between processing two different batches?
+   Category: employee-training-operational-roles
+   ✅ Grade: F (15.0%) - 397ms
+      Agent: Unknown Agent ❌ (expected: compliance_agent)
+      I apologize, but I'm currently unable to process your request. Please try again ...
+
+[45/438] Can a lab tech sign off on their own QC checklist?
+   Category: employee-training-operational-roles
+   ✅ Grade: F (15.0%) - 451ms
+      Agent: Unknown Agent ❌ (expected: compliance_agent)
+      I apologize, but I'm currently unable to process your request. Please try again ...
+
+[46/438] Am I allowed to let an intern shadow a live extraction session?
+   Category: employee-training-operational-roles
+   ✅ Grade: F (15.0%) - 480ms
+      Agent: Unknown Agent ❌ (expected: compliance_agent)
+      I apologize, but I'm currently unable to process your request. Please try again ...
+
+[47/438] Do I need to document breaks if they occur during active batch process...
+   Category: employee-training-operational-roles
+   ✅ Grade: F (15.0%) - 384ms
+      Agent: Unknown Agent ❌ (expected: compliance_agent)
+      I apologize, but I'm currently unable to process your request. Please try again ...
+
+[48/438] Can I transfer crude oil to another facility before final testing?
+   Category: transport-transfer-regulations
+   ✅ Grade: F (15.0%) - 617ms
+      Agent: Unknown Agent ❌ (expected: compliance_agent)
+      I apologize, but I'm currently unable to process your request. Please try again ...
+
+[49/438] Is a licensed cannabis transporter required for in-state product trans...
+   Category: transport-transfer-regulations
+   ✅ Grade: F (15.0%) - 480ms
+      Agent: Unknown Agent ❌ (expected: compliance_agent)
+      I apologize, but I'm currently unable to process your request. Please try again ...
+
+[50/438] Do I need to notify the receiving party before sending a partial produ...
+   Category: transport-transfer-regulations
+   ✅ Grade: F (15.0%) - 493ms
+      Agent: Unknown Agent ❌ (expected: compliance_agent)
+      I apologize, but I'm currently unable to process your request. Please try again ...
+
+[51/438] Can I transport cannabis waste using a standard courier service?
+   Category: transport-transfer-regulations
+   ✅ Grade: F (15.0%) - 605ms
+      Agent: Unknown Agent ❌ (expected: compliance_agent)
+      I apologize, but I'm currently unable to process your request. Please try again ...
+
+[52/438] Am I allowed to batch multiple COAs together for a single delivery man...
+   Category: transport-transfer-regulations
+   ✅ Grade: F (15.0%) - 442ms
+      Agent: Unknown Agent ❌ (expected: compliance_agent)
+      I apologize, but I'm currently unable to process your request. Please try again ...
+
+[53/438] Can you help me create a batch tracker sheet for employees to log prod...
+   Category: production-&-process-optimization
+   ✅ Grade: F (15.0%) - 442ms
+      Agent: Unknown Agent ❌ (expected: formulation_agent)
+      I apologize, but I'm currently unable to process your request. Please try again ...
+
+[54/438] How do I set up a daily production log that helps with compliance audi...
+   Category: production-&-process-optimization
+   ✅ Grade: F (15.0%) - 548ms
+      Agent: Unknown Agent ❌ (expected: formulation_agent)
+      I apologize, but I'm currently unable to process your request. Please try again ...
+
+[55/438] What are the best KPIs to track in my extraction lab on a daily basis?
+   Category: production-&-process-optimization
+   ✅ Grade: F (15.0%) - 576ms
+      Agent: Unknown Agent ❌ (expected: formulation_agent)
+      I apologize, but I'm currently unable to process your request. Please try again ...
+
+[56/438] What is the best way to standardize my formulations so batches stay co...
+   Category: production-&-process-optimization
+   ❌ API Error: No response
+
+[57/438] How do I calculate expected yield from a given biomass input?
+   Category: production-&-process-optimization
+   ❌ API Error: No response
+
+[58/438] Can you help me design a workflow checklist for my lab techs to reduce...
+   Category: production-&-process-optimization
+   ❌ API Error: No response
+
+[59/438] What are the best ways to minimize loss when transferring concentrates...
+   Category: production-&-process-optimization
+   ❌ API Error: No response
+
+[60/438] Can you help me make an SOP for preparing biomass before extraction?
+   Category: production-&-process-optimization
+   ❌ API Error: No response
+
+[61/438] Can you design a downtime log so we can track equipment outages and re...
+   Category: production-&-process-optimization
+   ❌ API Error: No response
+
+[62/438] How can I benchmark my extraction efficiency against industry averages...
+   Category: production-&-process-optimization
+   ❌ API Error: No response
+
+[63/438] What tools can help me track real-time production metrics across multi...
+   Category: production-&-process-optimization
+   ❌ API Error: No response
+
+[64/438] How do I set production goals that align with sales forecasts?
+   Category: production-&-process-optimization
+   ❌ API Error: No response
+
+[65/438] Can you build a visual daily management board (SQDIP/5S-style) for the...
+   Category: production-&-process-optimization
+   ❌ API Error: No response
+
+[66/438] How do I structure tiered sign-offs (operator → lead → manager) for cr...
+   Category: production-&-process-optimization
+   ❌ API Error: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+
+[67/438] What’s the right cadence for cross-functional production meetings (ops...
+   Category: production-&-process-optimization
+   ❌ API Error: Unexpected non-whitespace character after JSON at position 4 (line 1 column 5)
+
+[68/438] How do I build a changeover checklist to reduce batch-to-batch carryov...
+   Category: production-&-process-optimization
+   ❌ API Error: No response
+
+[69/438] Can you design a first-article run protocol for new products before fu...
+   Category: production-&-process-optimization
+   ❌ API Error: No response
+
+[70/438] How do I validate a new process window (DOE plan, acceptance criteria,...
+   Category: production-&-process-optimization
+   ❌ API Error: No response
+
+[71/438] What’s a good template for a weekly operations scorecard (throughput, ...
+   Category: production-&-process-optimization
+   ❌ API Error: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+
+[72/438] My chiller is overheating and shutting off—what should I check first a...
+   Category: extraction-&-processing-crosscutting
+   ❌ API Error: Unexpected non-whitespace character after JSON at position 4 (line 1 column 5)
+
+[73/438] My extract is coming out darker than normal in ethanol—what are the to...
+   Category: extraction-&-processing-crosscutting
+   ❌ API Error: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+
+[74/438] What might cause solvent recovery rates to drop, and how do I troubles...
+   Category: extraction-&-processing-crosscutting
+   ❌ API Error: Unexpected non-whitespace character after JSON at position 4 (line 1 column 5)
+
+[75/438] Why am I seeing pressure spikes during hydrocarbon recovery?
+   Category: extraction-&-processing-crosscutting
+   ❌ API Error: No response
+
+[76/438] What’s the best way to prevent channeling or channel formation in extr...
+   Category: extraction-&-processing-crosscutting
+   ❌ API Error: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+
+[77/438] How do I troubleshoot moisture ingress in an ethanol system?
+   Category: extraction-&-processing-crosscutting
+   ❌ API Error: Unexpected non-whitespace character after JSON at position 4 (line 1 column 5)
+
+[78/438] What’s the best way to reclaim as much material as possible from trans...
+   Category: extraction-&-processing-crosscutting
+   ❌ API Error: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+
+[79/438] My vacuum oven isn’t pulling full vacuum—what should I test and in wha...
+   Category: extraction-&-processing-crosscutting
+   ❌ API Error: Unexpected non-whitespace character after JSON at position 4 (line 1 column 5)
+
+[80/438] How do I know if my filter media is overloaded or misapplied?
+   Category: extraction-&-processing-crosscutting
+   ❌ API Error: No response
+
+[81/438] Why am I getting inconsistent potency results from the same biomass lo...
+   Category: extraction-&-processing-crosscutting
+   ❌ API Error: No response
+
+[82/438] What parameters should I monitor to reduce terpene loss during runs?
+   Category: extraction-&-processing-crosscutting
+   ❌ API Error: No response
+
+[83/438] Can you help me set acceptance limits for in-process checks (appearanc...
+   Category: extraction-&-processing-crosscutting
+   ❌ API Error: No response
+
+[84/438] What’s a reasonable startup/warmup sequence to reduce thermal shock an...
+   Category: extraction-&-processing-crosscutting
+   ❌ API Error: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+
+[85/438] Can you provide good operating parameters for running fresh frozen on ...
+   Category: hydrocarbon-extraction-bhopho
+   ❌ API Error: Unexpected non-whitespace character after JSON at position 4 (line 1 column 5)
+
+[86/438] How do I choose solvent ratios (propane/butane blends) for target text...
+   Category: hydrocarbon-extraction-bhopho
+   ❌ API Error: No response
+
+[87/438] What’s the best practice for dewaxing vs. in-line filtration with fres...
+   Category: hydrocarbon-extraction-bhopho
+   ❌ API Error: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+
+[88/438] How do I mitigate color remediation risking over-stripping terpenes?
+   Category: hydrocarbon-extraction-bhopho
+   ❌ API Error: Unexpected non-whitespace character after JSON at position 4 (line 1 column 5)
+
+[89/438] What’s the right approach to post-purge to balance residual solvents a...
+   Category: hydrocarbon-extraction-bhopho
+   ❌ API Error: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+
+[90/438] Why am I seeing nucleation issues in my batter after purge—how do I fi...
+   Category: hydrocarbon-extraction-bhopho
+   ❌ API Error: Unexpected non-whitespace character after JSON at position 4 (line 1 column 5)
+
+[91/438] How do I prevent icing at valves and critical restrictions during reco...
+   Category: hydrocarbon-extraction-bhopho
+   ❌ API Error: No response
+
+[92/438] Can you help me map out my relief devices and MAWP considerations for ...
+   Category: hydrocarbon-extraction-bhopho
+   ❌ API Error: No response
+
+[93/438] What records should I keep for hydrocarbon leak checks and detector ca...
+   Category: hydrocarbon-extraction-bhopho
+   ❌ API Error: No response
+
+[94/438] What ethanol proof range is optimal for my target product and why?
+   Category: ethanol-extraction
+   ❌ API Error: No response
+
+[95/438] How do I optimize soak time and agitation without over-extracting chlo...
+   Category: ethanol-extraction
+   ❌ API Error: No response
+
+[96/438] What’s the best winterization workflow (ratios, temps, dwell times, fi...
+   Category: ethanol-extraction
+   ❌ API Error: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+
+[97/438] How do I track solvent water content and correct for drift over time?
+   Category: ethanol-extraction
+   ❌ API Error: Unexpected non-whitespace character after JSON at position 4 (line 1 column 5)
+
+[98/438] What’s the best approach to polishing (carbon/clay) without over-adsor...
+   Category: ethanol-extraction
+   ❌ API Error: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+
+[99/438] Why is my crude viscosity inconsistent between runs—how do I stabilize...
+   Category: ethanol-extraction
+   ❌ API Error: Unexpected non-whitespace character after JSON at position 4 (line 1 column 5)
+
+[100/438] How can I balance throughput vs. quality on my centrifuge extraction s...
+   Category: ethanol-extraction
+   ❌ API Error: No response
+
+[101/438] What are best practices for ethanol recovery stills (fouling preventio...
+   Category: ethanol-extraction
+   ❌ API Error: No response
+
+[102/438] What’s a sensible starting point for SC-CO₂ parameters for terpene-ric...
+   Category: co-extraction
+   ❌ API Error: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+
+[103/438] How do I schedule fraction cuts to minimize co-extraction of waxes?
+   Category: co-extraction
+   ❌ API Error: Unexpected non-whitespace character after JSON at position 4 (line 1 column 5)
+
+[104/438] Why am I seeing pressure instability in separators—what should I check...
+   Category: co-extraction
+   ❌ API Error: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+
+[105/438] Can you help me develop a fraction collection log with target ranges a...
+   Category: co-extraction
+   ❌ API Error: Unexpected non-whitespace character after JSON at position 4 (line 1 column 5)
+
+[106/438] How do I compare CO₂ runs on the same biomass for repeatability (SPC b...
+   Category: co-extraction
+   ❌ API Error: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+
+[107/438] How do I design a wash SOP (ice ratios, water temps, paddle rates, bag...
+   Category: solventless-ice-water-hash-&-rosin
+   ❌ API Error: Unexpected non-whitespace character after JSON at position 4 (line 1 column 5)
+
+[108/438] What are indicators of over-agitation and contamination during wash?
+   Category: solventless-ice-water-hash-&-rosin
+   ❌ API Error: No response
+
+[109/438] How do I manage dry/cure of hash to prevent grease-out or terp loss?
+   Category: solventless-ice-water-hash-&-rosin
+   ❌ API Error: No response
+
+[110/438] Can you help me tune rosin press parameters (temp/pressure/time) by cu...
+   Category: solventless-ice-water-hash-&-rosin
+   ❌ API Error: No response
+
+[111/438] Why are my rosin carts crystallizing—what upstream changes should I te...
+   Category: solventless-ice-water-hash-&-rosin
+   ❌ API Error: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+
+[112/438] What’s the right decarb profile for different matrices (crude vs. isol...
+   Category: postprocessing-distillation-decarb-remediation
+   ❌ API Error: Unexpected non-whitespace character after JSON at position 4 (line 1 column 5)
+
+[113/438] Why is my heads/tails separation inconsistent on the wiped-film—how do...
+   Category: postprocessing-distillation-decarb-remediation
+   ❌ API Error: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+
+[114/438] Can you help me set up a cleaning validation for my distillation path?
+   Category: postprocessing-distillation-decarb-remediation
+   ❌ API Error: Unexpected non-whitespace character after JSON at position 4 (line 1 column 5)
+
+[115/438] What are safe, compliant approaches to pesticide remediation and how d...
+   Category: postprocessing-distillation-decarb-remediation
+   ❌ API Error: No response
+
+[116/438] How should I stage terpene reintroduction to avoid oxidation and off-n...
+   Category: postprocessing-distillation-decarb-remediation
+   ❌ API Error: No response
+
+[117/438] How do I build a master formula and controlled BOM for a new gummy?
+   Category: formulation-&-manufacturing-vapes-edibles-beverages-topicals-tinctures
+   ❌ API Error: No response
+
+[118/438] Can you help me design a Cpk/Cp monitoring plan for fill weights on va...
+   Category: formulation-&-manufacturing-vapes-edibles-beverages-topicals-tinctures
+   ❌ API Error: No response
+
+[119/438] What’s a good emulsion protocol for beverages (emulsifier choice, HLB,...
+   Category: formulation-&-manufacturing-vapes-edibles-beverages-topicals-tinctures
+   ❌ API Error: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+
+[120/438] How do I prevent sugar bloom or weeping in pectin gummies?
+   Category: formulation-&-manufacturing-vapes-edibles-beverages-topicals-tinctures
+   ❌ API Error: Unexpected non-whitespace character after JSON at position 4 (line 1 column 5)
+
+[121/438] Can you help me set torque/viscosity ranges for vape oil before fillin...
+   Category: formulation-&-manufacturing-vapes-edibles-beverages-topicals-tinctures
+   ❌ API Error: No response
+
+[122/438] What’s a scalable workflow for topical creams (phase addition, homogen...
+   Category: formulation-&-manufacturing-vapes-edibles-beverages-topicals-tinctures
+   ❌ API Error: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+
+[123/438] How do I set finished-product specs (potency, moisture, water activity...
+   Category: formulation-&-manufacturing-vapes-edibles-beverages-topicals-tinctures
+   ❌ API Error: Unexpected non-whitespace character after JSON at position 4 (line 1 column 5)
+
+[124/438] What’s the best small-batch R&D protocol before scale-up (pilot, line ...
+   Category: formulation-&-manufacturing-vapes-edibles-beverages-topicals-tinctures
+   ❌ API Error: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+
+[125/438] How should I handle allergen controls and cross-contact documentation ...
+   Category: formulation-&-manufacturing-vapes-edibles-beverages-topicals-tinctures
+   ❌ API Error: Unexpected non-whitespace character after JSON at position 4 (line 1 column 5)
+
+[126/438] Can you build a cleaning matrix by product type to avoid flavor cross-...
+   Category: formulation-&-manufacturing-vapes-edibles-beverages-topicals-tinctures
+   ❌ API Error: No response
+
+[127/438] How do I structure a quality management system (QMS) that fits cannabi...
+   Category: quality-assurance-quality-control-qaqc
+   ❌ API Error: No response
+
+[128/438] Can you create a COA review checklist to catch lab inconsistencies?
+   Category: quality-assurance-quality-control-qaqc
+   ❌ API Error: No response
+
+[129/438] How do I build an incoming inspection SOP for packaging and ingredient...
+   Category: quality-assurance-quality-control-qaqc
+   ❌ API Error: No response
+
+[130/438] What’s a simple sampling plan (AQL) I can use for finished goods?
+   Category: quality-assurance-quality-control-qaqc
+   ❌ API Error: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+
+[131/438] How do I set up a hold-and-release workflow tied to QA approval?
+   Category: quality-assurance-quality-control-qaqc
+   ❌ API Error: Unexpected non-whitespace character after JSON at position 4 (line 1 column 5)
+
+[132/438] Can you help me track trending of out-of-spec results and CAPAs?
+   Category: quality-assurance-quality-control-qaqc
+   ❌ API Error: No response
+
+[133/438] How do I qualify a new third-party lab and monitor ongoing performance...
+   Category: quality-assurance-quality-control-qaqc
+   ❌ API Error: No response
+
+[134/438] What should a deviation report include, and who signs off?
+   Category: quality-assurance-quality-control-qaqc
+   ❌ API Error: No response
+
+[135/438] Can you generate a stability testing plan (real-time, accelerated) for...
+   Category: quality-assurance-quality-control-qaqc
+   ❌ API Error: No response
+
+[136/438] How do I design sensory panels for flavor consistency while staying co...
+   Category: quality-assurance-quality-control-qaqc
+   ❌ API Error: No response
+
+[137/438] How do I structure batch records to satisfy audits (state regs + GMP-f...
+   Category: compliance-recordkeeping-and-seedtosale
+   ❌ API Error: No response
+
+[138/438] Can you build a chain-of-custody template for internal transfers?
+   Category: compliance-recordkeeping-and-seedtosale
+   ❌ API Error: No response
+
+[139/438] What reports should I pull weekly from METRC/BioTrack to reconcile inv...
+   Category: compliance-recordkeeping-and-seedtosale
+   ❌ API Error: No response
+
+[140/438] How do I document and report waste destruction properly?
+   Category: compliance-recordkeeping-and-seedtosale
+   ❌ API Error: No response
+
+[141/438] What documents should be ready for a surprise inspection (binder conte...
+   Category: compliance-recordkeeping-and-seedtosale
+   ❌ API Error: No response
+
+[142/438] How do I set electronic signatures and access controls for controlled ...
+   Category: compliance-recordkeeping-and-seedtosale
+   ❌ API Error: No response
+
+[143/438] Can you map my data fields so batch records sync correctly to seed-to-...
+   Category: compliance-recordkeeping-and-seedtosale
+   ❌ API Error: No response
+
+[144/438] What’s the best way to track transport manifests and retention periods...
+   Category: compliance-recordkeeping-and-seedtosale
+   ❌ API Error: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+
+[145/438] How do I set min/max levels and reorder points by SKU?
+   Category: inventory-warehousing-and-materials-control
+   ❌ API Error: Unexpected non-whitespace character after JSON at position 4 (line 1 column 5)
+
+[146/438] Can you help me implement FEFO/FIFO for ingredients and packaging?
+   Category: inventory-warehousing-and-materials-control
+   ❌ API Error: No response
+
+[147/438] What cycle-count schedule should I run to reduce variance?
+   Category: inventory-warehousing-and-materials-control
+   ❌ API Error: No response
+
+[148/438] How do I segregate quarantined, rejected, and released inventory in th...
+   Category: inventory-warehousing-and-materials-control
+   ❌ API Error: No response
+
+[149/438] Can you design a location codification (bin/shelf/aisle) and label sch...
+   Category: inventory-warehousing-and-materials-control
+   ❌ API Error: No response
+
+[150/438] How do I measure and reduce inventory shrink in processing vs. retail?
+   Category: inventory-warehousing-and-materials-control
+   ❌ API Error: No response
+
+[151/438] What are good KPIs for inventory health (DOH, turns, service level, fi...
+   Category: inventory-warehousing-and-materials-control
+   ❌ API Error: No response
+
+[152/438] Can you help me make a compliant packaging/labeling SOP for my state?
+   Category: packaging-&-labeling-operations
+   ❌ API Error: No response
+
+[153/438] How do I verify artwork (claims, warnings, font sizes, UPC/QR, lot/exp...
+   Category: packaging-&-labeling-operations
+   ❌ API Error: No response
+
+[154/438] What’s a good in-line check for label placement and legibility?
+   Category: packaging-&-labeling-operations
+   ❌ API Error: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+
+[155/438] How do I choose child-resistant formats that balance cost and speed?
+   Category: packaging-&-labeling-operations
+   ❌ API Error: Unexpected non-whitespace character after JSON at position 4 (line 1 column 5)
+
+[156/438] Can you design a label release process with QA sign-off and revision c...
+   Category: packaging-&-labeling-operations
+   ❌ API Error: No response
+
+[157/438] How do I batch-print variable data (lot/UID/expiry) and prevent mix-up...
+   Category: packaging-&-labeling-operations
+   ❌ API Error: No response
+
+[158/438] What packaging line speeds are realistic for my equipment and staff le...
+   Category: packaging-&-labeling-operations
+   ❌ API Error: No response
+
+[159/438] How do I run a packaging line trial and document acceptance?
+   Category: packaging-&-labeling-operations
+   ❌ API Error: No response
+
+[160/438] Can you help me spec a new chiller (load calcs, tonnage, heat rejectio...
+   Category: equipment-selection-qualification-&-maintenance
+   ❌ API Error: No response
+
+[161/438] What’s a URS template for selecting a new extractor or centrifuge?
+   Category: equipment-selection-qualification-&-maintenance
+   ❌ API Error: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+
+[162/438] How do I run IQ/OQ/PQ on a new piece of processing equipment?
+   Category: equipment-selection-qualification-&-maintenance
+   ❌ API Error: Unexpected non-whitespace character after JSON at position 4 (line 1 column 5)
+
+[163/438] What spare parts and consumables should I stock for critical uptime?
+   Category: equipment-selection-qualification-&-maintenance
+   ❌ API Error: No response
+
+[164/438] Can you create a PM calendar with OEM tasks vs. in-house tasks?
+   Category: equipment-selection-qualification-&-maintenance
+   ❌ API Error: No response
+
+[165/438] How do I track MTBF/MTTR and convert that into uptime KPIs?
+   Category: equipment-selection-qualification-&-maintenance
+   ❌ API Error: No response
+
+[166/438] What’s the right protocol after major repairs (re-qualification steps)...
+   Category: equipment-selection-qualification-&-maintenance
+   ❌ API Error: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+
+[167/438] How do I set calibration intervals for scales, thermometers, sensors, ...
+   Category: equipment-selection-qualification-&-maintenance
+   ❌ API Error: Unexpected non-whitespace character after JSON at position 4 (line 1 column 5)
+
+[168/438] Can you help me validate air changes per hour and CFM for my classifie...
+   Category: facility-utilities-and-rooms-c1d1c1d2
+   ❌ API Error: No response
+
+[169/438] How do I document hazardous area classifications and MAQs for solvents...
+   Category: facility-utilities-and-rooms-c1d1c1d2
+   ❌ API Error: No response
+
+[170/438] What’s a good daily/weekly facility inspection checklist?
+   Category: facility-utilities-and-rooms-c1d1c1d2
+   ❌ API Error: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+
+[171/438] How do I size compressed air and nitrogen for simultaneous equipment d...
+   Category: facility-utilities-and-rooms-c1d1c1d2
+   ❌ API Error: Unexpected non-whitespace character after JSON at position 4 (line 1 column 5)
+
+[172/438] What’s the best way to trend utility costs per unit produced?
+   Category: facility-utilities-and-rooms-c1d1c1d2
+   ❌ API Error: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+
+[173/438] How do I monitor and alarm critical utilities (power, HVAC, vac, chill...
+   Category: facility-utilities-and-rooms-c1d1c1d2
+   ❌ API Error: Unexpected non-whitespace character after JSON at position 4 (line 1 column 5)
+
+[174/438] Can you create a room flow diagram to reduce cross-contamination risks...
+   Category: facility-utilities-and-rooms-c1d1c1d2
+   ❌ API Error: No response
+
+[175/438] Can you build a solvent handling and storage SOP with training logs?
+   Category: environmental-health-&-safety-ehs
+   ❌ API Error: No response
+
+[176/438] What should my emergency response plan include for spills and fires?
+   Category: environmental-health-&-safety-ehs
+   ❌ API Error: No response
+
+[177/438] How do I set up a confined-space, hot-work, and LOTO program?
+   Category: environmental-health-&-safety-ehs
+   ❌ API Error: No response
+
+[178/438] What are appropriate gas detection setpoints and alarm responses?
+   Category: environmental-health-&-safety-ehs
+   ❌ API Error: No response
+
+[179/438] How do I prepare for fire marshal inspections (proofs, tests, signage,...
+   Category: environmental-health-&-safety-ehs
+   ❌ API Error: No response
+
+[180/438] Can you create an incident/near-miss reporting form and investigation ...
+   Category: environmental-health-&-safety-ehs
+   ❌ API Error: No response
+
+[181/438] How do I track SDSs and ensure they’re accessible and current?
+   Category: environmental-health-&-safety-ehs
+   ❌ API Error: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+
+[182/438] What’s the correct PPE matrix by room/process?
+   Category: environmental-health-&-safety-ehs
+   ❌ API Error: Unexpected non-whitespace character after JSON at position 4 (line 1 column 5)
+
+[183/438] What’s the most efficient daily plant care checklist (by stage: mother...
+   Category: cultivation-operations-propagation-harvest-postharvest
+   ❌ API Error: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+
+[184/438] How do I design an IPM calendar with rotations and thresholds?
+   Category: cultivation-operations-propagation-harvest-postharvest
+   ❌ API Error: Unexpected non-whitespace character after JSON at position 4 (line 1 column 5)
+
+[185/438] What environmental parameters should I monitor daily (temp, RH, VPD/DL...
+   Category: cultivation-operations-propagation-harvest-postharvest
+   ❌ API Error: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+
+[186/438] How do I track mother plant health, clone success rate, and genetic dr...
+   Category: cultivation-operations-propagation-harvest-postharvest
+   ❌ API Error: Unexpected non-whitespace character after JSON at position 4 (line 1 column 5)
+
+[187/438] Can you help me schedule labor across defoliation, trellising, and har...
+   Category: cultivation-operations-propagation-harvest-postharvest
+   ❌ API Error: No response
+
+[188/438] How do I benchmark grams/sq ft and grams/watt and improve them?
+   Category: cultivation-operations-propagation-harvest-postharvest
+   ❌ API Error: No response
+
+[189/438] What are best practices for consistent dry/cure (targets, airspeed, ra...
+   Category: cultivation-operations-propagation-harvest-postharvest
+   ❌ API Error: No response
+
+[190/438] How do I document strain-specific feeding programs and adjustments?
+   Category: cultivation-operations-propagation-harvest-postharvest
+   ❌ API Error: No response
+
+[191/438] What’s a good post-harvest trimming SOP and QC checks for visual grade...
+   Category: cultivation-operations-propagation-harvest-postharvest
+   ❌ API Error: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+
+[192/438] How do I implement sanitation between rooms and harvest cycles?
+   Category: cultivation-operations-propagation-harvest-postharvest
+   ❌ API Error: Unexpected non-whitespace character after JSON at position 4 (line 1 column 5)
+
+[193/438] What are profitable sales or bundles we can run with ~100% markup with...
+   Category: retail-operations
+   ❌ API Error: No response
+
+[194/438] How do I design daily opening/closing checklists for budtenders and ma...
+   Category: retail-operations
+   ❌ API Error: No response
+
+[195/438] What are the best ways to reduce inventory shrink and improve cash con...
+   Category: retail-operations
+   ❌ API Error: No response
+
+[196/438] How do I schedule staff against peak hours and events?
+   Category: retail-operations
+   ❌ API Error: No response
+
+[197/438] Can you build a retail compliance checklist (ID checks, signage, purch...
+   Category: retail-operations
+   ❌ API Error: No response
+
+[198/438] What training modules should new budtenders complete in week one?
+   Category: retail-operations
+   ❌ API Error: No response
+
+[199/438] How do I set reorder points and safety stock for fast movers?
+   Category: retail-operations
+   ❌ API Error: No response
+
+[200/438] Can you help me design a floor plan to improve flow and basket size?
+   Category: retail-operations
+   ❌ API Error: No response
+
+[201/438] What’s a simple demand forecast model for weekly ordering?
+   Category: retail-operations
+   ❌ API Error: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+
+[202/438] How do I set up curbside/express pickup and delivery operations cleanl...
+   Category: retail-operations
+   ❌ API Error: Unexpected non-whitespace character after JSON at position 4 (line 1 column 5)
+
+[203/438] What’s a good playbook for moving slow inventory without risky discoun...
+   Category: retail-operations
+   ❌ API Error: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+
+[204/438] How do I plan delivery routes that respect time windows and compliance...
+   Category: delivery-&-logistics
+   ❌ API Error: Unexpected non-whitespace character after JSON at position 4 (line 1 column 5)
+
+[205/438] What should my vehicle inspection and chain-of-custody paperwork inclu...
+   Category: delivery-&-logistics
+   ❌ API Error: No response
+
+[206/438] Can you help me design a vault organization for outbound orders?
+   Category: delivery-&-logistics
+   ❌ API Error: No response
+
+[207/438] How do I calculate optimal case pack and pallet configurations?
+   Category: delivery-&-logistics
+   ❌ API Error: No response
+
+[208/438] What KPIs matter for delivery performance (OTIF, miles/stop, cost/orde...
+   Category: delivery-&-logistics
+   ❌ API Error: No response
+
+[209/438] I’m making a new product—can you help me break down COGS and price it?
+   Category: financial-&-cogs-opsfocused
+   ❌ API Error: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+
+[210/438] What’s a reasonable wholesale margin for concentrates or edibles in my...
+   Category: financial-&-cogs-opsfocused
+   ❌ API Error: Unexpected non-whitespace character after JSON at position 4 (line 1 column 5)
+
+[211/438] Can you build a pro forma for a new line with sensitivity to raw mater...
+   Category: financial-&-cogs-opsfocused
+   ❌ API Error: No response
+
+[212/438] How do I allocate overhead into product COGS fairly (labor, utilities,...
+   Category: financial-&-cogs-opsfocused
+   ❌ API Error: No response
+
+[213/438] Can you generate an Excel template to track cost per batch and per uni...
+   Category: financial-&-cogs-opsfocused
+   ❌ API Error: No response
+
+[214/438] How do I compare outsource vs. in-house processing from a unit economi...
+   Category: financial-&-cogs-opsfocused
+   ❌ API Error: No response
+
+[215/438] Can you design a margin calculator for bulk oil vs. packaged SKUs?
+   Category: financial-&-cogs-opsfocused
+   ❌ API Error: No response
+
+[216/438] How do excise taxes and fees affect my wholesale and MSRP targets?
+   Category: financial-&-cogs-opsfocused
+   ❌ API Error: No response
+
+[217/438] What KPIs should Ops review weekly with Finance (yield $, scrap $, lab...
+   Category: financial-&-cogs-opsfocused
+   ❌ API Error: No response
+
+[218/438] Which data fields should live in LIMS vs. ERP vs. seed-to-sale to avoi...
+   Category: data-systems-&-integrations-lims-erp-seedtosale
+   ❌ API Error: No response
+
+[219/438] Can you map integrations between METRC/BioTrack and our ERP for fewer ...
+   Category: data-systems-&-integrations-lims-erp-seedtosale
+   ❌ API Error: No response
+
+[220/438] How do I design dashboards for throughput, yield, and compliance excep...
+   Category: data-systems-&-integrations-lims-erp-seedtosale
+   ❌ API Error: No response
+
+[221/438] What’s the right data retention policy for batch and QA records?
+   Category: data-systems-&-integrations-lims-erp-seedtosale
+   ❌ API Error: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+
+[222/438] How do I implement barcode/RFID to reduce mislabeling and speed invent...
+   Category: data-systems-&-integrations-lims-erp-seedtosale
+   ❌ API Error: Unexpected non-whitespace character after JSON at position 4 (line 1 column 5)
+
+[223/438] Can you propose role-based access controls for sensitive operational d...
+   Category: data-systems-&-integrations-lims-erp-seedtosale
+   ❌ API Error: No response
+
+[224/438] How do I audit data integrity and reconcile daily between systems?
+   Category: data-systems-&-integrations-lims-erp-seedtosale
+   ❌ API Error: No response
+
+[225/438] Can you build a 30/60/90 plan for new lab techs?
+   Category: training-onboarding-&-competency
+   ❌ API Error: No response
+
+[226/438] What should a skills matrix look like for operators by equipment/proce...
+   Category: training-onboarding-&-competency
+   ❌ API Error: No response
+
+[227/438] How do I run and document annual competency checks?
+   Category: training-onboarding-&-competency
+   ❌ API Error: No response
+
+[228/438] Can you design microlearning modules for critical procedures (3–5 min ...
+   Category: training-onboarding-&-competency
+   ❌ API Error: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+
+[229/438] How do I structure train-the-trainer and version control for SOP updat...
+   Category: training-onboarding-&-competency
+   ❌ API Error: Unexpected non-whitespace character after JSON at position 4 (line 1 column 5)
+
+[230/438] What’s a fair on-call rotation and escalation matrix for key roles?
+   Category: training-onboarding-&-competency
+   ❌ API Error: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+
+[231/438] Can you draft a master SOP template with required sections and approva...
+   Category: sops-work-instructions-&-change-control
+   ❌ API Error: Unexpected non-whitespace character after JSON at position 4 (line 1 column 5)
+
+[232/438] How do I split SOPs vs. Work Instructions vs. Forms to keep them usabl...
+   Category: sops-work-instructions-&-change-control
+   ❌ API Error: No response
+
+[233/438] What’s a practical change control workflow (risk rating, validation ne...
+   Category: sops-work-instructions-&-change-control
+   ❌ API Error: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+
+[234/438] How do I sunset old documents and prove only the latest is in circulat...
+   Category: sops-work-instructions-&-change-control
+   ❌ API Error: Unexpected non-whitespace character after JSON at position 4 (line 1 column 5)
+
+[235/438] Can you propose a periodic review schedule and owner assignments?
+   Category: sops-work-instructions-&-change-control
+   ❌ API Error: No response
+
+[236/438] Can you build a deviation form and triage rubric (minor/major/critical...
+   Category: risk-management-deviations-capa-&-recalls
+   ❌ API Error: No response
+
+[237/438] How do I run a root cause analysis (5 Whys/Fishbone) and document it?
+   Category: risk-management-deviations-capa-&-recalls
+   ❌ API Error: No response
+
+[238/438] What does an effective CAPA plan look like, and how do I track closure...
+   Category: risk-management-deviations-capa-&-recalls
+   ❌ API Error: No response
+
+[239/438] Can you help me write and test a mock recall (roles, comms, lot trace,...
+   Category: risk-management-deviations-capa-&-recalls
+   ❌ API Error: No response
+
+[240/438] How do I design a non-conformance log and trending dashboard?
+   Category: risk-management-deviations-capa-&-recalls
+   ❌ API Error: No response
+
+[241/438] What leading indicators should I monitor to prevent recalls?
+   Category: risk-management-deviations-capa-&-recalls
+   ❌ API Error: No response
+
+[242/438] How do I qualify new suppliers (ingredients, packaging, labs) and main...
+   Category: supplier-&-procurement-management
+   ❌ API Error: No response
+
+[243/438] Can you design an incoming COA verification checklist by material type...
+   Category: supplier-&-procurement-management
+   ❌ API Error: No response
+
+[244/438] What KPIs should I hold suppliers to (OTIF, quality incidents, correct...
+   Category: supplier-&-procurement-management
+   ❌ API Error: No response
+
+[245/438] How do I set MOQ/EOQ and safety stock given supplier lead times?
+   Category: supplier-&-procurement-management
+   ❌ API Error: No response
+
+[246/438] Can you create a cost/quality/risk scorecard to compare vendors?
+   Category: supplier-&-procurement-management
+   ❌ API Error: No response
+
+[247/438] How do I baseline and track energy, water, and solvent per unit produc...
+   Category: sustainability-&-resource-efficiency
+   ❌ API Error: No response
+
+[248/438] Can you suggest solvent recovery and reuse targets and controls?
+   Category: sustainability-&-resource-efficiency
+   ❌ API Error: No response
+
+[249/438] What waste segregation improvements would reduce disposal costs?
+   Category: sustainability-&-resource-efficiency
+   ❌ API Error: No response
+
+[250/438] How do I design a take-back/recycling program for packaging (where leg...
+   Category: sustainability-&-resource-efficiency
+   ❌ API Error: No response
+
+[251/438] Can you build a simple carbon footprint model for my facility operatio...
+   Category: sustainability-&-resource-efficiency
+   ❌ API Error: No response
+
+[252/438] What’s a good R&D request form so production can evaluate feasibility?
+   Category: r&d-pilot-and-tech-transfer
+   ❌ API Error: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+
+[253/438] How do I run a pilot plan (objectives, success metrics, sample size, h...
+   Category: r&d-pilot-and-tech-transfer
+   ❌ API Error: Unexpected non-whitespace character after JSON at position 4 (line 1 column 5)
+
+[254/438] Can you create a tech transfer checklist from R&D to Operations?
+   Category: r&d-pilot-and-tech-transfer
+   ❌ API Error: No response
+
+[255/438] How do I protect IP and document trade secrets in process docs?
+   Category: r&d-pilot-and-tech-transfer
+   ❌ API Error: No response
+
+[256/438] What is the right sampling and testing plan during pilot to de-risk sc...
+   Category: r&d-pilot-and-tech-transfer
+   ❌ API Error: No response
+
+[257/438] Can you design a product complaint intake form that routes to QA and O...
+   Category: customer-service-&-complaint-handling-ops-interface
+   ❌ API Error: No response
+
+[258/438] How do I investigate complaints tied to specific lots (trace-back plan...
+   Category: customer-service-&-complaint-handling-ops-interface
+   ❌ API Error: No response
+
+[259/438] What’s the correct replacement/credit decision flow and documentation?
+   Category: customer-service-&-complaint-handling-ops-interface
+   ❌ API Error: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+
+[260/438] How do I trend complaint categories and feed improvements back to Ops?
+   Category: customer-service-&-complaint-handling-ops-interface
+   ❌ API Error: Unexpected non-whitespace character after JSON at position 4 (line 1 column 5)
+
+[261/438] Can you propose standard reply templates that are compliant and non-ad...
+   Category: customer-service-&-complaint-handling-ops-interface
+   ❌ API Error: No response
+
+[262/438] What controls reduce diversion risk in processing (cameras, access, re...
+   Category: security-&-loss-prevention-opsrelevant
+   ❌ API Error: No response
+
+[263/438] Can you design a vault access log and dual-control policy?
+   Category: security-&-loss-prevention-opsrelevant
+   ❌ API Error: No response
+
+[264/438] How do I run variance investigations tied to seed-to-sale discrepancie...
+   Category: security-&-loss-prevention-opsrelevant
+   ❌ API Error: No response
+
+[265/438] What’s a good visitor/vendor escort SOP for production areas?
+   Category: security-&-loss-prevention-opsrelevant
+   ❌ API Error: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+
+[266/438] How do I structure random audits to deter internal theft?
+   Category: security-&-loss-prevention-opsrelevant
+   ❌ API Error: Unexpected non-whitespace character after JSON at position 4 (line 1 column 5)
+
+[267/438] Can you create a capacity model (people, equipment time, utility const...
+   Category: project-management-&-capacity-planning
+   ❌ API Error: No response
+
+[268/438] How do I prioritize projects (RICE/WSJF) across Ops and QA?
+   Category: project-management-&-capacity-planning
+   ❌ API Error: No response
+
+[269/438] What’s a practical template for equipment commissioning/qualification ...
+   Category: project-management-&-capacity-planning
+   ❌ API Error: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+
+[270/438] How do I scenario-plan for seasonal demand spikes and promos?
+   Category: project-management-&-capacity-planning
+   ❌ API Error: Unexpected non-whitespace character after JSON at position 4 (line 1 column 5)
+
+[271/438] Can you design a line balancing exercise to remove bottlenecks?
+   Category: project-management-&-capacity-planning
+   ❌ API Error: No response
+
+[272/438] How do I align production run sizes with retail sell-through to reduce...
+   Category: retailprocessing-coordination-maketoorder-replenishment
+   ❌ API Error: No response
+
+[273/438] Can you build a simple S&OP cadence between Ops, Sales, and Retail?
+   Category: retailprocessing-coordination-maketoorder-replenishment
+   ❌ API Error: No response
+
+[274/438] What’s the best way to set MOQ by SKU to keep changeovers efficient?
+   Category: retailprocessing-coordination-maketoorder-replenishment
+   ❌ API Error: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+
+[275/438] How do I set freshness dating and rotation policy across warehouses an...
+   Category: retailprocessing-coordination-maketoorder-replenishment
+   ❌ API Error: Unexpected non-whitespace character after JSON at position 4 (line 1 column 5)
+
+[276/438] Can you create a returns/RMA handling SOP that protects product integr...
+   Category: retailprocessing-coordination-maketoorder-replenishment
+   ❌ API Error: No response
+
+[277/438] What makes our cannabis brand stand out compared to competitors?
+   Category: brand-&-identity-marketing
+   ❌ API Error: No response
+
+[278/438] How do we position ourselves as premium vs. value-driven in a crowded ...
+   Category: brand-&-identity-marketing
+   ❌ API Error: No response
+
+[279/438] Can you help me build a brand story that connects with consumers?
+   Category: brand-&-identity-marketing
+   ❌ API Error: No response
+
+[280/438] Can you help me create visual brand elements (logo, color palette, pac...
+   Category: brand-&-identity-marketing
+   ❌ API Error: No response
+
+[281/438] How do I communicate brand values like sustainability, wellness, or in...
+   Category: brand-&-identity-marketing
+   ❌ API Error: No response
+
+[282/438] Can you create a brand voice guide for my marketing team?
+   Category: brand-&-identity-marketing
+   ❌ API Error: No response
+
+[283/438] How do I measure brand awareness effectively in cannabis/CPG industrie...
+   Category: brand-&-identity-marketing
+   ❌ API Error: No response
+
+[284/438] What strategies help establish credibility for new brands entering a r...
+   Category: brand-&-identity-marketing
+   ❌ API Error: No response
+
+[285/438] How do I evolve my brand identity over time without losing recognition...
+   Category: brand-&-identity-marketing
+   ❌ API Error: No response
+
+[286/438] What are examples of cannabis brands that nailed a strong rebrand?
+   Category: brand-&-identity-marketing
+   ❌ API Error: No response
+
+[287/438] How can I protect my brand identity with trademarks in cannabis?
+   Category: brand-&-identity-marketing
+   ❌ API Error: No response
+
+[288/438] How can smaller operators compete with MSOs that have larger budgets?
+   Category: business-&-competitive-positioning
+   ❌ API Error: No response
+
+[289/438] How do I highlight my company’s expertise in formulations or testing t...
+   Category: business-&-competitive-positioning
+   ❌ API Error: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+
+[290/438] Can I market partnerships with local cultivators or retailers as a dif...
+   Category: business-&-competitive-positioning
+   ❌ API Error: Unexpected non-whitespace character after JSON at position 4 (line 1 column 5)
+
+[291/438] How can I collaborate with local cultivators or retailers on special p...
+   Category: business-&-competitive-positioning
+   ❌ API Error: No response
+
+[292/438] How can I build credibility through certifications, testing results, o...
+   Category: business-&-competitive-positioning
+   ❌ API Error: No response
+
+[293/438] What type of awards or competitions are available for me to compete in...
+   Category: business-&-competitive-positioning
+   ❌ API Error: No response
+
+[294/438] What KPIs should I use to measure brand competitiveness?
+   Category: business-&-competitive-positioning
+   ❌ API Error: No response
+
+[295/438] How can niche product innovation (unique strains, formulations, or pac...
+   Category: business-&-competitive-positioning
+   ❌ API Error: No response
+
+[296/438] How do I identify gaps in the market that are not being served?
+   Category: business-&-competitive-positioning
+   ❌ API Error: No response
+
+[297/438] How do I identify specific products in my market that have the best po...
+   Category: business-&-competitive-positioning
+   ❌ API Error: No response
+
+[298/438] How do I analyze competitor campaigns without breaking compliance rule...
+   Category: business-&-competitive-positioning
+   ❌ API Error: No response
+
+[299/438] Are there any software tools to analyze competitor campaigns?
+   Category: business-&-competitive-positioning
+   ❌ API Error: No response
+
+[300/438] What are common mistakes smaller cannabis brands make when positioning...
+   Category: business-&-competitive-positioning
+   ❌ API Error: No response
+
+[301/438] What are the top cannabis consumer trends I should build my positionin...
+   Category: business-&-competitive-positioning
+   ❌ API Error: No response
+
+[302/438] What are the best ways to drive foot traffic to dispensaries or retail...
+   Category: retail-&-consumer-marketing
+   ❌ API Error: No response
+
+[303/438] How can I collaborate with local cultivators or processors on products...
+   Category: retail-&-consumer-marketing
+   ❌ API Error: No response
+
+[304/438] How do I run compliant promotions for cannabis products?
+   Category: retail-&-consumer-marketing
+   ❌ API Error: No response
+
+[305/438] How do I promote my cannabis products on major social media platforms ...
+   Category: retail-&-consumer-marketing
+   ❌ API Error: No response
+
+[306/438] What are the most friendly social media platforms to advertise my cann...
+   Category: retail-&-consumer-marketing
+   ❌ API Error: No response
+
+[307/438] What retail activations (sampling, pop-ups, education events) work bes...
+   Category: retail-&-consumer-marketing
+   ❌ API Error: No response
+
+[308/438] What events are available regularly to participate in my market?
+   Category: retail-&-consumer-marketing
+   ❌ API Error: No response
+
+[309/438] What are some upcoming cannabis events in my state?
+   Category: retail-&-consumer-marketing
+   ❌ API Error: No response
+
+[310/438] Can I build loyalty programs for repeat customers, and what do they lo...
+   Category: retail-&-consumer-marketing
+   ❌ API Error: No response
+
+[311/438] What are the best loyalty platforms for email and text marketing?
+   Category: retail-&-consumer-marketing
+   ❌ API Error: No response
+
+[312/438] What are the best loyalty programs for customer reward points?
+   Category: retail-&-consumer-marketing
+   ❌ API Error: No response
+
+[313/438] How do I do text message marketing to customers in a compliant manner?
+   Category: retail-&-consumer-marketing
+   ❌ API Error: No response
+
+[314/438] How do I design point-of-sale displays that stand out while following ...
+   Category: retail-&-consumer-marketing
+   ❌ API Error: No response
+
+[315/438] What messaging connects with both budtenders and end consumers?
+   Category: retail-&-consumer-marketing
+   ❌ API Error: No response
+
+[316/438] How do I train budtenders to be better brand ambassadors?
+   Category: retail-&-consumer-marketing
+   ❌ API Error: No response
+
+[317/438] What are the best budtender training platforms?
+   Category: retail-&-consumer-marketing
+   ❌ API Error: No response
+
+[318/438] What data should I collect from retail to improve marketing performanc...
+   Category: retail-&-consumer-marketing
+   ❌ API Error: No response
+
+[319/438] What AI tools are available to me to better serve my customers or give...
+   Category: retail-&-consumer-marketing
+   ❌ API Error: No response
+
+[320/438] What are the best software tools for cannabis retailers?
+   Category: retail-&-consumer-marketing
+   ❌ API Error: No response
+
+[321/438] How do I set up effective carryout and delivery in my cannabis dispens...
+   Category: retail-&-consumer-marketing
+   ❌ API Error: No response
+
+[322/438] What’s the best way to use geotargeting or local ads for dispensary cu...
+   Category: retail-&-consumer-marketing
+   ❌ API Error: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+
+[323/438] How can I get my products prioritized by dispensary managers?
+   Category: retail-&-consumer-marketing
+   ❌ API Error: Unexpected non-whitespace character after JSON at position 4 (line 1 column 5)
+
+[324/438] How do I leverage budtender incentives without breaking compliance rul...
+   Category: retail-&-consumer-marketing
+   ❌ API Error: No response
+
+[325/438] How do I create compelling product descriptions that are still complia...
+   Category: product-marketing
+   ❌ API Error: No response
+
+[326/438] Can you help me create compelling product descriptions for my products...
+   Category: product-marketing
+   ❌ API Error: No response
+
+[327/438] What are the best ways to make my LeafLink menu perfect?
+   Category: product-marketing
+   ❌ API Error: No response
+
+[328/438] Are there alternatives to LeafLink?
+   Category: product-marketing
+   ❌ API Error: No response
+
+[329/438] What's more effective for me, Weedmaps or Leafly?
+   Category: product-marketing
+   ❌ API Error: No response
+
+[330/438] How are advertisers using Weedmaps and/or Leafly most effectively?
+   Category: product-marketing
+   ❌ API Error: No response
+
+[331/438] What are the best ways to showcase lab results, testing data, or COAs ...
+   Category: product-marketing
+   ❌ API Error: No response
+
+[332/438] Can you help me highlight the differences between formulations (vape, ...
+   Category: product-marketing
+   ❌ API Error: No response
+
+[333/438] How do I explain complex processes like nanoemulsion or terpene blendi...
+   Category: product-marketing
+   ❌ API Error: No response
+
+[334/438] What messaging works best for new product launches?
+   Category: product-marketing
+   ❌ API Error: No response
+
+[335/438] What's the most effective way to identify what the right pricing is fo...
+   Category: product-marketing
+   ❌ API Error: No response
+
+[336/438] How can I educate consumers about dosage, effects, or functional ingre...
+   Category: product-marketing
+   ❌ API Error: No response
+
+[337/438] What's the most effective way to better train budtenders at our custom...
+   Category: product-marketing
+   ❌ API Error: No response
+
+[338/438] What product packaging features (QR codes, interactive labels) can enh...
+   Category: product-marketing
+   ❌ API Error: No response
+
+[339/438] How do I effectively launch seasonal or limited-edition products?
+   Category: product-marketing
+   ❌ API Error: No response
+
+[340/438] Can you give me some examples or suggestions for seasonal or limited-e...
+   Category: product-marketing
+   ❌ API Error: No response
+
+[341/438] What are examples of compliant product naming strategies?
+   Category: product-marketing
+   ❌ API Error: No response
+
+[342/438] How do I create product bundles or kits that drive sales but stay comp...
+   Category: product-marketing
+   ❌ API Error: No response
+
+[343/438] What’s the best way to highlight strain lineage and effects without ma...
+   Category: product-marketing
+   ❌ API Error: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+
+[344/438] What strategies drive repeat purchases in cannabis and CPG?
+   Category: customer-retention-&-engagement
+   ❌ API Error: Unexpected non-whitespace character after JSON at position 4 (line 1 column 5)
+
+[345/438] How do I re-engage customers who haven’t purchased in a while?
+   Category: customer-retention-&-engagement
+   ❌ API Error: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+
+[346/438] What can I do if customers of ours have old products from us on their ...
+   Category: customer-retention-&-engagement
+   ❌ API Error: Unexpected non-whitespace character after JSON at position 4 (line 1 column 5)
+
+[347/438] Can you design an email campaign to increase retention rates?
+   Category: customer-retention-&-engagement
+   ❌ API Error: No response
+
+[348/438] How do I make sure my customer emails are compliant?
+   Category: customer-retention-&-engagement
+   ❌ API Error: No response
+
+[349/438] Is there a preferred customer email marketing software meant for canna...
+   Category: customer-retention-&-engagement
+   ❌ API Error: No response
+
+[350/438] How do I gather and leverage customer reviews/testimonials?
+   Category: customer-retention-&-engagement
+   ❌ API Error: No response
+
+[351/438] What role does education (e.g., 'How to Use' guides, dosage tips) play...
+   Category: customer-retention-&-engagement
+   ❌ API Error: No response
+
+[352/438] Can we build referral or ambassador programs that actually work?
+   Category: customer-retention-&-engagement
+   ❌ API Error: No response
+
+[353/438] What loyalty strategies are most effective for dispensaries vs. produc...
+   Category: customer-retention-&-engagement
+   ❌ API Error: No response
+
+[354/438] How can I personalize digital campaigns for customer retention?
+   Category: customer-retention-&-engagement
+   ❌ API Error: No response
+
+[355/438] Are there any good cannabis CRMs for my sales teams?
+   Category: customer-retention-&-engagement
+   ❌ API Error: No response
+
+[356/438] How do I build a segmentation strategy for first-time vs. repeat custo...
+   Category: customer-retention-&-engagement
+   ❌ API Error: No response
+
+[357/438] How do I reduce churn when customers try competitor products?
+   Category: customer-retention-&-engagement
+   ❌ API Error: No response
+
+[358/438] How can I use gamification to increase engagement in loyalty programs?
+   Category: customer-retention-&-engagement
+   ❌ API Error: No response
+
+[359/438] How can small brands highlight authenticity and community ties?
+   Category: competing-as-a-smaller-brand-vs-msos
+   ❌ API Error: No response
+
+[360/438] How can my brand get more involved in the local community?
+   Category: competing-as-a-smaller-brand-vs-msos
+   ❌ API Error: No response
+
+[361/438] What storytelling techniques make smaller operators relatable to consu...
+   Category: competing-as-a-smaller-brand-vs-msos
+   ❌ API Error: No response
+
+[362/438] Can I build a 'craft' positioning strategy similar to craft beer or ar...
+   Category: competing-as-a-smaller-brand-vs-msos
+   ❌ API Error: No response
+
+[363/438] What digital marketing channels level the playing field for smaller br...
+   Category: competing-as-a-smaller-brand-vs-msos
+   ❌ API Error: No response
+
+[364/438] How can local community sponsorships boost visibility against MSOs?
+   Category: competing-as-a-smaller-brand-vs-msos
+   ❌ API Error: No response
+
+[365/438] How do I maximize grassroots marketing with limited budgets?
+   Category: competing-as-a-smaller-brand-vs-msos
+   ❌ API Error: No response
+
+[366/438] What PR strategies work best for small cannabis brands?
+   Category: competing-as-a-smaller-brand-vs-msos
+   ❌ API Error: No response
+
+[367/438] How do I showcase transparency (cultivation, sourcing, testing) as a d...
+   Category: competing-as-a-smaller-brand-vs-msos
+   ❌ API Error: No response
+
+[368/438] How do I tailor campaigns to reflect local culture or community values...
+   Category: regional-marketing
+   ❌ API Error: No response
+
+[369/438] Can I highlight regional sourcing (e.g., 'grown in Colorado') as a bra...
+   Category: regional-marketing
+   ❌ API Error: No response
+
+[370/438] How do I run compliant digital campaigns in markets with advertising r...
+   Category: regional-marketing
+   ❌ API Error: No response
+
+[371/438] What seasonal or regional events should I tie my marketing into?
+   Category: regional-marketing
+   ❌ API Error: No response
+
+[372/438] How can I build partnerships with local influencers or organizations?
+   Category: regional-marketing
+   ❌ API Error: No response
+
+[373/438] What state-specific consumer behaviors should influence marketing stra...
+   Category: regional-marketing
+   ❌ API Error: No response
+
+[374/438] How do I align with local tourism to attract new consumers?
+   Category: regional-marketing
+   ❌ API Error: No response
+
+[375/438] What’s the best way to market products near state borders?
+   Category: regional-marketing
+   ❌ API Error: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+
+[376/438] How can regional slang, culture, or art styles be used in branding saf...
+   Category: regional-marketing
+   ❌ API Error: Unexpected non-whitespace character after JSON at position 4 (line 1 column 5)
+
+[377/438] What words or claims are restricted in cannabis marketing?
+   Category: marketing-cannabis-products-&-following-regulations
+   ❌ API Error: No response
+
+[378/438] How do I avoid making unapproved health or medical claims?
+   Category: marketing-cannabis-products-&-following-regulations
+   ❌ API Error: No response
+
+[379/438] Do I have to submit any of my packaging to the state cannabis authorit...
+   Category: marketing-cannabis-products-&-following-regulations
+   ❌ API Error: No response
+
+[380/438] What disclaimers are required in digital or print advertising?
+   Category: marketing-cannabis-products-&-following-regulations
+   ❌ API Error: No response
+
+[381/438] Can I use lifestyle imagery (e.g., people consuming) in campaigns?
+   Category: marketing-cannabis-products-&-following-regulations
+   ❌ API Error: No response
+
+[382/438] How do social media platform rules differ for cannabis vs. hemp?
+   Category: marketing-cannabis-products-&-following-regulations
+   ❌ API Error: No response
+
+[383/438] What are compliant alternatives to discounts or giveaways in regulated...
+   Category: marketing-cannabis-products-&-following-regulations
+   ❌ API Error: No response
+
+[384/438] How can I market cannabis products without crossing into medical claim...
+   Category: marketing-cannabis-products-&-following-regulations
+   ❌ API Error: No response
+
+[385/438] What education-focused campaigns are safest for compliance?
+   Category: marketing-cannabis-products-&-following-regulations
+   ❌ API Error: No response
+
+[386/438] How do I handle influencer partnerships while staying compliant?
+   Category: marketing-cannabis-products-&-following-regulations
+   ❌ API Error: No response
+
+[387/438] What’s the best way to review my content for compliance before publish...
+   Category: marketing-cannabis-products-&-following-regulations
+   ❌ API Error: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+
+[388/438] Are there specific ad networks that are cannabis-compliant?
+   Category: marketing-cannabis-products-&-following-regulations
+   ❌ API Error: Unexpected non-whitespace character after JSON at position 4 (line 1 column 5)
+
+[389/438] How can hemp-based products be marketed differently than THC products?
+   Category: hemp-product-marketing
+   ❌ API Error: No response
+
+[390/438] Can I highlight functional benefits (like CBD for wellness) without ma...
+   Category: hemp-product-marketing
+   ❌ API Error: No response
+
+[391/438] What consumer demographics respond most to hemp product marketing?
+   Category: hemp-product-marketing
+   ❌ API Error: No response
+
+[392/438] How do I market hemp edibles or beverages while staying compliant with...
+   Category: hemp-product-marketing
+   ❌ API Error: No response
+
+[393/438] Can hemp-derived cannabinoids like CBG or CBN be used as marketing dif...
+   Category: hemp-product-marketing
+   ❌ API Error: No response
+
+[394/438] What retail strategies (e.g., mainstream stores, health shops) work be...
+   Category: hemp-product-marketing
+   ❌ API Error: No response
+
+[395/438] How do I position hemp products against supplements or wellness catego...
+   Category: hemp-product-marketing
+   ❌ API Error: No response
+
+[396/438] What storytelling works best for hemp brands in lifestyle markets?
+   Category: hemp-product-marketing
+   ❌ API Error: No response
+
+[397/438] How do I overcome consumer confusion between hemp, CBD, and cannabis p...
+   Category: hemp-product-marketing
+   ❌ API Error: No response
+
+[398/438] What are the most effective influencer or ambassador strategies for he...
+   Category: hemp-product-marketing
+   ❌ API Error: No response
+
+[399/438] How do I market hemp products internationally where rules vary by coun...
+   Category: hemp-product-marketing
+   ❌ API Error: No response
+
+[400/438] What’s the best cannabis CRM tool for a small dispensary?
+   Category: best-tools-&-comparisons
+   ❌ API Error: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+
+[401/438] What are some alternatives to LeafLink for wholesale management?
+   Category: best-tools-&-comparisons
+   ❌ API Error: Unexpected non-whitespace character after JSON at position 4 (line 1 column 5)
+
+[402/438] Which email marketing software is best for cannabis and compliant with...
+   Category: best-tools-&-comparisons
+   ❌ API Error: No response
+
+[403/438] What’s the best loyalty rewards app for dispensaries?
+   Category: best-tools-&-comparisons
+   ❌ API Error: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+
+[404/438] Which SMS marketing platforms are safest for cannabis brands?
+   Category: best-tools-&-comparisons
+   ❌ API Error: Unexpected non-whitespace character after JSON at position 4 (line 1 column 5)
+
+[405/438] What’s the best point-of-sale (POS) system for dispensaries?
+   Category: best-tools-&-comparisons
+   ❌ API Error: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+
+[406/438] Which cannabis data analytics platforms are worth the investment?
+   Category: best-tools-&-comparisons
+   ❌ API Error: Unexpected non-whitespace character after JSON at position 4 (line 1 column 5)
+
+[407/438] What are the top platforms for cannabis SEO/SEM campaigns?
+   Category: best-tools-&-comparisons
+   ❌ API Error: No response
+
+[408/438] What is the best software for automating customer review collection?
+   Category: best-tools-&-comparisons
+   ❌ API Error: No response
+
+[409/438] What’s the most user-friendly design tool for compliant packaging mock...
+   Category: best-tools-&-comparisons
+   ❌ API Error: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+
+[410/438] Which influencer platforms allow cannabis brands to safely connect wit...
+   Category: best-tools-&-comparisons
+   ❌ API Error: Unexpected non-whitespace character after JSON at position 4 (line 1 column 5)
+
+[411/438] What are the best tools for creating a digital menu I can update in re...
+   Category: best-tools-&-comparisons
+   ❌ API Error: No response
+
+[412/438] What software integrates delivery, loyalty, and marketing all in one s...
+   Category: best-tools-&-comparisons
+   ❌ API Error: No response
+
+[413/438] Which platforms let me send interactive menus via text message?
+   Category: best-tools-&-comparisons
+   ❌ API Error: No response
+
+[414/438] What are the best social media scheduling tools that won’t flag cannab...
+   Category: best-tools-&-comparisons
+   ❌ API Error: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+
+[415/438] Which market research platforms show current cannabis consumer trends?
+   Category: best-tools-&-comparisons
+   ❌ API Error: Unexpected non-whitespace character after JSON at position 4 (line 1 column 5)
+
+[416/438] Can you make me a 1-pager on a new pre-roll I am launching?
+   Category: requests-to-the-marketing-agent
+   ❌ API Error: No response
+
+[417/438] Can you draft a social media calendar for my next product drop?
+   Category: requests-to-the-marketing-agent
+   ❌ API Error: No response
+
+[418/438] Can you create some compliant packaging designs for my new edible gumm...
+   Category: requests-to-the-marketing-agent
+   ❌ API Error: No response
+
+[419/438] Can you write 5 different ad copy variations for a vape cartridge camp...
+   Category: requests-to-the-marketing-agent
+   ❌ API Error: No response
+
+[420/438] Can you create a flyer for my dispensary’s grand opening event?
+   Category: requests-to-the-marketing-agent
+   ❌ API Error: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+
+[421/438] Can you draft an email newsletter for my loyalty program launch?
+   Category: requests-to-the-marketing-agent
+   ❌ API Error: Unexpected non-whitespace character after JSON at position 4 (line 1 column 5)
+
+[422/438] Can you design a sample text blast for customers about this weekend’s ...
+   Category: requests-to-the-marketing-agent
+   ❌ API Error: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+
+[423/438] Can you create compliant product descriptions for my dispensary menu?
+   Category: requests-to-the-marketing-agent
+   ❌ API Error: Unexpected non-whitespace character after JSON at position 4 (line 1 column 5)
+
+[424/438] Can you help me rewrite my Weedmaps/Leafly listing to stand out?
+   Category: requests-to-the-marketing-agent
+   ❌ API Error: No response
+
+[425/438] Can you design a point-of-sale display mockup for my new topical line?
+   Category: requests-to-the-marketing-agent
+   ❌ API Error: No response
+
+[426/438] Can you draft a pitch deck slide that showcases my brand’s sustainabil...
+   Category: requests-to-the-marketing-agent
+   ❌ API Error: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+
+[427/438] Can you create an educational “How to Dose Edibles Safely” guide for m...
+   Category: requests-to-the-marketing-agent
+   ❌ API Error: Unexpected non-whitespace character after JSON at position 4 (line 1 column 5)
+
+[428/438] Can you generate a press release template for a new product launch?
+   Category: requests-to-the-marketing-agent
+   ❌ API Error: No response
+
+[429/438] Can you help me draft a survey for customers to give feedback on packa...
+   Category: requests-to-the-marketing-agent
+   ❌ API Error: No response
+
+[430/438] Can you create a marketing checklist for launching a seasonal limited-...
+   Category: requests-to-the-marketing-agent
+   ❌ API Error: No response
+
+[431/438] Can you mock up a QR code campaign that links to lab results and produ...
+   Category: requests-to-the-marketing-agent
+   ❌ API Error: No response
+
+[432/438] Can you help me script a short promotional video for Instagram or TikT...
+   Category: requests-to-the-marketing-agent
+   ❌ API Error: No response
+
+[433/438] Can you create a compliant shelf-talker design for my flower jars?
+   Category: requests-to-the-marketing-agent
+   ❌ API Error: No response
+
+[434/438] Example question for formulation-agent
+   Category: formulation
+   ❌ API Error: No response
+
+[435/438] Example question for science-agent
+   Category: science
+   ❌ API Error: No response
+
+[436/438] Example question for spectra-agent
+   Category: spectra
+   ❌ API Error: No response
+
+[437/438] Example question for customer-success-agent
+   Category: customer-success
+   ❌ API Error: No response
+
+[438/438] Example question for ad-agent
+   Category: ad
+   ❌ API Error: No response
+
+======================================================================
+📊 BASELINE TEST COMPLETE
+======================================================================
+Total Questions: 438
+Passed: 0 (0.0%)
+Failed: 438 (100.0%)
+Average Score: 1.68%
+Average Grade: F
+
+Results saved to:
+  - baseline-results/baseline-e2e-2025-10-28T20-41-25-397Z.json
+  - baseline-results/baseline-e2e-2025-10-28T20-41-25-397Z.md
+======================================================================
+
+
+[[ATTACHMENT|test-results/test-baseline-e2e-Baseline-16f3e--Run-all-baseline-questions-webkit/test-failed-1.png]]
+
+[[ATTACHMENT|test-results/test-baseline-e2e-Baseline-16f3e--Run-all-baseline-questions-webkit/video.webm]]
+
+[[ATTACHMENT|test-results/test-baseline-e2e-Baseline-16f3e--Run-all-baseline-questions-webkit/error-context.md]]
 ]]>
 </system-out>
 </testcase>
