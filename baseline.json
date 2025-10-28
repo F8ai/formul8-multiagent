@@ -1,351 +1,3075 @@
 {
   "metadata": {
-    "generatedAt": "2025-10-28T18:38:32.316Z",
-    "sourceRepos": [
-      "compliance-agent",
-      "science-agent",
-      "formulation-agent",
-      "marketing-agent",
-      "patent-agent",
-      "operations-agent",
-      "sourcing-agent",
-      "spectra-agent",
-      "mcr-agent",
-      "customer-success-agent",
-      "ad-agent",
-      "editor-agent",
-      "f8-slackbot"
-    ],
-    "totalSources": 13,
-    "version": "1.0",
-    "description": "Master baseline questions for Formul8 multiagent system",
-    "stats": {
-      "totalSources": 13,
-      "uniqueQuestions": 26,
-      "categoryCounts": {
-        "compliance": 4,
-        "science": 4,
-        "formulation": 4,
-        "marketing": 3,
-        "patent": 1,
-        "operations": 3,
-        "sourcing": 1,
-        "spectra": 1,
-        "mcr": 1,
-        "customer-success": 1,
-        "ad": 1,
-        "editor": 1,
-        "slackbot": 1
-      },
-      "questionsWithExpectedAnswers": 26,
-      "questionsFromMultipleSources": 0
-    }
+    "generatedAt": "2025-10-23T23:24:32.432Z",
+    "source": "Local agent repositories",
+    "description": "Master baseline from Tech Ops validation questions"
   },
   "questions": [
     {
-      "id": "compliance-001",
-      "question": "What are the compliance requirements for cannabis businesses in California?",
-      "category": "compliance",
+      "id": "compliance-q001",
+      "question": "Can you make me a compliant SOP for Cannabis Transport in New Jersey?",
+      "category": "sop-generation-compliance-documentation",
       "expectedAgent": "compliance",
-      "expectedKeywords": [
-        "compliance",
-        "california",
-        "license",
-        "regulation",
-        "dcc"
-      ],
-      "tier": "standard",
-      "sourceAgent": "compliance-agent"
+      "source": "tech-ops-validation"
     },
     {
-      "id": "compliance-002",
-      "question": "What are the multi-state compliance challenges for cannabis?",
-      "category": "compliance",
+      "id": "compliance-q002",
+      "question": "Can you make me a compliant SOP for pre-roll production in New York?",
+      "category": "sop-generation-compliance-documentation",
       "expectedAgent": "compliance",
-      "expectedKeywords": [
-        "multi-state",
-        "compliance",
-        "regulation",
-        "jurisdiction"
-      ],
-      "tier": "standard",
-      "sourceAgent": "compliance-agent"
+      "source": "tech-ops-validation"
     },
     {
-      "id": "compliance-003",
-      "question": "How do I maintain compliance records for cannabis cultivation?",
-      "category": "compliance",
+      "id": "compliance-q003",
+      "question": "Can you make me a product recall SOP?",
+      "category": "sop-generation-compliance-documentation",
       "expectedAgent": "compliance",
-      "expectedKeywords": [
-        "records",
-        "documentation",
-        "compliance",
-        "cultivation"
-      ],
-      "tier": "standard",
-      "sourceAgent": "compliance-agent"
+      "source": "tech-ops-validation"
     },
     {
-      "id": "compliance-004",
-      "question": "What are the testing requirements for cannabis products?",
-      "category": "compliance",
+      "id": "compliance-q004",
+      "question": "What are the requirements for testing regular pre-rolls when I bought the raw material from a cultivator that already tested it?",
+      "category": "product-testing-infusion-rules",
       "expectedAgent": "compliance",
-      "expectedKeywords": [
-        "testing",
-        "requirements",
-        "lab",
-        "compliance"
-      ],
-      "tier": "standard",
-      "sourceAgent": "compliance-agent"
+      "source": "tech-ops-validation"
     },
     {
-      "id": "science-001",
-      "question": "What is THC?",
-      "category": "science",
-      "expectedAgent": "science",
-      "expectedKeywords": [
-        "thc",
-        "tetrahydrocannabinol",
-        "cannabinoid"
-      ],
-      "tier": "standard",
-      "sourceAgent": "science-agent"
+      "id": "compliance-q005",
+      "question": "Can I make an infused pre-roll without retesting it if I am using already tested flower and concentrate?",
+      "category": "product-testing-infusion-rules",
+      "expectedAgent": "compliance",
+      "source": "tech-ops-validation"
     },
     {
-      "id": "science-002",
-      "question": "What are terpenes?",
-      "category": "science",
-      "expectedAgent": "science",
-      "expectedKeywords": [
-        "terpenes",
-        "aromatic",
-        "compounds"
-      ],
-      "tier": "standard",
-      "sourceAgent": "science-agent"
+      "id": "compliance-q006",
+      "question": "Do I have to show harvest date or production date on infused products?",
+      "category": "product-testing-infusion-rules",
+      "expectedAgent": "compliance",
+      "source": "tech-ops-validation"
     },
     {
-      "id": "science-003",
-      "question": "How do I test cannabis potency?",
-      "category": "science",
-      "expectedAgent": "science",
-      "expectedKeywords": [
-        "test",
-        "potency",
-        "lab"
-      ],
-      "tier": "standard",
-      "sourceAgent": "science-agent"
+      "id": "compliance-q007",
+      "question": "Are there different rules for various types of infused products related to this same question?",
+      "category": "product-testing-infusion-rules",
+      "expectedAgent": "compliance",
+      "source": "tech-ops-validation"
     },
     {
-      "id": "science-004",
-      "question": "What is the difference between indica and sativa?",
-      "category": "science",
-      "expectedAgent": "science",
-      "expectedKeywords": [
-        "indica",
-        "sativa",
-        "difference"
-      ],
-      "tier": "standard",
-      "sourceAgent": "science-agent"
+      "id": "compliance-q008",
+      "question": "What are the requirements in my state for me to be able to introduce or infuse cannabis or botanical-derived terpenes into my products?",
+      "category": "product-testing-infusion-rules",
+      "expectedAgent": "compliance",
+      "source": "tech-ops-validation"
     },
     {
-      "id": "formulation-001",
-      "question": "How do I calculate THC dosage?",
-      "category": "formulation",
-      "expectedAgent": "formulation",
-      "expectedKeywords": [
-        "calculate",
-        "thc",
-        "dosage"
-      ],
-      "tier": "standard",
-      "sourceAgent": "formulation-agent"
+      "id": "compliance-q009",
+      "question": "Does this vary for different products?",
+      "category": "product-testing-infusion-rules",
+      "expectedAgent": "compliance",
+      "source": "tech-ops-validation"
     },
     {
-      "id": "formulation-002",
-      "question": "How do I make cannabis edibles?",
-      "category": "formulation",
-      "expectedAgent": "formulation",
-      "expectedKeywords": [
-        "make",
-        "edibles",
-        "cannabis"
-      ],
-      "tier": "standard",
-      "sourceAgent": "formulation-agent"
+      "id": "compliance-q010",
+      "question": "What are the labeling requirements for packaged concentrates?",
+      "category": "labeling-packaging-compliance",
+      "expectedAgent": "compliance",
+      "source": "tech-ops-validation"
     },
     {
-      "id": "formulation-003",
-      "question": "Create a recipe for cannabis gummies with 10mg THC each",
-      "category": "formulation",
-      "expectedAgent": "formulation",
-      "expectedKeywords": [
-        "recipe",
-        "gummies",
-        "thc"
-      ],
-      "tier": "standard",
-      "sourceAgent": "formulation-agent"
+      "id": "compliance-q011",
+      "question": "Is my edibles packaging compliant to national, state, and local regulations?",
+      "category": "labeling-packaging-compliance",
+      "expectedAgent": "compliance",
+      "source": "tech-ops-validation"
     },
     {
-      "id": "formulation-004",
-      "question": "What extraction method is best for high-CBD products?",
-      "category": "formulation",
-      "expectedAgent": "formulation",
-      "expectedKeywords": [
-        "extraction",
-        "method",
-        "cbd"
-      ],
-      "tier": "standard",
-      "sourceAgent": "formulation-agent"
+      "id": "compliance-q012",
+      "question": "When is childproof packaging required for certain cannabis products?",
+      "category": "labeling-packaging-compliance",
+      "expectedAgent": "compliance",
+      "source": "tech-ops-validation"
     },
     {
-      "id": "marketing-001",
-      "question": "How should I market my cannabis brand on social media?",
-      "category": "marketing",
-      "expectedAgent": "marketing",
-      "expectedKeywords": [
-        "market",
-        "brand",
-        "social media",
-        "marketing"
-      ],
-      "tier": "standard",
-      "sourceAgent": "marketing-agent"
+      "id": "compliance-q013",
+      "question": "Can I use leftover packaging labels from last month if they’re still accurate?",
+      "category": "labeling-packaging-compliance",
+      "expectedAgent": "compliance",
+      "source": "tech-ops-validation"
     },
     {
-      "id": "marketing-002",
-      "question": "What are the best practices for cannabis advertising?",
-      "category": "marketing",
-      "expectedAgent": "marketing",
-      "expectedKeywords": [
-        "advertising",
-        "best practices",
-        "marketing"
-      ],
-      "tier": "standard",
-      "sourceAgent": "marketing-agent"
+      "id": "compliance-q014",
+      "question": "How potent can our edibles be?",
+      "category": "edibles-potency-formulation",
+      "expectedAgent": "compliance",
+      "source": "tech-ops-validation"
     },
     {
-      "id": "marketing-003",
-      "question": "How do I build brand awareness for cannabis products?",
-      "category": "marketing",
-      "expectedAgent": "marketing",
-      "expectedKeywords": [
-        "brand",
-        "awareness",
-        "marketing"
-      ],
-      "tier": "standard",
-      "sourceAgent": "marketing-agent"
+      "id": "compliance-q015",
+      "question": "Can we do 100 or 200 mg packages?",
+      "category": "edibles-potency-formulation",
+      "expectedAgent": "compliance",
+      "source": "tech-ops-validation"
     },
     {
-      "id": "patent-agent-001",
-      "question": "Example question for patent-agent",
-      "category": "patent",
-      "expectedAgent": "patent-agent",
-      "tier": "standard",
-      "sourceAgent": "patent-agent"
+      "id": "compliance-q016",
+      "question": "Can we do more than 200 mg?",
+      "category": "edibles-potency-formulation",
+      "expectedAgent": "compliance",
+      "source": "tech-ops-validation"
     },
     {
-      "id": "operations-001",
-      "question": "How do I optimize my cannabis facility operations?",
-      "category": "operations",
+      "id": "compliance-q017",
+      "question": "Is there a per-piece requirement for max dosage?",
+      "category": "edibles-potency-formulation",
+      "expectedAgent": "compliance",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "compliance-q018",
+      "question": "What am I allowed to cut my vape cartridge APIs (distillate or decarbed resin) with that is safe and compliant?",
+      "category": "formulation-ingredient-compliance",
+      "expectedAgent": "compliance",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "compliance-q019",
+      "question": "What are considered banned substances when formulating various cannabis products?",
+      "category": "formulation-ingredient-compliance",
+      "expectedAgent": "compliance",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "compliance-q020",
+      "question": "Can I use hemp-based cannabinoids like CBD or CBG (or others) in production of my cannabis products?",
+      "category": "formulation-ingredient-compliance",
+      "expectedAgent": "compliance",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "compliance-q021",
+      "question": "Can I store finished products in the same room as raw biomass?",
+      "category": "facility-setup-operational-procedures",
+      "expectedAgent": "compliance",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "compliance-q022",
+      "question": "Do I need to log the cleaning of the extraction booth before starting the next run?",
+      "category": "facility-setup-operational-procedures",
+      "expectedAgent": "compliance",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "compliance-q023",
+      "question": "Is it okay to perform maintenance on the hydrocarbon extractor during operating hours?",
+      "category": "facility-setup-operational-procedures",
+      "expectedAgent": "compliance",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "compliance-q024",
+      "question": "Am I allowed to have non-lab staff enter the extraction area if they’re just observing?",
+      "category": "facility-setup-operational-procedures",
+      "expectedAgent": "compliance",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "compliance-q025",
+      "question": "Do I need to notify regulators before making changes to the lab layout?",
+      "category": "facility-setup-operational-procedures",
+      "expectedAgent": "compliance",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "compliance-q026",
+      "question": "Can I use ethanol I purchased from a non-cannabis supplier in today’s extraction?",
+      "category": "extraction-batch-production-rules",
+      "expectedAgent": "compliance",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "compliance-q027",
+      "question": "Is it compliant to run two different extraction methods in the same lab on the same day?",
+      "category": "extraction-batch-production-rules",
+      "expectedAgent": "compliance",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "compliance-q028",
+      "question": "Do I need to document the purge time for each batch of concentrate?",
+      "category": "extraction-batch-production-rules",
+      "expectedAgent": "compliance",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "compliance-q029",
+      "question": "Am I allowed to blend two different strain inputs into a single extraction batch?",
+      "category": "extraction-batch-production-rules",
+      "expectedAgent": "compliance",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "compliance-q030",
+      "question": "Do I need to label intermediary oils before refinement is complete?",
+      "category": "extraction-batch-production-rules",
+      "expectedAgent": "compliance",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "compliance-q031",
+      "question": "Can I repackage bulk oil into smaller units without creating a new UID?",
+      "category": "inventory-repackaging-tracking",
+      "expectedAgent": "compliance",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "compliance-q032",
+      "question": "Is it compliant to pre-fill vape cartridges before the lab test results are back?",
+      "category": "inventory-repackaging-tracking",
+      "expectedAgent": "compliance",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "compliance-q033",
+      "question": "Do I have to update the batch weight in the system if I lose some product to spillage?",
+      "category": "inventory-repackaging-tracking",
+      "expectedAgent": "compliance",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "compliance-q034",
+      "question": "Do I need to generate a new COA if I repackage the same batch in a different container?",
+      "category": "inventory-repackaging-tracking",
+      "expectedAgent": "compliance",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "compliance-q035",
+      "question": "Can I submit test results to regulators before final packaging is complete?",
+      "category": "inventory-repackaging-tracking",
+      "expectedAgent": "compliance",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "compliance-q036",
+      "question": "Am I allowed to digitally sign the waste disposal manifest, or do I need a physical copy?",
+      "category": "recordkeeping-logs",
+      "expectedAgent": "compliance",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "compliance-q037",
+      "question": "How long do I need to retain extraction logbooks for compliance?",
+      "category": "recordkeeping-logs",
+      "expectedAgent": "compliance",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "compliance-q038",
+      "question": "Can I dispose of spent biomass without mixing it with non-consumable waste first?",
+      "category": "waste-management-compliance",
+      "expectedAgent": "compliance",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "compliance-q039",
+      "question": "Is it okay to store cannabis waste in the same area as general lab trash temporarily?",
+      "category": "waste-management-compliance",
+      "expectedAgent": "compliance",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "compliance-q040",
+      "question": "Do I need a secondary person to verify destruction of cannabis waste?",
+      "category": "waste-management-compliance",
+      "expectedAgent": "compliance",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "compliance-q041",
+      "question": "Can I incinerate solvent-contaminated material on-site?",
+      "category": "waste-management-compliance",
+      "expectedAgent": "compliance",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "compliance-q042",
+      "question": "Am I allowed to treat ethanol waste differently than cannabis plant waste?",
+      "category": "waste-management-compliance",
+      "expectedAgent": "compliance",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "compliance-q043",
+      "question": "Does every team member need to complete chemical safety training before using the fume hood?",
+      "category": "employee-training-operational-roles",
+      "expectedAgent": "compliance",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "compliance-q044",
+      "question": "Is a glove change required between processing two different batches?",
+      "category": "employee-training-operational-roles",
+      "expectedAgent": "compliance",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "compliance-q045",
+      "question": "Can a lab tech sign off on their own QC checklist?",
+      "category": "employee-training-operational-roles",
+      "expectedAgent": "compliance",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "compliance-q046",
+      "question": "Am I allowed to let an intern shadow a live extraction session?",
+      "category": "employee-training-operational-roles",
+      "expectedAgent": "compliance",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "compliance-q047",
+      "question": "Do I need to document breaks if they occur during active batch processing?",
+      "category": "employee-training-operational-roles",
+      "expectedAgent": "compliance",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "compliance-q048",
+      "question": "Can I transfer crude oil to another facility before final testing?",
+      "category": "transport-transfer-regulations",
+      "expectedAgent": "compliance",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "compliance-q049",
+      "question": "Is a licensed cannabis transporter required for in-state product transfers?",
+      "category": "transport-transfer-regulations",
+      "expectedAgent": "compliance",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "compliance-q050",
+      "question": "Do I need to notify the receiving party before sending a partial product shipment?",
+      "category": "transport-transfer-regulations",
+      "expectedAgent": "compliance",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "compliance-q051",
+      "question": "Can I transport cannabis waste using a standard courier service?",
+      "category": "transport-transfer-regulations",
+      "expectedAgent": "compliance",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "compliance-q052",
+      "question": "Am I allowed to batch multiple COAs together for a single delivery manifest?",
+      "category": "transport-transfer-regulations",
+      "expectedAgent": "compliance",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q001",
+      "question": "Can you help me create a batch tracker sheet for employees to log production data in a GMP-friendly format?",
+      "category": "production-&-process-optimization",
       "expectedAgent": "operations",
-      "expectedKeywords": [
-        "optimize",
-        "facility",
-        "operations",
-        "management"
-      ],
-      "tier": "standard",
-      "sourceAgent": "operations-agent"
+      "source": "tech-ops-validation"
     },
     {
-      "id": "operations-002",
-      "question": "What are the best practices for cannabis cultivation?",
-      "category": "operations",
+      "id": "operations-q002",
+      "question": "How do I set up a daily production log that helps with compliance audits?",
+      "category": "production-&-process-optimization",
       "expectedAgent": "operations",
-      "expectedKeywords": [
-        "best practices",
-        "cultivation",
-        "growing"
-      ],
-      "tier": "standard",
-      "sourceAgent": "operations-agent"
+      "source": "tech-ops-validation"
     },
     {
-      "id": "operations-003",
-      "question": "How do I manage cannabis inventory?",
-      "category": "operations",
+      "id": "operations-q003",
+      "question": "What are the best KPIs to track in my extraction lab on a daily basis?",
+      "category": "production-&-process-optimization",
       "expectedAgent": "operations",
-      "expectedKeywords": [
-        "manage",
-        "inventory",
-        "tracking"
-      ],
-      "tier": "standard",
-      "sourceAgent": "operations-agent"
+      "source": "tech-ops-validation"
     },
     {
-      "id": "sourcing-agent-001",
-      "question": "Example question for sourcing-agent",
-      "category": "sourcing",
-      "expectedAgent": "sourcing-agent",
-      "tier": "standard",
-      "sourceAgent": "sourcing-agent"
+      "id": "operations-q004",
+      "question": "What is the best way to standardize my formulations so batches stay consistent?",
+      "category": "production-&-process-optimization",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q005",
+      "question": "How do I calculate expected yield from a given biomass input?",
+      "category": "production-&-process-optimization",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q006",
+      "question": "Can you help me design a workflow checklist for my lab techs to reduce errors?",
+      "category": "production-&-process-optimization",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q007",
+      "question": "What are the best ways to minimize loss when transferring concentrates between vessels?",
+      "category": "production-&-process-optimization",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q008",
+      "question": "Can you help me make an SOP for preparing biomass before extraction?",
+      "category": "production-&-process-optimization",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q009",
+      "question": "Can you design a downtime log so we can track equipment outages and repairs?",
+      "category": "production-&-process-optimization",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q010",
+      "question": "How can I benchmark my extraction efficiency against industry averages?",
+      "category": "production-&-process-optimization",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q011",
+      "question": "What tools can help me track real-time production metrics across multiple shifts?",
+      "category": "production-&-process-optimization",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q012",
+      "question": "How do I set production goals that align with sales forecasts?",
+      "category": "production-&-process-optimization",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q013",
+      "question": "Can you build a visual daily management board (SQDIP/5S-style) for the lab?",
+      "category": "production-&-process-optimization",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q014",
+      "question": "How do I structure tiered sign-offs (operator → lead → manager) for critical steps?",
+      "category": "production-&-process-optimization",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q015",
+      "question": "What’s the right cadence for cross-functional production meetings (ops, QA, sales)?",
+      "category": "production-&-process-optimization",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q016",
+      "question": "How do I build a changeover checklist to reduce batch-to-batch carryover and loss?",
+      "category": "production-&-process-optimization",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q017",
+      "question": "Can you design a first-article run protocol for new products before full scale?",
+      "category": "production-&-process-optimization",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q018",
+      "question": "How do I validate a new process window (DOE plan, acceptance criteria, run count)?",
+      "category": "production-&-process-optimization",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q019",
+      "question": "What’s a good template for a weekly operations scorecard (throughput, yield, scrap, OEE)?",
+      "category": "production-&-process-optimization",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q020",
+      "question": "My chiller is overheating and shutting off—what should I check first and why?",
+      "category": "extraction-&-processing-crosscutting",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q021",
+      "question": "My extract is coming out darker than normal in ethanol—what are the top causes to investigate?",
+      "category": "extraction-&-processing-crosscutting",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q022",
+      "question": "What might cause solvent recovery rates to drop, and how do I troubleshoot?",
+      "category": "extraction-&-processing-crosscutting",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q023",
+      "question": "Why am I seeing pressure spikes during hydrocarbon recovery?",
+      "category": "extraction-&-processing-crosscutting",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q024",
+      "question": "What’s the best way to prevent channeling or channel formation in extraction columns?",
+      "category": "extraction-&-processing-crosscutting",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q025",
+      "question": "How do I troubleshoot moisture ingress in an ethanol system?",
+      "category": "extraction-&-processing-crosscutting",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q026",
+      "question": "What’s the best way to reclaim as much material as possible from transfer glassware?",
+      "category": "extraction-&-processing-crosscutting",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q027",
+      "question": "My vacuum oven isn’t pulling full vacuum—what should I test and in what order?",
+      "category": "extraction-&-processing-crosscutting",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q028",
+      "question": "How do I know if my filter media is overloaded or misapplied?",
+      "category": "extraction-&-processing-crosscutting",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q029",
+      "question": "Why am I getting inconsistent potency results from the same biomass lot?",
+      "category": "extraction-&-processing-crosscutting",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q030",
+      "question": "What parameters should I monitor to reduce terpene loss during runs?",
+      "category": "extraction-&-processing-crosscutting",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q031",
+      "question": "Can you help me set acceptance limits for in-process checks (appearance, viscosity, temp, pressure)?",
+      "category": "extraction-&-processing-crosscutting",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q032",
+      "question": "What’s a reasonable startup/warmup sequence to reduce thermal shock and failures?",
+      "category": "extraction-&-processing-crosscutting",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q033",
+      "question": "Can you provide good operating parameters for running fresh frozen on my hydrocarbon system?",
+      "category": "hydrocarbon-extraction-bhopho",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q034",
+      "question": "How do I choose solvent ratios (propane/butane blends) for target textures (sauce, batter, shatter)?",
+      "category": "hydrocarbon-extraction-bhopho",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q035",
+      "question": "What’s the best practice for dewaxing vs. in-line filtration with fresh frozen?",
+      "category": "hydrocarbon-extraction-bhopho",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q036",
+      "question": "How do I mitigate color remediation risking over-stripping terpenes?",
+      "category": "hydrocarbon-extraction-bhopho",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q037",
+      "question": "What’s the right approach to post-purge to balance residual solvents and terpene retention?",
+      "category": "hydrocarbon-extraction-bhopho",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q038",
+      "question": "Why am I seeing nucleation issues in my batter after purge—how do I fix it?",
+      "category": "hydrocarbon-extraction-bhopho",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q039",
+      "question": "How do I prevent icing at valves and critical restrictions during recovery?",
+      "category": "hydrocarbon-extraction-bhopho",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q040",
+      "question": "Can you help me map out my relief devices and MAWP considerations for safety logs?",
+      "category": "hydrocarbon-extraction-bhopho",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q041",
+      "question": "What records should I keep for hydrocarbon leak checks and detector calibrations?",
+      "category": "hydrocarbon-extraction-bhopho",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q042",
+      "question": "What ethanol proof range is optimal for my target product and why?",
+      "category": "ethanol-extraction",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q043",
+      "question": "How do I optimize soak time and agitation without over-extracting chlorophyll?",
+      "category": "ethanol-extraction",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q044",
+      "question": "What’s the best winterization workflow (ratios, temps, dwell times, filter media steps)?",
+      "category": "ethanol-extraction",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q045",
+      "question": "How do I track solvent water content and correct for drift over time?",
+      "category": "ethanol-extraction",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q046",
+      "question": "What’s the best approach to polishing (carbon/clay) without over-adsorbing cannabinoids/terpenes?",
+      "category": "ethanol-extraction",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q047",
+      "question": "Why is my crude viscosity inconsistent between runs—how do I stabilize it?",
+      "category": "ethanol-extraction",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q048",
+      "question": "How can I balance throughput vs. quality on my centrifuge extraction setup?",
+      "category": "ethanol-extraction",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q049",
+      "question": "What are best practices for ethanol recovery stills (fouling prevention, defoamers, CIP)?",
+      "category": "ethanol-extraction",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q050",
+      "question": "What’s a sensible starting point for SC-CO₂ parameters for terpene-rich vs. cannabinoid-rich fractions?",
+      "category": "co-extraction",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q051",
+      "question": "How do I schedule fraction cuts to minimize co-extraction of waxes?",
+      "category": "co-extraction",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q052",
+      "question": "Why am I seeing pressure instability in separators—what should I check?",
+      "category": "co-extraction",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q053",
+      "question": "Can you help me develop a fraction collection log with target ranges and notes?",
+      "category": "co-extraction",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q054",
+      "question": "How do I compare CO₂ runs on the same biomass for repeatability (SPC basics, run charts)?",
+      "category": "co-extraction",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q055",
+      "question": "How do I design a wash SOP (ice ratios, water temps, paddle rates, bag micron strategy)?",
+      "category": "solventless-ice-water-hash-&-rosin",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q056",
+      "question": "What are indicators of over-agitation and contamination during wash?",
+      "category": "solventless-ice-water-hash-&-rosin",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q057",
+      "question": "How do I manage dry/cure of hash to prevent grease-out or terp loss?",
+      "category": "solventless-ice-water-hash-&-rosin",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q058",
+      "question": "Can you help me tune rosin press parameters (temp/pressure/time) by cultivar?",
+      "category": "solventless-ice-water-hash-&-rosin",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q059",
+      "question": "Why are my rosin carts crystallizing—what upstream changes should I test?",
+      "category": "solventless-ice-water-hash-&-rosin",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q060",
+      "question": "What’s the right decarb profile for different matrices (crude vs. isolate blends)?",
+      "category": "postprocessing-distillation-decarb-remediation",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q061",
+      "question": "Why is my heads/tails separation inconsistent on the wiped-film—how do I correct it?",
+      "category": "postprocessing-distillation-decarb-remediation",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q062",
+      "question": "Can you help me set up a cleaning validation for my distillation path?",
+      "category": "postprocessing-distillation-decarb-remediation",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q063",
+      "question": "What are safe, compliant approaches to pesticide remediation and how do I document them?",
+      "category": "postprocessing-distillation-decarb-remediation",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q064",
+      "question": "How should I stage terpene reintroduction to avoid oxidation and off-notes?",
+      "category": "postprocessing-distillation-decarb-remediation",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q065",
+      "question": "How do I build a master formula and controlled BOM for a new gummy?",
+      "category": "formulation-&-manufacturing-vapes-edibles-beverages-topicals-tinctures",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q066",
+      "question": "Can you help me design a Cpk/Cp monitoring plan for fill weights on vapes?",
+      "category": "formulation-&-manufacturing-vapes-edibles-beverages-topicals-tinctures",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q067",
+      "question": "What’s a good emulsion protocol for beverages (emulsifier choice, HLB, shear, stability testing)?",
+      "category": "formulation-&-manufacturing-vapes-edibles-beverages-topicals-tinctures",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q068",
+      "question": "How do I prevent sugar bloom or weeping in pectin gummies?",
+      "category": "formulation-&-manufacturing-vapes-edibles-beverages-topicals-tinctures",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q069",
+      "question": "Can you help me set torque/viscosity ranges for vape oil before filling?",
+      "category": "formulation-&-manufacturing-vapes-edibles-beverages-topicals-tinctures",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q070",
+      "question": "What’s a scalable workflow for topical creams (phase addition, homogenization, cooling)?",
+      "category": "formulation-&-manufacturing-vapes-edibles-beverages-topicals-tinctures",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q071",
+      "question": "How do I set finished-product specs (potency, moisture, water activity, micro) and release criteria?",
+      "category": "formulation-&-manufacturing-vapes-edibles-beverages-topicals-tinctures",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q072",
+      "question": "What’s the best small-batch R&D protocol before scale-up (pilot, line trial, validation lots)?",
+      "category": "formulation-&-manufacturing-vapes-edibles-beverages-topicals-tinctures",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q073",
+      "question": "How should I handle allergen controls and cross-contact documentation for edibles?",
+      "category": "formulation-&-manufacturing-vapes-edibles-beverages-topicals-tinctures",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q074",
+      "question": "Can you build a cleaning matrix by product type to avoid flavor cross-over?",
+      "category": "formulation-&-manufacturing-vapes-edibles-beverages-topicals-tinctures",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q075",
+      "question": "How do I structure a quality management system (QMS) that fits cannabis operations?",
+      "category": "quality-assurance-quality-control-qaqc",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q076",
+      "question": "Can you create a COA review checklist to catch lab inconsistencies?",
+      "category": "quality-assurance-quality-control-qaqc",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q077",
+      "question": "How do I build an incoming inspection SOP for packaging and ingredients?",
+      "category": "quality-assurance-quality-control-qaqc",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q078",
+      "question": "What’s a simple sampling plan (AQL) I can use for finished goods?",
+      "category": "quality-assurance-quality-control-qaqc",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q079",
+      "question": "How do I set up a hold-and-release workflow tied to QA approval?",
+      "category": "quality-assurance-quality-control-qaqc",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q080",
+      "question": "Can you help me track trending of out-of-spec results and CAPAs?",
+      "category": "quality-assurance-quality-control-qaqc",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q081",
+      "question": "How do I qualify a new third-party lab and monitor ongoing performance?",
+      "category": "quality-assurance-quality-control-qaqc",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q082",
+      "question": "What should a deviation report include, and who signs off?",
+      "category": "quality-assurance-quality-control-qaqc",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q083",
+      "question": "Can you generate a stability testing plan (real-time, accelerated) for vapes and edibles?",
+      "category": "quality-assurance-quality-control-qaqc",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q084",
+      "question": "How do I design sensory panels for flavor consistency while staying compliant?",
+      "category": "quality-assurance-quality-control-qaqc",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q085",
+      "question": "How do I structure batch records to satisfy audits (state regs + GMP-friendly)?",
+      "category": "compliance-recordkeeping-and-seedtosale",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q086",
+      "question": "Can you build a chain-of-custody template for internal transfers?",
+      "category": "compliance-recordkeeping-and-seedtosale",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q087",
+      "question": "What reports should I pull weekly from METRC/BioTrack to reconcile inventory?",
+      "category": "compliance-recordkeeping-and-seedtosale",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q088",
+      "question": "How do I document and report waste destruction properly?",
+      "category": "compliance-recordkeeping-and-seedtosale",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q089",
+      "question": "What documents should be ready for a surprise inspection (binder contents)?",
+      "category": "compliance-recordkeeping-and-seedtosale",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q090",
+      "question": "How do I set electronic signatures and access controls for controlled records?",
+      "category": "compliance-recordkeeping-and-seedtosale",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q091",
+      "question": "Can you map my data fields so batch records sync correctly to seed-to-sale?",
+      "category": "compliance-recordkeeping-and-seedtosale",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q092",
+      "question": "What’s the best way to track transport manifests and retention periods?",
+      "category": "compliance-recordkeeping-and-seedtosale",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q093",
+      "question": "How do I set min/max levels and reorder points by SKU?",
+      "category": "inventory-warehousing-and-materials-control",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q094",
+      "question": "Can you help me implement FEFO/FIFO for ingredients and packaging?",
+      "category": "inventory-warehousing-and-materials-control",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q095",
+      "question": "What cycle-count schedule should I run to reduce variance?",
+      "category": "inventory-warehousing-and-materials-control",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q096",
+      "question": "How do I segregate quarantined, rejected, and released inventory in the WMS?",
+      "category": "inventory-warehousing-and-materials-control",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q097",
+      "question": "Can you design a location codification (bin/shelf/aisle) and label schema?",
+      "category": "inventory-warehousing-and-materials-control",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q098",
+      "question": "How do I measure and reduce inventory shrink in processing vs. retail?",
+      "category": "inventory-warehousing-and-materials-control",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q099",
+      "question": "What are good KPIs for inventory health (DOH, turns, service level, fill rate)?",
+      "category": "inventory-warehousing-and-materials-control",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q100",
+      "question": "Can you help me make a compliant packaging/labeling SOP for my state?",
+      "category": "packaging-&-labeling-operations",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q101",
+      "question": "How do I verify artwork (claims, warnings, font sizes, UPC/QR, lot/exp) before print?",
+      "category": "packaging-&-labeling-operations",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q102",
+      "question": "What’s a good in-line check for label placement and legibility?",
+      "category": "packaging-&-labeling-operations",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q103",
+      "question": "How do I choose child-resistant formats that balance cost and speed?",
+      "category": "packaging-&-labeling-operations",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q104",
+      "question": "Can you design a label release process with QA sign-off and revision control?",
+      "category": "packaging-&-labeling-operations",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q105",
+      "question": "How do I batch-print variable data (lot/UID/expiry) and prevent mix-ups?",
+      "category": "packaging-&-labeling-operations",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q106",
+      "question": "What packaging line speeds are realistic for my equipment and staff levels?",
+      "category": "packaging-&-labeling-operations",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q107",
+      "question": "How do I run a packaging line trial and document acceptance?",
+      "category": "packaging-&-labeling-operations",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q108",
+      "question": "Can you help me spec a new chiller (load calcs, tonnage, heat rejection, redundancy)?",
+      "category": "equipment-selection-qualification-&-maintenance",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q109",
+      "question": "What’s a URS template for selecting a new extractor or centrifuge?",
+      "category": "equipment-selection-qualification-&-maintenance",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q110",
+      "question": "How do I run IQ/OQ/PQ on a new piece of processing equipment?",
+      "category": "equipment-selection-qualification-&-maintenance",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q111",
+      "question": "What spare parts and consumables should I stock for critical uptime?",
+      "category": "equipment-selection-qualification-&-maintenance",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q112",
+      "question": "Can you create a PM calendar with OEM tasks vs. in-house tasks?",
+      "category": "equipment-selection-qualification-&-maintenance",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q113",
+      "question": "How do I track MTBF/MTTR and convert that into uptime KPIs?",
+      "category": "equipment-selection-qualification-&-maintenance",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q114",
+      "question": "What’s the right protocol after major repairs (re-qualification steps)?",
+      "category": "equipment-selection-qualification-&-maintenance",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q115",
+      "question": "How do I set calibration intervals for scales, thermometers, sensors, HPLCs?",
+      "category": "equipment-selection-qualification-&-maintenance",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q116",
+      "question": "Can you help me validate air changes per hour and CFM for my classified rooms?",
+      "category": "facility-utilities-and-rooms-c1d1c1d2",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q117",
+      "question": "How do I document hazardous area classifications and MAQs for solvents?",
+      "category": "facility-utilities-and-rooms-c1d1c1d2",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q118",
+      "question": "What’s a good daily/weekly facility inspection checklist?",
+      "category": "facility-utilities-and-rooms-c1d1c1d2",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q119",
+      "question": "How do I size compressed air and nitrogen for simultaneous equipment demand?",
+      "category": "facility-utilities-and-rooms-c1d1c1d2",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q120",
+      "question": "What’s the best way to trend utility costs per unit produced?",
+      "category": "facility-utilities-and-rooms-c1d1c1d2",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q121",
+      "question": "How do I monitor and alarm critical utilities (power, HVAC, vac, chilled water)?",
+      "category": "facility-utilities-and-rooms-c1d1c1d2",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q122",
+      "question": "Can you create a room flow diagram to reduce cross-contamination risks?",
+      "category": "facility-utilities-and-rooms-c1d1c1d2",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q123",
+      "question": "Can you build a solvent handling and storage SOP with training logs?",
+      "category": "environmental-health-&-safety-ehs",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q124",
+      "question": "What should my emergency response plan include for spills and fires?",
+      "category": "environmental-health-&-safety-ehs",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q125",
+      "question": "How do I set up a confined-space, hot-work, and LOTO program?",
+      "category": "environmental-health-&-safety-ehs",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q126",
+      "question": "What are appropriate gas detection setpoints and alarm responses?",
+      "category": "environmental-health-&-safety-ehs",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q127",
+      "question": "How do I prepare for fire marshal inspections (proofs, tests, signage, drills)?",
+      "category": "environmental-health-&-safety-ehs",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q128",
+      "question": "Can you create an incident/near-miss reporting form and investigation flow?",
+      "category": "environmental-health-&-safety-ehs",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q129",
+      "question": "How do I track SDSs and ensure they’re accessible and current?",
+      "category": "environmental-health-&-safety-ehs",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q130",
+      "question": "What’s the correct PPE matrix by room/process?",
+      "category": "environmental-health-&-safety-ehs",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q131",
+      "question": "What’s the most efficient daily plant care checklist (by stage: mothers, clones, veg, flower)?",
+      "category": "cultivation-operations-propagation-harvest-postharvest",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q132",
+      "question": "How do I design an IPM calendar with rotations and thresholds?",
+      "category": "cultivation-operations-propagation-harvest-postharvest",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q133",
+      "question": "What environmental parameters should I monitor daily (temp, RH, VPD/DLI/CO₂)?",
+      "category": "cultivation-operations-propagation-harvest-postharvest",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q134",
+      "question": "How do I track mother plant health, clone success rate, and genetic drift?",
+      "category": "cultivation-operations-propagation-harvest-postharvest",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q135",
+      "question": "Can you help me schedule labor across defoliation, trellising, and harvest prep?",
+      "category": "cultivation-operations-propagation-harvest-postharvest",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q136",
+      "question": "How do I benchmark grams/sq ft and grams/watt and improve them?",
+      "category": "cultivation-operations-propagation-harvest-postharvest",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q137",
+      "question": "What are best practices for consistent dry/cure (targets, airspeed, racks, W/A)?",
+      "category": "cultivation-operations-propagation-harvest-postharvest",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q138",
+      "question": "How do I document strain-specific feeding programs and adjustments?",
+      "category": "cultivation-operations-propagation-harvest-postharvest",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q139",
+      "question": "What’s a good post-harvest trimming SOP and QC checks for visual grade?",
+      "category": "cultivation-operations-propagation-harvest-postharvest",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q140",
+      "question": "How do I implement sanitation between rooms and harvest cycles?",
+      "category": "cultivation-operations-propagation-harvest-postharvest",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q141",
+      "question": "What are profitable sales or bundles we can run with ~100% markup without killing margins?",
+      "category": "retail-operations",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q142",
+      "question": "How do I design daily opening/closing checklists for budtenders and managers?",
+      "category": "retail-operations",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q143",
+      "question": "What are the best ways to reduce inventory shrink and improve cash controls?",
+      "category": "retail-operations",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q144",
+      "question": "How do I schedule staff against peak hours and events?",
+      "category": "retail-operations",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q145",
+      "question": "Can you build a retail compliance checklist (ID checks, signage, purchase limits)?",
+      "category": "retail-operations",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q146",
+      "question": "What training modules should new budtenders complete in week one?",
+      "category": "retail-operations",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q147",
+      "question": "How do I set reorder points and safety stock for fast movers?",
+      "category": "retail-operations",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q148",
+      "question": "Can you help me design a floor plan to improve flow and basket size?",
+      "category": "retail-operations",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q149",
+      "question": "What’s a simple demand forecast model for weekly ordering?",
+      "category": "retail-operations",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q150",
+      "question": "How do I set up curbside/express pickup and delivery operations cleanly?",
+      "category": "retail-operations",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q151",
+      "question": "What’s a good playbook for moving slow inventory without risky discounts?",
+      "category": "retail-operations",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q152",
+      "question": "How do I plan delivery routes that respect time windows and compliance rules?",
+      "category": "delivery-&-logistics",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q153",
+      "question": "What should my vehicle inspection and chain-of-custody paperwork include?",
+      "category": "delivery-&-logistics",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q154",
+      "question": "Can you help me design a vault organization for outbound orders?",
+      "category": "delivery-&-logistics",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q155",
+      "question": "How do I calculate optimal case pack and pallet configurations?",
+      "category": "delivery-&-logistics",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q156",
+      "question": "What KPIs matter for delivery performance (OTIF, miles/stop, cost/order)?",
+      "category": "delivery-&-logistics",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q157",
+      "question": "I’m making a new product—can you help me break down COGS and price it?",
+      "category": "financial-&-cogs-opsfocused",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q158",
+      "question": "What’s a reasonable wholesale margin for concentrates or edibles in my market?",
+      "category": "financial-&-cogs-opsfocused",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q159",
+      "question": "Can you build a pro forma for a new line with sensitivity to raw material cost swings?",
+      "category": "financial-&-cogs-opsfocused",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q160",
+      "question": "How do I allocate overhead into product COGS fairly (labor, utilities, depreciation)?",
+      "category": "financial-&-cogs-opsfocused",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q161",
+      "question": "Can you generate an Excel template to track cost per batch and per unit?",
+      "category": "financial-&-cogs-opsfocused",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q162",
+      "question": "How do I compare outsource vs. in-house processing from a unit economics view?",
+      "category": "financial-&-cogs-opsfocused",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q163",
+      "question": "Can you design a margin calculator for bulk oil vs. packaged SKUs?",
+      "category": "financial-&-cogs-opsfocused",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q164",
+      "question": "How do excise taxes and fees affect my wholesale and MSRP targets?",
+      "category": "financial-&-cogs-opsfocused",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q165",
+      "question": "What KPIs should Ops review weekly with Finance (yield $, scrap $, labor/hr, $/gram)?",
+      "category": "financial-&-cogs-opsfocused",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q166",
+      "question": "Which data fields should live in LIMS vs. ERP vs. seed-to-sale to avoid duplication?",
+      "category": "data-systems-&-integrations-lims-erp-seedtosale",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q167",
+      "question": "Can you map integrations between METRC/BioTrack and our ERP for fewer manual entries?",
+      "category": "data-systems-&-integrations-lims-erp-seedtosale",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q168",
+      "question": "How do I design dashboards for throughput, yield, and compliance exceptions?",
+      "category": "data-systems-&-integrations-lims-erp-seedtosale",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q169",
+      "question": "What’s the right data retention policy for batch and QA records?",
+      "category": "data-systems-&-integrations-lims-erp-seedtosale",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q170",
+      "question": "How do I implement barcode/RFID to reduce mislabeling and speed inventory checks?",
+      "category": "data-systems-&-integrations-lims-erp-seedtosale",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q171",
+      "question": "Can you propose role-based access controls for sensitive operational data?",
+      "category": "data-systems-&-integrations-lims-erp-seedtosale",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q172",
+      "question": "How do I audit data integrity and reconcile daily between systems?",
+      "category": "data-systems-&-integrations-lims-erp-seedtosale",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q173",
+      "question": "Can you build a 30/60/90 plan for new lab techs?",
+      "category": "training-onboarding-&-competency",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q174",
+      "question": "What should a skills matrix look like for operators by equipment/process?",
+      "category": "training-onboarding-&-competency",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q175",
+      "question": "How do I run and document annual competency checks?",
+      "category": "training-onboarding-&-competency",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q176",
+      "question": "Can you design microlearning modules for critical procedures (3–5 min each)?",
+      "category": "training-onboarding-&-competency",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q177",
+      "question": "How do I structure train-the-trainer and version control for SOP updates?",
+      "category": "training-onboarding-&-competency",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q178",
+      "question": "What’s a fair on-call rotation and escalation matrix for key roles?",
+      "category": "training-onboarding-&-competency",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q179",
+      "question": "Can you draft a master SOP template with required sections and approvals?",
+      "category": "sops-work-instructions-&-change-control",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q180",
+      "question": "How do I split SOPs vs. Work Instructions vs. Forms to keep them usable?",
+      "category": "sops-work-instructions-&-change-control",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q181",
+      "question": "What’s a practical change control workflow (risk rating, validation needs, training)?",
+      "category": "sops-work-instructions-&-change-control",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q182",
+      "question": "How do I sunset old documents and prove only the latest is in circulation?",
+      "category": "sops-work-instructions-&-change-control",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q183",
+      "question": "Can you propose a periodic review schedule and owner assignments?",
+      "category": "sops-work-instructions-&-change-control",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q184",
+      "question": "Can you build a deviation form and triage rubric (minor/major/critical)?",
+      "category": "risk-management-deviations-capa-&-recalls",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q185",
+      "question": "How do I run a root cause analysis (5 Whys/Fishbone) and document it?",
+      "category": "risk-management-deviations-capa-&-recalls",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q186",
+      "question": "What does an effective CAPA plan look like, and how do I track closure?",
+      "category": "risk-management-deviations-capa-&-recalls",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q187",
+      "question": "Can you help me write and test a mock recall (roles, comms, lot trace, timing)?",
+      "category": "risk-management-deviations-capa-&-recalls",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q188",
+      "question": "How do I design a non-conformance log and trending dashboard?",
+      "category": "risk-management-deviations-capa-&-recalls",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q189",
+      "question": "What leading indicators should I monitor to prevent recalls?",
+      "category": "risk-management-deviations-capa-&-recalls",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q190",
+      "question": "How do I qualify new suppliers (ingredients, packaging, labs) and maintain ASL status?",
+      "category": "supplier-&-procurement-management",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q191",
+      "question": "Can you design an incoming COA verification checklist by material type?",
+      "category": "supplier-&-procurement-management",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q192",
+      "question": "What KPIs should I hold suppliers to (OTIF, quality incidents, corrective actions)?",
+      "category": "supplier-&-procurement-management",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q193",
+      "question": "How do I set MOQ/EOQ and safety stock given supplier lead times?",
+      "category": "supplier-&-procurement-management",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q194",
+      "question": "Can you create a cost/quality/risk scorecard to compare vendors?",
+      "category": "supplier-&-procurement-management",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q195",
+      "question": "How do I baseline and track energy, water, and solvent per unit produced?",
+      "category": "sustainability-&-resource-efficiency",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q196",
+      "question": "Can you suggest solvent recovery and reuse targets and controls?",
+      "category": "sustainability-&-resource-efficiency",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q197",
+      "question": "What waste segregation improvements would reduce disposal costs?",
+      "category": "sustainability-&-resource-efficiency",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q198",
+      "question": "How do I design a take-back/recycling program for packaging (where legal)?",
+      "category": "sustainability-&-resource-efficiency",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q199",
+      "question": "Can you build a simple carbon footprint model for my facility operations?",
+      "category": "sustainability-&-resource-efficiency",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q200",
+      "question": "What’s a good R&D request form so production can evaluate feasibility?",
+      "category": "r&d-pilot-and-tech-transfer",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q201",
+      "question": "How do I run a pilot plan (objectives, success metrics, sample size, hazards)?",
+      "category": "r&d-pilot-and-tech-transfer",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q202",
+      "question": "Can you create a tech transfer checklist from R&D to Operations?",
+      "category": "r&d-pilot-and-tech-transfer",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q203",
+      "question": "How do I protect IP and document trade secrets in process docs?",
+      "category": "r&d-pilot-and-tech-transfer",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q204",
+      "question": "What is the right sampling and testing plan during pilot to de-risk scale-up?",
+      "category": "r&d-pilot-and-tech-transfer",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q205",
+      "question": "Can you design a product complaint intake form that routes to QA and Ops?",
+      "category": "customer-service-&-complaint-handling-ops-interface",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q206",
+      "question": "How do I investigate complaints tied to specific lots (trace-back plan)?",
+      "category": "customer-service-&-complaint-handling-ops-interface",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q207",
+      "question": "What’s the correct replacement/credit decision flow and documentation?",
+      "category": "customer-service-&-complaint-handling-ops-interface",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q208",
+      "question": "How do I trend complaint categories and feed improvements back to Ops?",
+      "category": "customer-service-&-complaint-handling-ops-interface",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q209",
+      "question": "Can you propose standard reply templates that are compliant and non-admissive?",
+      "category": "customer-service-&-complaint-handling-ops-interface",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q210",
+      "question": "What controls reduce diversion risk in processing (cameras, access, reconciliation)?",
+      "category": "security-&-loss-prevention-opsrelevant",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q211",
+      "question": "Can you design a vault access log and dual-control policy?",
+      "category": "security-&-loss-prevention-opsrelevant",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q212",
+      "question": "How do I run variance investigations tied to seed-to-sale discrepancies?",
+      "category": "security-&-loss-prevention-opsrelevant",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q213",
+      "question": "What’s a good visitor/vendor escort SOP for production areas?",
+      "category": "security-&-loss-prevention-opsrelevant",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q214",
+      "question": "How do I structure random audits to deter internal theft?",
+      "category": "security-&-loss-prevention-opsrelevant",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q215",
+      "question": "Can you create a capacity model (people, equipment time, utility constraints) by SKU?",
+      "category": "project-management-&-capacity-planning",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q216",
+      "question": "How do I prioritize projects (RICE/WSJF) across Ops and QA?",
+      "category": "project-management-&-capacity-planning",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q217",
+      "question": "What’s a practical template for equipment commissioning/qualification timelines?",
+      "category": "project-management-&-capacity-planning",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q218",
+      "question": "How do I scenario-plan for seasonal demand spikes and promos?",
+      "category": "project-management-&-capacity-planning",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q219",
+      "question": "Can you design a line balancing exercise to remove bottlenecks?",
+      "category": "project-management-&-capacity-planning",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q220",
+      "question": "How do I align production run sizes with retail sell-through to reduce aged inventory?",
+      "category": "retailprocessing-coordination-maketoorder-replenishment",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q221",
+      "question": "Can you build a simple S&OP cadence between Ops, Sales, and Retail?",
+      "category": "retailprocessing-coordination-maketoorder-replenishment",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q222",
+      "question": "What’s the best way to set MOQ by SKU to keep changeovers efficient?",
+      "category": "retailprocessing-coordination-maketoorder-replenishment",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q223",
+      "question": "How do I set freshness dating and rotation policy across warehouses and stores?",
+      "category": "retailprocessing-coordination-maketoorder-replenishment",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "operations-q224",
+      "question": "Can you create a returns/RMA handling SOP that protects product integrity?",
+      "category": "retailprocessing-coordination-maketoorder-replenishment",
+      "expectedAgent": "operations",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q001",
+      "question": "What makes our cannabis brand stand out compared to competitors?",
+      "category": "brand-&-identity-marketing",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q002",
+      "question": "How do we position ourselves as premium vs. value-driven in a crowded market?",
+      "category": "brand-&-identity-marketing",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q003",
+      "question": "Can you help me build a brand story that connects with consumers?",
+      "category": "brand-&-identity-marketing",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q004",
+      "question": "Can you help me create visual brand elements (logo, color palette, packaging style)?",
+      "category": "brand-&-identity-marketing",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q005",
+      "question": "How do I communicate brand values like sustainability, wellness, or innovation effectively?",
+      "category": "brand-&-identity-marketing",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q006",
+      "question": "Can you create a brand voice guide for my marketing team?",
+      "category": "brand-&-identity-marketing",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q007",
+      "question": "How do I measure brand awareness effectively in cannabis/CPG industries?",
+      "category": "brand-&-identity-marketing",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q008",
+      "question": "What strategies help establish credibility for new brands entering a regulated market?",
+      "category": "brand-&-identity-marketing",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q009",
+      "question": "How do I evolve my brand identity over time without losing recognition?",
+      "category": "brand-&-identity-marketing",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q010",
+      "question": "What are examples of cannabis brands that nailed a strong rebrand?",
+      "category": "brand-&-identity-marketing",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q011",
+      "question": "How can I protect my brand identity with trademarks in cannabis?",
+      "category": "brand-&-identity-marketing",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q012",
+      "question": "How can smaller operators compete with MSOs that have larger budgets?",
+      "category": "business-&-competitive-positioning",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q013",
+      "question": "How do I highlight my company’s expertise in formulations or testing to win trust?",
+      "category": "business-&-competitive-positioning",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q014",
+      "question": "Can I market partnerships with local cultivators or retailers as a differentiator?",
+      "category": "business-&-competitive-positioning",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q015",
+      "question": "How can I collaborate with local cultivators or retailers on special products?",
+      "category": "business-&-competitive-positioning",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q016",
+      "question": "How can I build credibility through certifications, testing results, or awards?",
+      "category": "business-&-competitive-positioning",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q017",
+      "question": "What type of awards or competitions are available for me to compete in, in my area?",
+      "category": "business-&-competitive-positioning",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q018",
+      "question": "What KPIs should I use to measure brand competitiveness?",
+      "category": "business-&-competitive-positioning",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q019",
+      "question": "How can niche product innovation (unique strains, formulations, or packaging) be used as a competitive advantage?",
+      "category": "business-&-competitive-positioning",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q020",
+      "question": "How do I identify gaps in the market that are not being served?",
+      "category": "business-&-competitive-positioning",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q021",
+      "question": "How do I identify specific products in my market that have the best potential based on current competition?",
+      "category": "business-&-competitive-positioning",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q022",
+      "question": "How do I analyze competitor campaigns without breaking compliance rules?",
+      "category": "business-&-competitive-positioning",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q023",
+      "question": "Are there any software tools to analyze competitor campaigns?",
+      "category": "business-&-competitive-positioning",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q024",
+      "question": "What are common mistakes smaller cannabis brands make when positioning themselves?",
+      "category": "business-&-competitive-positioning",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q025",
+      "question": "What are the top cannabis consumer trends I should build my positioning around this year?",
+      "category": "business-&-competitive-positioning",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q026",
+      "question": "What are the best ways to drive foot traffic to dispensaries or retail outlets?",
+      "category": "retail-&-consumer-marketing",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q027",
+      "question": "How can I collaborate with local cultivators or processors on products for my store only?",
+      "category": "retail-&-consumer-marketing",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q028",
+      "question": "How do I run compliant promotions for cannabis products?",
+      "category": "retail-&-consumer-marketing",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q029",
+      "question": "How do I promote my cannabis products on major social media platforms without getting banned?",
+      "category": "retail-&-consumer-marketing",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q030",
+      "question": "What are the most friendly social media platforms to advertise my cannabis products or brand?",
+      "category": "retail-&-consumer-marketing",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q031",
+      "question": "What retail activations (sampling, pop-ups, education events) work best in cannabis?",
+      "category": "retail-&-consumer-marketing",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q032",
+      "question": "What events are available regularly to participate in my market?",
+      "category": "retail-&-consumer-marketing",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q033",
+      "question": "What are some upcoming cannabis events in my state?",
+      "category": "retail-&-consumer-marketing",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q034",
+      "question": "Can I build loyalty programs for repeat customers, and what do they look like?",
+      "category": "retail-&-consumer-marketing",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q035",
+      "question": "What are the best loyalty platforms for email and text marketing?",
+      "category": "retail-&-consumer-marketing",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q036",
+      "question": "What are the best loyalty programs for customer reward points?",
+      "category": "retail-&-consumer-marketing",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q037",
+      "question": "How do I do text message marketing to customers in a compliant manner?",
+      "category": "retail-&-consumer-marketing",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q038",
+      "question": "How do I design point-of-sale displays that stand out while following regulations?",
+      "category": "retail-&-consumer-marketing",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q039",
+      "question": "What messaging connects with both budtenders and end consumers?",
+      "category": "retail-&-consumer-marketing",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q040",
+      "question": "How do I train budtenders to be better brand ambassadors?",
+      "category": "retail-&-consumer-marketing",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q041",
+      "question": "What are the best budtender training platforms?",
+      "category": "retail-&-consumer-marketing",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q042",
+      "question": "What data should I collect from retail to improve marketing performance?",
+      "category": "retail-&-consumer-marketing",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q043",
+      "question": "What AI tools are available to me to better serve my customers or give them a better experience?",
+      "category": "retail-&-consumer-marketing",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q044",
+      "question": "What are the best software tools for cannabis retailers?",
+      "category": "retail-&-consumer-marketing",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q045",
+      "question": "How do I set up effective carryout and delivery in my cannabis dispensary?",
+      "category": "retail-&-consumer-marketing",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q046",
+      "question": "What’s the best way to use geotargeting or local ads for dispensary customers?",
+      "category": "retail-&-consumer-marketing",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q047",
+      "question": "How can I get my products prioritized by dispensary managers?",
+      "category": "retail-&-consumer-marketing",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q048",
+      "question": "How do I leverage budtender incentives without breaking compliance rules?",
+      "category": "retail-&-consumer-marketing",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q049",
+      "question": "How do I create compelling product descriptions that are still compliant?",
+      "category": "product-marketing",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q050",
+      "question": "Can you help me create compelling product descriptions for my products in leaflink?",
+      "category": "product-marketing",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q051",
+      "question": "What are the best ways to make my LeafLink menu perfect?",
+      "category": "product-marketing",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q052",
+      "question": "Are there alternatives to LeafLink?",
+      "category": "product-marketing",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q053",
+      "question": "What's more effective for me, Weedmaps or Leafly?",
+      "category": "product-marketing",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q054",
+      "question": "How are advertisers using Weedmaps and/or Leafly most effectively?",
+      "category": "product-marketing",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q055",
+      "question": "What are the best ways to showcase lab results, testing data, or COAs in marketing?",
+      "category": "product-marketing",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q056",
+      "question": "Can you help me highlight the differences between formulations (vape, edibles, topicals)?",
+      "category": "product-marketing",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q057",
+      "question": "How do I explain complex processes like nanoemulsion or terpene blending to customers?",
+      "category": "product-marketing",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q058",
+      "question": "What messaging works best for new product launches?",
+      "category": "product-marketing",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q059",
+      "question": "What's the most effective way to identify what the right pricing is for my products?",
+      "category": "product-marketing",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q060",
+      "question": "How can I educate consumers about dosage, effects, or functional ingredients?",
+      "category": "product-marketing",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q061",
+      "question": "What's the most effective way to better train budtenders at our customers' locations?",
+      "category": "product-marketing",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q062",
+      "question": "What product packaging features (QR codes, interactive labels) can enhance marketing?",
+      "category": "product-marketing",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q063",
+      "question": "How do I effectively launch seasonal or limited-edition products?",
+      "category": "product-marketing",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q064",
+      "question": "Can you give me some examples or suggestions for seasonal or limited-edition products?",
+      "category": "product-marketing",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q065",
+      "question": "What are examples of compliant product naming strategies?",
+      "category": "product-marketing",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q066",
+      "question": "How do I create product bundles or kits that drive sales but stay compliant?",
+      "category": "product-marketing",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q067",
+      "question": "What’s the best way to highlight strain lineage and effects without making medical claims?",
+      "category": "product-marketing",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q068",
+      "question": "What strategies drive repeat purchases in cannabis and CPG?",
+      "category": "customer-retention-&-engagement",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q069",
+      "question": "How do I re-engage customers who haven’t purchased in a while?",
+      "category": "customer-retention-&-engagement",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q070",
+      "question": "What can I do if customers of ours have old products from us on their shelves, to help them move them so they buy more new products?",
+      "category": "customer-retention-&-engagement",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q071",
+      "question": "Can you design an email campaign to increase retention rates?",
+      "category": "customer-retention-&-engagement",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q072",
+      "question": "How do I make sure my customer emails are compliant?",
+      "category": "customer-retention-&-engagement",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q073",
+      "question": "Is there a preferred customer email marketing software meant for cannabis?",
+      "category": "customer-retention-&-engagement",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q074",
+      "question": "How do I gather and leverage customer reviews/testimonials?",
+      "category": "customer-retention-&-engagement",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q075",
+      "question": "What role does education (e.g., 'How to Use' guides, dosage tips) play in retention?",
+      "category": "customer-retention-&-engagement",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q076",
+      "question": "Can we build referral or ambassador programs that actually work?",
+      "category": "customer-retention-&-engagement",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q077",
+      "question": "What loyalty strategies are most effective for dispensaries vs. product brands?",
+      "category": "customer-retention-&-engagement",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q078",
+      "question": "How can I personalize digital campaigns for customer retention?",
+      "category": "customer-retention-&-engagement",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q079",
+      "question": "Are there any good cannabis CRMs for my sales teams?",
+      "category": "customer-retention-&-engagement",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q080",
+      "question": "How do I build a segmentation strategy for first-time vs. repeat customers?",
+      "category": "customer-retention-&-engagement",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q081",
+      "question": "How do I reduce churn when customers try competitor products?",
+      "category": "customer-retention-&-engagement",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q082",
+      "question": "How can I use gamification to increase engagement in loyalty programs?",
+      "category": "customer-retention-&-engagement",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q083",
+      "question": "How can small brands highlight authenticity and community ties?",
+      "category": "competing-as-a-smaller-brand-vs-msos",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q084",
+      "question": "How can my brand get more involved in the local community?",
+      "category": "competing-as-a-smaller-brand-vs-msos",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q085",
+      "question": "What storytelling techniques make smaller operators relatable to consumers?",
+      "category": "competing-as-a-smaller-brand-vs-msos",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q086",
+      "question": "Can I build a 'craft' positioning strategy similar to craft beer or artisanal food?",
+      "category": "competing-as-a-smaller-brand-vs-msos",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q087",
+      "question": "What digital marketing channels level the playing field for smaller brands?",
+      "category": "competing-as-a-smaller-brand-vs-msos",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q088",
+      "question": "How can local community sponsorships boost visibility against MSOs?",
+      "category": "competing-as-a-smaller-brand-vs-msos",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q089",
+      "question": "How do I maximize grassroots marketing with limited budgets?",
+      "category": "competing-as-a-smaller-brand-vs-msos",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q090",
+      "question": "What PR strategies work best for small cannabis brands?",
+      "category": "competing-as-a-smaller-brand-vs-msos",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q091",
+      "question": "How do I showcase transparency (cultivation, sourcing, testing) as a differentiator?",
+      "category": "competing-as-a-smaller-brand-vs-msos",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q092",
+      "question": "How do I tailor campaigns to reflect local culture or community values?",
+      "category": "regional-marketing",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q093",
+      "question": "Can I highlight regional sourcing (e.g., 'grown in Colorado') as a brand strength?",
+      "category": "regional-marketing",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q094",
+      "question": "How do I run compliant digital campaigns in markets with advertising restrictions?",
+      "category": "regional-marketing",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q095",
+      "question": "What seasonal or regional events should I tie my marketing into?",
+      "category": "regional-marketing",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q096",
+      "question": "How can I build partnerships with local influencers or organizations?",
+      "category": "regional-marketing",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q097",
+      "question": "What state-specific consumer behaviors should influence marketing strategy?",
+      "category": "regional-marketing",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q098",
+      "question": "How do I align with local tourism to attract new consumers?",
+      "category": "regional-marketing",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q099",
+      "question": "What’s the best way to market products near state borders?",
+      "category": "regional-marketing",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q100",
+      "question": "How can regional slang, culture, or art styles be used in branding safely?",
+      "category": "regional-marketing",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q101",
+      "question": "What words or claims are restricted in cannabis marketing?",
+      "category": "marketing-cannabis-products-&-following-regulations",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q102",
+      "question": "How do I avoid making unapproved health or medical claims?",
+      "category": "marketing-cannabis-products-&-following-regulations",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q103",
+      "question": "Do I have to submit any of my packaging to the state cannabis authority for certain products?",
+      "category": "marketing-cannabis-products-&-following-regulations",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q104",
+      "question": "What disclaimers are required in digital or print advertising?",
+      "category": "marketing-cannabis-products-&-following-regulations",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q105",
+      "question": "Can I use lifestyle imagery (e.g., people consuming) in campaigns?",
+      "category": "marketing-cannabis-products-&-following-regulations",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q106",
+      "question": "How do social media platform rules differ for cannabis vs. hemp?",
+      "category": "marketing-cannabis-products-&-following-regulations",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q107",
+      "question": "What are compliant alternatives to discounts or giveaways in regulated markets?",
+      "category": "marketing-cannabis-products-&-following-regulations",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q108",
+      "question": "How can I market cannabis products without crossing into medical claims?",
+      "category": "marketing-cannabis-products-&-following-regulations",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q109",
+      "question": "What education-focused campaigns are safest for compliance?",
+      "category": "marketing-cannabis-products-&-following-regulations",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q110",
+      "question": "How do I handle influencer partnerships while staying compliant?",
+      "category": "marketing-cannabis-products-&-following-regulations",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q111",
+      "question": "What’s the best way to review my content for compliance before publishing?",
+      "category": "marketing-cannabis-products-&-following-regulations",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q112",
+      "question": "Are there specific ad networks that are cannabis-compliant?",
+      "category": "marketing-cannabis-products-&-following-regulations",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q113",
+      "question": "How can hemp-based products be marketed differently than THC products?",
+      "category": "hemp-product-marketing",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q114",
+      "question": "Can I highlight functional benefits (like CBD for wellness) without making medical claims?",
+      "category": "hemp-product-marketing",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q115",
+      "question": "What consumer demographics respond most to hemp product marketing?",
+      "category": "hemp-product-marketing",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q116",
+      "question": "How do I market hemp edibles or beverages while staying compliant with FDA rules?",
+      "category": "hemp-product-marketing",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q117",
+      "question": "Can hemp-derived cannabinoids like CBG or CBN be used as marketing differentiators?",
+      "category": "hemp-product-marketing",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q118",
+      "question": "What retail strategies (e.g., mainstream stores, health shops) work best for hemp products?",
+      "category": "hemp-product-marketing",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q119",
+      "question": "How do I position hemp products against supplements or wellness categories?",
+      "category": "hemp-product-marketing",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q120",
+      "question": "What storytelling works best for hemp brands in lifestyle markets?",
+      "category": "hemp-product-marketing",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q121",
+      "question": "How do I overcome consumer confusion between hemp, CBD, and cannabis products?",
+      "category": "hemp-product-marketing",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q122",
+      "question": "What are the most effective influencer or ambassador strategies for hemp brands?",
+      "category": "hemp-product-marketing",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q123",
+      "question": "How do I market hemp products internationally where rules vary by country?",
+      "category": "hemp-product-marketing",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q124",
+      "question": "What’s the best cannabis CRM tool for a small dispensary?",
+      "category": "best-tools-&-comparisons",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q125",
+      "question": "What are some alternatives to LeafLink for wholesale management?",
+      "category": "best-tools-&-comparisons",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q126",
+      "question": "Which email marketing software is best for cannabis and compliant with state rules?",
+      "category": "best-tools-&-comparisons",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q127",
+      "question": "What’s the best loyalty rewards app for dispensaries?",
+      "category": "best-tools-&-comparisons",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q128",
+      "question": "Which SMS marketing platforms are safest for cannabis brands?",
+      "category": "best-tools-&-comparisons",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q129",
+      "question": "What’s the best point-of-sale (POS) system for dispensaries?",
+      "category": "best-tools-&-comparisons",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q130",
+      "question": "Which cannabis data analytics platforms are worth the investment?",
+      "category": "best-tools-&-comparisons",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q131",
+      "question": "What are the top platforms for cannabis SEO/SEM campaigns?",
+      "category": "best-tools-&-comparisons",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q132",
+      "question": "What is the best software for automating customer review collection?",
+      "category": "best-tools-&-comparisons",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q133",
+      "question": "What’s the most user-friendly design tool for compliant packaging mockups?",
+      "category": "best-tools-&-comparisons",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q134",
+      "question": "Which influencer platforms allow cannabis brands to safely connect with creators?",
+      "category": "best-tools-&-comparisons",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q135",
+      "question": "What are the best tools for creating a digital menu I can update in real-time?",
+      "category": "best-tools-&-comparisons",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q136",
+      "question": "What software integrates delivery, loyalty, and marketing all in one system?",
+      "category": "best-tools-&-comparisons",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q137",
+      "question": "Which platforms let me send interactive menus via text message?",
+      "category": "best-tools-&-comparisons",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q138",
+      "question": "What are the best social media scheduling tools that won’t flag cannabis content?",
+      "category": "best-tools-&-comparisons",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q139",
+      "question": "Which market research platforms show current cannabis consumer trends?",
+      "category": "best-tools-&-comparisons",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q140",
+      "question": "Can you make me a 1-pager on a new pre-roll I am launching?",
+      "category": "requests-to-the-marketing-agent",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q141",
+      "question": "Can you draft a social media calendar for my next product drop?",
+      "category": "requests-to-the-marketing-agent",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q142",
+      "question": "Can you create some compliant packaging designs for my new edible gummies?",
+      "category": "requests-to-the-marketing-agent",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q143",
+      "question": "Can you write 5 different ad copy variations for a vape cartridge campaign?",
+      "category": "requests-to-the-marketing-agent",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q144",
+      "question": "Can you create a flyer for my dispensary’s grand opening event?",
+      "category": "requests-to-the-marketing-agent",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q145",
+      "question": "Can you draft an email newsletter for my loyalty program launch?",
+      "category": "requests-to-the-marketing-agent",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q146",
+      "question": "Can you design a sample text blast for customers about this weekend’s sale?",
+      "category": "requests-to-the-marketing-agent",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q147",
+      "question": "Can you create compliant product descriptions for my dispensary menu?",
+      "category": "requests-to-the-marketing-agent",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q148",
+      "question": "Can you help me rewrite my Weedmaps/Leafly listing to stand out?",
+      "category": "requests-to-the-marketing-agent",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q149",
+      "question": "Can you design a point-of-sale display mockup for my new topical line?",
+      "category": "requests-to-the-marketing-agent",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q150",
+      "question": "Can you draft a pitch deck slide that showcases my brand’s sustainability efforts?",
+      "category": "requests-to-the-marketing-agent",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q151",
+      "question": "Can you create an educational “How to Dose Edibles Safely” guide for my customers?",
+      "category": "requests-to-the-marketing-agent",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q152",
+      "question": "Can you generate a press release template for a new product launch?",
+      "category": "requests-to-the-marketing-agent",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q153",
+      "question": "Can you help me draft a survey for customers to give feedback on packaging?",
+      "category": "requests-to-the-marketing-agent",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q154",
+      "question": "Can you create a marketing checklist for launching a seasonal limited-edition strain?",
+      "category": "requests-to-the-marketing-agent",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q155",
+      "question": "Can you mock up a QR code campaign that links to lab results and product videos?",
+      "category": "requests-to-the-marketing-agent",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q156",
+      "question": "Can you help me script a short promotional video for Instagram or TikTok?",
+      "category": "requests-to-the-marketing-agent",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "marketing-q157",
+      "question": "Can you create a compliant shelf-talker design for my flower jars?",
+      "category": "requests-to-the-marketing-agent",
+      "expectedAgent": "marketing",
+      "source": "tech-ops-validation"
+    },
+    {
+      "id": "formulation-agent-001",
+      "question": "Example question for formulation-agent",
+      "category": "formulation",
+      "expectedAgent": "formulation-agent",
+      "tier": "standard"
+    },
+    {
+      "id": "science-agent-001",
+      "question": "Example question for science-agent",
+      "category": "science",
+      "expectedAgent": "science-agent",
+      "tier": "standard"
     },
     {
       "id": "spectra-agent-001",
       "question": "Example question for spectra-agent",
       "category": "spectra",
       "expectedAgent": "spectra-agent",
-      "tier": "standard",
-      "sourceAgent": "spectra-agent"
-    },
-    {
-      "id": "mcr-agent-001",
-      "question": "Example question for mcr-agent",
-      "category": "mcr",
-      "expectedAgent": "mcr-agent",
-      "tier": "standard",
-      "sourceAgent": "mcr-agent"
+      "tier": "standard"
     },
     {
       "id": "customer-success-agent-001",
       "question": "Example question for customer-success-agent",
       "category": "customer-success",
       "expectedAgent": "customer-success-agent",
-      "tier": "standard",
-      "sourceAgent": "customer-success-agent"
+      "tier": "standard"
     },
     {
       "id": "ad-agent-001",
       "question": "Example question for ad-agent",
       "category": "ad",
       "expectedAgent": "ad-agent",
-      "tier": "standard",
-      "sourceAgent": "ad-agent"
-    },
-    {
-      "id": "editor-agent-001",
-      "question": "Example question for editor-agent",
-      "category": "editor",
-      "expectedAgent": "editor-agent",
-      "tier": "standard",
-      "sourceAgent": "editor-agent"
-    },
-    {
-      "id": "f8-slackbot-001",
-      "question": "Example question for f8-slackbot",
-      "category": "slackbot",
-      "expectedAgent": "f8-slackbot",
-      "tier": "standard",
-      "sourceAgent": "f8-slackbot"
+      "tier": "standard"
     }
   ]
 }

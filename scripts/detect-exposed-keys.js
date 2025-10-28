@@ -133,6 +133,19 @@ class KeyDetector {
   // Get file content (from git or filesystem)
   getFileContent(filePath) {
     try {
+      // In pre-commit mode, read from the staged index
+      // Otherwise read from HEAD
+      if (this.options.base === 'HEAD~1' && this.options.head === 'HEAD') {
+        // Pre-commit: read staged changes
+        try {
+          return execSync(`git show :${filePath}`, { encoding: 'utf-8' });
+        } catch (e) {
+          // File not staged, try filesystem
+          if (fs.existsSync(filePath)) {
+            return fs.readFileSync(filePath, 'utf-8');
+          }
+        }
+      }
       // Try to read from HEAD
       return execSync(`git show HEAD:${filePath}`, { encoding: 'utf-8' });
     } catch (error) {

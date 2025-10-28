@@ -93,12 +93,12 @@ const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
 
 ```javascript
 // ❌ WRONG - Never do this!
-const apiKey = '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';
+const apiKey = 'sk-or-v1-YOUR-ACTUAL-KEY-HERE';
 
 // ❌ WRONG - Never do this!
 const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
   headers: {
-    'Authorization': 'Bearer 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'
+    'Authorization': 'Bearer sk-or-v1-YOUR-ACTUAL-KEY-HERE'
   }
 });
 ```
@@ -107,10 +107,10 @@ const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
 
 ```markdown
 <!-- ❌ WRONG -->
-**Example:** `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`
+**Example:** `sk-or-v1-[ACTUAL-KEY-HERE]`
 
 <!-- ❌ WRONG -->
-**Example:** `sk-or-v1-23c...95e` (still exposes part of the key)
+**Example:** `sk-or-v1-abc...xyz` (still exposes part of the key)
 ```
 
 ---

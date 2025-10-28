@@ -10,7 +10,7 @@
 
 An OpenRouter API key ending in `...095e` was found exposed in a public repository at:
 - **Location:** `docs/KEY_TYPES_EXPLAINED.md`
-- **Key:** `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`
+- **Key:** `sk-or-v1-[REDACTED]`
 - **Type:** Regular API Key (Production)
 
 ---
@@ -19,7 +19,7 @@ An OpenRouter API key ending in `...095e` was found exposed in a public reposito
 
 ### 1. Immediate Response
 - ✅ **Removed exposed key** from `docs/KEY_TYPES_EXPLAINED.md`
-- ✅ **Replaced with placeholder** (`sk-or-v1-23c043e88c305f79fdac26f93b3509350570ae7d175231cf018adec4b17a****`)
+- ✅ **Replaced with placeholder** (`sk-or-v1-[REDACTED]`)
 - ✅ **Scanned entire codebase** for additional exposures
 - ✅ **Found 16 additional historical keys** in documentation (already revoked)
 
@@ -43,7 +43,7 @@ An OpenRouter API key ending in `...095e` was found exposed in a public reposito
 #### Option B: Using Provisioning API
 ```bash
 # Set your provisioning key
-export OPENROUTER_PROVISIONING_KEY="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"
+export OPENROUTER_PROVISIONING_KEY="sk-or-v1-YOUR-PROVISIONING-KEY-HERE"
 
 # List keys to find the ID
 node scripts/openrouter-key-manager.js list
