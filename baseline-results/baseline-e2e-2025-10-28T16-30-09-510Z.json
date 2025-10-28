@@ -1,0 +1,267 @@
+{
+  "timestamp": "2025-10-28T16:30:09.509Z",
+  "url": "https://chat.formul8.ai",
+  "totalQuestions": 20,
+  "passed": 0,
+  "failed": 20,
+  "averageScore": "18.25",
+  "averageGrade": "F",
+  "results": [
+    {
+      "questionNum": 1,
+      "question": "Can you make me a compliant SOP for Cannabis Transport in New Jersey?",
+      "category": "sop-generation-compliance-documentation",
+      "agent": "unknown",
+      "response": "// For non-logged in users, create a temporary conversation",
+      "duration": 13149,
+      "grade": "F",
+      "score": 20,
+      "grading": {
+        "length": "Fail - too short",
+        "noErrors": "Pass",
+        "structure": "Fail - no structure",
+        "relevance": "0/4 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 2,
+      "question": "Can you make me a compliant SOP for pre-roll production in New York?",
+      "category": "sop-generation-compliance-documentation",
+      "agent": "unknown",
+      "response": "F\n                    **Standard Operating Procedure (SOP) – Cannabis Transportation in New Jersey**  *Version 1.0 – Effective [Date]*  ### 1. PurposeTo establish a consistent, secure, and **state‑compliant** process for the transportation of licensed cannabis products (plant material, extracts, edibles, and related items) between cultivation, processing, testing, distribution, and retail facilities in New Jersey.### 2. Scope- Applies to **all employees, contractors, and third‑party carriers** who handle or transport cannabis on behalf of **[Company Name]**.  - Covers **in‑state road transport** only (NJ State Routes, inter‑county highways, and municipal roads).  - Excludes air, rail, or out‑of‑state shipments (subject to separate SOPs).### 3. References & Regulatory Framework| Source | Relevance ||--------|-----------|| **NJ Cannabis Regulatory Commission (CRC) – Regulation 13‑1** | Licensing, security, and tracking requirements for transporters || **N.J. Stat. §§ 2C:35‑1 to 2C:35‑10** | Definitions, possession limits, and record‑keeping || **N.J. Administrative Code (N.J.A.C.) 13:1‑1‑1 et seq.** | Vehicle markings, GPS, and manifest standards || **Federal DEA‑ARC‑21 (if applicable)** | Interstate or controlled‑substance considerations (not required for NJ‑only transport) || **Occupational Safety & Health Act (OSHA) – Hazard Communication** | Worker safety when handling extracts/edibles |*(All references are current as of the SOP issue date; consult the CRC website for updates.)*### 4. Definitions| Term | Definition ||------|------------|| **Transporter** | Person or entity holding a valid **Transporter License** issued by the CRC. || **Secure Container** | Tamper‑evident, lockable, climate‑controlled unit meeting CRC specifications. || **Manifest** | Electronic record (CRC‑approved software) detailing product type, quantity, origin, destination, and driver information. || **GPS Tracker** | Real‑time location device that meets CRC minimum specifications (continuous transmission, encrypted). || **Chain‑of‑Custody** | Documentation that verifies each transfer of possession from origin to destination. |### 5. Roles & Responsibilities| Role | Primary Duties ||------|----------------|| **Transport Manager** | Issue/renew transporter licenses, maintain SOP, oversee training, audit compliance. || **Driver / Carrier** | Conduct pre‑trip checks, secure load, follow route plan, maintain manifest, report incidents. || **Security Officer** | Perform background checks, oversee GPS monitoring, conduct random audits. || **Compliance Officer** | Review manifests, ensure record‑keeping meets CRC retention (minimum 3 years). || **Warehouse/Dispatch Staff** | Verify product quantity/weight, seal containers, generate manifest, hand‑off to driver. |### 6. Procedure Overview#### 6.1 Pre‑Transport Preparation1. **License Verification** – Confirm driver and vehicle hold a current **Transporter License** and **Vehicle Registration** on the CRC portal.  2. **Background Check** – Ensure driver’s background remains clear per CRC standards (no felony convictions related to controlled substances).  3. **Vehicle Inspection** – Verify:     - Valid **insurance** (minimum $1 M liability).     - **GPS tracker** is functional and transmitting.     - **Secure storage area** (locked, climate‑controlled).     - **Vehicle markings** (if required by CRC, e.g., “Transport Vehicle – Cannabis”).  4. **Product Verification** – Warehouse staff must:     - Match product quantity/weight to the **manifest**.     - Place product in a **tamper‑evident container**; seal and document seal number.     - Record **batch/lot numbers**, THC/CBD content, and any special handling instructions.  #### 6.*Agent: F8 Multi-Agent | Plan: Free | Tokens: 1166 (166→1000) | Cost: $0.000000*",
+      "duration": 9066,
+      "grade": "F",
+      "score": 48.75,
+      "grading": {
+        "length": "Pass",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "1/4 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 3,
+      "question": "Can you make me a product recall SOP?",
+      "category": "sop-generation-compliance-documentation",
+      "agent": "unknown",
+      "response": "F\n                    **Standard Operating Procedure (SOP) – Cannabis Transportation in New Jersey**  *Version 1.0 – Effective [Date]*  ### 1. PurposeTo establish a consistent, secure, and **state‑compliant** process for the transportation of licensed cannabis products (plant material, extracts, edibles, and related items) between cultivation, processing, testing, distribution, and retail facilities in New Jersey.### 2. Scope- Applies to **all employees, contractors, and third‑party carriers** who handle or transport cannabis on behalf of **[Company Name]**.  - Covers **in‑state road transport** only (NJ State Routes, inter‑county highways, and municipal roads).  - Excludes air, rail, or out‑of‑state shipments (subject to separate SOPs).### 3. References & Regulatory Framework| Source | Relevance ||--------|-----------|| **NJ Cannabis Regulatory Commission (CRC) – Regulation 13‑1** | Licensing, security, and tracking requirements for transporters || **N.J. Stat. §§ 2C:35‑1 to 2C:35‑10** | Definitions, possession limits, and record‑keeping || **N.J. Administrative Code (N.J.A.C.) 13:1‑1‑1 et seq.** | Vehicle markings, GPS, and manifest standards || **Federal DEA‑ARC‑21 (if applicable)** | Interstate or controlled‑substance considerations (not required for NJ‑only transport) || **Occupational Safety & Health Act (OSHA) – Hazard Communication** | Worker safety when handling extracts/edibles |*(All references are current as of the SOP issue date; consult the CRC website for updates.)*### 4. Definitions| Term | Definition ||------|------------|| **Transporter** | Person or entity holding a valid **Transporter License** issued by the CRC. || **Secure Container** | Tamper‑evident, lockable, climate‑controlled unit meeting CRC specifications. || **Manifest** | Electronic record (CRC‑approved software) detailing product type, quantity, origin, destination, and driver information. || **GPS Tracker** | Real‑time location device that meets CRC minimum specifications (continuous transmission, encrypted). || **Chain‑of‑Custody** | Documentation that verifies each transfer of possession from origin to destination. |### 5. Roles & Responsibilities| Role | Primary Duties ||------|----------------|| **Transport Manager** | Issue/renew transporter licenses, maintain SOP, oversee training, audit compliance. || **Driver / Carrier** | Conduct pre‑trip checks, secure load, follow route plan, maintain manifest, report incidents. || **Security Officer** | Perform background checks, oversee GPS monitoring, conduct random audits. || **Compliance Officer** | Review manifests, ensure record‑keeping meets CRC retention (minimum 3 years). || **Warehouse/Dispatch Staff** | Verify product quantity/weight, seal containers, generate manifest, hand‑off to driver. |### 6. Procedure Overview#### 6.1 Pre‑Transport Preparation1. **License Verification** – Confirm driver and vehicle hold a current **Transporter License** and **Vehicle Registration** on the CRC portal.  2. **Background Check** – Ensure driver’s background remains clear per CRC standards (no felony convictions related to controlled substances).  3. **Vehicle Inspection** – Verify:     - Valid **insurance** (minimum $1 M liability).     - **GPS tracker** is functional and transmitting.     - **Secure storage area** (locked, climate‑controlled).     - **Vehicle markings** (if required by CRC, e.g., “Transport Vehicle – Cannabis”).  4. **Product Verification** – Warehouse staff must:     - Match product quantity/weight to the **manifest**.     - Place product in a **tamper‑evident container**; seal and document seal number.     - Record **batch/lot numbers**, THC/CBD content, and any special handling instructions.  #### 6.*Agent: F8 Multi-Agent | Plan: Free | Tokens: 1166 (166→1000) | Cost: $0.000000*",
+      "duration": 3021,
+      "grade": "F",
+      "score": 52.5,
+      "grading": {
+        "length": "Pass",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "1/2 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 4,
+      "question": "What are the requirements for testing regular pre-rolls when I bought the raw material from a cultivator that already tested it?",
+      "category": "product-testing-infusion-rules",
+      "agent": "unknown",
+      "response": "F\n                    **Standard Operating Procedure (SOP) – Cannabis Transportation in New Jersey**  *Version 1.0 – Effective [Date]*  ### 1. PurposeTo establish a consistent, secure, and **state‑compliant** process for the transportation of licensed cannabis products (plant material, extracts, edibles, and related items) between cultivation, processing, testing, distribution, and retail facilities in New Jersey.### 2. Scope- Applies to **all employees, contractors, and third‑party carriers** who handle or transport cannabis on behalf of **[Company Name]**.  - Covers **in‑state road transport** only (NJ State Routes, inter‑county highways, and municipal roads).  - Excludes air, rail, or out‑of‑state shipments (subject to separate SOPs).### 3. References & Regulatory Framework| Source | Relevance ||--------|-----------|| **NJ Cannabis Regulatory Commission (CRC) – Regulation 13‑1** | Licensing, security, and tracking requirements for transporters || **N.J. Stat. §§ 2C:35‑1 to 2C:35‑10** | Definitions, possession limits, and record‑keeping || **N.J. Administrative Code (N.J.A.C.) 13:1‑1‑1 et seq.** | Vehicle markings, GPS, and manifest standards || **Federal DEA‑ARC‑21 (if applicable)** | Interstate or controlled‑substance considerations (not required for NJ‑only transport) || **Occupational Safety & Health Act (OSHA) – Hazard Communication** | Worker safety when handling extracts/edibles |*(All references are current as of the SOP issue date; consult the CRC website for updates.)*### 4. Definitions| Term | Definition ||------|------------|| **Transporter** | Person or entity holding a valid **Transporter License** issued by the CRC. || **Secure Container** | Tamper‑evident, lockable, climate‑controlled unit meeting CRC specifications. || **Manifest** | Electronic record (CRC‑approved software) detailing product type, quantity, origin, destination, and driver information. || **GPS Tracker** | Real‑time location device that meets CRC minimum specifications (continuous transmission, encrypted). || **Chain‑of‑Custody** | Documentation that verifies each transfer of possession from origin to destination. |### 5. Roles & Responsibilities| Role | Primary Duties ||------|----------------|| **Transport Manager** | Issue/renew transporter licenses, maintain SOP, oversee training, audit compliance. || **Driver / Carrier** | Conduct pre‑trip checks, secure load, follow route plan, maintain manifest, report incidents. || **Security Officer** | Perform background checks, oversee GPS monitoring, conduct random audits. || **Compliance Officer** | Review manifests, ensure record‑keeping meets CRC retention (minimum 3 years). || **Warehouse/Dispatch Staff** | Verify product quantity/weight, seal containers, generate manifest, hand‑off to driver. |### 6. Procedure Overview#### 6.1 Pre‑Transport Preparation1. **License Verification** – Confirm driver and vehicle hold a current **Transporter License** and **Vehicle Registration** on the CRC portal.  2. **Background Check** – Ensure driver’s background remains clear per CRC standards (no felony convictions related to controlled substances).  3. **Vehicle Inspection** – Verify:     - Valid **insurance** (minimum $1 M liability).     - **GPS tracker** is functional and transmitting.     - **Secure storage area** (locked, climate‑controlled).     - **Vehicle markings** (if required by CRC, e.g., “Transport Vehicle – Cannabis”).  4. **Product Verification** – Warehouse staff must:     - Match product quantity/weight to the **manifest**.     - Place product in a **tamper‑evident container**; seal and document seal number.     - Record **batch/lot numbers**, THC/CBD content, and any special handling instructions.  #### 6.*Agent: F8 Multi-Agent | Plan: Free | Tokens: 1166 (166→1000) | Cost: $0.000000*",
+      "duration": 3018,
+      "grade": "F",
+      "score": 51,
+      "grading": {
+        "length": "Pass",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "2/5 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 5,
+      "question": "Can I make an infused pre-roll without retesting it if I am using already tested flower and concentrate?",
+      "category": "product-testing-infusion-rules",
+      "agent": "unknown",
+      "response": "F\n                    **Standard Operating Procedure (SOP) – Pre‑Roll Production  New York State Adult‑Use Cannabis Program**  **Document Control**  | Item | Description ||------|-------------|| **SOP Title** | Pre‑Roll Production – NY Adult‑Use || **Version** | 1.0 || **Effective Date** | [Insert Date] || **Review Date** | [Insert Date – 12 months later] || **Prepared By** | [Name, Title] || **Approved By** | [Name, Title] || **Reference Regulations** | NY Cannabis Law (2021) & 2022 NYS DOH Adult‑Use Cannabis Regulations (Sections 101‑131), Metrc Track‑and‑Trace Requirements, 21 NYCRR Part 130‑1 (Packaging/Labeling), 21 NYCRR Part 130‑2 (Testing), 21 NYCRR Part 130‑3 (Security). |## 1. PURPOSETo define a repeatable, documented process for producing cannabis pre‑rolls that meets all New York State (NYS) regulatory requirements for quality, safety, labeling, testing, tracking, and security.## 2. SCOPEApplies to all personnel involved in the **manufacturing, packaging, labeling, testing, storage, and distribution** of pre‑roll products at **[Facility Name]**. Covers flower sourced from licensed NYS cultivators and all downstream activities until the product is released to the state‑approved distributor or retailer.## 3. DEFINITIONS| Term | Definition ||------|------------|| **Batch** | All pre‑rolls produced from a single set of flower, processed under one production run and assigned a unique Batch/Lot number. || **Metrc** | NYS‑approved electronic track‑and‑trace system. || **THC %** | Total delta‑9‑tetrahydrocannabinol concentration measured by a state‑approved laboratory. || **Child‑Resistant (CR)** | Packaging that meets 21 NYCRR Part 130‑1 standards. || **Tamper‑Evident (TE)** | Packaging that shows visible evidence if opened. || **QR Code** | Machine‑readable code linking to the product’s Metrc record. || **QC** | Quality Control – testing and inspection activities. |## 4. RESPONSIBILITIES| Role | Primary Duties ||------|----------------|| **Production Manager** | Ensure SOP adherence, batch record completion, and coordinate with QC and Metrc. || **QC Analyst** | Perform potency, pesticide, microbial, residual solvent, and foreign‑material tests; release/hold batches. || **Packaging Technician** | Operate CR/TE packaging equipment, verify label accuracy, affix QR codes, and record packaging data in Metrc. || **Security Officer** | Maintain 24‑hr video surveillance, access logs, and secure storage of raw material, work‑in‑process, and finished goods. || **Compliance Officer** | Stay current on NYS regulations, conduct internal audits, and liaise with the NYS DOH. || **Employee** | Follow*Agent: F8 Multi-Agent | Plan: Free | Tokens: 1166 (166→1000) | Cost: $0.000000*",
+      "duration": 3030,
+      "grade": "F",
+      "score": 45,
+      "grading": {
+        "length": "Pass",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "0/5 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 6,
+      "question": "Do I have to show harvest date or production date on infused products?",
+      "category": "product-testing-infusion-rules",
+      "agent": "unknown",
+      "response": "F\n                    **Standard Operating Procedure (SOP) – Pre‑Roll Production  New York State Adult‑Use Cannabis Program**  **Document Control**  | Item | Description ||------|-------------|| **SOP Title** | Pre‑Roll Production – NY Adult‑Use || **Version** | 1.0 || **Effective Date** | [Insert Date] || **Review Date** | [Insert Date – 12 months later] || **Prepared By** | [Name, Title] || **Approved By** | [Name, Title] || **Reference Regulations** | NY Cannabis Law (2021) & 2022 NYS DOH Adult‑Use Cannabis Regulations (Sections 101‑131), Metrc Track‑and‑Trace Requirements, 21 NYCRR Part 130‑1 (Packaging/Labeling), 21 NYCRR Part 130‑2 (Testing), 21 NYCRR Part 130‑3 (Security). |## 1. PURPOSETo define a repeatable, documented process for producing cannabis pre‑rolls that meets all New York State (NYS) regulatory requirements for quality, safety, labeling, testing, tracking, and security.## 2. SCOPEApplies to all personnel involved in the **manufacturing, packaging, labeling, testing, storage, and distribution** of pre‑roll products at **[Facility Name]**. Covers flower sourced from licensed NYS cultivators and all downstream activities until the product is released to the state‑approved distributor or retailer.## 3. DEFINITIONS| Term | Definition ||------|------------|| **Batch** | All pre‑rolls produced from a single set of flower, processed under one production run and assigned a unique Batch/Lot number. || **Metrc** | NYS‑approved electronic track‑and‑trace system. || **THC %** | Total delta‑9‑tetrahydrocannabinol concentration measured by a state‑approved laboratory. || **Child‑Resistant (CR)** | Packaging that meets 21 NYCRR Part 130‑1 standards. || **Tamper‑Evident (TE)** | Packaging that shows visible evidence if opened. || **QR Code** | Machine‑readable code linking to the product’s Metrc record. || **QC** | Quality Control – testing and inspection activities. |## 4. RESPONSIBILITIES| Role | Primary Duties ||------|----------------|| **Production Manager** | Ensure SOP adherence, batch record completion, and coordinate with QC and Metrc. || **QC Analyst** | Perform potency, pesticide, microbial, residual solvent, and foreign‑material tests; release/hold batches. || **Packaging Technician** | Operate CR/TE packaging equipment, verify label accuracy, affix QR codes, and record packaging data in Metrc. || **Security Officer** | Maintain 24‑hr video surveillance, access logs, and secure storage of raw material, work‑in‑process, and finished goods. || **Compliance Officer** | Stay current on NYS regulations, conduct internal audits, and liaise with the NYS DOH. || **Employee** | Follow*Agent: F8 Multi-Agent | Plan: Free | Tokens: 1166 (166→1000) | Cost: $0.000000*",
+      "duration": 3233,
+      "grade": "F",
+      "score": 48.75,
+      "grading": {
+        "length": "Pass",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "1/4 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 7,
+      "question": "Are there different rules for various types of infused products related to this same question?",
+      "category": "product-testing-infusion-rules",
+      "agent": "unknown",
+      "response": "F\n                    **Standard Operating Procedure (SOP) – Pre‑Roll Production  New York State Adult‑Use Cannabis Program**  **Document Control**  | Item | Description ||------|-------------|| **SOP Title** | Pre‑Roll Production – NY Adult‑Use || **Version** | 1.0 || **Effective Date** | [Insert Date] || **Review Date** | [Insert Date – 12 months later] || **Prepared By** | [Name, Title] || **Approved By** | [Name, Title] || **Reference Regulations** | NY Cannabis Law (2021) & 2022 NYS DOH Adult‑Use Cannabis Regulations (Sections 101‑131), Metrc Track‑and‑Trace Requirements, 21 NYCRR Part 130‑1 (Packaging/Labeling), 21 NYCRR Part 130‑2 (Testing), 21 NYCRR Part 130‑3 (Security). |## 1. PURPOSETo define a repeatable, documented process for producing cannabis pre‑rolls that meets all New York State (NYS) regulatory requirements for quality, safety, labeling, testing, tracking, and security.## 2. SCOPEApplies to all personnel involved in the **manufacturing, packaging, labeling, testing, storage, and distribution** of pre‑roll products at **[Facility Name]**. Covers flower sourced from licensed NYS cultivators and all downstream activities until the product is released to the state‑approved distributor or retailer.## 3. DEFINITIONS| Term | Definition ||------|------------|| **Batch** | All pre‑rolls produced from a single set of flower, processed under one production run and assigned a unique Batch/Lot number. || **Metrc** | NYS‑approved electronic track‑and‑trace system. || **THC %** | Total delta‑9‑tetrahydrocannabinol concentration measured by a state‑approved laboratory. || **Child‑Resistant (CR)** | Packaging that meets 21 NYCRR Part 130‑1 standards. || **Tamper‑Evident (TE)** | Packaging that shows visible evidence if opened. || **QR Code** | Machine‑readable code linking to the product’s Metrc record. || **QC** | Quality Control – testing and inspection activities. |## 4. RESPONSIBILITIES| Role | Primary Duties ||------|----------------|| **Production Manager** | Ensure SOP adherence, batch record completion, and coordinate with QC and Metrc. || **QC Analyst** | Perform potency, pesticide, microbial, residual solvent, and foreign‑material tests; release/hold batches. || **Packaging Technician** | Operate CR/TE packaging equipment, verify label accuracy, affix QR codes, and record packaging data in Metrc. || **Security Officer** | Maintain 24‑hr video surveillance, access logs, and secure storage of raw material, work‑in‑process, and finished goods. || **Compliance Officer** | Stay current on NYS regulations, conduct internal audits, and liaise with the NYS DOH. || **Employee** | Follow*Agent: F8 Multi-Agent | Plan: Free | Tokens: 1166 (166→1000) | Cost: $0.000000*",
+      "duration": 3030,
+      "grade": "F",
+      "score": 45,
+      "grading": {
+        "length": "Pass",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "0/5 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 8,
+      "question": "What are the requirements in my state for me to be able to introduce or infuse cannabis or botanical-derived terpenes into my products?",
+      "category": "product-testing-infusion-rules",
+      "agent": "unknown",
+      "response": "F\n                    **Short answer:**  Even if the flower you purchase already has a COA from the cultivator, most states still require **a separate, “finished‑product” test** on the pre‑rolls before they can be packaged and sold. The test must cover potency, contaminants, and any additives you introduce. The cultivator’s COA can be used as supporting documentation, but it does **not** replace the final‑product analysis.Below is a quick‑reference guide that works for the majority of U.S. state cannabis programs (the exact numbers may vary by jurisdiction, so always check the specific state’s adult‑use or medical‑use regulations).## 1. Why a new test is required| Reason | Explanation ||--------|-------------|| **Product transformation** | Rolling, trimming, adding filters, or mixing strains can change the cannabinoid/terpene profile and introduce contaminants (e.g., from handling equipment). || **Regulatory definition** | Most states define a “product” as the **final, packaged item** that leaves the facility. The “raw material” test only satisfies the “intermediate” requirement. || **Chain‑of‑custody & traceability** | Regulators must see a COA that is linked to the exact batch of pre‑rolls (batch ID, lot number, date of manufacture). || **Label accuracy** | Consumers must be told the exact THC/CBD content per pre‑roll; this can only be verified on the finished product. || **Safety** | Additional steps (e.g., grinding, handling, storage) can introduce microbes, heavy metals (from equipment), or pesticide residues from the environment. |## 2. Typical testing matrix for a finished pre‑roll batch| Test | Typical limit (varies by state) | Why it matters for pre‑rolls ||------|--------------------------------|------------------------------|| **Potency (THC, CBD, other cannabinoids)** | ±10 % of label claim | Determines dosage per roll || **Terpene profile** (optional but often required) | N/A (report only) | Helps verify strain identity & product consistency || **Microbial – Total Aerobic Count (TAC)** | ≤10⁴ CFU/g (or state‑specific) | Grinding can introduce microbes || **Yeast & Mold** (e.g., *Aspergillus* spp.) | <10³ CFU/g; *A. flavus*/*A. fumigatus* absent | Critical for inhalable products || **Pesticides** (multi‑residue panel) | State‑specific MRLs (often <0.5 ppm) | Residues can concentrate during grinding || **Heavy Metals** (Pb, As, Cd, Hg) | ≤0.5 ppm (or state‑specific) | Metal particles from equipment or storage || **Residual Solvents** (if any extracts are added) | ≤0.5 % (or state‑specific) | Only needed if you add vape‑grade extracts || **Mycotoxins** (e.g., aflatoxins) | <10 ppb | Inhalation risk || **Moisture content** (optional) | ≤12 % (dry weight) | Affects burn quality & shelf life |*If you are only using **flower** (no extracts, no additives), you can usually skip the residual‑solvent panel, but many states still require it as a “blank” check.*## 3. Sampling plan (most common)| Parameter | Sample size | Frequency ||-----------|------------|-----------|| **Batch size** | Typically 1 kg of finished pre‑rolls = one “batch” for testing. Smaller batches may be grouped. | Every batch shipped to retail. || **Sample taken** | 0.5 g*Agent: Formulation Agent | Plan: Free | Tokens: 1220 (220→1000) | Cost: $0.000000*",
+      "duration": 3018,
+      "grade": "F",
+      "score": 54,
+      "grading": {
+        "length": "Pass",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "3/5 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 9,
+      "question": "Does this vary for different products?",
+      "category": "product-testing-infusion-rules",
+      "response": null,
+      "error": "page.waitForTimeout: Test ended.",
+      "duration": 0,
+      "grade": "F",
+      "score": 0
+    },
+    {
+      "questionNum": 10,
+      "question": "What are the labeling requirements for packaged concentrates?",
+      "category": "labeling-packaging-compliance",
+      "response": null,
+      "error": "locator.waitFor: Target page, context or browser has been closed",
+      "duration": 0,
+      "grade": "F",
+      "score": 0
+    },
+    {
+      "questionNum": 11,
+      "question": "Is my edibles packaging compliant to national, state, and local regulations?",
+      "category": "labeling-packaging-compliance",
+      "response": null,
+      "error": "locator.waitFor: Target page, context or browser has been closed",
+      "duration": 0,
+      "grade": "F",
+      "score": 0
+    },
+    {
+      "questionNum": 12,
+      "question": "When is childproof packaging required for certain cannabis products?",
+      "category": "labeling-packaging-compliance",
+      "response": null,
+      "error": "locator.waitFor: Target page, context or browser has been closed",
+      "duration": 0,
+      "grade": "F",
+      "score": 0
+    },
+    {
+      "questionNum": 13,
+      "question": "Can I use leftover packaging labels from last month if they’re still accurate?",
+      "category": "labeling-packaging-compliance",
+      "response": null,
+      "error": "locator.waitFor: Target page, context or browser has been closed",
+      "duration": 0,
+      "grade": "F",
+      "score": 0
+    },
+    {
+      "questionNum": 14,
+      "question": "How potent can our edibles be?",
+      "category": "edibles-potency-formulation",
+      "response": null,
+      "error": "locator.waitFor: Target page, context or browser has been closed",
+      "duration": 0,
+      "grade": "F",
+      "score": 0
+    },
+    {
+      "questionNum": 15,
+      "question": "Can we do 100 or 200 mg packages?",
+      "category": "edibles-potency-formulation",
+      "response": null,
+      "error": "locator.waitFor: Target page, context or browser has been closed",
+      "duration": 0,
+      "grade": "F",
+      "score": 0
+    },
+    {
+      "questionNum": 16,
+      "question": "Can we do more than 200 mg?",
+      "category": "edibles-potency-formulation",
+      "response": null,
+      "error": "locator.waitFor: Target page, context or browser has been closed",
+      "duration": 0,
+      "grade": "F",
+      "score": 0
+    },
+    {
+      "questionNum": 17,
+      "question": "Is there a per-piece requirement for max dosage?",
+      "category": "edibles-potency-formulation",
+      "response": null,
+      "error": "locator.waitFor: Target page, context or browser has been closed",
+      "duration": 0,
+      "grade": "F",
+      "score": 0
+    },
+    {
+      "questionNum": 18,
+      "question": "What am I allowed to cut my vape cartridge APIs (distillate or decarbed resin) with that is safe and compliant?",
+      "category": "formulation-ingredient-compliance",
+      "response": null,
+      "error": "locator.waitFor: Target page, context or browser has been closed",
+      "duration": 0,
+      "grade": "F",
+      "score": 0
+    },
+    {
+      "questionNum": 19,
+      "question": "What are considered banned substances when formulating various cannabis products?",
+      "category": "formulation-ingredient-compliance",
+      "response": null,
+      "error": "locator.waitFor: Target page, context or browser has been closed",
+      "duration": 0,
+      "grade": "F",
+      "score": 0
+    },
+    {
+      "questionNum": 20,
+      "question": "Can I use hemp-based cannabinoids like CBD or CBG (or others) in production of my cannabis products?",
+      "category": "formulation-ingredient-compliance",
+      "response": null,
+      "error": "locator.waitFor: Target page, context or browser has been closed",
+      "duration": 0,
+      "grade": "F",
+      "score": 0
+    }
+  ]
+}

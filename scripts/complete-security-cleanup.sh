@@ -190,9 +190,9 @@ prompt_continue
 print_step "Revoke Exposed Regular API Keys"
 
 EXPOSED_KEYS=(
-    "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"  # Lambda key
-    "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"  # Hardcoded
-    "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"  # Documentation
+    "sk-or-v1-REMOVED-EXPOSED-KEY"  # Lambda key
+    "sk-or-v1-REMOVED-EXPOSED-KEY"  # Hardcoded
+    "sk-or-v1-REMOVED-EXPOSED-KEY"  # Documentation
 )
 
 info "Found ${#EXPOSED_KEYS[@]} exposed keys to revoke"

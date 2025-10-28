@@ -1,0 +1,96 @@
+{
+  "timestamp": "2025-10-28T16:23:17.665Z",
+  "url": "https://chat.formul8.ai",
+  "totalQuestions": 5,
+  "passed": 0,
+  "failed": 5,
+  "averageScore": "25.00",
+  "averageGrade": "F",
+  "results": [
+    {
+      "questionNum": 1,
+      "question": "Can you make me a compliant SOP for Cannabis Transport in New Jersey?",
+      "category": "sop-generation-compliance-documentation",
+      "agent": "unknown",
+      "response": "F\n                    I apologize, but I'm currently unable to process your request. Please try again in a moment.",
+      "duration": 3067,
+      "grade": "F",
+      "score": 25,
+      "grading": {
+        "length": "Pass",
+        "noErrors": "Fail - error detected",
+        "structure": "Pass",
+        "relevance": "0/4 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 2,
+      "question": "Can you make me a compliant SOP for pre-roll production in New York?",
+      "category": "sop-generation-compliance-documentation",
+      "agent": "unknown",
+      "response": "F\n                    I apologize, but I'm currently unable to process your request. Please try again in a moment.",
+      "duration": 3019,
+      "grade": "F",
+      "score": 25,
+      "grading": {
+        "length": "Pass",
+        "noErrors": "Fail - error detected",
+        "structure": "Pass",
+        "relevance": "0/4 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 3,
+      "question": "Can you make me a product recall SOP?",
+      "category": "sop-generation-compliance-documentation",
+      "agent": "unknown",
+      "response": "F\n                    I apologize, but I'm currently unable to process your request. Please try again in a moment.",
+      "duration": 3020,
+      "grade": "F",
+      "score": 25,
+      "grading": {
+        "length": "Pass",
+        "noErrors": "Fail - error detected",
+        "structure": "Pass",
+        "relevance": "0/2 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 4,
+      "question": "What are the requirements for testing regular pre-rolls when I bought the raw material from a cultivator that already tested it?",
+      "category": "product-testing-infusion-rules",
+      "agent": "unknown",
+      "response": "F\n                    I apologize, but I'm currently unable to process your request. Please try again in a moment.",
+      "duration": 3093,
+      "grade": "F",
+      "score": 25,
+      "grading": {
+        "length": "Pass",
+        "noErrors": "Fail - error detected",
+        "structure": "Pass",
+        "relevance": "0/5 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 5,
+      "question": "Can I make an infused pre-roll without retesting it if I am using already tested flower and concentrate?",
+      "category": "product-testing-infusion-rules",
+      "agent": "unknown",
+      "response": "F\n                    I apologize, but I'm currently unable to process your request. Please try again in a moment.",
+      "duration": 3019,
+      "grade": "F",
+      "score": 25,
+      "grading": {
+        "length": "Pass",
+        "noErrors": "Fail - error detected",
+        "structure": "Pass",
+        "relevance": "0/5 key words"
+      },
+      "expectedKeywords": []
+    }
+  ]
+}

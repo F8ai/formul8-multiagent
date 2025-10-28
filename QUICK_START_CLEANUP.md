@@ -53,13 +53,13 @@ export OPENROUTER_PROVISIONING_KEY="sk-or-v1-4eb...971"
 ### Step 2: Revoke Exposed Keys
 ```bash
 # Revoke Lambda key
-node scripts/revoke-exposed-key.js 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
+node scripts/revoke-exposed-key.js sk-or-v1-your-key-here
 
 # Revoke hardcoded key
-node scripts/revoke-exposed-key.js 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
+node scripts/revoke-exposed-key.js sk-or-v1-your-key-here
 
 # Revoke documentation key
-node scripts/revoke-exposed-key.js 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
+node scripts/revoke-exposed-key.js sk-or-v1-your-key-here
 ```
 
 ### Step 3: Clean Up AWS Lambda

@@ -28,7 +28,7 @@ Quick guide for revoking compromised OpenRouter API keys using the Provisioning 
 export OPENROUTER_PROVISIONING_KEY="sk-or-v1-4eb...971"
 
 # Revoke the exposed key
-node scripts/revoke-exposed-key.js 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
+node scripts/revoke-exposed-key.js sk-or-v1-your-key-here
 ```
 
 The script will:
@@ -66,24 +66,24 @@ Based on your recent scan, here are the keys that need revocation:
 ### 1. Lambda Function Key (CRITICAL)
 ```bash
 # This key is in AWS Lambda: formul8-f8-lambda
-# Key: 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
+# Key: sk-or-v1-your-key-here
 
-node scripts/revoke-exposed-key.js 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
+node scripts/revoke-exposed-key.js sk-or-v1-your-key-here
 ```
 
 ### 2. Hardcoded in Files (Already Removed from Code)
 ```bash
-# Key: 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
+# Key: sk-or-v1-your-key-here
 # Was in: chat-vs.html, public/chat-vs.html, lambda-package/public/chat-vs.html
 
-node scripts/revoke-exposed-key.js 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
+node scripts/revoke-exposed-key.js sk-or-v1-your-key-here
 ```
 
 ```bash
-# Key: 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
+# Key: sk-or-v1-your-key-here
 # Was in: scripts/manual-vercel-setup.md, syzychat-backend Lambda
 
-node scripts/revoke-exposed-key.js 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
+node scripts/revoke-exposed-key.js sk-or-v1-your-key-here
 ```
 
 ---
@@ -222,9 +222,9 @@ brew install bfg
 
 # Create a file with exposed keys
 cat > exposed-keys.txt << EOF
-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
-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
-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
+sk-or-v1-your-key-here
+sk-or-v1-your-key-here
+sk-or-v1-your-key-here
 EOF
 
 # Remove from history

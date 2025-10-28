@@ -1,0 +1,153 @@
+{
+  "timestamp": "2025-10-28T16:25:57.227Z",
+  "url": "https://f8.syzygyx.com/chat",
+  "totalQuestions": 10,
+  "passed": 0,
+  "failed": 10,
+  "averageScore": "9.00",
+  "averageGrade": "F",
+  "results": [
+    {
+      "questionNum": 1,
+      "question": "Can you make me a compliant SOP for Cannabis Transport in New Jersey?",
+      "category": "sop-generation-compliance-documentation",
+      "agent": "unknown",
+      "response": "S\n                    Sorry, something went wrong. Please try again.",
+      "duration": 3052,
+      "grade": "F",
+      "score": 15,
+      "grading": {
+        "length": "Fail - too short",
+        "noErrors": "Fail - error detected",
+        "structure": "Pass",
+        "relevance": "0/4 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 2,
+      "question": "Can you make me a compliant SOP for pre-roll production in New York?",
+      "category": "sop-generation-compliance-documentation",
+      "agent": "unknown",
+      "response": "S\n                    Sorry, something went wrong. Please try again.",
+      "duration": 3034,
+      "grade": "F",
+      "score": 15,
+      "grading": {
+        "length": "Fail - too short",
+        "noErrors": "Fail - error detected",
+        "structure": "Pass",
+        "relevance": "0/4 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 3,
+      "question": "Can you make me a product recall SOP?",
+      "category": "sop-generation-compliance-documentation",
+      "agent": "unknown",
+      "response": "S\n                    Sorry, something went wrong. Please try again.",
+      "duration": 3084,
+      "grade": "F",
+      "score": 15,
+      "grading": {
+        "length": "Fail - too short",
+        "noErrors": "Fail - error detected",
+        "structure": "Pass",
+        "relevance": "0/2 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 4,
+      "question": "What are the requirements for testing regular pre-rolls when I bought the raw material from a cultivator that already tested it?",
+      "category": "product-testing-infusion-rules",
+      "agent": "unknown",
+      "response": "S\n                    Sorry, something went wrong. Please try again.",
+      "duration": 3099,
+      "grade": "F",
+      "score": 15,
+      "grading": {
+        "length": "Fail - too short",
+        "noErrors": "Fail - error detected",
+        "structure": "Pass",
+        "relevance": "0/5 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 5,
+      "question": "Can I make an infused pre-roll without retesting it if I am using already tested flower and concentrate?",
+      "category": "product-testing-infusion-rules",
+      "agent": "unknown",
+      "response": "S\n                    Sorry, something went wrong. Please try again.",
+      "duration": 3020,
+      "grade": "F",
+      "score": 15,
+      "grading": {
+        "length": "Fail - too short",
+        "noErrors": "Fail - error detected",
+        "structure": "Pass",
+        "relevance": "0/5 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 6,
+      "question": "Do I have to show harvest date or production date on infused products?",
+      "category": "product-testing-infusion-rules",
+      "agent": "unknown",
+      "response": "S\n                    Sorry, something went wrong. Please try again.",
+      "duration": 3024,
+      "grade": "F",
+      "score": 15,
+      "grading": {
+        "length": "Fail - too short",
+        "noErrors": "Fail - error detected",
+        "structure": "Pass",
+        "relevance": "0/4 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 7,
+      "question": "Are there different rules for various types of infused products related to this same question?",
+      "category": "product-testing-infusion-rules",
+      "response": null,
+      "error": "page.waitForTimeout: Test ended.",
+      "duration": 0,
+      "grade": "F",
+      "score": 0
+    },
+    {
+      "questionNum": 8,
+      "question": "What are the requirements in my state for me to be able to introduce or infuse cannabis or botanical-derived terpenes into my products?",
+      "category": "product-testing-infusion-rules",
+      "response": null,
+      "error": "locator.waitFor: Target page, context or browser has been closed",
+      "duration": 0,
+      "grade": "F",
+      "score": 0
+    },
+    {
+      "questionNum": 9,
+      "question": "Does this vary for different products?",
+      "category": "product-testing-infusion-rules",
+      "response": null,
+      "error": "locator.waitFor: Target page, context or browser has been closed",
+      "duration": 0,
+      "grade": "F",
+      "score": 0
+    },
+    {
+      "questionNum": 10,
+      "question": "What are the labeling requirements for packaged concentrates?",
+      "category": "labeling-packaging-compliance",
+      "response": null,
+      "error": "locator.waitFor: Target page, context or browser has been closed",
+      "duration": 0,
+      "grade": "F",
+      "score": 0
+    }
+  ]
+}

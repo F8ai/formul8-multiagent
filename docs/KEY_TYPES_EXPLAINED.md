@@ -45,7 +45,7 @@
 ### 2️⃣ **Regular API Keys** (Production Keys)
 
 **Purpose:** Make OpenRouter API calls  
-**Example:** `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`
+**Example:** `sk-or-v1-23c043e88c305f79fdac26f93b3509350570ae7d175231cf018adec4b17a****`
 
 #### ✅ What They CAN Do:
 - **Make OpenRouter API calls** (chat, completions, etc.)
