@@ -378,8 +378,8 @@
         async function loadResults() {
             try {
                 // Try to load the latest results file
-                // First try the baseline-results directory
-                const response = await fetch('./baseline-results/latest.json');
+                // Use absolute path for GitHub Pages (includes repo name)
+                const response = await fetch('/formul8-multiagent/baseline-results/latest.json');
                 if (!response.ok) {
                     throw new Error('Results file not found');
                 }
