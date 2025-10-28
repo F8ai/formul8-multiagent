@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formul8 Baseline Test Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 40px;
+            background: #f8f9fa;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .stat-value {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            font-size: 0.9em;
+            color: #6c757d;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .grade-distribution {
+            padding: 40px;
+        }
+        
+        .grade-distribution h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+        
+        .grade-bars {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .grade-bar {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .grade-label {
+            font-weight: bold;
+            font-size: 1.2em;
+            width: 30px;
+        }
+        
+        .bar {
+            flex-grow: 1;
+            height: 40px;
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .bar-fill {
+            height: 100%;
+            transition: width 1s ease-out;
+            display: flex;
+            align-items: center;
+            padding: 0 15px;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .grade-A { background: linear-gradient(90deg, #10b981, #059669); }
+        .grade-B { background: linear-gradient(90deg, #3b82f6, #2563eb); }
+        .grade-C { background: linear-gradient(90deg, #f59e0b, #d97706); }
+        .grade-D { background: linear-gradient(90deg, #ef4444, #dc2626); }
+        .grade-F { background: linear-gradient(90deg, #6b7280, #4b5563); }
+        
+        .controls {
+            padding: 20px 40px;
+            background: #f8f9fa;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            background: #667eea;
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.2s;
+        }
+        
+        .btn:hover {
+            background: #764ba2;
+            transform: translateY(-2px);
+        }
+        
+        select, input {
+            padding: 10px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 1em;
+        }
+        
+        .results-table {
+            padding: 40px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        
+        th {
+            background: #667eea;
+            color: white;
+            padding: 15px;
+            text-align: left;
+            position: sticky;
+            top: 0;
+        }
+        
+        td {
+            padding: 15px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        tr:hover {
+            background: #f8f9fa;
+        }
+        
+        .question-cell {
+            max-width: 400px;
+        }
+        
+        .response-cell {
+            max-width: 500px;
+            font-size: 0.9em;
+            color: #6c757d;
+        }
+        
+        .grade-badge {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            color: white;
+        }
+        
+        .expandable {
+            cursor: pointer;
+            color: #667eea;
+            text-decoration: underline;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            padding: 20px;
+            overflow-y: auto;
+        }
+        
+        .modal-content {
+            max-width: 800px;
+            margin: 50px auto;
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+        }
+        
+        .modal-close {
+            float: right;
+            font-size: 2em;
+            cursor: pointer;
+            color: #6c757d;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 60px;
+            font-size: 1.2em;
+            color: #6c757d;
+        }
+        
+        .loading::after {
+            content: '...';
+            animation: dots 1.5s steps(4, end) infinite;
+        }
+        
+        @keyframes dots {
+            0%, 20% { content: ''; }
+            40% { content: '.'; }
+            60% { content: '..'; }
+            80%, 100% { content: '...'; }
+        }
+        
+        .category-badge {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 5px;
+            background: #e5e7eb;
+            font-size: 0.8em;
+            margin-right: 5px;
+        }
+        
+        .timestamp {
+            text-align: center;
+            padding: 20px;
+            color: #6c757d;
+            font-size: 0.9em;
+        }
+        
+        @media (max-width: 768px) {
+            h1 { font-size: 1.8em; }
+            .stats-container { grid-template-columns: 1fr 1fr; }
+            .question-cell, .response-cell { max-width: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🧪 Formul8 Baseline Test Dashboard</h1>
+            <p class="subtitle">Comprehensive E2E Testing Results for chat.formul8.ai</p>
+        </header>
+        
+        <div class="stats-container" id="stats">
+            <div class="stat-card">
+                <div class="stat-value" id="totalQuestions">-</div>
+                <div class="stat-label">Total Questions</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="avgScore">-</div>
+                <div class="stat-label">Average Score</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="avgGrade">-</div>
+                <div class="stat-label">Average Grade</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="passRate">-</div>
+                <div class="stat-label">Pass Rate</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="avgTime">-</div>
+                <div class="stat-label">Avg Time (s)</div>
+            </div>
+        </div>
+        
+        <div class="grade-distribution">
+            <h2>📊 Grade Distribution</h2>
+            <div class="grade-bars" id="gradeBars"></div>
+        </div>
+        
+        <div class="controls">
+            <label>Filter by Grade:</label>
+            <select id="gradeFilter">
+                <option value="all">All Grades</option>
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+                <option value="D">D</option>
+                <option value="F">F</option>
+            </select>
+            
+            <label>Filter by Category:</label>
+            <select id="categoryFilter">
+                <option value="all">All Categories</option>
+            </select>
+            
+            <label>Search:</label>
+            <input type="text" id="searchInput" placeholder="Search questions...">
+            
+            <button class="btn" onclick="exportResults()">📥 Export CSV</button>
+            <button class="btn" onclick="refreshData()">🔄 Refresh</button>
+        </div>
+        
+        <div class="results-table">
+            <h2>📋 Detailed Results</h2>
+            <div id="loading" class="loading">Loading baseline results</div>
+            <table id="resultsTable" style="display: none;">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Grade</th>
+                        <th>Category</th>
+                        <th>Question</th>
+                        <th>Response Preview</th>
+                        <th>Time (ms)</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody"></tbody>
+            </table>
+        </div>
+        
+        <div class="timestamp" id="timestamp"></div>
+    </div>
+    
+    <div class="modal" id="detailModal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal()">&times;</span>
+            <div id="modalContent"></div>
+        </div>
+    </div>
+    
+    <script>
+        let allResults = [];
+        let currentResults = [];
+        
+        async function loadResults() {
+            try {
+                // Try to load the latest results file
+                // First try the baseline-results directory
+                const response = await fetch('../baseline-results/latest.json');
+                if (!response.ok) {
+                    throw new Error('Results file not found');
+                }
+                
+                const data = await response.json();
+                allResults = data.results || [];
+                currentResults = allResults;
+                
+                renderDashboard(data);
+                populateFilters();
+                renderTable();
+                
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('resultsTable').style.display = 'table';
+                
+            } catch (error) {
+                document.getElementById('loading').innerHTML = `
+                    ⚠️ No test results found yet.<br><br>
+                    Run baseline tests with:<br>
+                    <code>npx playwright test test-baseline-e2e.spec.js</code><br><br>
+                    Or check: <a href="https://github.com/F8ai/formul8-multiagent/actions">GitHub Actions</a>
+                `;
+            }
+        }
+        
+        function renderDashboard(data) {
+            document.getElementById('totalQuestions').textContent = data.totalQuestions;
+            document.getElementById('avgScore').textContent = data.averageScore + '%';
+            document.getElementById('avgGrade').textContent = data.averageGrade;
+            document.getElementById('passRate').textContent = 
+                ((data.passed / data.totalQuestions) * 100).toFixed(1) + '%';
+            
+            const avgTime = data.results.reduce((sum, r) => sum + r.duration, 0) / data.results.length;
+            document.getElementById('avgTime').textContent = (avgTime / 1000).toFixed(2);
+            
+            document.getElementById('timestamp').textContent = 
+                'Last Updated: ' + new Date(data.timestamp).toLocaleString();
+            
+            renderGradeBars(data.results);
+        }
+        
+        function renderGradeBars(results) {
+            const gradeCount = { A: 0, B: 0, C: 0, D: 0, F: 0 };
+            results.forEach(r => gradeCount[r.grade]++);
+            
+            const total = results.length;
+            const container = document.getElementById('gradeBars');
+            container.innerHTML = '';
+            
+            Object.entries(gradeCount).forEach(([grade, count]) => {
+                const percent = (count / total) * 100;
+                const bar = document.createElement('div');
+                bar.className = 'grade-bar';
+                bar.innerHTML = `
+                    <div class="grade-label">${grade}</div>
+                    <div class="bar">
+                        <div class="bar-fill grade-${grade}" style="width: ${percent}%">
+                            ${count} (${percent.toFixed(1)}%)
+                        </div>
+                    </div>
+                `;
+                container.appendChild(bar);
+            });
+        }
+        
+        function populateFilters() {
+            const categories = [...new Set(allResults.map(r => r.category))].sort();
+            const categoryFilter = document.getElementById('categoryFilter');
+            
+            categories.forEach(cat => {
+                const option = document.createElement('option');
+                option.value = cat;
+                option.textContent = cat;
+                categoryFilter.appendChild(option);
+            });
+        }
+        
+        function renderTable() {
+            const tbody = document.getElementById('tableBody');
+            tbody.innerHTML = '';
+            
+            currentResults.forEach((result, index) => {
+                const row = document.createElement('tr');
+                const gradeClass = `grade-${result.grade}`;
+                
+                row.innerHTML = `
+                    <td>${result.questionNum}</td>
+                    <td><span class="grade-badge ${gradeClass}">${result.grade} (${result.score.toFixed(0)}%)</span></td>
+                    <td><span class="category-badge">${result.category}</span></td>
+                    <td class="question-cell">${result.question}</td>
+                    <td class="response-cell">${truncate(result.response || result.error || 'No response', 100)}</td>
+                    <td>${result.duration}ms</td>
+                    <td><button class="btn" onclick="showDetail(${result.questionNum})">View</button></td>
+                `;
+                
+                tbody.appendChild(row);
+            });
+        }
+        
+        function truncate(str, length) {
+            return str && str.length > length ? str.substring(0, length) + '...' : str;
+        }
+        
+        function showDetail(questionNum) {
+            const result = allResults.find(r => r.questionNum === questionNum);
+            if (!result) return;
+            
+            const gradeClass = `grade-${result.grade}`;
+            const content = `
+                <h2>Question #${result.questionNum}</h2>
+                <p><strong>Category:</strong> ${result.category}</p>
+                ${result.agent ? `<p><strong>Expected Agent:</strong> ${result.agent}</p>` : ''}
+                <p><strong>Grade:</strong> <span class="grade-badge ${gradeClass}">${result.grade} (${result.score.toFixed(1)}%)</span></p>
+                <p><strong>Duration:</strong> ${result.duration}ms</p>
+                <hr style="margin: 20px 0;">
+                <h3>Question</h3>
+                <p>${result.question}</p>
+                <hr style="margin: 20px 0;">
+                <h3>Response</h3>
+                <p style="white-space: pre-wrap;">${result.response || result.error || 'No response'}</p>
+                ${result.grading ? `
+                    <hr style="margin: 20px 0;">
+                    <h3>Grading Details</h3>
+                    <ul>
+                        ${Object.entries(result.grading).map(([key, value]) => 
+                            `<li><strong>${key}:</strong> ${value}</li>`
+                        ).join('')}
+                    </ul>
+                ` : ''}
+                ${result.expectedKeywords && result.expectedKeywords.length > 0 ? `
+                    <hr style="margin: 20px 0;">
+                    <h3>Expected Keywords</h3>
+                    <p>${result.expectedKeywords.join(', ')}</p>
+                ` : ''}
+            `;
+            
+            document.getElementById('modalContent').innerHTML = content;
+            document.getElementById('detailModal').style.display = 'block';
+        }
+        
+        function closeModal() {
+            document.getElementById('detailModal').style.display = 'none';
+        }
+        
+        function applyFilters() {
+            const gradeFilter = document.getElementById('gradeFilter').value;
+            const categoryFilter = document.getElementById('categoryFilter').value;
+            const searchText = document.getElementById('searchInput').value.toLowerCase();
+            
+            currentResults = allResults.filter(r => {
+                if (gradeFilter !== 'all' && r.grade !== gradeFilter) return false;
+                if (categoryFilter !== 'all' && r.category !== categoryFilter) return false;
+                if (searchText && !r.question.toLowerCase().includes(searchText)) return false;
+                return true;
+            });
+            
+            renderTable();
+        }
+        
+        function exportResults() {
+            let csv = 'Number,Grade,Score,Category,Question,Response,Duration\n';
+            currentResults.forEach(r => {
+                const response = (r.response || r.error || '').replace(/"/g, '""');
+                csv += `${r.questionNum},"${r.grade}",${r.score},"${r.category}","${r.question}","${response}",${r.duration}\n`;
+            });
+            
+            const blob = new Blob([csv], { type: 'text/csv' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'baseline-results-' + new Date().toISOString().split('T')[0] + '.csv';
+            a.click();
+        }
+        
+        function refreshData() {
+            location.reload();
+        }
+        
+        // Event listeners
+        document.getElementById('gradeFilter').addEventListener('change', applyFilters);
+        document.getElementById('categoryFilter').addEventListener('change', applyFilters);
+        document.getElementById('searchInput').addEventListener('input', applyFilters);
+        
+        // Close modal on background click
+        document.getElementById('detailModal').addEventListener('click', function(e) {
+            if (e.target === this) closeModal();
+        });
+        
+        // Load results on page load
+        loadResults();
+    </script>
+</body>
+</html>
+

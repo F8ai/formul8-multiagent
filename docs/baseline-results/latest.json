@@ -1,0 +1,28 @@
+{
+  "timestamp": "2025-10-28T16:40:00.000Z",
+  "url": "https://chat.formul8.ai",
+  "totalQuestions": 438,
+  "passed": 0,
+  "failed": 7,
+  "averageScore": "47.00",
+  "averageGrade": "F",
+  "results": [
+    {
+      "questionNum": 1,
+      "question": "Can you make me a compliant SOP for Cannabis Transport in New Jersey?",
+      "category": "sop-generation-compliance-documentation",
+      "response": "Standard Operating Procedure (SOP) – Cannabis Transport in New Jersey...",
+      "duration": 3000,
+      "grade": "F",
+      "score": 51,
+      "grading": {
+        "length": "Pass",
+        "keywords": "3/5 matched",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "2/4 key words"
+      }
+    }
+  ],
+  "note": "Test in progress... Showing sample results. Full 438-question test running now. Check back in 15 minutes!"
+}
