@@ -626,10 +626,21 @@
                     tooltipContent += '</ul>';
                 }
                 
+                // Format expected answer/keywords
+                let expectedSection = '';
+                if (result.expectedKeywords && result.expectedKeywords.length > 0) {
+                    expectedSection = `<div style="margin-top: 8px; padding-top: 8px; border-top: 1px solid #e5e7eb;"><small style="color: #6c757d;"><strong>Expected:</strong> ${result.expectedKeywords.join(', ')}</small></div>`;
+                } else if (result.expectedAnswer) {
+                    expectedSection = `<div style="margin-top: 8px; padding-top: 8px; border-top: 1px solid #e5e7eb;"><small style="color: #6c757d;"><strong>Expected:</strong> ${result.expectedAnswer}</small></div>`;
+                }
+                
                 row.innerHTML = `
                     <td>${result.questionNum}</td>
                     <td><span class="category-badge">${result.category}</span></td>
-                    <td class="question-cell">${result.question}</td>
+                    <td class="question-cell">
+                        <div style="font-weight: 500; color: #333;">${result.question}</div>
+                        ${expectedSection}
+                    </td>
                     <td class="response-cell"><div class="response-preview">${marked.parse(result.response || result.error || 'No response')}</div></td>
                     <td>${result.duration}ms</td>
                     <td><button class="btn" onclick="showDetail(${result.questionNum})">View</button></td>
