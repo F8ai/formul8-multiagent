@@ -1,0 +1,184 @@
+name: Monitor OpenRouter Usage
+
+on:
+  schedule:
+    # Run every 6 hours
+    - cron: '0 */6 * * *'
+  workflow_dispatch:
+    inputs:
+      alert_threshold:
+        description: 'Daily alert threshold (USD)'
+        required: false
+        default: '50'
+      daily_budget:
+        description: 'Daily budget (USD)'
+        required: false
+        default: '100'
+      monthly_budget:
+        description: 'Monthly budget (USD)'
+        required: false
+        default: '1000'
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  monitor-usage:
+    runs-on: ubuntu-latest
+    name: Check OpenRouter API Usage
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+      
+      - name: Run usage monitor
+        id: monitor
+        env:
+          OPENROUTER_PROVISIONING_KEY: ${{ secrets.OPENROUTER_PROVISIONING_KEY }}
+          OPENROUTER_DAILY_BUDGET: ${{ github.event.inputs.daily_budget || '100' }}
+          OPENROUTER_MONTHLY_BUDGET: ${{ github.event.inputs.monthly_budget || '1000' }}
+        continue-on-error: true
+        run: |
+          chmod +x scripts/monitor-openrouter-usage.js
+          THRESHOLD="${{ github.event.inputs.alert_threshold || '50' }}"
+          node scripts/monitor-openrouter-usage.js --alert-threshold=$THRESHOLD > monitor-output.txt 2>&1
+          EXIT_CODE=$?
+          cat monitor-output.txt
+          echo "exit_code=$EXIT_CODE" >> $GITHUB_OUTPUT
+          
+          # Check if there are alerts
+          if [ -f logs/usage-alert.json ]; then
+            echo "has_alerts=true" >> $GITHUB_OUTPUT
+          else
+            echo "has_alerts=false" >> $GITHUB_OUTPUT
+          fi
+      
+      - name: Upload usage metrics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: usage-metrics-${{ github.run_number }}
+          path: |
+            logs/usage-metrics/*.json
+            logs/usage-alert.json
+            monitor-output.txt
+          retention-days: 90
+      
+      - name: Create or update GitHub issue
+        if: steps.monitor.outputs.has_alerts == 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const alertData = JSON.parse(fs.readFileSync('logs/usage-alert.json', 'utf8'));
+            
+            // Check for existing open usage alert issues
+            const issues = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              labels: 'openrouter-usage,automated'
+            });
+            
+            const existingIssue = issues.data.find(issue => 
+              issue.title.includes('OpenRouter Usage Alert')
+            );
+            
+            if (existingIssue) {
+              // Update existing issue
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: existingIssue.number,
+                body: `## 🔄 Updated Alert\n\n${alertData.body}\n\n---\n*Updated: ${new Date().toLocaleString()}*`
+              });
+              console.log(`Updated issue #${existingIssue.number}`);
+            } else {
+              // Create new issue
+              const newIssue = await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title: alertData.title,
+                body: alertData.body,
+                labels: ['openrouter-usage', 'automated', 'monitoring']
+              });
+              console.log(`Created issue #${newIssue.data.number}`);
+            }
+      
+      - name: Send Slack notification
+        if: steps.monitor.outputs.has_alerts == 'true' && env.SLACK_WEBHOOK_URL != ''
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        run: |
+          ALERT_DATA=$(cat logs/usage-alert.json)
+          TITLE=$(echo $ALERT_DATA | jq -r '.title')
+          
+          curl -X POST $SLACK_WEBHOOK_URL \
+            -H 'Content-Type: application/json' \
+            -d "{
+              \"text\": \"$TITLE\",
+              \"blocks\": [
+                {
+                  \"type\": \"section\",
+                  \"text\": {
+                    \"type\": \"mrkdwn\",
+                    \"text\": \"*OpenRouter Usage Alert*\n\n$TITLE\"
+                  }
+                },
+                {
+                  \"type\": \"section\",
+                  \"text\": {
+                    \"type\": \"mrkdwn\",
+                    \"text\": \"View details: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\"
+                  }
+                }
+              ]
+            }"
+      
+      - name: Fail if critical alerts
+        if: steps.monitor.outputs.exit_code != '0'
+        run: |
+          echo "::error::Critical OpenRouter usage alerts detected!"
+          exit 1
+  
+  generate-usage-report:
+    runs-on: ubuntu-latest
+    needs: monitor-usage
+    if: always()
+    name: Generate Usage Report
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Download usage metrics
+        uses: actions/download-artifact@v4
+        with:
+          name: usage-metrics-${{ github.run_number }}
+          path: logs/
+      
+      - name: Generate weekly summary
+        if: github.event.schedule == '0 0 * * 0' # Sunday midnight
+        env:
+          OPENROUTER_PROVISIONING_KEY: ${{ secrets.OPENROUTER_PROVISIONING_KEY }}
+        run: |
+          # This would generate a weekly summary report
+          echo "Weekly summary would be generated here"
+          # Could aggregate data from the past week
+          # Create a summary issue or send to Slack
+      
+      - name: Commit metrics to repository
+        if: github.event_name == 'schedule'
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add logs/usage-metrics/ || true
+          git diff --quiet && git diff --staged --quiet || \
+            (git commit -m "📊 Update usage metrics [skip ci]" && git push) || true
+
