@@ -283,6 +283,8 @@
             .question-cell, .response-cell { max-width: none; }
         }
     </style>
+    <!-- Marked.js for Markdown rendering -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 <body>
     <div class="container">
@@ -501,6 +503,20 @@
             if (!result) return;
             
             const gradeClass = `grade-${result.grade}`;
+            
+            // Render response as Markdown if marked.js is available
+            let responseHtml = result.response || result.error || 'No response';
+            if (typeof marked !== 'undefined' && result.response) {
+                try {
+                    responseHtml = marked.parse(result.response);
+                } catch (e) {
+                    // Fallback to plain text if parsing fails
+                    responseHtml = `<pre style="white-space: pre-wrap;">${responseHtml}</pre>`;
+                }
+            } else {
+                responseHtml = `<pre style="white-space: pre-wrap;">${responseHtml}</pre>`;
+            }
+            
             const content = `
                 <h2>Question #${result.questionNum}</h2>
                 <p><strong>Category:</strong> ${result.category}</p>
@@ -512,7 +528,7 @@
                 <p>${result.question}</p>
                 <hr style="margin: 20px 0;">
                 <h3>Response</h3>
-                <p style="white-space: pre-wrap;">${result.response || result.error || 'No response'}</p>
+                <div style="line-height: 1.6;">${responseHtml}</div>
                 ${result.grading ? `
                     <hr style="margin: 20px 0;">
                     <h3>Grading Details</h3>
