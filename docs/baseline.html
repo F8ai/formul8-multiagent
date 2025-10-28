@@ -379,7 +379,7 @@
             try {
                 // Try to load the latest results file
                 // First try the baseline-results directory
-                const response = await fetch('../baseline-results/latest.json');
+                const response = await fetch('./baseline-results/latest.json');
                 if (!response.ok) {
                     throw new Error('Results file not found');
                 }
