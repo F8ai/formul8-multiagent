@@ -15,14 +15,14 @@
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
-            padding: 20px;
+            padding: 10px;
         }
         
         .container {
-            max-width: 1400px;
+            max-width: 100%;
             margin: 0 auto;
             background: white;
-            border-radius: 20px;
+            border-radius: 10px;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
             overflow: hidden;
         }
@@ -30,7 +30,7 @@
         header {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 40px;
+            padding: 30px 20px;
             text-align: center;
         }
         
@@ -48,7 +48,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 20px;
-            padding: 40px;
+            padding: 30px 20px;
             background: #f8f9fa;
         }
         
@@ -80,7 +80,7 @@
         }
         
         .grade-distribution {
-            padding: 40px;
+            padding: 30px 20px;
         }
         
         .grade-distribution h2 {
@@ -163,7 +163,7 @@
         }
         
         .results-table {
-            padding: 40px;
+            padding: 30px 20px;
         }
         
         table {
@@ -191,11 +191,13 @@
         }
         
         .question-cell {
-            max-width: 400px;
+            max-width: 600px;
+            width: 30%;
         }
         
         .response-cell {
-            max-width: 500px;
+            max-width: none;
+            width: 45%;
             font-size: 0.9em;
             color: #6c757d;
         }
