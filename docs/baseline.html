@@ -465,9 +465,22 @@
                 const row = document.createElement('tr');
                 const gradeClass = `grade-${result.grade}`;
                 
+                // Build grading summary for tooltip
+                let gradingSummary = '';
+                if (result.grading) {
+                    gradingSummary = Object.entries(result.grading)
+                        .map(([key, value]) => `${key}: ${value}`)
+                        .join('\n');
+                }
+                
                 row.innerHTML = `
                     <td>${result.questionNum}</td>
-                    <td><span class="grade-badge ${gradeClass}">${result.grade} (${result.score.toFixed(0)}%)</span></td>
+                    <td>
+                        <span class="grade-badge ${gradeClass}" title="${gradingSummary}">
+                            ${result.grade} (${result.score.toFixed(0)}%)
+                        </span>
+                        ${result.grading ? '<br><small style="color: #6c757d;">' + Object.entries(result.grading).slice(0, 2).map(([k,v]) => `${k}: ${v}`).join(', ') + '</small>' : ''}
+                    </td>
                     <td><span class="category-badge">${result.category}</span></td>
                     <td class="question-cell">${result.question}</td>
                     <td class="response-cell">${truncate(result.response || result.error || 'No response', 100)}</td>
