@@ -1,0 +1,243 @@
+name: Scan for Exposed OpenRouter Keys
+
+on:
+  push:
+    branches: ['**']
+  pull_request:
+    branches: ['**']
+  workflow_dispatch:
+  schedule:
+    # Run daily at 3 AM UTC
+    - cron: '0 3 * * *'
+
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+
+jobs:
+  scan-keys:
+    runs-on: ubuntu-latest
+    name: Detect and Remove Exposed Keys
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Full history for better detection
+          token: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+      
+      - name: Make script executable
+        run: chmod +x scripts/detect-exposed-keys.js
+      
+      - name: Scan for exposed keys (Detection Only)
+        id: scan
+        continue-on-error: true
+        run: |
+          echo "Running key detection scan..."
+          node scripts/detect-exposed-keys.js --scan-all > scan-output.txt 2>&1
+          EXIT_CODE=$?
+          cat scan-output.txt
+          echo "exit_code=$EXIT_CODE" >> $GITHUB_OUTPUT
+          
+          # Count number of exposed keys found
+          KEY_COUNT=$(grep -c "CRITICAL" scan-output.txt || echo "0")
+          echo "key_count=$KEY_COUNT" >> $GITHUB_OUTPUT
+      
+      - name: Auto-fix exposed keys
+        if: steps.scan.outputs.exit_code != '0'
+        run: |
+          echo "🔧 Exposed keys detected! Attempting automatic remediation..."
+          node scripts/detect-exposed-keys.js --scan-all --fix
+      
+      - name: Check for changes
+        id: check_changes
+        run: |
+          if git diff --quiet; then
+            echo "changed=false" >> $GITHUB_OUTPUT
+          else
+            echo "changed=true" >> $GITHUB_OUTPUT
+            echo "📝 Files modified:"
+            git diff --name-only
+          fi
+      
+      - name: Commit fixes
+        if: steps.check_changes.outputs.changed == 'true'
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add -A
+          git commit -m "🔒 Security: Auto-remove exposed OpenRouter API keys
+
+          - Detected and removed ${{ steps.scan.outputs.key_count }} exposed key(s)
+          - Replaced with secure placeholders
+          - Action required: Revoke exposed keys on OpenRouter dashboard"
+      
+      - name: Push changes
+        if: steps.check_changes.outputs.changed == 'true' && github.event_name == 'push'
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
+      
+      - name: Create Pull Request (for PRs)
+        if: steps.check_changes.outputs.changed == 'true' && github.event_name == 'pull_request'
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: '🔒 Security: Auto-remove exposed OpenRouter API keys'
+          title: '🔒 Security Fix: Remove Exposed API Keys'
+          body: |
+            ## 🚨 Security Alert: Exposed API Keys Detected and Removed
+            
+            This automated PR removes **${{ steps.scan.outputs.key_count }} exposed OpenRouter API key(s)** that were detected in the codebase.
+            
+            ### ⚠️ IMMEDIATE ACTION REQUIRED:
+            
+            1. **Revoke the exposed keys** on the [OpenRouter Dashboard](https://openrouter.ai/keys)
+            2. **Generate new keys** and add them to GitHub Secrets or environment variables
+            3. **Review this PR** to ensure the changes are correct
+            4. **Merge this PR** to protect the repository
+            
+            ### 📝 Changes Made:
+            
+            - Replaced exposed keys with secure placeholders
+            - Updated documentation examples to use generic keys
+            - No functionality should be affected if keys are properly stored in secrets
+            
+            ### 🔐 Security Best Practices:
+            
+            - Never commit API keys directly to code
+            - Always use environment variables or secrets management
+            - Enable GitHub secret scanning in repository settings
+            - Consider implementing pre-commit hooks
+            
+            ---
+            *This PR was automatically created by the Key Scanner GitHub Action*
+          branch: security/remove-exposed-keys-${{ github.run_number }}
+          delete-branch: true
+      
+      - name: Create Security Issue
+        if: steps.scan.outputs.exit_code != '0'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const keyCount = '${{ steps.scan.outputs.key_count }}';
+            const issueTitle = '🚨 Security Alert: Exposed OpenRouter API Keys Detected';
+            const issueBody = `## 🔐 Security Alert
+            
+            **${keyCount} exposed OpenRouter API key(s)** were detected in the repository.
+            
+            ### ⚠️ IMMEDIATE ACTION REQUIRED:
+            
+            1. **Revoke the exposed keys** on [OpenRouter Dashboard](https://openrouter.ai/keys)
+            2. **Generate new API keys**
+            3. **Update GitHub Secrets**:
+               - Go to: Settings → Secrets and variables → Actions
+               - Update \`OPENROUTER_API_KEY\` with new key
+            4. **Update Vercel Environment Variables**:
+               \`\`\`bash
+               vercel env rm OPENROUTER_API_KEY production
+               vercel env add OPENROUTER_API_KEY production
+               \`\`\`
+            
+            ### 📊 Detection Details:
+            
+            - **Run ID**: ${{ github.run_id }}
+            - **Commit**: ${{ github.sha }}
+            - **Branch**: ${{ github.ref_name }}
+            - **Triggered by**: ${{ github.event_name }}
+            
+            ### ✅ Keys have been automatically removed from source code
+            
+            The exposed keys have been replaced with placeholders. However, you must still:
+            - Revoke the old keys (they are now public)
+            - Generate and deploy new keys
+            
+            ### 🔒 Prevention Measures:
+            
+            1. Enable [GitHub Secret Scanning](https://docs.github.com/en/code-security/secret-scanning)
+            2. Add pre-commit hooks to prevent key commits
+            3. Use \`git-secrets\` or similar tools
+            4. Implement automated key rotation
+            
+            ---
+            
+            **Related Workflow Run**: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+            `;
+            
+            // Check if issue already exists
+            const issues = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              labels: 'security,exposed-keys'
+            });
+            
+            if (issues.data.length === 0) {
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title: issueTitle,
+                body: issueBody,
+                labels: ['security', 'exposed-keys', 'critical']
+              });
+              console.log('✅ Security issue created');
+            } else {
+              console.log('ℹ️ Security issue already exists');
+              // Comment on existing issue
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issues.data[0].number,
+                body: `🔄 **New Detection Alert**\n\nAdditional exposed keys detected in commit ${{ github.sha }}\n\n${keyCount} key(s) found and automatically removed.`
+              });
+            }
+      
+      - name: Comment on PR
+        if: steps.scan.outputs.exit_code != '0' && github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const keyCount = '${{ steps.scan.outputs.key_count }}';
+            github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: `## 🚨 Security Alert: Exposed API Keys Detected
+              
+              **${keyCount} OpenRouter API key(s)** were found in this PR and have been automatically removed.
+              
+              ### ⚠️ ACTION REQUIRED:
+              
+              1. **Do NOT merge** until keys are revoked
+              2. **Revoke the exposed keys** on [OpenRouter Dashboard](https://openrouter.ai/keys)
+              3. **Generate new keys** and update secrets
+              4. **Pull the latest changes** (keys have been auto-removed)
+              
+              The exposed keys have been replaced with placeholders. Please review the changes.
+              
+              ---
+              *Automated by Key Scanner Action*`
+            });
+      
+      - name: Upload scan results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: key-scan-results
+          path: scan-output.txt
+          retention-days: 30
+      
+      - name: Fail if keys found
+        if: steps.scan.outputs.exit_code != '0'
+        run: |
+          echo "::error::Exposed OpenRouter API keys detected! Keys have been auto-removed but must be revoked."
+          echo "::error::Visit https://openrouter.ai/keys to revoke the exposed keys"
+          exit 1
+

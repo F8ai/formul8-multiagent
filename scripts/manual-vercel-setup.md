@@ -9,7 +9,7 @@ Since the Vercel CLI is having issues, here's how to set up the secret manually:
 3. Go to Settings > Environment Variables
 4. Add a new environment variable:
    - **Name**: `OPENROUTER_API_KEY`
-   - **Value**: `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`
+   - **Value**: `sk-or-v1-your-key-here`
    - **Environment**: Production, Preview, Development
 5. Save the environment variable
 
@@ -20,7 +20,7 @@ Try this command from the lambda-package directory:
 ```bash
 cd lambda-package
 vercel env add OPENROUTER_API_KEY
-# When prompted, paste: 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
+# When prompted, paste: sk-or-v1-your-key-here
 ```
 
 ## After Adding the Secret

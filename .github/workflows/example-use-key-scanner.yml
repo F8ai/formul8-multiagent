@@ -1,0 +1,31 @@
+# Example: How to use the reusable key scanner in other F8ai repositories
+#
+# Copy this file to your repository's .github/workflows/ directory
+# and customize as needed
+
+name: Security - Scan for Exposed Keys
+
+on:
+  push:
+    branches: ['**']
+  pull_request:
+    branches: ['**']
+  schedule:
+    # Run daily at 3 AM UTC
+    - cron: '0 3 * * *'
+
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+
+jobs:
+  scan-keys:
+    uses: F8ai/formul8-multiagent/.github/workflows/reusable-key-scanner.yml@main
+    with:
+      auto-fix: true          # Automatically remove exposed keys
+      create-issue: true      # Create GitHub issue on detection
+      fail-on-detection: true # Fail the workflow if keys found
+    secrets:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+

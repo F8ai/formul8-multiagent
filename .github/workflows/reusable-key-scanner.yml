@@ -1,0 +1,127 @@
+name: Reusable OpenRouter Key Scanner
+
+on:
+  workflow_call:
+    inputs:
+      auto-fix:
+        description: 'Automatically fix exposed keys'
+        required: false
+        default: true
+        type: boolean
+      create-issue:
+        description: 'Create GitHub issue on detection'
+        required: false
+        default: true
+        type: boolean
+      fail-on-detection:
+        description: 'Fail the workflow if keys are detected'
+        required: false
+        default: true
+        type: boolean
+    secrets:
+      GITHUB_TOKEN:
+        required: true
+    outputs:
+      keys-found:
+        description: 'Whether exposed keys were found'
+        value: ${{ jobs.scan.outputs.keys-found }}
+      key-count:
+        description: 'Number of exposed keys detected'
+        value: ${{ jobs.scan.outputs.key-count }}
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    outputs:
+      keys-found: ${{ steps.scan.outputs.exit_code != '0' }}
+      key-count: ${{ steps.scan.outputs.key_count }}
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+      
+      - name: Download key scanner script
+        run: |
+          mkdir -p scripts
+          curl -o scripts/detect-exposed-keys.js https://raw.githubusercontent.com/F8ai/formul8-multiagent/main/scripts/detect-exposed-keys.js
+          chmod +x scripts/detect-exposed-keys.js
+      
+      - name: Scan for exposed keys
+        id: scan
+        continue-on-error: true
+        run: |
+          node scripts/detect-exposed-keys.js --scan-all > scan-output.txt 2>&1
+          EXIT_CODE=$?
+          cat scan-output.txt
+          echo "exit_code=$EXIT_CODE" >> $GITHUB_OUTPUT
+          KEY_COUNT=$(grep -c "CRITICAL" scan-output.txt || echo "0")
+          echo "key_count=$KEY_COUNT" >> $GITHUB_OUTPUT
+      
+      - name: Auto-fix exposed keys
+        if: inputs.auto-fix && steps.scan.outputs.exit_code != '0'
+        run: node scripts/detect-exposed-keys.js --scan-all --fix
+      
+      - name: Check for changes
+        id: check_changes
+        run: |
+          if git diff --quiet; then
+            echo "changed=false" >> $GITHUB_OUTPUT
+          else
+            echo "changed=true" >> $GITHUB_OUTPUT
+          fi
+      
+      - name: Commit and push fixes
+        if: steps.check_changes.outputs.changed == 'true'
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add -A
+          git commit -m "🔒 Security: Auto-remove exposed OpenRouter API keys"
+          git push
+      
+      - name: Create Security Issue
+        if: inputs.create-issue && steps.scan.outputs.exit_code != '0'
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const keyCount = '${{ steps.scan.outputs.key_count }}';
+            const issues = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              labels: 'security,exposed-keys'
+            });
+            
+            if (issues.data.length === 0) {
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title: '🚨 Security Alert: Exposed OpenRouter API Keys',
+                body: `${keyCount} exposed key(s) detected and auto-removed. Revoke immediately at https://openrouter.ai/keys`,
+                labels: ['security', 'exposed-keys', 'critical']
+              });
+            }
+      
+      - name: Upload scan results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: key-scan-results
+          path: scan-output.txt
+          retention-days: 30
+      
+      - name: Fail if configured
+        if: inputs.fail-on-detection && steps.scan.outputs.exit_code != '0'
+        run: |
+          echo "::error::Exposed keys detected! Auto-removed but must be revoked."
+          exit 1
+
