@@ -1,11 +1,10 @@
 {
-  "timestamp": "2025-10-28T18:02:43.937Z",
+  "timestamp": "2025-10-28T18:04:13.735Z",
   "url": "https://chat.formul8.ai",
   "totalQuestions": 20,
-  "completed": 10,
   "passed": 1,
-  "failed": 9,
-  "averageScore": "33.38",
+  "failed": 19,
+  "averageScore": "36.94",
   "averageGrade": "F",
   "results": [
     {
@@ -189,7 +188,202 @@
         "relevance": "3/4 key words"
       },
       "expectedKeywords": []
+    },
+    {
+      "questionNum": 11,
+      "question": "Is my edibles packaging compliant to national, state, and local regulations?",
+      "category": "labeling-packaging-compliance",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "compliance_agent",
+      "agentMatch": false,
+      "response": "I’m happy to help you walk through the key elements you’ll need to verify in order to determine whether your edibles packaging meets **federal, state, and local** requirements. Below is a concise, step‑by‑step compliance framework you can use as a checklist. Because cannabis regulations differ dramatically from one jurisdiction to another—and because the penalties for non‑compliance can be severe—I also recommend that you have a qualified cannabis‑law attorney or a certified compliance consultant give the final sign‑off.\n\n---\n\n## 1️⃣ Federal Landscape (U.S.)\n\n| Requirement | What to Check | Typical Reference |\n|-------------|---------------|-------------------|\n| **Controlled Substances Act (CSA)** | Cannabis remains a Schedule I substance; however, many states have legalized it under state law. Federal enforcement is generally limited to interstate activities, but packaging that suggests a federal claim (e.g., “FDA‑approved”) is prohibited. | DEA guidance, 21 U.S.C. § 812 |\n| **Food and Drug Administration (FDA)** | • No health claims, disease‑treatment statements, or “medical marijuana” wording.<br>• Ingredient safety: All food‑grade ingredients must be Generally Recognized As Safe (GRAS).<br>• Good Manufacturing Practices (GMP) for food. | 21 CFR § 101, FDA Cannabis Guidance (2023 draft) |\n| **U.S. Department of Agriculture (USDA)** | If you use any agricultural claims (e.g., “organic”), you must have USDA certification. | USDA Organic Regulations |\n| **Child‑Resistant Packaging (CRP) – Federal** | While the federal law does not mandate CRP for cannabis, many states adopt the **U.S. Consumer Product Safety Commission (CPSC) Child‑Resistant Packaging Standard (16 CFR 1700)** as a baseline. | CPSC 16 CFR 1700 |\n| **Labeling of Controlled Substances** | No “potency” or “THC content” claims that could be interpreted as a drug claim. | FDA “Drug Facts” vs. “Supplement Facts” distinction |\n\n> **Bottom line:** At the federal level, the biggest risk is making any health‑related claim or implying FDA approval. If you stay within “food product” language and avoid medical assertions, you’ll generally be safe from federal enforcement—provided you stay within state‑legal supply chains (no interstate transport).\n\n---\n\n## 2️⃣ State‑Specific Requirements\n\n> **Tip:** Start with the state where the product will be sold, then repeat the checklist for any other states where you intend to distribute.\n\n| Common State Mandates | What to Verify | Example Sources |\n|-----------------------|----------------|-----------------|\n| **Licensing** | Your facility and product line must be covered by a state‑issued cannabis manufacturing license. | State Cannabis Control Board |\n| **Child‑Resistant Packaging (CRP)** | Must meet the state’s version of the CPSC standard (often 100 % pass rate on “push‑through” test). | State Department of Health |\n| **Tamper‑Evident Seal** | Required in most states (e.g., a breakable seal or shrink band). | State Cannabis Regulations |\n| **Label Content** | • **Brand name** (no “medical” or “therapeutic” language).<br>• **Net weight** (in grams or ounces).<br>• **THC/CBD potency** (often expressed as mg per package and % by weight).<br>• **Batch/lot number** and **expiration date**.<br>• **Ingredient list** (in descending order of weight).<br>• **Allergen warnings** (e.g., nuts, dairy).<br>• **Warning statements** (e.g., “Keep out of reach of children,” “Do not operate machinery while under the influence\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1166 (166→1000) | Cost: $0.000000*",
+      "duration": 13501,
+      "grade": "F",
+      "score": 54,
+      "grading": {
+        "length": "Pass",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "3/5 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 12,
+      "question": "When is childproof packaging required for certain cannabis products?",
+      "category": "labeling-packaging-compliance",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "compliance_agent",
+      "agentMatch": false,
+      "response": "**Short answer:**  \nIn almost every U.S. state where recreational or medical cannabis is legal, **any product that could be ingested, inhaled, or otherwise consumed by a person (including children) must be sold in child‑resistant (CR) packaging**. The requirement typically applies to edibles, tinctures, oils, concentrates, topicals that may be absorbed, and any pre‑filled containers (e.g., vape cartridges, pre‑rolled joints that contain resin).  \n\nBelow is a quick reference for the most common jurisdictions (the exact wording of the law may vary, but the spirit is the same):  \n\n| State | Products that must be in CR packaging* | Key statutory reference |\n|-------|----------------------------------------|--------------------------|\n| **California** | All cannabis edibles, beverages, tinctures, oils, concentrates, topicals, and any pre‑filled containers (including vape cartridges, pre‑rolled joints, infused butter). | Cal. Health & Safety Code §11362.2 |\n| **Colorado** | Edibles, beverages, tinctures, concentrates, vape cartridges, pre‑filled syringes, and any product that could be ingested. | Colo. Rev. Stat. § 18‑4‑110(2)(b) |\n| **Washington** | Edibles, beverages, tinctures, extracts, concentrates, vape cartridges, and any “product that is designed for oral consumption.” | Wash. RCW 69.50.410 |\n| **Oregon** | All edible, inhalable, or topical products, including pre‑filled cartridges, capsules, and infused beverages. | ORS 475B.210 |\n| **Michigan** | Edibles, tinctures, oils, concentrates, vape cartridges, and any “product that is not a raw flower and may be consumed orally, inhaled, or applied to the skin.” | MCL 339.1815 |\n| **Massachusetts** | All edibles, beverages, tinctures, extracts, concentrates, vape cartridges, and any product that could be ingested or absorbed. | Mass. Gen. Laws ch. 140, § 131A‑15 |\n| **Illinois** | Edibles, beverages, tinctures, oils, concentrates, vape cartridges, and any pre‑filled container. | 225 ILCS 5/7‑7‑1‑4 |\n\n\\* “CR packaging” means the packaging must meet the **U.S. Consumer Product Safety Commission (CPSC) 16 CFR Part 1500** standards (or the state‑specific equivalent) – typically a “push‑through” or “squeeze‑and‑turn” mechanism that an adult can open with reasonable effort but a child under 5 cannot.\n\n---\n\n### Why the rule exists\n- **Public‑health protection:** Cannabis edibles and extracts can look like candy, juice, or other foods that are attractive to children.\n- **Legal compliance:** Failure to use CR packaging can result in product recalls, fines, suspension of licenses, and civil liability.\n\n---\n\n### Practical checklist for growers, manufacturers, and dispensaries\n\n| Step | What to verify |\n|------|----------------|\n| **Identify product type** | Is the product intended for ingestion, inhalation, or transdermal absorption? If yes → CR required. |\n| **Select compliant packaging** | Use packaging tested to CPSC/State CR standards (e.g., push‑through caps, double‑lock closures). |\n| **Label the packaging** | Include the “Child‑Resistant” symbol and any state‑required warnings (e.g., “Keep out of reach of children”). |\n| **Maintain documentation** | Keep certificates of compliance, test reports, and packaging supplier statements on file for regulators. |\n| **Train staff** | Ensure everyone handling the product knows the CR requirement and can verify that the packaging is intact before sale. |\n| **Audit regularly** | Conduct quarterly spot‑checks to confirm that no non‑CR packaging is in the supply chain. |\n\n---\n\n### Edge cases & common questions\n\n| Question | Answer |\n|----------|--------|\n| **\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1162 (162→1000) | Cost: $0.000000*",
+      "duration": 13650,
+      "grade": "F",
+      "score": 54,
+      "grading": {
+        "length": "Pass",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "3/5 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 13,
+      "question": "Can I use leftover packaging labels from last month if they’re still accurate?",
+      "category": "labeling-packaging-compliance",
+      "response": null,
+      "error": "Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON",
+      "duration": 179,
+      "grade": "F",
+      "score": 0,
+      "actualAgent": "error",
+      "actualAgentName": "Error parsing response",
+      "expectedAgent": "compliance_agent",
+      "agentMatch": false
+    },
+    {
+      "questionNum": 14,
+      "question": "How potent can our edibles be?",
+      "category": "edibles-potency-formulation",
+      "response": null,
+      "error": "Unexpected non-whitespace character after JSON at position 4 (line 1 column 5)",
+      "duration": 63,
+      "grade": "F",
+      "score": 0,
+      "actualAgent": "error",
+      "actualAgentName": "Error parsing response",
+      "expectedAgent": "formulation_agent",
+      "agentMatch": false
+    },
+    {
+      "questionNum": 15,
+      "question": "Can we do 100 or 200 mg packages?",
+      "category": "edibles-potency-formulation",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "formulation_agent",
+      "agentMatch": false,
+      "response": "**Short answer:** Yes—you can sell 100 mg or 200 mg cannabis packages, but the feasibility depends on three key factors:\n\n| Factor | What to check | Typical outcome |\n|--------|---------------|-----------------|\n| **Regulatory limits** | State/Provincial → maximum THC/CBD per package (e.g., California ≤ 100 mg THC for edibles, Canada ≤ 10 mg THC per serving, 100 mg per package). | 100 mg is usually permissible; 200 mg may require a “multiple‑serving” label or be restricted in some jurisdictions. |\n| **Product type** | Edibles, tinctures, vape cartridges, topicals, etc. | Edibles often have per‑package caps; tinctures and vape cartridges are usually limited by “dose per serving” rather than total package weight. |\n| **Market demand & pricing** | Consumer preferences, competitor pricing, brand positioning. | 100 mg is a common “standard dose” for beginners; 200 mg appeals to experienced users and can command a premium if marketed as “two‑serving” or “high‑potency.” |\n\n---\n\n### How to move forward\n\n1. **Confirm jurisdictional limits**  \n   - **U.S.**: Check each state’s adult‑use cannabis code (e.g., CO ≤ 10 mg THC per serving, 100 mg per package; WA ≤ 10 mg per serving, 100 mg per package).  \n   - **Canada**: Federal Cannabis Act caps edibles at 10 mg THC per serving and 100 mg per package, but you can sell a 200 mg product if you label it as “two servings.”  \n   - **International**: Look up local THC/CBD thresholds (e.g., EU, Australia).  \n\n2. **Design packaging & labeling**  \n   - **Clear dosage statement** (e.g., “100 mg THC total – 2 × 50 mg servings”).  \n   - **Child‑resistant, tamper‑evident** packaging as required.  \n   - **Nutritional & ingredient list** per local standards.  \n\n3. **Pricing & positioning**  \n   - Benchmark competitor prices for 100 mg vs. 200 mg products.  \n   - Consider bundle discounts (e.g., “Buy two 100 mg packs for the price of one 200 mg pack”).  \n   - Highlight value‑add (organic, full‑spectrum, flavor profiles).  \n\n4. **Supply‑chain & production**  \n   - Verify your extraction or formulation process can reliably deliver the exact milligram count per package (±5 % is typical regulatory tolerance).  \n   - Implement batch testing (HPLC/GC) and QA documentation for each lot.  \n\n5. **Legal & compliance review**  \n   - Run the final packaging specs through your compliance team or legal counsel before launch.  \n   - Keep a record of all state‑specific regulatory citations in case of inspections.  \n\n---\n\n### Quick “yes/no” checklist\n\n| ✔️ | Item |\n|---|------|\n| ✅ | Your target market permits ≤ 100 mg per package (most do). |\n| ✅ | 200 mg is allowable if you label it as “two servings” or meet a “multiple‑serving” rule. |\n| ✅ | Your production can accurately dose and test to the required potency. |\n| ✅ | Packaging meets child‑resistant, tamper‑evident, and labeling standards. |\n| ❓ | Any state‑specific cap below 200 mg? (If yes, you’ll need to split into two 100 mg packs.) |\n\n---\n\n**Bottom line:**  \n- **100 mg packages** are universally safe and widely accepted.  \n- **200 mg packages** are feasible in most jurisdictions *provided* you use a “two‑serving” label or the state’s regulations allow a single‑package limit of 200 mg.  \n\nIf you let me know the specific state/province and product type you’re targeting, I can give you the exact regulatory citation and a sample label wording.\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1218 (163→1055) | Cost: $0.000000*",
+      "duration": 19831,
+      "grade": "F",
+      "score": 45,
+      "grading": {
+        "length": "Pass",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "0/1 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 16,
+      "question": "Can we do more than 200 mg?",
+      "category": "edibles-potency-formulation",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "formulation_agent",
+      "agentMatch": false,
+      "response": "I’m happy to help, but I need a bit more context to give you an accurate answer. Are you referring to:\n\n- A THC or CBD edible dose (e.g., 200 mg of THC/CBD)?  \n- A prescription medication dosage limit?  \n- A product label limit (e.g., a vape cartridge, tincture, or topical)?  \n\nIf you let me know the specific product or compound you’re asking about, I can tell you whether doses above 200 mg are commonly used, what safety considerations apply, and what regulations or best‑practice guidelines recommend.\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 399 (161→238) | Cost: $0.000000*",
+      "duration": 3254,
+      "grade": "F",
+      "score": 45,
+      "grading": {
+        "length": "Pass",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "0/0 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 17,
+      "question": "Is there a per-piece requirement for max dosage?",
+      "category": "edibles-potency-formulation",
+      "agent": "unknown",
+      "actualAgent": "formulation",
+      "actualAgentName": "Formulation Agent",
+      "expectedAgent": "formulation_agent",
+      "agentMatch": false,
+      "response": "**Short answer:** Yes – most jurisdictions set a legal maximum amount of THC (and sometimes CBD) that any single edible, inhalable, or topical “piece” may contain. The exact limit varies by country, state/province, and product type, so you must check the rules that apply to the market you’re targeting.\n\n---\n\n## 1. Typical regulatory caps (U.S. example)\n\n| Jurisdiction | Product type | Max THC per **single piece** | Max THC per **package** | Max CBD per piece* |\n|--------------|--------------|-----------------------------|------------------------|--------------------|\n| **California** | Edibles, beverages, tinctures | 10 mg (5 mg in some “micro‑dose” categories) | 100 mg | 20 mg (if marketed as “CBD‑only”) |\n| **Colorado** | Edibles, beverages, tinctures | 10 mg (5 mg for “low‑dose” edibles) | 100 mg | No explicit CBD cap, but labeling must reflect total cannabinoids |\n| **Washington** | Edibles, beverages, tinctures | 10 mg | 100 mg | No specific CBD limit, but total THC + CBD ≤ 10 mg for “low‑dose” |\n| **Oregon** | Edibles, beverages, tinctures | 10 mg | 100 mg | Same as CO |\n| **Federal (US)** | No federal edible limit (FDA‑pending), but many states adopt the 10 mg/100 mg rule |\n| **Canada** | Edibles, beverages, tinctures | 10 mg THC per **single serving** (a “piece” is considered a serving) | 100 mg per package | 20 mg CBD per serving (if marketed as CBD‑only) |\n| **EU (selected)** | Food supplements | 2 mg THC per **single unit** (most EU countries treat THC as a novel food) | 10 mg per package | Varies; often 20 mg CBD per unit |\n\n\\*CBD caps are less common but appear in some states (e.g., California’s “low‑dose” CBD products) and in EU food‑supplement regulations.\n\n---\n\n## 2. Why the “per‑piece” limit matters\n\n1. **Consumer safety** – Prevents accidental over‑consumption, especially for novice users.\n2. **Labeling compliance** – Dosage must be clearly stated on the package; the label’s “serving size” cannot exceed the legal per‑piece limit.\n3. **Testing & QC** – Lab results (COA) must confirm that every unit falls under the cap; batch‑to‑batch variance is not tolerated.\n4. **Product design** – Influences formulation decisions (e.g., ingredient ratios, batch size, portioning equipment).\n\n---\n\n## 3. How to calculate and verify per‑piece dosage\n\n| Step | Action | Tool/Reference |\n|------|--------|----------------|\n| **1. Define target potency** | Decide the intended THC/CBD mg per piece (e.g., 10 mg THC). | Formulation spreadsheet |\n| **2. Determine total batch potency** | Use lab‑tested extract concentration (e.g., 80 % THC, 20 % CBD). | COA |\n| **3. Compute ingredient amounts** | `mg THC per piece = (Extract % THC × Extract weight per piece) / 1000`. | Calculator |\n| **4. Portion the batch** | Use precision dosing equipment (e.g., micro‑weighing scales, volumetric fillers). | Dosing line |\n| **5. Test a representative sample** | Send 10‑20 randomly selected pieces to a certified lab. | Accredited lab |\n| **6. Confirm compliance** | All tested pieces must be ≤ legal limit with a small safety margin (e.g., ≤ 9.5 mg if the cap is 10 mg). | COA review |\n| **7. Label accurately** | State “10 mg THC per piece” (or the actual measured value) and include any required warnings. | Regulatory label template |\n\n---\n\n## 4. Practical tips for staying within the cap\n\n* **Design for the lowest common denominator** – If you sell in multiple states, adopt the most restrictive limit (often 5 mg per piece) to avoid separate formulations.\n* **Use “micro‑dose” formats** – 2–5 mg THC pieces are popular for beginners and reduce liability.\n* **Batch‑size planning** – Keep the number of pieces per batch an integer that divides evenly into the total cannabinoid mass; this eliminates rounding errors.\n* **Include a “serving size” buffer** – Formulate slightly under the legal maximum (e.g., 9 mg THC for a 10 mg cap) to accommodate analytical variance.\n* **Document every step** – SOPs, batch records, and QA sign‑offs are essential for regulatory audits.\n\n---\n\n## 5. Quick checklist for a new product launch\n\n1. **Identify target market(s)** → list applicable state/provincial regulations.  \n2. **Set per‑piece potency** → ≤ the strictest legal limit.  \n3. **Select extract** → verify COA (potency, pesticide, solvent, heavy‑metal limits).  \n4. **Formulate** → calculate ingredient weights; include a safety margin.  \n5. **Prototype & test** → lab‑verify at least 5‑10 pieces per batch.  \n6. **Finalize packaging** → label with exact mg per piece, total package mg, and required warnings.  \n7. **Submit for compliance review** (if required by state).  \n8. **Release** → monitor post‑market feedback and retain batch records for traceability.\n\n---\n\n**Bottom line:** Yes—most regulated markets impose a per‑piece (per‑serving) THC limit, commonly 10 mg (or 5 mg for “micro‑dose” categories). Always design your formulation to stay comfortably below that ceiling, verify with lab testing, and label accurately to maintain compliance and consumer safety. If you need a specific calculation for a product you’re developing, let me know the extract potency, desired piece size, and target market, and I can run the numbers for you.\n\n---\n*Agent: Formulation Agent | Plan: Standard | Tokens: 1716 (204→1512) | Cost: $0.000000*",
+      "duration": 13051,
+      "grade": "F",
+      "score": 45,
+      "grading": {
+        "length": "Pass",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "0/4 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 18,
+      "question": "What am I allowed to cut my vape cartridge APIs (distillate or decarbed resin) with that is safe and compliant?",
+      "category": "formulation-ingredient-compliance",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "formulation_agent",
+      "agentMatch": false,
+      "response": "Below is a quick‑reference guide to the diluents / “cutters” that are most commonly considered **safe and compliant** for vape‑cartridge APIs (distillate or decarboxylated resin).  Keep in mind that every state (and the federal FDA) has its own list of approved additives, so you must verify that any ingredient you use is on the **state‑approved list** and that you meet the required purity/residue limits.\n\n---\n\n## 1. Most Widely Accepted Carriers  \n\n| Carrier | Typical Use | Why It’s Considered Safe | Typical % in Cartridge* |\n|---------|-------------|--------------------------|------------------------|\n| **MCT Oil (Medium‑Chain Triglycerides, USP‑grade)** | Primary diluent for distillate; helps thin viscosity for 0.5‑0.8 mL cartridges | GRAS‑listed, non‑volatile, no residual solvents, stable at vaping temps | 10‑30 % (sometimes up to 40 % for very thick distillates) |\n| **Propylene Glycol (PG, USP‑grade)** | Often blended with VG or terpenes to adjust throat‑hit & viscosity | GRAS, low toxicity, widely used in food & pharma | 5‑20 % (many states limit PG to ≤ 20 %) |\n| **Vegetable Glycerin (VG, USP‑grade)** | Adds viscosity & a smoother mouthfeel | GRAS, non‑toxic, hygroscopic (helps keep cartridge from drying out) | 5‑15 % (usually paired with PG) |\n| **Terpene Blend (phytocannabinoid‑compatible, USP/GRAS‑grade)** | Flavor, aroma, and modest viscosity reduction | Naturally occurring plant constituents, no synthetic chemicals, generally allowed if on the state’s terpene list | 5‑15 % (often combined with MCT/PG/VG) |\n| **PEG‑400 (Polyethylene Glycol, USP‑grade)** | Occasionally used as a thin‑film carrier, especially in medical‑grade vape products | GRAS, low volatility, approved in many oral/pharma formulations | 5‑10 % (check state limits; some jurisdictions ban PEG) |\n\n\\*Percentages are **typical ranges**; the exact amount depends on API viscosity, desired “hit,” and state‑specific limits.\n\n---\n\n## 2. What **Usually NOT** Allowed  \n\n| Substance | Reason for Exclusion |\n|-----------|----------------------|\n| **Ethanol (food‑grade or denatured)** | Residual solvent limits are strict; many states forbid ethanol in inhalable products. |\n| **Hydrocarbon solvents (butane, propane, hexane)** | Must be fully removed; any detectable residue > 0.5 % (or lower per state) is non‑compliant. |\n| **Synthetic flavorings or non‑GRAS oils** | Not on approved additive lists; can introduce unknown toxicants when vaporized. |\n| **Vitamin E acetate** | Proven to cause lung injury; banned nationwide for inhalation. |\n| **Heavy‑metal‑containing carriers (e.g., certain mineral oils)** | Not GRAS, can\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1179 (179→1000) | Cost: $0.000000*",
+      "duration": 6640,
+      "grade": "F",
+      "score": 57,
+      "grading": {
+        "length": "Pass",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "4/5 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 19,
+      "question": "What are considered banned substances when formulating various cannabis products?",
+      "category": "formulation-ingredient-compliance",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "formulation_agent",
+      "agentMatch": false,
+      "response": "**Banned Substances in Cannabis‑Product Formulation**  \n(overview – exact lists vary by jurisdiction; always check the specific regulator that applies to your market)\n\n| Category | Why It’s prohibited | Common examples that appear on most regulator “banned” lists |\n|----------|--------------------|--------------------------------------------------------------|\n| **Contaminants & Residues** | Health‑risk limits are set for safety and purity. | • Pesticides & herbicides (e.g., chlorpyrifos, diazinon)  <br>• Heavy metals (lead, cadmium, mercury, arsenic)  <br>• Mycotoxins (aflatoxin B1, ochratoxin A)  <br>• Residual solvents above allowable limits (ethanol, isopropanol, CO₂ are permitted only within strict limits; chloroform, benzene, toluene, dichloromethane are outright prohibited) |\n| **Non‑GRAS Additives** | The FDA (U.S.) and EFSA (EU) require that any ingredient in food‑grade cannabis products be “Generally Recognized As Safe.” | • Synthetic cannabinoids (e.g., JWH‑018, AM‑2201)  <br>• Non‑GRAS flavorings, colorants, or sweeteners (e.g., certain “artificial” dyes, Red 40 in some states)  <br>• Non‑pharmaceutical grade vitamins/minerals not on the GRAS list |\n| **Prohibited Solvents & Extraction Media** | Solvents that leave toxic residues or are carcinogenic are disallowed for consumable products. | • Chloroform, carbon tetrachloride, benzene, toluene, xylene, diethyl ether, dichloromethane, methylene chloride  <br>• Non‑food‑grade super‑critical CO₂ is allowed; food‑grade ethanol and isopropanol are allowed only within residual limits |\n| **Restricted Excipients / Carriers** | Some carriers are known to cause allergic reactions or have safety concerns. | • Propylene glycol (PG) is allowed in many jurisdictions but prohibited in oral edibles in several U.S. states (e.g., California)  <br>• Polyethylene glycol (PEG) in vape liquids is restricted in the EU and Canada  <br>• Certain dairy‑derived ingredients (e.g., casein) may be banned for vegan‑label claims |\n| **Pharmacologically Active Non‑Cannabis Compounds** | Adding other psychoactive agents creates an “adulterated” product. | • THC‑like synthetic opioids, stimulants, or benzodiazepines  <br>• Non‑cannabis cannabinoids not approved as food additives (e.g., certain synthetic CBG analogues) |\n| **Allergenic / Undeclared Substances** | Must be declared on the label; undisclosed allergens are considered adulterants. | • Tree nuts, peanuts, soy, gluten, sesame, etc., when not listed |\n| **Packaging‑Related Bans** | Materials that leach harmful chemicals are prohibited. | • Certain plastics containing BPA, phthalates, or heavy‑metal inks for edible/vape containers |\n\n### How the bans differ by product type\n| Product | Typical “must‑avoid” list (most jurisdictions) |\n|---------|-----------------------------------------------|\n| **Edibles (food, beverage, gummies, chocolates)** | • Any non‑GRAS food additive <br>• Synthetic cannabinoids <br>• Prohibited solvents above limits <br>\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1164 (164→1000) | Cost: $0.000000*",
+      "duration": 8812,
+      "grade": "F",
+      "score": 54,
+      "grading": {
+        "length": "Pass",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "3/5 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 20,
+      "question": "Can I use hemp-based cannabinoids like CBD or CBG (or others) in production of my cannabis products?",
+      "category": "formulation-ingredient-compliance",
+      "agent": "unknown",
+      "actualAgent": "formulation",
+      "actualAgentName": "Formulation Agent",
+      "expectedAgent": "formulation_agent",
+      "agentMatch": false,
+      "response": "**Short answer:** Yes – you can incorporate hemp‑derived cannabinoids (CBD, CBG, CBC, CBN, etc.) into cannabis‑derived products, provided you stay within the legal limits for Δ⁹‑THC (typically ≤0.3 % dry weight in the United States) and meet all labeling, testing, and manufacturing requirements of your jurisdiction.\n\nBelow is a concise roadmap that covers the most important considerations for using hemp‑based cannabinoids in a cannabis product line.\n\n---\n\n## 1. Legal & Regulatory Landscape\n| Region | Legal THC limit for hemp‑derived material | Key regulatory points |\n|--------|------------------------------------------|------------------------|\n| **U.S. (Federal)** | ≤0.3 % Δ⁹‑THC (dry weight) | Must be sourced from an **USDA‑licensed hemp grower**; COA required for every batch; cannot be marketed as a dietary supplement if it contains THC >0.0 % (FDA guidance). |\n| **EU** | ≤0.2 % Δ⁹‑THC (dry weight) | Novel‑food authorization needed for isolated cannabinoids; strict traceability and labelling. |\n| **Canada** | ≤0.3 % Δ⁹‑THC for “hemp” but cannabinoids are regulated under the **Cannabis Act**; you need a **Cannabis Licence** to sell any product containing cannabinoids, regardless of source. |\n| **Other jurisdictions** | Varies | Always verify the local limit and licensing requirements. |\n\n**Bottom line:** As long as the hemp‑derived ingredient meets the local THC threshold and you have a valid COA, you can blend it with other cannabis‑derived ingredients.\n\n---\n\n## 2. Sourcing & Quality Assurance\n\n| Step | What to Verify |\n|------|----------------|\n| **Supplier licensing** | USDA‑registered (U.S.) or equivalent; GMP‑certified extraction facility. |\n| **Certificate of Analysis (COA)** | • Full cannabinoid profile (CBD, CBG, Δ⁹‑THC, CBC, CBN, etc.)<br>• Terpene profile (if relevant)<br>• Pesticide, heavy‑metal, residual‑solvent, microbial limits. |\n| **Batch consistency** | Compare batch‑to‑batch cannabinoid percentages; use a **standardization protocol** (e.g., dilute or concentrate to a target % CBD). |\n| **Stability data** | Shelf‑life studies for the isolate or broad‑spectrum extract (especially if you’ll heat‑process it). |\n| **Documentation** | Maintain a **traceability matrix** linking raw material lot numbers to final product batch numbers. |\n\n---\n\n## 3. Formulation Considerations\n\n### 3.1. Potency & Dosing\n* **Target CBD/CBG level** in final product = (desired dose × serving size) / (product weight).  \n  Example: 20 mg CBD per 10 g gummy → 0.2 % w/w CBD.\n* **Adjust for THC content**: If your hemp extract contains 0.2 % THC, calculate the THC contribution to stay under the legal limit for the finished product.\n\n### 3.2. Compatibility\n| Ingredient | Interaction notes |\n|------------|-------------------|\n| **Lipids (MCT oil, hemp seed oil)** | Excellent solubilizers for cannabinoids; stable at 4‑30 °C. |\n| **Ethanol‑based extracts** | Good for tinctures; ensure residual ethanol <0.5 % (or per local limits). |\n| **Terpenes** | Can boost the “entourage effect”; keep total terpene load ≤5 % to avoid volatility issues during encapsulation. |\n| **Polymers (HPMC, gelatin)** | For soft‑gel capsules; verify that the cannabinoid is fully dissolved before encapsulation to avoid precipitation. |\n\n### 3.3. Processing\n| Process | Recommended parameters for hemp cannabinoids |\n|---------|----------------------------------------------|\n| **Heat‑based (e.g., baking, cooking)** | Keep temperature ≤180 °C; exposure >30 min can degrade CBD by ~15 % and CBG by ~10 %. |\n| **Emulsification\n\n---\n*Agent: Formulation Agent | Plan: Standard | Tokens: 1215 (215→1000) | Cost: $0.000000*",
+      "duration": 6200,
+      "grade": "F",
+      "score": 51,
+      "grading": {
+        "length": "Pass",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "2/5 key words"
+      },
+      "expectedKeywords": []
     }
-  ],
-  "status": "In Progress: 10/20 questions completed"
+  ]
 }
