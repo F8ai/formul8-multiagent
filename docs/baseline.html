@@ -199,7 +199,105 @@
             max-width: none;
             width: 45%;
             font-size: 0.9em;
+            color: #333;
+        }
+        
+        .response-preview {
+            max-height: 200px;
+            overflow-y: auto;
+            overflow-x: auto;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 6px;
+            border: 1px solid #e5e7eb;
+            line-height: 1.6;
+        }
+        
+        .response-preview::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        
+        .response-preview::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 4px;
+        }
+        
+        .response-preview::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 4px;
+        }
+        
+        .response-preview::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+        
+        .response-preview h1, .response-preview h2, .response-preview h3 {
+            margin-top: 0.5em;
+            margin-bottom: 0.3em;
+            color: #667eea;
+        }
+        
+        .response-preview h1 { font-size: 1.2em; }
+        .response-preview h2 { font-size: 1.1em; }
+        .response-preview h3 { font-size: 1em; }
+        
+        .response-preview ul, .response-preview ol {
+            margin: 0.5em 0;
+            padding-left: 1.5em;
+        }
+        
+        .response-preview li {
+            margin: 0.25em 0;
+        }
+        
+        .response-preview p {
+            margin: 0.5em 0;
+        }
+        
+        .response-preview code {
+            background: #e5e7eb;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+        
+        .response-preview pre {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 10px;
+            border-radius: 6px;
+            overflow-x: auto;
+            margin: 0.5em 0;
+        }
+        
+        .response-preview pre code {
+            background: none;
+            padding: 0;
+            color: inherit;
+        }
+        
+        .response-preview blockquote {
+            border-left: 3px solid #667eea;
+            padding-left: 10px;
+            margin: 0.5em 0;
             color: #6c757d;
+        }
+        
+        .response-preview strong {
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .response-preview em {
+            font-style: italic;
+        }
+        
+        .response-preview hr {
+            border: none;
+            border-top: 1px solid #e5e7eb;
+            margin: 1em 0;
         }
         
         .grade-badge {
@@ -396,12 +494,12 @@
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>Grade</th>
                         <th>Category</th>
                         <th>Question</th>
                         <th>Response Preview</th>
                         <th>Time (ms)</th>
                         <th>Actions</th>
+                        <th>Grade</th>
                     </tr>
                 </thead>
                 <tbody id="tableBody"></tbody>
@@ -530,6 +628,11 @@
                 
                 row.innerHTML = `
                     <td>${result.questionNum}</td>
+                    <td><span class="category-badge">${result.category}</span></td>
+                    <td class="question-cell">${result.question}</td>
+                    <td class="response-cell"><div class="response-preview">${marked.parse(result.response || result.error || 'No response')}</div></td>
+                    <td>${result.duration}ms</td>
+                    <td><button class="btn" onclick="showDetail(${result.questionNum})">View</button></td>
                     <td>
                         <span class="grade-badge ${gradeClass}">
                             ${result.grade} (${result.score.toFixed(0)}%)
@@ -537,11 +640,6 @@
                         </span>
                         ${result.grading ? '<br><small style="color: #6c757d;">' + Object.entries(result.grading).slice(0, 2).map(([k,v]) => `${k}: ${v}`).join(', ') + '</small>' : ''}
                     </td>
-                    <td><span class="category-badge">${result.category}</span></td>
-                    <td class="question-cell">${result.question}</td>
-                    <td class="response-cell">${truncate(result.response || result.error || 'No response', 100)}</td>
-                    <td>${result.duration}ms</td>
-                    <td><button class="btn" onclick="showDetail(${result.questionNum})">View</button></td>
                 `;
                 
                 tbody.appendChild(row);
@@ -623,10 +721,10 @@
         }
         
         function exportResults() {
-            let csv = 'Number,Grade,Score,Category,Question,Response,Duration\n';
+            let csv = 'Number,Category,Question,Response,Duration,Grade,Score\n';
             currentResults.forEach(r => {
                 const response = (r.response || r.error || '').replace(/"/g, '""');
-                csv += `${r.questionNum},"${r.grade}",${r.score},"${r.category}","${r.question}","${response}",${r.duration}\n`;
+                csv += `${r.questionNum},"${r.category}","${r.question}","${response}",${r.duration},"${r.grade}",${r.score}\n`;
             });
             
             const blob = new Blob([csv], { type: 'text/csv' });
