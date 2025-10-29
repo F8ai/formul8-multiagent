@@ -16,7 +16,6 @@
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
             padding: 10px;
-            overflow-x: hidden;
         }
         
         .container {
@@ -167,13 +166,6 @@
             padding: 30px 20px;
         }
         
-        /* Ensure wide tables scroll on small screens */
-        .table-wrapper {
-            width: 100%;
-            overflow-x: auto;
-            -webkit-overflow-scrolling: touch;
-        }
-        
         table {
             width: 100%;
             border-collapse: collapse;
@@ -208,6 +200,36 @@
             width: 45%;
             font-size: 0.9em;
             color: #333;
+        }
+        
+        .routing-cell {
+            width: 12%;
+            text-align: center;
+            font-size: 0.9em;
+        }
+        
+        .routing-correct {
+            background-color: #d4edda;
+            color: #155724;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        
+        .routing-incorrect {
+            background-color: #f8d7da;
+            color: #721c24;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        
+        .routing-unknown {
+            background-color: #fff3cd;
+            color: #856404;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-weight: bold;
         }
         
         .response-preview {
@@ -343,10 +365,6 @@
         .grade-badge:hover .grade-tooltip {
             display: block;
         }
-        /* Enable tooltip on keyboard focus/tap */
-        .grade-badge:focus .grade-tooltip {
-            display: block;
-        }
         
         .grade-tooltip h4 {
             margin: 0 0 10px 0;
@@ -432,21 +450,176 @@
             font-size: 0.9em;
         }
         
+        .editable {
+            cursor: pointer;
+            position: relative;
+            padding: 5px;
+            border-radius: 4px;
+            transition: background-color 0.2s;
+        }
+        
+        .editable:hover {
+            background-color: #f0f0f0;
+        }
+        
+        .editable.editing {
+            background-color: #fff3cd;
+            border: 2px solid #ffc107;
+        }
+        
+        .edit-input {
+            width: 100%;
+            padding: 8px;
+            border: 2px solid #667eea;
+            border-radius: 4px;
+            font-size: inherit;
+            font-family: inherit;
+            background: white;
+            resize: vertical;
+            min-height: 40px;
+        }
+        
+        .edit-textarea {
+            width: 100%;
+            padding: 8px;
+            border: 2px solid #667eea;
+            border-radius: 4px;
+            font-size: inherit;
+            font-family: inherit;
+            background: white;
+            resize: vertical;
+            min-height: 80px;
+        }
+        
+        .edit-controls {
+            margin-top: 8px;
+            display: flex;
+            gap: 8px;
+        }
+        
+        .edit-btn {
+            padding: 4px 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9em;
+            font-weight: bold;
+            transition: all 0.2s;
+        }
+        
+        .edit-save {
+            background: #28a745;
+            color: white;
+        }
+        
+        .edit-save:hover {
+            background: #218838;
+        }
+        
+        .edit-cancel {
+            background: #6c757d;
+            color: white;
+        }
+        
+        .edit-cancel:hover {
+            background: #5a6268;
+        }
+        
+        .edit-icon {
+            margin-left: 8px;
+            opacity: 0.6;
+            font-size: 0.8em;
+        }
+        
+        .edit-icon:hover {
+            opacity: 1;
+        }
+        
+        .token-input-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 10000;
+            padding: 20px;
+            overflow-y: auto;
+        }
+        
+        .token-input-content {
+            max-width: 500px;
+            margin: 50px auto;
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        
+        .token-input-content h3 {
+            margin-top: 0;
+            color: #667eea;
+        }
+        
+        .token-input-content input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 1em;
+            margin: 10px 0;
+        }
+        
+        .token-input-content input:focus {
+            border-color: #667eea;
+            outline: none;
+        }
+        
+        .token-input-content .help-text {
+            font-size: 0.9em;
+            color: #6c757d;
+            margin: 10px 0;
+        }
+        
+        .token-input-content .buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .token-input-content .btn {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.2s;
+        }
+        
+        .token-input-content .btn-primary {
+            background: #667eea;
+            color: white;
+        }
+        
+        .token-input-content .btn-primary:hover {
+            background: #764ba2;
+        }
+        
+        .token-input-content .btn-secondary {
+            background: #6c757d;
+            color: white;
+        }
+        
+        .token-input-content .btn-secondary:hover {
+            background: #5a6268;
+        }
+        
         @media (max-width: 768px) {
             h1 { font-size: 1.8em; }
-            .stats-container { grid-template-columns: 1fr; }
-            .controls { flex-direction: column; align-items: stretch; gap: 12px; padding: 16px; }
-            .controls label { width: 100%; }
-            .controls select, .controls input { width: 100%; }
-            .question-cell, .response-cell { width: auto; max-width: none; }
-            th, td { padding: 10px; }
-            .bar { height: 28px; }
-            .modal-content { margin: 20px auto; padding: 20px; width: 100%; max-width: 95vw; }
-            /* Keep table readable by allowing horizontal scroll */
-            .table-wrapper { overflow-x: auto; -webkit-overflow-scrolling: touch; }
-            table { min-width: 720px; }
-            /* Make tooltip usable on mobile */
-            .grade-tooltip { position: fixed; left: 16px; right: 16px; top: auto; bottom: 16px; max-width: none; width: auto; }
+            .stats-container { grid-template-columns: 1fr 1fr; }
+            .question-cell, .response-cell { max-width: none; }
         }
     </style>
     <!-- Marked.js for Markdown rendering -->
@@ -475,6 +648,10 @@
             <div class="stat-card">
                 <div class="stat-value" id="passRate">-</div>
                 <div class="stat-label">Pass Rate</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="routingAccuracy">-</div>
+                <div class="stat-label">Routing Accuracy</div>
             </div>
             <div class="stat-card">
                 <div class="stat-value" id="avgTime">-</div>
@@ -513,22 +690,21 @@
         <div class="results-table">
             <h2>📋 Detailed Results</h2>
             <div id="loading" class="loading">Loading baseline results</div>
-            <div class="table-wrapper">
-                <table id="resultsTable" style="display: none;">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Category</th>
-                            <th>Question</th>
-                            <th>Response Preview</th>
-                            <th>Time (ms)</th>
-                            <th>Actions</th>
-                            <th>Grade</th>
-                        </tr>
-                    </thead>
-                    <tbody id="tableBody"></tbody>
-                </table>
-            </div>
+            <table id="resultsTable" style="display: none;">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Category</th>
+                        <th>Question</th>
+                        <th>Response Preview</th>
+                        <th>Routing</th>
+                        <th>Time (ms)</th>
+                        <th>Actions</th>
+                        <th>Grade</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody"></tbody>
+            </table>
         </div>
         
         <div class="timestamp" id="timestamp"></div>
@@ -541,9 +717,78 @@
         </div>
     </div>
     
+    <div class="token-input-modal" id="tokenInputModal">
+        <div class="token-input-content">
+            <h3>🔑 GitHub Token Required</h3>
+            <p>To create GitHub issues, you need to provide a GitHub Personal Access Token.</p>
+            <div class="help-text">
+                <strong>How to get a token:</strong><br>
+                1. Go to GitHub Settings → Developer settings → Personal access tokens<br>
+                2. Click "Generate new token (classic)"<br>
+                3. Select scopes: <code>repo</code> and <code>issues</code><br>
+                4. Copy the generated token
+            </div>
+            <input type="password" id="githubTokenInput" placeholder="Enter your GitHub Personal Access Token">
+            <div class="buttons">
+                <button class="btn btn-secondary" onclick="cancelTokenInput()">Cancel</button>
+                <button class="btn btn-primary" onclick="saveToken()">Save Token</button>
+            </div>
+        </div>
+    </div>
+    
     <script>
         let allResults = [];
         let currentResults = [];
+        let githubToken = null;
+        
+        // Load GitHub token from sessionStorage
+        function loadGitHubToken() {
+            githubToken = sessionStorage.getItem('githubToken');
+        }
+        
+        // Save GitHub token to sessionStorage
+        function saveGitHubToken(token) {
+            githubToken = token;
+            sessionStorage.setItem('githubToken', token);
+        }
+        
+        // Show token input modal
+        function showTokenInputModal() {
+            document.getElementById('tokenInputModal').style.display = 'block';
+            document.getElementById('githubTokenInput').focus();
+        }
+        
+        // Hide token input modal
+        function hideTokenInputModal() {
+            document.getElementById('tokenInputModal').style.display = 'none';
+            document.getElementById('githubTokenInput').value = '';
+        }
+        
+        // Save token from modal
+        function saveToken() {
+            const token = document.getElementById('githubTokenInput').value.trim();
+            if (!token) {
+                alert('Please enter a GitHub token');
+                return;
+            }
+            saveGitHubToken(token);
+            hideTokenInputModal();
+            showNotification('GitHub token saved for this session', 'success');
+        }
+        
+        // Cancel token input
+        function cancelTokenInput() {
+            hideTokenInputModal();
+        }
+        
+        // Get GitHub token (prompt if not available)
+        function getGitHubToken() {
+            if (!githubToken) {
+                showTokenInputModal();
+                return null;
+            }
+            return githubToken;
+        }
         
         async function loadResults() {
             try {
@@ -581,6 +826,13 @@
             document.getElementById('avgGrade').textContent = data.averageGrade;
             document.getElementById('passRate').textContent = 
                 ((data.passed / data.totalQuestions) * 100).toFixed(1) + '%';
+            
+            // Calculate routing accuracy
+            const routingResults = data.results.filter(r => r.actualAgent && r.expectedAgent);
+            const correctRouting = routingResults.filter(r => r.actualAgent === r.expectedAgent).length;
+            const routingAccuracy = routingResults.length > 0 ? 
+                ((correctRouting / routingResults.length) * 100).toFixed(1) + '%' : 'N/A';
+            document.getElementById('routingAccuracy').textContent = routingAccuracy;
             
             const avgTime = data.results.reduce((sum, r) => sum + r.duration, 0) / data.results.length;
             document.getElementById('avgTime').textContent = (avgTime / 1000).toFixed(2);
@@ -651,26 +903,70 @@
                     tooltipContent += '</ul>';
                 }
                 
-                // Format expected answer/keywords
+                // Format expected answer/keywords as editable
                 let expectedSection = '';
                 if (result.expectedKeywords && result.expectedKeywords.length > 0) {
-                    expectedSection = `<div style="margin-top: 8px; padding-top: 8px; border-top: 1px solid #e5e7eb;"><small style="color: #6c757d;"><strong>Expected:</strong> ${result.expectedKeywords.join(', ')}</small></div>`;
+                    expectedSection = `<div style="margin-top: 8px; padding-top: 8px; border-top: 1px solid #e5e7eb;">
+                        <small style="color: #6c757d;"><strong>Expected Keywords:</strong></small>
+                        <div class="editable" data-field="expectedKeywords" data-question-id="${result.id}" data-original-value="${result.expectedKeywords.join(', ')}">
+                            ${result.expectedKeywords.join(', ')}<span class="edit-icon">✏️</span>
+                        </div>
+                    </div>`;
                 } else if (result.expectedAnswer) {
-                    expectedSection = `<div style="margin-top: 8px; padding-top: 8px; border-top: 1px solid #e5e7eb;"><small style="color: #6c757d;"><strong>Expected:</strong> ${result.expectedAnswer}</small></div>`;
+                    expectedSection = `<div style="margin-top: 8px; padding-top: 8px; border-top: 1px solid #e5e7eb;">
+                        <small style="color: #6c757d;"><strong>Expected Answer:</strong></small>
+                        <div class="editable" data-field="expectedAnswer" data-question-id="${result.id}" data-original-value="${result.expectedAnswer}">
+                            ${result.expectedAnswer}<span class="edit-icon">✏️</span>
+                        </div>
+                    </div>`;
+                } else {
+                    expectedSection = `<div style="margin-top: 8px; padding-top: 8px; border-top: 1px solid #e5e7eb;">
+                        <small style="color: #6c757d;"><strong>Expected Answer:</strong></small>
+                        <div class="editable" data-field="expectedAnswer" data-question-id="${result.id}" data-original-value="">
+                            Click to add expected answer<span class="edit-icon">✏️</span>
+                        </div>
+                    </div>`;
+                }
+                
+                // Determine routing status
+                let routingStatus = 'unknown';
+                let routingClass = 'routing-unknown';
+                let routingText = 'Unknown';
+                
+                if (result.actualAgent && result.expectedAgent) {
+                    if (result.actualAgent === result.expectedAgent) {
+                        routingStatus = 'correct';
+                        routingClass = 'routing-correct';
+                        routingText = '✓ Correct';
+                    } else {
+                        routingStatus = 'incorrect';
+                        routingClass = 'routing-incorrect';
+                        routingText = '✗ Wrong';
+                    }
+                } else if (result.actualAgent) {
+                    routingText = result.actualAgent;
                 }
                 
                 row.innerHTML = `
                     <td>${result.questionNum}</td>
                     <td><span class="category-badge">${result.category}</span></td>
                     <td class="question-cell">
-                        <div style="font-weight: 500; color: #333;">${result.question}</div>
+                        <div class="editable" data-field="question" data-question-id="${result.id}" data-original-value="${result.question}">
+                            <div style="font-weight: 500; color: #333;">${result.question}</div>
+                            <span class="edit-icon">✏️</span>
+                        </div>
                         ${expectedSection}
                     </td>
                     <td class="response-cell"><div class="response-preview">${marked.parse(result.response || result.error || 'No response')}</div></td>
+                    <td class="routing-cell">
+                        <span class="${routingClass}" title="Expected: ${result.expectedAgent || 'Unknown'} | Actual: ${result.actualAgent || 'Unknown'}">
+                            ${routingText}
+                        </span>
+                    </td>
                     <td>${result.duration}ms</td>
                     <td><button class="btn" onclick="showDetail(${result.questionNum})">View</button></td>
                     <td>
-                        <span class="grade-badge ${gradeClass}" tabindex="0" role="button" aria-label="Grade details">
+                        <span class="grade-badge ${gradeClass}">
                             ${result.grade} (${result.score.toFixed(0)}%)
                             <div class="grade-tooltip">${tooltipContent}</div>
                         </span>
@@ -786,6 +1082,232 @@
         
         // Load results on page load
         loadResults();
+        
+        // Editable functionality
+        function initializeEditableElements() {
+            document.addEventListener('click', function(e) {
+                if (e.target.closest('.editable')) {
+                    const editable = e.target.closest('.editable');
+                    if (!editable.classList.contains('editing')) {
+                        startEdit(editable);
+                    }
+                }
+            });
+        }
+        
+        function startEdit(element) {
+            const field = element.dataset.field;
+            const questionId = element.dataset.questionId;
+            const originalValue = element.dataset.originalValue;
+            
+            element.classList.add('editing');
+            
+            let inputElement;
+            if (field === 'question') {
+                inputElement = document.createElement('textarea');
+                inputElement.className = 'edit-textarea';
+                inputElement.value = originalValue;
+            } else {
+                inputElement = document.createElement('input');
+                inputElement.className = 'edit-input';
+                inputElement.value = originalValue;
+            }
+            
+            const controls = document.createElement('div');
+            controls.className = 'edit-controls';
+            controls.innerHTML = `
+                <button class="edit-btn edit-save" onclick="saveEdit(this)">Save</button>
+                <button class="edit-btn edit-cancel" onclick="cancelEdit(this)">Cancel</button>
+            `;
+            
+            element.innerHTML = '';
+            element.appendChild(inputElement);
+            element.appendChild(controls);
+            
+            inputElement.focus();
+            inputElement.select();
+        }
+        
+        function saveEdit(button) {
+            const editable = button.closest('.editable');
+            const input = editable.querySelector('.edit-input, .edit-textarea');
+            const field = editable.dataset.field;
+            const questionId = editable.dataset.questionId;
+            const newValue = input.value.trim();
+            
+            if (newValue === '') {
+                alert('Value cannot be empty');
+                return;
+            }
+            
+            // Show loading state
+            button.textContent = 'Saving...';
+            button.disabled = true;
+            
+            // Create GitHub issue for the edit
+            createGitHubIssue(questionId, field, editable.dataset.originalValue, newValue)
+                .then(() => {
+                    // Update the display
+                    editable.classList.remove('editing');
+                    editable.innerHTML = `${newValue}<span class="edit-icon">✏️</span>`;
+                    editable.dataset.originalValue = newValue;
+                    
+                    // Update the result in memory
+                    const result = allResults.find(r => r.id === questionId);
+                    if (result) {
+                        if (field === 'expectedKeywords') {
+                            result.expectedKeywords = newValue.split(',').map(k => k.trim());
+                        } else {
+                            result[field] = newValue;
+                        }
+                    }
+                    
+                    showNotification('Edit saved and GitHub issue created!', 'success');
+                })
+                .catch(error => {
+                    console.error('Error saving edit:', error);
+                    button.textContent = 'Save';
+                    button.disabled = false;
+                    showNotification('Error saving edit: ' + error.message, 'error');
+                });
+        }
+        
+        function cancelEdit(button) {
+            const editable = button.closest('.editable');
+            const originalValue = editable.dataset.originalValue;
+            
+            editable.classList.remove('editing');
+            editable.innerHTML = `${originalValue}<span class="edit-icon">✏️</span>`;
+        }
+        
+        async function createGitHubIssue(questionId, field, oldValue, newValue) {
+            const result = allResults.find(r => r.id === questionId);
+            if (!result) {
+                throw new Error('Question not found');
+            }
+            
+            const agentName = result.expectedAgent || result.agent || 'unknown';
+            const title = `📝 Edit ${field} for question: ${result.question.substring(0, 60)}...`;
+            
+            const body = `## 📝 Baseline Question Edit Request
+
+**Question ID:** ${questionId}
+**Agent:** ${agentName}
+**Field:** ${field}
+**Category:** ${result.category}
+
+### Current Value:
+\`\`\`
+${oldValue}
+\`\`\`
+
+### Proposed New Value:
+\`\`\`
+${newValue}
+\`\`\`
+
+### Question:
+${result.question}
+
+### Context:
+This edit was requested through the baseline test dashboard. Please review and update the corresponding agent's baseline.json file.
+
+### Action Required:
+1. Update the \`${field}\` field in the agent's baseline.json file
+2. Re-run baseline tests to verify the change
+3. Close this issue once the change is implemented
+
+---
+*This issue was automatically created from the baseline test dashboard.*`;
+
+            // Get GitHub token
+            const token = getGitHubToken();
+            if (!token) {
+                throw new Error('GitHub token is required to create issues');
+            }
+
+            // Use GitHub REST API directly
+            const response = await fetch('https://api.github.com/repos/F8ai/formul8-multiagent/issues', {
+                method: 'POST',
+                headers: {
+                    'Authorization': `token ${token}`,
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/vnd.github.v3+json'
+                },
+                body: JSON.stringify({
+                    title,
+                    body,
+                    labels: ['baseline-edit', 'agent-' + agentName, 'automated']
+                })
+            });
+            
+            if (!response.ok) {
+                const errorData = await response.json();
+                throw new Error(`Failed to create GitHub issue: ${errorData.message || response.statusText}`);
+            }
+            
+            const issueData = await response.json();
+            return {
+                success: true,
+                issue: {
+                    number: issueData.number,
+                    url: issueData.html_url,
+                    title: issueData.title
+                }
+            };
+        }
+        
+        function showNotification(message, type = 'info') {
+            // Create a simple notification
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                padding: 15px 20px;
+                border-radius: 8px;
+                color: white;
+                font-weight: bold;
+                z-index: 10000;
+                max-width: 400px;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            `;
+            
+            if (type === 'success') {
+                notification.style.backgroundColor = '#28a745';
+            } else if (type === 'error') {
+                notification.style.backgroundColor = '#dc3545';
+            } else {
+                notification.style.backgroundColor = '#17a2b8';
+            }
+            
+            notification.textContent = message;
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.remove();
+            }, 5000);
+        }
+        
+        // Initialize editable functionality when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeEditableElements();
+            loadGitHubToken();
+            
+            // Add event listeners for token modal
+            document.getElementById('githubTokenInput').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    saveToken();
+                }
+            });
+            
+            // Close token modal on background click
+            document.getElementById('tokenInputModal').addEventListener('click', function(e) {
+                if (e.target === this) {
+                    cancelTokenInput();
+                }
+            });
+        });
     </script>
 </body>
 </html>

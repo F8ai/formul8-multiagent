@@ -121,7 +121,11 @@ class LangChainService {
             }
           ],
           max_tokens: 20,
-          temperature: 0.1
+          temperature: 0.1,
+          reasoning: {
+            effort: "low",
+            exclude: true
+          }
         })
       });
 

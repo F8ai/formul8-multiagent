@@ -178,23 +178,23 @@ async function getResponseFromAPI(question) {
 // Map categories to expected agents
 function getExpectedAgent(category) {
   const categoryAgentMap = {
-    'sop-generation-compliance-documentation': 'compliance_agent',
-    'product-testing-infusion-rules': 'compliance_agent',
-    'labeling-packaging-compliance': 'compliance_agent',
-    'facility-setup-operational-procedures': 'compliance_agent',
-    'inventory-repackaging-tracking': 'compliance_agent',
-    'recordkeeping-logs': 'compliance_agent',
-    'waste-management-compliance': 'compliance_agent',
-    'employee-training-operational-roles': 'compliance_agent',
-    'transport-transfer-regulations': 'compliance_agent',
-    'edibles-potency-formulation': 'formulation_agent',
-    'formulation-ingredient-compliance': 'formulation_agent',
-    'production-&-process-optimization': 'formulation_agent',
-    'extraction-&-processing-crosscutting': 'extraction_agent',
-    'hydrocarbon-extraction-bhopho': 'extraction_agent',
-    'ethanol-extraction': 'extraction_agent',
-    'co-extraction': 'extraction_agent',
-    'solventless-ice-water-hash-&-rosin': 'extraction_agent'
+    'sop-generation-compliance-documentation': 'compliance',
+    'product-testing-infusion-rules': 'compliance',
+    'labeling-packaging-compliance': 'compliance',
+    'facility-setup-operational-procedures': 'compliance',
+    'inventory-repackaging-tracking': 'compliance',
+    'recordkeeping-logs': 'compliance',
+    'waste-management-compliance': 'compliance',
+    'employee-training-operational-roles': 'compliance',
+    'transport-transfer-regulations': 'compliance',
+    'edibles-potency-formulation': 'formulation',
+    'formulation-ingredient-compliance': 'formulation',
+    'production-&-process-optimization': 'formulation',
+    'extraction-&-processing-crosscutting': 'extraction',
+    'hydrocarbon-extraction-bhopho': 'extraction',
+    'ethanol-extraction': 'extraction',
+    'co-extraction': 'extraction',
+    'solventless-ice-water-hash-&-rosin': 'extraction'
   };
   
   return categoryAgentMap[category] || 'f8_agent';

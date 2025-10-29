@@ -2,6 +2,10 @@
   "version": 2,
   "builds": [
     {
+      "src": "public/**",
+      "use": "@vercel/static"
+    },
+    {
       "src": "lambda.js",
       "use": "@vercel/node",
       "config": {
@@ -16,6 +20,18 @@
     },
     {
       "src": "/health",
+      "dest": "/lambda.js"
+    },
+    {
+      "src": "/models\\.html",
+      "dest": "/public/models.html"
+    },
+    {
+      "src": "/(.*\\.(html|css|js|json|png|jpg|jpeg|gif|svg|ico|woff|woff2|ttf|eot))",
+      "dest": "/public/$1"
+    },
+    {
+      "src": "/",
       "dest": "/lambda.js"
     },
     {

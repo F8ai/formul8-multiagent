@@ -126,7 +126,11 @@ app.post('/api/chat', async (req, res) => {
           }
         ],
         max_tokens: 1000,
-        temperature: 0.7
+        temperature: 0.7,
+        reasoning: {
+          effort: "medium",
+          exclude: false
+        }
       })
     });
     
@@ -139,7 +143,9 @@ app.post('/api/chat', async (req, res) => {
     }
     
     const aiData = await openRouterResponse.json();
-    const aiResponse = aiData.choices?.[0]?.message?.content || 'I apologize, but I couldn\'t generate a response. Please try again.';
+    const message = aiData.choices?.[0]?.message;
+    const aiResponse = message?.content || 'I apologize, but I couldn\'t generate a response. Please try again.';
+    const reasoningDetails = message?.reasoning_details || [];
     
     // Extract usage information
     const usage = aiData.usage || {};
@@ -154,6 +160,7 @@ app.post('/api/chat', async (req, res) => {
     res.json({
       success: true,
       response: aiResponse + footer,
+      reasoning_details: reasoningDetails,
       agent: AGENT_CONFIG.name.toLowerCase().replace(/\s+/g, '_'),
       timestamp: new Date().toISOString(),
       model: selectedModel,

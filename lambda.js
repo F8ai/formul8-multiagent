@@ -2330,7 +2330,11 @@ exports.handler = async (event, context) => {
             }
           ],
           max_tokens: 1000,
-          temperature: 0.7
+          temperature: 0.7,
+          reasoning: {
+            effort: "medium",
+            exclude: false
+          }
         })
       });
       
@@ -2347,7 +2351,9 @@ exports.handler = async (event, context) => {
       }
       
       const aiData = await openRouterResponse.json();
-      const aiResponse = aiData.choices?.[0]?.message?.content || 'I apologize, but I couldn\'t generate a response. Please try again.';
+      const message = aiData.choices?.[0]?.message;
+      const aiResponse = message?.content || 'I apologize, but I couldn\'t generate a response. Please try again.';
+      const reasoningDetails = message?.reasoning_details || [];
       
       // Extract usage information
       const usage = aiData.usage || {};
@@ -2373,6 +2379,7 @@ exports.handler = async (event, context) => {
           agent: 'f8_agent',
           timestamp: new Date().toISOString(),
           model: selectedModel,
+          reasoning_details: reasoningDetails,
           usage: {
             prompt_tokens: promptTokens,
             completion_tokens: completionTokens,
