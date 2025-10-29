@@ -34,6 +34,12 @@ const MODEL_CONFIGS = {
     usePromptEngineering: true,
     description: 'Meta\'s largest Llama model'
   },
+  'minimax-m2': {
+    name: 'MiniMax M2',
+    model: 'minimax/minimax-m2:free',
+    usePromptEngineering: true,
+    description: 'MiniMax M2 free tier model'
+  },
   'voiceflow': {
     name: 'Voiceflow (Legacy)',
     model: null,

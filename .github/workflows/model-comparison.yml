@@ -7,7 +7,7 @@ on:
       models:
         description: 'Models to test (comma-separated)'
         required: true
-        default: 'gpt-5,gpt-5-raw,gpt-oss-120b,llama-405b,voiceflow'
+        default: 'gpt-5,gpt-5-raw,gpt-oss-120b,llama-405b,minimax-m2,voiceflow'
         type: string
       
   # Scheduled weekly comparison (Sundays at 3 AM UTC)
@@ -24,6 +24,7 @@ jobs:
           - gpt-5-raw
           - gpt-oss-120b
           - llama-405b
+          - minimax-m2
           - voiceflow
       fail-fast: false # Continue testing other models even if one fails
       max-parallel: 2 # Don't overwhelm the API

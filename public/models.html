@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formul8 Model Comparison Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .controls {
+            padding: 20px 30px;
+            background: #f8f9fa;
+            border-bottom: 1px solid #dee2e6;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .control-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .control-group label {
+            font-weight: 600;
+            color: #495057;
+        }
+
+        select, input {
+            padding: 8px 12px;
+            border: 2px solid #dee2e6;
+            border-radius: 8px;
+            font-size: 14px;
+            background: white;
+            cursor: pointer;
+            transition: border-color 0.3s;
+        }
+
+        select:hover, input:hover {
+            border-color: #667eea;
+        }
+
+        select:focus, input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 20px 30px;
+            background: #f8f9fa;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 2em;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            color: #6c757d;
+            font-size: 0.9em;
+        }
+
+        .grid-container {
+            padding: 30px;
+            overflow-x: auto;
+        }
+
+        .comparison-grid {
+            display: grid;
+            gap: 10px;
+            min-width: max-content;
+        }
+
+        .grid-header {
+            display: contents;
+        }
+
+        .header-cell {
+            font-weight: 700;
+            color: #495057;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .grid-row {
+            display: contents;
+        }
+
+        .question-cell {
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            font-weight: 600;
+            color: #495057;
+            display: flex;
+            align-items: center;
+            min-width: 300px;
+            max-width: 400px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .score-cell {
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            min-width: 120px;
+        }
+
+        .score-cell:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            z-index: 5;
+        }
+
+        /* Score color coding */
+        .score-excellent { background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: white; }
+        .score-good { background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); color: white; }
+        .score-fair { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); color: white; }
+        .score-poor { background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%); color: white; }
+        .score-error { background: linear-gradient(135deg, #6b7280 0%, #4b5563 100%); color: white; }
+
+        /* Tooltip */
+        .tooltip {
+            position: fixed;
+            background: rgba(0, 0, 0, 0.95);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            max-width: 500px;
+            z-index: 1000;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .tooltip.visible {
+            opacity: 1;
+        }
+
+        .tooltip h4 {
+            margin-bottom: 10px;
+            color: #10b981;
+            border-bottom: 2px solid #10b981;
+            padding-bottom: 8px;
+        }
+
+        .tooltip-section {
+            margin: 10px 0;
+        }
+
+        .tooltip-label {
+            font-weight: 600;
+            color: #60a5fa;
+            margin-bottom: 5px;
+        }
+
+        .tooltip-value {
+            margin-left: 10px;
+            line-height: 1.6;
+        }
+
+        .score-breakdown {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .score-item {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9em;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 60px;
+            font-size: 1.2em;
+            color: #6c757d;
+        }
+
+        .error {
+            text-align: center;
+            padding: 60px;
+            color: #dc3545;
+            font-size: 1.1em;
+        }
+
+        .legend {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            padding: 20px;
+            flex-wrap: wrap;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .legend-color {
+            width: 30px;
+            height: 20px;
+            border-radius: 4px;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+
+            .controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .control-group {
+                width: 100%;
+            }
+
+            .question-cell {
+                min-width: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🏆 Formul8 Model Comparison Dashboard</h1>
+            <p>Interactive visualization of model performance across 438 baseline questions</p>
+        </div>
+
+        <div class="controls">
+            <div class="control-group">
+                <label for="modelFilter">Filter Model:</label>
+                <select id="modelFilter">
+                    <option value="all">All Models</option>
+                </select>
+            </div>
+            <div class="control-group">
+                <label for="agentFilter">Filter Agent:</label>
+                <select id="agentFilter">
+                    <option value="all">All Agents</option>
+                </select>
+            </div>
+            <div class="control-group">
+                <label for="scoreFilter">Min Score:</label>
+                <input type="number" id="scoreFilter" min="0" max="100" value="0" style="width: 80px;">
+                <span>%</span>
+            </div>
+            <div class="control-group">
+                <label for="searchFilter">Search:</label>
+                <input type="text" id="searchFilter" placeholder="Search questions..." style="width: 250px;">
+            </div>
+        </div>
+
+        <div class="stats" id="stats">
+            <!-- Stats will be inserted here -->
+        </div>
+
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-color score-excellent"></div>
+                <span>Excellent (80-100%)</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color score-good"></div>
+                <span>Good (60-79%)</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color score-fair"></div>
+                <span>Fair (40-59%)</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color score-poor"></div>
+                <span>Poor (1-39%)</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color score-error"></div>
+                <span>Error (0%)</span>
+            </div>
+        </div>
+
+        <div class="grid-container">
+            <div id="comparisonGrid" class="loading">
+                Loading model comparison data...
+            </div>
+        </div>
+    </div>
+
+    <div class="tooltip" id="tooltip"></div>
+
+    <script>
+        let allData = {};
+        let filteredData = {};
+        const tooltip = document.getElementById('tooltip');
+
+        // Load all model results
+        async function loadModelData() {
+            const models = ['gpt-5', 'gpt-5-raw', 'gpt-oss-120b', 'llama-405b', 'minimax-m2', 'voiceflow'];
+            const loadingEl = document.getElementById('comparisonGrid');
+            
+            try {
+                for (const model of models) {
+                    // Try to find the latest results file for this model
+                    try {
+                        const response = await fetch(`/test-results/latest-comparison-3/model-comparison-${model}-*.json`);
+                        if (!response.ok) {
+                            // Try alternate path
+                            const alt = await fetch(`../model-comparison-${model}-*.json`);
+                            if (alt.ok) {
+                                allData[model] = await alt.json();
+                            }
+                        } else {
+                            allData[model] = await response.json();
+                        }
+                    } catch (e) {
+                        console.warn(`Could not load ${model} data:`, e);
+                    }
+                }
+
+                if (Object.keys(allData).length === 0) {
+                    loadingEl.innerHTML = `
+                        <div class="error">
+                            <h3>⚠️ No model data found</h3>
+                            <p>Please run the model comparison tests first:</p>
+                            <code style="background: #f8f9fa; padding: 10px; border-radius: 8px; display: inline-block; margin-top: 10px;">
+                                gh workflow run "Model Comparison Baseline" --ref main
+                            </code>
+                        </div>
+                    `;
+                    return;
+                }
+
+                populateFilters();
+                updateStats();
+                renderGrid();
+            } catch (error) {
+                loadingEl.innerHTML = `<div class="error">Error loading data: ${error.message}</div>`;
+            }
+        }
+
+        function populateFilters() {
+            const modelFilter = document.getElementById('modelFilter');
+            const agentFilter = document.getElementById('agentFilter');
+
+            // Populate model filter
+            Object.keys(allData).forEach(model => {
+                const option = document.createElement('option');
+                option.value = model;
+                option.textContent = allData[model].model || model;
+                modelFilter.appendChild(option);
+            });
+
+            // Populate agent filter
+            const agents = new Set();
+            Object.values(allData).forEach(modelData => {
+                if (modelData.responses) {
+                    modelData.responses.forEach(r => agents.add(r.expectedAgent));
+                }
+            });
+            Array.from(agents).sort().forEach(agent => {
+                const option = document.createElement('option');
+                option.value = agent;
+                option.textContent = agent;
+                agentFilter.appendChild(option);
+            });
+
+            // Add filter event listeners
+            document.getElementById('modelFilter').addEventListener('change', renderGrid);
+            document.getElementById('agentFilter').addEventListener('change', renderGrid);
+            document.getElementById('scoreFilter').addEventListener('input', renderGrid);
+            document.getElementById('searchFilter').addEventListener('input', renderGrid);
+        }
+
+        function updateStats() {
+            const statsEl = document.getElementById('stats');
+            const modelCount = Object.keys(allData).length;
+            let totalQuestions = 0;
+            let avgScore = 0;
+            let avgRouting = 0;
+            let count = 0;
+
+            Object.values(allData).forEach(modelData => {
+                if (modelData.responses) {
+                    totalQuestions = Math.max(totalQuestions, modelData.responses.length);
+                    if (modelData.summary) {
+                        avgScore += modelData.summary.averageScore || 0;
+                        avgRouting += modelData.summary.routingAccuracy || 0;
+                        count++;
+                    }
+                }
+            });
+
+            avgScore = count > 0 ? Math.round(avgScore / count) : 0;
+            avgRouting = count > 0 ? Math.round(avgRouting / count) : 0;
+
+            statsEl.innerHTML = `
+                <div class="stat-card">
+                    <div class="stat-value">${modelCount}</div>
+                    <div class="stat-label">Models Tested</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">${totalQuestions}</div>
+                    <div class="stat-label">Total Questions</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">${avgScore}%</div>
+                    <div class="stat-label">Avg Overall Score</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">${avgRouting}%</div>
+                    <div class="stat-label">Avg Routing Accuracy</div>
+                </div>
+            `;
+        }
+
+        function renderGrid() {
+            const modelFilter = document.getElementById('modelFilter').value;
+            const agentFilter = document.getElementById('agentFilter').value;
+            const scoreFilter = parseInt(document.getElementById('scoreFilter').value) || 0;
+            const searchFilter = document.getElementById('searchFilter').value.toLowerCase();
+
+            // Get filtered models
+            const models = modelFilter === 'all' 
+                ? Object.keys(allData) 
+                : [modelFilter];
+
+            // Get all questions from first model
+            const firstModel = models[0];
+            if (!allData[firstModel] || !allData[firstModel].responses) {
+                return;
+            }
+
+            let questions = allData[firstModel].responses;
+
+            // Apply filters
+            questions = questions.filter(q => {
+                if (agentFilter !== 'all' && q.expectedAgent !== agentFilter) return false;
+                if (searchFilter && !q.question.toLowerCase().includes(searchFilter)) return false;
+                
+                // Check if any model meets the score filter for this question
+                const hasMatchingScore = models.some(model => {
+                    const response = allData[model]?.responses?.find(r => r.question === q.question);
+                    return response && response.grade.overallScore >= scoreFilter;
+                });
+                
+                return hasMatchingScore;
+            });
+
+            const gridEl = document.getElementById('comparisonGrid');
+            
+            if (questions.length === 0) {
+                gridEl.innerHTML = '<div class="error">No questions match the current filters</div>';
+                return;
+            }
+
+            // Build grid
+            const gridCols = `300px repeat(${models.length}, 120px)`;
+            gridEl.style.gridTemplateColumns = gridCols;
+            gridEl.className = 'comparison-grid';
+
+            let html = `
+                <div class="grid-header">
+                    <div class="header-cell">Question</div>
+                    ${models.map(m => `<div class="header-cell">${allData[m].model || m}</div>`).join('')}
+                </div>
+            `;
+
+            questions.forEach((question, idx) => {
+                html += `<div class="grid-row">`;
+                html += `<div class="question-cell" title="${question.question}">${idx + 1}. ${question.question}</div>`;
+                
+                models.forEach(model => {
+                    const response = allData[model]?.responses?.find(r => r.question === question.question);
+                    if (response) {
+                        const score = response.grade.overallScore;
+                        const scoreClass = getScoreClass(score);
+                        html += `
+                            <div class="score-cell ${scoreClass}" 
+                                 data-question="${encodeURIComponent(question.question)}"
+                                 data-model="${model}"
+                                 onmouseenter="showTooltip(event, this)"
+                                 onmouseleave="hideTooltip()">
+                                ${score}%
+                            </div>
+                        `;
+                    } else {
+                        html += `<div class="score-cell score-error">N/A</div>`;
+                    }
+                });
+                
+                html += `</div>`;
+            });
+
+            gridEl.innerHTML = html;
+        }
+
+        function getScoreClass(score) {
+            if (score >= 80) return 'score-excellent';
+            if (score >= 60) return 'score-good';
+            if (score >= 40) return 'score-fair';
+            if (score > 0) return 'score-poor';
+            return 'score-error';
+        }
+
+        function showTooltip(event, element) {
+            const question = decodeURIComponent(element.dataset.question);
+            const model = element.dataset.model;
+            const modelData = allData[model];
+            const response = modelData.responses.find(r => r.question === question);
+
+            if (!response) return;
+
+            const grade = response.grade;
+            
+            tooltip.innerHTML = `
+                <h4>${modelData.model || model}</h4>
+                <div class="tooltip-section">
+                    <div class="tooltip-label">Question:</div>
+                    <div class="tooltip-value">${question}</div>
+                </div>
+                <div class="tooltip-section">
+                    <div class="tooltip-label">Response:</div>
+                    <div class="tooltip-value">${response.response.substring(0, 300)}${response.response.length > 300 ? '...' : ''}</div>
+                </div>
+                <div class="tooltip-section">
+                    <div class="tooltip-label">Expected Agent:</div>
+                    <div class="tooltip-value">${response.expectedAgent}</div>
+                </div>
+                <div class="score-breakdown">
+                    <div class="score-item">
+                        <span>Overall:</span>
+                        <strong>${grade.overallScore}%</strong>
+                    </div>
+                    <div class="score-item">
+                        <span>Routing:</span>
+                        <strong>${grade.routingScore}%</strong>
+                    </div>
+                    <div class="score-item">
+                        <span>Quality:</span>
+                        <strong>${grade.qualityScore}%</strong>
+                    </div>
+                    <div class="score-item">
+                        <span>Keywords:</span>
+                        <strong>${grade.keywordScore}%</strong>
+                    </div>
+                    <div class="score-item">
+                        <span>Topics:</span>
+                        <strong>${grade.topicScore}%</strong>
+                    </div>
+                    <div class="score-item">
+                        <span>Length:</span>
+                        <strong>${grade.responseLength} chars</strong>
+                    </div>
+                </div>
+            `;
+
+            tooltip.classList.add('visible');
+            positionTooltip(event);
+        }
+
+        function hideTooltip() {
+            tooltip.classList.remove('visible');
+        }
+
+        function positionTooltip(event) {
+            const tooltipRect = tooltip.getBoundingClientRect();
+            let left = event.pageX + 20;
+            let top = event.pageY - 10;
+
+            // Adjust if tooltip goes off screen
+            if (left + tooltipRect.width > window.innerWidth) {
+                left = event.pageX - tooltipRect.width - 20;
+            }
+            if (top + tooltipRect.height > window.innerHeight + window.scrollY) {
+                top = event.pageY - tooltipRect.height - 10;
+            }
+
+            tooltip.style.left = left + 'px';
+            tooltip.style.top = top + 'px';
+        }
+
+        // Track mouse movement for tooltip positioning
+        document.addEventListener('mousemove', (e) => {
+            if (tooltip.classList.contains('visible')) {
+                positionTooltip(e);
+            }
+        });
+
+        // Load data on page load
+        loadModelData();
+    </script>
+</body>
+</html>
+
+
+
+
+
