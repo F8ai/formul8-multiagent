@@ -137,14 +137,41 @@ class LangChainService {
       const result = data.choices?.[0]?.message?.content || '';
 
       // Clean up the result and validate
-      const agentId = result.trim().toLowerCase();
+      let agentId = result.trim().toLowerCase();
+      
+      // Remove common prefixes/suffixes that might appear in responses
+      agentId = agentId.replace(/^(the|agent|route to|use)\s+/i, '');
+      agentId = agentId.replace(/\s+(agent|is|will|should|can)$/i, '');
+      agentId = agentId.split(/[,\s\.]/)[0]; // Take first word
+      
       const validAgents = Object.keys(this.config.getAllAgents());
       
-      if (validAgents.includes(agentId)) {
+      // Also check for agent name variations
+      const agentNameMap = {
+        'compliance_agent': 'compliance',
+        'formulation_agent': 'formulation',
+        'operations_agent': 'operations',
+        'marketing_agent': 'marketing',
+        'sourcing_agent': 'sourcing',
+        'patent_agent': 'patent',
+        'spectra_agent': 'spectra',
+        'customer_success_agent': 'customer_success',
+        'ad_agent': 'ad',
+        'mcr_agent': 'mcr',
+        'science': 'formulation', // Map science to formulation
+        'science_agent': 'formulation'
+      };
+      
+      // Check if it's a mapped name
+      if (agentNameMap[agentId]) {
+        agentId = agentNameMap[agentId];
+      }
+      
+      if (validAgents.includes(agentId) && agentId !== 'f8_agent') {
         console.log(`🧠 LangChain routed to: ${agentId}`);
         return agentId;
       } else {
-        console.log(`⚠️ Invalid agent from LangChain: ${agentId}, using fallback`);
+        console.log(`⚠️ Invalid agent from LangChain: "${result}" -> "${agentId}", using fallback`);
         return this.fallbackRouting(message);
       }
     } catch (error) {
