@@ -11,9 +11,29 @@ The system now automatically rotates the OpenRouter API key **every 15 minutes**
 - ✅ `VERCEL_ORG_ID` - Set in GitHub Secrets
 - ✅ `VERCEL_PROJECT_ID` - Set in GitHub Secrets
 
-## ⚠️ Required: VERCEL_TOKEN
+## ⚠️ Required Secrets
 
-You need to create a Vercel token and add it to GitHub Secrets:
+You need to create two tokens and add them to GitHub Secrets:
+
+### A. GitHub Personal Access Token (GH_PAT)
+
+The workflow needs a PAT to update GitHub Secrets (standard GITHUB_TOKEN cannot write secrets).
+
+1. Go to: https://github.com/settings/tokens/new
+2. **Token name:** `Formul8-Key-Rotation`
+3. **Expiration:** `No expiration`
+4. **Scopes:** Select:
+   - ✅ `repo` (Full control of private repositories)
+5. Click **"Generate token"**
+6. Copy the token (starts with `ghp_...`)
+7. Add to GitHub Secrets:
+```bash
+gh secret set GH_PAT --body "ghp_YOUR_TOKEN_HERE"
+```
+
+### B. Vercel Token (VERCEL_TOKEN)
+
+You need a Vercel token to update environment variables:
 
 ### 1. Create Vercel Token
 
