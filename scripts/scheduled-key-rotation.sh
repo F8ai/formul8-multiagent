@@ -65,8 +65,8 @@ echo ""
 
 cd "$PROJECT_ROOT"
 
-# Run key rotation with old key deletion
-if node scripts/openrouter-key-manager.js rotate --delete-old; then
+# Run key rotation (old keys are deleted by default)
+if node scripts/openrouter-key-manager.js rotate; then
     echo ""
     echo -e "${GREEN}✅ Key rotation completed successfully!${NC}"
     echo -e "${BLUE}Log saved to: ${LOG_FILE}${NC}"
