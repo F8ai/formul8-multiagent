@@ -89,14 +89,14 @@ jobs:
           echo "🚀 Updating Vercel environment variables..."
           
           # Remove old keys from all environments
-          echo "$NEW_KEY" | vercel env rm OPENROUTER_API_KEY production --yes || true
-          echo "$NEW_KEY" | vercel env rm OPENROUTER_API_KEY preview --yes || true
-          echo "$NEW_KEY" | vercel env rm OPENROUTER_API_KEY development --yes || true
+          echo "$NEW_KEY" | vercel env rm OPENROUTER_API_KEY production --yes --token "$VERCEL_TOKEN" || true
+          echo "$NEW_KEY" | vercel env rm OPENROUTER_API_KEY preview --yes --token "$VERCEL_TOKEN" || true
+          echo "$NEW_KEY" | vercel env rm OPENROUTER_API_KEY development --yes --token "$VERCEL_TOKEN" || true
           
           # Add new key to all environments
-          echo "$NEW_KEY" | vercel env add OPENROUTER_API_KEY production
-          echo "$NEW_KEY" | vercel env add OPENROUTER_API_KEY preview
-          echo "$NEW_KEY" | vercel env add OPENROUTER_API_KEY development
+          echo "$NEW_KEY" | vercel env add OPENROUTER_API_KEY production --token "$VERCEL_TOKEN"
+          echo "$NEW_KEY" | vercel env add OPENROUTER_API_KEY preview --token "$VERCEL_TOKEN"
+          echo "$NEW_KEY" | vercel env add OPENROUTER_API_KEY development --token "$VERCEL_TOKEN"
           
           if [ $? -eq 0 ]; then
             echo "✅ Vercel environment variables updated"
@@ -107,7 +107,7 @@ jobs:
           
           # Trigger a new deployment to apply the new key
           echo "🔄 Triggering Vercel deployment..."
-          vercel --prod --yes
+          vercel --prod --yes --token "$VERCEL_TOKEN"
           
           echo "✅ Key rotation completed successfully at $(date)"
           
