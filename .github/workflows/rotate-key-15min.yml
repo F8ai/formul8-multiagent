@@ -1,0 +1,133 @@
+name: Rotate OpenRouter Key (15 min)
+
+on:
+  schedule:
+    # Run every 15 minutes
+    - cron: '*/15 * * * *'
+  
+  # Allow manual trigger
+  workflow_dispatch:
+
+jobs:
+  rotate-key:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install GitHub CLI
+        run: |
+          type -p curl >/dev/null || (sudo apt update && sudo apt install curl -y)
+          curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg
+          sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg
+          echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
+          sudo apt update
+          sudo apt install gh -y
+
+      - name: Install Vercel CLI
+        run: npm install -g vercel
+
+      - name: Rotate OpenRouter API Key
+        env:
+          OPENROUTER_PROVISIONING_KEY: ${{ secrets.OPENROUTER_PROVISIONING_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+        run: |
+          echo "🔄 Starting key rotation at $(date)"
+          
+          # Check if provisioning key is set
+          if [ -z "$OPENROUTER_PROVISIONING_KEY" ]; then
+            echo "❌ OPENROUTER_PROVISIONING_KEY not set in GitHub Secrets"
+            exit 1
+          fi
+          
+          # Get current key from GitHub Secrets (for cleanup)
+          CURRENT_KEY=$(gh secret list --json name,updatedAt | jq -r '.[] | select(.name=="OPENROUTER_API_KEY") | .name')
+          echo "📋 Current key found: $CURRENT_KEY"
+          
+          # Create new OpenRouter API key
+          echo "🔑 Creating new OpenRouter API key..."
+          NEW_KEY_RESPONSE=$(curl -s -X POST https://openrouter.ai/api/v1/keys \
+            -H "Authorization: Bearer $OPENROUTER_PROVISIONING_KEY" \
+            -H "Content-Type: application/json" \
+            -d '{
+              "name": "Formul8-AutoRotated-'$(date +%Y%m%d-%H%M%S)'",
+              "limit": 10.00
+            }')
+          
+          # Extract the new key
+          NEW_KEY=$(echo "$NEW_KEY_RESPONSE" | jq -r '.key')
+          
+          if [ -z "$NEW_KEY" ] || [ "$NEW_KEY" = "null" ]; then
+            echo "❌ Failed to create new key"
+            echo "Response: $NEW_KEY_RESPONSE"
+            exit 1
+          fi
+          
+          echo "✅ New key created: ${NEW_KEY:0:20}..."
+          
+          # Update GitHub Secret
+          echo "📝 Updating GitHub Secret..."
+          echo "$NEW_KEY" | gh secret set OPENROUTER_API_KEY
+          
+          if [ $? -eq 0 ]; then
+            echo "✅ GitHub Secret updated"
+          else
+            echo "❌ Failed to update GitHub Secret"
+            exit 1
+          fi
+          
+          # Update Vercel environment variables
+          echo "🚀 Updating Vercel environment variables..."
+          
+          # Remove old keys from all environments
+          echo "$NEW_KEY" | vercel env rm OPENROUTER_API_KEY production --yes || true
+          echo "$NEW_KEY" | vercel env rm OPENROUTER_API_KEY preview --yes || true
+          echo "$NEW_KEY" | vercel env rm OPENROUTER_API_KEY development --yes || true
+          
+          # Add new key to all environments
+          echo "$NEW_KEY" | vercel env add OPENROUTER_API_KEY production
+          echo "$NEW_KEY" | vercel env add OPENROUTER_API_KEY preview
+          echo "$NEW_KEY" | vercel env add OPENROUTER_API_KEY development
+          
+          if [ $? -eq 0 ]; then
+            echo "✅ Vercel environment variables updated"
+          else
+            echo "❌ Failed to update Vercel environment variables"
+            exit 1
+          fi
+          
+          # Trigger a new deployment to apply the new key
+          echo "🔄 Triggering Vercel deployment..."
+          vercel --prod --yes
+          
+          echo "✅ Key rotation completed successfully at $(date)"
+          
+          # Clean up old keys from OpenRouter (keep last 3 rotations)
+          echo "🧹 Cleaning up old keys..."
+          OLD_KEYS=$(curl -s https://openrouter.ai/api/v1/keys \
+            -H "Authorization: Bearer $OPENROUTER_PROVISIONING_KEY" | \
+            jq -r '.data | sort_by(.created_at) | reverse | .[3:] | .[].id')
+          
+          for KEY_ID in $OLD_KEYS; do
+            echo "🗑️  Deleting old key: $KEY_ID"
+            curl -s -X DELETE "https://openrouter.ai/api/v1/keys/$KEY_ID" \
+              -H "Authorization: Bearer $OPENROUTER_PROVISIONING_KEY"
+          done
+          
+          echo "✅ Cleanup completed"
+
+      - name: Notify on failure
+        if: failure()
+        run: |
+          echo "❌ Key rotation failed at $(date)"
+          echo "Please check the logs and rotate manually if needed"
+
