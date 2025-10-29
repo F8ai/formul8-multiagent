@@ -13,6 +13,15 @@ const RATE_LIMIT_WINDOW = 15 * 60 * 1000; // 15 minutes
 const RATE_LIMIT_MAX = 50; // max requests per window
 
 const rateLimiter = (req, res, next) => {
+  // Check for rate limit bypass token (for testing/automation)
+  const bypassToken = req.headers['x-rate-limit-bypass'];
+  const validBypassToken = process.env.RATE_LIMIT_BYPASS_TOKEN;
+  
+  if (bypassToken && validBypassToken && bypassToken === validBypassToken) {
+    console.log('Rate limit bypassed with valid token');
+    return next();
+  }
+  
   const ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress || 'unknown';
   const now = Date.now();
   

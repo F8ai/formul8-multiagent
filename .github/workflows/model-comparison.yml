@@ -44,6 +44,7 @@ jobs:
         env:
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
           VOICEFLOW_API_KEY: ${{ secrets.VOICEFLOW_API_KEY }}
+          RATE_LIMIT_BYPASS_TOKEN: ${{ secrets.RATE_LIMIT_BYPASS_TOKEN }}
         run: |
           echo "🧪 Testing model: ${{ matrix.model }}"
           node test-model-comparison.js ${{ matrix.model }}

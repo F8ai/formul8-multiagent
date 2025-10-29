@@ -100,15 +100,22 @@ function makeRequest(url, question, model, usePromptEngineering) {
     const urlObj = new URL(url);
     const pathname = urlObj.pathname === '/' ? '' : urlObj.pathname;
     
+    const headers = {
+      'Content-Type': 'application/json',
+      'Content-Length': Buffer.byteLength(postData)
+    };
+    
+    // Add rate limit bypass token if available (for testing/automation)
+    if (process.env.RATE_LIMIT_BYPASS_TOKEN) {
+      headers['X-Rate-Limit-Bypass'] = process.env.RATE_LIMIT_BYPASS_TOKEN;
+    }
+    
     const options = {
       hostname: urlObj.hostname,
       port: urlObj.port || 443,
       path: pathname + '/api/chat',
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Content-Length': Buffer.byteLength(postData)
-      },
+      headers: headers,
       timeout: 90000 // 90 second timeout for slower models
     };
 
