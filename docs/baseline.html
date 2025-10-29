@@ -16,6 +16,7 @@
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
             padding: 10px;
+            overflow-x: hidden;
         }
         
         .container {
@@ -164,6 +165,13 @@
         
         .results-table {
             padding: 30px 20px;
+        }
+        
+        /* Ensure wide tables scroll on small screens */
+        .table-wrapper {
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
         }
         
         table {
@@ -335,6 +343,10 @@
         .grade-badge:hover .grade-tooltip {
             display: block;
         }
+        /* Enable tooltip on keyboard focus/tap */
+        .grade-badge:focus .grade-tooltip {
+            display: block;
+        }
         
         .grade-tooltip h4 {
             margin: 0 0 10px 0;
@@ -422,8 +434,19 @@
         
         @media (max-width: 768px) {
             h1 { font-size: 1.8em; }
-            .stats-container { grid-template-columns: 1fr 1fr; }
-            .question-cell, .response-cell { max-width: none; }
+            .stats-container { grid-template-columns: 1fr; }
+            .controls { flex-direction: column; align-items: stretch; gap: 12px; padding: 16px; }
+            .controls label { width: 100%; }
+            .controls select, .controls input { width: 100%; }
+            .question-cell, .response-cell { width: auto; max-width: none; }
+            th, td { padding: 10px; }
+            .bar { height: 28px; }
+            .modal-content { margin: 20px auto; padding: 20px; width: 100%; max-width: 95vw; }
+            /* Keep table readable by allowing horizontal scroll */
+            .table-wrapper { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+            table { min-width: 720px; }
+            /* Make tooltip usable on mobile */
+            .grade-tooltip { position: fixed; left: 16px; right: 16px; top: auto; bottom: 16px; max-width: none; width: auto; }
         }
     </style>
     <!-- Marked.js for Markdown rendering -->
@@ -490,20 +513,22 @@
         <div class="results-table">
             <h2>📋 Detailed Results</h2>
             <div id="loading" class="loading">Loading baseline results</div>
-            <table id="resultsTable" style="display: none;">
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Category</th>
-                        <th>Question</th>
-                        <th>Response Preview</th>
-                        <th>Time (ms)</th>
-                        <th>Actions</th>
-                        <th>Grade</th>
-                    </tr>
-                </thead>
-                <tbody id="tableBody"></tbody>
-            </table>
+            <div class="table-wrapper">
+                <table id="resultsTable" style="display: none;">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Category</th>
+                            <th>Question</th>
+                            <th>Response Preview</th>
+                            <th>Time (ms)</th>
+                            <th>Actions</th>
+                            <th>Grade</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody"></tbody>
+                </table>
+            </div>
         </div>
         
         <div class="timestamp" id="timestamp"></div>
@@ -645,7 +670,7 @@
                     <td>${result.duration}ms</td>
                     <td><button class="btn" onclick="showDetail(${result.questionNum})">View</button></td>
                     <td>
-                        <span class="grade-badge ${gradeClass}">
+                        <span class="grade-badge ${gradeClass}" tabindex="0" role="button" aria-label="Grade details">
                             ${result.grade} (${result.score.toFixed(0)}%)
                             <div class="grade-tooltip">${tooltipContent}</div>
                         </span>
