@@ -1,11 +1,11 @@
 {
-  "timestamp": "2025-10-29T01:03:36.215Z",
+  "timestamp": "2025-10-29T01:03:53.837Z",
   "url": "https://chat.formul8.ai",
   "totalQuestions": 438,
-  "completed": 30,
+  "completed": 50,
   "passed": 0,
-  "failed": 30,
-  "averageScore": "12.00",
+  "failed": 50,
+  "averageScore": "13.20",
   "averageGrade": "F",
   "results": [
     {
@@ -595,7 +595,427 @@
         "relevance": "0/5 key words"
       },
       "expectedKeywords": []
+    },
+    {
+      "questionNum": 31,
+      "question": "Can I repackage bulk oil into smaller units without creating a new UID?",
+      "category": "inventory-repackaging-tracking",
+      "agent": "unknown",
+      "actualAgent": "unknown",
+      "actualAgentName": "Unknown Agent",
+      "expectedAgent": "compliance_agent",
+      "agentMatch": false,
+      "response": "I apologize, but I'm currently unable to process your request. Please try again in a moment.",
+      "duration": 421,
+      "grade": "F",
+      "score": 15,
+      "grading": {
+        "length": "Fail - too short",
+        "noErrors": "Fail - error detected",
+        "structure": "Pass",
+        "relevance": "0/5 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 32,
+      "question": "Is it compliant to pre-fill vape cartridges before the lab test results are back?",
+      "category": "inventory-repackaging-tracking",
+      "agent": "unknown",
+      "actualAgent": "unknown",
+      "actualAgentName": "Unknown Agent",
+      "expectedAgent": "compliance_agent",
+      "agentMatch": false,
+      "response": "I apologize, but I'm currently unable to process your request. Please try again in a moment.",
+      "duration": 364,
+      "grade": "F",
+      "score": 15,
+      "grading": {
+        "length": "Fail - too short",
+        "noErrors": "Fail - error detected",
+        "structure": "Pass",
+        "relevance": "0/5 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 33,
+      "question": "Do I have to update the batch weight in the system if I lose some product to spillage?",
+      "category": "inventory-repackaging-tracking",
+      "agent": "unknown",
+      "actualAgent": "unknown",
+      "actualAgentName": "Unknown Agent",
+      "expectedAgent": "compliance_agent",
+      "agentMatch": false,
+      "response": "I apologize, but I'm currently unable to process your request. Please try again in a moment.",
+      "duration": 359,
+      "grade": "F",
+      "score": 15,
+      "grading": {
+        "length": "Fail - too short",
+        "noErrors": "Fail - error detected",
+        "structure": "Pass",
+        "relevance": "0/5 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 34,
+      "question": "Do I need to generate a new COA if I repackage the same batch in a different container?",
+      "category": "inventory-repackaging-tracking",
+      "agent": "unknown",
+      "actualAgent": "unknown",
+      "actualAgentName": "Unknown Agent",
+      "expectedAgent": "compliance_agent",
+      "agentMatch": false,
+      "response": "I apologize, but I'm currently unable to process your request. Please try again in a moment.",
+      "duration": 433,
+      "grade": "F",
+      "score": 15,
+      "grading": {
+        "length": "Fail - too short",
+        "noErrors": "Fail - error detected",
+        "structure": "Pass",
+        "relevance": "0/5 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 35,
+      "question": "Can I submit test results to regulators before final packaging is complete?",
+      "category": "inventory-repackaging-tracking",
+      "agent": "unknown",
+      "actualAgent": "unknown",
+      "actualAgentName": "Unknown Agent",
+      "expectedAgent": "compliance_agent",
+      "agentMatch": false,
+      "response": "I apologize, but I'm currently unable to process your request. Please try again in a moment.",
+      "duration": 351,
+      "grade": "F",
+      "score": 15,
+      "grading": {
+        "length": "Fail - too short",
+        "noErrors": "Fail - error detected",
+        "structure": "Pass",
+        "relevance": "0/5 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 36,
+      "question": "Am I allowed to digitally sign the waste disposal manifest, or do I need a physical copy?",
+      "category": "recordkeeping-logs",
+      "agent": "unknown",
+      "actualAgent": "unknown",
+      "actualAgentName": "Unknown Agent",
+      "expectedAgent": "compliance_agent",
+      "agentMatch": false,
+      "response": "I apologize, but I'm currently unable to process your request. Please try again in a moment.",
+      "duration": 318,
+      "grade": "F",
+      "score": 15,
+      "grading": {
+        "length": "Fail - too short",
+        "noErrors": "Fail - error detected",
+        "structure": "Pass",
+        "relevance": "0/5 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 37,
+      "question": "How long do I need to retain extraction logbooks for compliance?",
+      "category": "recordkeeping-logs",
+      "agent": "unknown",
+      "actualAgent": "unknown",
+      "actualAgentName": "Unknown Agent",
+      "expectedAgent": "compliance_agent",
+      "agentMatch": false,
+      "response": "I apologize, but I'm currently unable to process your request. Please try again in a moment.",
+      "duration": 338,
+      "grade": "F",
+      "score": 15,
+      "grading": {
+        "length": "Fail - too short",
+        "noErrors": "Fail - error detected",
+        "structure": "Pass",
+        "relevance": "0/4 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 38,
+      "question": "Can I dispose of spent biomass without mixing it with non-consumable waste first?",
+      "category": "waste-management-compliance",
+      "agent": "unknown",
+      "actualAgent": "unknown",
+      "actualAgentName": "Unknown Agent",
+      "expectedAgent": "compliance_agent",
+      "agentMatch": false,
+      "response": "I apologize, but I'm currently unable to process your request. Please try again in a moment.",
+      "duration": 338,
+      "grade": "F",
+      "score": 15,
+      "grading": {
+        "length": "Fail - too short",
+        "noErrors": "Fail - error detected",
+        "structure": "Pass",
+        "relevance": "0/5 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 39,
+      "question": "Is it okay to store cannabis waste in the same area as general lab trash temporarily?",
+      "category": "waste-management-compliance",
+      "agent": "unknown",
+      "actualAgent": "unknown",
+      "actualAgentName": "Unknown Agent",
+      "expectedAgent": "compliance_agent",
+      "agentMatch": false,
+      "response": "I apologize, but I'm currently unable to process your request. Please try again in a moment.",
+      "duration": 400,
+      "grade": "F",
+      "score": 15,
+      "grading": {
+        "length": "Fail - too short",
+        "noErrors": "Fail - error detected",
+        "structure": "Pass",
+        "relevance": "0/5 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 40,
+      "question": "Do I need a secondary person to verify destruction of cannabis waste?",
+      "category": "waste-management-compliance",
+      "agent": "unknown",
+      "actualAgent": "unknown",
+      "actualAgentName": "Unknown Agent",
+      "expectedAgent": "compliance_agent",
+      "agentMatch": false,
+      "response": "I apologize, but I'm currently unable to process your request. Please try again in a moment.",
+      "duration": 529,
+      "grade": "F",
+      "score": 15,
+      "grading": {
+        "length": "Fail - too short",
+        "noErrors": "Fail - error detected",
+        "structure": "Pass",
+        "relevance": "0/5 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 41,
+      "question": "Can I incinerate solvent-contaminated material on-site?",
+      "category": "waste-management-compliance",
+      "agent": "unknown",
+      "actualAgent": "unknown",
+      "actualAgentName": "Unknown Agent",
+      "expectedAgent": "compliance_agent",
+      "agentMatch": false,
+      "response": "I apologize, but I'm currently unable to process your request. Please try again in a moment.",
+      "duration": 373,
+      "grade": "F",
+      "score": 15,
+      "grading": {
+        "length": "Fail - too short",
+        "noErrors": "Fail - error detected",
+        "structure": "Pass",
+        "relevance": "0/4 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 42,
+      "question": "Am I allowed to treat ethanol waste differently than cannabis plant waste?",
+      "category": "waste-management-compliance",
+      "agent": "unknown",
+      "actualAgent": "unknown",
+      "actualAgentName": "Unknown Agent",
+      "expectedAgent": "compliance_agent",
+      "agentMatch": false,
+      "response": "I apologize, but I'm currently unable to process your request. Please try again in a moment.",
+      "duration": 422,
+      "grade": "F",
+      "score": 15,
+      "grading": {
+        "length": "Fail - too short",
+        "noErrors": "Fail - error detected",
+        "structure": "Pass",
+        "relevance": "0/5 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 43,
+      "question": "Does every team member need to complete chemical safety training before using the fume hood?",
+      "category": "employee-training-operational-roles",
+      "agent": "unknown",
+      "actualAgent": "unknown",
+      "actualAgentName": "Unknown Agent",
+      "expectedAgent": "compliance_agent",
+      "agentMatch": false,
+      "response": "I apologize, but I'm currently unable to process your request. Please try again in a moment.",
+      "duration": 433,
+      "grade": "F",
+      "score": 15,
+      "grading": {
+        "length": "Fail - too short",
+        "noErrors": "Fail - error detected",
+        "structure": "Pass",
+        "relevance": "0/5 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 44,
+      "question": "Is a glove change required between processing two different batches?",
+      "category": "employee-training-operational-roles",
+      "agent": "unknown",
+      "actualAgent": "unknown",
+      "actualAgentName": "Unknown Agent",
+      "expectedAgent": "compliance_agent",
+      "agentMatch": false,
+      "response": "I apologize, but I'm currently unable to process your request. Please try again in a moment.",
+      "duration": 339,
+      "grade": "F",
+      "score": 15,
+      "grading": {
+        "length": "Fail - too short",
+        "noErrors": "Fail - error detected",
+        "structure": "Pass",
+        "relevance": "0/5 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 45,
+      "question": "Can a lab tech sign off on their own QC checklist?",
+      "category": "employee-training-operational-roles",
+      "agent": "unknown",
+      "actualAgent": "unknown",
+      "actualAgentName": "Unknown Agent",
+      "expectedAgent": "compliance_agent",
+      "agentMatch": false,
+      "response": "I apologize, but I'm currently unable to process your request. Please try again in a moment.",
+      "duration": 304,
+      "grade": "F",
+      "score": 15,
+      "grading": {
+        "length": "Fail - too short",
+        "noErrors": "Fail - error detected",
+        "structure": "Pass",
+        "relevance": "0/2 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 46,
+      "question": "Am I allowed to let an intern shadow a live extraction session?",
+      "category": "employee-training-operational-roles",
+      "agent": "unknown",
+      "actualAgent": "unknown",
+      "actualAgentName": "Unknown Agent",
+      "expectedAgent": "compliance_agent",
+      "agentMatch": false,
+      "response": "I apologize, but I'm currently unable to process your request. Please try again in a moment.",
+      "duration": 573,
+      "grade": "F",
+      "score": 15,
+      "grading": {
+        "length": "Fail - too short",
+        "noErrors": "Fail - error detected",
+        "structure": "Pass",
+        "relevance": "0/5 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 47,
+      "question": "Do I need to document breaks if they occur during active batch processing?",
+      "category": "employee-training-operational-roles",
+      "agent": "unknown",
+      "actualAgent": "unknown",
+      "actualAgentName": "Unknown Agent",
+      "expectedAgent": "compliance_agent",
+      "agentMatch": false,
+      "response": "I apologize, but I'm currently unable to process your request. Please try again in a moment.",
+      "duration": 310,
+      "grade": "F",
+      "score": 15,
+      "grading": {
+        "length": "Fail - too short",
+        "noErrors": "Fail - error detected",
+        "structure": "Pass",
+        "relevance": "0/5 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 48,
+      "question": "Can I transfer crude oil to another facility before final testing?",
+      "category": "transport-transfer-regulations",
+      "agent": "unknown",
+      "actualAgent": "unknown",
+      "actualAgentName": "Unknown Agent",
+      "expectedAgent": "compliance_agent",
+      "agentMatch": false,
+      "response": "I apologize, but I'm currently unable to process your request. Please try again in a moment.",
+      "duration": 290,
+      "grade": "F",
+      "score": 15,
+      "grading": {
+        "length": "Fail - too short",
+        "noErrors": "Fail - error detected",
+        "structure": "Pass",
+        "relevance": "0/5 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 49,
+      "question": "Is a licensed cannabis transporter required for in-state product transfers?",
+      "category": "transport-transfer-regulations",
+      "agent": "unknown",
+      "actualAgent": "unknown",
+      "actualAgentName": "Unknown Agent",
+      "expectedAgent": "compliance_agent",
+      "agentMatch": false,
+      "response": "I apologize, but I'm currently unable to process your request. Please try again in a moment.",
+      "duration": 327,
+      "grade": "F",
+      "score": 15,
+      "grading": {
+        "length": "Fail - too short",
+        "noErrors": "Fail - error detected",
+        "structure": "Pass",
+        "relevance": "0/5 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 50,
+      "question": "Do I need to notify the receiving party before sending a partial product shipment?",
+      "category": "transport-transfer-regulations",
+      "agent": "unknown",
+      "actualAgent": "unknown",
+      "actualAgentName": "Unknown Agent",
+      "expectedAgent": "compliance_agent",
+      "agentMatch": false,
+      "response": "I apologize, but I'm currently unable to process your request. Please try again in a moment.",
+      "duration": 364,
+      "grade": "F",
+      "score": 15,
+      "grading": {
+        "length": "Fail - too short",
+        "noErrors": "Fail - error detected",
+        "structure": "Pass",
+        "relevance": "0/5 key words"
+      },
+      "expectedKeywords": []
     }
   ],
-  "status": "In Progress: 30/438 questions completed"
+  "status": "In Progress: 50/438 questions completed"
 }
