@@ -16,6 +16,12 @@ on:
         required: false
         default: false
         type: boolean
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/rotate-openrouter-key.yml'
+      - 'scripts/openrouter-key-manager.js'
 
 jobs:
   rotate-key:
