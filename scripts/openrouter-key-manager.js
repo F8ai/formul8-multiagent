@@ -214,11 +214,16 @@ async function updateGitHubSecret(secretName, value) {
   log(`🔐 Updating GitHub Secret: ${secretName}`);
   
   try {
-    // Use GitHub CLI to update the secret - pass value via stdin
-    const proc = require('child_process').spawn('gh', ['secret', 'set', secretName], {
-      stdio: ['pipe', 'pipe', 'pipe'],
-      env: { ...process.env, GH_TOKEN: process.env.GITHUB_TOKEN }
-    });
+      // Use GitHub CLI to update the secret - pass value via stdin
+      // Prefer GH_TOKEN over GITHUB_TOKEN (PAT has permissions, GITHUB_TOKEN doesn't)
+      const ghToken = process.env.GH_TOKEN || process.env.GITHUB_TOKEN;
+      if (!ghToken) {
+        throw new Error('GH_TOKEN or GITHUB_TOKEN environment variable required');
+      }
+      const proc = require('child_process').spawn('gh', ['secret', 'set', secretName], {
+        stdio: ['pipe', 'pipe', 'pipe'],
+        env: { ...process.env, GH_TOKEN: ghToken }
+      });
     
     let stdout = '';
     let stderr = '';

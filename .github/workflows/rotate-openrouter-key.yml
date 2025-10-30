@@ -51,7 +51,8 @@ jobs:
         env:
           KEY_POOL: ${{ secrets.OPENROUTER_KEY_POOL }}
           ACTIVE_INDEX: ${{ secrets.OPENROUTER_ACTIVE_INDEX }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_PAT }}
+          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
@@ -81,7 +82,7 @@ jobs:
       - name: Authenticate GitHub CLI
         if: ${{ !secrets.OPENROUTER_KEY_POOL && secrets.OPENROUTER_PROVISIONING_KEY }}
         run: |
-          echo "${{ secrets.GITHUB_TOKEN }}" | gh auth login --with-token
+          echo "${{ secrets.GH_PAT }}" | gh auth login --with-token
           gh auth status
 
       - name: Rotate via OpenRouter provisioning API (fallback)
@@ -91,7 +92,8 @@ jobs:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_PAT }}
+          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
         run: |
           chmod +x scripts/openrouter-key-manager.js
           node scripts/openrouter-key-manager.js rotate --delete-old || {
