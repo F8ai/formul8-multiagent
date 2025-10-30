@@ -203,7 +203,7 @@ async function updateGitHubSecret(secretName, value) {
   }
 }
 
-async function rotateKey(deleteOld = false) {
+async function rotateKey(deleteOld = true) {
   log('');
   log('='.repeat(80));
   log('🔄 STARTING KEY ROTATION');
@@ -220,8 +220,13 @@ async function rotateKey(deleteOld = false) {
     const currentKeys = await listKeys();
     log('');
 
-    // Step 2: Create new key
-    const keyName = `Formul8-Main-${new Date().toISOString().split('T')[0]}`;
+    // Step 2: Create new key with required naming format F8-MMDDHHMM
+    const now = new Date();
+    const mm = String(now.getMonth() + 1).padStart(2, '0');
+    const dd = String(now.getDate()).padStart(2, '0');
+    const hh = String(now.getHours()).padStart(2, '0');
+    const min = String(now.getMinutes()).padStart(2, '0');
+    const keyName = `F8-${mm}${dd}${hh}${min}`;
     const newKeyData = await createKey(keyName);
     log('');
 
@@ -237,7 +242,7 @@ async function rotateKey(deleteOld = false) {
     await updateGitHubSecret('OPENROUTER_CURRENT_KEY_ID', newKeyData.id);
     log('');
 
-    // Step 6: Delete old keys if requested
+    // Step 6: Delete old keys by default (can be overridden with --keep-old)
     if (deleteOld && currentKeys.length > 0) {
       log('🗑️  Deleting old keys...');
       for (const key of currentKeys) {
@@ -284,7 +289,8 @@ const flags = process.argv.slice(3);
     if (command === 'list') {
       await listKeys();
     } else if (command === 'rotate') {
-      const deleteOld = flags.includes('--delete-old');
+      // Delete old keys by default; allow opting out with --keep-old
+      const deleteOld = !flags.includes('--keep-old');
       await rotateKey(deleteOld);
     } else if (command === 'create') {
       const name = flags.find(f => f.startsWith('--name='))?.split('=')[1] || `Formul8-${Date.now()}`;
@@ -305,7 +311,7 @@ Usage:
 
 Commands:
   list                    List all API keys
-  rotate [--delete-old]   Rotate API key (create new, update secrets, optionally delete old)
+  rotate [--keep-old]     Rotate API key (create new, update secrets, delete old by default)
   create [--name=<name>]  Create a new API key
   delete --key-id=<id>    Delete a specific key
 
@@ -316,8 +322,8 @@ Environment Variables:
 Examples:
   node openrouter-key-manager.js list
   node openrouter-key-manager.js rotate
-  node openrouter-key-manager.js rotate --delete-old
-  node openrouter-key-manager.js create --name=Formul8-Test
+  node openrouter-key-manager.js rotate --keep-old
+  node openrouter-key-manager.js create --name=F8-TEST
   node openrouter-key-manager.js delete --key-id=abc123
       `);
       process.exit(command ? 1 : 0);
