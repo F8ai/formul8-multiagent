@@ -42,7 +42,9 @@ function makeRequest(method, reqPath, data = null, redirectCount = 0) {
       headers: {
         'Authorization': `Bearer ${PROVISIONING_KEY}`,
         'Content-Type': 'application/json',
-        'Accept': 'application/json'
+        'Accept': 'application/json',
+        'User-Agent': 'Formul8-Key-Rotator/1.0 (+https://chat.formul8.ai)',
+        'HTTP-Referer': 'https://chat.formul8.ai'
       }
     };
 
