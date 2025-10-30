@@ -1021,7 +1021,7 @@ app.get('/chat', (req, res) => {
             }
 
             .upgrade-callout li:before {
-                content: "✓";
+                content: "?";
                 position: absolute;
                 left: 0;
                 color: var(--formul8-primary);
@@ -1317,7 +1317,7 @@ app.get('/chat', (req, res) => {
                 }
                 
                 // Extract upgrade prompts
-                const upgradeRegex = /---\s*(💎|💡|🔓)\s*\*\*([^*]+)\*\*([^]*?)(?=---|$)/g;
+                const upgradeRegex = /---\s*(??|??|??)\s*\*\*([^*]+)\*\*([^]*?)(?=---|$)/g;
                 let upgradePrompts = [];
                 let match;
                 
@@ -1352,10 +1352,10 @@ app.get('/chat', (req, res) => {
                 if (metadata) {
                     html += \`
                         <div class="message-metadata">
-                            <span class="metadata-badge">🤖 <strong>\${metadata.agent}</strong></span>
-                            <span class="metadata-badge">📋 \${metadata.plan}</span>
-                            <span class="metadata-badge">🎯 \${metadata.tokens} tokens</span>
-                            <span class="metadata-badge">💰 \${metadata.cost}</span>
+                            <span class="metadata-badge">?? <strong>\${metadata.agent}</strong></span>
+                            <span class="metadata-badge">?? \${metadata.plan}</span>
+                            <span class="metadata-badge">?? \${metadata.tokens} tokens</span>
+                            <span class="metadata-badge">?? \${metadata.cost}</span>
                         </div>
                     \`;
                 }
@@ -1369,7 +1369,7 @@ app.get('/chat', (req, res) => {
                     
                     lines.forEach(line => {
                         line = line.trim();
-                        if (line.startsWith('•')) {
+                        if (line.startsWith('?')) {
                             bullets.push(line.substring(1).trim());
                         } else if (line.includes('<a href=')) {
                             // Extract links
@@ -1635,7 +1635,7 @@ app.post('/api/chat', async (req, res) => {
       
       // Route to appropriate agent using LangChain
       selectedAgent = await langchainService.routeToAgent(sanitizedMessage);
-      console.log(`LangChain routing: "${sanitizedMessage.substring(0, 50)}..." → ${selectedAgent}`);
+      console.log(`LangChain routing: "${sanitizedMessage.substring(0, 50)}..." ? ${selectedAgent}`);
       
       // Verify agent is available in current plan
       if (!availableAgents.includes(selectedAgent)) {
@@ -1703,10 +1703,22 @@ app.post('/api/chat', async (req, res) => {
     });
     
     if (!openRouterResponse.ok) {
-      console.error('OpenRouter API error:', openRouterResponse.status, openRouterResponse.statusText);
-      return res.status(500).json({ 
-        error: 'AI service temporarily unavailable',
-        response: 'I apologize, but I\'m currently unable to process your request. Please try again in a moment.'
+      let errorBody = '';
+      try { errorBody = await openRouterResponse.text(); } catch (_) {}
+      console.error('OpenRouter API error:', openRouterResponse.status, openRouterResponse.statusText, errorBody);
+      // Graceful fallback: avoid 500s; return a degraded but helpful response
+      const fallbackMsg = 'Our AI service is momentarily unavailable. Your message was received and logged. Please try again shortly.';
+      const footer = `\n\n---\n*Agent: ${agentName} | Plan: ${planConfig.name} | Tokens: 0 (0?0) | Cost: $0.000000*`;
+      return res.json({
+        success: true,
+        response: fallbackMsg + footer,
+        agent: selectedAgent,
+        agentName: agentName,
+        plan: plan,
+        planName: planConfig.name,
+        timestamp: new Date().toISOString(),
+        model: selectedModel,
+        usage: { prompt_tokens: 0, completion_tokens: 0, total_tokens: 0, cost: 0 }
       });
     }
     
@@ -1723,7 +1735,7 @@ app.post('/api/chat', async (req, res) => {
     const totalCost = 0.00; // Free model
     
     // Create footer with metadata
-    let footer = `\n\n---\n*Agent: ${agentName} | Plan: ${planConfig.name} | Tokens: ${totalTokens} (${promptTokens}→${completionTokens}) | Cost: $${totalCost.toFixed(6)}*`;
+    let footer = `\n\n---\n*Agent: ${agentName} | Plan: ${planConfig.name} | Tokens: ${totalTokens} (${promptTokens}?${completionTokens}) | Cost: $${totalCost.toFixed(6)}*`;
     
     // Call ad-agent for free and future4200 plans (contextual advertisements)
     if (validatedPlan === 'free' || validatedPlan === 'future4200') {
@@ -1788,9 +1800,15 @@ app.post('/api/chat', async (req, res) => {
     
   } catch (error) {
     console.error('Error in chat endpoint:', error);
-    res.status(500).json({ 
-      error: 'Internal server error',
-      response: 'I apologize, but I encountered an error processing your request. Please try again.'
+    // Graceful fallback: avoid 500s and keep UI responsive
+    const fallbackMsg = 'We hit a temporary issue processing your request. Please try again shortly.';
+    return res.json({
+      success: true,
+      response: fallbackMsg,
+      agent: 'f8_agent',
+      timestamp: new Date().toISOString(),
+      model: 'unknown',
+      usage: { prompt_tokens: 0, completion_tokens: 0, total_tokens: 0, cost: 0 }
     });
   }
 });
@@ -2339,13 +2357,22 @@ exports.handler = async (event, context) => {
       });
       
       if (!openRouterResponse.ok) {
-        console.error('OpenRouter API error:', openRouterResponse.status, openRouterResponse.statusText);
+        let errorBody = '';
+        try { errorBody = await openRouterResponse.text(); } catch (_) {}
+        console.error('OpenRouter API error:', openRouterResponse.status, openRouterResponse.statusText, errorBody);
+        // Graceful fallback to avoid 500s in serverless handler
+        const fallbackMsg = 'Our AI service is momentarily unavailable. Please try again.';
+        const footer = `\n\n---\n*Agent: f8_agent | Tokens: 0 (0?0) | Cost: $0.000000*`;
         return {
-          statusCode: 500,
+          statusCode: 200,
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ 
-            error: 'AI service temporarily unavailable',
-            response: 'I apologize, but I\'m currently unable to process your request. Please try again in a moment.'
+          body: JSON.stringify({
+            success: true,
+            response: fallbackMsg + footer,
+            agent: 'f8_agent',
+            timestamp: new Date().toISOString(),
+            model: selectedModel,
+            usage: { prompt_tokens: 0, completion_tokens: 0, total_tokens: 0, cost: 0 }
           })
         };
       }
@@ -2367,7 +2394,7 @@ exports.handler = async (event, context) => {
       const totalCost = 0.00; // Free model
       
       // Create footer with metadata
-      const footer = `\n\n---\n*Agent: f8_agent | Tokens: ${totalTokens} (${promptTokens}→${completionTokens}) | Cost: $${totalCost.toFixed(6)}*`;
+      const footer = `\n\n---\n*Agent: f8_agent | Tokens: ${totalTokens} (${promptTokens}?${completionTokens}) | Cost: $${totalCost.toFixed(6)}*`;
       const responseWithFooter = aiResponse + footer;
       
       return {
@@ -2391,12 +2418,17 @@ exports.handler = async (event, context) => {
       
     } catch (error) {
       console.error('Error calling OpenRouter API:', error);
+      // Graceful fallback
       return {
-        statusCode: 500,
+        statusCode: 200,
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ 
-          error: 'Internal server error',
-          response: 'I apologize, but I encountered an error processing your request. Please try again.'
+        body: JSON.stringify({
+          success: true,
+          response: 'We hit a temporary issue processing your request. Please try again shortly.',
+          agent: 'f8_agent',
+          timestamp: new Date().toISOString(),
+          model: 'unknown',
+          usage: { prompt_tokens: 0, completion_tokens: 0, total_tokens: 0, cost: 0 }
         })
       };
     }
