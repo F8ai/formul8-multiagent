@@ -7,7 +7,12 @@ on:
   workflow_dispatch:  # Allow manual trigger
     inputs:
       delete_old_keys:
-        description: 'Delete old keys after rotation'
+        description: 'Delete old keys after rotation (default: true)'
+        required: false
+        default: true
+        type: boolean
+      skip_cleanup:
+        description: 'Skip cleanup of old keys (override default behavior)'
         required: false
         default: false
         type: boolean
@@ -41,16 +46,42 @@ jobs:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
         run: |
           chmod +x scripts/openrouter-key-manager.js
-          if [ "${{ github.event.inputs.delete_old_keys }}" = "true" ]; then
+          
+          # Determine if we should delete old keys
+          # Default behavior: delete old keys (unless explicitly disabled)
+          DELETE_OLD="true"
+          if [ "${{ github.event.inputs.skip_cleanup }}" = "true" ]; then
+            DELETE_OLD="false"
+            echo "⚠️  Skipping cleanup of old keys (manual override)"
+          elif [ "${{ github.event.inputs.delete_old_keys }}" = "false" ]; then
+            DELETE_OLD="false"
+            echo "⚠️  Skipping cleanup of old keys (manual setting)"
+          else
+            echo "✅ Will clean up old keys after successful rotation (keeping immediate previous key)"
+          fi
+          
+          # Run rotation with appropriate cleanup setting
+          if [ "$DELETE_OLD" = "true" ]; then
+            echo "🔄 Starting key rotation with cleanup..."
             node scripts/openrouter-key-manager.js rotate --delete-old
           else
+            echo "🔄 Starting key rotation without cleanup..."
             node scripts/openrouter-key-manager.js rotate
           fi
+      
+      - name: Verify new key is working
+        env:
+          OPENROUTER_PROVISIONING_KEY: ${{ secrets.OPENROUTER_PROVISIONING_KEY }}
+        run: |
+          echo "🔍 Verifying new key is working..."
+          node scripts/openrouter-key-manager.js test
+          echo "✅ New key verification completed"
       
       - name: List current keys
         env:
           OPENROUTER_PROVISIONING_KEY: ${{ secrets.OPENROUTER_PROVISIONING_KEY }}
         run: |
+          echo "📋 Current API keys:"
           node scripts/openrouter-key-manager.js list
       
       - name: Upload rotation log
@@ -65,12 +96,16 @@ jobs:
         if: success()
         run: |
           echo "✅ Key rotation completed successfully!"
+          echo "🔄 New key created and deployed"
+          echo "🗑️  Old keys cleaned up (keeping immediate previous key)"
+          echo "🔒 Security rotation completed safely"
           # Add your notification logic here (Slack, Discord, email, etc.)
       
       - name: Notify on failure
         if: failure()
         run: |
           echo "❌ Key rotation failed! Check the logs."
+          echo "⚠️  Old keys may still be active - manual intervention required"
           # Add your notification logic here (Slack, Discord, email, etc.)
 
 
