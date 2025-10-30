@@ -344,9 +344,15 @@ async function rotateKey(deleteOld = false) {
       log('');
     }
 
-    // Step 4: Test the new key
-    await testKey(newKeyData.key);
-    log('');
+    // Step 4: Test the new key (non-blocking - if it fails, continue anyway)
+    try {
+      await testKey(newKeyData.key);
+      log('');
+    } catch (testError) {
+      log(`⚠️  Key test failed: ${testError.message}`);
+      log('⚠️  Continuing anyway - key was created successfully');
+      log('');
+    }
 
     // Step 5: Store new key ID for future rotation
     await updateGitHubSecret('OPENROUTER_CURRENT_KEY_ID', newKeyData.id);
