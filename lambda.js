@@ -1682,7 +1682,7 @@ app.post('/api/chat', async (req, res) => {
       headers: {
         'Authorization': `Bearer ${openRouterApiKey}`,
         'Content-Type': 'application/json',
-        'HTTP-Referer': 'https://f8.syzygyx.com',
+        'HTTP-Referer': 'https://chat.formul8.ai',
         'X-Title': 'Formul8 Multiagent Chat'
       },
       body: JSON.stringify({
@@ -2332,7 +2332,7 @@ exports.handler = async (event, context) => {
         headers: {
           'Authorization': `Bearer ${openRouterApiKey}`,
           'Content-Type': 'application/json',
-          'HTTP-Referer': 'https://f8.syzygyx.com',
+          'HTTP-Referer': 'https://chat.formul8.ai',
           'X-Title': 'Formul8 Multiagent Chat'
         },
         body: JSON.stringify({
