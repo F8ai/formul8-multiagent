@@ -205,8 +205,8 @@ async function updateGitHubSecret(secretName, value) {
   log(`🔐 Updating GitHub Secret: ${secretName}`);
   
   try {
-    // Use GitHub CLI to update the secret - use stdin to avoid shell escaping issues
-    const proc = require('child_process').spawn('gh', ['secret', 'set', secretName, '--body', value], {
+    // Use GitHub CLI to update the secret - pass value via stdin
+    const proc = require('child_process').spawn('gh', ['secret', 'set', secretName], {
       stdio: ['pipe', 'pipe', 'pipe'],
       env: { ...process.env, GH_TOKEN: process.env.GITHUB_TOKEN }
     });
@@ -216,6 +216,10 @@ async function updateGitHubSecret(secretName, value) {
     
     proc.stdout.on('data', (data) => { stdout += data.toString(); });
     proc.stderr.on('data', (data) => { stderr += data.toString(); });
+    
+    // Write value to stdin
+    proc.stdin.write(value);
+    proc.stdin.end();
     
     await new Promise((resolve, reject) => {
       proc.on('close', (code) => {
