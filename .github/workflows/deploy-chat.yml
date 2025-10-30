@@ -40,6 +40,8 @@ jobs:
       - name: Set OpenRouter API Key in Vercel
         run: |
           echo "🔐 Setting OPENROUTER_API_KEY in Vercel..."
+          # Remove existing variable if it exists, then add new one
+          vercel env rm OPENROUTER_API_KEY production --token=${{ secrets.VERCEL_TOKEN }} --yes || true
           echo "$OPENROUTER_API_KEY" | vercel env add OPENROUTER_API_KEY production --token=${{ secrets.VERCEL_TOKEN }}
         env:
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}

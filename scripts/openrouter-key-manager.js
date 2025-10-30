@@ -207,7 +207,23 @@ async function updateVercelEnvironment(envName, value) {
   log(`🔐 Updating Vercel Environment Variable: ${envName}`);
   
   try {
-    // Use Vercel CLI to update the environment variable
+    // First try to remove existing variable (ignore errors if it doesn't exist)
+    try {
+      execSync(`vercel env rm ${envName} production --token=${process.env.VERCEL_TOKEN} --yes`, {
+        stdio: ['pipe', 'pipe', 'pipe'],
+        env: { 
+          ...process.env, 
+          VERCEL_TOKEN: process.env.VERCEL_TOKEN,
+          VERCEL_ORG_ID: process.env.VERCEL_ORG_ID,
+          VERCEL_PROJECT_ID: process.env.VERCEL_PROJECT_ID
+        }
+      });
+      log(`🗑️  Removed existing ${envName} variable`);
+    } catch (removeError) {
+      log(`ℹ️  No existing ${envName} variable to remove (or removal failed)`);
+    }
+    
+    // Now add the new variable
     execSync(`echo "${value}" | vercel env add ${envName} production --token=${process.env.VERCEL_TOKEN}`, {
       stdio: ['pipe', 'pipe', 'pipe'],
       env: { 
