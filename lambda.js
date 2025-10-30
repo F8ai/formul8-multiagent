@@ -1837,7 +1837,7 @@ exports.handler = async (event, context) => {
     };
   }
   
-  if (request.method === 'GET' && request.url === '/chat') {
+  if (request.method === 'GET' && (request.url === '/chat' || request.url === '/')) {
     // Return the HTML for the ChatGPT-style chat interface
     const html = `<!DOCTYPE html>
     <html lang="en">

@@ -46,7 +46,7 @@ jobs:
       - name: Verify Deployment
         run: |
           echo "✅ Chat interface deployed!"
-          echo "🔗 Chat: https://chat.formul8.ai/chat"
+          echo "🔗 Chat: https://chat.formul8.ai/"
           echo "🔗 Future4200: https://chat.formul8.ai/future4200.html"
           echo "📊 Commit: $(git rev-parse --short HEAD)"
 
@@ -61,5 +61,5 @@ jobs:
               owner: context.repo.owner,
               repo: context.repo.repo,
               commit_sha: context.sha,
-              body: `✅ Chat interface deployed!\n\n🔗 Chat: https://chat.formul8.ai/chat\n🔗 Future4200: https://chat.formul8.ai/future4200.html\n📊 Version: v1.0.0-${commitId}\n⏰ ${timestamp}`
+              body: `✅ Chat interface deployed!\n\n🔗 Chat: https://chat.formul8.ai/\n🔗 Future4200: https://chat.formul8.ai/future4200.html\n📊 Version: v1.0.0-${commitId}\n⏰ ${timestamp}`
             })
