@@ -1,9 +1,10 @@
 {
-  "timestamp": "2025-10-29T23:55:56.368Z",
+  "timestamp": "2025-10-30T03:55:11.009Z",
   "url": "https://chat.formul8.ai",
-  "totalQuestions": 3,
+  "totalQuestions": 438,
+  "completed": 10,
   "passed": 0,
-  "failed": 3,
+  "failed": 10,
   "averageScore": "15.00",
   "averageGrade": "F",
   "results": [
@@ -17,7 +18,7 @@
       "expectedAgent": "compliance",
       "agentMatch": false,
       "response": "I apologize, but I'm currently unable to process your request. Please try again in a moment.",
-      "duration": 644,
+      "duration": 1724,
       "grade": "F",
       "score": 15,
       "grading": {
@@ -38,7 +39,7 @@
       "expectedAgent": "compliance",
       "agentMatch": false,
       "response": "I apologize, but I'm currently unable to process your request. Please try again in a moment.",
-      "duration": 297,
+      "duration": 450,
       "grade": "F",
       "score": 15,
       "grading": {
@@ -59,7 +60,7 @@
       "expectedAgent": "compliance",
       "agentMatch": false,
       "response": "I apologize, but I'm currently unable to process your request. Please try again in a moment.",
-      "duration": 274,
+      "duration": 324,
       "grade": "F",
       "score": 15,
       "grading": {
@@ -69,6 +70,154 @@
         "relevance": "0/2 key words"
       },
       "expectedKeywords": []
+    },
+    {
+      "questionNum": 4,
+      "question": "What are the requirements for testing regular pre-rolls when I bought the raw material from a cultivator that already tested it?",
+      "category": "product-testing-infusion-rules",
+      "agent": "unknown",
+      "actualAgent": "unknown",
+      "actualAgentName": "Unknown Agent",
+      "expectedAgent": "compliance",
+      "agentMatch": false,
+      "response": "I apologize, but I'm currently unable to process your request. Please try again in a moment.",
+      "duration": 310,
+      "grade": "F",
+      "score": 15,
+      "grading": {
+        "length": "Fail - too short",
+        "noErrors": "Fail - error detected",
+        "structure": "Pass",
+        "relevance": "0/5 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 5,
+      "question": "Can I make an infused pre-roll without retesting it if I am using already tested flower and concentrate?",
+      "category": "product-testing-infusion-rules",
+      "agent": "unknown",
+      "actualAgent": "unknown",
+      "actualAgentName": "Unknown Agent",
+      "expectedAgent": "compliance",
+      "agentMatch": false,
+      "response": "I apologize, but I'm currently unable to process your request. Please try again in a moment.",
+      "duration": 678,
+      "grade": "F",
+      "score": 15,
+      "grading": {
+        "length": "Fail - too short",
+        "noErrors": "Fail - error detected",
+        "structure": "Pass",
+        "relevance": "0/5 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 6,
+      "question": "Do I have to show harvest date or production date on infused products?",
+      "category": "product-testing-infusion-rules",
+      "agent": "unknown",
+      "actualAgent": "unknown",
+      "actualAgentName": "Unknown Agent",
+      "expectedAgent": "compliance",
+      "agentMatch": false,
+      "response": "I apologize, but I'm currently unable to process your request. Please try again in a moment.",
+      "duration": 312,
+      "grade": "F",
+      "score": 15,
+      "grading": {
+        "length": "Fail - too short",
+        "noErrors": "Fail - error detected",
+        "structure": "Pass",
+        "relevance": "0/4 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 7,
+      "question": "Are there different rules for various types of infused products related to this same question?",
+      "category": "product-testing-infusion-rules",
+      "agent": "unknown",
+      "actualAgent": "unknown",
+      "actualAgentName": "Unknown Agent",
+      "expectedAgent": "compliance",
+      "agentMatch": false,
+      "response": "I apologize, but I'm currently unable to process your request. Please try again in a moment.",
+      "duration": 669,
+      "grade": "F",
+      "score": 15,
+      "grading": {
+        "length": "Fail - too short",
+        "noErrors": "Fail - error detected",
+        "structure": "Pass",
+        "relevance": "0/5 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 8,
+      "question": "What are the requirements in my state for me to be able to introduce or infuse cannabis or botanical-derived terpenes into my products?",
+      "category": "product-testing-infusion-rules",
+      "agent": "unknown",
+      "actualAgent": "unknown",
+      "actualAgentName": "Unknown Agent",
+      "expectedAgent": "compliance",
+      "agentMatch": false,
+      "response": "I apologize, but I'm currently unable to process your request. Please try again in a moment.",
+      "duration": 323,
+      "grade": "F",
+      "score": 15,
+      "grading": {
+        "length": "Fail - too short",
+        "noErrors": "Fail - error detected",
+        "structure": "Pass",
+        "relevance": "0/5 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 9,
+      "question": "Does this vary for different products?",
+      "category": "product-testing-infusion-rules",
+      "agent": "unknown",
+      "actualAgent": "unknown",
+      "actualAgentName": "Unknown Agent",
+      "expectedAgent": "compliance",
+      "agentMatch": false,
+      "response": "I apologize, but I'm currently unable to process your request. Please try again in a moment.",
+      "duration": 625,
+      "grade": "F",
+      "score": 15,
+      "grading": {
+        "length": "Fail - too short",
+        "noErrors": "Fail - error detected",
+        "structure": "Pass",
+        "relevance": "0/2 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 10,
+      "question": "What are the labeling requirements for packaged concentrates?",
+      "category": "labeling-packaging-compliance",
+      "agent": "unknown",
+      "actualAgent": "unknown",
+      "actualAgentName": "Unknown Agent",
+      "expectedAgent": "compliance",
+      "agentMatch": false,
+      "response": "I apologize, but I'm currently unable to process your request. Please try again in a moment.",
+      "duration": 583,
+      "grade": "F",
+      "score": 15,
+      "grading": {
+        "length": "Fail - too short",
+        "noErrors": "Fail - error detected",
+        "structure": "Pass",
+        "relevance": "0/4 key words"
+      },
+      "expectedKeywords": []
     }
-  ]
+  ],
+  "status": "In Progress: 10/438 questions completed"
 }
