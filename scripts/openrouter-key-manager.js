@@ -208,9 +208,8 @@ async function updateVercelEnvironment(envName, value) {
   
   try {
     // Use Vercel CLI to update the environment variable
-    execSync(`vercel env add ${envName} production --token=${process.env.VERCEL_TOKEN} --yes`, {
+    execSync(`echo "${value}" | vercel env add ${envName} production --token=${process.env.VERCEL_TOKEN}`, {
       stdio: ['pipe', 'pipe', 'pipe'],
-      input: value,
       env: { 
         ...process.env, 
         VERCEL_TOKEN: process.env.VERCEL_TOKEN,
