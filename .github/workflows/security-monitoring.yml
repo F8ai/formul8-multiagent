@@ -165,8 +165,19 @@ jobs:
           path: security-summary.md
           retention-days: 30
       
-      - name: Alert on Critical Issues
+      - name: Send Critical Alert Email
         if: steps.threshold-check.outputs.critical_alert == 'true'
+        env:
+          NOTIFICATION_EMAIL: ${{ secrets.NOTIFICATION_EMAIL }}
+          SENDGRID_API_KEY: ${{ secrets.SENDGRID_API_KEY }}
+          SENDGRID_FROM_EMAIL: ${{ secrets.SENDGRID_FROM_EMAIL }}
+          SENDGRID_FROM_NAME: ${{ secrets.SENDGRID_FROM_NAME }}
+          SMTP_HOST: ${{ secrets.SMTP_HOST }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASS: ${{ secrets.SMTP_PASS }}
+          GITHUB_RUN_NUMBER: ${{ github.run_number }}
+          GITHUB_SHA: ${{ github.sha }}
+          GITHUB_REF_NAME: ${{ github.ref_name }}
         run: |
           echo "🚨 CRITICAL SECURITY ALERT 🚨"
           echo "=================================="
@@ -181,11 +192,53 @@ jobs:
           echo "4. 🛡️ Implement additional security controls"
           echo "5. 📞 Notify security team if configured"
           echo ""
-          # Add your notification logic here (Slack, Discord, email, etc.)
-          # Example: curl -X POST -H 'Content-type: application/json' --data '{"text":"🚨 CRITICAL OpenRouter Security Alert!"}' ${{ secrets.SLACK_WEBHOOK_URL }}
+          
+          # Prepare alert data for email
+          cat > alert-data.json << EOF
+          {
+            "riskLevel": "CRITICAL",
+            "riskScore": ${{ steps.security-analysis.outputs.overall_risk }},
+            "anomalies": [
+              {
+                "type": "CRITICAL_RISK",
+                "severity": "CRITICAL",
+                "key_name": "Multiple Keys",
+                "key_id": "N/A",
+                "description": "Overall risk score ${{ steps.security-analysis.outputs.overall_risk }} exceeds critical threshold ${{ github.event.inputs.alert_threshold || '30' }}",
+                "recommendation": "Immediate action required - review all security reports and consider rotating all keys"
+              }
+            ],
+            "recommendations": [
+              "🚨 IMMEDIATE ACTION REQUIRED: Review security reports in artifacts",
+              "🔐 Check for unauthorized key usage",
+              "🔄 Consider rotating affected keys immediately",
+              "🛡️ Implement additional security controls",
+              "📊 Increase monitoring frequency",
+              "📞 Notify security team immediately"
+            ]
+          }
+          EOF
+          
+          # Send critical alert email
+          chmod +x scripts/email-notifier.js
+          cat alert-data.json | node scripts/email-notifier.js alert CRITICAL
+          
+          # Also send Slack/Discord notification if configured
+          # curl -X POST -H 'Content-type: application/json' --data '{"text":"🚨 CRITICAL OpenRouter Security Alert!"}' ${{ secrets.SLACK_WEBHOOK_URL }}
       
-      - name: Alert on Anomalies
+      - name: Send Anomaly Alert Email
         if: steps.threshold-check.outputs.anomaly_alert == 'true' && steps.threshold-check.outputs.critical_alert == 'false'
+        env:
+          NOTIFICATION_EMAIL: ${{ secrets.NOTIFICATION_EMAIL }}
+          SENDGRID_API_KEY: ${{ secrets.SENDGRID_API_KEY }}
+          SENDGRID_FROM_EMAIL: ${{ secrets.SENDGRID_FROM_EMAIL }}
+          SENDGRID_FROM_NAME: ${{ secrets.SENDGRID_FROM_NAME }}
+          SMTP_HOST: ${{ secrets.SMTP_HOST }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASS: ${{ secrets.SMTP_PASS }}
+          GITHUB_RUN_NUMBER: ${{ github.run_number }}
+          GITHUB_SHA: ${{ github.sha }}
+          GITHUB_REF_NAME: ${{ github.ref_name }}
         run: |
           echo "⚠️  ANOMALY ALERT"
           echo "=================="
@@ -198,21 +251,121 @@ jobs:
           echo "3. 📈 Monitor affected keys closely"
           echo "4. 🔄 Consider preventive measures"
           echo ""
-          # Add your notification logic here for anomaly alerts
+          
+          # Prepare anomaly alert data for email
+          cat > anomaly-alert-data.json << EOF
+          {
+            "riskLevel": "MEDIUM",
+            "riskScore": ${{ steps.security-analysis.outputs.overall_risk }},
+            "anomalies": [
+              {
+                "type": "MULTIPLE_ANOMALIES",
+                "severity": "MEDIUM",
+                "key_name": "Multiple Keys",
+                "key_id": "N/A",
+                "description": "${{ steps.security-analysis.outputs.anomaly_count }} anomalies detected across API keys",
+                "recommendation": "Review anomaly report and investigate suspicious patterns"
+              }
+            ],
+            "recommendations": [
+              "📊 Review anomaly report in artifacts",
+              "🔍 Investigate suspicious patterns",
+              "📈 Monitor affected keys closely",
+              "🔄 Consider preventive measures",
+              "📋 Check for unauthorized usage patterns"
+            ]
+          }
+          EOF
+          
+          # Send anomaly alert email
+          chmod +x scripts/email-notifier.js
+          cat anomaly-alert-data.json | node scripts/email-notifier.js alert ANOMALY
       
-      - name: Notify on Success
+      - name: Send Success Notification Email
         if: success() && steps.threshold-check.outputs.critical_alert == 'false' && steps.threshold-check.outputs.anomaly_alert == 'false'
+        env:
+          NOTIFICATION_EMAIL: ${{ secrets.NOTIFICATION_EMAIL }}
+          SENDGRID_API_KEY: ${{ secrets.SENDGRID_API_KEY }}
+          SENDGRID_FROM_EMAIL: ${{ secrets.SENDGRID_FROM_EMAIL }}
+          SENDGRID_FROM_NAME: ${{ secrets.SENDGRID_FROM_NAME }}
+          SMTP_HOST: ${{ secrets.SMTP_HOST }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASS: ${{ secrets.SMTP_PASS }}
+          GITHUB_RUN_NUMBER: ${{ github.run_number }}
+          GITHUB_SHA: ${{ github.sha }}
+          GITHUB_REF_NAME: ${{ github.ref_name }}
         run: |
           echo "✅ Security monitoring completed successfully"
           echo "Overall Risk Score: ${{ steps.security-analysis.outputs.overall_risk }}"
           echo "Anomalies Detected: ${{ steps.security-analysis.outputs.anomaly_count }}"
           echo "Status: Normal monitoring - no immediate action required"
-          # Add your notification logic here for normal operations
+          
+          # Only send success emails if explicitly enabled
+          if [ "${{ secrets.SEND_SUCCESS_EMAILS }}" = "true" ]; then
+            # Prepare success notification data for email
+            cat > success-data.json << EOF
+            {
+              "riskLevel": "LOW",
+              "riskScore": ${{ steps.security-analysis.outputs.overall_risk }},
+              "anomalies": [],
+              "recommendations": [
+                "✅ Security monitoring completed successfully",
+                "📊 Overall Risk Score: ${{ steps.security-analysis.outputs.overall_risk }}",
+                "🔍 Anomalies Detected: ${{ steps.security-analysis.outputs.anomaly_count }}",
+                "🛡️ Status: Normal monitoring - no immediate action required",
+                "📈 Continue regular monitoring schedule"
+              ]
+            }
+            EOF
+            
+            # Send success notification email
+            chmod +x scripts/email-notifier.js
+            cat success-data.json | node scripts/email-notifier.js alert SUCCESS
+          fi
       
-      - name: Notify on Failure
+      - name: Send Failure Notification Email
         if: failure()
+        env:
+          NOTIFICATION_EMAIL: ${{ secrets.NOTIFICATION_EMAIL }}
+          SENDGRID_API_KEY: ${{ secrets.SENDGRID_API_KEY }}
+          SENDGRID_FROM_EMAIL: ${{ secrets.SENDGRID_FROM_EMAIL }}
+          SENDGRID_FROM_NAME: ${{ secrets.SENDGRID_FROM_NAME }}
+          SMTP_HOST: ${{ secrets.SMTP_HOST }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASS: ${{ secrets.SMTP_PASS }}
+          GITHUB_RUN_NUMBER: ${{ github.run_number }}
+          GITHUB_SHA: ${{ github.sha }}
+          GITHUB_REF_NAME: ${{ github.ref_name }}
         run: |
           echo "❌ Security monitoring failed!"
           echo "Check the logs and ensure OPENROUTER_PROVISIONING_KEY is valid"
           echo "Review workflow configuration and API endpoints"
-          # Add your notification logic here for failures
+          
+          # Prepare failure notification data for email
+          cat > failure-data.json << EOF
+          {
+            "riskLevel": "UNKNOWN",
+            "riskScore": 0,
+            "anomalies": [
+              {
+                "type": "MONITORING_FAILURE",
+                "severity": "HIGH",
+                "key_name": "System",
+                "key_id": "N/A",
+                "description": "Security monitoring system failed to complete successfully",
+                "recommendation": "Check GitHub Actions logs and verify system configuration"
+              }
+            ],
+            "recommendations": [
+              "❌ Security monitoring failed!",
+              "🔍 Check the logs and ensure OPENROUTER_PROVISIONING_KEY is valid",
+              "⚙️ Review workflow configuration and API endpoints",
+              "🔧 Verify all required secrets are properly configured",
+              "📞 Contact system administrator if issue persists"
+            ]
+          }
+          EOF
+          
+          # Send failure notification email
+          chmod +x scripts/email-notifier.js
+          cat failure-data.json | node scripts/email-notifier.js alert FAILURE
