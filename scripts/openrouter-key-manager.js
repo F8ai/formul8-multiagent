@@ -203,6 +203,32 @@ async function updateGitHubSecret(secretName, value) {
   }
 }
 
+async function updateVercelEnvironment(envName, value) {
+  log(`🔐 Updating Vercel Environment Variable: ${envName}`);
+  
+  try {
+    // Use Vercel CLI to update the environment variable
+    execSync(`vercel env add ${envName} production --token=${process.env.VERCEL_TOKEN} --yes`, {
+      stdio: ['pipe', 'pipe', 'pipe'],
+      input: value,
+      env: { 
+        ...process.env, 
+        VERCEL_TOKEN: process.env.VERCEL_TOKEN,
+        VERCEL_ORG_ID: process.env.VERCEL_ORG_ID,
+        VERCEL_PROJECT_ID: process.env.VERCEL_PROJECT_ID
+      }
+    });
+    
+    log(`✅ Vercel Environment Variable ${envName} updated successfully`);
+    return true;
+  } catch (error) {
+    log(`❌ Error updating Vercel Environment Variable: ${error.message}`);
+    // Don't throw error - Vercel env update might fail but GitHub secret is more important
+    log(`⚠️  Continuing with deployment (GitHub secret was updated)`);
+    return false;
+  }
+}
+
 async function rotateKey(deleteOld = false) {
   log('');
   log('='.repeat(80));
@@ -228,6 +254,16 @@ async function rotateKey(deleteOld = false) {
     // Step 3: Update GitHub Secret
     await updateGitHubSecret('OPENROUTER_API_KEY', newKeyData.key);
     log('');
+
+    // Step 3.5: Update Vercel Environment Variable (if Vercel credentials available)
+    if (process.env.VERCEL_TOKEN && process.env.VERCEL_ORG_ID && process.env.VERCEL_PROJECT_ID) {
+      await updateVercelEnvironment('OPENROUTER_API_KEY', newKeyData.key);
+      log('');
+    } else {
+      log('⚠️  Vercel credentials not available - skipping Vercel env update');
+      log('   (GitHub Actions will handle Vercel deployment)');
+      log('');
+    }
 
     // Step 4: Test the new key
     await testKey(newKeyData.key);
