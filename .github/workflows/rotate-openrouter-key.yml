@@ -47,7 +47,7 @@ jobs:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
 
       - name: Rotate from pre-provisioned key pool (preferred)
-        if: ${{ secrets.OPENROUTER_KEY_POOL != '' }}
+        if: ${{ secrets.OPENROUTER_KEY_POOL }}
         env:
           KEY_POOL: ${{ secrets.OPENROUTER_KEY_POOL }}
           ACTIVE_INDEX: ${{ secrets.OPENROUTER_ACTIVE_INDEX }}
@@ -79,13 +79,13 @@ jobs:
           echo "✅ Key rotated to pool index $NEXT"
 
       - name: Authenticate GitHub CLI
-        if: ${{ secrets.OPENROUTER_KEY_POOL == '' && secrets.OPENROUTER_PROVISIONING_KEY != '' }}
+        if: ${{ !secrets.OPENROUTER_KEY_POOL && secrets.OPENROUTER_PROVISIONING_KEY }}
         run: |
           echo "${{ secrets.GITHUB_TOKEN }}" | gh auth login --with-token
           gh auth status
 
       - name: Rotate via OpenRouter provisioning API (fallback)
-        if: ${{ secrets.OPENROUTER_KEY_POOL == '' && secrets.OPENROUTER_PROVISIONING_KEY != '' }}
+        if: ${{ !secrets.OPENROUTER_KEY_POOL && secrets.OPENROUTER_PROVISIONING_KEY }}
         env:
           OPENROUTER_PROVISIONING_KEY: ${{ secrets.OPENROUTER_PROVISIONING_KEY }}
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}

@@ -49,8 +49,17 @@ function makeRequest(method, reqPath, data = null, redirectCount = 0) {
     };
 
     const req = https.request(options, (res) => {
-      // Handle redirects
+      // Handle redirects (only for 3xx status codes)
       if (res.statusCode && res.statusCode >= 300 && res.statusCode < 400 && res.headers.location) {
+        // Don't follow redirects to login pages or non-API endpoints
+        if (res.headers.location.includes('/sign-in') || res.headers.location.includes('/login') || !res.headers.location.includes('/api/')) {
+          let errorBody = '';
+          res.on('data', chunk => errorBody += chunk);
+          res.on('end', () => {
+            reject(new Error(`API returned redirect to non-API endpoint (likely authentication issue): ${res.headers.location}`));
+          });
+          return;
+        }
         if (redirectCount > 5) {
           reject(new Error('Too many redirects'));
           return;
