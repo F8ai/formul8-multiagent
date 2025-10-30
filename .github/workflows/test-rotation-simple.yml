@@ -1,0 +1,50 @@
+name: Test Rotation Simple
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Create key and update secret
+        env:
+          OPENROUTER_PROVISIONING_KEY: ${{ secrets.OPENROUTER_PROVISIONING_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+        run: |
+          set -euxo pipefail
+          
+          # Create new key
+          echo "🔑 Creating new OpenRouter API key..."
+          RESPONSE=$(curl -sS -X POST https://openrouter.ai/api/v1/keys \
+            -H "Authorization: Bearer $OPENROUTER_PROVISIONING_KEY" \
+            -H "Content-Type: application/json" \
+            -d "{\"name\":\"Formul8-Auto-$(date +%Y%m%d-%H%M%S)\"}")
+          
+          echo "Response: $RESPONSE"
+          
+          NEW_KEY=$(echo "$RESPONSE" | jq -r '.key')
+          if [ -z "$NEW_KEY" ] || [ "$NEW_KEY" = "null" ]; then
+            echo "❌ Failed to create key"
+            exit 1
+          fi
+          
+          echo "✅ Key created: ${NEW_KEY:0:20}..."
+          
+          # Update GitHub secret
+          echo "🔐 Updating GitHub secret..."
+          echo "$NEW_KEY" | gh secret set OPENROUTER_API_KEY
+          echo "✅ GitHub secret updated"
+          
+          # Update Vercel
+          echo "🔐 Updating Vercel environment..."
+          echo "$VERCEL_TOKEN" | vercel env rm OPENROUTER_API_KEY production --token="$VERCEL_TOKEN" --yes || true
+          echo "$NEW_KEY" | vercel env add OPENROUTER_API_KEY production --token="$VERCEL_TOKEN"
+          echo "✅ Vercel environment updated"
+          
+          echo "✅ Rotation complete!"
