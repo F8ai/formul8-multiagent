@@ -51,12 +51,12 @@ function makeRequest(method, reqPath, data = null, redirectCount = 0) {
     const req = https.request(options, (res) => {
       // Handle redirects (only for 3xx status codes)
       if (res.statusCode && res.statusCode >= 300 && res.statusCode < 400 && res.headers.location) {
-        // Don't follow redirects to login pages or non-API endpoints
-        if (res.headers.location.includes('/sign-in') || res.headers.location.includes('/login') || !res.headers.location.includes('/api/')) {
+        // Don't follow redirects to login/sign-in pages
+        if (res.headers.location.includes('/sign-in') || res.headers.location.includes('/login') || res.headers.location.includes('clerk.')) {
           let errorBody = '';
           res.on('data', chunk => errorBody += chunk);
           res.on('end', () => {
-            reject(new Error(`API returned redirect to non-API endpoint (likely authentication issue): ${res.headers.location}`));
+            reject(new Error(`API returned redirect to login page (authentication issue): ${res.headers.location}`));
           });
           return;
         }
@@ -334,9 +334,16 @@ async function rotateKey(deleteOld = false) {
   }
 
   try {
-    // Step 1: List current keys
-    const currentKeys = await listKeys();
-    log('');
+    // Step 1: List current keys (optional - continue if it fails)
+    let currentKeys = [];
+    try {
+      currentKeys = await listKeys();
+      log('');
+    } catch (listError) {
+      log(`⚠️  Could not list existing keys: ${listError.message}`);
+      log('⚠️  Continuing with key creation (old keys may not be deleted)');
+      log('');
+    }
 
     // Step 2: Create new key
     const keyName = `Formul8-Main-${new Date().toISOString().split('T')[0]}`;
