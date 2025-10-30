@@ -367,25 +367,53 @@
 
         // Load all model results
         async function loadModelData() {
-            const models = ['gpt-5', 'gpt-5-raw', 'gpt-oss-120b', 'llama-405b', 'minimax-m2', 'voiceflow'];
             const loadingEl = document.getElementById('comparisonGrid');
-            
+            const manifestPaths = [
+                // Prefer relative path for GitHub Pages under docs/
+                'test-results/latest-comparison-3/index.json',
+                // Fallbacks for alternate hosting arrangements
+                '/test-results/latest-comparison-3/index.json'
+            ];
+
             try {
-                for (const model of models) {
-                    // Try to find the latest results file for this model
+                let manifest = null;
+                for (const mpath of manifestPaths) {
                     try {
-                        const response = await fetch(`/test-results/latest-comparison-3/model-comparison-${model}-*.json`);
-                        if (!response.ok) {
-                            // Try alternate path
-                            const alt = await fetch(`../model-comparison-${model}-*.json`);
-                            if (alt.ok) {
-                                allData[model] = await alt.json();
-                            }
-                        } else {
-                            allData[model] = await response.json();
+                        const res = await fetch(mpath, { cache: 'no-store' });
+                        if (res.ok) {
+                            manifest = await res.json();
+                            break;
                         }
                     } catch (e) {
-                        console.warn(`Could not load ${model} data:`, e);
+                        // try next
+                    }
+                }
+
+                if (!manifest || !Array.isArray(manifest.models) || manifest.models.length === 0) {
+                    loadingEl.innerHTML = `
+                        <div class="error">
+                            <h3>⚠️ No model data found</h3>
+                            <p>Publish comparison JSONs and an index manifest to <code>docs/test-results/latest-comparison-3/</code>.</p>
+                            <p>Run the workflow or the local publisher script:</p>
+                            <code style="background: #f8f9fa; padding: 10px; border-radius: 8px; display: inline-block; margin-top: 10px;">
+                                node scripts/publish-model-comparison-to-docs.js
+                            </code>
+                        </div>
+                    `;
+                    return;
+                }
+
+                // Load each model file listed in the manifest
+                for (const entry of manifest.models) {
+                    const { key, path } = entry;
+                    try {
+                        const res = await fetch(path, { cache: 'no-store' });
+                        if (res.ok) {
+                            const data = await res.json();
+                            allData[key || data.modelKey || data.model || path] = data;
+                        }
+                    } catch (e) {
+                        console.warn('Failed to load model file:', path, e);
                     }
                 }
 
@@ -393,10 +421,7 @@
                     loadingEl.innerHTML = `
                         <div class="error">
                             <h3>⚠️ No model data found</h3>
-                            <p>Please run the model comparison tests first:</p>
-                            <code style="background: #f8f9fa; padding: 10px; border-radius: 8px; display: inline-block; margin-top: 10px;">
-                                gh workflow run "Model Comparison Baseline" --ref main
-                            </code>
+                            <p>Could not load any JSON files referenced by the manifest.</p>
                         </div>
                     `;
                     return;
