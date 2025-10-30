@@ -78,6 +78,12 @@ jobs:
 
           echo "✅ Key rotated to pool index $NEXT"
 
+      - name: Authenticate GitHub CLI
+        if: ${{ secrets.OPENROUTER_KEY_POOL == '' && secrets.OPENROUTER_PROVISIONING_KEY != '' }}
+        run: |
+          echo "${{ secrets.GITHUB_TOKEN }}" | gh auth login --with-token
+          gh auth status
+
       - name: Rotate via OpenRouter provisioning API (fallback)
         if: ${{ secrets.OPENROUTER_KEY_POOL == '' && secrets.OPENROUTER_PROVISIONING_KEY != '' }}
         env:
@@ -89,7 +95,10 @@ jobs:
         run: |
           chmod +x scripts/openrouter-key-manager.js
           node scripts/openrouter-key-manager.js rotate --delete-old || {
-            echo "❌ Provisioning API rotation failed"; exit 1;
+            echo "❌ Provisioning API rotation failed"; 
+            echo "Checking logs...";
+            ls -la logs/ || true;
+            exit 1;
           }
       
       - name: Upload rotation log

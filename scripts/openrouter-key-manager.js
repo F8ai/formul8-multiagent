@@ -205,13 +205,35 @@ async function updateGitHubSecret(secretName, value) {
   log(`🔐 Updating GitHub Secret: ${secretName}`);
   
   try {
-    // Use GitHub CLI to update the secret
-    execSync(`gh secret set ${secretName} --body "${value}"`, {
+    // Use GitHub CLI to update the secret - use stdin to avoid shell escaping issues
+    const proc = require('child_process').spawn('gh', ['secret', 'set', secretName, '--body', value], {
       stdio: ['pipe', 'pipe', 'pipe'],
       env: { ...process.env, GH_TOKEN: process.env.GITHUB_TOKEN }
     });
     
-    log(`✅ GitHub Secret ${secretName} updated successfully`);
+    let stdout = '';
+    let stderr = '';
+    
+    proc.stdout.on('data', (data) => { stdout += data.toString(); });
+    proc.stderr.on('data', (data) => { stderr += data.toString(); });
+    
+    await new Promise((resolve, reject) => {
+      proc.on('close', (code) => {
+        if (code === 0) {
+          log(`✅ GitHub Secret ${secretName} updated successfully`);
+          resolve();
+        } else {
+          const error = new Error(`gh secret set failed with code ${code}: ${stderr || stdout}`);
+          log(`❌ Error updating GitHub Secret: ${error.message}`);
+          reject(error);
+        }
+      });
+      proc.on('error', (err) => {
+        log(`❌ Error running gh secret set: ${err.message}`);
+        reject(err);
+      });
+    });
+    
     return true;
   } catch (error) {
     log(`❌ Error updating GitHub Secret: ${error.message}`);
@@ -239,8 +261,8 @@ async function updateVercelEnvironment(envName, value) {
       log(`ℹ️  No existing ${envName} variable to remove (or removal failed)`);
     }
     
-    // Now add the new variable
-    execSync(`echo "${value}" | vercel env add ${envName} production --token=${process.env.VERCEL_TOKEN}`, {
+    // Now add the new variable using spawn to avoid shell escaping issues
+    const proc = require('child_process').spawn('vercel', ['env', 'add', envName, 'production', '--token', process.env.VERCEL_TOKEN], {
       stdio: ['pipe', 'pipe', 'pipe'],
       env: { 
         ...process.env, 
@@ -250,7 +272,33 @@ async function updateVercelEnvironment(envName, value) {
       }
     });
     
-    log(`✅ Vercel Environment Variable ${envName} updated successfully`);
+    let stdout = '';
+    let stderr = '';
+    
+    proc.stdout.on('data', (data) => { stdout += data.toString(); });
+    proc.stderr.on('data', (data) => { stderr += data.toString(); });
+    
+    // Write value to stdin
+    proc.stdin.write(value);
+    proc.stdin.end();
+    
+    await new Promise((resolve, reject) => {
+      proc.on('close', (code) => {
+        if (code === 0) {
+          log(`✅ Vercel Environment Variable ${envName} updated successfully`);
+          resolve();
+        } else {
+          const error = new Error(`vercel env add failed with code ${code}: ${stderr || stdout}`);
+          log(`❌ Error updating Vercel Environment Variable: ${error.message}`);
+          reject(error);
+        }
+      });
+      proc.on('error', (err) => {
+        log(`❌ Error running vercel env add: ${err.message}`);
+        reject(err);
+      });
+    });
+    
     return true;
   } catch (error) {
     log(`❌ Error updating Vercel Environment Variable: ${error.message}`);
