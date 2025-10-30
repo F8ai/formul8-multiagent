@@ -20,7 +20,8 @@ if (!fs.existsSync(logsDir)) {
   fs.mkdirSync(logsDir, { recursive: true });
 }
 
-const logFile = path.join(logsDir, `rotation-${new Date().toISOString()}.log`);
+const safeTimestamp = new Date().toISOString().replace(/[:]/g, '-');
+const logFile = path.join(logsDir, `rotation-${safeTimestamp}.log`);
 
 function log(message) {
   const timestamp = new Date().toISOString();
@@ -29,9 +30,9 @@ function log(message) {
   fs.appendFileSync(logFile, logMessage + '\n');
 }
 
-function makeRequest(method, path, data = null) {
+function makeRequest(method, reqPath, data = null, redirectCount = 0) {
   return new Promise((resolve, reject) => {
-    const url = new URL(path, OPENROUTER_API_BASE);
+    const url = new URL(reqPath, OPENROUTER_API_BASE);
     
     const options = {
       hostname: url.hostname,
@@ -40,11 +41,24 @@ function makeRequest(method, path, data = null) {
       method: method,
       headers: {
         'Authorization': `Bearer ${PROVISIONING_KEY}`,
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
       }
     };
 
     const req = https.request(options, (res) => {
+      // Handle redirects
+      if (res.statusCode && res.statusCode >= 300 && res.statusCode < 400 && res.headers.location) {
+        if (redirectCount > 5) {
+          reject(new Error('Too many redirects'));
+          return;
+        }
+        const next = res.headers.location.startsWith('http')
+          ? res.headers.location
+          : new URL(res.headers.location, OPENROUTER_API_BASE).toString();
+        makeRequest(method, next, data, redirectCount + 1).then(resolve).catch(reject);
+        return;
+      }
       let body = '';
       
       res.on('data', (chunk) => {
