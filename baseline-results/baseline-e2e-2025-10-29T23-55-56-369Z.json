@@ -1,0 +1,74 @@
+{
+  "timestamp": "2025-10-29T23:55:56.368Z",
+  "url": "https://chat.formul8.ai",
+  "totalQuestions": 3,
+  "passed": 0,
+  "failed": 3,
+  "averageScore": "15.00",
+  "averageGrade": "F",
+  "results": [
+    {
+      "questionNum": 1,
+      "question": "Can you make me a compliant SOP for Cannabis Transport in New Jersey?",
+      "category": "sop-generation-compliance-documentation",
+      "agent": "unknown",
+      "actualAgent": "unknown",
+      "actualAgentName": "Unknown Agent",
+      "expectedAgent": "compliance",
+      "agentMatch": false,
+      "response": "I apologize, but I'm currently unable to process your request. Please try again in a moment.",
+      "duration": 644,
+      "grade": "F",
+      "score": 15,
+      "grading": {
+        "length": "Fail - too short",
+        "noErrors": "Fail - error detected",
+        "structure": "Pass",
+        "relevance": "0/4 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 2,
+      "question": "Can you make me a compliant SOP for pre-roll production in New York?",
+      "category": "sop-generation-compliance-documentation",
+      "agent": "unknown",
+      "actualAgent": "unknown",
+      "actualAgentName": "Unknown Agent",
+      "expectedAgent": "compliance",
+      "agentMatch": false,
+      "response": "I apologize, but I'm currently unable to process your request. Please try again in a moment.",
+      "duration": 297,
+      "grade": "F",
+      "score": 15,
+      "grading": {
+        "length": "Fail - too short",
+        "noErrors": "Fail - error detected",
+        "structure": "Pass",
+        "relevance": "0/4 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 3,
+      "question": "Can you make me a product recall SOP?",
+      "category": "sop-generation-compliance-documentation",
+      "agent": "unknown",
+      "actualAgent": "unknown",
+      "actualAgentName": "Unknown Agent",
+      "expectedAgent": "compliance",
+      "agentMatch": false,
+      "response": "I apologize, but I'm currently unable to process your request. Please try again in a moment.",
+      "duration": 274,
+      "grade": "F",
+      "score": 15,
+      "grading": {
+        "length": "Fail - too short",
+        "noErrors": "Fail - error detected",
+        "structure": "Pass",
+        "relevance": "0/2 key words"
+      },
+      "expectedKeywords": []
+    }
+  ]
+}

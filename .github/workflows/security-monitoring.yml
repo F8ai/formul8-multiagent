@@ -1,0 +1,218 @@
+name: OpenRouter Security Monitoring
+
+# Schedule: Run every 4 hours for comprehensive security monitoring
+on:
+  schedule:
+    - cron: '0 */4 * * *'  # Every 4 hours
+  workflow_dispatch:  # Allow manual trigger
+    inputs:
+      monitoring_type:
+        description: 'Type of monitoring to run'
+        required: false
+        default: 'comprehensive'
+        type: choice
+        options:
+          - comprehensive
+          - usage-only
+          - anomaly-only
+      alert_threshold:
+        description: 'Risk score threshold for alerts (default: 30)'
+        required: false
+        default: '30'
+        type: string
+
+jobs:
+  security-monitoring:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+      
+      - name: Create directories
+        run: |
+          mkdir -p logs security-reports
+      
+      - name: Run Usage Monitoring
+        if: github.event.inputs.monitoring_type == 'comprehensive' || github.event.inputs.monitoring_type == 'usage-only' || github.event.inputs.monitoring_type == ''
+        env:
+          OPENROUTER_PROVISIONING_KEY: ${{ secrets.OPENROUTER_PROVISIONING_KEY }}
+        run: |
+          chmod +x scripts/openrouter-usage-monitor.js
+          node scripts/openrouter-usage-monitor.js monitor
+      
+      - name: Run Anomaly Detection
+        if: github.event.inputs.monitoring_type == 'comprehensive' || github.event.inputs.monitoring_type == 'anomaly-only' || github.event.inputs.monitoring_type == ''
+        env:
+          OPENROUTER_PROVISIONING_KEY: ${{ secrets.OPENROUTER_PROVISIONING_KEY }}
+        run: |
+          chmod +x scripts/security-anomaly-detector.js
+          node scripts/security-anomaly-detector.js detect
+      
+      - name: Analyze Security Reports
+        id: security-analysis
+        run: |
+          # Find the most recent security reports
+          USAGE_REPORT=$(find security-reports -name "security-report-*.json" -type f | sort -r | head -1)
+          ANOMALY_REPORT=$(find security-reports -name "anomaly-report-*.json" -type f | sort -r | head -1)
+          
+          echo "usage_report=$USAGE_REPORT" >> $GITHUB_OUTPUT
+          echo "anomaly_report=$ANOMALY_REPORT" >> $GITHUB_OUTPUT
+          
+          # Extract risk scores
+          if [ -n "$USAGE_REPORT" ] && [ -f "$USAGE_REPORT" ]; then
+            USAGE_RISK=$(jq -r '.summary.risk_score // 0' "$USAGE_REPORT")
+            echo "usage_risk=$USAGE_RISK" >> $GITHUB_OUTPUT
+          else
+            echo "usage_risk=0" >> $GITHUB_OUTPUT
+          fi
+          
+          if [ -n "$ANOMALY_REPORT" ] && [ -f "$ANOMALY_REPORT" ]; then
+            ANOMALY_RISK=$(jq -r '.summary.risk_score // 0' "$ANOMALY_REPORT")
+            ANOMALY_COUNT=$(jq -r '.summary.anomalies_detected // 0' "$ANOMALY_REPORT")
+            echo "anomaly_risk=$ANOMALY_RISK" >> $GITHUB_OUTPUT
+            echo "anomaly_count=$ANOMALY_COUNT" >> $GITHUB_OUTPUT
+          else
+            echo "anomaly_risk=0" >> $GITHUB_OUTPUT
+            echo "anomaly_count=0" >> $GITHUB_OUTPUT
+          fi
+          
+          # Calculate overall risk score
+          OVERALL_RISK=$((USAGE_RISK + ANOMALY_RISK))
+          echo "overall_risk=$OVERALL_RISK" >> $GITHUB_OUTPUT
+          
+          echo "📊 Security Analysis Results:"
+          echo "  Usage Risk Score: $USAGE_RISK"
+          echo "  Anomaly Risk Score: $ANOMALY_RISK"
+          echo "  Anomalies Detected: $ANOMALY_COUNT"
+          echo "  Overall Risk Score: $OVERALL_RISK"
+      
+      - name: Check Security Thresholds
+        id: threshold-check
+        run: |
+          THRESHOLD=${{ github.event.inputs.alert_threshold || '30' }}
+          OVERALL_RISK=${{ steps.security-analysis.outputs.overall_risk }}
+          ANOMALY_COUNT=${{ steps.security-analysis.outputs.anomaly_count }}
+          
+          if [ "$OVERALL_RISK" -gt "$THRESHOLD" ]; then
+            echo "critical_alert=true" >> $GITHUB_OUTPUT
+            echo "🚨 CRITICAL ALERT: Overall risk score $OVERALL_RISK exceeds threshold $THRESHOLD"
+          else
+            echo "critical_alert=false" >> $GITHUB_OUTPUT
+            echo "✅ Risk level acceptable: $OVERALL_RISK"
+          fi
+          
+          if [ "$ANOMALY_COUNT" -gt 5 ]; then
+            echo "anomaly_alert=true" >> $GITHUB_OUTPUT
+            echo "⚠️  ANOMALY ALERT: $ANOMALY_COUNT anomalies detected"
+          else
+            echo "anomaly_alert=false" >> $GITHUB_OUTPUT
+          fi
+      
+      - name: Upload Security Reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: security-reports-${{ github.run_number }}
+          path: security-reports/
+          retention-days: 90
+      
+      - name: Upload Monitoring Logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: monitoring-logs-${{ github.run_number }}
+          path: logs/
+          retention-days: 30
+      
+      - name: Create Security Summary
+        run: |
+          cat > security-summary.md << EOF
+          # OpenRouter Security Monitoring Summary
+          
+          **Timestamp:** $(date -u)
+          **Workflow Run:** ${{ github.run_number }}
+          
+          ## Risk Assessment
+          - **Usage Risk Score:** ${{ steps.security-analysis.outputs.usage_risk }}
+          - **Anomaly Risk Score:** ${{ steps.security-analysis.outputs.anomaly_risk }}
+          - **Overall Risk Score:** ${{ steps.security-analysis.outputs.overall_risk }}
+          - **Anomalies Detected:** ${{ steps.security-analysis.outputs.anomaly_count }}
+          
+          ## Alerts
+          - **Critical Alert:** ${{ steps.threshold-check.outputs.critical_alert }}
+          - **Anomaly Alert:** ${{ steps.threshold-check.outputs.anomaly_alert }}
+          
+          ## Reports Generated
+          - **Usage Report:** ${{ steps.security-analysis.outputs.usage_report }}
+          - **Anomaly Report:** ${{ steps.security-analysis.outputs.anomaly_report }}
+          
+          ## Next Steps
+          ${{ steps.threshold-check.outputs.critical_alert == 'true' && '🚨 IMMEDIATE ACTION REQUIRED: Review security reports and take appropriate measures' || '✅ Continue regular monitoring' }}
+          EOF
+          
+          cat security-summary.md
+      
+      - name: Upload Security Summary
+        uses: actions/upload-artifact@v4
+        with:
+          name: security-summary-${{ github.run_number }}
+          path: security-summary.md
+          retention-days: 30
+      
+      - name: Alert on Critical Issues
+        if: steps.threshold-check.outputs.critical_alert == 'true'
+        run: |
+          echo "🚨 CRITICAL SECURITY ALERT 🚨"
+          echo "=================================="
+          echo "Overall Risk Score: ${{ steps.security-analysis.outputs.overall_risk }}"
+          echo "Threshold: ${{ github.event.inputs.alert_threshold || '30' }}"
+          echo "Anomalies Detected: ${{ steps.security-analysis.outputs.anomaly_count }}"
+          echo ""
+          echo "IMMEDIATE ACTIONS REQUIRED:"
+          echo "1. 🔍 Review security reports in artifacts"
+          echo "2. 🔐 Check for unauthorized key usage"
+          echo "3. 🔄 Consider rotating affected keys"
+          echo "4. 🛡️ Implement additional security controls"
+          echo "5. 📞 Notify security team if configured"
+          echo ""
+          # Add your notification logic here (Slack, Discord, email, etc.)
+          # Example: curl -X POST -H 'Content-type: application/json' --data '{"text":"🚨 CRITICAL OpenRouter Security Alert!"}' ${{ secrets.SLACK_WEBHOOK_URL }}
+      
+      - name: Alert on Anomalies
+        if: steps.threshold-check.outputs.anomaly_alert == 'true' && steps.threshold-check.outputs.critical_alert == 'false'
+        run: |
+          echo "⚠️  ANOMALY ALERT"
+          echo "=================="
+          echo "Anomalies Detected: ${{ steps.security-analysis.outputs.anomaly_count }}"
+          echo "Overall Risk Score: ${{ steps.security-analysis.outputs.overall_risk }}"
+          echo ""
+          echo "RECOMMENDED ACTIONS:"
+          echo "1. 📊 Review anomaly report in artifacts"
+          echo "2. 🔍 Investigate suspicious patterns"
+          echo "3. 📈 Monitor affected keys closely"
+          echo "4. 🔄 Consider preventive measures"
+          echo ""
+          # Add your notification logic here for anomaly alerts
+      
+      - name: Notify on Success
+        if: success() && steps.threshold-check.outputs.critical_alert == 'false' && steps.threshold-check.outputs.anomaly_alert == 'false'
+        run: |
+          echo "✅ Security monitoring completed successfully"
+          echo "Overall Risk Score: ${{ steps.security-analysis.outputs.overall_risk }}"
+          echo "Anomalies Detected: ${{ steps.security-analysis.outputs.anomaly_count }}"
+          echo "Status: Normal monitoring - no immediate action required"
+          # Add your notification logic here for normal operations
+      
+      - name: Notify on Failure
+        if: failure()
+        run: |
+          echo "❌ Security monitoring failed!"
+          echo "Check the logs and ensure OPENROUTER_PROVISIONING_KEY is valid"
+          echo "Review workflow configuration and API endpoints"
+          # Add your notification logic here for failures
