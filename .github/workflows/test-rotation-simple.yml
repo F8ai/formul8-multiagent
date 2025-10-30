@@ -9,6 +9,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       
+      - name: Install Vercel CLI
+        run: npm install -g vercel
+      
       - name: Create key and update secret
         env:
           OPENROUTER_PROVISIONING_KEY: ${{ secrets.OPENROUTER_PROVISIONING_KEY }}
