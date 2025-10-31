@@ -1,11 +1,11 @@
 {
-  "timestamp": "2025-10-31T15:57:33.227Z",
+  "timestamp": "2025-10-31T15:58:52.860Z",
   "url": "https://chat.formul8.ai",
   "totalQuestions": 438,
-  "completed": 190,
+  "completed": 200,
   "passed": 11,
-  "failed": 179,
-  "averageScore": "35.53",
+  "failed": 189,
+  "averageScore": "35.90",
   "averageGrade": "F",
   "results": [
     {
@@ -3542,7 +3542,203 @@
         "relevance": "3/5 key words"
       },
       "expectedKeywords": []
+    },
+    {
+      "questionNum": 191,
+      "question": "What’s a good post-harvest trimming SOP and QC checks for visual grade?",
+      "category": "cultivation-operations-propagation-harvest-postharvest",
+      "response": null,
+      "error": "Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON",
+      "duration": 143,
+      "grade": "F",
+      "score": 0,
+      "actualAgent": "error",
+      "actualAgentName": "Error parsing response",
+      "expectedAgent": "f8_agent",
+      "agentMatch": false
+    },
+    {
+      "questionNum": 192,
+      "question": "How do I implement sanitation between rooms and harvest cycles?",
+      "category": "cultivation-operations-propagation-harvest-postharvest",
+      "response": null,
+      "error": "Unexpected non-whitespace character after JSON at position 4 (line 1 column 5)",
+      "duration": 56,
+      "grade": "F",
+      "score": 0,
+      "actualAgent": "error",
+      "actualAgentName": "Error parsing response",
+      "expectedAgent": "f8_agent",
+      "agentMatch": false
+    },
+    {
+      "questionNum": 193,
+      "question": "What are profitable sales or bundles we can run with ~100% markup without killing margins?",
+      "category": "retail-operations",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": true,
+      "response": "Below are a handful of bundle ideas that can comfortably sit around a **≈100 % markup** (i.e., cost ≈ 45‑50 % of the final price) while still protecting your overall margin. Each concept pairs high‑margin, fast‑moving items with a “hook” product that drives perceived value and encourages repeat purchase.\n\n---\n\n## 1. **Starter‑Kit Bundle (New‑Customer Funnel)**\n| Item | Typical Cost (incl. tax/packaging) | Suggested Retail | Margin |\n|------|-----------------------------------|------------------|--------|\n| 1 × Hybrid flower (1 g) | $6 | $12 | 50 % |\n| 1 × Pre‑rolled pack (5) | $2 | $4 | 50 % |\n| 1 × Branded grinder (small) | $4 | $8 | 50 % |\n| **Bundle price** | **$12** | **$24** | **≈100 %** |\n\n**Why it works**\n- Low entry cost, high perceived “starter” value.\n- Introduces three product categories at once (flower, accessories, consumables) → cross‑sell opportunities later.\n- Easy to market as “First‑Timer Kit – 50 % off regular price”.\n\n---\n\n## 2. **Wellness Pairing Bundle (CBD‑Focused)**\n| Item | Cost | Retail | Margin |\n|------|------|--------|--------|\n| 1 × CBD tincture (30 ml) | $8 | $16 | 50 % |\n| 1 × CBD topicals (2 × 5 ml) | $5 | $10 | 50 % |\n| 1 × Reusable silicone storage bag | $2 | $4 | 50 % |\n| **Bundle price** | **$15** | **$30** | **≈100 %** |\n\n**Why it works**\n- CBD products generally have higher wholesale margins (≈30‑40 %). Adding a cheap accessory pushes the overall bundle to the 100 % mark.\n- Appeals to health‑conscious consumers and can be positioned as “Daily Wellness Kit”.\n\n---\n\n## 3. **Premium Pairing Bundle (Flower + Edibles)**\n| Item | Cost | Retail | Margin |\n|------|------|--------|--------|\n| 1 × Premium Indica flower (2 g) | $12 | $24 | 50 % |\n| 1 × Gourmet edible (10 g) | $5 | $10 | 50 % |\n| 1 × Branded lighter (reusable) | $1.5 | $3 | 50 % |\n| **Bundle price** | **$18.5** | **$** | **≈100 %** |\n\n**Why it works**\n- Pairing two “experience” products nudges the average order value (AOV) up 2‑3×.\n- The lighter is a low‑cost, high‑perceived‑value add‑on that pushes the bundle into the 100 % range without hurting profit.\n\n---\n\n## 4. **Holiday Gift Set (Seasonal)**\n| Item | Cost | Retail | Margin |\n|------|------|--------|--------|\n| 1 × Limited‑edition flower (1 g) | $7 | $14 | 50 % |\n| 1 ×\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1169 (169?1000) | Cost: $0.000000*",
+      "duration": 10835,
+      "grade": "F",
+      "score": 48,
+      "grading": {
+        "length": "Pass",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "1/5 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 194,
+      "question": "How do I design daily opening/closing checklists for budtenders and managers?",
+      "category": "retail-operations",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": true,
+      "response": "### Quick‑Start Guide: Daily Opening & Closing Checklists  \n*(Tailored for budtenders & store managers in a regulated cannabis retail environment)*  \n\n| **Checklist** | **Who Uses It** | **When** | **Core Sections** | **Why It Matters** |\n|---------------|----------------|----------|-------------------|--------------------|\n| **Opening**   | Budtender (BT) & (M) | First shift of the day (usually 8 am‑10 am) | 1️⃣ Security & Access 2️⃣ POS & Cash Prep 3️⃣ Product & Inventory 4️⃣ Compliance & Documentation 5️⃣ Store Presentation | Guarantees the store is ready for customers, compliant with state regulations, and secure before sales begin. |\n| **Closing**   | Budtender (BT) & Manager (M) | Last shift of the day (usually 6 pm‑8 pm) | 1️⃣ Sales Reconciliation 2️⃣ Inventory & Product Security 3️⃣ Clean‑up & Sanitation 4️⃣ Data & Reporting 5️⃣ Lock‑down & Alarm | Ensures accurate financials, prevents loss/theft, meets reporting deadlines, and leaves the store in a safe state for the night. |\n\n---\n\n## 1️⃣ Opening Checklist – Budtender\n\n| # | Task | Details / Tips |\n|---|------|----------------|\n| **1.1** | **Unlock doors & disarm alarm** | Verify code with manager; log time in the store logbook. |\n| **1.2** | **Check exterior security** | Scan for broken locks, tampering, or suspicious activity; report immediately. |\n| **1.3** | **Turn on lights & HVAC** | Set temperature to store‑standard (≈ 70 °F/21 °C). |\n| **1.4** | **POS system boot‑up** | Power on registers, run a quick self‑test, ensure receipt paper & cash drawer are loaded. |\n| **1.5** | **Cash float verification** | Count starting cash; compare to manager‑approved float sheet; note any variance. |\n| **1.6** | **Verify ID scanner & compliance software** | Run a test scan on a sample ID; confirm software version is up‑to‑date. |\n| **1.7** | **Product floor check** | • Ensure all display cases are clean.<br>• Verify that all product is within legal packaging & labeling standards.<br>• Spot‑check for damaged or expired items. |\n| **1.8** | **Sanitation** | Wipe down counters, door handles, and POS keyboards with approved sanitizer. |\n| **1.9** | **Review daily promotions & signage** | Confirm that any “today only” signs, loyalty offers, or compliance warnings are correctly posted. |\n| **1.10** | **Log opening time** | Enter timestamp in the digital log (or paper log) and sign. |\n\n**Manager sign‑off:** After the budtender completes steps 1, the manager does a quick walk‑through and signs the opening log.\n\n---\n\n## 2️⃣ Opening Checklist – Manager (adds oversight)\n\n| # | Task | Details |\n|---|------|---------|\n| **M‑1** | **Review previous day’s closing logs** | Look for any discrepancies, inventory variances, or compliance notes. |\n| **M‑2** | **Verify security system status** | Confirm cameras are recording, alarm is disarmed, and motion sensors are functional. |\n| **M‑3** | **Check staff schedule** | Confirm all scheduled budtenders are present; note any absences & arrange coverage. |\n **‑4** | **Confirm product deliveries** | Match incoming manifest to purchase order; quarantine any product that lacks proper documentation. |\n| **M‑5** | **Run daily compliance check** | Ensure all required state‑mandated reports (e.g., seed‑to‑sale) are up‑to‑date in METRC/BI‑Track. |\n| **M‑6** | **Set daily sales targets** | Communicate any upsell goals or compliance reminders for the shift. |\n| **M‑7** | **Sign off** | Add manager initials to the\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1168 (168?1000) | Cost: $0.000000*",
+      "duration": 8373,
+      "grade": "F",
+      "score": 54,
+      "grading": {
+        "length": "Pass",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "3/5 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 195,
+      "question": "What are the best ways to reduce inventory shrink and improve cash controls?",
+      "category": "retail-operations",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": true,
+      "response": "### Quick‑Start Checklist for Cutting Inventory Shrink & Tightening Cash Controls  \n\n| Area | What to Do | Why It Helps | How to Implement (Tools/Steps) |\n|------|------------|--------------|--------------------------------|\n| **1. Physical Security** | • Install high‑resolution CCTV (cover storage, sales floor, cash‑handling zones) <br>• Use tamper‑evident seals on product containers <br>• Secure cash drawers with time‑locked safes | Deters theft and provides audit‑ready video evidence. | • 24‑hr cloud‑recorded video (e.g., Axis, Verkada). <br>• Seal‑tracking software (e.g., SealWatch). |\n| **2. Segregation of Duties** | • Separate receiving, stocking, sales, and cash‑out functions among different staff members. | Reduces opportunity for “one‑person” fraud. | • Create role‑based access in POS/ERP (e.g., Flowhub, BioTrackTHC). |\n| **3. Real‑Time Inventory Tracking** | • Integrate POS with a track‑and‑trace system (METRC, BioTrack, Leaf‑Logix). <br>• Use barcode/RFID scanning at every movement. | Gaps between “on‑hand” and “on‑system” are instantly visible. | • Deploy handheld scanners or mobile apps; set auto‑reconcile alerts for variance > 1 %. |\n| **4. Cycle Counts & Audits** | • Perform daily “mini‑counts” of high‑value SKUs. <br>• Conduct full physical inventory quarterly. | Early detection of shrink before it compounds. | • Use a mobile audit app (e.g., Sortly, Asset Panda) linked to inventory DB. |\n| **5. Cash Handling Protocols** | • Enforce a “two‑person” cash‑out rule for any drawer > $500. <br>• Use drop safes with time‑stamp counters. <br>• Schedule multiple, timed bank deposits per shift. | Limits cash exposure and creates a paper‑trail. | • POS cash‑limit settings; drop‑safe brand (e.g., Tally‑Cash). |\n| **6. Reconciliation Routine** | • End‑of‑shift reconciliation: POS sales vs. cash counted vs. inventory sold. <br>• Weekly variance report to manager & finance. | Catches discrepancies while staff are still on‑site. | • Automated POS reports; email alerts to CFO/Controller. |\n| **7. Employee Training & Incentives** | • Quarterly “Loss Prevention” briefings. <br>• Anonymous tip line. <br>• Recognition for “zero‑shrink” teams. | Culture of accountability reduces intentional theft. | • LMS platform (e.g., TalentLMS) for mandatory modules; reward program in payroll system. |\n| **8. Vendor & Supplier Controls** | • Require packing slips with serial numbers. <br>• Perform “receiving vs. PO” variance checks within 24 h. | Prevents inbound fraud and unrecorded loss. | • ERP module for PO matching (e.g., NetSuite, QuickBooks Enterprise). |\n| **9. Data Analytics & Alerts** | • Set thresholds: inventory variance > 2 % or cash variance > $100 triggers an automatic ticket. <br>• Review trends (e.g., certain product lines, shifts). | Proactive monitoring catches systematic issues. | • BI tool (Power BI, Tableau) pulling from POS & inventory DB; ticketing via Jira/Asana. |\n| **10. Compliance Audits** | • Align internal controls with state cannabis regulations (track‑and‑trace, seed‑to‑sale). <br>• Conduct mock inspections quarterly. | Avoids regulatory fines that can masquerade as “shrink.” | • Use compliance checklists from your state’s licensing board; integrate with audit software. |\n\n---\n\n## Step‑by‑Step Implementation Plan (First 90 Days)\n\n| Week | Action | Owner | Success Metric |\n|------|--------|-------|----------------|\n| 1‑2 | Conduct a **baseline audit**: current shrink % (inventory & cash) and existing controls.\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1165 (165?1000) | Cost: $0.000000*",
+      "duration": 10009,
+      "grade": "F",
+      "score": 54,
+      "grading": {
+        "length": "Pass",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "3/5 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 196,
+      "question": "How do I schedule staff against peak hours and events?",
+      "category": "retail-operations",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": true,
+      "response": "### Scheduling Staff for Peak Hours & Events – A Step‑by‑Step Playbook\n\n1. **Gather the Data You Need**\n   - ** sales Pull POS data for the same day‑of‑week and month‑over‑month trends (e.g., “Saturday evenings” are usually 30 % higher than average).\n   - **Foot‑traffic counts:** If you have in‑store cameras or people‑counter apps, use them to validate sales spikes.\n   - **Event calendars:** Add local festivals, concerts, sports games, cannabis‑industry events (e.g., 4/20, product launches) and any promotional campaigns you run.\n   - **Compliance constraints:** Note state‑mandated staffing ratios (e.g., a qualified budtender must be on‑site for every X customers) and labor‑law limits (breaks, overtime caps).\n\n2. **Forecast the Demand Curve**\n   - **Simple method:** Apply a “growth factor” to baseline sales.  \n     `Projected sales = Avg sales × Event multiplier × Seasonal multiplier`.  \n     Example: Avg Saturday sales = $10 k → Event multiplier 1.4 (concert) → Projected = $14 k.\n   - **Advanced option:** Use a spreadsheet or a BI tool (Power BI, Tableau, or a cannabis‑specific analytics platform) to run a linear regression on past events vs. sales.\n\n3. **Translate Sales to Labor Hours**\n   - **Determine a “sales‑per‑hour‑per‑staff” benchmark.**  \n     For most dispensaries, 1 full‑time budtender can reliably support ≈ $2 k–$2.5 k of hourly sales.  \n     `Required staff = Projected hourly sales ÷ $2.3 k`.\n   - **Add buffers:**  \n     - **Peak buffer** – +15 % staff for the top 2‑hour window.  \n     - **Compliance buffer** – +1 qualified manager if the total staff count exceeds the legal limit for unsupervised employees.\n\n4. **Build Shift Templates**\n   | Shift | Hours | Typical Roles | Notes |\n   |-------|-------|---------------|-------|\n   | Early‑bird | 08:00‑12:00 | 1 budtender, 1 cashier | Light traffic, prep |\n   | Mid‑day | 12:00‑16:00 | 2 budtenders, 1 manager | Baseline coverage |\n   | Peak | 16:00‑20:00 | 3‑4 budtenders, 1 manager | Highest sales; add extra staff for events |\n   | Close‑ | 20:00‑24:00 | 2 budtenders, 1 security | Inventory, end‑of‑day compliance checks |\n\n   Adjust the number of staff per shift based on the forecast from step 3.\n\n5. **Use a Scheduling Tool**\n   - **Cannabis‑focused WFM platforms** (e.g., **Deputy**, **When I Work**, **7shifts**) integrate with POS to auto‑populate demand forecasts.\n   - Set **rules** in the tool:\n     * Minimum 1 manager on‑site during peak.\n     * No employee exceeds 8 hours straight without a 30‑min break.\n     * Overtime alerts when projected hours > 40 /week.\n\n6. **Publish & Communicate**\n   - Release the schedule **2 weeks** in advance (helps staff plan and reduces last‑minute swaps).\n   - Highlight **event days** in bold or with an icon so staff know why extra hands are needed.\n   - Offer **incentive pay** (e.g., $25/hr premium) for the peak window to improve coverage and morale.\n\n7. **Monitor & Iterate**\n   - **Day‑of:** Track real‑time sales vs. forecast (most POS apps have a live dashboard). If you’re > 10 % off, use the tool’s “add‑on shift” feature.\n   - **Post‑event review:** Capture actual labor cost vs. sales, note any over\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1162 (162?1000) | Cost: $0.000000*",
+      "duration": 9252,
+      "grade": "F",
+      "score": 54,
+      "grading": {
+        "length": "Pass",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "3/5 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 197,
+      "question": "Can you build a retail compliance checklist (ID checks, signage, purchase limits)?",
+      "category": "retail-operations",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": true,
+      "response": "**Retail Cannabis Compliance Checklist**  \n*(Designed for U.S. state‑licensed dispensaries – adapt to your specific jurisdiction)*  \n\n---\n\n### 1. Licensing & Documentation\n- ☐ Current state/municipal retail license displayed prominently.  \n- ☐ All required local permits (e.g., health, fire, zoning) up‑to‑date.  \n- ☐ Copy of the state cannabis regulatory handbook on‑site for reference.  \n\n### 2. Staff Requirements\n- ☐ All employees have a valid **Employee Identification Card** (state‑issued or internal).  \n- ☐ Completed **Responsible Retail Training** (e.g., state‑mandated 8‑hour program).  \n- ☐ Annual refresher training documented; training logs stored ≥ 2 years.  \n\n### 3. Customer Identification (ID) Checks\n| Step | Requirement |\n|------|-------------|\n| **Age Verification** | • Customer must be **≥ 21 years** (or state‑specified age).<br>• Acceptable IDs: state driver’s license, state ID, passport, military ID. |\n| **ID Authenticity** | • Scan/photocopy ID using a **state‑approved verification system** (e.g., METRC, BioTrack).<br>• Verify photo, expiration date, holograms, and barcode. |\n| **Record Capture** | • Log **customer name, DOB, ID number, and transaction timestamp** in the seed‑to‑sale system. |\n| **Denial Protocol** | • Politely refuse sale if ID is missing, invalid, or appears altered.<br>• Document denial reason in the system. |\n| **Privacy** | • Store ID data securely; destroy physical copies after the legally required retention period (usually 30 days). |\n\n### 4. Signage (State‑Required & Best‑Practice)\n- ☐ **Entry Sign** – “Licensed Cannabis Retailer – 21+ Only” (font size & color per state code).  \n- ☐ **No Smoking/Vaping** signs at entrance and throughout the store.  \n- ☐ **Product Restriction** – “No Transfer of Cannabis to Minors” signage.  \n- ☐ **Purchase Limits** – Clearly posted maximum allowable amounts (e.g., “≤ 1 oz flower per transaction”).  \n- ☐ **Health & Safety** – Warning labels for THC allergens, and dosage guidance.  \n- ☐ **Security Notices** – “Surveillance in Use” signs (if required).  \n\n### 5. Purchase Limits & Transaction Controls\n| Category | Typical State Limit* | Checklist |\n|----------|---------------------|-----------|\n| **Flower/Bud** | ≤ 1 oz per transaction (or 2.5 g if medical) | ☐ System enforces limit automatically.<br>⦿ Staff verify before checkout. |\n| **Concentrates** | ≤ 0.5 oz (or 5 g) | ☐ Same as above. |\n| **Edibles** | ≤ 10 mg THC per package; ≤ 100 mg total per transaction | ☐ System caps THC per purchase. |\n| **Topicals** | Usually no limit, but track for audit | ☐ Record quantity. |\n| **Medical vs. Adult‑Use** | Separate limits may apply | ☐ Verify patient card vs. recreational ID. |\n\\*Adjust numbers to match your state’s statutes.  \n\n- ☐ **System Alerts** – Automatic pop‑ups when a customer approaches a limit.  \n- ☐ **Override Procedure** – Documented justification and manager sign‑off required for any exception.  \n\n### 6. Product Handling & Display\n- ☐ **Secure Storage** – All cannabis kept in **locked, tamper‑evident containers** when not on display.  \n- ☐ **Display Cases** – Must be **opaque\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1167 (167?1000) | Cost: $0.000000*",
+      "duration": 9303,
+      "grade": "F",
+      "score": 54,
+      "grading": {
+        "length": "Pass",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "3/5 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 198,
+      "question": "What training modules should new budtenders complete in week one?",
+      "category": "retail-operations",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": true,
+      "response": "**Week‑One Training Blueprint for New Budtenders**  \n*(Designed for a 40‑hour onboarding period – can be adjusted to part‑time schedules)*  \n\n| Day | Module | Approx. Time | Core Learning Objectives | Suggested Formats & Resources |\n|-----|--------|--------------|--------------------------|--------------------------------|\n| **Day 1** | **Welcome & Company Culture** | 1 hr | • Understand the brand story, mission, and values  <br>• Review code of conduct & professional appearance | Live orientation, welcome video, employee handbook |\n| | **Legal & Regulatory Foundations** | 3 hrs | • Federal (Controlled Substances Act) vs. state‑specific medical/recreational statutes  <br>• Age verification, purchase limits, packaging/labeling rules  <br>• “No‑sale” scenarios & mandatory reporting | Interactive compliance e‑learning (e.g., Greenleaf Compliance), quiz at end |\n| | **Safety & Security Basics** | 2 hrs | • Store security protocols (CCTV, alarm systems)  <br>• Handling cash & POS security  <br>• Emergency procedures (fire, medical, security breach) | In‑person walkthrough, SOP checklist |\n| **Day 2** | **Product Fundamentals – Cannabis Botany** | 2 hrs | • Plant anatomy (flower, leaf, trichomes)  <br>• Major species: *C. sativa*, *C.*, *C. ruderalis* and hybrids  <br>• Cannabinoids (THC, CBD, CBG, etc.) and terpenes basics | Illustrated video series, printable cheat‑sheet |\n| | **Product Categories & Consumption Formats** | 3 hrs | • Flower, pre‑rolls, concentrates, edibles, topicals, tinctures, vapes  <br>• Onset, duration, dosing guidelines for each format  <br>• Pros/cons & typical consumer use‑cases | Hands‑on demo kits, product sample lab (no consumption) |\n| | **Quality Assurance & Lab Testing** | 1 hr | • Reading a lab certificate (potency, pesticides, residual  <br>• Recognizing “clean” vs. suspect product | PDF of a sample COA, quick‑review worksheet |\n| **Day 3** | **Customer Service Excellence** | 2 hrs | • Active listening, empathy, and building rapport  <br>• Managing diverse customer needs (medical vs. recreational)  <br>• De‑escalation techniques | Role‑play scenarios, video demos |\n| | **Consultative Sales & Needs Assessment** | 3 hrs | • Open‑ended questioning (e.g., “What effect you looking for?”)  <br>• Matching product profile to customer goals  <br>• Upsell/cross‑sell without pressure | Mock sales floor, script library |\n| | **POS System & Transaction Workflow** | 2 hrs | • Scanning, age verification, limit checks  <br>• Handling returns, exchanges, and loyalty programs  <br>• Data entry accuracy & audit trails | Live POS sandbox, step‑by‑step guide |\n| **Day 4** | **Compliance in Practice – “No‑Sale” Situations** | 2 hrs | • Identifying intoxicated or under‑age patrons  <br>• Proper documentation & escalation  <br>• Legal consequences of non‑compliance | Case‑study discussion, decision‑tree chart |\n| | **Inventory Management Basics** | 2 hrs | • Receiving, verifying, and stocking product  <br>• FIFO (first‑in‑first‑out) and waste tracking <br>• Conducting a quick inventory count | Warehouse tour, inventory software demo |\n| | **Health & Safety – Hygiene & Sanitation | 1 hr | • Hand‑washing, glove use, surface disinfection  <br>• Handling concentrates & vape cartridges safely  <br>• Personal protective equipment (PPE) policy | Checklist, short video |\n| **Day 5** | **Community & Education Outreach** | 1 hr | • Understanding local community expectations  <br>• Providing reputable educational resources (leaflets, QR codes)  <br\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1164 (164?1000) | Cost: $0.000000*",
+      "duration": 8468,
+      "grade": "F",
+      "score": 51,
+      "grading": {
+        "length": "Pass",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "2/5 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 199,
+      "question": "How do I set reorder points and safety stock for fast movers?",
+      "category": "retail-operations",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": true,
+      "response": "Below is a step‑by‑step framework you can use to set **reorder points (ROP)** and **safety stock (SS)** for fast‑moving SKUs (e.g., popular flower strains, pre‑rolls, or vape cartridges).  The logic works for any cannabis operation—cultivation, processing, or retail—but the numbers will be tighter because demand swings quickly.\n\n---\n\n## 1️⃣ Gather the Core Data\n\n| Data | Where to Pull It | Frequency |\n|------|------------------|-----------|\n| **Average Daily Demand (µd)** | POS / ERP sales history (last 30‑90 days) | Daily/weekly |\n| **Demand Standard Deviation (σd)** | Same source – calculate the std‑dev of daily sales | Daily/weekly |\n| **Lead‑time (L)** | Supplier purchase order data (cultivation → processing → distribution) | In days |\n| **Lead‑time Std‑dev (σL)** | Variation in days between PO and receipt | Monthly |\n| **Desired Service Level (SL)** | Business policy (e.g., 95 % = Z = 1.65) | Set once, review quarterly |\n| **Review Period (R)** (if you use periodic review) | Your ordering cadence (e.g., every 3 days) | Fixed |\n\n> **Tip:** For fast movers, use a rolling 30‑day window to keep the demand signal fresh. If you have a strong seasonality (e.g., “12‑day holiday” spikes), segment the data by calendar week or by “promo vs. baseline”.\n\n---\n\n## 2️⃣ Calculate the **Demand During Lead‑time (DDL)**  \n\n\\[\n\\text{DDL} = \\mu_d \\times L\n\\]\n\n*If you have a periodic review (order every R days) add the review demand:*\n\n\\[\n\\text{DDL}_{\\text{total}} = \\mu_d \\times (L + R)\n\\]\n\n---\n\n## 3️⃣ Compute **Safety Stock**  \n\n### 3.1. Basic (Demand‑Only) Formula  \n\n\\[\nSS = Z \\times \\sigma_d \\times \\sqrt{L}\n\\]\n\n- **Z** = standard normal value for your service level (e.g., 1.65 for 95 %).\n- **σd** = standard deviation of daily demand.\n\n### 3.2. Full (Demand + Lead‑time) Formula (recommended for fast movers)\n\n\\[\nSS = Z \\times \\sqrt{(\\sigma_d^2 \\times L) + (\\mu_d^2 \\times \\sigma_L^2)}\n\\]\n\n- **σL** = standard deviation of lead‑time (in days).  \n- This captures both demand volatility and supplier‑delivery variability.\n\n### 3.3. Dynamic Safety Stock (optional)\n\n| Situation | Adjustment |\n|-----------|------------|\n| **Promotions / new product launch** | Multiply SS by 1.25‑1.5 for the promotion window |\n| **Back‑order backlog** | Add a fixed “buffer” (e.g., 5 % of DDL) |\n| **Very high service‑level demand (e.g., medical patients)** | Use Z = 2.33 (99 % service) |\n\n---\n\n## 4️⃣ Set the **Reorder Point (ROP)**  \n\n\\[\n\\text{ROP} = \\text{DDL} + SS\n\\]\n\nIf you use a periodic review system:\n\n\\[\n\\text{ROP}_{\\text{periodic}} = \\mu_d \\times (L+R) + SS\n\\]\n\n**Result:** When on‑hand inventory falls to or below this level, trigger a replenishment order.\n\n---\n\n## 5️⃣ Choose the Ordering Quantity\n\nFast movers often benefit from **continuous review** (order the exact amount needed to bring on‑hand up to the target “reorder‑up‑to” level) rather than a fixed batch size.\n\n\\[\n\\\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1164 (164?1000) | Cost: $0.000000*",
+      "duration": 10088,
+      "grade": "F",
+      "score": 57,
+      "grading": {
+        "length": "Pass",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "4/5 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 200,
+      "question": "Can you help me design a floor plan to improve flow and basket size?",
+      "category": "retail-operations",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": true,
+      "response": "Absolutely—optimizing a dispensary’s floor plan can boost both customer flow and average basket size. Below is a quick‑start framework you can use right away, plus a few follow‑up questions that will let us dive deeper (or hand you off to a dedicated Retail‑Design specialist if you’d like detailed CAD sketches).\n\n---\n\n## 1️⃣ Core Design Principles\n\n| Goal | How to Achieve It | Why It Works |\n|------|-------------------|--------------|\n| **Clear entry‑to‑checkout path** | Create a single, unobstructed “main aisle” that guides shoppers from the door straight to the point‑of‑sale (POS). | Reduces decision fatigue and keeps traffic moving forward, encouraging more product exposure. |\n| **Zoned product clusters** | Group items by category (e.g., flower, concentrates, edibles, topicals) and by price tier (budget, mid‑range, premium). Use low‑profile walls or floor‑level shelving to define zones. | Shoppers naturally scan a zone before moving on, increasing dwell time and cross‑selling opportunities. |\n| **Strategic “impulse” spots | Place small, high‑margin items (pre‑rolls, accessories, limited‑edition merch) at eye‑level near the checkout and at the end of each aisle. | Captures attention when customers are already in buying mode. |\n| **Visual hierarchy & signage** | Use bold, consistent signage at the entrance of each zone, plus “hero” displays for best‑sellers. | Guides navigation and highlights promotional items. |\n| **Comfort & dwell** | Add a small “lounge” or seating area (2‑4 chairs) near the back of the store, with low‑light, calming décor. | Encourages longer stays, leading to larger baskets. |\n| **Data‑driven layout | Track foot‑traffic with heat‑mapping (e.g., Wi‑Fi analytics) and adjust shelf heights/placements based on high‑traffic zones. | Turns intuition into measurable improvements. |\n\n---\n\n## 2️⃣ Step‑by‑Step Layout Blueprint (for a typical 1,500‑sq‑ft dispensary)\n\n1. **Entrance (0–50 ft)**  \n   - **Welcome desk** (staffed, security) directly opposite the door.  \n   - **Featured “new arrivals” wall** (2‑ft high) just beyond the desk.\n\n2. **Main Aisle (50–250 ft)** – 8‑ft wide, clear of obstacles.  \n   - **Left side:** Flower section (tiered shelves, 4‑ft high).  \n   - **Right side:** Concentrates & vape cartridges (glass display cases).  \n\n3. **Secondary Aisles (branching off every 30 ft)** – 6‑ft wide.  \n   - **Aisle (30–60 ft):** Edibles & beverages.  \n   - **Aisle (60–90 ft):** Topicals & wellness products.  \n   - **Aisle C (90–120 ft):** Accessories (pipes, grinders, apparel).  \n\n4. **Impulse End‑Caps** – At the far end of each secondary aisle, install a 3‑ft high end‑cap featuring limited‑edition or high‑margin items.\n\n5. **Checkout Zone (final 30 ft)**  \n   - **Two POS lanes** with a 4‑ft “last‑minute impulse” shelf (pre‑rolls, edibles, branded merch).  \n   - **Low‑profile queue barriers** that double as display space for “buy‑one‑get‑one” promos.\n\n6. **Lounge / Education Corner (adjacent to checkout, off‑to‑side)**  \n   - Small seating, product literature, QR codes linking to strain info.  \n   - Optional “sample bar” (if local regulations allow).\n\n---\n\n## 3️⃣ Quick Wins to Test Immediately\n\n| Action | Implementation | Expected Impact |\n|--------|----------------|-----------------|\n| **Add a “Best‑Seller\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1166 (166?1000) | Cost: $0.000000*",
+      "duration": 9089,
+      "grade": "F",
+      "score": 57,
+      "grading": {
+        "length": "Pass",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "4/5 key words"
+      },
+      "expectedKeywords": []
     }
   ],
-  "status": "In Progress: 190/438 questions completed"
+  "status": "In Progress: 200/438 questions completed"
 }
