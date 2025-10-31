@@ -891,14 +891,16 @@
                 transform: translateX(-100%);
             }
             
-            /* Override: Always start hidden on mobile unless explicitly opened */
-            /* Higher specificity to ensure hidden by default */
+            /* Override: Always start hidden on mobile by default */
+            /* Higher specificity with !important to ensure hidden */
             body .app .sidebar {
                 transform: translateX(-100%) !important;
             }
             
-            /* Only show when user has explicitly opened it (not collapsed) */
-            body .app .sidebar:not(.collapsed) {
+            /* Only show when user has explicitly opened it - requires both:
+               sidebar doesn't have collapsed class AND toggle has sidebar-open class */
+            body .app #sidebarToggle.sidebar-open ~ #sidebar:not(.collapsed),
+            body .app .sidebar:not(.collapsed).sidebar-open {
                 transform: translateX(0) !important;
             }
 
