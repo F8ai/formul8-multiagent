@@ -1,11 +1,11 @@
 {
-  "timestamp": "2025-10-31T08:19:11.051Z",
+  "timestamp": "2025-10-31T08:19:59.659Z",
   "url": "https://chat.formul8.ai",
   "totalQuestions": 438,
-  "completed": 180,
-  "passed": 18,
-  "failed": 162,
-  "averageScore": "33.96",
+  "completed": 190,
+  "passed": 19,
+  "failed": 171,
+  "averageScore": "33.28",
   "averageGrade": "F",
   "results": [
     {
@@ -3318,7 +3318,175 @@
         "relevance": "2/5 key words"
       },
       "expectedKeywords": []
+    },
+    {
+      "questionNum": 181,
+      "question": "How do I track SDSs and ensure they’re accessible and current?",
+      "category": "environmental-health-&-safety-ehs",
+      "response": null,
+      "error": "Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON",
+      "duration": 153,
+      "grade": "F",
+      "score": 0,
+      "actualAgent": "error",
+      "actualAgentName": "Error parsing response",
+      "expectedAgent": "f8_agent",
+      "agentMatch": false
+    },
+    {
+      "questionNum": 182,
+      "question": "What’s the correct PPE matrix by room/process?",
+      "category": "environmental-health-&-safety-ehs",
+      "response": null,
+      "error": "Unexpected non-whitespace character after JSON at position 4 (line 1 column 5)",
+      "duration": 59,
+      "grade": "F",
+      "score": 0,
+      "actualAgent": "error",
+      "actualAgentName": "Error parsing response",
+      "expectedAgent": "f8_agent",
+      "agentMatch": false
+    },
+    {
+      "questionNum": 183,
+      "question": "What’s the most efficient daily plant care checklist (by stage: mothers, clones, veg, flower)?",
+      "category": "cultivation-operations-propagation-harvest-postharvest",
+      "response": null,
+      "error": "Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON",
+      "duration": 291,
+      "grade": "F",
+      "score": 0,
+      "actualAgent": "error",
+      "actualAgentName": "Error parsing response",
+      "expectedAgent": "f8_agent",
+      "agentMatch": false
+    },
+    {
+      "questionNum": 184,
+      "question": "How do I design an IPM calendar with rotations and thresholds?",
+      "category": "cultivation-operations-propagation-harvest-postharvest",
+      "response": null,
+      "error": "Unexpected non-whitespace character after JSON at position 4 (line 1 column 5)",
+      "duration": 54,
+      "grade": "F",
+      "score": 0,
+      "actualAgent": "error",
+      "actualAgentName": "Error parsing response",
+      "expectedAgent": "f8_agent",
+      "agentMatch": false
+    },
+    {
+      "questionNum": 185,
+      "question": "What environmental parameters should I monitor daily (temp, RH, VPD/DLI/CO₂)?",
+      "category": "cultivation-operations-propagation-harvest-postharvest",
+      "response": null,
+      "error": "Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON",
+      "duration": 281,
+      "grade": "F",
+      "score": 0,
+      "actualAgent": "error",
+      "actualAgentName": "Error parsing response",
+      "expectedAgent": "f8_agent",
+      "agentMatch": false
+    },
+    {
+      "questionNum": 186,
+      "question": "How do I track mother plant health, clone success rate, and genetic drift?",
+      "category": "cultivation-operations-propagation-harvest-postharvest",
+      "response": null,
+      "error": "Unexpected non-whitespace character after JSON at position 4 (line 1 column 5)",
+      "duration": 55,
+      "grade": "F",
+      "score": 0,
+      "actualAgent": "error",
+      "actualAgentName": "Error parsing response",
+      "expectedAgent": "f8_agent",
+      "agentMatch": false
+    },
+    {
+      "questionNum": 187,
+      "question": "Can you help me schedule labor across defoliation, trellising, and harvest prep?",
+      "category": "cultivation-operations-propagation-harvest-postharvest",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": true,
+      "response": "Absolutely—let’s map out a practical labor‑allocation plan for the three key phases you mentioned: **defoliation, trellising, and harvest‑prep**. Below is a high‑level template you can customize to your operation’s size, crew size, and calendar constraints.\n\n---\n\n## 1️⃣ Gather Your Baseline Data  \n\n| Item | What to Collect | Why It Matters |\n|------|----------------|----------------|\n| **Canopy size** (sq ft or # of plants) | Total square footage or plant count per zone | Determines how many “units” each worker must handle. |\n| **Current growth stage** | Days after transplant (DAT) or weeks into veg | Sets the optimal window for each task. |\n| **Crew availability** | Hours per day, number of workers, skill level | Balances labor intensity across tasks. |\n| **Facility constraints** | Lift capacity, walkway width, equipment (e.g., pruning shears, trellis kits) | Prevents bottlenecks. |\n| **Target harvest date** | Final “dry‑down” deadline | Works backward to set cut‑offs for each phase. |\n\nIf you can share any of those numbers, I can fine‑tune the schedule further. Otherwise, the template below assumes a **mid‑size indoor operation** (~5,000 sq ft, ~12,000 plants) with a **crew of 6 full‑time workers** (48 hrs/week).\n\n---\n\n## 2️⃣ Phase‑by‑Phase Labor Breakdown  \n\n| Phase | Typical Timing Window | Tasks per Worker (per day) | Estimated Hours / Day | Total Days Needed |\n|-------|----------------------|----------------------------|-----------------------|-------------------|\n| **Defoliation** | 7‑10 days before flower switch (≈ Week 1 of bloom) | • Identify 2‑3 plants per hour <br>• Trim excess foliage <br>• Record canopy coverage | 8 hrs (≈ 30 plants/hr) | 2‑3 days (with 6 workers) |\n| **Trellising** | Start at early‑flower (Week 2‑3) and finish by mid‑flower (Week 5) | • Install/adjust vertical strings or netting <br>• Tie branches to support <br>• Spot‑check tension | 6 hrs (≈ 25 plants/hr) | 4‑5 days (staggered across zones) |\n| **Harvest‑Prep** | 3‑5 days before scheduled cut (final flushing, leaf removal) | • Flush with water/ nutrients <br>• Remove large fan leaves <br>• Tag/label “ready” plants |  hrs (≈ 35 plants/hr) | 2‑3 days |\n\n**Key points**\n\n* **Overlap** – Trellising can start while the first batch of plants finishes defoliation. Stagger zones so labor isn’t idle.\n* **Buffer** – Add a 1‑day buffer per phase for unexpected setbacks (e.g., equipment failure, weather in greenhouse).\n* **Cross‑training** – Ensure at least two workers are comfortable with each task; this gives flexibility when someone calls out.\n\n---\n\n## 3️⃣ Sample 2‑Week Calendar (6‑worker crew)\n\n| Day | Morning (4 hrs) | Afternoon (4 hrs) | Primary Focus |\n|-----|----------------|-------------------|----------------|\n| **Mon (Week 1)** | Defoliation – Zone A (12 hr) | Defoliation – Zone B (12 hr) | Defoliation |\n| **Tue** | Defoliation – Zone C | Defoliation – Zone D | Defoliation |\n| **Wed** | Defoliation – Zone E (finish) | **Start Trellising – Zone A** | Transition |\n| **Thu** | Trellising – Zone A | Trellising – Zone B | Trellising |\n| **Fri** | Trellising – Zone C | Trellising – Zone D | Trellising |\n| **Mon (Week 2)** | Trellising – Zone E | **Harvest‑Prep – Zone A** | Harvest‑Prep |\n| **\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1170 (170?1000) | Cost: $0.000000*",
+      "duration": 12293,
+      "grade": "D",
+      "score": 60,
+      "grading": {
+        "length": "Pass",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "5/5 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 188,
+      "question": "How do I benchmark grams/sq ft and grams/watt and improve them?",
+      "category": "cultivation-operations-propagation-harvest-postharvest",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": true,
+      "response": "## Quick‑Start Cheat Sheet  \n\n| Metric | Formula | What It Tells You | Typical “good” range (indoor, high‑performance) |\n|--------|---------|-------------------|-----------------------------------------------|\n| **Yield per sq ft** | `total harvested grams ÷ canopy‑area (ft²)` | How efficiently you use floor space | 0.8‑1.2 g/ft² per plant × #plants → **0.8‑1.5 g/ft²** for a well‑tuned veg‑flower cycle (≈ 30‑45 g/m²) |\n| **Yield per watt** | `total harvested grams ÷ total electrical watts used (all lights)` | Light‑energy efficiency | **0.5‑0.8 g/W** for LED setups; **0.3‑0.5 g/W** for HPS |  \n\n> **Rule of thumb:** If you can hit **≥ 0.6 g/W** *and* **≥ 1 g/ft²** you’re already in the top‑quartile of indoor operations.\n\n---\n\n## Step‑by‑Step Benchmarking Process  \n\n1. **Define the measurement window**  \n   - Use a **single complete grow cycle** (veg + flower) for consistency.  \n   - Record **harvest weight** *after* drying and (final usable grams).  \n\n2. **Collect raw data**  \n   | Data point | How to capture | Frequency |\n   |------------|----------------|-----------|\n   | Canopy area (ft²) | Measure the rectangular footprint of the grow area *or* sum the area covered by each plant’s canopy (use a grid or photo‑analysis). | Once (setup) |\n   | Light wattage (W) | Sum the **rated wattage** of every fixture *or* use a power meter for actual draw (accounts for dimming). | Daily or per‑run |\n   | Harvest weight (g) | Weigh each trimmed bud, sum per strain, then total. | End cycle |\n   | Environmental variables (temp, RH CO₂, EC, pH) | Loggers or manual sheet. | At least daily |\n   | Genetics & training method | Note strain, veg time, pruning, LST, SCROG, etc. | Once per run |\n   | Labor & consumables (optional) | Hours spent, nutrients used, etc. | Ongoing |\n\n3. **Calculate the two core KPIs**  \n\n   ```text\n   grams_per_sqft = total_grams / canopy_sqft\n   grams_per_watt = total_grams / total_watts\n   ```\n\n   - **Example**: 1,200 g harvested from a 100‑ft² canopy using 2,000 W of LED →  \n     - g/ft² = 12 g/ft² (exceptional)  \n     - g/W = 0.60 g/W (very good)\n\n4. **Compare to benchmarks**  \n   - Use the cheat‑sheet ranges above.  \n   - For more granular reference, see the **“Yield Index”** tables from *Leafly’s Grow Guides* or *MJBiz* industry reports (they list average g/ft² and g/W by lighting tech and genetics).  \n\n5. **Identify the limiting factor**  \n   - If **g/ft²** is low but **g/W** is decent → you’re wasting floor space (plant density, canopy overlap).  \n   - If **g/W** is low but **g/ft²** is fine → lighting or energy use is the bottleneck.  \n\n---\n\n## How to Improve Each KPI  \n\n### 1. Boost **grams / sq ft**  \n\n| Lever | Action | Expected impact |\n|-------|--------|-----------------|\n| **Canopy Management** | - Adopt **SCROG** (screen of green) or **SOG** (sea‑of‑green) to keep every bud in the light zone.<br\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1167 (167?1000) | Cost: $0.000000*",
+      "duration": 12313,
+      "grade": "F",
+      "score": 51,
+      "grading": {
+        "length": "Pass",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "2/5 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 189,
+      "question": "What are best practices for consistent dry/cure (targets, airspeed, racks, W/A)?",
+      "category": "cultivation-operations-propagation-harvest-postharvest",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": true,
+      "response": "Below is a quick‑reference “cheat‑sheet” for a **consistent, high‑quality dry‑and‑cure** routine.  It covers the three phases most growers think of as “dry → trim → cure” and includes the key numbers you asked for (temperature, RH, air‑speed, rack set‑up, and water‑activity targets).\n\n---\n\n## 1️⃣ Drying (pre‑trim)\n\n| Parameter | Target | Why it matters | How to achieve / monitor |\n|-----------|--------|----------------|--------------------------|\n| **Temperature** | **60‑70 °F (15‑21 °C)** | Keeps chlorophyll breakdown slow enough for smooth smoke, avoids mold at the high end and preserves terpenes at the low end. | Ambient control (HVAC), portable heaters or AC units, thermostatic controllers. |\n| **Relative Humidity (RH)** | **50‑60 %** (ideally 55 %) | Keeps the plant material from drying too fast (which can lock in chlorophyll) and prevents mold. | Digital hygrometer placed at canopy level; use a humidifier/dehumidifier with a ±2 % tolerance. |\n| **Air‑speed / Exchange** | **0.1‑0.3 m s⁻¹** (≈20‑60 ft min⁻¹) – roughly **1‑2 CFM per pound of wet bud** | Provides even moisture removal without “blowing” the trichomes off. | Low‑speed oscillating fans on a timer; avoid direct drafts on buds. |\n| **Rack / Layout** | **Mesh or slatted stainless‑steel racks** spaced **6‑12 in (15‑30 cm)** apart; **no more than 2‑3 layers** | Allows uniform airflow around each colas and prevents “hot spots”. | Use 4‑inch (10 cm) spacing between rows; keep the rack at least 2 ft from walls for circulation. |\n| **Water Activity (a_w)** | **0.62‑0.68** (≈55‑65 % RH) | Directly correlates with microbial growth; a_w < 0.65 inhibits most molds. | Can be measured with a water‑activity meter; adjust RH to stay within the range. |\n| **Typical dry‑time** | **7‑12 days** (until stems snap, not bend) | Gives a final moisture content of ~10‑12 % (wet basis). | Check by “snap test” and by a moisture meter if you have one. |\n\n### Quick tips\n- **Rotate/flip** the racks every 24 h to keep airflow even.\n- **Keep lights off** or use low‑intensity amber LEDs; UV accelerates degradation.\n- **Avoid “wet pockets”** by trimming any leaves that are still clinging excess moisture.\n\n---\n\n## 2️⃣ Trimming (post‑dry, pre‑cure)\n\n| Parameter | Target | Reason |\n|-----------|--------|--------|\n| **Trim temperature** | **65‑70 °F (18‑21 °C)** | Prevents re‑hydration of the‑ buds. |\n| **RH** | **45‑55 %** (briefly) | A short lower‑RH environment helps the cut surfaces “seal” before jars. |\n| **Air‑speed** | **Gentle sweep** (≈0.1 m s⁻¹) |\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1171 (171?1000) | Cost: $0.000000*",
+      "duration": 12336,
+      "grade": "F",
+      "score": 48,
+      "grading": {
+        "length": "Pass",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "1/5 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 190,
+      "question": "How do I document strain-specific feeding programs and adjustments?",
+      "category": "cultivation-operations-propagation-harvest-postharvest",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": true,
+      "response": "Below is a practical, step‑by‑step framework you can adopt (or adapt) to capture every feeding decision for each strain, from seedling to harvest.  It works whether you use a paper log, a simple spreadsheet, or a cultivation‑management software (CMS) that supports custom fields.\n\n---\n\n## 1. Set Up a “Strain‑Feeding Master Sheet”\n\n| Column | What to Record | Why it Matters |\n|--------|----------------|----------------|\n| **Strain** | Official cultivar name + phenotype code (e.g., “Blue Dream‑A”) | Guarantees traceability when you have multiple clones/seed lots. |\n| **Batch/Lot ID** | Grow‑room, tray, or container ID (e.g., “Room‑02‑T12”) | Links feeding data to the specific plant group. |\n| **Growth Stage** | Seedling, Veg (Early/Mid/Late), Pre‑flower, Flower (Weeks 1‑12), Flush | Nutrient needs shift dramatically by stage. |\n| **Date & Time** | YYYY‑MM‑DD hh:mm | Enables time‑series analysis and regulatory audit trails. |\n| **Water Volume** | Liters (or gallons) per plant or per tray | Controls total nutrient load & cost tracking. |\n| **Nutrient Formula** | %N‑%P‑%K + secondary/trace (e.g., “3‑1‑2 + 0.5 % Mg”) | Core to replicating successful programs. |\n| **EC / ppm** | Measured electrical conductivity | Prevents over‑/under‑feeding. |\n| **pH** | Measured pH of the solution | Critical for nutrient uptake. |\n| **Additives** | Cal‑Mag, Silica, Enzymes, etc. (dose) | Helps correlate growth boosts or deficiencies. |\n| **Application Method** | Drip, flood‑and‑drain, top‑feed, foliar, etc. | Different methods affect uptake timing. |\n| **Observations** | Visual notes (leaf color, tip burn, vigor, pests) | Qualitative data that explains numeric trends. |\n| **Adjustments Made** | “EC‑up 0.2, pH‑down 0.2, added 2 ml Cal‑Mag” | Clear audit of what changed and why. |\n| **Result/Outcome** (optional) | “Improved tip growth 2 days later” | Links cause → effect for future decisions. |\n| **Operator** | Name/initials | Accountability & training reference. |\n| **Signature / Digital Auth** | Click‑to‑sign or typed name | Meets compliance for regulated facilities. |\n\n*Tip:* In a spreadsheet, freeze the header row and use **Data Validation** drop‑downs for “Growth Stage,” “Application Method,” and “Operator” to keep entries consistent.\n\n---\n\n## 2. Capture the Baseline Feeding Program\n\n1. **Create a “Standard Formula” tab** for each strain that lists the *starting* nutrient mix per growth stage (e.g., Veg‑Early: 150 ppm N, 50 ppm P, 150 ppm K, EC 1.2, pH 5.8).  \n2.Reference this tab** in the master sheet (hyperlink or cell reference) so you can see at a glance whether a given entry follows the baseline or deviates.\n\n---\n\n## 3. Log Every Change – “Adjustment Log”\n\nWhenever you deviate from the baseline, make a **single, atomic entry** that includes:\n\n- **Trigger** (e.g., “Leaf tip burn observed”, “EC drift >0.3”, “New water source pH 6.2”).  \n- **Decision** (e.g., “Reduce EC by 0.2”, “Add 5 ml Silica”).  \n- **Who approved** (manager signature).  \n\nIf you make several tweaks in the same day, record them as separate rows but keep the same timestamp and batch ID—this lets you later aggregate\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1162 (162?1000) | Cost: $0.000000*",
+      "duration": 8758,
+      "grade": "F",
+      "score": 51,
+      "grading": {
+        "length": "Pass",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "2/5 key words"
+      },
+      "expectedKeywords": []
     }
   ],
-  "status": "In Progress: 180/438 questions completed"
+  "status": "In Progress: 190/438 questions completed"
 }
