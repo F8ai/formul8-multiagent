@@ -1,11 +1,11 @@
 {
-  "timestamp": "2025-10-31T15:56:43.710Z",
+  "timestamp": "2025-10-31T15:57:33.227Z",
   "url": "https://chat.formul8.ai",
   "totalQuestions": 438,
-  "completed": 180,
+  "completed": 190,
   "passed": 11,
-  "failed": 169,
-  "averageScore": "36.37",
+  "failed": 179,
+  "averageScore": "35.53",
   "averageGrade": "F",
   "results": [
     {
@@ -3374,7 +3374,175 @@
         "relevance": "2/5 key words"
       },
       "expectedKeywords": []
+    },
+    {
+      "questionNum": 181,
+      "question": "How do I track SDSs and ensure they’re accessible and current?",
+      "category": "environmental-health-&-safety-ehs",
+      "response": null,
+      "error": "Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON",
+      "duration": 143,
+      "grade": "F",
+      "score": 0,
+      "actualAgent": "error",
+      "actualAgentName": "Error parsing response",
+      "expectedAgent": "f8_agent",
+      "agentMatch": false
+    },
+    {
+      "questionNum": 182,
+      "question": "What’s the correct PPE matrix by room/process?",
+      "category": "environmental-health-&-safety-ehs",
+      "response": null,
+      "error": "Unexpected non-whitespace character after JSON at position 4 (line 1 column 5)",
+      "duration": 60,
+      "grade": "F",
+      "score": 0,
+      "actualAgent": "error",
+      "actualAgentName": "Error parsing response",
+      "expectedAgent": "f8_agent",
+      "agentMatch": false
+    },
+    {
+      "questionNum": 183,
+      "question": "What’s the most efficient daily plant care checklist (by stage: mothers, clones, veg, flower)?",
+      "category": "cultivation-operations-propagation-harvest-postharvest",
+      "response": null,
+      "error": "Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON",
+      "duration": 253,
+      "grade": "F",
+      "score": 0,
+      "actualAgent": "error",
+      "actualAgentName": "Error parsing response",
+      "expectedAgent": "f8_agent",
+      "agentMatch": false
+    },
+    {
+      "questionNum": 184,
+      "question": "How do I design an IPM calendar with rotations and thresholds?",
+      "category": "cultivation-operations-propagation-harvest-postharvest",
+      "response": null,
+      "error": "Unexpected non-whitespace character after JSON at position 4 (line 1 column 5)",
+      "duration": 56,
+      "grade": "F",
+      "score": 0,
+      "actualAgent": "error",
+      "actualAgentName": "Error parsing response",
+      "expectedAgent": "f8_agent",
+      "agentMatch": false
+    },
+    {
+      "questionNum": 185,
+      "question": "What environmental parameters should I monitor daily (temp, RH, VPD/DLI/CO₂)?",
+      "category": "cultivation-operations-propagation-harvest-postharvest",
+      "response": null,
+      "error": "Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON",
+      "duration": 273,
+      "grade": "F",
+      "score": 0,
+      "actualAgent": "error",
+      "actualAgentName": "Error parsing response",
+      "expectedAgent": "f8_agent",
+      "agentMatch": false
+    },
+    {
+      "questionNum": 186,
+      "question": "How do I track mother plant health, clone success rate, and genetic drift?",
+      "category": "cultivation-operations-propagation-harvest-postharvest",
+      "response": null,
+      "error": "Unexpected non-whitespace character after JSON at position 4 (line 1 column 5)",
+      "duration": 52,
+      "grade": "F",
+      "score": 0,
+      "actualAgent": "error",
+      "actualAgentName": "Error parsing response",
+      "expectedAgent": "f8_agent",
+      "agentMatch": false
+    },
+    {
+      "questionNum": 187,
+      "question": "Can you help me schedule labor across defoliation, trellising, and harvest prep?",
+      "category": "cultivation-operations-propagation-harvest-postharvest",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": true,
+      "response": "**Sure!** Below is a quick‑start framework you can customize for your grow‑operation. I’ll walk you through the key inputs you’ll need, a sample weekly schedule, and a few best‑practice tips. If you’d like a more detailed, farm‑specific plan I can hand off to our **Cannabis Operations Scheduler** agent—just let me know the exact numbers (plants, crew size, etc.).\n\n---\n\n## 1. Information I’ll need from you\n| Category | What to provide | Why it matters |\n|----------|----------------|----------------|\n| **Cultivar & canopy size** | Height, spread, number of nodes per plant | Determines how long defoliation & trellising take per plant |\n| **Current growth stage** | Weeks after transplant (WAT) or days in veg | Sets the optimal window for each task |\n| **Labor pool** | Total crew, skill level, hours per day/week | Helps allocate realistic labor blocks |\n| **Facility constraints** | Indoor vs. outdoor, aisle width, equipment (e.g., lift tables) | Affects movement time & safety buffers |\n| **Harvest window** | Target “dry‑off” date (e.g., 10‑12 weeks after flower start) | Back‑calculates when prep must begin |\n| **Local regulations** | Maximum labor hours, break requirements | Keeps the schedule compliant |\n\nGive me as many of those details as you can, and I’ll generate a precise calendar. In the meantime, here’s a **generic template** you can adapt.\n\n---\n\n## 2. Sample 6‑Week Labor Schedule  \n*(Assumes 2,000 plants, 8‑person crew working 8 h/day, 5 days/week)*\n\n| Week | Focus | Daily Tasks (hrs) | # of Workers | Notes |\n|------|-------|-------------------|--------------|-------|\n| **-6** (6 weeks before harvest) | **Defoliation 1** (early) | 2 h – “light” leaf removal (top 2‑3 nodes) <br> 4 h – Clean‑up & data logging | 5 | Do this when plants are ~55 % of final height. |\n| **-5** | **Trellising 1** (framework) | 3 h – Install/adjust main trellis lines <br> 2 h – Secure side rails | 6 | Use pre‑cut netting; label rows for later pruning. |\n| **-4** | **Defoliation 2** (mid) | 3 h – Remove fan leaves shading lower buds <br> 2 h – Spot‑check for stress | 5 | Aim for ~30 % leaf removal total. |\n| **-3** | **Trellising 2** (tight) | 2 h up netting, add “spider” clips <br> 3 h – Training (LST/SCROG) | 6 | Coordinate with vegetative growth to avoid over‑stretch. |\n| **-2** | **Harvest Prep 1** (pre‑dry) | 4 h – Trim excess foliage, clean walkways <br> 2 h – Calibrate humidity/temperature sensors | 7 | Begin “flushing” water schedule if required. |\n| **-1** | **Harvest Prep 2** (final) | 4 h – Set up drying racks, label bins <br> 2 h – Verify SOPs, safety gear check | 8 | All hands on deck for a smooth transition to cut. |\n\n### How to read the table\n- **Daily tasks** are broken into “core activity” (the bulk of labor) and “support tasks” (cleanup, data entry, equipment checks).\n- **# of Workers** is the *average* per day; you can shift a couple of people to other if you have a staggered shift.\n- **Notes** give quick pointers on why each week matters and any “gotchas”.\n\n---\n\n## 3. Quick‑Start Checklist (per task)\n\n| Task | Prep | Execution | QC / Follow‑up |\n|------|------|-----------|----------------|\n| **Defoliation** | • Review cultivar leaf‑removal guidelines <br>• Pre‑cut pruning shears, sanitize\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1170 (170?1000) | Cost: $0.000000*",
+      "duration": 10697,
+      "grade": "F",
+      "score": 51,
+      "grading": {
+        "length": "Pass",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "2/5 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 188,
+      "question": "How do I benchmark grams/sq ft and grams/watt and improve them?",
+      "category": "cultivation-operations-propagation-harvest-postharvest",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": true,
+      "response": "### Quick‑Start Guide to Benchmarking & Improving **grams / sq ft** and **grams / watt**\n\n| Metric | What it tells you | Typical industry range* |\n|--------|-------------------|--------------------------|\n| **Yield per square foot** (g / ft²) | Overall productivity of your grow space (can include veg, flower, and any re‑harvest cycles). | 30‑80 g / ft² for indoor, 50‑120 g / ft² for high‑density “super‑crop” setups. |\n| **Yield per watt** (g / W) | Energy efficiency of your lighting system. | 0.4‑0.8 g / W for LED, 0.2‑0.4 g / W for HPS, 0.5‑1.0 g / W for top‑tier OLED/laser rigs. |\n\n\\*Ranges are averages from 2022‑2024 commercial reports (New Frontier, BDS, CannaMetrics). Your target should be set relative to your operation size, genetics, and market niche.\n\n---\n\n## 1️⃣ How to Calculate the Numbers\n\n1. **Gather the raw data for a complete production cycle** (veg → flower → harvest).  \n   - **Total dried weight** (grams) after curing.  \n   - **Grow‑area used** (square feet).  \n   - **Total lighting energy** (watts) *or* **kWh** consumed by the lighting system for that cycle.\n\n2. **Formulas**\n\n   - **Grams per square foot**  \n     \\[\n     \\text{g/ft²} = \\frac{\\text{Total dried grams}}{\\text{Cultivation area (ft²)}}\n     \\]\n\n   - **Grams per watt** (energy‑efficiency)  \n     \\[\n     \\text{g/W} = \\frac{\\text{Total dried grams}}{\\text{Total lighting watts used for the cycle}}\n     \\]  \n     *(If you track kWh, divide grams by kWh and then divide by 1 000 to get g/W.)*\n\n3. **Document the context** (strain, veg/flower schedule, plant density, CO₂ level, nutrient regimen, etc.). Benchmarks are only comparable when you know the variables behind them.\n\n---\n\n## 2️⃣ Benchmarking – Where Do You Stand?\n\n| Step | Action |\n|------|--------|\n| **a. Build a baseline** | Run at least **one full cycle** with consistent record‑keeping. Use a simple spreadsheet or a cultivation‑MPS (e.g., **GrowFlow**, **Flourish**, **LeafLog**). |\n| **b. Compare to industry data** | Plug your g/ft² and g/W into the tables above. If you’re below the lower bound, there’s headroom for improvement. |\n| **c. Peer‑group check** | Join a growers’ forum or a local **CANNABIS‑COOP** and exchange anonymised metrics. Real‑world “field” numbers often differ from published averages. |\n| **d. Set realistic targets** | Example: *Current g/ft² = 38, target = 55 g/ft² in 2‑3 cycles (≈ +45%).* <br>*Current g/W = 0.32, target = 0.55 g/W (≈ +70%).* |\n\n---\n\n## 3️⃣ Levers to Improve **Grams / Sq Ft**\n\n| Lever | Why it matters | Quick win |\n|-------|----------------|-----------|\n| **Genetics** | High‑yield hybrids can add 15‑30 g/ft². | Switch to a proven high‑yield strain (e.g., “Big Bud”, “Gorilla Glue”). |\n| **Plant density & training** | Optimises canopy light penetration. | Use **SCROG** (screen of green) or **SOG** (sea of green) with 4‑6 plants / ft² for SOG, 1‑2 ft² per plant for SCROG. |\n| **Veg time** | Longer veg → larger tops → more bud sites. | Extend veg by 1‑2 weeks (watch for diminishing returns). |\n| **Nutrient/ph‑pH management** | Prevents nutrient lock‑out, maximises photosynthesis. | Calibrate EC/pH daily; use a **calcium‑magnesium supplement** during flowering. |\n| **CO₂ enrichment** | Boosts photosynthetic rate up to 30 % at 1200‑1500 ppm. | Add a **CO₂ tank** or\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1264 (168?1096) | Cost: $0.000000*",
+      "duration": 17315,
+      "grade": "F",
+      "score": 51,
+      "grading": {
+        "length": "Pass",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "2/5 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 189,
+      "question": "What are best practices for consistent dry/cure (targets, airspeed, racks, W/A)?",
+      "category": "cultivation-operations-propagation-harvest-postharvest",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": true,
+      "response": "### Consistent Dry‑/Cure Workflow – Best‑Practice Checklist  \n\n| Stage | Target Conditions | Why It Matters | Practical Tips & Tools |\n|-------|-------------------|----------------|------------------------|\n| **Initial Dry** | **Temperature:** 60‑68 °F (15‑20 °C)  <br>**Relative Humidity (RH):** 45‑55 %  <br>**Airflow:** 1‑2 ft/min across the canopy (gentle “syrup” flow) | Keeps chlorophyll and sugars from degrading too fast, prevents mold, and preserves terpenes. | • Hang buds on **non‑metal, UV‑stable drying racks** (e.g., nylon or PVC).  <br>• buds ≥ 2‑3 in. apart; use **multiple‑level racks** to maximize airflow without crowding.  <br>• Use a **single low‑speed fan** positioned to pull air across, not directly onto buds.  <br>• Monitor with **digital hygrometer/thermometer** (±1 % RH, ±0.5 °F). |\n| **Mid‑Dry (pre‑cure)** | **RH:** 55‑60 %  <br>**Temp:** 65 °F (15‑18 °C) | Buds finish shedding moisture but are still pliable enough for trimming and moving to jars. | • Trim stems to desired length; **avoid over‑trimming** (exposes too much surface area, can dry too fast).  <br>• Place buds in **ventilated, breathable containers** (e.g., paper bags) for 1‑2 days to equalize moisture before jarring. |\n| **Curing – First 2 Weeks** | **Jar RH:** 62‑65 % (use 70 % RH packets to start, then 55 % after the first week)  <br>:** 60‑70 °F (15‑21 °C)  <br>**Burp Frequency:** 2‑3 × / day (first 4 days), then once daily (days 5‑14) | Controlled moisture loss allows cannabinoids/terpenes to mature while preventing chlorophyll/plant‑matter breakdown. | • **Glass mason jars** with airtight lids are standard; use **silicone gasket** lids for a true seal.  <br>• Insert a **small hygrometer** (e.g., ThermoWorks Pocket Hygro) in each jar for real‑time RH.  <br>• “Burp” by opening the lid for 1‑2 min, gently swirling buds to release excess moisture and introduce fresh air.  <br>• If RH > 68 %, remove a **Boveda 62 %** packet or open the jar a bit longer; if RH < 58 %, add a **Boveda 68 %** packet. |\n| **Curing – Weeks 3‑4+** | **RH:** 55‑60 %  <br>**Temp:** 60‑70 °F (‑21 °C) | Stabilizes final moisture content and maximizes flavor/potency. | • Reduce burping to **once every 2‑3 days**.  <br>• Store jars in a **dark, stable‑temperature cabinet** (avoid light, rapid temp swings).  <br>• After 4 weeks, buds are ready for **packaging or long‑term storage** (e.g., vacuum‑sealed Mylar with a 62 % Boveda packet). |\n\n---\n\n## Key Parameters & How to Hit Them\n\n| Parameter | Ideal Range | How to Achieve / Monitor |\n|-----------|-------------|--------------------------|\n| **Air Speed (during dry)** | 1‑2 ft/min (≈ 0.3‑0.6 m/s) across buds | Low‑speed oscillating fans; measure with an anemometer or by holding a piece of paper—should flutter gently. |\n| **Relative Humidity (dry room)** | 45‑55 % (early), 55‑60\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1171 (171?1000) | Cost: $0.000000*",
+      "duration": 8593,
+      "grade": "F",
+      "score": 48,
+      "grading": {
+        "length": "Pass",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "1/5 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 190,
+      "question": "How do I document strain-specific feeding programs and adjustments?",
+      "category": "cultivation-operations-propagation-harvest-postharvest",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": true,
+      "response": "Below is a practical, step‑by‑step framework you can adopt (or adapt) to keep strain‑specific feeding programs clear, searchable, and audit‑ready.\n\n---\n\n## 1️⃣ Choose Your Documentation Platform  \n| Option | Why It Works for Cannabis | Quick Setup |\n|--------|--------------------------|------------|\n| **Spreadsheet (Google Sheets / Excel)** | Flexible, easy to share, can embed formulas for EC/pH targets | 5 min |\n| **LIMS / Grow‑Management Software** (e.g., **GrowFlow, BioTrackTHC, Trellis**) | Built‑in strain lookup, barcode scanning, compliance export | 15‑30 min (import template) |\n| **Digital Lab Notebook (eLabFTW, Benchling)** | Version control, audit trail, attachment of photos | 10 min |\n| **Paper + QR‑code binders** | Useful for backup in high‑humidity rooms | 5 min per strain |\n\n*Pick one as the “master record.” Other tools can be linked (e.g., a QR code on a plant tag that opens the spreadsheet row).*\n\n---\n\n## 2️⃣ Define the Core Data Fields  \n\n| Category | Field | Example (for “Blue Dream”) | How to Capture |\n|----------|-------|----------------------------|----------------|\n| **Strain Info** | Strain name (canonical) | Blue Dream | Drop‑down list from master strain library |\n| | Genetics (S × I) | Sativa‑dominant × Indica‑domin Text |\n| | Clone/seed lot # | Lot‑2024‑BD‑01 | Barcode/lot ID |\n| **Growth Stage** | Stage | Seedling → Veg → Bloom → Flush | Auto‑filled by date ranges |\n| | Days in stage | 12 | Calculated from start date |\n| **Nutrient Regime** | Base formula (N‑P‑K) | 2‑1‑2 (Veg) → 1‑3‑2 (Bloom) | Pre‑set per stage |\n| | EC / PPM target | 1.2 mS/cm (Veg) | Numeric |\n| | pH target | 5.8–6.2 | Range |\n| | Volume per plant (L) | 5 L | Fixed or per‑plant |\n| **Application Details** | Date & time | 2024‑09‑15 08:30 | Timestamp |\n| | Method | Soil drench / Foliar spray | Drop‑down |\n| | Amount applied (ml/L) | 10 ml/L | Numeric |\n| | Solution batch # | B‑20240915‑01 | Auto‑generated |\n| **Observations** | Visual notes | “Slight leaf tip yellowing” | Free text + optional photo |\n| | Sensor readings (if any) | Soil EC 1.15 mS/cm | Auto‑import from sensor API |\n| | Stress cues | “Heat stress, 30 °C” | Text |\n| **Adjustments** | Reason for change | “Leaf tip yellowing → increase Mg” | Text |\n| | New target EC/pH | 1.3 mS/cm, 6.0 | Numeric |\n| | Date of change | 2024‑09‑18 | Timestamp |\n| | Outcome (after X days) | “Yellowing resolved” | Follow‑up note |\n\n*Tip:* Keep a **“Change Log”** column that automatically appends each adjustment with a timestamp. In Google Sheets you can use `=ARRAYFORMULA(IF(LEN(E2:E), NOW() & \" – \" & E2:E, \"\"))` to capture it.\n\n---\n\n## 3️⃣ Build a Simple Template (Google Sheets Example)\n\n```\nA: Strain | B: Lot # | C: Stage | D: Day | E: Date | F: EC Target | G: pH Target | H: Volume (L)\nI: Method | J: Applied (ml/L) | K\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1162 (162?1000) | Cost: $0.000000*",
+      "duration": 10064,
+      "grade": "F",
+      "score": 54,
+      "grading": {
+        "length": "Pass",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "3/5 key words"
+      },
+      "expectedKeywords": []
     }
   ],
-  "status": "In Progress: 180/438 questions completed"
+  "status": "In Progress: 190/438 questions completed"
 }
