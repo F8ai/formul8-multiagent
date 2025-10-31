@@ -748,8 +748,9 @@ sequenceDiagram
   // Also create sequence.html as an alias
   await fs.writeFile(path.join(pagesDir, 'sequence.html'), sequenceDiagramHtml);
   
-  // Build agents.html with dynamic data from baseline.json files
+  // Build agents.html with dynamic data from root baseline.json and agent baseline.json files
   const agentsDir = path.join(__dirname, '..', 'agents');
+  const rootBaselinePath = path.join(__dirname, '..', 'baseline.json');
   const agentsData = [];
   
   // RAG data sizes from AGENT_DATA_S3_ARCHITECTURE.md
@@ -791,37 +792,69 @@ sequenceDiagram
     'spectra-agent': 'Spectral analysis and processing'
   };
   
+  // Agent name mapping: how to find questions in root baseline.json
+  const agentCategoryMap = {
+    'compliance-agent': ['compliance'],
+    'marketing-agent': ['marketing'],
+    'operations-agent': ['operations', 'operational'],
+    'formulation-agent': ['formulation'],
+    'science-agent': ['science'],
+    'patent-agent': ['patent'],
+    'sourcing-agent': ['sourcing'],
+    'customer-success-agent': ['customer-success', 'customer'],
+    'ad-agent': ['ad', 'advertising'],
+    'spectra-agent': ['spectra'],
+    'mcr-agent': ['mcr'],
+    'editor-agent': ['editor'],
+    'f8-slackbot': ['slackbot', 'slack']
+  };
+  
   try {
+    // Load root baseline.json to count questions by category
+    let rootBaseline = null;
+    try {
+      const rootBaselineContent = await fs.readFile(rootBaselinePath, 'utf8');
+      rootBaseline = JSON.parse(rootBaselineContent);
+    } catch (error) {
+      console.warn('⚠️  Could not read root baseline.json:', error.message);
+    }
+    
     const agentDirs = await fs.readdir(agentsDir);
     
     for (const agentName of agentDirs) {
-      const baselinePath = path.join(agentsDir, agentName, 'baseline.json');
-      try {
-        const baselineContent = await fs.readFile(baselinePath, 'utf8');
-        const baseline = JSON.parse(baselineContent);
-        const questionCount = baseline.questions ? baseline.questions.length : 0;
-        
-        agentsData.push({
-          agent: agentName,
-          questions: questionCount,
-          ragSize: ragSizes[agentName] || null,
-          ragSource: ragSources[agentName] || null,
-          description: descriptions[agentName] || `${agentName} agent`,
-          usesRAG: !!ragSources[agentName],
-          isRAGSource: agentName === 'science-agent'
-        });
-      } catch (error) {
-        // If baseline.json doesn't exist or can't be read, still add agent with 0 questions
-        agentsData.push({
-          agent: agentName,
-          questions: 0,
-          ragSize: ragSizes[agentName] || null,
-          ragSource: ragSources[agentName] || null,
-          description: descriptions[agentName] || `${agentName} agent`,
-          usesRAG: !!ragSources[agentName],
-          isRAGSource: agentName === 'science-agent'
-        });
+      let questionCount = 0;
+      
+      // Try to get count from root baseline.json first (more accurate)
+      if (rootBaseline && rootBaseline.questions && agentCategoryMap[agentName]) {
+        const categories = agentCategoryMap[agentName];
+        questionCount = rootBaseline.questions.filter(q => {
+          if (!q.category) return false;
+          const categoryLower = q.category.toLowerCase();
+          return categories.some(cat => categoryLower.includes(cat.toLowerCase()));
+        }).length;
       }
+      
+      // Fallback to individual agent baseline.json if root count is 0
+      if (questionCount === 0) {
+        const baselinePath = path.join(agentsDir, agentName, 'baseline.json');
+        try {
+          const baselineContent = await fs.readFile(baselinePath, 'utf8');
+          const baseline = JSON.parse(baselineContent);
+          questionCount = baseline.questions ? baseline.questions.length : 0;
+        } catch (error) {
+          questionCount = 0;
+        }
+      }
+      
+      agentsData.push({
+        agent: agentName,
+        questions: questionCount,
+        ragSize: ragSizes[agentName] || null,
+        ragSource: ragSources[agentName] || null,
+        description: descriptions[agentName] || `${agentName} agent`,
+        usesRAG: !!ragSources[agentName],
+        isRAGSource: agentName === 'science-agent'
+      });
     }
     
     // Read the agents.html template
