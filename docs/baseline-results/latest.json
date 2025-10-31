@@ -1,11 +1,11 @@
 {
-  "timestamp": "2025-10-31T07:59:47.191Z",
+  "timestamp": "2025-10-31T08:01:07.572Z",
   "url": "https://chat.formul8.ai",
   "totalQuestions": 438,
-  "completed": 20,
-  "passed": 2,
-  "failed": 18,
-  "averageScore": "44.36",
+  "completed": 30,
+  "passed": 3,
+  "failed": 27,
+  "averageScore": "40.83",
   "averageGrade": "F",
   "results": [
     {
@@ -406,7 +406,189 @@
         "relevance": "2/5 key words"
       },
       "expectedKeywords": []
+    },
+    {
+      "questionNum": 21,
+      "question": "Can I store finished products in the same room as raw biomass?",
+      "category": "facility-setup-operational-procedures",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "compliance",
+      "agentMatch": false,
+      "response": "**Short answer:** In most U.S. cannabis‑state regulations and good‑manufacturing practice (GMP) guidelines, finished products must be stored **separately** from raw biomass. Co‑locating them in the same room is generally not permitted unless you can demonstrate a fully controlled, physically isolated environment that eliminates any risk of cross‑contamination, odor migration, pest ingress, or security breach.\n\n---\n\n## Why separation is required\n\n| Issue | How it impacts compliance / product quality |\n|-------|---------------------------------------------|\n| **Cross‑contamination** | Pollen, mold spores, or cannabinoids from raw plant material can settle on finished goods, jeopardizing potency, purity, and labeling accuracy. |\n| **Odor & pest control** | Raw biomass emits strong odors and attracts insects/rodents. Finished products (especially edibles, tinctures, or topicals) must remain odor‑free and pest‑free. |\n| **Security** | Many states require distinct access controls for “raw material” vs. “finished product” inventories (e.g., separate key cards, cameras, and audit logs). |\n| **Inventory tracking** | Separate storage simplifies seed‑to‑sale (track‑and‑trace) reporting and prevents “double counting” of material. |\n| **Temperature / humidity** | Raw plant material often needs cooler, drier conditions than some finished products (e.g., oils, tinctures) that may require specific temperature ranges for stability. |\n| **Regulatory citations** | • **California BPC**  2.6.2 – “Separate areas for raw material and finished product.” <br>• **Washington State (WAC 314‑55‑150)** – “Finished product must be stored in a location that prevents contamination from raw cannabis.” <br>• **Colorado (CSAA 19‑102‑05‑05)** – “Separate storage for raw cannabis and manufactured product is required.” <br>• **FDA CGMP** – “Prevent cross‑contamination between bulk drug substances and finished dosage forms.” |\n\n---\n\n## What the regulations typically say\n\n| State / Agency | Requirement |\n|----------------|-------------|\n| **California** (BPC) | Raw cannabis, intermediate, and finished products must be stored in physically separate rooms or in isolated, sealed compartments with dedicated HVAC. |\n| **Washington** (WAC) | Finished product rooms must be “physically separated” and have independent access controls. |\n| **Colorado** (CSAA) | “All finished product must be stored in a secure area that is separate from the raw cannabis storage area.” |\n| **Oregon** (OSHA/Medical) | Similar separation required; “no of raw and finished product” unless a validated barrier system is in place. |\n| **Federal (FDA/USDA)** | CGMP mandates preventing cross‑contamination; while not cannabis‑specific, the same principle applies. |\n\n*If you operate in a state not listed above, check your state’s **“seed‑to‑sale”** or **“track‑and‑trace”** regulations—most adopt the same language.*\n\n---\n\n## When could co‑location be allowed? (** you can prove, with documented SOPs and validation data, that:\n\n1. **Physical barriers** (e.g., airtight, fire‑rated cabinets or sealed “zones”) completely isolate finished product from raw material.\n2. **Separate HVAC/ filtration** streams for each zone (no shared airflow).\n3. **Independent temperature/humidity controls** for each zone.\n4. **Distinct access control** (different\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1164 (164?1000) | Cost: $0.000000*",
+      "duration": 9332,
+      "grade": "F",
+      "score": 56.25,
+      "grading": {
+        "length": "Pass",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "3/4 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 22,
+      "question": "Do I need to log the cleaning of the extraction booth before starting the next run?",
+      "category": "facility-setup-operational-procedures",
+      "agent": "unknown",
+      "actualAgent": "formulation",
+      "actualAgentName": "Formulation Agent",
+      "expectedAgent": "compliance",
+      "agentMatch": false,
+      "response": "**Yes – logging the cleaning of the extraction booth is a required step before you begin the next run.**  \n\n### Why it matters\n| Reason | What it protects |\n|--------|------------------|\n| **Regulatory compliance** (state cannabis‑specific GMP, ISO‑9001/ISO‑22000, USDA‑FSIS, etc.) | Demonstrates that you follow mandated sanitation procedures and can pass audits. |\n| **Product safety & purity** | Prevents cross‑contamination of cannabinoids, solvents, or residual cleaning agents that could affect potency, terpene profile, or introduce unwanted chemicals. |\n| **Traceability & batch integrity** | Links each cleaning event to the batch numbers that follow, allowing you to pinpoint the source of any future quality issue. |\n| **Cleaning validation** | Provides data to prove that the cleaning method consistently achieves the required residue limits (e.g., < 10 ppm solvent, < 0.1 % w/w of previous cannabinoids). |\n| **Operational consistency** | Ensures every operator follows the same steps, reducing variability and downtime. |\n\n### What to log (minimum elements)\n\n| Element | Details to capture |\n|---------|--------------------|\n| **Date & time** | Start and end of cleaning. |\n| **Operator(s)** | Name(s) and electronic signature or badge ID. |\n| **Cleaning method** | Manual wipe, CIP, solvent rinse, etc. |\n| **Cleaning agents & concentrations** | e.g., 70 % isoprop, 0.5 % sodium hypochlorite, food‑grade surfactant. |\n| **Equipment/area cleaned** | Booth interior, work surface, ports, filters, gaskets, lighting fixtures. |\n| **Verification results** | Visual inspection, swab test results, ATP‑luminescence reading, solvent‑residue test (if required). |\n| **De‑contamination status** | Pass/Fail, any corrective actions taken, and sign‑off by a QA supervisor. |\n| **Batch linkage** | Record the next batch number(s) that will be processed after cleaning. |\n| **Documentation location** | Electronic LIMS/ERP entry number or physical log‑book page. |\n\n### How to implement it efficiently\n\n1. **Standard Operating Procedure (SOP) XX – Booth Cleaning & Log**  \n   - Include step‑by‑step cleaning instructions, required PPE, and acceptance criteria for verification tests.\n\n2. **Electronic Log (LIMS/ERP)**  \n   - Use a “Cleaning Event” form with drop‑down fields for agents, methods, and verification results.  \n   - Auto‑time‑stamp and require digital signatures; the system can lock the next run until the entry is marked “Complete/Approved.”\n\n3. **Quick verification**  \n   - For high‑throughput labs, a rapid ATP‑luminescence swab (≤ 150 RLU) can serve as the primary check; retain a full solvent‑residue swab for periodic deeper audits.\n\n4. **Training & audit**  \n   - Train all operators on the log‑entry workflow.  \n   - Conduct quarterly internal audits to confirm that every run is preceded by a logged, approved cleaning event.\n\n### Bottom line\n- **Regulators expect a documented cleaning record** before any new extraction batch.  \n- **Quality teams rely on that record** to validate that the booth is free of residual solvents, cannabinoids, or microbial load.  \n- **Failing to log it** can lead to batch re, costly recalls, or audit findings.\n\n**Action:** Verify that your current SOP includes a mandatory cleaning log and that your LIMS/ERP has a “cleaning‑complete” checkpoint before the next batch can be released for processing. If it’s missing, draft a brief amendment and have QA approve it before the next run.\n\n---\n*Agent: Formulation Agent | Plan: Standard | Tokens: 1115 (210?905) | Cost: $0.000000*",
+      "duration": 14639,
+      "grade": "F",
+      "score": 57,
+      "grading": {
+        "length": "Pass",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "4/5 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 23,
+      "question": "Is it okay to perform maintenance on the hydrocarbon extractor during operating hours?",
+      "category": "facility-setup-operational-procedures",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "compliance",
+      "agentMatch": false,
+      "response": "**Short answer:** No – routine or corrective maintenance on a hydrocarbon (e.g., butane, propane) extractor should **not** be performed while the unit is running. The risks to safety, product integrity, and regulatory compliance far outweigh any short‑term productivity gain.\n\n---\n\n## Why maintenance during operation is a bad idea\n\n| Issue | What can happen | Why it matters |\n|-------|----------------|----------------|\n| **Fire / Explosion** | Hydrocarbon vapors are highly flammable. Opening valves, removing seals, or even a small spark can ignite the charge. | OSHA 1910.119 (Process Safety Management) and NFPA 30/34 explicitly require that equipment be depressurized, purged, and isolated before work. |\n| **Product contamination** | Opening the system can introduce air, moisture, or particulates, degrading extract quality and causing off‑flavors or unsafe levels of residual solvent. | Quality‑control specs (e.g., USP <467> for residual solvents) may be breached, leading to batch rejection. |\n| **Operator safety** | Lockout/Tagout (LOTO) procedures cannot be fully applied while the machine is live. | OSHA 1910.147 LOTO protect workers from unexpected energization. |\n| **Regulatory violations** | Many state cannabis‑manufacturing licenses (e.g., CA BCC, MA DCA) require documented “shutdown for maintenance” and prohibit work on pressurized hydrocarbon systems while in service. | Violations can result in fines, suspension of the license, or loss of product. |\n| **Equipment damage** | Pressurized solvent can be forced into tools, seals, or instrumentation, causing premature wear or catastrophic failure. | In downtime and repair costs later. |\n\n---\n\n## Acceptable scenarios (if any)\n\n| Situation | Conditions that must be met |\n|-----------|------------------------------|\n| **Minor visual inspections** (e.g., checking gauge readings, confirming alarms) | No physical contact with pressurized lines; system remains sealed; a qualified operator is present; documentation in the SOP. |\n| **Quick‑release safety checks** (e.g., verifying that an emergency shut‑off valve is functional) | Performed under a **planned shutdown** or “de‑energized‑test” mode where the extractor is purged and depressurized, but the control system is still powered for the test. |\n| **Emergency repairs** (e.g., a leak that threatens safety) | Immediate shutdown, isolation, purging, LOTO, and then repair. The equipment is *not* “operating” at the time of work. |\n\nIf any of the above requires opening the pressure vessel, piping, or solvent lines, the unit **must be fully shut down, depressurized, purged, and locked out** before work begins.\n\n---\n\n## Recommended SOP workflow for hydrocarbon extractor maintenance\n\n1. **Plan**  \n   - Schedule maintenance during a production “downtime window.”  \n   - Issue a work order with a clear scope, required permits, and responsible personnel.  \n\n2. **Notify**  \n   - Inform production, quality, safety, and compliance teams.  \n\n3. **Shutdown**  \n   - Stop the extraction cycle close all inlet/outlet valves, and disengage the solvent pump.  \n\n4. **Depressurize & Purge**  \n   - Vent residual solvent to a closed‑loop recovery system.  \n   - Purge lines with inert gas (e.g., nitrogen) to eliminate flammable vapor pockets.  \n\n5. **Lockout/Tagout**  \n   - Apply LOTO devices on all energy sources (electric, pneumatic,).  \n\n6. **Perform Maintenance**  \n   - Carry out the task, documenting start/stop times, observations, and any deviations.  \n\n7. **Re‑commission**  \n   - Remove LOTO, restore pressure, perform leak checks, and run a test extraction.  \n\n8. **Record & Review**  \n   - Log the maintenance in the equipment history, update SOPs if needed, and conduct a brief “post‑maintenance” safety review.  \n\n---\n\n## Quick checklist for you\n\n- [ ] Is the extractor **running** or **pressurized**? → **No** – shut it down.  \n-\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1166 (166?1000) | Cost: $0.000000*",
+      "duration": 12056,
+      "grade": "D",
+      "score": 60,
+      "grading": {
+        "length": "Pass",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "5/5 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 24,
+      "question": "Am I allowed to have non-lab staff enter the extraction area if they’re just observing?",
+      "category": "facility-setup-operational-procedures",
+      "response": null,
+      "error": "Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON",
+      "duration": 158,
+      "grade": "F",
+      "score": 0,
+      "actualAgent": "error",
+      "actualAgentName": "Error parsing response",
+      "expectedAgent": "compliance",
+      "agentMatch": false
+    },
+    {
+      "questionNum": 25,
+      "question": "Do I need to notify regulators before making changes to the lab layout?",
+      "category": "facility-setup-operational-procedures",
+      "response": null,
+      "error": "Unexpected non-whitespace character after JSON at position 4 (line 1 column 5)",
+      "duration": 119,
+      "grade": "F",
+      "score": 0,
+      "actualAgent": "error",
+      "actualAgentName": "Error parsing response",
+      "expectedAgent": "compliance",
+      "agentMatch": false
+    },
+    {
+      "questionNum": 26,
+      "question": "Can I use ethanol I purchased from a non-cannabis supplier in today’s extraction?",
+      "category": "extraction-batch-production-rules",
+      "response": null,
+      "error": "Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON",
+      "duration": 253,
+      "grade": "F",
+      "score": 0,
+      "actualAgent": "error",
+      "actualAgentName": "Error parsing response",
+      "expectedAgent": "f8_agent",
+      "agentMatch": false
+    },
+    {
+      "questionNum": 27,
+      "question": "Is it compliant to run two different extraction methods in the same lab on the same day?",
+      "category": "extraction-batch-production-rules",
+      "response": null,
+      "error": "Unexpected non-whitespace character after JSON at position 4 (line 1 column 5)",
+      "duration": 63,
+      "grade": "F",
+      "score": 0,
+      "actualAgent": "error",
+      "actualAgentName": "Error parsing response",
+      "expectedAgent": "f8_agent",
+      "agentMatch": false
+    },
+    {
+      "questionNum": 28,
+      "question": "Do I need to document the purge time for each batch of concentrate?",
+      "category": "extraction-batch-production-rules",
+      "agent": "unknown",
+      "actualAgent": "formulation",
+      "actualAgentName": "Formulation Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": false,
+      "response": "**Short answer:** Yes – you should record the purge time (and related conditions) for every batch of concentrate.\n\n---\n\n### Why it matters\n\n| Reason | How purge time affects the product |\n|--------|-----------------------------------|\n| **Regulatory compliance** | Most state cannabis‑manufacturing rules (and any GMP/ISO‑based quality system) require a complete batch record that includes every critical processing parameter – purge time is one of them. |\n| **Residual solvent limits** | The longer and/or hotter the purge, the lower the remaining hydrocarbon (e.g., butane, propane) or CO₂. Documentation lets you prove that each batch meets the allowable ppm/ppb limits. |\n| **Potency & terpene retention** | Over‑purging can degrade cannabinoids and volatile terpenes; under‑purging can leave solvent that dilutes potency. Tracking time helps you maintain consistent THC/CBD levels and flavor profiles. |\n| **Product stability** | Residual solvent influences oxidation rates and shelf life. A recorded purge time lets you correlate any stability issues back to processing. |\n| **Process optimization** | With a historical log you can spot trends (e.g., “batch #‑12 needed 2 min extra at 110 °C to hit 10 ppm residual butane”) and refine SOPs. |\n| **Audit trail** | During internal or external audits, a complete batch record (including purge time) provides the evidence auditors expect. |\n\n---\n\n### What to document for each batch\n\n1. **Batch identifier** (lot number, date, product code)  \n2. **Extraction method** (hydrocarbon, CO₂, ethanol, etc.)  \n3. **Purge equipment** (vacuum oven, rotary evaporator, purge tank) – make/model, serial #  \n4. **Purge temperature** (°C or °F)  \n5. **Vacuum pressure** (psi, mbar, or torr)  \n6. **P** – start‑time, end‑time, total minutes (or seconds for rapid‑purge cycles)  \n7. **Carrier gas flow** (if applicable) – e.g., nitrogen purge rate  \n8. **Pre‑purge residual solvent level** (sample taken before purge)  \n9. **Post‑purge residual solvent result** (COA, ppm/ppb)  \n10. **Operator name & signature** (or electronic login)  \n11. **Any deviations** (e.g., power loss, temperature fluctuation) and corrective actions  \n\n*Tip:* Use a standardized **Batch Record Sheet** or electronic LIMS field that forces entry of each item before the record can be closed.\n\n---\n\n### Practical implementation\n\n| Tool | How to use it |\n|------|---------------|\n| **Paper batch log** | Printable form with check‑boxes for temperature, pressure, time. Good for small labs. |\n| **Spreadsheet** | One row per batch; columns for the items above. Add conditional formatting to flag residuals > limits. |\n| **LIMS / ERP** | Set up mandatory fields for purge parameters; auto‑populate timestamps; lock the record after QC sign‑off. |\n| **Photographic/video record** | Optional but useful for high‑risk batches; attach file name/timestamp to the record. |\n\n---\n\n### Minimum regulatory baseline (typical U.S. state)\n\n| State/Regulation | Requirement |\n|------------------|-------------|\n| **California (B&C 2233)** | Batch records must include “all processing steps, equipment used, and times/temperatures.” |\n| **Colorado (10 CCR 1500‑3‑303)** | “Document purge time and conditions for each batch of solvent‑based extract.” |\n| **Oregon (ORS 340‑230‑0900)** | “Residual solvent testing and purge parameters must be recorded and retained for 3 years.” |\n| **Federal GMP (21 CFR \n\n---\n*Agent: Formulation Agent | Plan: Standard | Tokens: 1207 (207?1000) | Cost: $0.000000*",
+      "duration": 14093,
+      "grade": "F",
+      "score": 56.25,
+      "grading": {
+        "length": "Pass",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "3/4 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 29,
+      "question": "Am I allowed to blend two different strain inputs into a single extraction batch?",
+      "category": "extraction-batch-production-rules",
+      "agent": "unknown",
+      "actualAgent": "formulation",
+      "actualAgentName": "Formulation Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": false,
+      "response": "**Short answer:** Yes—provided your jurisdiction’s licensing, labeling, and record‑keeping rules allow it, you can blend two (or more) strain inputs in a single extraction batch. The key is to manage the blend so that you remain compliant, maintain product consistency, and protect quality.\n\n---\n\n## 1. Regulatory “must‑haves”  \n\n| Requirement | What to do |\n|-------------|------------|\n| **License authority approval** | Verify that your state/provincial/municipal cannabis board permits multi‑strain batches. Some programs require a separate “strain‑specific” license or a specific SOP for blends. |\n| **Batch traceability** | Keep a detailed batch record showing the weight, potency (THC/CBD), terpene profile, and source of each input strain. Include lot numbers and COAs for every input. |\n| **Labeling** | The final product label must accurately reflect the **combined**id/terpene profile and list all strains used (or a generic “blend of X strains”). Do not claim a single‑strain profile if you blended. |\n| **Testing** | Submit the finished blend for a full COA (potency, residual solvents, pesticides, heavy metals, mycotoxins, etc.). The COA must be attached to the batch record and used for labeling. |\n| **THC/CBD limits** | Ensure the blended product stays within the legal THC/CBD limits for your market (e.g., ≤0.3 % Δ⁹‑THC for hemp, ≤30 % THC for recreational). |\n **Good Manufacturing Practices (GMP)** | Follow GMP‑type SOPs for mixing, homogenization, and contamination control. |\n\n---\n\n## 2. Technical considerations  \n\n| Aspect | Guidance |\n|--------|----------|\n| **Why blend?** | • Adjust potency (e.g., raise CBD while keeping THC moderate).<br>• Create a desired terpene synergy (e.g., myrcene‑rich + limonene‑rich).<br>• Economize by using a lower‑cost strain to “top up” a high‑value one. |\n| **Co‑extraction vs. post‑extraction blend** | • *Co‑extraction*: Load both dried biomass together into the extractor. Works well if the strains have similar moisture, particle size, and solvent affinity. <br>• *Post‑extraction blend*: Extract each strain separately, then combine extracts in a controlled ratio. Gives tighter control over final potency and terpene balance, and makes it easier to meet label claims. |\n| **Solvent choice** | Keep the solvent consistent across both inputs (e.g., ethanol, CO₂, hydrocarbon). Switching solvents mid‑batch can cause phase separation or residual‑solvent issues. |\n| **Homogenization** | After blending, use a low‑shear mixer or magnetic stirrer for 5–15 min (or a for small volumes) to achieve a uniform solution before bottling. |\n| **Potency prediction** | Use a simple mass‑balance: <br> \\[Final THC% = (THC₁·wt₁ + THC₂·wt₂) / (wt₁ + wt₂)\\] <br> Same for CBD and major terpenes. Validate with a test sample. |\n| **Stability** | Blends can shift terpene ratios over time (oxidation, volatilization). Add an antioxidant (e.g., tocopherol) and store under nitrogen or inert gas, especially for high‑terpene blends. Conduct a stability study (e.g., 3‑month accelerated at 40 °C/75 % RH). |\n\n---\n\n## 3. Practical SOP outline (post‑extraction blend)\n\n1. **Receive & verify** input biomass COAs (potency, contaminants  \n2. **Weigh** each strain (record weight, lot #).  \n3. **Extract** each strain separately using the same solvent parameters.  \n4. **Run\n\n---\n*Agent: Formulation Agent | Plan: Standard | Tokens: 1208 (208?1000) | Cost: $0.000000*",
+      "duration": 12939,
+      "grade": "F",
+      "score": 54,
+      "grading": {
+        "length": "Pass",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "3/5 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 30,
+      "question": "Do I need to label intermediary oils before refinement is complete?",
+      "category": "extraction-batch-production-rules",
+      "agent": "unknown",
+      "actualAgent": "formulation",
+      "actualAgentName": "Formulation Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": false,
+      "response": "**Short answer:** Yes – most state‑level cannabis regulations (and good‑manufacturing practice standards) require that every container that leaves the extraction area be labeled, even if the oil is only an “intermediate” that will later be refined, blended, or packaged for sale.\n\nBelow is a quick‑reference guide that works for the majority of U.S. jurisdictions (Colorado, Washington, Oregon, California, Massachusetts, etc.) and is also a solid internal‑quality‑system practice if you are operating under a **Standard Plan** SOP.\n\n---\n\n## 1. Why the label is required\n\n| Reason | What it satisfies |\n|--------|-------------------|\n| **Traceability** | Batch/lot number, source material, extraction date → mandatory for recall, audit, and seed‑to‑sale tracking. |\n| **Product safety** | Hazard warnings (e.g., “Not for human consumption – in‑process material”) keep non‑qualified personnel from mishandling. |\n| **Regulatory compliance** | Most state cannabis boards (e.g., COA‑CANN, WA‑Medicinal) explicitly state “all containers must be labeled from the moment of creation.” |\n| **Quality control** | Enables QA to verify potency, terpene profile, and residual solvent limits before the next processing step. |\n| **Inventory management** | Prevents mixing of intermediate and finished product, reduces cross‑contamination risk. |\n\n---\n\n## 2. Minimum label elements for an *intermediate oil*\n\n| Element | Typical wording / format | Notes |\n|---------|--------------------------|-------|\n| **Product identifier** | “Intermediate Cannabis Oil – Batch # XXXX” | Clearly state it is *not* a finished product. |\n| **Date of creation** | “Extraction date: MM/DD/YYYY” | Helps calculate shelf‑life and aging. |\n| **Lot / batch number** | “Lot # YYYY‑ZZZZ” | Must be unique and linked to raw‑material lot numbers. |\n| **Source material** | “Derived from: Strain ABC – Harvest # 2025‑03‑15 – THC ≈ 18 % / ≈ 0.5 % (as‑run)” | Include the raw‑flower or concentrate lot ID. |\n| **Extraction method** | “CO₂ extraction – 350 psi, 45 °C,30 min” (or “Ethanol 95 % w/v, 2 h”) | Required for audit trails. |\n| **Potency estimate** *(if available)* | “THC ≈ 17.2 % ± 0.5 % (pre‑refine)” | Use the most recent analytical result; you can note “subject to verification.” |\n| **Residual solvent / impurity limits** | “Ethanol ≤ 500 ppm (pre‑purge)” | Helpful for in‑process QA. |\n| **Safety / handling warnings** | “Do NOT consume – for manufacturing use only. Keep away from heat, open flame, and children.” | Align with state hazardousmaterial guidelines. |\n| **Storage instructions** | “Store at 2–8 °C, protected from light.” | Prevents degradation before refinement. |\n| **Company / facility info** | “Manufactured by Formul8 Labs, Facility # 01, 123 Greenway Blvd, Denver, CO 80202” | Required for traceability. |\n| **QR / barcode** (optional but recommended) | Links to batch record in LIMS/ERP | Enables rapid scanning during QA. |\n\n**What you *don’t* need:** Full consumer‑facing label elements such as “Suggested use,” “Nutrition facts,” or “THC % per serving.” Those are added only on the final product label.\n\n---\n\n## 3. How to implement it in practice\n\n1. **Create a “pre‑label” template** in your label‑printing software that pulls data automatically from the LIMS/ERP (batch ID\n\n---\n*Agent: Formulation Agent | Plan: Standard | Tokens: 1205 (205?1000) | Cost: $0.000000*",
+      "duration": 13717,
+      "grade": "F",
+      "score": 54,
+      "grading": {
+        "length": "Pass",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "3/5 key words"
+      },
+      "expectedKeywords": []
     }
   ],
-  "status": "In Progress: 20/438 questions completed"
+  "status": "In Progress: 30/438 questions completed"
 }
