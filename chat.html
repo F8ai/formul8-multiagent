@@ -891,9 +891,15 @@
                 transform: translateX(-100%);
             }
             
-            /* Ensure sidebar starts hidden - add collapsed class via CSS if needed */
-            .sidebar:not(.collapsed):not(.sidebar-open) {
-                transform: translateX(-100%);
+            /* Override: Always start hidden on mobile unless explicitly opened */
+            /* Higher specificity to ensure hidden by default */
+            body .app .sidebar {
+                transform: translateX(-100%) !important;
+            }
+            
+            /* Only show when user has explicitly opened it (not collapsed) */
+            body .app .sidebar:not(.collapsed) {
+                transform: translateX(0) !important;
             }
 
             .sidebar-toggle.sidebar-open {
