@@ -877,6 +877,11 @@
                 height: 100%;
                 z-index: 1000;
                 box-shadow: 2px 0 8px rgba(0,0,0,0.3);
+                transform: translateX(-100%);
+            }
+
+            .sidebar:not(.collapsed) {
+                transform: translateX(0);
             }
 
             .sidebar.collapsed {
@@ -885,6 +890,10 @@
 
             .sidebar-toggle.sidebar-open {
                 left: 260px;
+            }
+
+            .sidebar-toggle:not(.sidebar-open) {
+                left: 0;
             }
 
             .welcome h1 {
@@ -910,7 +919,7 @@
 <body>
     <div class="app">
         <!-- Sidebar Toggle -->
-        <button class="sidebar-toggle sidebar-open" id="sidebarToggle" onclick="toggleSidebar()">
+        <button class="sidebar-toggle" id="sidebarToggle" onclick="toggleSidebar()">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M6 4l4 4-4 4"/>
             </svg>
@@ -1975,12 +1984,27 @@
             }
             
             // Start with sidebar collapsed on mobile
-            if (window.innerWidth < 768) {
+            function initializeMobileSidebar() {
                 const sidebar = document.getElementById('sidebar');
                 const toggle = document.getElementById('sidebarToggle');
-                sidebar.classList.add('collapsed');
-                toggle.classList.remove('sidebar-open');
+                const isMobile = window.innerWidth <= 768 || window.matchMedia('(max-width: 768px)').matches;
+                
+                if (isMobile) {
+                    sidebar.classList.add('collapsed');
+                    toggle.classList.remove('sidebar-open');
+                    // Update icon to point right (indicating sidebar is closed)
+                    const icon = toggle.querySelector('svg path');
+                    if (icon) {
+                        icon.setAttribute('d', 'M10 4l-4 4 4 4');
+                    }
+                }
             }
+            
+            // Initialize on load
+            initializeMobileSidebar();
+            
+            // Also handle resize events
+            window.addEventListener('resize', initializeMobileSidebar);
             
             // Load conversations
             loadConversations();
