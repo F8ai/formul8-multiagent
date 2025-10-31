@@ -1,11 +1,11 @@
 {
-  "timestamp": "2025-10-31T15:37:55.918Z",
+  "timestamp": "2025-10-31T15:40:18.747Z",
   "url": "https://chat.formul8.ai",
   "totalQuestions": 438,
-  "completed": 30,
-  "passed": 2,
-  "failed": 28,
-  "averageScore": "42.52",
+  "completed": 40,
+  "passed": 4,
+  "failed": 36,
+  "averageScore": "43.27",
   "averageGrade": "F",
   "results": [
     {
@@ -595,7 +595,203 @@
         "relevance": "3/5 key words"
       },
       "expectedKeywords": []
+    },
+    {
+      "questionNum": 31,
+      "question": "Can I repackage bulk oil into smaller units without creating a new UID?",
+      "category": "inventory-repackaging-tracking",
+      "response": null,
+      "error": "timeout",
+      "duration": 30003,
+      "grade": "F",
+      "score": 0,
+      "actualAgent": "timeout",
+      "actualAgentName": "Request timeout",
+      "expectedAgent": "compliance",
+      "agentMatch": false
+    },
+    {
+      "questionNum": 32,
+      "question": "Is it compliant to pre-fill vape cartridges before the lab test results are back?",
+      "category": "inventory-repackaging-tracking",
+      "agent": "unknown",
+      "actualAgent": "formulation",
+      "actualAgentName": "Formulation Agent",
+      "expectedAgent": "compliance",
+      "agentMatch": false,
+      "response": "**Short answer:**  \nIn virtually all regulated markets (U.S. states with adult‑use programs, Canada, EU, etc.) you **must not release or sell** a vape‑cartridge batch until you have a **complete Certificate of Analysis (COA)** confirming that the product meets potency, contaminant, and label‑claim limits. Pre‑filling cartridges before those results are in is considered non‑compliant and creates a high risk of a recall, enforcement action, or civil penalty.\n\n---\n\n## Why the COA must come **first**\n\n| Reason | What it means for pre‑filling |\n|--------|------------------------------|\n| **Potency verification** | THC/CBD % must match the label. Without a COA you cannot guarantee the claim, so the cartridge could be under‑ or over‑dosed. |\n| **Contaminant limits** | Pesticides, heavy metals, residual solvents, micro‑bials, and mycotoxins have strict ceilings. A cartridge filled before testing could contain a failed batch that will later have to be destroyed. |\n| **Batch integrity** | The COA is the “release document” that ties a specific extraction batch to a specific fill batch. Filling first breaks that traceability chain. |\n| **Regulatory wording** | Most state statutes (e.g., CA B.6, MA R. 2022‑13, CO A.21‑13, Canada SOR/2022‑202) state that **“no product may be placed in commerce until a satisfactory lab result is on file.”** The same language is used in most EU Novel‑Food and GMP frameworks. |\n| **Insurance & liability** | Insurance policies and product‑liability coverage often require proof of test results before the product is considered “released.” |\n| **Consumer safety** | A cartridge that later fails for solvents or pesticides could expose users to acute health risks. |\n\n---\n\n## Typical regulatory workflow (U.S. example)\n\n1. **Extraction → Homogenize → Sample for lab**  \n2. **Lab receives a *representative* sample** (usually 5 g) and issues a **COA** (potency, residual solvents, pesticides, microbial, water activity).  \n3. **Hold/Quarantine** the bulk extract until the COA is received and reviewed.  \n4. **Release decision:** If the COA meets all specifications, **release the bulk extract** to the fill line.  \n5. **Cartridge filling** (including any post‑fill testing such as terpene profiling or batch‑specific potency checks).  \n6. **Final product COA** (optional but often required for retail) is generated from a *post‑fill* sample.\n\nOnly **after step 4** should the cartridge be filled. Some states allow a “provisional” fill for **internal R&D** (not for sale) if the lab is performing a “fast‑track” analysis, but the product must stay in a controlled quarantine area and cannot be distributed.\n\n---\n\n## When “pre‑fill” might be **conditionally acceptable**\n\n| Situation | Conditions that may make it permissible (still risky) |\n|-----------|------------------------------------------------------|\n| **Internal R&D / pilot batch** | - No commercial distribution. <br> - Lab is testing the exact same extract that will be filled. <br> - All containers are sealed, labeled “Research Use Only.” |\n| **State‑approved “pre‑release” program** | A few states (e.g., Oregon’s “lab‑hold” provision) allow a short‑term hold where the product can be filled but must stay in a **state‑approved quarantine** until the COA is attached. The inventory system must record the batch number and COA link. |\n| **Emergency “re‑pack” of an existing, already‑tested lot** | If the extract has a **valid, unexpired COA** (usually 90‑180 days) and the same lot is simply transferred to a new cartridge, a new COA is not required, but the original COA must be attached to the cartridge label or batch record. |\n\nIf you are **selling** to consumers, the answer\n\n---\n*Agent: Formulation Agent | Plan: Standard | Tokens: 1176 (176?1000) | Cost: $0.000000*",
+      "duration": 4287,
+      "grade": "F",
+      "score": 57,
+      "grading": {
+        "length": "Pass",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "4/5 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 33,
+      "question": "Do I have to update the batch weight in the system if I lose some product to spillage?",
+      "category": "inventory-repackaging-tracking",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "compliance",
+      "agentMatch": false,
+      "response": "Yes—you should record any product loss in the batch record and adjust the batch weight in your tracking system.  \n\n### Why it matters\n| Reason | What it impacts |\n|--------|-----------------|\n| **Regulatory compliance** | State‑mandated track‑and‑trace (e.g., METRC, BioTrackTHC) requires that every gram entering or leaving a batch be documented, including waste or spillage. |\n| **Accurate inventory** | Adjusted weight keeps your on‑hand inventory numbers correct, preventing over‑ or under‑ordering. |\n| **Yield & potency calculations** | Final yield percentages and potency per gram are based on the net weight that actually makes it into the finished product. |\n| **Audit trail** | A documented waste entry provides traceability for internal audits and external inspections. |\n\n### Typical SOP steps\n\n1. **Quantify the loss** – Weigh the spillage/waste as precisely as possible (e.g., to the nearest 0.01 g).  \n2. **Create a waste entry** – In your batch management software:\n   - Select “Waste,” “Spillage,” or the equivalent transaction type.  \n   - Enter the amount lost, the reason (e.g., “spillage during transfer”), and the date/time.  \n   - Attach any supporting documentation (photos, supervisor sign‑off, etc.).  \n3. **Adjust the batch weight** – The system will automatically subtract the waste amount from the batch’s net weight. Verify that the new weight matches the sum of all recorded inputs minus outputs.  \n4. **Update related calculations** – Ensure that yield, potency, and cost per gram are recalculated based on the revised net weight.  \n5. **Notify relevant personnel** – Depending on your SOP, a supervisor, QA lead, or compliance officer may need to review and sign off the waste entry.  \n6. **Report to the state system** – If you’re using a state‑run track‑and‑trace, push the waste adjustment so the official inventory reflects the change.\n\n### Quick checklist\n\n- [ ] Measured loss accurately.  \n- [ ] Logged waste in the batch record (incl. reason, amount, time, and responsible staff).  \n- [ ] Adjusted the batch’s net weight in the system.  \n- [ ] Re‑calculated yield/potency/costs.  \n- [ ] Obtained required approvals/sign‑offs.  \n- [ ] Synced the change to any external compliance platform.\n\n### Bottom line\nNever leave the loss unrecorded. Even small spillage can affect compliance, cost accounting, and product consistency. Updating the batch weight (and creating a waste entry) ensures you stay audit‑ready and maintain accurate operational data.  \n\n*If you use a specific software platform (e.g., METRC, BioTrackTHC, Leaflogix), let me know and I can walk you through the exact screen steps.*\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 978 (171?807) | Cost: $0.000000*",
+      "duration": 6269,
+      "grade": "D",
+      "score": 60,
+      "grading": {
+        "length": "Pass",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "5/5 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 34,
+      "question": "Do I need to generate a new COA if I repackage the same batch in a different container?",
+      "category": "inventory-repackaging-tracking",
+      "agent": "unknown",
+      "actualAgent": "formulation",
+      "actualAgentName": "Formulation Agent",
+      "expectedAgent": "compliance",
+      "agentMatch": false,
+      "response": "**Short answer:**  \nIn most jurisdictions you do **not** have to generate a completely new Certificate of Analysis (COA) when you simply move an already‑tested batch of cannabis product into a different container, **provided that**:\n\n1. The product’s** (THC, CBD, terpenes, contaminants, potency, etc.) is unchanged.  \n2. The new container **does not introduce any new variables** (e.g., leaching, oxygen permeability, light exposure) that could affect stability or safety.  \n3. You keep a **full chain‑of‑custody / repackaging record** that ties the new package back to the original COA.\n\nHowever, many state‑level cannabis regulators (and some private‑label contracts) require **additional documentation**—often called a “Repackaging Certificate,” “Packaging Transfer Sheet,” or a **supplemental COA**—to demonstrate that the repackaging step was performed under controlled conditions and that the product remains compliant.\n\n---\n\n## 1. What the COA Actually Covers\n\n| Element | Typical Scope of a COA |\n|---------|------------------------|\n| **Potency** (THC, CBD, other cannabinoids) | Measured on the **batch** as received from the lab. |\n| **Terpene profile** | Same batch, same sample. |\n| **Contaminants** (pesticides, heavy metals, residual solvents, microbial) | Tested on the batch; assumes no post‑test contamination. |\n| **Moisture / Water Activity** | Often included for edibles and topicals. |\n| **Stability data** | May include a “shelf‑life” projection based on the original packaging. |\n\nA COA **does not** automatically certify downstream packaging steps unless the lab specifically tests the product **after** those steps.\n\n---\n\n## 2. When a New COA *Is* Required\n\n| Situation | Reason | Typical Requirement |\n|-----------|--------|---------------------|\n| **Changing the container material** (e.g., glass → plastic, metal → silicone) | Potential for leaching, adsorption, or altered oxygen/moisture barrier | New stability test or supplemental COA confirming no impact on potency/contaminants. |\n| **Adding a secondary ingredient** (e.g., flavor, carrier oil) | Alters composition | Full re‑analysis required. |\n| **Significant alteration of storage conditions** (e.g., exposure to light, temperature swing) | May degrade cannabinoids/terpenes | Stability study or repeat testing. |\n| **Regulatory mandate** (many states: “Packaging Transfer” documentation) | Legal traceability | Repackaging record + reference to original COA; often a “Certificate of Transfer.” |\n| **Batch split** (portion of a batch goes into a new container and the rest stays) | Need to track which sub‑lot corresponds to which COA | Split‑lot documentation; COA still applies to each sub‑lot as long as composition is unchanged. |\n\n---\n\n## 3. Best‑Practice Workflow for Repackaging\n\n1. **Verify Original COA**  \n   - Confirm that the COA is still **valid** (not expired, no pending corrective actions).  \n   - Ensure the COA covers all required analytes for your product category.\n\n2. **Select an Inert, Approved Container**  \n   - Use packaging that is **GRAS‑listed** (for edibles) or **pharma‑grade** (for topicals).  \n   - Check the container’s **material safety data sheet (MSDS)** for potential leachables.\n\n3. **Perform a “Packaging Transfer” Test (if required)**  \n   - Take a **representative sample** from the new container and send it to an accredited lab for a **limited panel** (potency + key contaminants).  \n   - Many labs offer a “post‑packaging verification” package that is quicker and cheaper than a full COA.\n\n4. **Document the Process**  \n   - **Batch Transfer Form**:\n\n---\n*Agent: Formulation Agent | Plan: Standard | Tokens: 1214 (214?1000) | Cost: $0.000000*",
+      "duration": 13066,
+      "grade": "F",
+      "score": 54,
+      "grading": {
+        "length": "Pass",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "3/5 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 35,
+      "question": "Can I submit test results to regulators before final packaging is complete?",
+      "category": "inventory-repackaging-tracking",
+      "response": null,
+      "error": "timeout",
+      "duration": 30002,
+      "grade": "F",
+      "score": 0,
+      "actualAgent": "timeout",
+      "actualAgentName": "Request timeout",
+      "expectedAgent": "compliance",
+      "agentMatch": false
+    },
+    {
+      "questionNum": 36,
+      "question": "Am I allowed to digitally sign the waste disposal manifest, or do I need a physical copy?",
+      "category": "recordkeeping-logs",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "compliance",
+      "agentMatch": false,
+      "response": "**Short answer:** In most U.S. jurisdictions you *can* use an electronic signature on a waste‑disposal manifest **if** the state‑specific cannabis regulations (or the EPA’s hazardous‑waste rules, when applicable) expressly permit it and you follow the required authentication and record‑keeping controls. If the law is silent or mandates a handwritten signature, you’ll need a physical copy.\n\n---\n\n## 1. What the major regulators say\n\n| Regulator | General stance on e‑signatures for manifests |\n|-----------|----------------------------------------------|\n| **State cannabis boards** (e.g., CA Bureau of Cannabis Control, CO Department of Revenue) | Many have adopted the **Uniform Electronic Transactions Act (UETA)** or **ESIGN Act** and allow electronic signatures *provided* the system meets audit‑trail, tamper‑evidence, and signer authentication requirements. Some states (e.g., Washington) still require a **wet‑ink** signature on the original paper manifest. |\n| **EPA – RCRA (hazardous waste)** | The EPA permits electronic signatures on **Uniform Hazardous Waste Manifest (Form 8700‑12)** if the state agency has authorized electronic filing. The signatory must use a “**digital signature**” that meets 40 CFR 262.11‑262.13 (electronic record‑keeping). |\n| **Federal (21 CFR Part 70 – marijuana)** | No direct rule on manifests; compliance is driven by the state’s implementation of the **National Cannabis Industry Association (NCIA) best‑practice guidelines**, which generally accept e‑signatures when they are “legally equivalent to a handwritten signature.” |\n\n---\n\n## 2. Typical requirements for a compliant electronic signature\n\n1. **Authentication** – Verify the signer’s identity (e.g., two‑factor login, digital certificate, PKI).  \n2. **Intent to sign** – The signer must take a clear, affirmative action (click “I Agree,” type name + date, etc.).  \n3. **Integrity** – The manifest must be locked after signing (hash‑based tamper detection, audit log).  \n4. **Retention** – Store the signed PDF/record in an immutable, searchable repository for the statutory retention period (often 3–5 years).  \n5. **Accessibility** – The record must be retrievable in its original form for inspection by regulators.  \n\nIf your software or platform (e.g., DocuSign, Adobe Sign, a custom LIMS) satisfies the above, most states will accept it.\n\n---\n\n## 3. How to verify the rule for *your* location\n\n1. **Check the state cannabis board’s “Manifest” guidance** – Look for a PDF titled “Waste Disposal Manifest – Electronic Signature Policy” or a section in the **Regulatory Compliance Manual**.  \n2. **Search the state’s Administrative Code** – Keywords: “electronic signature,” “manifest,” “waste disposal.”  \n3. **Contact the state’s Compliance Hotline** – A quick call can confirm whether a wet‑ink signature is still required.  \n4. **Review any “Electronic Record‑Keeping” SOPs** your company already has; they often reference the manifest.  \n\n*Example:*  \n- **California** – The **California Cannabis Track-and-Trace (CCTT) System** allows electronic signatures on the “Manifest of Transfer” as long as the signature is captured via a “digital certificate‑based” method.  \n- **Colorado** – The **Colorado Marijuana Enforcement Division (MED)** still requires a *hand‑signed* copy for the “Manifest of Waste” (see MED‑2023‑08).  \n\n---\n\n## 4. Practical steps you can take today\n\n| Step | Action |\n|------|--------|\n| **1. Identify the governing authority** | Determine whether the manifest falls under state cannabis waste rules or EPA hazardous‑waste rules. |\n| **2. Review the latest version of the manifest** | Look for a “Signature Method” field; many now include “Electronic Signature – Yes/No.” |\n| **3. Choose an approved e‑sign platform** | Ensure it provides audit logs, tamper‑evidence, and complies with\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1170 (170?1000) | Cost: $0.000000*",
+      "duration": 12029,
+      "grade": "F",
+      "score": 54,
+      "grading": {
+        "length": "Pass",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "3/5 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 37,
+      "question": "How long do I need to retain extraction logbooks for compliance?",
+      "category": "recordkeeping-logs",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "compliance",
+      "agentMatch": false,
+      "response": "**Retention period for extraction logbooks**  \nThe exact requirement varies by state (and sometimes by local municipality), but most U.S. cannabis regulators fall into one of the following bands:\n\n| State / Typical Requirement | Minimum Retention Period |\n|-----------------------------|--------------------------|\n| **California (B&C)**        | 3 years (from the date of the entry) |\n| **Colorado**                | 2 years (for all cultivation & extraction records) |\n| **Oregon**                  | 2 years (records must be “readily accessible”) |\n| **Washington**              | 3 years (including extraction logs) |\n| **Michigan**                | 3 years |\n| **Illinois**                | 5 years (most documentation, including extraction) |\n| **Massachusetts**           | 3 years |\n| **New York**                | 5 years (records for manufacturing/processing) |\n| **Other states**            | Typically 2‑5 years; check the specific state’s “Cultivation/Processing/Manufacturing” regulations. |\n\n### Why the range?\n- **State statutes & licensing rules** dictate the period; they are often tied to the “record‑keeping” sections of the state’s cannabis code.\n- **Audit cycles**: many states conduct random compliance audits that look back 2‑3 years, so a 5‑year buffer is a common best‑practice.\n\n### Practical recommendations\n\n1. **Identify your jurisdiction** – Look up the exact statute or licensing handbook (e.g., CO‑MED‑1‑001 in Colorado, B&C‑509 in California).  \n2. **Adopt the longest required period** – If you operate in multiple states, keep logs for the longest mandated timeframe (often 5 years).  \n3. **Store securely & accessibly**  \n   - Digital backups (encrypted, immutable storage) are acceptable in most states if you can produce them on demand.  \n   - Retain originals (paper or PDF) for the full period in case an audit requests physical copies.  \n4. **Implement a retention schedule** – Automate archival and deletion after the required period to avoid “over‑retention” (which can create liability under data‑privacy rules).  \n5. **Document the policy** – Keep a “Record‑Retention SOP” that cites the specific statutes you’re complying with; this itself helps demonstrate good‑faith compliance.  \n\n### Quick checklist for extraction logbooks\n\n- **Date & time of each extraction run**  \n- **Batch/lot numbers** (raw material, intermediate, final product)  \n- **Equipment used & calibration status**  \n- **Operator signatures** (or electronic authentication)  \n- **Yield calculations & potency results**  \n- **Cleaning & maintenance records**  \n- **Deviations & corrective actions**  \n\nIf you’re unsure which rule applies to your operation, the safest default is **5 years** of retention, with a clear, auditable system for retrieval. Always verify against the most recent version of your state’s cannabis regulations or consult a compliance attorney for your specific license.\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 950 (165?785) | Cost: $0.000000*",
+      "duration": 6309,
+      "grade": "F",
+      "score": 56.25,
+      "grading": {
+        "length": "Pass",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "3/4 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 38,
+      "question": "Can I dispose of spent biomass without mixing it with non-consumable waste first?",
+      "category": "waste-management-compliance",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "compliance",
+      "agentMatch": false,
+      "response": "**Short answer:**  \nIn most U.S. jurisdictions you **cannot** throw spent cannabis biomass straight into the regular trash without first rendering it “non‑consumable” (e.g., shredding, grinding, mixing with non‑cannabis waste, or using an approved destruction method). The exact requirement varies by state, but the federal DEA and most state cannabis boards treat spent plant material as **controlled‑substance waste** that must be made unusable before disposal.\n\n---\n\n## Why the extra step is required\n\n| Level | Requirement | What it means for spent biomass |\n|------|--------------|---------------------------------|\n| **Federal (DEA)** | Schedule I material must be “rendered non‑consumable” before disposal. | Shred, grind, or otherwise destroy the plant material so it can’t be re‑processed. |\n| **State (example)** | **California** – BOC (Department of Cannabis Control) § 1136.5: Waste must be rendered non‑consumable **or** mixed with non‑cannabis waste before landfill/incineration. | Mix with municipal solid waste **or** use a licensed waste‑destruction service. |\n| **Local / County** | Often stricter – may require a manifest, a licensed hauler, or on‑site composting permits. | Follow the local waste‑hauler’s SOP and keep records. |\n\n*The “mix‑with‑non‑consumable waste” clause is a shortcut many businesses use because it satisfies the “rendered non‑consumable” test without having to run a separate destruction process.*\n\n---\n\n## Typical compliance pathways\n\n1. **On‑site rendering**\n   - **Shred/Grind** the biomass to < 1 cm particles (or use a dedicated grinder).\n   - **Mix** the shredded material with at least a 1:1 ratio of non‑cannabis waste (e.g., packaging, cardboard, wood chips).  \n   - **Document** the process (date, weight, method) and retain for audit.\n\n2. **Licensed waste‑destruction services**\n   - Contract a **DEA‑registered** or state‑licensed waste hauler.\n   - They will **incinerate**, **autoclave**, or **compost** the material under permit.\n   - You receive a **Certificate of Destruction** or **manifest** for your records.\n\n3. **Composting (where permitted)**\n   - Obtain a **commercial composting permit** (many states require this for cannabis waste).\n   - Compost must be **thermally processed** (≥ 55 °C for ≥ 3 days) to ensure the cannabinoids are destroyed.\n   - Final compost can be used for non‑food landscaping; it cannot be sold as fertilizer for edible crops.\n\n---\n\n## Practical checklist for a typical dispensary/processing facility\n\n| ✅ Item | Why it matters |\n|--------|----------------|\n| **Standard Operating Procedure (SOP)** for waste rendering (shred, mix ratio, PPE). | Shows you have a repeatable, compliant process. |\n| **Record‑keeping**: weight of biomass, date, method, person responsible, and disposal manifest. | Required for state audits and DEA inspections. |\n| **Licensed hauler contract** (if you outsource). | Guarantees the waste is handled under a permit. |\n| **Training** for staff on waste handling and security (e.g., locked waste containers). | Prevents diversion and maintains compliance. |\n| **Local ordinance check** (city/county). | Some locales ban landfill disposal of cannabis waste altogether. |\n| **Annual waste audit\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1168 (168?1000) | Cost: $0.000000*",
+      "duration": 8442,
+      "grade": "F",
+      "score": 57,
+      "grading": {
+        "length": "Pass",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "4/5 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 39,
+      "question": "Is it okay to store cannabis waste in the same area as general lab trash temporarily?",
+      "category": "waste-management-compliance",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "compliance",
+      "agentMatch": false,
+      "response": "**Short answer:** No – cannabis waste should never be mixed with ordinary lab trash, even for a short‑term hold. Most state‑level cannabis regulations (and good laboratory practice) require that cannabis‑related waste be stored separately, securely labeled, and kept out of the general waste stream until it can be properly disposed of.\n\n---\n\n### Why separate storage is required\n\n| Reason | Explanation |\n|--------|-------------|\n| **Regulatory compliance** | Most state cannabis statutes (e.g., California Bureau of Cannabis Control, Colorado Regulation 43‑R‑2021, etc.) explicitly mandate that cannabis waste be kept in a *dedicated, locked* container or area distinct from non‑cannabis waste. Mixing wastes can be deemed a violation and may trigger fines or license jeopardy. |\n| **Security & diversion risk** | Cannabis waste still contains usable product (e.g., plant material, residues). Mixing it with general trash makes it easier for unauthorized persons to retrieve or divert it. |\n| **Environmental & health safety** | Cannabis waste can contain solvents, pesticides, or other hazardous residues. Proper segregation ensures that waste‑handling contractors can treat it correctly and that it doesn’t contaminate municipal landfill streams. |\n| **Audit trail** | Separate containers are usually required to be labeled with “Cannabis Waste – Do Not Mix” and tracked in a waste‑log. This provides a clear audit trail for regulators. |\n\n---\n\n### Minimum best‑practice requirements (typical across most jurisdictions)\n\n1. **Dedicated container** – A lockable, opaque bin or dumpster that is *exclusively* for cannabis waste.  \n2. **Labeling** – Clearly mark the container (“Cannabis Waste – Secure, Do Not Mix”).  \n3. **Access control** – Only authorized personnel may open the container; keep a key log.  \n4. **Limited storage time** – Most regulations allow only a short interim period (often **≤ 24 hours** or **72 hours**) before the waste must be transferred to an approved disposal service. Check your state’s specific timeframe.  \n5. **Documentation** – Record the date, quantity, and person responsible for each waste addition in a waste‑logbook or electronic system.  \n6. **Disposal** – Arrange for a licensed cannabis‑waste disposal vendor (incineration, composting, or approved landfill) as soon as possible.\n\n---\n\n### Quick “Do‑It‑Right” checklist\n\n- ☐ Is the waste in a **locked, clearly labeled cannabis‑only bin**?  \n- ☐ Is the bin **separate** from all non‑cannabis trash?  \n- ☐ Are **only authorized staff** allowed to access it?  \n- ☐ Have you **recorded** the waste entry (date, weight, staff)?  \n- ☐ Is the waste **scheduled for removal** within the state‑mandated timeframe?  \n\nIf any of the above boxes are unchecked, you need to correct the storage method immediately.\n\n---\n\n### What to do if you’ve already mixed waste\n\n1. **Isolate the mixed material** – Retrieve the cannabis portion (if identifiable) and place it into the proper container.  \n2. **Document the incident** – Note the date, quantity, cause, and corrective actions taken.  \n3. **Notify your compliance officer** – Some states require incident reporting within a specific window (e.g., 24 hours).  \n4. **Review SOPs** – Update standard operating procedures to prevent recurrence (e.g., add a visual cue or barrier between waste streams).  \n\n---\n\n### Bottom line\n\n- **Never** store cannabis waste with general lab trash, even temporarily.  \n- Follow state‑mandated segregation, labeling, security, and documentation requirements.  \n- Use a dedicated, locked container and arrange prompt disposal through a licensed vendor.\n\nIf you need the exact regulation for your state or help drafting a compliant waste‑SOP, let me know and I can route you to a compliance‑focused specialist.\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1084 (169?915) | Cost: $0.000000*",
+      "duration": 14982,
+      "grade": "D",
+      "score": 60,
+      "grading": {
+        "length": "Pass",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "5/5 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 40,
+      "question": "Do I need a secondary person to verify destruction of cannabis waste?",
+      "category": "waste-management-compliance",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "compliance",
+      "agentMatch": false,
+      "response": "**Short answer:**  \nIn most U.S. cannabis‑regulating states, **yes – a second, authorized person (or a licensed waste‑disposal contractor) must witness and sign off on the destruction of cannabis waste**. The exact requirement varies by state, waste type, and the wording of your state’s cannabis‑waste regulations.\n\nBelow is a concise guide that lets you quickly determine whether you need a secondary verifier, what that verifier must do, and how to stay compliant.\n\n---\n\n## 1. Why a “secondary person” is usually required\n\n| Reason | What it means for you |\n|--------|-----------------------|\n| **Regulatory oversight** | State cannabis boards treat waste as a potential diversion risk. A second witness helps prove that waste was actually destroyed and not diverted. |\n| **Manifest & tracking requirements** | Many states require a waste‑manifest (or “track‑and‑trace”) that must be signed by **both** the generator and the verifier. |\n| **Audit trail** | During a state audit, the regulator will ask for a signed “destruction log” that lists who witnessed the process, the method, date/time, and quantity. |\n| **Liability protection** | Having an independent witness reduces the risk that the waste‑destruction event could be challenged later (e.g., in a compliance audit or legal dispute). |\n\n---\n\n## 2. State‑by‑state snapshot (as of 2024‑06)\n\n| State | Waste Types Covered | Secondary‑Person Requirement | Typical Verification Method |\n|-------|--------------------|------------------------------|------------------------------|\n| **California** | Cannabis‑specific waste (plant material, product remnants, packaging) | **Required** – a “witness” must sign the waste‑manifest or destruction log. | Signed paper log, electronic system (METRC) with photo/video. |\n| **Colorado** | All cannabis waste (including hazardous solvents) | **Required** – a “designated verifier” must be present for each destruction event. | Written sign‑off + optional video. |\n| **Oregon** | Plant waste, product waste, hazardous waste | **Required** – a second authorized employee must co‑sign the waste‑manifest. | Electronic record (OTC‑METRC) with timestamped photo. |\n| **Washington** | All cannabis waste | **Required** – a “witness” must be present for any destruction not performed by a licensed waste contractor. | Signed log or electronic record. |\n| **Massachusetts** | Plant and product waste (non‑hazardous) | **Required** – a second adult employee must co‑sign the waste‑disposal form. | Paper log; electronic optional. |\n| **Michigan** | Plant waste, product waste, hazardous waste | **Required** – a \"witness\" must sign the waste‑manifest. | Electronic system (MMP‑METRC) with photo. |\n| **Illinois** | All cannabis waste | **Required** – a second authorized person must witness and sign. | Signed log; video optional. |\n| **Other states** (e.g., Alaska, Nevada, New Mexico, etc.) | Generally follow the same pattern: a second authorized person or a licensed contractor must document destruction. | **Most require a verifier** – check your specific state’s “Cannabis Waste Management” rule. |\n\n> **Bottom line:** If your state is one of the 23 that have a cannabis‑specific waste rule (the list above covers the majority), you will need a secondary verifier **unless** you outsource destruction to a licensed waste‑disposal company that provides its own certification.\n\n---\n\n## 3. Who can be the secondary verifier?\n\n| Criteria | Typical examples |\n|----------|-------------------|\n| **Authorized employee** | An employee who is not the primary waste generator (e.g., a manager, compliance officer, or security staff). |\n| **Licensed waste contractor** | If you contract with a state‑approved disposal service, the contractor’s driver/technician acts as the verifier and supplies a Certificate of\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1131 (131?1000) | Cost: $0.000000*",
+      "duration": 13423,
+      "grade": "F",
+      "score": 57,
+      "grading": {
+        "length": "Pass",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "4/5 key words"
+      },
+      "expectedKeywords": []
     }
   ],
-  "status": "In Progress: 30/438 questions completed"
+  "status": "In Progress: 40/438 questions completed"
 }
