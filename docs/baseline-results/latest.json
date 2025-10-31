@@ -1,11 +1,11 @@
 {
-  "timestamp": "2025-10-31T21:39:46.970Z",
+  "timestamp": "2025-10-31T21:41:58.833Z",
   "url": "https://chat.formul8.ai",
   "totalQuestions": 438,
-  "completed": 70,
-  "passed": 39,
-  "failed": 31,
-  "averageScore": "57.27",
+  "completed": 80,
+  "passed": 41,
+  "failed": 39,
+  "averageScore": "53.19",
   "averageGrade": "F",
   "results": [
     {
@@ -3533,7 +3533,275 @@
         "quality"
       ],
       "expectedAnswer": "**Evaluating process validation summary** I need to create a concise summary about validating a new process window in the cannabis industry, focusing on things like DOE plan, acceptance criteria, and run count. The RAG context items, like CBD synthases and dosing, seem unrelated to process validation. It looks like they might not be relevant. However, I have to generate a general answer regarding validation and incorporate regulatory details from states such as California, Colorado, and Massachusetts, along with Health Canada guidelines.**Evaluating cannabis process validation** I need to create a concise summary focused on validating a new process window for the cannabis industry, like the DOE plan, acceptance criteria, and run count. The RAG context items about CBD nitric oxide synthases and others seem unrelated, which is confusing since the instruction emphasizes relevant content. I also want to include regulatory details, particularly cGMP requirements from states like California, Colorado, Massachusetts, and possibly Health Canada to ensure it aligns with cannabis manufacturing formulations."
+    },
+    {
+      "questionNum": 71,
+      "question": "What’s a good template for a weekly operations scorecard (throughput, yield, scrap, OEE)?",
+      "category": "production-&-process-optimization",
+      "response": null,
+      "error": "HTTP 400: Bad Request",
+      "duration": 3675,
+      "grade": "F",
+      "score": 0,
+      "actualAgent": "error",
+      "actualAgentName": "HTTP 400",
+      "expectedAgent": "formulation",
+      "agentMatch": false
+    },
+    {
+      "questionNum": 72,
+      "question": "My chiller is overheating and shutting off—what should I check first and why?",
+      "category": "extraction-&-processing-crosscutting",
+      "response": null,
+      "error": "HTTP 400: Bad Request",
+      "duration": 3374,
+      "grade": "F",
+      "score": 0,
+      "actualAgent": "error",
+      "actualAgentName": "HTTP 400",
+      "expectedAgent": "extraction",
+      "agentMatch": false
+    },
+    {
+      "questionNum": 73,
+      "question": "My extract is coming out darker than normal in ethanol—what are the top causes to investigate?",
+      "category": "extraction-&-processing-crosscutting",
+      "response": null,
+      "error": "HTTP 400: Bad Request",
+      "duration": 3662,
+      "grade": "F",
+      "score": 0,
+      "actualAgent": "error",
+      "actualAgentName": "HTTP 400",
+      "expectedAgent": "extraction",
+      "agentMatch": false
+    },
+    {
+      "questionNum": 74,
+      "question": "What might cause solvent recovery rates to drop, and how do I troubleshoot?",
+      "category": "extraction-&-processing-crosscutting",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "extraction",
+      "agentMatch": false,
+      "response": "### Why Solvent‑Recovery Rates Can Slip\n\n| Category | Typical Culprit | How It Affects Recovery |\n|----------|----------------|--------------------------|\n| **Equipment integrity** | Leaking seals, cracked hoses, loose fittings, worn O‑rings | Solvent escapes the loop instead of being condensed → lower overall recovery. |\n| **Condensation efficiency** | Dirty or fouled condenser tubes, insufficient coolant flow, low coolant temperature, inadequate surface area | Vapor does not fully condense → more solvent is vented or re‑evaporates downstream. |\n| **Thermal control** | Hot‑spot in the extraction vessel, temperature set too high, poor heat‑exchange balance | Solvent stays in the vapor phase longer, reducing the amount that can be captured in the condenser. |\n| **Vacuum/pressure** | Pump wear, leak in vacuum line, clogged filter, incorrect set‑point | Higher pressure raises boiling point → more solvent remains gaseous and can bypass the condenser. |\n| **Flow dynamics** | Pump cavitation, restricted inlet/outlet, clogged filtration media, oversized venturi | Inadequate liquid‑vapor separation → solvent is carried out with purge gas. |\n| **Process parameters** | Over‑loading the extractor, too high a solvent‑to‑biomass ratio, rapid purge cycles | Excess vapor load overwhelms the recovery train. |\n| **Maintenance & fouling** | Resin/plant wax buildup on heat‑exchange surfaces, carbon buildup on tubing | Reduces heat transfer and creates “cold spots” where solvent re‑evaporates. |\n| **Instrumentation drift** | Mis‑calibrated temperature/pressure sensors, faulty flow meters | Operators may run the system out of spec without realizing it. |\n| **Operator error** | Wrong set‑points, premature venting, forgetting to engage the recycle valve | Direct loss of solvent that could have been recovered. |\n\n---\n\n### Step‑by‑Step Troubleshooting Guide  \n\n1. **Gather Baseline Data**  \n   - Pull the last 5‑10 runs from the SCADA/PLC log: temperature, pressure, coolant flow, pump RPM, recovery % (pre‑ and post‑run).  \n   - Compare to the “gold‑standard” run when recovery was optimal.\n\n2. **Visual & Physical Inspection**  \n   - **Leaks:** Spray a soapy water solution on all fittings, hoses, and the condenser shell while the system is pressurized (low pressure). Bubbles = leak.  \n   - **Condensor:** Check for fouling, scale, or wax buildup. If the tubes are cloudy, schedule a clean‑out (solvent flush + mechanical brushing).  \n   - **Coolant Loop:** Verify coolant temperature (ΔT across the condenser should be ≥ 10 °C). Confirm pump flow (use a calibrated flow‑meter).  \n\n3. **Pressure & Vacuum Check**  \n   - Measure actual vacuum at the extractor outlet with a calibrated gauge.  \n   - Listen for pump whine or vibration → possible pump wear.  \n   - Perform a leak‑check on the vacuum line (use a helium leak detector or pressurize with nitrogen and watch for pressure drop).  \n\n4. **Thermal Profile Audit**  \n   - Map temperature points: extraction vessel, inlet to condenser, outlet of condenser, and recycle line.  \n   - Look for unexpected spikes (> 5 °C above set‑point) that indicate inadequate cooling or excess heat input.  \n\n5. **Flow Verification**  \n   - Check pump head and flow rate against spec.  \n   - Inspect inlet and outlet filters for clogging; replace or clean.  \n   - Confirm that the recycle valve opens/closes at the correct time (use a handheld pressure transducer to see pressure changes when the valve toggles).  \n\n6. **Instrumentation Calibration**  \n   - Re‑calibrate temperature probes, pressure transducers, and flow meters per manufacturer schedule (usually every 6 months).  \n   - Cross‑check a sensor with a handheld reference to spot drift.  \n\n7. **Process Review**  \n   - Verify batch size and solvent‑to‑biomass ratio. Over‑loading can saturate the condenser.  \n   - Review purge schedule: a too‑aggressive purge can carry solvent out before condensation.  \n\n8. **\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1166 (166?1000) | Cost: $0.000000*",
+      "duration": 8647,
+      "grade": "C",
+      "score": 70,
+      "grading": {
+        "length": "Pass",
+        "keywords": "2/5 matched",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "3/5 key words"
+      },
+      "strengths": [],
+      "weaknesses": [],
+      "feedback": "",
+      "gradingMethod": "unknown",
+      "expectedKeywords": [
+        "extraction",
+        "processing",
+        "batch",
+        "method",
+        "might"
+      ],
+      "expectedAnswer": ""
+    },
+    {
+      "questionNum": 75,
+      "question": "Why am I seeing pressure spikes during hydrocarbon recovery?",
+      "category": "extraction-&-processing-crosscutting",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "extraction",
+      "agentMatch": false,
+      "response": "### Quick Overview  \nPressure spikes during hydrocarbon (butane, propane, etc.) recovery are a common symptom of **process‑flow or equipment‑control issues**. They can affect product quality, safety, and throughput, so it’s worth pinpointing the root cause quickly.\n\n---\n\n## 1. Typical Causes\n\n| Category | What Happens | Why It Produces a Spike |\n|----------|--------------|------------------------|\n| **Temperature shifts** | Solvent warms up during recovery (e.g., from ambient or internal heat) | Solvent vapor pressure rises sharply (∼10 psi/°C for butane). |\n| **Flow restriction / blockage** | Filters, check‑valves, or tubing become clogged | Pump keeps delivering the same volume → pressure builds upstream. |\n| **Improper valve timing** | Recovery valve opens too quickly or closes prematurely | Sudden change in flow path creates a pressure “shock.” |\n| **Pump performance** | Pump runs at higher than set speed or cavitates | Generates higher discharge pressure. |\n| **Solvent over‑fill** | Too much solvent left in the extractor before recovery | Extra liquid vaporizes during depressurization, adding pressure. |\n| **Leak‑induced back‑pressure** | Small leaks in the recovery line cause the system to “pull” harder | The pump works harder, raising pressure. |\n| **Control‑system drift** | PID set‑points drift or sensor calibration off | The controller may overshoot the target pressure. |\n| **Ambient pressure changes** | Sudden barometric shifts (e.g., weather front) | Affects absolute pressure readings, especially if using gauge‑type sensors. |\n\n---\n\n## 2. Diagnostic Checklist (5‑Minute Walk‑Through)\n\n| Step | Action | What to Look For |\n|------|--------|------------------|\n| **1. Verify temperature** | Check solvent temperature at inlet/outlet of the recovery line. | >2 °C rise vs. baseline? |\n| **2. Inspect flow path** | Visually examine filters, check‑valves, and tubing for clogs or kinks. | Any debris, resin build‑up, or collapsed hose? |\n| **3. Valve timing** | Review the recovery‑valve actuation log (if PLC‑controlled) or manually time the opening. | Is the valve opening/closing >0.5 s faster than normal? |\n| **4. Pump status** | Confirm pump RPM, pressure curve, and cavitation alarms. | RPM higher than setpoint? Any “low flow” warnings? |\n| **5. Solvent charge** | Measure the liquid solvent volume left after extraction. | >10 % of chamber volume? |\n| **6. Leak test** | Perform a quick soap‑bubble or ultrasonic leak check on the recovery line. | Bubbles or audible hissing? |\n| **7. Sensor calibration** | Compare pressure gauge reading to a calibrated handheld transducer. | >2 psi discrepancy? |\n| **8. Ambient pressure** | Note current barometric pressure (weather station or on‑site barometer). | Large swing (>5 psi) compared to yesterday? |\n\n---\n\n## 3. Immediate Mitigation Steps\n\n1. **Cool the solvent** – run a short chilled solvent recirculation or add a small ice‑water jacket to the recovery line until the pressure stabilizes.\n2. **Throttle the pump** – reduce RPM by ~10 % and watch the pressure curve; if spikes disappear, the pump speed is a key factor.\n3. **Gradual valve actuation** – if you have a pneumatic or solenoid valve, add a “soft‑start” delay (e.g., 0.5 s ramp) to smooth the pressure transition.\n4. **Clear the line** – back‑flush filters with a small amount of fresh solvent; replace any clogged filter cartridges.\n5. **Adjust solvent charge** – aim for ≤5 % liquid remaining after the extraction cycle to limit vaporization pressure.\n\n---\n\n## 4. Longer‑Term Solutions\n\n| Issue | Fix | Frequency |\n|-------|-----|-----------|\n| **Temperature drift** | Install a temperature‑controlled solvent pre‑chiller or a heat‑exchanger on the recovery line. | Quarterly inspection |\n| **Flow restriction** | Use larger‑diameter tubing (e.g., ½ in → \n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1162 (162?1000) | Cost: $0.000000*",
+      "duration": 6464,
+      "grade": "F",
+      "score": 55,
+      "grading": {
+        "accuracy": 14,
+        "completeness": 8,
+        "relevance": 16,
+        "clarity_structure": 11,
+        "practical_value": 6,
+        "method": "LLM (GPT-5)"
+      },
+      "strengths": [
+        "Directly addresses pressure spikes during hydrocarbon recovery",
+        "Identifies multiple plausible causes (temperature, flow restrictions, control issues)",
+        "Provides a structured diagnostic checklist and mitigation ideas"
+      ],
+      "weaknesses": [
+        "Contains notable technical inaccuracies (e.g., claiming ~10 psi/°C for butane vapor pressure; unrealistic >5 psi barometric swing)",
+        "Lacks required regulatory/compliance context (e.g., C1D1, NFPA, OSHA, peer-reviewed closed-loop systems, PRVs, LEL monitoring)",
+        "Overly detailed step-by-step instructions that may be unsafe and exceed the expected high-level guidance",
+        "Incomplete section (“Longer-Term Solutions” cut off)",
+        "Misses the requested concise 100–200 word summary format with conclusions and key requirements"
+      ],
+      "feedback": "While the answer is organized and covers many operational causes of pressure spikes, it diverges from the expected concise, high-level summary and omits critical regulatory context. It also includes unsafe levels of procedural detail and contains technical inaccuracies (e.g., butane pressure change per °C, barometric pressure swings). Rework into a 100–200 word summary with a clear conclusion, high-level causes, and key compliance points (C1D1, NFPA/OSHA, certified closed-loop equipment, PRVs, LEL monitoring), and correct the numerical claims. Avoid step-by-step instructions.",
+      "gradingMethod": "LLM (GPT-5)",
+      "expectedKeywords": [
+        "standard",
+        "log",
+        "test",
+        "lab",
+        "residual solvent",
+        "batch",
+        "date",
+        "pressure",
+        "spikes",
+        "during",
+        "recovery",
+        "extraction",
+        "processing",
+        "method"
+      ],
+      "expectedAnswer": "**Considering cannabis extraction summary** I need to summarize an answer regarding pressure spikes during hydrocarbon recovery in the cannabis industry. The summary should be 100-200 words and include conclusions, key requirements, and regulatory details, but there's no state-specific info mentioned. My focus is on providing a general operations troubleshooting guide, while being cautious about the safety policies surrounding drugs. Although cannabis extraction might be legal for licensed facilities, I need to avoid detailed instructions that could enable misuse.**Drafting a summary for responses** I need to create a summary that highlights key points for grading actual responses. This summary should focus on operational troubleshooting while avoiding detailed step-by-step instructions that could lead to misuse. A high-level explanation of the causes of pressure spikes and the necessary compliance requirements seems acceptable. My goal is to ensure the summary provides valuable insights without facilitating any sort of wrongdoing. Let's get to work on crafting that!**Formulating a cannabis summary** I’m tasked with creating a summary for a question about pressure spikes during hydrocarbon recovery in the cannabis industry. The answer should be 100-200 words and include the main conclusion, key facts, critical regulatory details, and any state-specific info—though there’s no state info mentioned. I must ensure my response adheres to safety policies since the topic involves po..."
+    },
+    {
+      "questionNum": 76,
+      "question": "What’s the best way to prevent channeling or channel formation in extraction columns?",
+      "category": "extraction-&-processing-crosscutting",
+      "response": null,
+      "error": "HTTP 400: Bad Request",
+      "duration": 3652,
+      "grade": "F",
+      "score": 0,
+      "actualAgent": "error",
+      "actualAgentName": "HTTP 400",
+      "expectedAgent": "extraction",
+      "agentMatch": false
+    },
+    {
+      "questionNum": 77,
+      "question": "How do I troubleshoot moisture ingress in an ethanol system?",
+      "category": "extraction-&-processing-crosscutting",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "extraction",
+      "agentMatch": false,
+      "response": "**Troubleshooting Moisture Ingress in an Ethanol Processing System**  \n*(Safety‑first: ethanol is flammable and can form explosive mixtures with water‑laden vapors. Always work with proper PPE, grounding, and ventilation.)*\n\n---\n\n## 1. Confirm the Symptom\n| Check | How | What to Look For |\n|-------|-----|------------------|\n| **Water content in product** | Use a calibrated **Karl Fischer titration** or **infrared hygrometer** on a sample from the downstream stream. | % H₂O > spec (usually <0.05 % w/w for fuel‑grade ethanol). |\n| **Condensation in equipment** | Visual inspection of sight‑glass, drains, and condensate traps. | Water pools, milky layers, rust streaks. |\n| **Operational alarms** | Review DCS/SCADA for “high humidity”, “dew point”, or “pump cavitation” alerts. | Trend spikes coinciding with ambient changes. |\n\nIf the product meets spec, the issue may be intermittent—proceed to step 2 for a systematic audit.\n\n---\n\n## 2. Map Potential Ingress Points  \n| Area | Typical Source | Diagnostic Tips |\n|------|----------------|-----------------|\n| **Feedstock storage** | Poorly sealed tanks, rain splash, hygroscopic feedstock. | Check tank vent filters, water‑level gauges, and perform a **head‑space moisture analysis**. |\n| **Transfer lines & pumps** | Leaky gaskets, worn seals, permeable hose material. | Perform a **pressure decay leak test** (nitrogen pressurize, monitor pressure drop). |\n| **Heat exchangers / condensers** | Surface condensation when temperature drops below the ethanol dew point. | Install **surface temperature probes**; watch for “cold spots”. |\n| **Vent/relief lines** | Ambient air drawn in via venturi or vent valves. | Verify vent line **dry‑air purge** (check purge flow rate, valve timing). |\n| **Instrumentation** | Moisture‑sensitive sensors not sealed. | Inspect sensor housings; replace with **IP‑68** rated units if needed. |\n| **Storage tanks (post‑process)** | Infiltration through tank walls, roof drains, or man‑hole seals. | Conduct a **hydrostatic test** or use a **tracer gas (helium)** leak detection. |\n\n---\n\n## 3. Quantify the Moisture Source  \n1. **Isotope / Tracer Test**  \n   - Add a known quantity of **deuterated water (D₂O)** to a small side‑stream.  \n   - Sample downstream and measure D/H ratio with mass spectrometry.  \n   - The increase beyond the added amount points to an external source.\n\n2. **Mass Balance**  \n   - Record ethanol flow rates and water content at inlet, outlet, and each intermediate stream.  \n   - The “missing” water = ingress.\n\n3. **Dew‑Point Monitoring**  \n   - Install **continuous dew‑point sensors** on critical lines (especially after cooling stages).  \n   - Correlate spikes with ambient humidity or process temperature swings.\n\n---\n\n## 4. Immediate Mitigation Steps\n| Action | How to Implement | Note |\n|--------|------------------|------|\n| **Dry‑air purge** | Route filtered, de‑humidified air (≤ 0.01 % H₂O) through vent/relief lines during shutdown/start‑up. | Prevents back‑flow of moist ambient air. |\n| **Condensate traps** | Add **glycol‑ refrigerated traps** before pumps and heat exchangers. | Capture water before it reaches the product stream. |\n| **Seal replacement** | Swap out O‑rings, gaskets with **Viton® or EPDM** rated for ethanol and low permeability. | Check torque specs to avoid over‑compression. |\n| **Insulation** | Wrap cold‑side piping with **closed‑cell foam** and install **heat tracing** where needed. | Reduces surface condensation. |\n| **Water‑scrubbing** | Install a **molecular\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1162 (162?1000) | Cost: $0.000000*",
+      "duration": 8910,
+      "grade": "C",
+      "score": 77,
+      "grading": {
+        "accuracy": 23,
+        "completeness": 19,
+        "relevance": 17,
+        "clarity_structure": 10,
+        "practical_value": 8,
+        "method": "LLM (GPT-5)"
+      },
+      "strengths": [
+        "Identifies common ingress points (vents, seals, heat exchangers, storage tanks) and suggests leak testing",
+        "Uses appropriate diagnostics like Karl Fischer titration and pressure decay/helium tracer tests",
+        "Addresses ambient humidity control via purges, insulation, and dew point monitoring",
+        "Actionable steps for mitigation (seal replacement, dry-air purge, insulation)"
+      ],
+      "weaknesses": [
+        "Not concise; deviates from the requested 100–200 word summary and includes extraneous/meta content",
+        "Key expected items missing or underemphasized (CIP/water isolation, conductivity or hydrometer testing, explicit tri-clamp seal checks, vacuum integrity tests)",
+        "Some questionable/redundant recommendations (infrared hygrometer for liquid ethanol, D2O tracer testing, “ethanol dew point” phrasing)",
+        "Section is truncated (water-scrubbing/molecular sieve) and includes meta text, reducing clarity"
+      ],
+      "feedback": "Good breadth and generally accurate guidance on sources and diagnostics, including KF titration, leak tests, vents/seals, and heat exchangers. However, it is overly long, partially truncated, and includes niche or questionable elements (IR hygrometer for liquid ethanol, D2O tracer). For alignment with expectations, condense to 100–200 words, explicitly include CIP water isolation checks, simple conductivity/hydrometer screening, tri-clamp seal and valve inspections, and vacuum integrity tests. Remove meta content and refine language on dew point/flammability.",
+      "gradingMethod": "LLM (GPT-5)",
+      "expectedKeywords": [
+        "extraction",
+        "processing",
+        "batch",
+        "method",
+        "troubleshoot"
+      ],
+      "expectedAnswer": "**Summarizing moisture ingress troubleshooting** I need to create a summary of 100-200 words focused on troubleshooting moisture ingress in ethanol systems. This includes key factors such as ambient humidity, tank vents, leaky seals, and issues with heat exchangers. For diagnostics, methods like Karl Fischer titration and conductivity tests are essential. I'll also need to inspect components like gaskets, seals, and valves. The goal is to present comprehensive yet concise steps for addressing moisture problems in ethanol extraction processes.**Summarizing troubleshooting steps** I need to create a concise summary, around 100-200 words, addressing the question about troubleshooting moisture ingress in ethanol systems. Key points to include are sources such as ambient humidity, tank vents, leaky seals, and flawed CIP water isolation. Diagnostics can cover methods like Karl Fischer titration and hydrometer testing. I should also mention inspection of gaskets, tri-clamp seals, and conducting vacuum integrity leak tests to ensure thorough troubleshooting."
+    },
+    {
+      "questionNum": 78,
+      "question": "What’s the best way to reclaim as much material as possible from transfer glassware?",
+      "category": "extraction-&-processing-crosscutting",
+      "response": null,
+      "error": "HTTP 400: Bad Request",
+      "duration": 3625,
+      "grade": "F",
+      "score": 0,
+      "actualAgent": "error",
+      "actualAgentName": "HTTP 400",
+      "expectedAgent": "extraction",
+      "agentMatch": false
+    },
+    {
+      "questionNum": 79,
+      "question": "My vacuum oven isn’t pulling full vacuum—what should I test and in what order?",
+      "category": "extraction-&-processing-crosscutting",
+      "response": null,
+      "error": "HTTP 400: Bad Request",
+      "duration": 3437,
+      "grade": "F",
+      "score": 0,
+      "actualAgent": "error",
+      "actualAgentName": "HTTP 400",
+      "expectedAgent": "extraction",
+      "agentMatch": false
+    },
+    {
+      "questionNum": 80,
+      "question": "How do I know if my filter media is overloaded or misapplied?",
+      "category": "extraction-&-processing-crosscutting",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "extraction",
+      "agentMatch": false,
+      "response": "### Quick‑Check Checklist  \n\n| Symptom | What It Means | How to Verify |\n|---|---|---|\n| **Drop in airflow / suction** | Media is clogged (over‑loaded) or the filter is the wrong size/grade. | – Measure static pressure before and after the filter with a manometer or the built‑in pressure gauge on many HVAC fans. <br>– Compare to the manufacturer’s “normal” pressure‑drop spec (usually 0.1–0.3 in H₂O for carbon pre‑filters, 0.5–1.0 in H₂O for HEPA). |\n| **Odor leakage** | Media is exhausted (carbon spent) **or** the filter is placed in the wrong location/airflow direction. | – Perform a “smell test”: run the system at full fan speed and stand upwind of the exhaust. <br>– Check filter orientation arrows; carbon filters must face the airflow direction. |\n| **Visible dust, mold, or moisture** | Over‑loading (dust build‑up) or a mis‑installed filter that’s allowing condensation to pool. | – Remove the filter (if safe) and inspect the media surface. <br>– Look for a wet, black, or slimy layer – a sign of water‑driven mold or media saturation. |\n| **Fan motor overheating / frequent tripping** | Excessive pressure drop from a clogged filter. | – Feel the fan housing after a run; it should be warm but not hot. <br>– Check the fan’s amperage draw against the spec. |\n| **Unexpected temperature spikes** | Airflow restriction causing heat build‑up in the grow space. | – Compare temperature/humidity logs before/after filter change. |\n| **Filter media looks “new” but performance is poor** | Mis‑applied filter (wrong type, size, or wrong side facing flow). | – Verify model number, dimensions, and rating (e.g., 200 g/m³ activated carbon vs. 400 g/m³). <br>– Confirm you didn’t install a pre‑filter where a carbon filter belongs, or vice‑versa. |\n\n---\n\n## 1. Measure the **Pressure Drop**\n\n1. **Turn the system off** (or set fan to low) to avoid damaging the gauge.  \n2. Attach a **manometer** (or use the fan’s built‑in pressure sensor) to the inlet and outlet of the filter housing.  \n3. **Record** the pressure before the filter (P₁) and after the filter (P₂).  \n4. **ΔP = P₂ – P₁**.  \n\n| ΔP (in H₂O) | Interpretation |\n|---|---|\n| ≤ 0.1 (pre‑filter) / ≤ 0.5 (HEPA) | Normal – media is clean. |\n| 0.1–0.3 (pre‑filter) / 0.5–1.0 (HEPA) | Approaching limit – schedule cleaning/replacement soon. |\n| > 0.3 (pre‑filter) / > 1.0 (HEPA) | Over‑loaded – replace or clean immediately. |\n\n**Tip:** Most carbon pre‑filters are rated for a **0.2–0.3 in H₂O** drop at design flow. If you’re seeing > 0.4 in H₂O, the media is saturated with dust or oil.\n\n---\n\n## 2. Visual & Tactile Inspection\n\n| Filter Type | What to Look For |\n|---|---|\n| **Carbon (granular or block)** | • Darkened surface (blackening = carbon spent). <br>• Crumbling granules or a powdery residue (indicates media breakdown). |\n| **HEPA/ULPA** | • Yellowish or brown discoloration (dust). <br>• Any visible tears, gaps, or delamination. |\n| **Pre‑filter (fiberglass/mesh)** | • Thick layer of dust that can be brushed off. <br>• Wet spots → water intrusion or condensation. |\n| **Electrostatic or “active carbon” panels** | • Loss of static charge (you’ll notice less dust attraction). <br>\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1133 (133?1000) | Cost: $0.000000*",
+      "duration": 13160,
+      "grade": "F",
+      "score": 45,
+      "grading": {
+        "accuracy": 16,
+        "completeness": 7,
+        "relevance": 6,
+        "clarity_structure": 12,
+        "practical_value": 4,
+        "method": "LLM (GPT-5)"
+      },
+      "strengths": [
+        "Clear, organized checklist with actionable diagnostic steps",
+        "Uses differential pressure and visual inspection as valid indicators",
+        "Provides practical verification methods (manometer checks, orientation checks)"
+      ],
+      "weaknesses": [
+        "Misapplied domain: focuses on HVAC/air filtration rather than cannabis extraction filter media",
+        "Includes specific pressure thresholds contrary to the expected compliance‑focused, non‑prescriptive guidance",
+        "Does not provide the requested concise 100–200 word summary",
+        "Omits regulatory/GMP considerations, SOP alignment, and change‑out criteria relevant to extraction",
+        "Heavy formatting and length reduce alignment with the expected brief, compliance‑oriented response"
+      ],
+      "feedback": "The answer is well-structured and technically sound for HVAC/air filtration, but it misses the cannabis extraction context and the requested concise, compliance-focused summary. Reframe around extraction filter media (e.g., depth media, adsorbents) and identify overload/misapplication via rising differential pressure, declining flow, channeling, fines in filtrate, unexpected color/compound removal, or pressure spikes. Emphasize SOPs, vendor specs, batch records, and change-out criteria without prescribing exact operating values. Include safety and GMP considerations (correct media selection, orientation, compatibility, and documentation) in a 100–200 word summary.",
+      "gradingMethod": "LLM (GPT-5)",
+      "expectedKeywords": [
+        "epa",
+        "standard",
+        "record",
+        "log",
+        "test",
+        "sample",
+        "date",
+        "inspection",
+        "filter",
+        "media",
+        "overloaded",
+        "extraction",
+        "processing",
+        "batch",
+        "method"
+      ],
+      "expectedAnswer": "**Summarizing filter media management** I need to generate a summary for the question on recognizing overloaded or misapplied filter media, mainly related to cannabis extraction processes. I should produce a concise 100-200 word summary covering main conclusions, key requirements, and critical regulatory details. Even though no state-specific info is mentioned, I should be cautious about safety guidelines, ensuring that this remains within the realm of industry best practices for legal and professional advice without facilitating any wrongdoing.**Ensuring compliance in guidance** I'm focusing on providing guidance that's professional and legal, ensuring it's safe for users. I need to avoid giving explicit instructions that might be dangerous, like specifying exact pressures or temperatures. Instead, I should stick to compliance-focused advice that helps users navigate their needs without crossing any lines. It's all about empowering them within a safe framework while keeping everything legal and responsible!**Considering safety in guidance** I'm thinking about how the domain is professional and legal, so my advice needs to be safe and compliance-focused. I want to ensure that I avoid giving explicit or dangerous instructions, like specifying exact pressures or temperatures. It's crucial to keep recommendations general enough to ensure safety while still providing valuable information. I want to be clear, responsible, and supportive in what I communicate."
     }
   ],
-  "status": "In Progress: 70/438 questions completed"
+  "status": "In Progress: 80/438 questions completed"
 }
