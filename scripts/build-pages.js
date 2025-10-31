@@ -794,14 +794,25 @@ sequenceDiagram
   
   // Agent name mapping: how to find questions in root baseline.json
   const agentCategoryMap = {
-    'compliance-agent': ['compliance'],
+    'compliance-agent': [
+      'compliance',
+      'sop-generation-compliance',
+      'labeling-packaging-compliance',
+      'formulation-ingredient-compliance',
+      'waste-management-compliance',
+      'compliance-recordkeeping',
+      'transport-transfer-regulations',
+      'product-testing',
+      'recordkeeping',
+      'testing'
+    ],
     'marketing-agent': ['marketing'],
-    'operations-agent': ['operations', 'operational'],
-    'formulation-agent': ['formulation'],
+    'operations-agent': ['operations', 'operational', 'facility', 'extraction', 'cultivation', 'inventory', 'packaging', 'quality-assurance', 'equipment', 'environmental-health', 'delivery', 'logistics', 'training', 'sops-work-instructions', 'risk-management', 'supplier', 'procurement', 'sustainability', 'r&d', 'customer-service', 'security', 'project-management', 'retail-processing', 'data-systems'],
+    'formulation-agent': ['formulation', 'edibles-potency', 'extraction', 'postprocessing', 'co-extraction', 'ethanol-extraction', 'hydrocarbon-extraction', 'solventless'],
     'science-agent': ['science'],
     'patent-agent': ['patent'],
-    'sourcing-agent': ['sourcing'],
-    'customer-success-agent': ['customer-success', 'customer'],
+    'sourcing-agent': ['sourcing', 'supplier', 'procurement'],
+    'customer-success-agent': ['customer-success', 'customer-retention', 'customer-service'],
     'ad-agent': ['ad', 'advertising'],
     'spectra-agent': ['spectra'],
     'mcr-agent': ['mcr'],
@@ -827,10 +838,34 @@ sequenceDiagram
       // Try to get count from root baseline.json first (more accurate)
       if (rootBaseline && rootBaseline.questions && agentCategoryMap[agentName]) {
         const categories = agentCategoryMap[agentName];
+        // Special handling for compliance-agent: also check question text for jurisdiction mentions
+        const isComplianceAgent = agentName === 'compliance-agent';
+        const jurisdictionPattern = /\b(new jersey|california|new york|colorado|florida|arizona|michigan|illinois|massachusetts|washington|oregon|nevada|pennsylvania|virginia|maryland|connecticut|vermont|maine|new hampshire|rhode island|delaware|montana|south dakota|new mexico|mississippi|alabama|south carolina|louisiana|utah|west virginia|north dakota|wyoming|idaho|kentucky|tennessee|oklahoma|arkansas|missouri|iowa|indiana|ohio|wisconsin|minnesota|nebraska|kansas|texas|north carolina|georgia|alaska|hawaii|nevada|district of columbia|dc)\b/i;
+        
         questionCount = rootBaseline.questions.filter(q => {
-          if (!q.category) return false;
-          const categoryLower = q.category.toLowerCase();
-          return categories.some(cat => categoryLower.includes(cat.toLowerCase()));
+          // Check category match
+          if (q.category) {
+            const categoryLower = q.category.toLowerCase();
+            if (categories.some(cat => categoryLower.includes(cat.toLowerCase()))) {
+              return true;
+            }
+          }
+          
+          // For compliance-agent, also check if question mentions jurisdictions/states
+          if (isComplianceAgent && q.question) {
+            const questionLower = q.question.toLowerCase();
+            if (jurisdictionPattern.test(questionLower)) {
+              return true;
+            }
+            // Also match questions that mention "compliant", "compliance", "regulation", "jurisdiction"
+            if (questionLower.includes('compliant') || questionLower.includes('compliance') || 
+                questionLower.includes('regulation') || questionLower.includes('jurisdiction') ||
+                questionLower.includes('state requirement') || questionLower.includes('legal requirement')) {
+              return true;
+            }
+          }
+          
+          return false;
         }).length;
       }
       
