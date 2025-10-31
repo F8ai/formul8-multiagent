@@ -1,11 +1,11 @@
 {
-  "timestamp": "2025-10-31T08:03:15.475Z",
+  "timestamp": "2025-10-31T08:05:05.479Z",
   "url": "https://chat.formul8.ai",
   "totalQuestions": 438,
-  "completed": 40,
-  "passed": 6,
-  "failed": 34,
-  "averageScore": "44.92",
+  "completed": 50,
+  "passed": 11,
+  "failed": 39,
+  "averageScore": "47.33",
   "averageGrade": "F",
   "results": [
     {
@@ -798,7 +798,217 @@
         "relevance": "3/5 key words"
       },
       "expectedKeywords": []
+    },
+    {
+      "questionNum": 41,
+      "question": "Can I incinerate solvent-contaminated material on-site?",
+      "category": "waste-management-compliance",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "compliance",
+      "agentMatch": false,
+      "response": "**Short answer:** In most jurisdictions you cannot simply burn solvent‑contaminated waste on‑site without a permit and strict controls. Regulations (EPA RCRA, state hazardous‑waste rules, local fire codes) generally require you to use an approved hazardous‑waste incinerator or a licensed waste‑disposal contractor.\n\n**Key points to consider**\n\n| Issue | What you need to know |\n|-------|-----------------------|\n| **Regulatory classification** | Solvent‑contaminated rags, filters, or other absorbents are usually classified as **hazardous waste** (ignitable, reactive, or toxic) under the U.S. Resource Conservation and Recovery Act (RCRA) and equivalent state laws. |\n| **Permitting** | On‑site incineration requires a **RCRA permit** (or state equivalent) and often a **hazardous‑waste incinerator registration**. Permits specify temperature, residence time, emissions controls, and monitoring. |\n| **Air‑quality compliance** | Incineration must meet **Clean Air Act** (NAAQS) limits for VOCs, particulate matter, carbon monoxide, and any hazardous air pollutants (HAPs) that may be released from the specific solvents. |\n| **Fire‑code & building codes** | Local fire departments usually prohibit open‑burn or uncontrolled incineration of hazardous materials. A fire‑rated incinerator, fire suppression system, and trained operators are mandatory. |\n| **Record‑keeping & reporting** | You’ll need a **Manifest** (or state “track‑and‑trace” system) documenting waste generation, transport, and final disposal, plus periodic **quarterly/annual reports** to the EPA or state agency. |\n| **Liability & insurance** | Unpermitted burning can trigger civil penalties (often $10,000‑$50,000 per day) and expose you to environmental liability under the **Comprehensive Environmental Response, Compensation, and Liability Act (CERCLA)**. |\n| **Alternative options** | • **Licensed hazardous‑waste hauler** (most cost‑effective).<br>• **On‑site solvent‑recovery units** (distillation, carbon adsorption).<br>• **Encapsulation & off‑site incineration** at a certified facility. |\n\n**Typical steps if you still consider on‑site incineration**\n\n1. **Identify the solvent(s)** – list each chemical, its flash point, boiling point, and hazardous classification.\n2. **Contact your State Environmental Agency** – request guidance on whether a “Small‑Scale Incinerator” exemption applies (some states allow limited volumes under strict conditions).\n3. **Obtain a permit** – submit a **Permit Application** that includes:\n   - Design specs of the incinerator (temperature ≥ 1200 °F, residence time ≥ 2 seconds).\n   - Emission control equipment (scrubbers, filters, continuous emissions monitoring systems).\n   - Operating procedures & emergency response plan.\n4. **Install required controls** – secondary combustion chamber, quench system, temperature sensors, and a **Continuous Emissions Monitoring System (CEMS)** if required.\n5. **Train personnel** – ensure operators are certified in hazardous‑waste incineration and emergency response.\n6. **Maintain documentation** – daily logs, waste manifests, emission records, and quarterly reports.\n\n**Bottom line:**  \nUnless you have a fully permitted, EPA‑approved hazardous‑waste incinerator on the premises, **incinerating solvent‑contaminated material on‑site is not allowed** and can result in severe regulatory and financial penalties.\n\n---\n\n### Want a deeper dive?\n\nIf you need a jurisdiction‑specific compliance checklist, permit‑application templates, or help locating a licensed waste‑disposal contractor, I can route your request to our **Regulatory Compliance Specialist** agent. Just let me know!\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1086 (164?922) | Cost: $0.000000*",
+      "duration": 11442,
+      "grade": "F",
+      "score": 48.75,
+      "grading": {
+        "length": "Pass",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "1/4 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 42,
+      "question": "Am I allowed to treat ethanol waste differently than cannabis plant waste?",
+      "category": "waste-management-compliance",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "compliance",
+      "agentMatch": false,
+      "response": "**Short answer:** Yes – ethanol waste and cannabis‑plant waste are subject to different regulatory regimes, so you can (and must) handle them differently, provided you stay within the applicable federal, state, and local rules.\n\n---\n\n## 1. What the regulations say\n\n| Waste type | Primary regulators | Typical classification | Common disposal options |\n|------------|-------------------|------------------------|--------------------------|\n| **Ethanol waste** (e.g., spent solvent, rinse water, contaminated cleaning fluids) | • EPA – RCRA (Resource Conservation and Recovery Act)  <br>• OSHA – flammable liquids  <br>• State environmental agencies (e.g., CalEPA, DEQ) | • **Hazardous waste** if it contains ≥ 0.5 % ethanol mixed with other contaminants, is ignitable, or is “used solvent.” <br>• **Non‑hazardous** if it is pure ethanol (flammable) and meets any state‑specific limits. | • Hazardous‑waste contractor (TSDF) for ignitable waste. <br>• EPA‑approved fuel‑reclamation or distillation for pure ethanol. <br>• Licensed flammable‑liquid landfill or incineration. |\n| **Cannabis‑plant waste** (trim, stalks, leaves, spent biomass) | • State cannabis licensing boards (e.g., CA BCC, WA Liquor & Cannabis Board) <br>• EPA (if classified as hazardous, rare) <br>• Local health & fire departments | • **Regulated cannabis waste** – must be tracked, rendered non‑recoverable, and destroyed per state cannabis‑regulation. <br>• May be **non‑hazardous** biologically, but **restricted** because it contains THC. | • State‑approved **incineration** (often with a “cannabis‑waste” permit). <br>• **Composting** only if the state allows and the material is rendered THC‑free (e.g., through 90 %+ THC loss). <br>• **Landfill** with a “cannabis‑waste” designation in some states. |\n\n### Key Differences\n\n| Aspect | Ethanol waste | Cannabis‑plant waste |\n|--------|---------------|----------------------|\n| **Primary concern** | Ignitability / hazardous‑waste criteria | THC content & diversion risk |\n| **Tracking** | Manifest/Uniform Hazardous Waste Manifest if hazardous | State‑mandated waste‑tracking logs, batch numbers, “waste‑to‑destruction” certificates |\n| **Permitting** | May need a **Hazardous Waste Generator** permit (if > 100 kg/yr) and a **flammable‑liquid storage** permit. | Usually a **Cannabis Waste Management** permit or a clause in your cultivation license. |\n| **Disposal methods** | Distillation/recovery, hazardous‑waste incineration, approved landfill. | State‑approved incinerator, specialized composting, or licensed landfill with cannabis‑waste tag. |\n| **Record‑keeping** | EPA 40 CFR 263.11‑263.13 manifests, quarterly reports. | State waste‑log (often weekly), destruction certificates, sometimes DEA‑style chain‑of‑custody. |\n\n---\n\n## 2. Practical Steps to Stay compliant\n\n1. **Classify each waste stream**  \n   - **Ethanol:** Test for ignitability (flash point < 60 °C) and contamination. If it’s a used solvent, treat it as hazardous waste.  \n   - **Cannabis:** Determine THC concentration. Most states require waste to be “non‑recoverable” (e.g., > 90 % THC\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1131 (131?1000) | Cost: $0.000000*",
+      "duration": 9855,
+      "grade": "F",
+      "score": 57,
+      "grading": {
+        "length": "Pass",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "4/5 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 43,
+      "question": "Does every team member need to complete chemical safety training before using the fume hood?",
+      "category": "employee-training-operational-roles",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "compliance",
+      "agentMatch": false,
+      "response": "**Short answer:** Yes—most institutions require that every person who will operate a fume hood first complete both general chemical‑safety training **and** specific fume‑hood training.\n\n**Why the double requirement?**\n\n| Reason | What it means for the user |\n|--------|----------------------------|\n| **Regulatory compliance** (OSHA 29 CFR 1910.1450, EPA, local lab safety codes) | Employees must be trained to recognize hazards, use PPE, and follow proper work‑practice controls before handling chemicals. |\n| **Safety of the individual** | Understanding chemical properties, exposure routes, and emergency procedures reduces the risk of burns, inhalation, or spills. |\n| **Protection of the lab and others** | Proper fume‑hood use (e.g., sash height, airflow checks, correct placement of equipment) prevents cross‑contamination and protects coworkers. |\n| **Insurance & liability** | Documentation of training shows due diligence, which is required liability coverage and accreditation audits. |\n| **Operational efficiency** | Trained users keep the hood functioning correctly (e.g., avoiding blockage of airflow), which saves time and resources. |\n\n**Typical training components**\n\n1. **General Chemical‑Safety Course**  \n   - Hazard communication (GHS labeling, SDS reading)  \n   - PPE selection & use  \n   - Spill response, waste segregation, fire safety  \n\n2. **Fume‑Hood Specific Module**  \n   - Pre‑use checks (airflow indicator, sash position, tray/bench clearance)  \n   - Correct technique for loading and removing containers  \n   - Procedures for emergencies (hood fire, loss of airflow)  \n   - Documentation (sign‑off sheets, regular certifications)  \n\n**What to do next**\n\n1. **Check your organization’s SOPs** – Most labs have a written “Fume Hood Use Policy” that lists required training and sign‑off forms.  \n2. **Confirm with the Safety Office or EHS** – They can provide the official training schedule, online modules, or in‑person sessions.  \n3. **Complete the trainings** – Often available through a learning‑management system (e.g., LabSafetyOnline, MyTrainingPortal).  \n4. **Keep records** – Retain certificates or digital proof; supervisors may be asked to verify compliance during audits.  \n\n**Bottom line:** Until a team member has documented completion of both the general chemical‑safety and the fume‑hood‑specific training, they should **not** be allowed to operate the fume hood. This protects the individual, the lab, and the organization from avoidable hazards and regulatory penalties.\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 832 (168?664) | Cost: $0.000000*",
+      "duration": 7928,
+      "grade": "D",
+      "score": 60,
+      "grading": {
+        "length": "Pass",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "5/5 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 44,
+      "question": "Is a glove change required between processing two different batches?",
+      "category": "employee-training-operational-roles",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "compliance",
+      "agentMatch": false,
+      "response": "**Short answer:** Yes – in most cannabis‑processing environments you should change gloves (or fully re‑glove) when you move from one production batch to the next, unless you have a validated cleaning‑and‑sanitizing procedure that demonstrably removes all product residues and you are staying within the same product line and potency level.\n\n---\n\n## Why a glove change is the safest default\n\n| Reason | What it protects |\n|--------|-------------------|\n| **Cross‑contamination** | Prevents trace‑level transfer of cannabinoids, terpenes, pesticides, or allergens from one batch to another. |\n| **Potency & label integrity** | Even a few micrograms of THC/CBD can upset batch potency calculations and cause labeling errors. |\n| **Regulatory compliance** | Most state‑level GMP/CGMP‑style rules (e.g., CO, CA, MA) require “change‑over procedures” that include glove replacement or documented sanitization. |\n| **Product liability** | Reduces the risk of consumer complaints, recalls, or lawsuits stemming from unintended ingredient carry‑over. |\n| **Audit trail** | A simple, observable action (glove change) satisfies auditors more readily than a “clean‑and‑sanitize” claim without data. |\n\n---\n\n## When a glove‑change can be waived (with documentation)\n\n| Condition | Required controls |\n|-----------|-------------------|\n| **Same strain, same formulation, same potency target** | A validated cleaning protocol (e.g., 70 % wipe + 2‑minute dwell) that has been proven to remove >99.9 % of residue. |\n| **Small‑scale “lot‑to‑lot” blending where the product is intentionally mixed** | Documented SOP stating that the glove is retained because the batches are meant to be combined. |\n| **Fully automated, closed‑system lines** where gloves are not a direct contact point with product | SOP may allow “no‑change” if the gloves only touch tooling that is itself cleaned and verified. |\n\n*Even in these cases, most companies still change gloves as a “best‑practice” safety net.*\n\n---\n\n## Practical SOP snippet\n\n1. **End of Batch A**  \n   - Remove product from work area.  \n   - Dispose of used gloves in a designated bio‑hazard container.  \n   - Perform surface cleaning (e.g., 70 % IPA, then allow to air‑dry).  \n\n2. **Start of Batch B**  \n   - Perform hand hygiene (soap & water, then dry).  \n   - Don a fresh pair of clean, powder‑free nitrile gloves.  \n   - Verify glove integrity (no tears, punctures).  \n\n3. **If you must re‑use gloves** (rare)  \n   - Clean gloves with an approved sanitizer **and** perform a swab test on a representative glove surface.  \n   - Record the test result and have a supervisor sign‑off proceeding.  \n\n---\n\n## Quick checklist for your facility\n\n- [ ] Does your state regulator explicitly require glove changes? (e.g., CA Bureau of Cannabis Control § 3134)  \n- [ ] Do you have a validated cleaning validation that shows zero detectable residue after the cleaning step?  \n- [ ] Are you processing products with different potency levels, terpenes, or added ingredients (flavors, vitamins, etc.)?  \n- [ ] Is your SOP written to **mandate glove change** unless a validated exception is documented?  \n\nIf you answer “yes” to any of the first three, treat glove change as mandatory.\n\n---\n\n### Bottom line\n- **Default:** Change gloves between every batch.  \n- **Exception:** Only if you have a **validated, documented cleaning protocol** that proves residues are removed to an acceptable level **and** the batches are chemically identical.  \n\nImplementing the default practice keeps you on the safe side of both quality and compliance.\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1095 (162?933) | Cost: $0.000000*",
+      "duration": 10286,
+      "grade": "D",
+      "score": 60,
+      "grading": {
+        "length": "Pass",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "5/5 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 45,
+      "question": "Can a lab tech sign off on their own QC checklist?",
+      "category": "employee-training-operational-roles",
+      "agent": "unknown",
+      "actualAgent": "formulation",
+      "actualAgentName": "Formulation Agent",
+      "expectedAgent": "compliance",
+      "agentMatch": false,
+      "response": "**Short answer:**  \nIn a compliant laboratory (GMP, ISO 17025, or similar quality‑system standard) a technician should **not** be the sole signer of the QC checklist for the sample they just processed. An independent reviewer—usually a senior analyst, a QC supervisor, or a designated “checker”—must provide the final sign‑off.\n\n---\n\n## Why an independent sign‑off is required\n\n| Reason | What it prevents |\n|--------|-------------------|\n| **Conflict‑of‑interest** | The analyst could unintentionally overlook a mistake because they are already committed to the work. |\n| **Human error detection** | A second pair of eyes catches transcription errors, missed steps, or out‑of‑spec results. |\n| **Regulatory compliance** | GMP, ISO 17025, FDA 21 CFR 211, and many state cannabis testing regulations explicitly require “review and approval by a qualified person other than the one who performed the test.” |\n| **Audit trail integrity** | Independent signatures create a clear, auditable chain of responsibility. |\n| **Product liability protection** | Demonstrates that the lab has a robust QA system, which is critical if results are challenged. |\n\n---\n\n## Typical workflow in a compliant cannabis testing lab\n\n1. **Sample receipt & accession** – logged by a receptionist/QA clerk.  \n2. **Preparation & analysis** – performed by Analyst A (the “lab tech”).  \n3 **Raw data review** – Analyst A checks instrument logs, integration, calculations.  \n4. **QC checklist completion** – Analyst A fills out the checklist (instrument settings, calibration status, reagent lot numbers, etc.).  \n5. **Independent review** – AnalystB (senior analyst) or QC Supervisor reviews the checklist **and** the raw data.  \n6. **Electronic/hand‑written sign‑off** – Reviewer adds their signature/initials and date; Analyst A may also initial to acknowledge review, but the final approval rests with the reviewer.  \n7. **Release** – The QC supervisor releases the result to the client or internal database.\n\n---\n\n## Situations where a tech *might* sign their own checklist (with safeguards)\n\n| Situation | Safeguard required |\n|-----------|--------------------|\n| **Very small, low‑risk QC checks** (e.g., daily instrument performance verification) | Must be as “self‑checked” and later reviewed during a periodic audit by a supervisor. |\n| **Emergency or out‑of‑hours testing** | A second reviewer must sign off **as soon as possible** (within the same shift or next business day). |\n| **Automated electronic QC systems** | The system generates a digital audit trail and flags any deviation for a separate reviewer to resolve. |\n| **Training/competency assessments** | The trainee signs the checklist, but a trainer must counter‑sign before the data are considered valid. |\n\nEven in these cases, the **final release authority** must be someone other than the person who performed the test.\n\n---\n\n## How to implement a compliant sign‑off process\n\n1. **Standard Operating Procedure (SOP)** – Explicitly state that “QC checklists must be reviewed and signed by a qualified individual other than the analyst who performed the test.”  \n2. **Electronic Laboratory Notebook (ELN) / LIMS** – Use role‑based permissions:  \n   * Analyst = “Data Entry” only.  \n   * Reviewer = “Approve” rights.  \n   * All signatures are time‑stamped and immutable.  \n3. **Dual‑signature paper forms** – If you still use paper, provide a second signature line for the reviewer and keep both copies together.  \n4. **Training matrix** – Document who is authorized to act as a reviewer (e.g., senior analyst, QC supervisor).  \n5. **Audit & deviation handling** – If a reviewer finds an issue, the SOP should describe how to quarantine the sample, repeat the test, and document the deviation.  \n\n---\n\n## Quick checklist for compliance\n\n- [ ] SOP defines “independent reviewer” and sign‑off requirement.  \n- [ ] Reviewer is qualified (training, competency record).  \n- [ ] Sign‑off is captured (paper or electronic) with date/time.  \n- [ ] Any self‑checked items are flagged for later supervisory review.  \n- [ ] All\n\n---\n*Agent: Formulation Agent | Plan: Standard | Tokens: 1205 (205?1000) | Cost: $0.000000*",
+      "duration": 10671,
+      "grade": "F",
+      "score": 52.5,
+      "grading": {
+        "length": "Pass",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "1/2 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 46,
+      "question": "Am I allowed to let an intern shadow a live extraction session?",
+      "category": "employee-training-operational-roles",
+      "agent": "unknown",
+      "actualAgent": "formulation",
+      "actualAgentName": "Formulation Agent",
+      "expectedAgent": "compliance",
+      "agentMatch": false,
+      "response": "**Short answer:** Yes – an intern can *observe* a live extraction, but only if you meet all safety, regulatory, and company‑policy requirements. The intern must never operate the equipment or handle regulated material without the proper licences and supervision.\n\n---\n\n## 1. Legal & Regulatory Checklist  \n\n| Requirement | What to verify | Typical source |\n|-------------|----------------|----------------|\n| **Licensing** | Your extraction license (state/ provincial) usually restricts who may *perform* the extraction. Observation is generally permitted, but confirm the wording. | State cannabis board, license amendment documents |\n| **OSHA / Workplace Safety** | Conduct a Job‑Specific Hazard Analysis (JHA) and ensure the intern is covered by the site’s safety plan. | OSHA 1910.120 (Hazardous Waste Operations) or local equivalents |\n| **Confidentiality / IP** | Have the intern sign a Non‑Disclosure Agreement (NDA) covering formulations, process parameters, and COA data. | Company legal counsel |\n| **Age / Background** | Intern must be of legal working age and cleared for any background‑check requirements (e.g., no prior drug‑related offenses if mandated). | HR policy| **Medical Clearance** | Verify that the intern can wear required PPE (respirators, eye protection) and has no contraindicating health conditions. | Occupational health provider |\n\nIf any of the above items are missing, you must obtain the necessary approvals before the shadowing session.\n\n---\n\n## 2. Safety‑First Protocol for a Shadowing Session  \n\n1. **Pre‑Session Orientation (30 min)**\n   - Review the Standard Operating Procedure (SOP) for the extraction method (e.g., supercritical CO₂, hydrocarbon, ethanol).\n   - Walk through the **hazard zones** (pressurized vessels, flammable solvents, hot surfaces).\n   - Demonstrate proper donning/doffing of PPE (respirator fit‑check, chemical‑resistant gloves, lab coat, safety glasses).\n\n2. **Live Extraction Observation**\n   - **Position** the intern behind a clear safety barrier or at a designated “observer” station that keeps them out of the immediate work envelope.\n   - **No hands‑on** activity unless they have documented competency and are under direct supervision of a licensed operator.\n   - **Continuous monitoring**: a designated safety officer (or the lead extractor) must watch the intern for any unsafe behavior.\n\n3. **Post‑Session Debrief (15 min)**\n   - Review what was observed, answer questions, and reinforce key safety points.\n   - Collect the intern’s feedback for future training improvements.\n   - Document attendance, topics covered, and any incidents (even near‑misses) in the training log.\n\n---\n\n## 3. Documentation You’ll Need  \n\n| Document | Who signs | Retention period |\n|----------|-----------|------------------|\n| **Intern Shadowing Request Form** | Supervisor & Compliance Officer | 2 years |\n| **NDA / Confidentiality Agreement** | Intern Legal | 5 years after termination |\n| **Safety Orientation Checklist** | Trainer & Intern | 1 year (or until next refresher) |\n| **Extraction SOP Acknowledgment** | Intern (signed) | 1 year |\n| **Incident/Near‑Miss Log** (if applicable) | Safety Officer | According to local regulations (often 3 years) |\n\n---\n\n## 4. Typical “Deal‑Breakers”  \n\n| Situation | Why it matters | What to do |\n|-----------|----------------|------------|\n| Intern tries to **adjust pressure/temperature** on the extractor | Only licensed operators may manipulate regulated equipment | Strictly prohibit; lock out controls if possible |\n| Extraction uses **restricted solvents** (e.g., butane) in a jurisdiction that limits who may be present | Some states require all personnel in the extraction area to hold a specific “solvent‑handling” certification | Ensure the intern has the required certification or keep them out of the enclosure |\n| Lack of **real‑time ventilation monitoring** (CO₂, VOCs) | Exposure risk | Verify that continuous gas monitoring is active and visible to the intern |\n\n---\n\n## 5. Quick\n\n---\n*Agent: Formulation Agent | Plan: Standard | Tokens: 1206 (206?1000) | Cost: $0.000000*",
+      "duration": 13439,
+      "grade": "F",
+      "score": 54,
+      "grading": {
+        "length": "Pass",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "3/5 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 47,
+      "question": "Do I need to document breaks if they occur during active batch processing?",
+      "category": "employee-training-operational-roles",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "compliance",
+      "agentMatch": false,
+      "response": "**Yes – any break that occurs while a batch is “active” should be documented.**  \n\nRegulators (state cannabis boards, USDA‑GMP, etc.) view a batch as a continuous, traceable manufacturing event. Anything that interrupts that continuity—whether it’s a scheduled employee break, an unscheduled equipment outage, a sanitation pause, or a shift change—has the potential to affect product integrity, lot traceability, and compliance with SOPs.  \n\n### What to record\n\n| Item | Why it matters |\n|------|----------------|\n| **Date & exact start/stop times** | Establishes the timeline for the batch and shows that the break was within allowable limits. |\n| **Reason for the break** (e.g., lunch, equipment maintenance, power loss, cleaning) | Demonstrates that the interruption was justified and not a lapse in control. |\n| **Personnel involved** (who initiated and who supervised) | Provides accountability and a point‑of‑contact for any follow‑up. |\n| **Equipment or area affected** | Links the break to specific assets, useful for later investigations or audits. |\n| **Impact assessment** (was the product temperature, pressure, humidity, etc., affected?) | Shows whether the break required any corrective actions product disposition. |\n| **Corrective actions taken** (e.g., re‑temperature the material, extend hold time, discard) | Confirms that any potential deviation was addressed per your SOPs. |\n| **Signature or electronic approval** | Validates the entry for audit trails. |\n\n### Regulatory expectations (typical)\n\n| Jurisdiction / Standard | Requirement |\n|--------------------------|-------------|\n| **State cannabis tracking systems (e.g., METRC, BioTrackTHC)** | Must log “batch interruptions” or “hold periods” that affect the batch’s status. |\n| **Good Manufacturing Practices (GMP) for cannabis** | Any deviation from the approved production process—including unscheduled pauses—must be recorded in the batch record and investigated. |\n| **Occupational safety / labor laws** | Employee break times still need to be tracked, especially if they affect critical control points. |\n\n### Best‑practice tips\n\n1. **Use the batch record template** – most software (e.g., BioTrack, LeafLogix) has a “Break/Interruption” field; fill it in immediately.\n2. **Set a threshold** – if a break is ≤ 5 min and does not affect critical parameters, you may note it as “minor” but still log it; longer or impactful breaks require a full deviation report3. **Train staff** – reinforce that “no‑break” periods are only for steps that truly cannot tolerate interruption (e.g., active fermentation, curing).  \n4. **Automate where possible** – time‑stamped sensor data (temperature, pressure) can auto‑populate the break log, reducing human error.\n5. **Audit regularly** – include break documentation in your internal QA audits to ensure completeness.\n\n---\n\n**:** Document every break that occurs during an active batch, even if it seems trivial. Proper documentation protects product quality, ensures traceability, and keeps you in line with state and GMP requirements. If you need a template or a quick‑start SOP for break documentation, let me know—I can draft one tailored to your specific tracking system.\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1060 (165?895) | Cost: $0.000000*",
+      "duration": 9150,
+      "grade": "D",
+      "score": 60,
+      "grading": {
+        "length": "Pass",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "5/5 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 48,
+      "question": "Can I transfer crude oil to another facility before final testing?",
+      "category": "transport-transfer-regulations",
+      "agent": "unknown",
+      "actualAgent": "formulation",
+      "actualAgentName": "Formulation Agent",
+      "expectedAgent": "compliance",
+      "agentMatch": false,
+      "response": "**Short answer:** Yes – you can move a batch of crude cannabis oil to another licensed facility *before* you obtain the final consumer‑ready test results, but only if you follow the specific regulatory, safety, and documentation requirements that apply in your jurisdiction.\n\nBelow is a practical checklist that covers the most common legal and quality‑control conditions (U.S. state‑level and Canada are the primary examples, but the same principles apply elsewhere).\n\n---\n\n## 1. Regulatory permission\n\n| Jurisdiction | Typical rule | What you need |\n|--------------|--------------|---------------|\n| **U.S. (state‑based, e.g., CO, CA, OR, WA)** | Most states require **testing before product leaves the extraction site** *if* the material will be sold as a finished product. However, many allow **inter‑facility transfers** of “crude” extracts under a **transport permit** or **inter‑facility movement certificate**. | • A valid **Transfer/Manifest** (often an electronic “Track‑and‑Trace” ticket).<br>• Both the sending and receiving facilities must hold the appropriate **processor/manufacturer licenses**.<br>• The product must be labeled as “Crude Extract – Not for Sale – Pending Testing.” |\n| **Canada (Health Canada)** | Crude extracts can be moved under a **“Transfer Permit”** (Form 202) *before* mandatory testing, provided the material stays within the **licensed cannabis system**. | • **Transfer Permit** submitted via the Cannabis Tracking System (CTS).<br>• Both facilities must be **licensed producers** (or a licensed processor receiving from a producer). |\n| **European Union (e.g., Germany, Italy)** | Transfer is allowed if the material remains under **controlled‑substance supervision** and a **batch‑specific certificate of analysis (COA) pending** is attached. | • **EU‑wide traceability** (e.g., Seed‑to‑Sale software).<br>• Documentation that the batch is “under analysis.” |\n\n**Bottom line:** Verify the exact wording of the “inter‑facility transfer” or “movement” regulation for your state/country. If you are unsure, contact the state cannabis board or Health Canada’s Cannabis Licensing Division.\n\n---\n\n## 2. Chain‑of‑custody & Documentation\n\n1. **Batch ID** – Assign a unique, immutable batch number that will travel with the oil from extraction to final testing and packaging.  \n2. **Manifest/Transfer Ticket** – Include:  \n   * Sender & receiver license numbers.  \n   * Product description (e.g., “CO₂‑extracted THC‑rich crude oil, 70 % THC, 0 % CBD”).  \n   * Quantity (weight & volume).  \n   * Intended destination (e.g., “Formulation Lab – Batch #C2025‑01”).  \n   * Date/time of dispatch & expected receipt.  \n3. **Labeling** – Physical container must carry:  \n   * Batch number.  \n   * “CRUDE EXTRACT – NOT FOR CONSUMPTION – TESTING PENDING.”  \n   * Storage condition (e.g., “Store ≤ 8 °C, protected from light”).  \n4. **Electronic Traceability** – Upload the manifest to any state‑mandated seed‑to‑sale system (Metrc, BioTrackTHC, Leaf Data Systems, etc.) **before** the truck leaves the facility.  \n\n---\n\n## 3. Transport Requirements\n\n| Item | Recommendation |\n|------|----------------|\n| **Carrier** | Use a **licensed transport provider** that is authorized to move controlled cannabis products (often the same carrier used for finished product). |\n| **Vehicle** | Secure, temperature‑controlled (refrigerated if oil is prone to oxidation). Keep the container sealed; use tamper‑evident caps. |\n| **Temperature** | 2 – 8 °C is ideal for most THC‑rich oils; if you cannot guarantee refrigeration, ensure the oil is stored in an **amber, airtight container** and limit transit time to < 48 h.\n\n---\n*Agent: Formulation Agent | Plan: Standard | Tokens: 1205 (205?1000) | Cost: $0.000000*",
+      "duration": 10349,
+      "grade": "D",
+      "score": 60,
+      "grading": {
+        "length": "Pass",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "5/5 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 49,
+      "question": "Is a licensed cannabis transporter required for in-state product transfers?",
+      "category": "transport-transfer-regulations",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "compliance",
+      "agentMatch": false,
+      "response": "**Short answer:**  \nIn almost every U.S. state that has a regulated adult‑use or medical‑use market, a **licensed cannabis transporter** (or a license that includes transport privileges) is required for **any movement of product that leaves the premises of the producing/holding licensee**, even when the transfer stays within the same state. The only common exception is when the product moves **only between facilities owned or operated by the same licensee** and the license explicitly authorizes “internal transfers” without a separate transport endorsement.\n\n---\n\n## Why states generally require a transporter license\n\n| Reason | What it means for you |\n|--------|----------------------|\n| **Track‑and‑trace integrity** | State‑run seed‑to‑sale systems (e.g., METRC, BioTrackTHC) require a unique “carrier” ID on every manifest. A licensed transporter provides that ID. |\n| **Public‑safety & security** | Transporter licenses impose background checks, vehicle security standards, driver training, and insurance minimums. |\n| **Tax & revenue reporting** | Transporter fees or taxes are often tied to the transport license; the state can audit the carrier rather than each individual cultivator/processor. |\n| **Inter‑licensee accountability** | When product changes hands (cultivator → processor, processor → retailer, etc.), the carrier serves as the legal “middle‑man” that can be held responsible for chain‑of‑custody breaches. |\n\n---\n\n## Typical state‑bystate rules (as of 2025)\n\n| State | Transporter license required? | In‑state internal transfer exception |\n|-------|------------------------------|--------------------------------------|\n| **California** | Yes – “Transporter” endorsement on any cultivation, manufacturing, or retail license, or a stand‑alone Transporter License (TL‑01). | Only if the same licensee moves product between its own licensed sites **and** the license includes the “transport” privilege. |\n| **Colorado** | Yes – “Transporter” endorsement on any license or a separate Transporter License (TL). | No general exemption; even intra‑company moves need a transporter endorsement. |\n| **Oregon** | Yes – “Transporter” endorsement required on any license that moves product, or a standalone Transporter Permit. | Same‑licensee moves are allowed without a separate endorsement ** if** the license explicitly lists “transport” as an authorized activity. |\n| **Illinois** | Yes – “Transporter” endorsement required on any license or a standalone Transporter License. | No exemption; all movements must be performed by a licensed carrier. |\n| **Michigan** | Yes – “Transporter” endorsement required on any license or a separate Transporter License. | Same‑licensee transfers are permitted without a separate endorsement **only** when the product never leaves the licensed premises (e.g., moving from a grow room to an on‑site processing area). |\n| **Massachusetts** | Yes – “Transporter” endorsement required on any license, or a stand‑alone Transporter License. | Same‑licensee, on‑site transfers are allowed; off‑site internal transfers still need a carrier. |\n| **New York** | Yes – “Transporter” endorsement required on any license, or a separate Transporter License. | Same‑licensee moves between adjacent buildings on the same parcel are allowed; any off‑site movement needs a licensed carrier. |\n| **Other states** | Most follow the same pattern: a carrier license is mandatory for any product that leaves the originating facility. | Check the specific state’s cannabis regulation (usually in the “Transportation” or “Manifest” sections). |\n\n> **Bottom line:** If the product will travel **any distance** outside the original licensed premises—whether it’s a mile across town or across the state—**you need a transporter** (or a transport endorsement on your existing license). Only very limited “on‑site” moves between facilities owned by the same licensee are exempt.\n\n---\n\n## Practical steps to stay compliant\n\n1. **Verify your own license privileges**  \n   - Look at the “authorized activities” on your license. If “transport” is listed, you can act as your own carrier (subject to vehicle and driver requirements).  \n   - If not, obtain a **stand‑alone Transporter License** or partner with a licensed carrier\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1163 (163?1000) | Cost: $0.000000*",
+      "duration": 10678,
+      "grade": "F",
+      "score": 57,
+      "grading": {
+        "length": "Pass",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "4/5 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 50,
+      "question": "Do I need to notify the receiving party before sending a partial product shipment?",
+      "category": "transport-transfer-regulations",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "compliance",
+      "agentMatch": false,
+      "response": "**Short answer:** Yes—most cannabis‑industry regulations and sound business practice require you to let the receiving party know before you ship a partial order.\n\n---\n\n## Why you should notify the buyer first\n\n| Reason | What it means for you |\n|--------|-----------------------|\n| **Regulatory compliance** | Many state licensing boards (e.g., California B3, Massachusetts Cannabis Control Commission, Colorado MED) require “advance notice of shipment” for any outbound consignment, whether full or partial. The notice is used to verify that the recipient’s license is still active and that the product type/quantity is allowed. |\n| **METRC / Seed‑to‑Sale tracking** | In states that use METRC (or similar systems), you must create a **Transfer** record before the physical move. The receiving licensee must accept the transfer in the system, which can’t happen if they aren’t expecting a partial load. |\n| **Contractual obligations** | Most purchase agreements include a clause like “Seller shall provide written notice of any deviation from the ordered quantity at least ___ business days before delivery.” Failing to do so can be deemed a breach and may trigger penalties or charge‑backs. |\n| **Logistics & receiving capacity** | The buyer may need to allocate storage space, adjust staffing, or coordinate with a third‑party logistics provider. Sending a surprise partial pallet can cause dock congestion, extra handling fees, or even a refused delivery. |\n| **Invoice & payment alignment** | Partial shipments usually generate partial invoices. Notifying the buyer in advance lets them match the invoice to the receipt, reducing disputes and speeding up payment. |\n| **Audit trail** | A documented pre‑shipment notice creates a clear paper (or electronic) trail that auditors can review during compliance inspections. |\n\n---\n\n## How to give proper\n\n1. **Check the contract** – Locate any “notice of shipment” clause. Note the required lead‑time (e.g., 24‑48 hrs) and the preferred method (email, EDI, portal).  \n2. **Verify state‑specific rules** –  \n   * **California (B3)** – Must submit a “Transfer” in METRC and the recipient must accept before the carrier picks up the product.  \n   * **Colorado** – Requires a “Transfer Notification” in METRC at least 30 minutes before departure.  \n   * **Massachusetts** – Requires a “Delivery Notification” within 24 hrs of the scheduled delivery.  \n   (If you operate in multiple states, use the most restrictive rule as your baseline.)  \n3. **Create the transfer in your seed‑to‑sale system** – Include:  \n   * License numbers of shipper & receiver  \n   * Product type, batch/lot numbers, and **partial quantity**  \n   * Expected pick‑up and delivery dates/times  \n4. **Send the notice** – Typically an email or portal message that contains:  \n   * PO number and order reference  \n   * Exact quantity being shipped now (and what remains pending)  \n   * Expected delivery window  \n   * Any required documentation (COA, QR code, manifest)  \n5. **Confirm receipt** – Get a written acknowledgment (email reply, portal acceptance, or METRC “Transfer Accepted” status).  \n6. **Update invoicing** – Issue a partial invoice that matches the shipped quantity; note “Partial shipment – remaining items to follow.”  \n\n---\n\n## Quick checklist for a partial shipment\n\n- [ ] Review purchase order & contract for notice requirements.  \n- [ ] Verify both parties’ licenses are current in the relevant state system.  \n- [ ] Enter a partial transfer in METRC/Seed‑to‑Sale software.  \n- [ ] Notify the buyer (email/EDI/portal) with all details **before** the carrier departs.  \n- [ ] Obtain buyer acknowledgment.  \n- [ ] Ship the partial load and capture the carrier’s bill of lading.  \n- [ ] Submit the completed transfer in\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1166 (166?1000) | Cost: $0.000000*",
+      "duration": 11180,
+      "grade": "D",
+      "score": 60,
+      "grading": {
+        "length": "Pass",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "5/5 key words"
+      },
+      "expectedKeywords": []
     }
   ],
-  "status": "In Progress: 40/438 questions completed"
+  "status": "In Progress: 50/438 questions completed"
 }
