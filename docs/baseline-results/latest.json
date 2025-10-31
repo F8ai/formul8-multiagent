@@ -1,11 +1,11 @@
 {
-  "timestamp": "2025-10-31T19:28:14.845Z",
+  "timestamp": "2025-10-31T19:30:01.945Z",
   "url": "https://chat.formul8.ai",
   "totalQuestions": 438,
-  "completed": 310,
-  "passed": 68,
+  "completed": 320,
+  "passed": 78,
   "failed": 242,
-  "averageScore": "19.37",
+  "averageScore": "21.23",
   "averageGrade": "F",
   "results": [
     {
@@ -6272,7 +6272,337 @@
         "loyalty"
       ],
       "expectedAnswer": ""
+    },
+    {
+      "questionNum": 311,
+      "question": "What are the best loyalty platforms for email and text marketing?",
+      "category": "retail-&-consumer-marketing",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": true,
+      "response": "Below is a quick‑start guide to the most‑recommended loyalty‑and‑marketing platforms that combine **email + text (SMS) outreach** with a robust points‑/rewards engine.  I’ve highlighted the core strengths, pricing bands, and the types of businesses they suit best (including cannabis‑friendly options where relevant).\n\n| Platform | Loyalty Core | Email Marketing | SMS / Text Marketing | Key Integrations | Pricing (as of 2024) | Best For |\n|----------|--------------|----------------|----------------------|------------------|----------------------|----------|\n| **Klaviyo** | Points, tiered rewards, referral program (via add‑ons) | Advanced segmentation, flow builder, A/B testing | Klaviyo SMS (native) – trigger texts from the same flows | Shopify, BigCommerce, WooCommerce, Magento, custom API | Free up to 250 contacts + 5 K emails; paid starts at **$30/mo** (≈5 K contacts) | Mid‑size e‑commerce brands that need granular data & automation; works well for cannabis e‑stores that can integrate via Shopify/BigCommerce (ensure compliance with local SMS consent rules). |\n| **Omnisend** | Points, tier levels, referral links | Drag‑and‑drop email builder, automation, product‑recommendation blocks | Built‑in SMS + WhatsApp (U.S. & EU) | Shopify, WooCommerce, BigCommerce, Squarespace, custom API | Free plan (500 emails/month); paid starts at **$16/mo** (up to 15 K emails) | Brands that want an all‑in‑one “marketing suite” with a simple UI; good for small‑to‑mid cannabis retailers using Shopify. |\n| **Smile.io** | Points, VIP tiers, referral program | Integrates with most email platforms (Klaviyo, Mailchimp, Omnisend) | Connects to SMS tools (Klaviyo SMS, Postscript, SMSBump) via Zapier or native integrations | Shopify, BigCommerce, Wix, Squarespace, custom | Free tier (basic points); paid starts at **$49/mo** (Growth) → **$299/mo** (Enterprise) | Pure‑play loyalty specialists; ideal if you already have a preferred email/SMS provider and just need a dedicated rewards engine. |\n| **LoyaltyLion** | Points, tiered VIP, referrals, gamified challenges | Syncs with Klaviyo, Mailchimp, Campaign Monitor, Postscript, SMSBump | Works with any SMS provider via API/webhooks | Shopify, Magento, BigCommerce, Salesforce Commerce Cloud | Starter **$159/mo**; Growth **$399/mo**; Enterprise custom | Larger retailers who need deep analytics and advanced segmentation; strong reporting for ROI on loyalty. |\n| **Yotpo Loyalty & Referrals** | Points, tier levels, referral contests, brand‑generated content | Email flows via Yotpo’s own platform or any ESP (Klaviyo, Mailchimp) | SMS via Yotpo’s native SMS or third‑party (Twilio, Postscript) | Shopify, Magento, BigCommerce, Salesforce, custom | Loyalty starts at **$99/mo** (plus usage fees) | Brands that also want reviews, UGC, and visual loyalty experiences (e.g., photo contests). |\n| **Zinrelo** | Unlimited points, tiered rewards, gamified actions, referral & social sharing | Connects to any ESP via API; native email templates | SMS via Twilio integration or Zapier\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1163 (163?1000) | Cost: $0.000000*",
+      "duration": 12956,
+      "grade": "B",
+      "score": 88.25,
+      "grading": {
+        "length": "Pass",
+        "keywords": "4/5 matched",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "3/4 key words"
+      },
+      "strengths": [],
+      "weaknesses": [],
+      "feedback": "",
+      "gradingMethod": "unknown",
+      "expectedKeywords": [
+        "retail",
+        "consumer",
+        "marketing",
+        "loyalty",
+        "platforms"
+      ],
+      "expectedAnswer": ""
+    },
+    {
+      "questionNum": 312,
+      "question": "What are the best loyalty programs for customer reward points?",
+      "category": "retail-&-consumer-marketing",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": true,
+      "response": "**Top Loyalty‑Program Models to Inspire Your Customer‑Reward Strategy**\n\n| Rank | Program | Industry | Why It Works | Key Features to Emulate |\n|------|---------|----------|--------------|--------------------------|\n| **1** | **Starbucks Rewards** | Food & Beverage | • 2‑tier “Earn & Go” system drives frequency.<br>• Mobile app integrates ordering, payments, and rewards.<br>• Personalised offers based on purchase history. | • Point‑per‑dollar spend (1 pt = $0.01).<br>• “Bonus” challenges & birthday freebie.<br>• Tiered “Gold” status unlocks free refills & early‑access. |\n| **2** | **Sephora Beauty Insider** | Beauty & Cosmetics | • 3‑tier (Insider, VIB, Rouge) creates aspirational progression.<br>• Points redeemable for products, experiences, or exclusive events. | • “Play” mini‑games for extra points.<br>• Data‑driven product recommendations.<br>• Early‑access to launches. |\n| **3** | **Amazon Prime** (Membership) | E‑commerce | • Subscription‑based loyalty that bundles free shipping, streaming, and exclusive deals.<br>• “Points” are implicit via member‑only pricing. | • Annual fee creates high‑value perception.<br>• Cross‑category benefits (Prime Video, Fresh, etc.). |\n| **4** | **Delta SkyMiles** | Travel/Airlines | • Earn miles on flights, partners, and everyday spend.<br>• Tiered Medallion status adds upgrades, lounge access. | • “Mileage‑plus‑cash” redemption flexibility.<br>• Co‑branded credit‑card accelerates earning. |\n| **5** | **REI Co‑op Membership** | Outdoor Retail | • One‑time $30 fee → 10 % back on purchases (as “Dividends”).<br>• Community‑focused events & exclusive sales. | • Simple, transparent ROI for members.<br>• Strong brand‑advocacy loop. |\n| **6** | **Leafly “Bud Club”** (Cannabis) | Cannabis Retail | • Points for every purchase, plus “Strain‑Specific” challenges.<br>• Redeem for product discounts, merch, or event tickets. | • Integrated with POS & compliance tracking.<br>• Mobile app pushes strain‑education content. |\n| **7** | **Weedmaps “WeedPoints”** (Cannabis) | Cannabis Delivery | • Earn points on orders, reviews, and referrals.<br>• Points redeemable for discounts or exclusive strains. | • Real‑time inventory sync.<br>• Geo‑targeted promotions for local stores. |\n| **8** | **Kroger “Fuel Points”** | Grocery | • 1 pt per $1; points convert to fuel discounts (or vice‑versa).<br>• Partnerships with gas stations expand utility. | • Cross‑category redemption (groceries ↔ fuel). |\n| **9** | **Nike Membership** | Apparel & Sports | • Free tier + “NikePlus” premium (subscription).<br>• Points for workouts, app engagement, and purchases. | • Gamified challenges (step goals, runs).<br>• Early product drops for members. |\n| **10** | **Chick-fil‑A One** | Fast‑Food | • Simple “Earn 1 pt per $1” + “Free Item” thresholds.<br>• Mobile ordering + QR‑code scanning. | • “Double‑point days” drive traffic spikes.<br>• Seamless integration with delivery partners. |\n\n---\n\n## What Makes a Loyalty Program “Best”?\n\n| Criterion | What to Look For | Example |\n|-----------|------------------|---------|\n| **Simplicity** | Easy to understand & earn | Starbucks “1 pt = $0.01” |\n| **Value Per Point** | Clear redemption value (e.g., $0.01 per point) | Sephora\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1168 (168?1000) | Cost: $0.000000*",
+      "duration": 4194,
+      "grade": "C",
+      "score": 70,
+      "grading": {
+        "length": "Pass",
+        "keywords": "2/5 matched",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "3/5 key words"
+      },
+      "strengths": [],
+      "weaknesses": [],
+      "feedback": "",
+      "gradingMethod": "unknown",
+      "expectedKeywords": [
+        "retail",
+        "consumer",
+        "marketing",
+        "loyalty",
+        "programs"
+      ],
+      "expectedAnswer": ""
+    },
+    {
+      "questionNum": 313,
+      "question": "How do I do text message marketing to customers in a compliant manner?",
+      "category": "retail-&-consumer-marketing",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": true,
+      "response": "Below is a practical, step‑by‑step checklist you can follow to run SMS (text‑message) marketing that stays **legal and compliant** in the United States (and can be adapted for other jurisdictions).  \n\n---\n\n## 1. Get Explicit, Documented Consent (Opt‑In)\n\n| Requirement | How to Satisfy |\n|-------------|----------------|\n| **Clear, affirmative consent** before you send any promotional SMS | Use a **single‑click opt‑in** (e.g., “Text YES to 12345 to join our offers”) **or a web form with a checked box** that states exactly what the subscriber is signing up for. |\n| **Double‑opt‑in (highly recommended)** | After the first “YES”, send a confirmation message: “Reply YES to confirm you want to receive text offers from [Brand]”. Only add the number after the second YES. |\n| **Record the opt‑in date, source, and the exact wording** | Store this data in a secure CRM or compliance log. It’s the proof you’ll need if a regulator or carrier asks. |\n| **Age verification (if required)** | For products with age restrictions (e.g., cannabis, alcohol, vaping), capture DOB and verify the subscriber is ≥ the legal age in their state before confirming the opt‑in. |\n\n---\n\n## 2. Provide an Easy Opt‑Out Mechanism\n\n* **Standard keyword:** “Reply STOP to unsubscribe.”  \n* **Confirm opt‑out:** Send an immediate reply: “You’ve been unsubscribed. No more messages from us.”  \n* **Honor opt‑outs within 10 seconds** (carrier requirement).  \n* **Never send further promotional messages** to a number that has opted out, even if you later obtain a new consent.\n\n---\n\n## 3. Follow the **TCPA** (Telephone Consumer Protection Act) Rules\n\n| TCPA Element | What It Means for SMS |\n|--------------|-----------------------|\n| **Prior express written consent** (for promotional messages) | Your opt‑in wording must be **written** (digital signatures, checked boxes, or clear SMS keyword) and must specify that you’ll send marketing texts. |\n| **No autodialed calls or pre‑recorded messages** | SMS is fine as long as it’s a **human‑originated** or **properly disclosed** marketing text. |\n| **Time‑of‑day restrictions** | Send between **8 a.m. – 9 p.m.** (recipient’s local time). |\n| **Message frequency disclosure** | Tell the subscriber how often they’ll hear from you (“You’ll receive up to 4 texts per month”). |\n| **Do‑Not‑Call (DNC) list compliance** | Cross‑check your list against the **National Do‑Not‑Call Registry** and any state‑specific DNC lists before sending. |\n\n---\n\n## 4. Respect **FTC / CAN‑SPAM‑like** SMS Rules\n\n* **Identify the sender** in every message (e.g., “[Brand]”).  \n* **Include a clear, concise opt‑out** reminder (e.g., “Reply STOP to cancel”).  \n* **Avoid deceptive or false content** – the message must be truthful about offers, pricing, and terms.  \n\n---\n\n## 5. State‑Specific & Industry‑Specific Restrictions (Cannabis Example)\n\n| State | Key SMS Limitation for Cannabis |\n|-------|---------------------------------|\n| **California** | No “price‑per‑gram” promotions; must include age‑verification link if targeting adults. |\n| **Colorado** | Must include a disclaimer: “You must be 21+ and a resident of CO to purchase.” |\n| **Illinois** | Prohibits “flavor‑specific” marketing via SMS; must link to full product catalog on a compliant website. |\n\n*If you’re marketing **cannabis** products, double‑check each state’s **Department of Revenue** or **Health**\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1132 (132?1000) | Cost: $0.000000*",
+      "duration": 12346,
+      "grade": "C",
+      "score": 78,
+      "grading": {
+        "length": "Pass",
+        "keywords": "3/5 matched",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "3/5 key words"
+      },
+      "strengths": [],
+      "weaknesses": [],
+      "feedback": "",
+      "gradingMethod": "unknown",
+      "expectedKeywords": [
+        "retail",
+        "consumer",
+        "marketing",
+        "message",
+        "customers"
+      ],
+      "expectedAnswer": ""
+    },
+    {
+      "questionNum": 314,
+      "question": "How do I design point-of-sale displays that stand out while following regulations?",
+      "category": "retail-&-consumer-marketing",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": true,
+      "response": "### Designing Eye‑Catching, Compliant Cannabis POS Displays  \n\nBelow is a step‑by‑step framework that balances visual impact with the most common regulatory requirements (U.S. state‑level, but the principles translate internationally).  \n\n---\n\n## 1. Know the Core Compliance Pillars  \n\n| Pillar | Typical Requirement | How to Address It |\n|--------|---------------------|-------------------|\n| **Branding & Messaging** | No health claims, “medical” language (unless allowed), no false or misleading statements. | Use neutral,focused copy (“premium quality”, “hand‑crafted”). Keep any claim backed by lab results. |\n| **Child‑Safety & Visibility** | No child‑appealing imagery (cartoons, bright “toy‑like” colors). Minimum font size for warnings. | Stick to professional color palettes; keep bright accent colors limited to brand hues, not “playful” tones. |\n| **Size & Placement** | Limits on display footprint, height, and distance from the checkout lane. | Check your state’s retail‑fixture guidelines (e.g., CO: ≤ 2 ft² per fixture, ≤ 48″ high). Draft a layout map before printing. |\n| **Labeling & Lab Results** | Must show THC/CBD potency, batch number, and any required warnings on the display or adjacent signage. | Include a small “lab‑verified” badge with QR code linking to the full Certificate of Analysis (COA). |\n| **Advertising Restrictions** | No price‑promotion unless state permits, no “free sample” language. | Keep pricing on a separate price‑tag board if allowed; otherwise list “Ask staff for pricing.” |\n| **State‑Specific Icons** | Some states require a specific “no minors” symbol or a state‑mandated warning logo. | Download the most recent icon set from the state cannabis board website and embed it at the required size (usually ¼″ square). |\n\n> **Tip:** Keep a copy of the latest state regulations in a shared folder (e.g., Google Drive) and set a calendar reminder to review them quarterly—rules change often.\n\n---\n\n## 2. Visual Design Fundamentals (Compliance‑First)\n\n| Element | Why It Matters | Design Best‑Practice |\n|---------|----------------|----------------------|\n| **Color Palette** | Overly bright colors can be deemed “child‑attractive.” | Use your brand’s primary hues (e.g., deep green, muted gold) with 1–2 accent colors. Reserve neon or pastel for non‑product graphics only. |\n| **Typography** | Minimum font size for warnings (often 10 pt). | Primary product name: 18–24 pt bold. Mandatory warnings: 10 pt regular, high contrast (black on white). |\n| **Imagery** | No cartoon or candy‑style graphics. | Use macro photography of the flower, leaf silhouettes, or abstract botanical patterns. |\n| **Material** | Some states require non‑flammable, recyclable surfaces. | Choose ABS plastic or metal frames with a matte finish; avoid glossy laminates that can reflect light like a “toy.” |\n| **Lighting** | Bright LED can draw attention but may be regulated. | Use warm‑white LEDs (≈3000 K) with diffusers—avoid strobe or flashing effects. |\n| **Modular Layout** | Allows quick re‑configuration for new products without re‑printing entire fixtures. | Design snap‑together shelves or “card‑slot” inserts that can be swapped out. |\n\n---\n\n## 3. Build the Display – Step‑by‑Step Checklist  \n\n1. **Define the Goal**  \n   - New strain launch? Seasonal promotion? Brand awareness?  \n   - Set a measurable KPI (e.g., “increase SKU pick‑up rate by 15 %”).  \n\n2. **Sketch the Footprint**  \n   - Use a CAD or simple 2‑D tool (SketchUp, Figma).  \n   - Verify dimensions against state‑mandated limits.  \n\n3. **Create a Compliance Matrix**  \n   | Item | Reg. Ref. | Status | Comments |\n   |------|-----------|--------|----------|\n   | Font size for warnings | § 12.3.1 |\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1166 (166?1000) | Cost: $0.000000*",
+      "duration": 8347,
+      "grade": "C",
+      "score": 78,
+      "grading": {
+        "length": "Pass",
+        "keywords": "3/5 matched",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "3/5 key words"
+      },
+      "strengths": [],
+      "weaknesses": [],
+      "feedback": "",
+      "gradingMethod": "unknown",
+      "expectedKeywords": [
+        "retail",
+        "consumer",
+        "marketing",
+        "regulation",
+        "design"
+      ],
+      "expectedAnswer": ""
+    },
+    {
+      "questionNum": 315,
+      "question": "What messaging connects with both budtenders and end consumers?",
+      "category": "retail-&-consumer-marketing",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": true,
+      "response": "### Messaging That Resonates With Bothtenders **and** End‑Consumers  \n\n| Core Theme | Why It Works for Budtenders | Why It Works for Consumers | Sample Message |\n|------------|----------------------------|----------------------------|----------------|\n| **Education First** | Budtenders love credible, easy‑to‑share product facts (THC/CBD ratios, terpene profiles, onset time, dosage). It makes them feel knowledgeable and confident. | Consumers want to understand what they’re buying and how it will affect them. Clear education reduces anxiety and builds trust. | “Our new Cali‑Citrus hybrid delivers 18 % THC with a bright citrus‑terpene burst—perfect for a daytime lift without the crash.” |\n| **Experience‑Driven Storytelling** | Stories give budtenders a narrative hook they can use when guiding shoppers. | Consumers buy the feeling, not just the flower. A vivid story creates an emotional connection. | “ by the sunrise over the Sierra foothills, this sativa‑dominant blend awakens creativity while keeping you grounded.” |\n| **Community & Belonging** | Budtenders see themselves as local ambassadors. Messaging that celebrates the dispensary’s community role makes them proud to represent the brand. | Consumers want to belong to a knowledgeable, supportive community rather than feel like a lone buyer. |Join the Green Circle—monthly tastings, grow‑talk Q&A, and exclusive member rewards.” |\n| **Transparency & Trust** | Budtenders are the front‑line fact‑checkers. Open lab‑test results, sourcing details, and compliance data give them confidence to recommend. | Consumers increasingly demand proof of safety and quality. Transparency removes doubt. | “Lab‑tested for pesticides, heavy metals, and residual solvents—results posted on every package QR code.” |\n| **Consistent, Simple Language** | A unified terminology (e.g., “Terpene Spotlight: Myrcene = earthy relaxation”) lets budtenders speak the same script across shifts. | Consumers don’t have to decode jargon; they get the same message every time they walk in. | “Myrcene‑rich indica for a mellow night‑in—feel the calm, not the couch‑lock.” |\n| **Value & Accessibility** | Budtenders can highlight price‑point options, bundles, or loyalty perks, positioning the brand as both premium and attainable. | Consumers see clear value propositions, making purchase decisions easier. | “Buy a 5‑gram starter kit and unlock 10 % off your next refill—perfect for new explorers.” |\n| **Safety & Responsible Use** | Budtenders need to convey responsible‑use guidelines without sounding punitive. | Consumers appreciate clear, non‑judgmental guidance on dosage and timing. | “Start low, go slow: 1–2 puffs for beginners, wait 30 min before deciding on more.” |\n\n---\n\n## How to Deploy This Messaging Across Channels  \n\n| Channel | Budtender‑Focused Tactics | Consumer‑Focused Tactics |\n|---------|---------------------------|--------------------------|\n| **In‑Store Displays & POS** | QR‑coded lab cards, “Budtender’s Pick” shelf tags, quick‑reference cheat sheets. | Eye‑catching benefit banners, QR‑codes linking to short explainer videos. |\n| **Social Media (IG, TikTok, FB)** | “Budtender Spotlight” reels where staff walk through a product’s terpene profile. | Consumer‑centric reels showing real‑life usage scenarios (e.g., “Elevate your weekend hike”). |\n| **Email / SMS** | Staff‑only newsletters with new strain data, talking points, and compliance updates. | Consumer newsletters that mirror those talking points—highlight new arrivals, education snippets, and loyalty rewards. |\n| **Training Modules** | Micro‑learning videos that end with a “talking‑point cheat sheet” for each product line. | Offer the same micro‑learning content as a “Consumer Academy” series—optional but free. |\n| **Packaging** | Consistent iconography (e.g., terpene icons) that budtenders can quickly reference. | Same icons on the front of the package plus QR link to full lab report. |\n| **Events & Pop‑ups** | “Budtender‑Led Tasting” where staff guide a sensory walk‑through. | Open tastings where the\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1163 (163?1000) | Cost: $0.000000*",
+      "duration": 11397,
+      "grade": "D",
+      "score": 68.5,
+      "grading": {
+        "length": "Pass",
+        "keywords": "2/5 matched",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "2/4 key words"
+      },
+      "strengths": [],
+      "weaknesses": [],
+      "feedback": "",
+      "gradingMethod": "unknown",
+      "expectedKeywords": [
+        "retail",
+        "consumer",
+        "marketing",
+        "messaging",
+        "connects"
+      ],
+      "expectedAnswer": ""
+    },
+    {
+      "questionNum": 316,
+      "question": "How do I train budtenders to be better brand ambassadors?",
+      "category": "retail-&-consumer-marketing",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": true,
+      "response": "### Turning Budtenders into Strong Brand Ambassadors  \n*(A quick‑start guide you can roll out in 4‑6 weeks)*  \n\n| Phase | Goal | Key Activities | Tools & Resources | Success Metrics |\n|-------|------|----------------|-------------------|-----------------|\n| **1️⃣ Foundations (Week 1‑2)** | Build product & brand fluency | • 2‑hour “Brand DNA” workshop (history, mission, voice)  <br>• Interactive catalog walk‑through (strain profiles, terpene‑effect matrix, sourcing)  <br>• Compliance refresher (state‑specific packaging, labeling, age‑check) | • Branded playbook (PDF + mobile app)  <br>• QR‑linked video snippets (2‑min each) | 90 % score on brand‑knowledge quiz |\n| **2️⃣ Customer‑Centric Skills (Week 3‑4)** | Translate knowledge into personalized service | • Role‑play stations: “First‑time visitor”, “Medical patient”, “Connoisseur”  <br>• Active‑listening & needs‑assessment script (open‑ended questions, “Feel‑Factor” ladder)  <br>• Upsell/ cross‑sell mapping (e.g., “If they like X, suggest Y”) | • Soft‑skill e‑learning micro‑modules (5 min each)  <br>• Live‑feedback board (Google Jamboard) | 80 % positive “customer‑experience” mock rating |\n| **3️⃣ Storytelling & Social Proof (Week 5)** | Make each budtender a living extension of the brand | • “Brand Storytelling Lab”: craft 30‑second personal pitch linking product to brand values  <br>• Social‑media mini‑training (how to share authentic moments, FTC disclosure basics)  <br>• Photo‑/video‑ready “Ambassador Kit” (branded badge, QR‑code card) | • Template pitch deck, brand‑tone guide  <br>• Approved social‑post calendar (Canva templates) | 70 % of staff post ≥1 brand‑aligned story per week |\n| **4️⃣ Ongoing Mastery (Week 6 +)** | Reinforce, measure, reward | • Weekly “Spotlight” huddles (share a customer win)  <br>• Quarterly “Brand Champion” contest (sales + brand‑score)  <br>• Continuous learning hub (LMS with new strain releases) | • Leaderboard (Salesforce/HubSpot)  <br>• Badge system (digital & physical) | ↑ 10‑15% average basket size, ↑ 5‑7 % NPS |\n\n---\n\n## 1. Core Training Pillars  \n\n| Pillar | What It Covers | Why It Matters |\n|--------|----------------|----------------|\n| **Product Knowledge** | Strain genetics, THC/CBD ratios, terpene profiles, effects, cultivation story. | Enables credible recommendations; builds trust. |\n| **Brand Narrative** | Origin story, sustainability practices, community involvement, visual style. | Differentiates you from generic dispensaries. |\n| **Compliance & Safety** | State regulations, labeling, dosage guidance, refusal protocol. | Protects the business & customers; builds confidence. |\n| **Customer Experience** | Active listening, empathy, consultative selling, handling objections. | Turns a transaction into a relationship. |\n| **Digital Advocacy** | Social‑media guidelines, content creation basics, QR‑code referrals. | Extends brand reach beyond the store. |\n\n---\n\n## 2. Practical Training Techniques  \n\n| Technique | How to Execute | Tips for Impact |\n|-----------|----------------|-----------------|\n| **Gamified Quizzes** | Use Kahoot or Quizizz after each module. Offer small prizes (e.g., branded merch). | Immediate feedback keeps energy high. |\n| **Shadowing & “Buddy” System** | Pair new budtenders with a “Brand Champion” for 2 days. | Real‑time modeling of best practices. |\n| **Mystery Shopper Audits** | Quarterly anonymous visits with a checklist (knowledge, tone, compliance). | Objective data for coaching. |\n| **Micro‑Learning Snippets** | 2‑minute videos on “Terpene of the Week” sent via Slack. | Fits busy schedules; reinforces retention. |\n| **Live Product Demos** | Host a “Tasting” (aroma kits, vapor\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1164 (164?1000) | Cost: $0.000000*",
+      "duration": 9034,
+      "grade": "C",
+      "score": 70,
+      "grading": {
+        "length": "Pass",
+        "keywords": "2/5 matched",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "3/5 key words"
+      },
+      "strengths": [],
+      "weaknesses": [],
+      "feedback": "",
+      "gradingMethod": "unknown",
+      "expectedKeywords": [
+        "retail",
+        "consumer",
+        "marketing",
+        "train",
+        "budtenders"
+      ],
+      "expectedAnswer": ""
+    },
+    {
+      "questionNum": 317,
+      "question": "What are the best budtender training platforms?",
+      "category": "retail-&-consumer-marketing",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": true,
+      "response": "Below is a quick‑reference guide to the most‑widely‑regarded budtender‑training platforms (as of 2024). Each entry includes the core offering, pricing tier, certification/continuing‑education (CE) value, and a brief “pros/cons” snapshot so you can match a platform to your dispensary’s budget, compliance needs, and learning style.\n\n| Platform | Core Offering | Certification/CE | Pricing (per seat) | Pros | Cons |\n|----------|---------------|-------------------|--------------------|------|------|\n| **Cannabis Training University (CTU)** | 40+ video modules covering product knowledge, compliance, sales techniques, and advanced topics (e‑learning + live Q&A). | Offers the **CTU Certified Budtender (CCB)** credential; CE credits accepted in many states. | $199 / yr (individual) / $1,299 / yr (team of 10). Bulk discounts available. | • One of the longest‑standing curricula ( 2016). <br>• Strong focus on regulatory updates per state. <br>• Printable reference guides & quiz bank. | • UI feels a bit dated. <br>• No built‑in LMS for tracking employee progress (requires manual reporting). |\n| **Green Flower** | Short (5‑10 min) micro‑learning videos + interactive quizzes; “Budtender Academy” track (≈30 hrs). | Provides **Green Flower Certified Budtender (GFCB)** badge; CE accepted in CA, CO, WA, OR. | $149 / yr (individual) / $1,099 / yr (team of 10). | • Bite‑size format fits shift schedules. <br>• Mobile‑first design; offline download. <br>• Community forum for peer Q&A. | • Limited deep‑dive content on advanced extraction or lab testing. |\n| **Trichome Institute** | 20‑hour “Budtender Essentials” course + optional “Advanced Retail” module. | Grants **Trichome Certified Budtender (TCB)**; recognized for CE in 12 states. | $149 / yr (single user) / $1,199 / yr (team of 10). | • Strong emphasis on product science (cannabinoid/terpene profiles). <br>• Live “office hours” with industry experts. | • Courses are video‑only; no interactive simulations. |\n| **Cannabiz Media – Budtender Academy** | 30‑hour curriculum with role‑play scenarios, compliance checklists, and a final exam. | **Cannabiz Certified Budtender (CCB)**; CE accepted in 10+ states. | $179 / yr (individual) / $1,399 / yr (team of 10). | • Includes a built‑in LMS for tracking completion & scores. <br>• Quarterly regulatory update webinars (free for members). | • Higher price point; interface can be sluggish on low‑bandwidth connections. |\n| **BLAZE (formerly Budtender University)** | Interactive e‑learning + ARenabled product identification (scan a bud, see terpene map). | **BLAZE Certified Budtender (BCB)**; CE credits in CA, CO, MA, NV. | $199 / yr (individual) / $1,599 / yr (team of 10). | • Cutting‑edge AR tool helps staff practice “on‑the‑spot” identification. <br>• Gamified leaderboards boost engagement. | • Requires newer smartphones/tablets; higher hardware requirement. |\n| **LeafLink Academy** (newer entrant) | 15‑hour modular course focused on inventory management, POS integration, and compliance reporting. | **LeafLink Certified Retail Specialist (LCRS)**; CE recognized in 8 states. | $129 / yr (individual) / $999 / yr (team of 10). | • Direct integration with LeafLink wholesale platform (useful for chain dispensaries). <br>• Strong focus on data‑driven upselling. | • Content is more “\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1161 (161?1000) | Cost: $0.000000*",
+      "duration": 11529,
+      "grade": "C",
+      "score": 79,
+      "grading": {
+        "length": "Pass",
+        "keywords": "3/5 matched",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "2/3 key words"
+      },
+      "strengths": [],
+      "weaknesses": [],
+      "feedback": "",
+      "gradingMethod": "unknown",
+      "expectedKeywords": [
+        "retail",
+        "consumer",
+        "marketing",
+        "training",
+        "budtender"
+      ],
+      "expectedAnswer": ""
+    },
+    {
+      "questionNum": 318,
+      "question": "What data should I collect from retail to improve marketing performance?",
+      "category": "retail-&-consumer-marketing",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": true,
+      "response": "Below is a practical “data‑menu” you can start pulling from your retail operation.  Each data point is paired with the marketing insight it unlocks, so you can prioritize collection and analysis based on the results you need.\n\n| **Data Category** | **Key Elements to Capture** | **Why It Matters for Marketing** |\n|-------------------|-----------------------------|-----------------------------------|\n| **Sales & Transaction Data** | • SKU, product category, price, discount applied  <br>• Gross & net sales per transaction  <br>• Time stamp (date, hour, day‑of‑week)  <br>• Payment method (cash, card, e‑wallet) | • Identify top‑selling products & margin drivers.<br>• Spot time‑based purchase patterns for optimal promotion timing.<br>• Measure ROI of price‑based incentives. |\n| **Customer Identification** | • Loyalty‑card/phone number, email, or hashed ID  <br>• First‑time vs. repeat purchase flag  <br>• Lifetime value (LTV) estimate | • Segment audiences (high‑value vs. occasional shoppers).<br>• Personalize offers and communication frequency.<br>• Track churn and retention trends. |\n| **Demographic & Psychographic Profile** | • Age range, gender (if collected), zip code  <br>• Lifestyle tags (e.g., “wellness”, “recreational”, “medical”) from loyalty surveys or opt‑in questionnaires | • Align creative messaging to the most relevant audience.<br>• Geotarget ads to neighborhoods with higher propensity to buy. |\n| **Foot‑Traffic & Dwell Time** | • In‑store entry counts (people counters, Wi‑Fi pings)  <br>• Heat‑map zones (where shoppers linger) br>• Dwell time per zone | • Optimize store layout and in‑store displays.<br>• Schedule staff and promotions when traffic peaks.<br>• Test “experience” zones to see if they lift conversion. |\n| **Promotion & Campaign Attribution** | • Promo code usage, coupon redemption, bundle uptake  <br>• Media channel that drove the visit (QR code, POS‑linked loyalty prompt, SMS link)  <br>• Pre‑/post‑campaign sales lift | • Directly tie marketing spend to incremental sales.<br>• Identify which channels and creative assets move the needle. |\n| **Inventory & Stock‑out Signals** | • On‑hand quantity per SKU, days‑of‑stock (DOS)  <br>• Stock‑out events and duration  <br>• Re‑order lead time | • Prevent lost sales due to out‑of‑stock.<br>• Use low‑stock alerts to create urgency‑driven messaging (“Only 5 left!”). |\n| **Product‑Level Feedback** | • In‑store digital surveys or QR‑linked feedback forms  <br>• Returns & reason codes  <br>• Sentiment from social listening on specific products | • Spot quality or perception issues early.<br>• Feed insights into creative (e.g., “Customers love the smooth finish”). |\n| **Digital Interaction Data** (if you have an e‑commerce or app layer) | • Online visits, product page views, add‑to‑cart, checkout abandonment  <br>• Email open/click rates, SMS opt‑ins  <br>• Push‑notification engagement | • Blend online/offline journeys for a true omnichannel view.<br>• Retarget abandoned carts with store‑pickup offers. |\n| **External Context** | • Local events, holidays, weather (temp, precipitation)  <br>• Competitor promotions (scraped from flyers, social) | • Adjust spend and creative to seasonal drivers.<br>• Pre‑empt competitive “price wars” with differentiated value messaging. |\n\n---\n\n## How to Put It All Together\n\n1. **Create a Unified Data Lake**  \n   - Pull POS, foot‑traffic, loyalty, and inventory feeds into a central warehouse (e.g., Snowflake, BigQuery).  \n   - Use a unique customer identifier (hashed loyalty ID) to join online and offline actions.\n\n2. **Build Core Dashboards**  \n   - **Sales‑\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1163 (163?1000) | Cost: $0.000000*",
+      "duration": 9271,
+      "grade": "C",
+      "score": 78,
+      "grading": {
+        "length": "Pass",
+        "keywords": "3/5 matched",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "3/5 key words"
+      },
+      "strengths": [],
+      "weaknesses": [],
+      "feedback": "",
+      "gradingMethod": "unknown",
+      "expectedKeywords": [
+        "retail",
+        "consumer",
+        "marketing",
+        "should",
+        "collect"
+      ],
+      "expectedAnswer": ""
+    },
+    {
+      "questionNum": 319,
+      "question": "What AI tools are available to me to better serve my customers or give them a better experience?",
+      "category": "retail-&-consumer-marketing",
+      "agent": "unknown",
+      "actualAgent": "formulation",
+      "actualAgentName": "Formulation Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": false,
+      "response": "Below is a quick‑reference guide to the AI‑driven tools that can help you‑as a cannabis formulist‑deliver faster, more accurate, and more personalized service to your customers.  I’ve grouped them by the problem they solve, listed a few popular options, and added a one‑sentence “why it matters” note so you can pick the right one for the job.\n\n---\n\n## 1. **Customer‑Facing AI (Experience & Support)**  \n\n| Tool | Core Capability | Typical Use in Cannabis | How it Improves CX |\n|------|----------------|------------------------|--------------------|\n| **ChatGPT / OpenAI GPT‑4o** | Conversational LLM, multimodal (text + image) | Real‑time product‑selection chat, dosage calculators, FAQ bots on websites or WhatsApp | Gives instant, 24/7 answers that sound knowledgeable and compliant |\n| **Claude (Anthropic)** | Safe‑first LLM with strong “steerability” | Same as ChatGPT but with extra guardrails for regulatory language | Reduces risk of unintentionally giving medical advice |\n| **Microsoft Azure Bot Service + Azure OpenAI** | Deployable chatbot with Azure security & compliance | Integrated into ERP/CRM, can pull inventory data in real time | Seamless hand‑off from bot to human sales rep when needed |\n| **Dialogflow CX (Google Cloud)** | Flow‑based conversational design, | Voice‑assistant for dispensary kiosks or in‑store tablets | Hands‑free ordering, reduced queue times |\n| **Jasper AI (Creative)** | Content generation (product descriptions, blog posts) | SEO‑optimized strain pages, marketing copy that highlights terpene profiles | Improves discoverability and brand voice consistency |\n\n---\n\n## 2. **Formulation & R&D AI (Science & Product Development)**  \n\n| Tool | AI Feature | How to Use for Cannabis | Benefit |\n|------|------------|------------------------|---------|\n| **CannaForm AI (by CannaTech Labs)** | Predictive formulation engine that balances THC/CBD, terpene synergy, and carrier stability | Input target potency, desired effects, and delivery format; the engine suggests ratios of isolates, full‑spectrum extracts, and excipients | Cuts formulation cycles from weeks → days |\n| **Molecule.one / Insilico** | Deep‑learning QSAR & generative chemistry | Design novel cannabinoid‑derived analogues or terpene blends with predicted bioactivity | Accelerates discovery of “next‑gen” products |\n| **KNIME + RDKit + Custom ML models** | Open‑source workflow for data‑driven formulation | Feed COA data, batch yields, and stability results; train models to forecast shelf‑life or batch‑to‑batch variance | Improves batch consistency and reduces waste |\n| **Labguru AI (Lab Management)** | Automated experiment planning & results summarization | Schedule extractions, log analytical data, and let the AI suggest optimal solvent ratios | Streamlines lab SOPs and documentation for audit trails |\n| **IBM Watson Studio** | End‑to‑end data science platform (auto‑ML, visual pipelines) | Build models that predict customer preference based on terpene‑effect surveys | Turns consumer insights into formulation targets |\n\n---\n\n## 3. **Personalization & Recommendation Engines**  \n\n| Tool | What It Does | Cannabis‑Specific Example | Why It Helps |\n|------|--------------|--------------------------|--------------|\n| **Amazon Personalize (AWS)** | Real‑time collaborative filtering | Recommend edibles or tinctures based on a shopper’s past purchases & terpene‑effect profile | Boosts average order value and repeat purchase rate |\n| **Algolia + AI‑Powered Search** | Semantic search with typo tolerance | Users type “relaxing after work” → engine surfaces low‑THC, myrcene‑rich products | Improves discoverability of niche SKUs |\n| **Segment + Snowflake + dbt** (data stack) | Unified customer data + transformation + analytics | Combine POS, loyalty, and lab‑test data to segment “medical chronic pain” vs\n\n---\n*Agent: Formulation Agent | Plan: Standard | Tokens: 1212 (212?1000) | Cost: $0.000000*",
+      "duration": 9525,
+      "grade": "B",
+      "score": 83,
+      "grading": {
+        "length": "Pass",
+        "keywords": "4/5 matched",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "2/5 key words"
+      },
+      "strengths": [],
+      "weaknesses": [],
+      "feedback": "",
+      "gradingMethod": "unknown",
+      "expectedKeywords": [
+        "retail",
+        "consumer",
+        "marketing",
+        "lab",
+        "tools"
+      ],
+      "expectedAnswer": ""
+    },
+    {
+      "questionNum": 320,
+      "question": "What are the best software tools for cannabis retailers?",
+      "category": "retail-&-consumer-marketing",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": true,
+      "response": "Below is a quick‑reference guide to the most‑widely‑used software solutions for cannabis retailers (brick‑and‑mortar, online, or hybrid).  The tools are grouped by functional category, with a short description, key strengths, typical pricing (when publicly available), and a note on compliance coverage.\n\n| Category | Tool (Tier/Plan) | Core Features | Why Retailers Like It | Approx. Pricing* | Compliance Coverage |\n|----------|------------------|----------------|----------------------|------------------|----------------------|\n| **Point‑of‑Sale (POS)** | **LeafLogix** (Retail) | Real‑time sales, inventory sync, loyalty, QR‑code checkout | Very fast UI, built‑in seed‑to‑sale, strong state integrations | $199‑$399 / mo per register | State‑by‑state tax & tracking, automatic reporting |\n| | **BioTrackTHC** (POS+) | Integrated POS, compliance reporting, analytics | Long‑standing industry player, extensive lab‑test integration | $250‑$450 / mo per location | Full state compliance, automatic METRC/BIOTRIC uploads |\n| | **Flowhub** (POS) | Multi‑store POS, employee scheduling, e‑commerce sync | Simple onboarding, good support, mobile app | $149‑$299 / mo per store | Integrated with most state seed‑to‑sale APIs |\n| **Inventory & Seed‑to‑Sale ERP** | **MJ Freeway (Akerna)** | Full traceability from cultivation → retail, lot tracking, recall management | Enterprise‑grade, scalable across multiple brands | $500‑$1,500/ mo (enterprise) | Certified in CA, CO, MA, MI, WA, etc. |\n| | **Metrc‑Ready (e.g., GrowFlow)** | Real‑time inventory, compliance dashboards, analytics | Direct Metrc API, easy to set up for new growers/retailers | $‑$399 / mo | Metrc‑only (CO, WA, MI, etc.) – must pair with a POS for sales |\n| | **Treez** | Cloud ERP, inventory, purchasing, B2B marketplace | Modern UI, strong API ecosystem, integrates with most POS | $299‑$799 / mo | Supports 15+ states, auto‑filing of reports |\n| **E‑Commerce & Delivery** | **Dutchie** (Marketplace) | Online ordering, delivery logistics, loyalty, brand storefronts | Turnkey consumer‑facing platform, native compliance checks | Revenue share (≈10‑15 % of sales) $199 / mo platform fee | Handles age verification & state‑specific limits |\n| | **Shopify + Leafly Integration** | Standard Shopify store + cannabis‑specific checkout | Leverages Shopify’s ecosystem, easy to customize | $79‑$299 / mo + Leafly fees | Requires separate compliance layer (e.g., Dutchie, Greenbits) |\n| | **Baker Technologies** | Delivery routing, driver management, real‑time tracking | Optimized for multi‑store delivery networks | $149‑$299 / mo | Built‑in age‑check & state limits |\n| **Customer Relationship Management (CRM) & Loyalty** | **LeafLink** | Wholesale marketplace + retailer CRM, order history, analytics | Connects retailers directly with growers/wholesalers | $99‑$299 / mo (tiered) | No compliance filing, but tracks product provenance |\n| | **Keen (formerly Green Bits)** | Loyalty program, SMS marketing, push notifications | Deep POS integration, easy segmenting of customers | $149‑$349 / mo | Handles consent & age‑verification logs |\n| | **CannaCRM** | Simple CRM + email marketing, inventory sync | Low‑cost entry point for boutique shops | $50‑$150 / mo | No direct filing; must pair with compliant POS |\n| **Analytics & Business Intelligence** | **Headset** | Real‑time market data, sales benchmarking, pricing insights | Industry‑wide data + store‑level dashboards | $399‑$999 / mo (based on square‑footage) | No filing; purely\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1161 (161?1000) | Cost: $0.000000*",
+      "duration": 8477,
+      "grade": "A",
+      "score": 96.25,
+      "grading": {
+        "length": "Pass",
+        "keywords": "5/5 matched",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "3/4 key words"
+      },
+      "strengths": [],
+      "weaknesses": [],
+      "feedback": "",
+      "gradingMethod": "unknown",
+      "expectedKeywords": [
+        "retail",
+        "consumer",
+        "marketing",
+        "cannabis",
+        "software"
+      ],
+      "expectedAnswer": ""
     }
   ],
-  "status": "In Progress: 310/438 questions completed"
+  "status": "In Progress: 320/438 questions completed"
 }
