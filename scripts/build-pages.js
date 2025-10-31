@@ -873,7 +873,8 @@ sequenceDiagram
         // Store questions for display
         agentQuestions = matchingQuestions.map(q => ({
           question: q.question,
-          category: q.category || 'uncategorized'
+          category: q.category || 'uncategorized',
+          expectedAnswer: q.expected_answer || q.expectedAnswer || null
         }));
       }
       
@@ -886,7 +887,8 @@ sequenceDiagram
           questionCount = baseline.questions ? baseline.questions.length : 0;
           agentQuestions = (baseline.questions || []).map(q => ({
             question: q.question,
-            category: q.category || 'uncategorized'
+            category: q.category || 'uncategorized',
+            expectedAnswer: q.expected_answer || q.expectedAnswer || null
           }));
         } catch (error) {
           questionCount = 0;
