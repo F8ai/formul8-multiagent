@@ -832,7 +832,11 @@ sequenceDiagram
     
     const agentDirs = await fs.readdir(agentsDir);
     
-    for (const agentName of agentDirs) {
+    // Filter out agents not used by LangChain
+    const excludedAgents = ['mcr-agent', 'science-agent', 'ad-agent', 'editor-agent', 'f8-slackbot'];
+    const activeAgentDirs = agentDirs.filter(agentName => !excludedAgents.includes(agentName));
+    
+    for (const agentName of activeAgentDirs) {
       let questionCount = 0;
       let agentQuestions = [];
       
