@@ -1069,6 +1069,48 @@
         let messageCount = 0;
         let hasShownSidebar = false;
         
+        // Initialize mobile sidebar - function available globally
+        function initializeMobileSidebar() {
+            try {
+                const sidebar = document.getElementById('sidebar');
+                const toggle = document.getElementById('sidebarToggle');
+                
+                if (!sidebar || !toggle) {
+                    // Elements not ready yet, retry
+                    if (document.readyState === 'loading') {
+                        // Wait for DOM to be ready
+                        return;
+                    }
+                    console.warn('Sidebar or toggle not found during initialization');
+                    return;
+                }
+                
+                const isMobile = window.innerWidth <= 768 || window.matchMedia('(max-width: 768px)').matches;
+                
+                if (isMobile) {
+                    sidebar.classList.add('collapsed');
+                    toggle.classList.remove('sidebar-open');
+                    // Update icon to point right (indicating sidebar is closed)
+                    const icon = toggle.querySelector('svg path');
+                    if (icon) {
+                        icon.setAttribute('d', 'M10 4l-4 4 4 4');
+                    }
+                    console.log('Mobile sidebar initialized as collapsed');
+                }
+            } catch (error) {
+                console.error('Error initializing mobile sidebar:', error);
+            }
+        }
+        
+        // Initialize mobile sidebar early if DOM is ready
+        if (document.readyState === 'complete' || document.readyState === 'interactive') {
+            initializeMobileSidebar();
+        } else {
+            document.addEventListener('DOMContentLoaded', initializeMobileSidebar);
+        }
+        // Also try after a short delay
+        setTimeout(initializeMobileSidebar, 200);
+        
         // Initialize Supabase Auth
         async function initializeSupabaseAuth() {
             if (!supabase) {
