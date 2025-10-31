@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formul8 Agents Summary</title>
+    <link rel="icon" type="image/x-icon" href="https://formul8.ai/favicon.ico">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: ui-sans-serif, -apple-system, system-ui, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #ececec;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            color: #333;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 1.1em;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            transition: transform 0.2s;
+            color: #333;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 0.9em;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .stat-value {
+            color: #333;
+            font-size: 2.5em;
+            font-weight: bold;
+        }
+
+        .agents-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .agent-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            transition: transform 0.2s, box-shadow 0.2s;
+            color: #333;
+        }
+
+        .agent-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(0,0,0,0.3);
+        }
+
+        .agent-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .agent-name {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #333;
+            text-transform: capitalize;
+        }
+
+        .agent-name::before {
+            content: "🤖 ";
+            margin-right: 8px;
+        }
+
+        .agent-info {
+            margin-top: 15px;
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .info-row:last-child {
+            border-bottom: none;
+        }
+
+        .info-label {
+            color: #666;
+            font-size: 0.9em;
+            font-weight: 600;
+        }
+
+        .info-value {
+            color: #333;
+            font-size: 1.1em;
+            font-weight: bold;
+        }
+
+        .info-value.has-rag {
+            color: #667eea;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.85em;
+            font-weight: 600;
+            margin-left: 8px;
+        }
+
+        .badge-rag {
+            background: #e3f2fd;
+            color: #1976d2;
+        }
+
+        .rag-source {
+            font-size: 0.85em;
+            color: #666;
+            margin-top: 8px;
+            font-style: italic;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 60px;
+            color: white;
+            font-size: 1.2em;
+        }
+
+        @media (max-width: 768px) {
+            .agents-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📊 Formul8 Agents Summary</h1>
+            <p class="subtitle">Overview of all agents, baseline questions, and RAG source data</p>
+        </header>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-label">Total Agents</div>
+                <div class="stat-value" id="totalAgents">13</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Total Questions</div>
+                <div class="stat-value" id="totalQuestions">27</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Agents with RAG</div>
+                <div class="stat-value" id="agentsWithRAG">2</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Total RAG Data</div>
+                <div class="stat-value" id="totalRAGSize">328KB</div>
+            </div>
+        </div>
+
+        <div class="agents-grid" id="agentsGrid">
+            <!-- Agent cards will be inserted here -->
+        </div>
+    </div>
+
+    <script>
+        const agentsData = [
+            {
+                agent: "ad-agent",
+                questions: 1,
+                ragSize: null,
+                ragSource: null,
+                description: "Advertising campaigns and marketing strategy"
+            },
+            {
+                agent: "compliance-agent",
+                questions: 4,
+                ragSize: "3.3GB",
+                ragSource: null,
+                description: "State regulations and compliance documentation"
+            },
+            {
+                agent: "customer-success-agent",
+                questions: 1,
+                ragSize: null,
+                ragSource: null,
+                description: "Customer retention and engagement"
+            },
+            {
+                agent: "editor-agent",
+                questions: 1,
+                ragSize: null,
+                ragSource: null,
+                description: "File management and document editing"
+            },
+            {
+                agent: "f8-slackbot",
+                questions: 1,
+                ragSize: null,
+                ragSource: null,
+                description: "Team collaboration and communication"
+            },
+            {
+                agent: "formulation-agent",
+                questions: 4,
+                ragSize: "4KB",
+                ragSource: "science-agent (324KB)",
+                description: "Product formulation specialist",
+                usesRAG: true
+            },
+            {
+                agent: "marketing-agent",
+                questions: 3,
+                ragSize: null,
+                ragSource: null,
+                description: "Brand and marketing strategy"
+            },
+            {
+                agent: "mcr-agent",
+                questions: 1,
+                ragSize: "228KB",
+                ragSource: null,
+                description: "Master Control Records documentation"
+            },
+            {
+                agent: "operations-agent",
+                questions: 3,
+                ragSize: "4KB",
+                ragSource: null,
+                description: "Facility operations management"
+            },
+            {
+                agent: "patent-agent",
+                questions: 1,
+                ragSize: "4.2MB",
+                ragSource: null,
+                description: "Patent records and IP research"
+            },
+            {
+                agent: "science-agent",
+                questions: 4,
+                ragSize: "324KB",
+                ragSource: null,
+                description: "Research papers and scientific studies",
+                isRAGSource: true
+            },
+            {
+                agent: "sourcing-agent",
+                questions: 1,
+                ragSize: "12GB",
+                ragSource: null,
+                description: "Supplier databases, pricing, and availability"
+            },
+            {
+                agent: "spectra-agent",
+                questions: 1,
+                ragSize: null,
+                ragSource: null,
+                description: "Spectral analysis and processing"
+            }
+        ];
+
+        function formatSize(size) {
+            if (!size) return "N/A";
+            return size;
+        }
+
+        function renderAgentCard(agent) {
+            const hasRAG = agent.usesRAG || agent.isRAGSource;
+            const ragBadge = hasRAG ? '<span class="badge badge-rag">RAG</span>' : '';
+            
+            return `
+                <div class="agent-card">
+                    <div class="agent-header">
+                        <div class="agent-name">${agent.agent.replace('-agent', '').replace('f8-', '')}${ragBadge}</div>
+                    </div>
+                    <div class="agent-info">
+                        <div class="info-row">
+                            <span class="info-label">Baseline Questions</span>
+                            <span class="info-value">${agent.questions}</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">RAG Source Data</span>
+                            <span class="info-value ${agent.ragSize ? 'has-rag' : ''}">${formatSize(agent.ragSize)}</span>
+                        </div>
+                        ${agent.ragSource ? `
+                            <div class="rag-source">
+                                Uses RAG from: ${agent.ragSource}
+                            </div>
+                        ` : ''}
+                        <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #f0f0f0; color: #666; font-size: 0.9em;">
+                            ${agent.description}
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderStats() {
+            const totalQuestions = agentsData.reduce((sum, a) => sum + a.questions, 0);
+            const agentsWithRAG = agentsData.filter(a => a.usesRAG || a.isRAGSource || (a.ragSize && a.ragSize !== '4KB' && a.ragSize !== 'N/A')).length;
+            
+            // Calculate total RAG data (excluding empty 4KB entries)
+            const ragSizes = agentsData
+                .filter(a => a.ragSize && a.ragSize !== '4KB' && a.ragSize !== 'N/A')
+                .map(a => a.ragSize);
+            
+            // Simple conversion for display (this is approximate)
+            let totalRAG = 0;
+            ragSizes.forEach(size => {
+                if (size.endsWith('GB')) {
+                    totalRAG += parseFloat(size) * 1024 * 1024;
+                } else if (size.endsWith('MB')) {
+                    totalRAG += parseFloat(size) * 1024;
+                } else if (size.endsWith('KB')) {
+                    totalRAG += parseFloat(size);
+                }
+            });
+
+            let totalRAGDisplay = '0KB';
+            if (totalRAG >= 1024 * 1024) {
+                totalRAGDisplay = (totalRAG / (1024 * 1024)).toFixed(1) + 'GB';
+            } else if (totalRAG >= 1024) {
+                totalRAGDisplay = (totalRAG / 1024).toFixed(1) + 'MB';
+            } else {
+                totalRAGDisplay = totalRAG.toFixed(0) + 'KB';
+            }
+
+            document.getElementById('totalAgents').textContent = agentsData.length;
+            document.getElementById('totalQuestions').textContent = totalQuestions;
+            document.getElementById('agentsWithRAG').textContent = agentsWithRAG;
+            document.getElementById('totalRAGSize').textContent = totalRAGDisplay;
+        }
+
+        function renderAgents() {
+            const agentsGrid = document.getElementById('agentsGrid');
+            agentsGrid.innerHTML = agentsData
+                .sort((a, b) => {
+                    // Sort by RAG size (descending), then by questions
+                    const aSize = a.ragSize ? parseFloat(a.ragSize) || 0 : 0;
+                    const bSize = b.ragSize ? parseFloat(b.ragSize) || 0 : 0;
+                    if (aSize !== bSize) return bSize - aSize;
+                    return b.questions - a.questions;
+                })
+                .map(agent => renderAgentCard(agent))
+                .join('');
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            renderStats();
+            renderAgents();
+        });
+    </script>
+</body>
+</html>
