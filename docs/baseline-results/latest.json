@@ -1,11 +1,10 @@
 {
-  "timestamp": "2025-10-31T08:44:45.611Z",
+  "timestamp": "2025-10-31T08:45:44.690Z",
   "url": "https://chat.formul8.ai",
   "totalQuestions": 438,
-  "completed": 430,
   "passed": 24,
-  "failed": 406,
-  "averageScore": "30.17",
+  "failed": 414,
+  "averageScore": "30.60",
   "averageGrade": "F",
   "results": [
     {
@@ -7721,7 +7720,174 @@
         "relevance": "4/5 key words"
       },
       "expectedKeywords": []
+    },
+    {
+      "questionNum": 431,
+      "question": "Can you mock up a QR code campaign that links to lab results and product videos?",
+      "category": "requests-to-the-marketing-agent",
+      "agent": "unknown",
+      "actualAgent": "formulation",
+      "actualAgentName": "Formulation Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": false,
+      "response": "Below is a **high‑level mock‑up** for a QR‑code‑driven campaign that drives customers from packaging (or in‑store signage) straight to **lab‑result PDFs** and **product‑demo videos**. Feel free to adjust branding, URLs, and compliance language to match your market (U.S. state, Canada, EU, etc.).\n\n---\n\n## 1️⃣ Campaign Goal & User Flow  \n\n| Step | What the consumer sees | What happens when they scan |\n|------|------------------------|-----------------------------|\n| **A** | QR code printed on product label,‑edge tag, or POS flyer. | Mobile device opens a **dynamic QR‑code URL** (short, trackable). |\n| **B** | Landing page (mobile‑friendly) with two clear CTAs: ①“View Lab Results (COA)”** ② **“Watch Product Video”**. | • **COA** opens a PDF (or secure viewer) showing potency, pesticide screen, terpene profile, etc. <br>• **Video** launches an embedded MP4 or YouTube/Vimeo player (auto‑play muted, with captions). |\n| **C** | Optional “Learn More” → link to product page, dosage guide, or retailer locator. | Provides cross‑sell opportunities and compliance disclosures. |\n\n---\n\n## 2️⃣ Technical Blueprint  \n\n| Component | Recommended Tool / Service | Why |\n|-----------|---------------------------|-----|\n| **Dynamic QR Code** | *QR Code Generator Pro* (or Bitly’s QR feature) | Allows you to the destination URL later and collect scan analytics (location, device, time). |\n| **Short URL** | `https://cannalink.io/xyz123` (or your own branded short domain) | Keeps the QR code clean and brand‑consistent. |\n| **Landing Page Host** | Your existing CMS (Shopify, WordPress) or a lightweight static site on Netlify/Vercel. | Fast load times, easy A/B testing. |\n| **COA Viewer** | PDF.js embed or a secure “Document Vault” (e.g., DocSend). | Prevents accidental download of the raw PDF while still allowing full view. |\n| **Video Hosting** | Vimeo Enterprise (privacy‑domain + password) **or** Wistia (brand‑player). | Controls who can view, adds analytics, and supports custom thumbnails. |\n| **Analytics** | Google Analytics 4 + QR‑code provider stats + event tracking (e.g., `click_coa`, `click_video`). | Gives you conversion rates, drop‑off points, and geographic insights. |\n\n---\n\n## 3️⃣ Sample Mock‑up (textual)\n\n### QR‑Code Image (placeholder)\n```\n[ QR CODE ]\nhttps://cannalink.io/xyz123\n```\n\n### Landing Page Wireframe (mobile‑first)\n\n```\n-\n|   LOGO + PRODUCT NAME                         |\n|-----------------------------------------------|\n|  🎓  View Lab Results (COA)   →  [Button]     |\n|  ▶️  Watch Product Video      →  [Button]     |\n|-----------------------------------------------|\n|  📄  Full Product Specs →  [Link]            |\n|  📍  Find a Retailer →  [Link]                |\n|-----------------------------------------------|\n|  *All data verified by XYZ Labs (COA #12345) |\n|  *THC: 18%  CBD: 0.2%  Terpenes: Myrcene 0.5% |\n|  *Compliance: 30‑day shelf‑life, no pesticides|\n-------------------------------------------------\n```\n\n*Button styling tip*: Use **high‑contrast colors** (e.g., #005A31 for “View Lab Results” and #E94E77 for “Watch Video”) and a minimum 44 × 44 \n\n---\n*Agent: Formulation Agent | Plan: Standard | Tokens: 1210 (210?1000) | Cost: $0.000000*",
+      "duration": 12188,
+      "grade": "F",
+      "score": 54,
+      "grading": {
+        "length": "Pass",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "3/5 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 432,
+      "question": "Can you help me script a short promotional video for Instagram or TikTok?",
+      "category": "requests-to-the-marketing-agent",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": true,
+      "response": "Absolutely! Below is a ready‑to‑shoot script framework you can customize in minutes. I’ve broken it into three parts (Hook – Story – Call‑to‑Action) that work well for both Instagram Reels (15‑30 s) and TikTok (up to 60 s). After the script you’ll find quick production tips, caption ideas, and hashtag suggestions.\n\n---\n\n## 🎬 QUICK‑SCRIPT TEMPLATE  \n**Length:** 15‑30 seconds (≈ 3‑4 short cuts)  \n**Format:** Vertical (9:16), 1080 × 1920 px, 30 fps (or 60 fps for smoother motion)  \n\n| Cut | Timecode | Visual | Audio / Voice‑over | On‑Screen Text |\n|-----|----------|--------|---------------------|----------------|\n| 1️⃣ | 0‑3 s | **Hook** – Close‑up of the product (or a striking visual related to your brand) being revealed with a snap/ pop. | “Stop scrolling! Want to **[solve a pain point]** in seconds?” | Bold, kinetic font: **STOP SCROLLING!** |\n| 2️⃣ | 3‑8 s | **Benefit Demo** – Show the product in action, e.g., a quick before‑after, a user smiling, or a measurable result. | “Meet **[Product/Brand]**, the only **[unique selling point]** that **[key benefit]**.” | Bullet‑point icons: ✅ Fast ✅ Easy ✅ Proven |\n| 3️⃣ | 8‑12 s | **Social Proof** – Flash a 2‑second clip of a happy customer or a 5‑star rating overlay. | “Thousands already love it – check out these results!” | **5‑Star Rating** graphic + mini‑testimonials |\n| 4️⃣ | 12‑18 s | **Call‑to‑Action** – Show the product packaging + a clear CTA button (e.g., “Swipe Up”, “Link in Bio”). | “Grab yours now and get **[offer: 20% off / free sample]**. Tap the link!” | CTA: **SWIPE UP / LINK IN BIO** (animated arrow) |\n| 5️⃣ | 18‑20 s | **Brand Tag** – End with logo + tagline + upbeat music fade‑out. | (Music only) | **[Brand Logo]** + **[Tagline]** |\n\n---\n\n## 🛠️ Production Tips (30‑Second Turn‑around)\n\n| Step | What to Do | Tools / Apps |\n|------|------------|--------------|\n| **Storyboard** | Sketch the 5 cuts on a single sheet – helps keep timing tight. | + pen or **Milanote** |\n| **Shoot** | Use a smartphone with natural light or a ring light; stabilize with a gimbal or tripod. | **DJI Osmo Mobile**, **Tripod** |\n| **Edit** | Trim to exact seconds, add quick jump‑cuts, overlay text, and sync with a high‑energy 2‑second beat. | **InShot**, **CapCut**, **Adobe Premiere Rush** |\n| **Music** | Choose a royalty‑free track that builds momentum (e.g., “Pop Upbeat” from Epidemic Sound). | **Epidemic Sound**, **TikTok Sound Library** |\n| **Upload** | Add caption, hashtags, and a clear CTA link (Linktree, Shopify product page). | Instagram/TikTok native uploader |\n\n---\n\n## ✍️ Caption & Hashtag Blueprint\n\n**Caption (≈ 150 chars)**  \n> “🚀 Ready to level up your **[problem]**? Grab **[Product]** now & enjoy **[offer]**! 🎉 Link in bio 🔗 #YourBrand #QuickFix #TikTokMadeMeBuyIt”\n\n**Hashtag Stack (mix of niche + broad)**  \n```\n#YourBrand #ProductName #CannabisCommunity (or your niche)\n#TikTokMadeMeBuyIt #InstaReels #SmallBiz #EntrepreneurLife\n#QuickFix #MustHave #DealAlert #ShopNow\n```\n\n*Tip:* Put the first 2‑3 hashtags in the caption, the rest\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1166 (166?1000) | Cost: $0.000000*",
+      "duration": 9692,
+      "grade": "F",
+      "score": 54,
+      "grading": {
+        "length": "Pass",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "3/5 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 433,
+      "question": "Can you create a compliant shelf-talker design for my flower jars?",
+      "category": "requests-to-the-marketing-agent",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": true,
+      "response": "Below is a **step‑by‑step template** you can adapt to create a **compliant shelf‑talker (also called a “shelf label” or “shelf tag”) for your flower jars**. The layout follows the most common state‑level requirements (California, Colorado, Oregon, Washington, Illinois, Massachusetts, etc.) and can be tweaked for any jurisdiction by swapping out the required icons or wording.\n\n---\n\n## 1. Core Compliance Checklist (applies to all U.S. adult‑use markets)\n\n| Requirement | What to Include | Typical Placement |\n|-------------|----------------|-------------------|\n| **Brand/Product Name** | Full brand name + strain name (e.g., “Blue Dream”) | Top‑center, large font |\n| **Net Weight** | Exact weight (e.g., “1 g”) | Upper‑right or upper‑left corner |\n| **Batch / Lot / QR Code** | Lab batch/lot number + QR that links to the COA | Bottom‑right (QR) and bottom‑left (lot) |\n| **THC / CBD Potency** | % THC and % CBD (or mg/g) | Directly under the strain name |\n| **Warning Statements** | *“This product contains cannabis. Keep out of reach of children and pets.”* plus any state‑specific health warnings (e.g., “May cause dizziness, anxiety, or paranoia”) | Bottom‑center, bold, at least 10 pt font |\n| **Age Restriction** | *“For adults 21+ only”* or state‑specific age | Bottom‑left, separate line |\n| **State License Number** | License # issued by the state regulator | Bottom‑right, small font |\n| **Pesticide/Heavy‑Metal/Contaminant Statement** (if required) | *“Tested for pesticides, heavy metals, and microbes – results available via QR code.”* | Near the QR or in a side column |\n| **Universal Symbol** (e.g., leaf with a circle, state‑specific “THC” icon) | Must be present if the state mandates a specific cannabis symbol | Upper‑left corner |\n| **Tamper‑Evident Seal Indicator** (optional but recommended) | Small graphic of the seal, or text “Sealed for freshness” | Near the net weight |\n\n> **Tip:** Keep the font size for mandatory text **≥ 10 pt** (or the point size the state specifies). Use a legible sans‑serif typeface (Helvetica, Arial, Roboto) for clarity.\n\n---\n\n## 2. Visual Layout Blueprint (A4‑size printable, 2‑sided)\n\n```\n+---------------------------------------------------+\n|  LOGO (optional)          [UNIVERSAL SYMBOL]    |\n|                                                   |\n|  BRAND NAME – STRAIN (e.g., \"Blue Dream\")        |\n|  ------------------------------------------------|\n|  THC: 18%   |   CBD: <0.5%   |   Net Weight: 1 g   |\n|                                                   |\n|  [Large QR CODE]   (scan for lab results)        |\n|                                                   |\n|  LAB BATCH #: 2024‑03‑15‑A1                      |\n|                                                   |\n|  ------------------------------------------------|\n|  WARNING: This product contains cannabis.        |\n|  Keep out of reach of children and pets.          |\n|  May cause dizziness, anxiety, or paranoia.      |\n|                                                   |\n|  FOR ADULTS 21+ ONLY   |   LICENSE #: 12345678   |\n|                                                   |\n|  Tested for pesticides, heavy metals,            |\n|  and microbes – results available via QR code.   |\n+---------------------------------------------------+\n```\n\n- **Front side** (visible when jar is on the shelf) contains all mandatory text.\n- **Back side** can hold *marketing copy* (flavor notes, terpene profile, suggested use) **provided it does not conflict with the mandatory language**. Keep any promotional statements **“non‑medicinal”** and **“not a medical claim.”**\n\n---\n\n## 3. State‑Specific Adjustments (quick cheat‑sheet)\n\n| State | Extra Mandatory Elements |\n|-------|--------------------------|\n| **California** |\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1132 (132?1000) | Cost: $0.000000*",
+      "duration": 7369,
+      "grade": "F",
+      "score": 54,
+      "grading": {
+        "length": "Pass",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "3/5 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 434,
+      "question": "Example question for formulation-agent",
+      "category": "formulation",
+      "agent": "unknown",
+      "actualAgent": "formulation",
+      "actualAgentName": "Formulation Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": false,
+      "response": "Here’s a sample question you could ask a formulation‑agent:\n\n---\n\n**“I want to develop a 30 ml sub‑lingual oil that delivers 10 mg of Δ⁹‑THC and 5 mg of CBD per 0.5 ml dose, using a full‑spectrum extract that is 70 % THC and 5 % CBD (by weight). I’d like the carrier to be MCT oil with added natural flavor and a natural antioxidant for shelf‑life stability.  \n\n1. What is the precise amount of extract, MCT oil, flavor, and antioxidant I need to blend?  \n2. Which antioxidant (e.g., tocopherols, rosemary extract) would be best for preserving terpenes over a 12‑month shelf life?  \n3. How should I test the final product to confirm potency and stability?”**\n\n---\n\nFeel free to adjust the numbers, carrier, or target delivery format (gel caps, vape juice, topical, etc.) and ask for any of the following:\n\n* **Dosage calculations** – converting %‑by‑weight extracts to mg‑per‑dose values.  \n* **Ingredient selection** – choosing carriers, flavorings, or stabilizers that are compatible with cannabinoids and terpenes.  \n* **Extraction method advice** – CO₂, ethanol, hydrocarbon, or solvent‑free options for a given end‑product.  \n* **Stability & shelf‑life** – recommended antioxidants, packaging, and storage conditions.  \n* **Quality‑control protocols** – which lab tests (potency, residual solvents, microbial, terpene profile) to run and acceptance criteria.\n\nJust let me know the specifics of your project, and I’ll provide a detailed formulation plan.\n\n---\n*Agent: Formulation Agent | Plan: Standard | Tokens: 626 (198?428) | Cost: $0.000000*",
+      "duration": 9661,
+      "grade": "F",
+      "score": 50,
+      "grading": {
+        "length": "Pass",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "1/3 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 435,
+      "question": "Example question for science-agent",
+      "category": "science",
+      "agent": "unknown",
+      "actualAgent": "formulation",
+      "actualAgentName": "Formulation Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": false,
+      "response": "Here’s an example of a question you might pose to the science‑agent:\n\n**“What is the impact of storing a THC‑dominant vape‑oil at 25 °C versus 4 °C on its terpene profile and overall potency over a 6‑month period, and how should I adjust the formulation to maintain consistent dosing?”**\n\n---\n*Agent: Formulation Agent | Plan: Standard | Tokens: 351 (198?153) | Cost: $0.000000*",
+      "duration": 3113,
+      "grade": "F",
+      "score": 55,
+      "grading": {
+        "length": "Pass",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "2/3 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 436,
+      "question": "Example question for spectra-agent",
+      "category": "spectra",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": true,
+      "response": "Here’s a sample query that would be routed to the **spectra‑agent** (the specialist that handles analytical‑instrument and spectral‑data questions in the cannabis space):\n\n**Example question:**  \n*“I just ran an HPLC run on a new cannabis flower batch and the chromatogram shows peaks at 2.4 min, 3. min, and 4.7 min. The peak areas are 12 % ± 0.5 % for THC, 3 % ± 0.2 % for CBD, and 0.8 % ± 0.1 % forBG. Can you confirm if results meet the state‑mandated potency thresholds for a “low‑THC” product, and how should I report the limits of detection for each cannabinoid?”*\n\nThe spectra‑agent would then:\n\n1. **Interpret the HPLC data** (identify which peaks correspond to which cannabinoids).  \n2. **Compare the concentrations** against the relevant regulatory limits (e.g., ≤0.3 % THC for hemp).  \n3. **Explain how to calculate/report LOD/LOQ** for each analyte per standard method validation guidelines.  \n4. **Provide a concise reporting template** for the lab’s final certificate analysis.  \n\nFeel free to adapt the question to your own dataset or instrument (GC‑MS, FT‑IR, etc.)—the spectra‑agent can handle any spectral‑analysis‑related inquiry.\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 625 (156?469) | Cost: $0.000000*",
+      "duration": 5657,
+      "grade": "F",
+      "score": 55,
+      "grading": {
+        "length": "Pass",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "2/3 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 437,
+      "question": "Example question for customer-success-agent",
+      "category": "customer-success",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": true,
+      "response": "**Example question for the Customer‑Success Agent:**\n\n*“I’m new to the Formul8 platform and would like help setting up my first cannabis business plan. Can you walk me through the onboarding steps and point me to any tutorials or resources that will help me get started quickly?”*\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 288 (157?131) | Cost: $0.000000*",
+      "duration": 2243,
+      "grade": "F",
+      "score": 55,
+      "grading": {
+        "length": "Pass",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "2/3 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 438,
+      "question": "Example question for ad-agent",
+      "category": "ad",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": true,
+      "response": "Here’s an example of a question you could pose to the **ad‑agent**:\n\n> **What are the most effective Instagram ad creatives and targeting strategies for promoting a new line of THC‑free CBD gummies to health‑conscious consumers aged 25‑45 in California?”**\n\nThis type of query lets the ad‑agent:\n\n1. **Identify high‑performing creative formats** (e.g., short video reels, carousel posts, user‑generated content).\n2. **Recommend compliant copy & visual guidelines** for the cannabis‑adjacent market.\n3. **Suggest precise audience targeting**interest clusters, look‑alike audiences, geo‑filters).\n4. **Provide budgeting tips** and KPI benchmarks (CTR, CPA, ROAS) specific to the CBD niche.\n\nFeel free to tweak the product, platform, or demographic to suit your campaign needs, and the ad‑agent will generate a tailored advertising strategy. If you’d like a full plan right now, just let me know and I’ll route your request to the ad‑agent.\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 463 (156?307) | Cost: $0.000000*",
+      "duration": 4625,
+      "grade": "F",
+      "score": 55,
+      "grading": {
+        "length": "Pass",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "2/3 key words"
+      },
+      "expectedKeywords": []
     }
-  ],
-  "status": "In Progress: 430/438 questions completed"
+  ]
 }
