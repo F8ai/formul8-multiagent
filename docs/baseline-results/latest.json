@@ -1,11 +1,11 @@
 {
-  "timestamp": "2025-10-31T15:47:52.873Z",
+  "timestamp": "2025-10-31T15:48:36.620Z",
   "url": "https://chat.formul8.ai",
   "totalQuestions": 438,
-  "completed": 100,
+  "completed": 110,
   "passed": 7,
-  "failed": 93,
-  "averageScore": "39.41",
+  "failed": 103,
+  "averageScore": "37.66",
   "averageGrade": "F",
   "results": [
     {
@@ -1911,7 +1911,175 @@
         "relevance": "4/5 key words"
       },
       "expectedKeywords": []
+    },
+    {
+      "questionNum": 101,
+      "question": "What are best practices for ethanol recovery stills (fouling prevention, defoamers, CIP)?",
+      "category": "ethanol-extraction",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "extraction",
+      "agentMatch": false,
+      "response": "**Ethanol Recovery Still – Best‑Practice Cheat Sheet**  \n*(focus: fouling control, defoaming, Clean‑In‑Place)*  \n\n---\n\n## 1. Fouling Prevention  \n\n| Issue | Why It Happens | Practical Controls |\n|-------|----------------|--------------------|\n| **Wax/Triglyceride build‑up** | Low‑temperature condensation of plant oils and waxes on column trays & heat‑exchange surfaces. | • Keep column bottom temperature **≥ 70 °C** (or above wax melt point).  <br>• Use **heated reflux condensers** rather than cold traps. <br>• Install **inline oil‑separators** (coalescers) upstream of the still. |\n| **Polymer/Resin (P‑glycols) deposits** | Carry‑over of extraction solvents (e.g., propylene glycol) that polymerize at high heat. | • Limit **extraction solvent carry‑over** with a pre‑distillation “scrubber” or a **glycol‑break tank**. <br>• Run a **short high‑temperature purge (≈ 120 °C)** after each batch. |\n| **Particulate/plant matter** | Incomplete filtration of feed or splashing of slurry. | • Use **dual‑stage filtration** (0.5 µm cartridge + bag filter). <br>• Install a **baffled inlet** to reduce splashing. |\n| **Scale (mineral deposits)** | Hard water in cooling water loops or steam condensate. | • Treat cooling water with **polyphosphate inhibitors**. <br>• Use **softened/DI water** for steam condensate. |\n| **Corrosion‑related fouling** | Iron oxides from carbon steel surfaces. | • Prefer **304/316 stainless steel** for all wetted parts. <br>• Maintain **pH 7–8** in the water circuit; add **corrosion inhibitors** if needed. |\n\n### Operational Tips\n- **Batch turnover time:** Keep the “run‑to‑run” interval ≤ 6 h for high‑throughput plants; longer idle times encourage wax solidification.\n- **Temperature ramp‑up:** Start the reboiler at **≈ 85 °C**, then gradually increase to target (≈ 95 °C) to melt any residual wax before steady‑state.\n- **Steam purge schedule:** 5 min of **dry steam (≈ 120 °C)** after each batch clears condensed volatiles and loosens deposits.\n\n---\n\n## 2. Defoamer Selection & Use  \n\n| Defoamer Type | Typical Chemistry | Best Use Cases | Dosage & Application |\n|---------------|-------------------|----------------|----------------------|\n| **Silicone‑based** (e.g., **Dow Corning 520**) | Low‑viscosity PDMS | General ethanol‑water systems, low‑oil feeds | **0.01–0.03 % v/v**; inject at **reflux drum inlet** or **top of column**. |\n| **Polypropylene glycol (PPG)** | Water‑soluble, high‑foam‑break | High‑oil or glycol‑containing streams | **0.02–0.05 % v/v**; add to **feed pre‑heat** tank. |\n| **Alkyl polyglucoside (APG) – biodegradable** | Non‑ionic surfactant | Organic‑solvent‑rich overhead, EPA‑sensitive facilities | **0.03–0.07 % v/v**; spray into **overhead condenser**. |\n| **Fluorinated surfactants** (e.g., **Zonyl FSN**) | Extreme low surface tension | Very fine foam in low‑temperature condensers | **0.005–0.015 % v/v**; use sparingly (costly). |\n\n### How to Deploy\n1. **Point‑of‑generation:** Add defoamer to the **\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1173 (173?1000) | Cost: $0.000000*",
+      "duration": 8615,
+      "grade": "F",
+      "score": 51,
+      "grading": {
+        "length": "Pass",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "2/5 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 102,
+      "question": "What’s a sensible starting point for SC-CO₂ parameters for terpene-rich vs. cannabinoid-rich fractions?",
+      "category": "co-extraction",
+      "response": null,
+      "error": "Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON",
+      "duration": 156,
+      "grade": "F",
+      "score": 0,
+      "actualAgent": "error",
+      "actualAgentName": "Error parsing response",
+      "expectedAgent": "extraction",
+      "agentMatch": false
+    },
+    {
+      "questionNum": 103,
+      "question": "How do I schedule fraction cuts to minimize co-extraction of waxes?",
+      "category": "co-extraction",
+      "response": null,
+      "error": "Unexpected non-whitespace character after JSON at position 4 (line 1 column 5)",
+      "duration": 60,
+      "grade": "F",
+      "score": 0,
+      "actualAgent": "error",
+      "actualAgentName": "Error parsing response",
+      "expectedAgent": "extraction",
+      "agentMatch": false
+    },
+    {
+      "questionNum": 104,
+      "question": "Why am I seeing pressure instability in separators—what should I check?",
+      "category": "co-extraction",
+      "response": null,
+      "error": "Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON",
+      "duration": 343,
+      "grade": "F",
+      "score": 0,
+      "actualAgent": "error",
+      "actualAgentName": "Error parsing response",
+      "expectedAgent": "extraction",
+      "agentMatch": false
+    },
+    {
+      "questionNum": 105,
+      "question": "Can you help me develop a fraction collection log with target ranges and notes?",
+      "category": "co-extraction",
+      "response": null,
+      "error": "Unexpected non-whitespace character after JSON at position 4 (line 1 column 5)",
+      "duration": 54,
+      "grade": "F",
+      "score": 0,
+      "actualAgent": "error",
+      "actualAgentName": "Error parsing response",
+      "expectedAgent": "extraction",
+      "agentMatch": false
+    },
+    {
+      "questionNum": 106,
+      "question": "How do I compare CO₂ runs on the same biomass for repeatability (SPC basics, run charts)?",
+      "category": "co-extraction",
+      "response": null,
+      "error": "Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON",
+      "duration": 269,
+      "grade": "F",
+      "score": 0,
+      "actualAgent": "error",
+      "actualAgentName": "Error parsing response",
+      "expectedAgent": "extraction",
+      "agentMatch": false
+    },
+    {
+      "questionNum": 107,
+      "question": "How do I design a wash SOP (ice ratios, water temps, paddle rates, bag micron strategy)?",
+      "category": "solventless-ice-water-hash-&-rosin",
+      "response": null,
+      "error": "Unexpected non-whitespace character after JSON at position 4 (line 1 column 5)",
+      "duration": 57,
+      "grade": "F",
+      "score": 0,
+      "actualAgent": "error",
+      "actualAgentName": "Error parsing response",
+      "expectedAgent": "extraction",
+      "agentMatch": false
+    },
+    {
+      "questionNum": 108,
+      "question": "What are indicators of over-agitation and contamination during wash?",
+      "category": "solventless-ice-water-hash-&-rosin",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "extraction",
+      "agentMatch": false,
+      "response": "### Over‑agitation – What it looks like\n\n| Symptom | Why it happens | How to spot it |\n|---------|----------------|----------------|\n| **Excessive foaming or “bubbling”** | Too much mechanical energy creates a vortex that entrains air and solvent vapour. | Visible foam on the surface of the wash tank, or a frothy head when the solvent is recirculated. |\n| **Rapid temperature rise** | Friction generates heat; the solvent‑plant mixture can exceed the recommended wash temperature (usually 20‑30 °C for ethanol, < 25 °C for hydrocarbon). | Temperature probe reads > 5 °C above set point even though no external heating is applied. |\n| **Increased solvent loss** | Agitation can cause solvent to splash out of the vessel or be forced through filters. | Noticeable drop in solvent volume after a short wash period, or higher than normal solvent in condensate/recovery lines. |\n| **Turbid or “muddy” liquid** | Fine plant particles stay suspended rather than settling. | Liquid appears cloudy even after a brief settle time; a quick visual check shows suspended solids. |\n| **Higher impurity load in downstream product** | Over‑agitation extracts more chlorophyll, waxes, lipids, and pigments. | Final concentrate shows darker colour, stronger vegetal odor, or higher measured terpene loss (e.g., GC‑MS shows ↑ chlorophyll, ↑ waxes). |\n| **Filter blockage / rapid pressure build‑up** | Fine particulates clog filtration media. | Filtration pressure spikes within minutes of starting the wash, or filters need to be changed far more often than usual. |\n\n---\n\n### Contamination – What it looks like\n\n| Contamination type | Typical source | Indicator(s) |\n|--------------------|----------------|--------------|\n| **Water ingress** | Leaky seals, humid ambient air, solvent not fully anhydrous. | – Solvent layer separates (water “bottoms out” in ethanol). <br>– Measured water content (Karl Fischer, IR) rises > 0.1 % (ethanol) or > 0.5 % (hydrocarbon). <br>– Condensation on vessel walls or “sweat” on the solvent surface. |\n| **Plant debris / leaf material** | Incomplete pre‑filtration, broken down trichomes. | – Visible green specks or fibers in the wash stream. <br>– Increased turbidity that does not clear after settling. |\n| **Chlorophyll & pigments** | Aggressive agitation or high temperature pulling out chlorophyll. | – Dark green‑brown colour in the wash (instead of the usual clear‑golden hue). <br>– UV‑Vis shows absorbance peaks at 660 nm & 430 nm. |\n| **Microbial growth** | Stale solvent, warm wash environment, prolonged dwell time. | – Off‑odors (musty, sour). <br>– Microscopic inspection reveals spores/yeast. <br>– Elevated microbial counts in post‑wash QC. |\n| **Solvent degradation products** | Oxidation (especially with ethanol) or excessive heat. | – Strong “alcoholic” or “solvent‑burn” smell. <br>– GC‑MS shows aldehydes/ketones (e.g., acetaldehyde) above specification. |\n| **Cross‑contamination from other batches** | Shared equipment, incomplete purge. | – Unexpected terpene profile or cannabinoid ratios that differ from the source material. <br>– Residual solvent from previous run detected in the wash (e.g., trace butane when running ethanol). |\n\n---\n\n### Quick “on‑the‑floor” checklist\n\n1. **Visual** – Clear, slightly amber liquid? No foam, no floating green particles.\n2. **Temperature** – Within ±2 °C of target; no sudden rise after agitation starts.\n3. **Pressure/Flow** – Filtration pressure stable; no spikes in pump draw.\n4. **Volume** – Solvent loss < 2 % per wash cycle (adjusted for recovery system).\n5. **Water test** – Quick Karl‑Fischer dip‑stick or IR sensor reading; stay below\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1163 (163?1000) | Cost: $0.000000*",
+      "duration": 12262,
+      "grade": "F",
+      "score": 48,
+      "grading": {
+        "length": "Pass",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "1/5 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 109,
+      "question": "How do I manage dry/cure of hash to prevent grease-out or terp loss?",
+      "category": "solventless-ice-water-hash-&-rosin",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "extraction",
+      "agentMatch": false,
+      "response": "### Quick‑Reference Checklist  \n| Goal | Key Parameter | Practical Tips |\n|------|----------------|----------------|\n| **Prevent “grease‑out”in separation)** | **Temperature ≤ 65 °F (18 °C)**, **RH 55‑65 %** | Keep hash cool, avoid direct heat (no sunlight, no hot‑room storage). Use a temperature‑controlled cabinet or a refrigerator set to ~55 °F for long‑term storage. |\n| **Preserve terpenes** | **Low heat, low oxygen, limited light** | Store in airtight glass, keep in the dark, limit head‑space, consider a nitrogen or argon flush before sealing. |\n| **Stable, consistent cure** | **RH 62 % (±5 %)**, **temperature 60‑70 °F (15‑21 °C)** | Use calibrated hygrometer + 62 % Boveda or similar humidity pack. Rotate jars daily for the first week. |\n| **Avoid mold / over‑drying** | **RH 45‑55 %** after the first 2‑3 weeks | If humidity stays > 65 % after 2 weeks, replace packs with 55 % ones or open jars briefly to let excess moisture escape. |\n\n---\n\n## 1. What “grease‑out” Actually Is  \nWhen hash is exposed to **excess heat or high humidity**, the **cannabinoid‑rich oils** can separate from the trichome matrix and pool at the bottom of a container. It looks oily (“grease”) and can lead to:\n\n* **Loss of potency** (cannabinoids migrate into the container walls).  \n* **Terpene volatilization** (heat drives off aromatic compounds).  \n* **Texture changes** (from pliable to tacky orly).  \n\nThe cure is simply to **keep the hash cool, dry enough, and oxygen‑limited** while still allowing a slow, even moisture equilibration.\n\n---\n\n## 2. Step‑by‑Step Dry‑Cure Protocol (For Wet/Bubble Hash, Dry‑Sift, or Rosin)\n\n| Phase | Conditions | What to Do |\n|-------|------------|------------|\n| **A. Initial Dry‑Phase** (if you have **wet hash** after extraction) | **Temp 55‑65 °F (13‑18 )**, **RH 60‑70 %** | • Spread hash thinly (≈¼‑½ in) on parchment or a stainless steel screen.<br>• Air‑circulate with a low‑speed fan (no direct draft).<br>• Check every 12 h – it should feel tacky, not wet. |\n| **B. First Transfer** | **Temp 60‑70 °F (15‑21 °C)**, **RH ~62 %** | • Once surface moisture is gone (hash no longer leaves a wet imprint on paper), break into ½‑1 in pieces.<br>• Place each piece in a small, **wide‑mouth glass jar** (½‑1 cubic‑inch). |\n| **C. Primary Cure (Weeks 1‑3)** | **Temp 60‑70 °F**, **RH 62 %** (Boveda 62 % pack or calibrated humidifier) | • Insert one humidity pack per jar. <br>• Close loosely (\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1168 (168?1000) | Cost: $0.000000*",
+      "duration": 9603,
+      "grade": "F",
+      "score": 48,
+      "grading": {
+        "length": "Pass",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "1/5 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 110,
+      "question": "Can you help me tune rosin press parameters (temp/pressure/time) by cultivar?",
+      "category": "solventless-ice-water-hash-&-rosin",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "extraction",
+      "agentMatch": false,
+      "response": "Below is a practical framework you can use to dial‑in **temperature / pressure / time** for most rosin presses, followed by quick‑reference table for common cultivar types. Because every rig, batch, and flower condition is a little different, treat the numbers as *starting points* and then tweak in small increments while tracking results.\n\n---\n\n## 1. How the three variables interact  \n\n| Variable | Primary effect | Typical adjustment range |\n|----------|----------------|--------------------------|\n| **Temperature** | Drives cannabinoid/terpene extraction speed. Low = more terpene retention, high = faster extraction but potential degradation. | 160‑210 °F (71‑99 °C) |\n| **Pressure** | Forces resin through the screen. Too little = low yield, too much = material compaction & harsh texture. | 400‑1 200 psi (2.8‑8.3 MPa) |\n| **Time** | Determines how long the material is exposed to heat/pressure. Longer = higher yield, but also more risk of chlorophyll/plant waxes pulling through. | 30 s‑180 s per cycle |\n\n**Rule of thumb:**  \n- **Low‑temp, low‑pressure, short‑time** → “Flavor‑first” (max terpene preservation).  \n- **Higher‑temp, higher‑pressure, longer‑time** → “Yield‑first” (max total cannabinoids).  \n\n---\n\n## 2. Tuning workflow (5‑step “Rosin‑Fit” loop)\n\n1. **Prep the flower**  \n   - Cure ≥ 2 weeks, dry to 10‑12 % RH.  \n   - Trim away stems, keep only dense buds.  \n   - Optional: Lightly “pre‑cure” at 120 °F (49 °C) for 15 min to even out moisture.\n\n2. **Select a baseline set** (see Table 1 below). Load 0.5‑1 g per pouch.\n\n3. **Run the press**  \n   - Use a single, uniform pressure ramp (e.g., ramp to target pressure in 5 s, hold, then release).  \n   - Record temperature, pressure, time, and yield (% of dry weight).\n\n4. **Evaluate**  \n   - **Yield** (weight of rosin / weight of flower).  \n   - **Visual**: color (gold‑amber = good), clarity (no plant material).  \n   - **Sensory**: aroma intensity (terpene preservation) and mouthfeel.  \n   - **Lab** (if available): THC/CBD potency vs. starting material.\n\n5. **Iterate**  \n   - **If terpene loss** → lower temperature by 5‑10 °F or shorten time by 10‑20 s.  \n   - **If yield low** → raise pressure by 50‑100 psi or extend time 10‑20 s.  \n   - **If plant material** → reduce pressure or shorten time.\n\nRepeat until you hit the sweet spot for that cultivar.\n\n---\n\n## 3. Quick‑reference: Typical starting parameters by cultivar type  \n\n| Cultivar profile | Typical THC/CBD ratio | Recommended **Temp** | Recommended **Pressure** | Recommended **Time** | Why this combo |\n|------------------|----------------------|----------------------|--------------------------|----------------------|----------------|\n| **High‑THC, resin‑dense (e.g., “Girl Scout Cookies”, “Gorilla Glue”)** | 20‑30 % THC, low CBD | 180‑190 °F (82‑88 °C) | 600‑800 psi (4.1‑5.5 MPa) | 60‑90 s | Dense trichomes release at moderate heat; pressure extracts most cannabinoids while preserving flavor. |\n| **High‑CBD (e.g., “Charlotte’s Web”, “Harlequin”)** | 8‑15 % CBD, low THC\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1169 (169?1000) | Cost: $0.000000*",
+      "duration": 10314,
+      "grade": "F",
+      "score": 54,
+      "grading": {
+        "length": "Pass",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "3/5 key words"
+      },
+      "expectedKeywords": []
     }
   ],
-  "status": "In Progress: 100/438 questions completed"
+  "status": "In Progress: 110/438 questions completed"
 }
