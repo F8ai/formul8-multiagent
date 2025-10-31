@@ -877,14 +877,22 @@
                 height: 100%;
                 z-index: 1000;
                 box-shadow: 2px 0 8px rgba(0,0,0,0.3);
+                /* Default: hidden on mobile */
                 transform: translateX(-100%);
             }
 
+            /* Only show sidebar when explicitly not collapsed (user opened it) */
             .sidebar:not(.collapsed) {
                 transform: translateX(0);
             }
 
+            /* Explicitly hidden when collapsed */
             .sidebar.collapsed {
+                transform: translateX(-100%);
+            }
+            
+            /* Ensure sidebar starts hidden - add collapsed class via CSS if needed */
+            .sidebar:not(.collapsed):not(.sidebar-open) {
                 transform: translateX(-100%);
             }
 
@@ -1102,14 +1110,41 @@
             }
         }
         
+        // Initialize mobile sidebar immediately in script (before DOM ready)
+        // Add collapsed class via inline script that runs immediately
+        (function() {
+            if (typeof window !== 'undefined') {
+                // Set a flag to initialize once DOM is ready
+                window.__initMobileSidebar = function() {
+                    try {
+                        const sidebar = document.getElementById('sidebar');
+                        const toggle = document.getElementById('sidebarToggle');
+                        if (sidebar && toggle && window.innerWidth <= 768) {
+                            sidebar.classList.add('collapsed');
+                            toggle.classList.remove('sidebar-open');
+                            const icon = toggle.querySelector('svg path');
+                            if (icon) icon.setAttribute('d', 'M10 4l-4 4 4 4');
+                        }
+                    } catch(e) {}
+                };
+            }
+        })();
+        
         // Initialize mobile sidebar early if DOM is ready
         if (document.readyState === 'complete' || document.readyState === 'interactive') {
             initializeMobileSidebar();
+            if (window.__initMobileSidebar) window.__initMobileSidebar();
         } else {
-            document.addEventListener('DOMContentLoaded', initializeMobileSidebar);
+            document.addEventListener('DOMContentLoaded', function() {
+                initializeMobileSidebar();
+                if (window.__initMobileSidebar) window.__initMobileSidebar();
+            });
         }
         // Also try after a short delay
-        setTimeout(initializeMobileSidebar, 200);
+        setTimeout(function() {
+            initializeMobileSidebar();
+            if (window.__initMobileSidebar) window.__initMobileSidebar();
+        }, 200);
         
         // Initialize Supabase Auth
         async function initializeSupabaseAuth() {
@@ -2025,43 +2060,8 @@
                 }
             }
             
-            // Start with sidebar collapsed on mobile
-            function initializeMobileSidebar() {
-                try {
-                    const sidebar = document.getElementById('sidebar');
-                    const toggle = document.getElementById('sidebarToggle');
-                    
-                    if (!sidebar || !toggle) {
-                        console.warn('Sidebar or toggle not found, retrying...');
-                        setTimeout(initializeMobileSidebar, 100);
-                        return;
-                    }
-                    
-                    const isMobile = window.innerWidth <= 768 || window.matchMedia('(max-width: 768px)').matches;
-                    
-                    if (isMobile) {
-                        sidebar.classList.add('collapsed');
-                        toggle.classList.remove('sidebar-open');
-                        // Update icon to point right (indicating sidebar is closed)
-                        const icon = toggle.querySelector('svg path');
-                        if (icon) {
-                            icon.setAttribute('d', 'M10 4l-4 4 4 4');
-                        }
-                        console.log('Mobile sidebar initialized as collapsed');
-                    }
-                } catch (error) {
-                    console.error('Error initializing mobile sidebar:', error);
-                }
-            }
-            
-            // Initialize on load - try immediately and also after a delay
-            if (document.readyState === 'loading') {
-                window.addEventListener('DOMContentLoaded', initializeMobileSidebar);
-            } else {
-                initializeMobileSidebar();
-            }
-            // Also run after a short delay to ensure elements are ready
-            setTimeout(initializeMobileSidebar, 100);
+            // Re-initialize mobile sidebar on load (in case viewport changed or elements weren't ready)
+            setTimeout(initializeMobileSidebar, 300);
             
             // Also handle resize events
             window.addEventListener('resize', initializeMobileSidebar);
