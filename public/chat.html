@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formul8</title>
     <link rel="icon" type="image/x-icon" href="https://formul8.ai/favicon.ico">
-    <!-- Google Sign-In -->
-    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <!-- Supabase Client Library -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
     <style>
         * {
             margin: 0;
@@ -295,6 +295,31 @@
             justify-content: center;
         }
 
+        .supabase-signin-button {
+            padding: 12px 24px;
+            background: #fff;
+            color: #212121;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .supabase-signin-button:hover {
+            background: #f0f0f0;
+            transform: translateY(-1px);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .supabase-signin-button:active {
+            transform: translateY(0);
+        }
+
         .sign-in-benefits {
             margin-top: 20px;
             text-align: left;
@@ -324,7 +349,7 @@
         }
 
         .sign-in-benefits li:before {
-            content: "✓";
+            content: "?";
             position: absolute;
             left: 0;
             color: #19c37d;
@@ -647,7 +672,7 @@
         }
 
         .upgrade-callout li:before {
-            content: "✓";
+            content: "?";
             position: absolute;
             left: 0;
             color: #19c37d;
@@ -907,7 +932,7 @@
             
             <!-- Sign In Prompt for Free Users -->
             <div class="sign-in-prompt" id="signInPrompt">
-                <h3>💬 Save Your Conversations</h3>
+                <h3>?? Save Your Conversations</h3>
                 <p>Sign in to access your chat history across devices</p>
                 
                 <div class="google-signin-wrapper" id="sidebarGoogleSignIn"></div>
@@ -982,7 +1007,7 @@
 
         <!-- Version Info -->
         <div class="version-info" id="versionInfo">
-            v1.0.0-1b5ab3e (20251021-1754)
+            v1.1.0-4b72044 (20251031-0724)
         </div>
 
         <!-- Hidden controls -->
@@ -999,10 +1024,31 @@
     </div>
 
     <script>
-        // Google OAuth Configuration
-        const GOOGLE_CLIENT_ID = '732977829559-sm9erni1diasjrfdqdccal0htmeb2crg.apps.googleusercontent.com';
+        // Supabase Configuration
+        // Configure Supabase credentials by setting window.SUPABASE_URL and window.SUPABASE_ANON_KEY
+        // before this script runs, or update these defaults:
+        // Example: window.SUPABASE_URL = 'https://your-project.supabase.co';
+        // Example: window.SUPABASE_ANON_KEY = 'your-anon-key';
+        // 
+        // For production, these should be set via environment variables injected at build time
+        // or loaded from a config endpoint.
+        const SUPABASE_URL = window.SUPABASE_URL || 'https://your-project.supabase.co';
+        const SUPABASE_ANON_KEY = window.SUPABASE_ANON_KEY || 'your-anon-key';
+        
         // Use relative URL to call API on same domain (Vercel deployment)
         const API_ENDPOINT = window.location.origin;
+        
+        // Initialize Supabase client
+        let supabase = null;
+        if (typeof window.supabase !== 'undefined' && window.supabase && window.supabase.createClient) {
+            supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
+                auth: {
+                    autoRefreshToken: true,
+                    persistSession: true,
+                    detectSessionInUrl: true
+                }
+            });
+        }
         
         let currentUser = null;
         let authToken = null;
@@ -1014,75 +1060,174 @@
         let messageCount = 0;
         let hasShownSidebar = false;
         
-        // Initialize Google Sign-In
-        function initializeGoogleSignIn() {
-            if (typeof google !== 'undefined' && google.accounts) {
-                google.accounts.id.initialize({
-                    client_id: GOOGLE_CLIENT_ID,
-                    callback: handleGoogleSignIn,
-                    auto_select: false,
-                    cancel_on_tap_outside: true,
-                });
-                
-                // Render in header
-                google.accounts.id.renderButton(
-                    document.getElementById('authButtons'),
-                    {
-                        theme: 'filled_black',
-                        size: 'medium',
-                        text: 'signin_with',
-                        shape: 'rectangular',
-                    }
-                );
-                
-                // Render in sidebar
-                google.accounts.id.renderButton(
-                    document.getElementById('sidebarGoogleSignIn'),
-                    {
-                        theme: 'filled_black',
-                        size: 'large',
-                        text: 'signin_with',
-                        shape: 'rectangular',
-                        width: 200
-                    }
-                );
-                
-                checkExistingSession();
-            } else {
-                setTimeout(initializeGoogleSignIn, 100);
+        // Initialize Supabase Auth
+        async function initializeSupabaseAuth() {
+            if (!supabase) {
+                console.error('Supabase client not initialized. Make sure SUPABASE_URL and SUPABASE_ANON_KEY are configured.');
+                return;
+            }
+            
+            // Set up sign-in buttons
+            setupSignInButtons();
+            
+            // Check for existing session
+            await checkExistingSession();
+            
+            // Listen for auth state changes
+            supabase.auth.onAuthStateChange(async (event, session) => {
+                console.log('Auth state changed:', event, session ? 'has session' : 'no session');
+                if (event === 'SIGNED_IN' && session) {
+                    await handleSupabaseSignIn(session);
+                } else if (event === 'SIGNED_OUT') {
+                    handleLogout();
+                } else if (event === 'TOKEN_REFRESHED' && session) {
+                    authToken = session.access_token;
+                    localStorage.setItem('authToken', authToken);
+                }
+            });
+            
+            // Check if we're returning from OAuth redirect
+            const hashParams = new URLSearchParams(window.location.hash.substring(1));
+            if (hashParams.has('access_token') || hashParams.has('code')) {
+                // Supabase will handle this automatically via detectSessionInUrl
+                // But we can also manually check the session
+                const { data: { session } } = await supabase.auth.getSession();
+                if (session) {
+                    await handleSupabaseSignIn(session);
+                }
+                // Clean up URL hash
+                window.history.replaceState(null, '', window.location.pathname);
             }
         }
         
-        async function handleGoogleSignIn(response) {
+        function setupSignInButtons() {
+            // Header sign-in button
+            const headerButton = document.createElement('button');
+            headerButton.className = 'supabase-signin-button';
+            headerButton.textContent = 'Sign in with Google';
+            headerButton.onclick = handleSupabaseSignInClick;
+            document.getElementById('authButtons').appendChild(headerButton);
+            
+            // Sidebar sign-in button
+            const sidebarButton = document.getElementById('sidebarSignInButton');
+            if (sidebarButton) {
+                sidebarButton.onclick = handleSupabaseSignInClick;
+            }
+        }
+        
+        async function handleSupabaseSignInClick() {
+            if (!supabase) {
+                console.error('Supabase client not initialized');
+                return;
+            }
+            
             try {
-                const result = await fetch(`${API_ENDPOINT}/api/google-auth-callback`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ idToken: response.credential }),
+                const { data, error } = await supabase.auth.signInWithOAuth({
+                    provider: 'google',
+                    options: {
+                        redirectTo: window.location.origin + window.location.pathname
+                    }
                 });
                 
-                const data = await result.json();
-                
-                if (data.success) {
-                    authToken = data.token;
-                    currentUser = data.user;
-                    localStorage.setItem('authToken', authToken);
-                    localStorage.setItem('currentUser', JSON.stringify(currentUser));
-                    updateUIAfterLogin();
+                if (error) {
+                    console.error('Sign-in error:', error);
+                    alert('Failed to sign in. Please try again.');
                 }
+                // The OAuth flow will redirect, so we don't need to do anything else here
             } catch (error) {
                 console.error('Authentication error:', error);
+                alert('Failed to sign in. Please try again.');
             }
         }
         
-        function checkExistingSession() {
-            const token = localStorage.getItem('authToken');
-            const user = localStorage.getItem('currentUser');
+        async function handleSupabaseSignIn(session) {
+            if (!session || !session.user) return;
             
-            if (token && user) {
-                authToken = token;
-                currentUser = JSON.parse(user);
+            try {
+                authToken = session.access_token;
+                const user = session.user;
+                
+                // Fetch user profile to get additional info
+                let profile = null;
+                try {
+                    const { data: profileData } = await supabase
+                        .from('profiles')
+                        .select('username, email')
+                        .eq('id', user.id)
+                        .single();
+                    profile = profileData;
+                } catch (e) {
+                    // Profile might not exist yet, that's okay
+                    console.log('Profile not found, using auth user data');
+                }
+                
+                currentUser = {
+                    id: user.id,
+                    email: user.email,
+                    name: profile?.username || user.user_metadata?.full_name || user.email?.split('@')[0],
+                    picture: user.user_metadata?.avatar_url || user.user_metadata?.picture || '',
+                    plan: user.user_metadata?.plan || 'free'
+                };
+                
+                localStorage.setItem('authToken', authToken);
+                localStorage.setItem('currentUser', JSON.stringify(currentUser));
+                
                 updateUIAfterLogin();
+            } catch (error) {
+                console.error('Error handling sign-in:', error);
+            }
+        }
+        
+        async function checkExistingSession() {
+            if (!supabase) {
+                // Fallback: check localStorage for backward compatibility
+                const token = localStorage.getItem('authToken');
+                const user = localStorage.getItem('currentUser');
+                
+                if (token && user) {
+                    authToken = token;
+                    currentUser = JSON.parse(user);
+                    updateUIAfterLogin();
+                }
+                return;
+            }
+            
+            try {
+                const { data: { session }, error } = await supabase.auth.getSession();
+                
+                if (session && !error) {
+                    await handleSupabaseSignIn(session);
+                } else {
+                    // Check localStorage for backward compatibility
+                    const token = localStorage.getItem('authToken');
+                    const user = localStorage.getItem('currentUser');
+                    
+                    if (token && user) {
+                        // Try to validate the token
+                        const { data: { user: supabaseUser }, error: userError } = await supabase.auth.getUser(token);
+                        
+                        if (!userError && supabaseUser) {
+                            authToken = token;
+                            currentUser = JSON.parse(user);
+                            updateUIAfterLogin();
+                        } else {
+                            // Token is invalid, clear it
+                            localStorage.removeItem('authToken');
+                            localStorage.removeItem('currentUser');
+                        }
+                    }
+                }
+            } catch (error) {
+                console.error('Error checking session:', error);
+                // Fallback to localStorage
+                const token = localStorage.getItem('authToken');
+                const user = localStorage.getItem('currentUser');
+                
+                if (token && user) {
+                    authToken = token;
+                    currentUser = JSON.parse(user);
+                    updateUIAfterLogin();
+                }
             }
         }
         
@@ -1107,15 +1252,15 @@
             document.getElementById('conversationsList').style.display = 'block';
         }
         
-        function handleLogout() {
+        async function handleLogout() {
+            if (supabase) {
+                await supabase.auth.signOut();
+            }
+            
             authToken = null;
             currentUser = null;
             localStorage.removeItem('authToken');
             localStorage.removeItem('currentUser');
-            
-            if (google && google.accounts && google.accounts.id) {
-                google.accounts.id.disableAutoSelect();
-            }
             
             document.getElementById('authButtons').style.display = 'flex';
             document.getElementById('userInfo').classList.remove('active');
@@ -1318,8 +1463,8 @@
                 projectDiv.innerHTML = `
                     <div class="project-header" onclick="toggleProject('${project.id}', event)">
                         <div class="project-header-left">
-                            <span class="project-chevron">▼</span>
-                            <span>📁 ${project.name}</span>
+                            <span class="project-chevron">?</span>
+                            <span>?? ${project.name}</span>
                             <span style="color: #666; font-size: 11px;">(${convCount})</span>
                         </div>
                     </div>
@@ -1352,12 +1497,12 @@
                     
                     convDiv.innerHTML = `
                         <div class="conversation-header" onclick="loadConversation('${project.id}', '${conv.id}')">
-                            ${hasFiles ? `<span class="conversation-chevron" onclick="toggleConversation('${project.id}', '${conv.id}', event)">▼</span>` : ''}
-                            <span class="conversation-text">💬 ${conv.title || 'New Conversation'}</span>
+                            ${hasFiles ? `<span class="conversation-chevron" onclick="toggleConversation('${project.id}', '${conv.id}', event)">?</span>` : ''}
+                            <span class="conversation-text">?? ${conv.title || 'New Conversation'}</span>
                         </div>
                         <div class="conversation-actions">
                             ${hasFiles ? `<span style="font-size: 10px; color: #666;">${fileCount}</span>` : ''}
-                            <button class="conversation-action-btn delete-conversation" onclick="deleteConversation('${project.id}', '${conv.id}', event)" title="Delete">×</button>
+                            <button class="conversation-action-btn delete-conversation" onclick="deleteConversation('${project.id}', '${conv.id}', event)" title="Delete">?</button>
                         </div>
                     `;
                     
@@ -1372,7 +1517,7 @@
                             const fileDiv = document.createElement('div');
                             fileDiv.className = 'file-item';
                             fileDiv.innerHTML = `
-                                <span class="file-icon">📄</span>
+                                <span class="file-icon">??</span>
                                 <span class="file-name">${file.name}</span>
                             `;
                             fileListDiv.appendChild(fileDiv);
@@ -1474,7 +1619,7 @@
             }
             
             // Extract upgrade prompts
-            const upgradeRegex = /---\s*(💎|💡|🔓)\s*\*\*([^*]+)\*\*([^]*?)(?=---|$)/g;
+            const upgradeRegex = /---\s*(??|??|??)\s*\*\*([^*]+)\*\*([^]*?)(?=---|$)/g;
             let upgradePrompts = [];
             let match;
             
@@ -1509,10 +1654,10 @@
             if (metadata) {
                 html += `
                     <div class="message-metadata">
-                        <span class="metadata-badge">🤖 <strong>${metadata.agent}</strong></span>
-                        <span class="metadata-badge">📋 ${metadata.plan}</span>
-                        <span class="metadata-badge">🎯 ${metadata.tokens} tokens</span>
-                        <span class="metadata-badge">💰 ${metadata.cost}</span>
+                        <span class="metadata-badge">?? <strong>${metadata.agent}</strong></span>
+                        <span class="metadata-badge">?? ${metadata.plan}</span>
+                        <span class="metadata-badge">?? ${metadata.tokens} tokens</span>
+                        <span class="metadata-badge">?? ${metadata.cost}</span>
                     </div>
                 `;
             }
@@ -1532,7 +1677,7 @@
                     
                     lines.forEach(line => {
                         line = line.trim();
-                        if (line.startsWith('•')) {
+                        if (line.startsWith('?')) {
                             bullets.push(line.substring(1).trim());
                         } else if (line.includes('<a href=')) {
                             // Extract links
@@ -1609,12 +1754,12 @@
                     
                     // Add upgrade prompt for free tier users
                     if (plan === 'free' && !authToken) {
-                        responseText += '\n\n---\n\n💡 **Want more features?** Upgrade to unlock:\n';
-                        responseText += '• Advanced agent capabilities\n';
-                        responseText += '• Priority response times\n';
-                        responseText += '• No ads\n';
-                        responseText += '• Specialized agents (compliance, patent, operations)\n\n';
-                        responseText += '[View Plans](https://formul8.ai/plans) | [Sign Up Free](https://f8.syzygyx.com/chat)';
+                        responseText += '\n\n---\n\n?? **Want more features?** Upgrade to unlock:\n';
+                        responseText += '? Advanced agent capabilities\n';
+                        responseText += '? Priority response times\n';
+                        responseText += '? No ads\n';
+                        responseText += '? Specialized agents (compliance, patent, operations)\n\n';
+                        responseText += '[View Plans](https://formul8.ai/plans) | [Sign Up Free](https://chat.formul8.ai)';
                     }
                     
                     addMessage(responseText, 'assistant', data.agent || 'F8');
@@ -1792,8 +1937,42 @@
         });
         
         // Initialize
-        window.addEventListener('load', () => {
-            initializeGoogleSignIn();
+        window.addEventListener('load', async () => {
+            // Wait for Supabase library to load
+            if (typeof window.supabase === 'undefined') {
+                // Wait a bit and try again
+                setTimeout(async () => {
+                    if (typeof window.supabase !== 'undefined' && window.supabase && window.supabase.createClient) {
+                        supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
+                            auth: {
+                                autoRefreshToken: true,
+                                persistSession: true,
+                                detectSessionInUrl: true
+                            }
+                        });
+                        // Initialize Supabase auth
+                        if (SUPABASE_URL && SUPABASE_ANON_KEY && SUPABASE_URL !== 'https://your-project.supabase.co' && SUPABASE_ANON_KEY !== 'your-anon-key') {
+                            await initializeSupabaseAuth();
+                        } else {
+                            console.warn('Supabase credentials not configured. Please set SUPABASE_URL and SUPABASE_ANON_KEY.');
+                            // Still try to check for existing sessions in localStorage
+                            await checkExistingSession();
+                        }
+                    } else {
+                        console.warn('Supabase library failed to load');
+                        await checkExistingSession();
+                    }
+                }, 100);
+            } else {
+                // Supabase already loaded
+                if (SUPABASE_URL && SUPABASE_ANON_KEY && SUPABASE_URL !== 'https://your-project.supabase.co' && SUPABASE_ANON_KEY !== 'your-anon-key') {
+                    await initializeSupabaseAuth();
+                } else {
+                    console.warn('Supabase credentials not configured. Please set SUPABASE_URL and SUPABASE_ANON_KEY.');
+                    // Still try to check for existing sessions in localStorage
+                    await checkExistingSession();
+                }
+            }
             
             // Start with sidebar collapsed on mobile
             if (window.innerWidth < 768) {

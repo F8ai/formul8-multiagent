@@ -1,11 +1,11 @@
 import { test, expect } from '@playwright/test';
 
-test.describe('Formul8 Chat Interface - f8.syzygyx.com/chat', () => {
+test.describe('Formul8 Chat Interface - chat.formul8.ai', () => {
   let page;
 
   test.beforeEach(async ({ browser }) => {
     page = await browser.newPage();
-    await page.goto('https://f8.syzygyx.com/chat');
+    await page.goto('https://chat.formul8.ai');
     
     // Wait for page to load completely
     await page.waitForLoadState('networkidle');
