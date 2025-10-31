@@ -1,11 +1,11 @@
 {
-  "timestamp": "2025-10-31T08:14:56.411Z",
+  "timestamp": "2025-10-31T08:16:46.537Z",
   "url": "https://chat.formul8.ai",
   "totalQuestions": 438,
-  "completed": 150,
-  "passed": 17,
-  "failed": 133,
-  "averageScore": "33.68",
+  "completed": 160,
+  "passed": 18,
+  "failed": 142,
+  "averageScore": "34.25",
   "averageGrade": "F",
   "results": [
     {
@@ -2758,7 +2758,203 @@
         "relevance": "4/5 key words"
       },
       "expectedKeywords": []
+    },
+    {
+      "questionNum": 151,
+      "question": "What are good KPIs for inventory health (DOH, turns, service level, fill rate)?",
+      "category": "inventory-warehousing-and-materials-control",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": true,
+      "response": " is a quick‑reference guide to the most common inventory‑health KPI set (DOH, Turns, Service Level, Fill‑Rate) plus a few complementary metrics you may want to track.  \n\n| KPI | What it measures | How to calculate | Typical “good” benchmark* | When to use / what it tells you |\n|-----|------------------|------------------|---------------------------|--------------------------------|\n| **Days on Hand (DOH)** | How many days the current inventory will last at current sales velocity. | `DOH = (Average Inventory ÷ Cost of Goods Sold) × 365`  (or use sales dollars instead of COGS if you prefer) | **30‑90 days** for most consumer‑goods/F&B; **15‑45 days** for fast‑moving, perishable (e.g., fresh cannabis flower); **90‑180+** for slow‑turning, high‑value SKUs (e.g., extracts, accessories). | Highlights excess vs. shortage risk. Low DOH → potential stock‑outs; high DOH → capital tied up, higher carrying cost. |\n| **Inventory Turns (or Turnover Ratio)** | How many times inventory is sold and replaced in a period (usually a year). | `Turns = COGS ÷ Average Inventory` (or Sales ÷ Avg Inv if you track at retail price). | **4‑12 turns/yr** for typical consumer goods; **8‑15** for high‑velocity cannabis flower; **2‑4** for specialty extracts or accessories. | Inverse of DOH. Higher turns = better asset utilization, lower holding cost. |\n| **Service Level (SL)** | % of demand met without back‑order or stock‑out. | `SL = (Orders Shipped in Full on First Attempt ÷ Total Orders) × 100%` | **95‑99%** for most B2C e‑commerce; **98‑99.5%** for regulated cannabis dispensary fulfillment where compliance is critical. | Directly impacts customer satisfaction and compliance penalties. |\n| **Fill Rate (FR)** | % of line items (or units) supplied from on‑hand inventory. Two common flavors: | 1. **Order‑line fill rate** – `FR_line = (Lines Shipped Complete ÷ Total Lines) × 100%` <br>2. **Unit fill rate** – `FR_unit = (Units Shipped from Stock ÷ Total Units Ordered) × 100%` | **98‑100%** for unit fill; **95‑99%** for line‑item fill. | Gives a more granular view than service level. A high SL but low FR can mean many partial shipments. |\n| **Stock‑out Rate** | Frequency of an SKU being unavailable when demanded. | `Stock‑out Rate = (Number of Stock‑out Occurrences ÷ Total Demand Events) × 100%` | **<2%** overall; **<0.5%** for top‑selling SKUs. | Pinpoints inventory planning gaps for specific items. |\n| **Obsolescence / Write‑off Rate** | % of inventory that must be written off (expired, destroyed, or unsellable). | `Obsolescence = (Value of Write‑offs ÷ Avg Inventory Value) × 100` | **<1‑2%** annually (lower the better). | Critical for regulated products with shelf‑life (e.g., edibles, topicals). |\n| **Carrying Cost of Inventory (CCI)** | Cost of holding inventory (capital, storage, insurance, spoilage). | `CCI = (Annual Holding Cost ÷ Avg Inventory Value) × 100%` | **20‑30%** of inventory value is typical; strive for the lower end. | Helps evaluate the financial impact of high DOH. |\n| **Perfect Order Rate (POR)** | Composite metric: on‑time, complete, damage‑free, invoiced correctly. | `POR = (Orders meeting all 4 criteria ÷ Total Orders) × 100%` | **95‑\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1171 (171?1000) | Cost: $0.000000*",
+      "duration": 11594,
+      "grade": "D",
+      "score": 60,
+      "grading": {
+        "length": "Pass",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "5/5 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 152,
+      "question": "Can you help me make a compliant packaging/labeling SOP for my state?",
+      "category": "packaging-&-labeling-operations",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": true,
+      "response": "Below is a **starter SOP outline** you can adapt to any state’s cannabis packaging‑and‑labeling rules. I’ll walk you through the key sections, the typical regulatory checkpoints, and a simple template you can fill in once you know the exact state‑specific requirements.  \n\n---\n\n## 1.  SOP Overview  \n\n| Element | Description |\n|---------|-------------|\n| **Title** | “Packaging & Labeling – Standard Operating Procedure (SOP)” |\n| **SOP #** | Unique identifier (e.g., SOP‑C‑001) |\n| **Effective Date** | MM/DD/YYYY |\n| **Revision #:** | 0 (increment with each update) |\n| **Prepared by** | [Name/Title] |\n| **Approved by** |Name/Title] |\n| **Scope** | All cannabis product types (flower, concentrate, edibles, topicals, etc.) produced, packaged, and shipped by **[Your Company]**. |\n| **Purpose** | Ensure every unit leaving the facility meets **[State]** cannabis packaging & labeling statutes, is child‑resistant/tamper‑evident where required, and carries all mandatory consumer‑information. |\n| **References** | • **[State]** Cannabis Control Board (CCB) regulations – e.g., “Title XX, Chapter YY – Packaging & Labeling.” <br>• Federal Hazardous Materials Regulations (if shipping). <br>• ISO 9001:2015 (quality‑system) clauses relevant to documentation. |\n\n---\n\n## 2.  Key Regulatory Checkpoints (Typical for Most States)\n\n| Requirement | What to Verify | Where to Document |\n|-------------|----------------|--------------------|\n| **Child‑Resistant (CR) Packaging** | Must meet ASTM F3196‑19 or state‑specific CR test. | Packaging spec sheet; QC sign‑off form. |\n| **Tamper‑Evident** | Seal, shrink‑wrap, or breakable closure. | Visual inspection checklist. |\n| **Universal Packaging Size Limits** | Max weight/volume per package (e.g., ≤ 1 oz for flower). | Production batch record. |\n| **Label Content** | • Brand/Trade name  <br>• Product type (e.g., “Indica Flower”)  <br>• Net weight/volume  <br>• THC/CBD potency (percentage & milligram per serving)  <br>• Lot/Batch number  <br>• Production & expiration dates  <br>• QR code / tracking URL  <br>• Mandatory health warnings (e.g., “May cause impairment”)  <br>• State license number & regulator logo  <br>• “For adult use only – 21+”  <br>• All text ≥ 8 pt (or state‑specified size) | Label design file (Adobe/AI) with version control; QC verification form. |\n| **Allergen & Ingredient Disclosure** (for edibles/topicals) | Full ingredient list, allergen statements, “contains …”, “produced in a facility that processes …”. | Master ingredient sheet; label proof. |\n| **Batch & Traceability** | Unique batch/lot code that links to seed/clone, extraction run, packaging line. | ERP/LIMS traceability matrix. |\n| **Packaging Material Restrictions** | No glass for edibles in many states; must be recyclable/compostable per state law. | Supplier certification; material safety data (MSDS). |\n| **Advertising/Promotion Limits on Labels** | No health claims, no “best‑selling”, no false potency statements. | Legal review sign‑off. |\n| **Record‑Retention** | Keep label artwork, QC logs, and batch records for **[X]** years (usually 3\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1167 (167?1000) | Cost: $0.000000*",
+      "duration": 10865,
+      "grade": "F",
+      "score": 45,
+      "grading": {
+        "length": "Pass",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "0/3 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 153,
+      "question": "How do I verify artwork (claims, warnings, font sizes, UPC/QR, lot/exp) before print?",
+      "category": "packaging-&-labeling-operations",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": true,
+      "response": "Below is a practical, step‑by‑step workflow you can use to **prove‑read and pre‑flight cannabis packaging artwork** before it ever goes to the press.  \nIt combines the regulatory “what you must have” with the technical “how to check it” so you can catch errors early and avoid costly re‑runs.\n\n---\n\n## 1️⃣ Gather the Rules First  \n\n| Source | What to Pull Out |\n|--------|-----------------|\n| **State‑specific cannabis labeling ordinance** (e.g., CA B.O.S.S., CO Medical, MA Cannabis Control) | Minimum font sizes, required warnings, placement tolerances, barcode/QR standards, lot‑/exp‑date format, required statement order |\n| **USDA/FTC (if food‑grade)** | Nutrition claim rules, “organic” claims, health‑claim eligibility |\n| **UL/GS1 (for UPC/QR)** | Barcode dimensions, quiet‑zone, error‑correction level, data string format |\n| **Company SOP / Brand guidelines** | Brand‑approved fonts, colors, logo usage, “no‑unapproved claims” list |\n\n> **Tip:** Keep a master “Regulatory Matrix” (Excel or Google Sheet) that lists every required element, the exact wording, and the numeric spec (e.g., “Warning font ≥ 6 pt, 1.5 mm minimum contrast”). Reference this matrix at every review gate.\n\n---\n\n## 2️⃣ Build a Pre‑Print Checklist  \n\n| Category | What to Verify | How to Verify |\n|----------|----------------|---------------|\n| **Claims** | • Only approved product claims (e.g., “THC < 0.3 %”, “Full‑spectrum”) <br>• No medical or therapeutic statements unless permitted | • Compare each claim to the approved‑claim list in your matrix.<br>• Run a keyword search (Ctrl + F) for prohibited words (“cure”, “treat”, “prescription”). |\n| **Warnings** | • Exact phrasing (e.g., “This product may be habit‑forming.”) <br>• Placement (usually top‑right, 2 mm from edge) <br>• Font size & contrast | • Use the **“Find Font”** feature in Illustrator/Indesign to confirm point size.<br>• Check contrast with a color‑contrast checker (WCAG 2.0 AA = 4.5:1). |\n| **Font Sizes & Legibility** | • Minimum size (often 6 pt or 2 mm tall) for mandatory text <br>• Minimum line height (≥ 120 % of font size) | • In Acrobat → **Print Production → Preflight → Fonts** to list point sizes.<br>• Zoom 100 % on a screen and eyeball; for final certainty, print a 1:1 proof on the exact substrate. |\n| **UPC / QR Code** | • Correct data string (product ID, batch, etc.) <br>• Size (e.g., 12 mm × 12 mm for UPC‑A) <br>• Quiet zone (≥ 2 mm) <br>• QR error‑correction level (usually Q or H) | • Open the PDF in **BarTender**, **NiceLabel**, or a barcode generator and export a **vector** (EPS/SVG). <br>• Run a **barcode verifier** (e.g., TEKLYNX Verify, Zint) – it gives a Pass/Fail and prints the scan quality grade. |\n| **Lot / Expiration Dates** | • Format (e.g., “LOT 12345 EXP \n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1175 (175?1000) | Cost: $0.000000*",
+      "duration": 10319,
+      "grade": "F",
+      "score": 57,
+      "grading": {
+        "length": "Pass",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "4/5 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 154,
+      "question": "What’s a good in-line check for label placement and legibility?",
+      "category": "packaging-&-labeling-operations",
+      "response": null,
+      "error": "Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON",
+      "duration": 162,
+      "grade": "F",
+      "score": 0,
+      "actualAgent": "error",
+      "actualAgentName": "Error parsing response",
+      "expectedAgent": "f8_agent",
+      "agentMatch": false
+    },
+    {
+      "questionNum": 155,
+      "question": "How do I choose child-resistant formats that balance cost and speed?",
+      "category": "packaging-&-labeling-operations",
+      "response": null,
+      "error": "Unexpected non-whitespace character after JSON at position 4 (line 1 column 5)",
+      "duration": 82,
+      "grade": "F",
+      "score": 0,
+      "actualAgent": "error",
+      "actualAgentName": "Error parsing response",
+      "expectedAgent": "f8_agent",
+      "agentMatch": false
+    },
+    {
+      "questionNum": 156,
+      "question": "Can you design a label release process with QA sign-off and revision control?",
+      "category": "packaging-&-labeling-operations",
+      "agent": "unknown",
+      "actualAgent": "formulation",
+      "actualAgentName": "Formulation Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": false,
+      "response": "Below is a **standard‑operating‑procedure (SOP) – “Label Release & QA Sign‑off with Revision Control”** that can be adopted by any licensed cannabis manufacturer.  \nIt is organized into four sections – Scope & Definitions, Roles & Responsibilities, Step‑by‑Step, and Documentation & Records.  A printable flow‑chart is included at the end.\n\n---\n\n## 1. Scope & Definitions\n| Term | Definition |\n|------|------------|\n| **Label** | All printed material that appears on the product package (front, back, child‑resistant, barcode, QR, supplemental leaflets). |\n| **Release** | Formal authorization to send the final label file to the printing vendor / packaging line. |\n| **Revision Control (RC)** | System that tracks every change to a label file (version, author, reason, date, approver). |\n| **QA Sign‑off** | Confirmation by the Quality Assurance Manager (or delegate) that the label meets regulatory, brand, and safety requirements. |\n| **COA** | Certificate of Analysis for the batch that the label will represent. |\n| **Lot** | Unique identifier for a batch of product (e.g., “LOT‑2025‑001”). |\n| **e‑Signature** | Digital signature that complies with 21 CFR 11 (or state equivalent). |\n\n*Applies to all product categories (flower, concentrate, edibles, topicals) and to every label generation event (new product, reformulation, label redesign, packaging change).*\n\n---\n\n## 2. Roles & Responsibilities\n| Role | Primary Tasks |\n|------|---------------|\n| **Product Development (PD)** | Drafts initial label content, selects graphics, creates master file (AI/PSD/INDD). |\n| **Regulatory Affairs (RA)** | Verifies compliance with state cannabis lab statutes (THC/CBD potency, warning statements, net weight, batchlot, QR code, etc.). |\n| **Quality Assurance Manager (QAM)** | Performs final QA review, signs‑off release, logs RC entry. |\n| **Graphics/Print Production (GP)** | Converts master file to print‑ready PDF, checks colour, bleed, and barcode readability. |\n| **Manufacturing (MFG)** | Receives approved label file, loads onto line or sends to vendor. |\n| **Document Control (DC)** | Maintains master label repository, archives superseded versions, backs up RC logs. |\n\n*All sign‑offs are captured electronically via a validated DMS (Document Management System) that supports versioning and audit trails (e.g., MasterControl, Veeva, or an ISO‑9001‑compliant SharePoint site).*\n\n---\n\n## 3. Step‑by‑Step Workflow\n\n| Step | Action | Owner | Output | Acceptance Criteria |\n|------|--------|-------|--------|----------------------|\n| **1. Initiate Label Request** | Create a **Label Change Request (LCR)** in the DMS (new product, redesign, or amendment). Attach Product Specification Sheet (PSS) and batch COA (if already available). | PD | LCR # (auto‑generated) | Complete fields, attached documents, and approved PD lead signature. |\n| **2. Draft Label** | Build master file with required fields: product name, THC/CBD % (rounded per regulation), net weight, lot/expiry, warnings, QR code (link to COA), logo, barcode. | PD | Draft Master File (v0.1) | All mandatory regulatory fields present; graphics meet brand guide. |\n| **3. Internal Review – Regulatory** | Verify that label meets every state requirement (potency rounding, mandatory warnings, font size, placement). Use the **Regulatory Checklist** (attached). | RA | Reviewed Draft + Checklist (signed) | No “non‑conformities”; any required changes are logged in RC. |\n| **4. Internal Review – Graphics/Print** | Confirm print specs: 300 dpi, CMYK, bleed, barcode scan test, QR code functional. | GP | Print‑Ready PDF (v0.2) | Passes barcode scanner test; colour swatch matches brand guide. |\n| **5. QA Review & Sign‑off** | QA Manager checks: (a) label matches CO\n\n---\n*Agent: Formulation Agent | Plan: Standard | Tokens: 1208 (208?1000) | Cost: $0.000000*",
+      "duration": 10604,
+      "grade": "F",
+      "score": 54,
+      "grading": {
+        "length": "Pass",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "3/5 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 157,
+      "question": "How do I batch-print variable data (lot/UID/expiry) and prevent mix-ups?",
+      "category": "packaging-&-labeling-operations",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": true,
+      "response": "Below is a practical, step‑by‑step workflow you can adopt to **batch‑print variable data (lot #, UID, expiry)** while keeping the risk of mix‑ups to a minimum.  \nFeel free to cherry‑pick the items that fit your current equipment and software stack.\n\n---\n\n## 1. Get the Data Right — Clean, Centralised Source\n\n| Action | Why it matters |\n|--------|----------------|\n| **Pull data directly from your ERP/seed‑to‑sale system** (e.g., METRC, BioTrackTHC, MJ Freeway) | Guarantees the lot, UID, and expiry are the *exact* values that will be reported to regulators. |\n| **Export to a flat file (CSV/Excel) with a strict column order** – e.g., `ProductCode,LotNumber,UID,ExpiryDate,Quantity` | Gives the printing software a predictable schema; eliminates manual copy‑pasting errors. |\n| **Add a checksum column** (simple MD5 or 2‑digit mod‑97) | Allows a quick “scan‑and‑verify” step after printing. |\n| **Lock the file** (read‑only) before printing | Prevents accidental edits mid‑run. |\n\n**Tip:** Create a “Print‑Ready” export view in your ERP that can be refreshed with a single click.  \n\n---\n\n## 2. Build a Robust Variable‑Data Template\n\n1. **Design the label once** in a dedicated VDP tool (BarTender, NiceLabel, Loftware, or even Adobe InDesign with a data‑merge plugin).  \n2. **Static elements** (brand logo, required warnings, compliance icons) should be **locked** to the template layer.  \n3. **Variable fields** – map each column from your CSV to a placeholder:  \n   - `{{LotNumber}}`  \n - `{{UID}}` (often a 2‑D DataMatrix or QR code)  \n   - `{{ExpiryDate}}` (MM‑YY or full date, per your state’s rule)  \n4. **Add a “Human‑Readable UID”** under the barcode for a quick visual check.  \n5. **Include the checksum** (e.g., `{{Checksum}}`) in a tiny corner; it can be printed as a 2‑digit numeric code that you later scan with a handheld verifier.  \n\n**Save the template as a master file** (read‑only) and version‑control it (Git, SharePoint) so any change is auditable.\n\n---\n\n## 3. Choose the Right Printer & Media\n\n| Feature | Recommended Spec |\n|---------|------------------|\n| **Printer type** | Thermal transfer (for durability) or laser with a hardened toner. |\n| **Resolution** | Minimum 300 dpi; 600 dpi preferred for 2‑D barcodes. |\n| **Media** | 4‑mil polyester or polypropylene label stock, compatible with your printer. |\n| **Label feeder** | Use a **strip‑fed** or **continuous roll** system with a **break‑away** sensor to avoid “sticking together” errors. |\n| **Print queue control** | Enable “Pause after each batch” (e.g., 100 labels) so you can verify before the next run. |\n\n---\n\n## 4. Run a **Controlled Batch Print** (the “Gold‑Standard” method)\n\n1\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1170 (170?1000) | Cost: $0.000000*",
+      "duration": 17843,
+      "grade": "F",
+      "score": 51,
+      "grading": {
+        "length": "Pass",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "2/5 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 158,
+      "question": "What packaging line speeds are realistic for my equipment and staff levels?",
+      "category": "packaging-&-labeling-operations",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": true,
+      "response": "### Quick Overview — What Influences Line Speed\n\n| Factor | How It Affects Speed | Typical Range (if you have a baseline) |\n|--------|----------------------|----------------------------------------|\n| **Product type** | Density, fragility, and regulatory requirements (e.g., child‑proof caps) | Flower ≈ 30–60 lb/hr per packager; Edibles ≈ 15–30 lb/hr; Concentrates ≈ 10–20 lb/hr |\n| **Packaging format** | Size & weight of pouch, bottle, or tube; seal type (heat, induction, snap) | 10 – 200 packs/min for small pouches; 30 – 80 bottles/min for 30‑ml jars |\n| **Machine automation level** | Fully automated (feed‑to‑seal‑to‑carton) vs. semi‑automatic (manual loading) | Fully automated: 100 – 250 packs/min; Semi‑auto: 30 – 80 packs/min |\n| **Shift length & staffing** | Number of operators, change‑over time, breaks | 1‑operator line: 30‑70 packs/min; 2‑operator line: 80‑150 packs/min |\n| **Regulatory checks** | In‑line QC, barcode scanning, child‑proof verification | Adds 5‑15 % “dead time” |\n| **Change‑over complexity** | Switching between SKUs, different pouch sizes | Can reduce effective speed by 10‑30 % during the first 30 min of a run |\n\n---\n\n## 1. What Do I Need to Know From You?\n\nTo give you a **realistic target speed** for your specific line, I’ll need a few details:\n\n| Question | Why It Matters |\n|----------|----------------|\n| **What product(s) are you packaging?** (flower, edibles, concentrates, vape cartridges, etc.) | Determines weight per unit, fragility, and required QC steps. |\n| **What packaging format(s) are you using?** (e.g., 1 oz resealable pouches, 30 ml jars, blister packs) | Directly ties to machine cycle time. |\n| **What equipment do you already have?** (e.g., flow‑pack machine model, cartoning machine, labeler, case packer) | Each model has a manufacturer‑published max speed. |\n| **How many operators are assigned to the line per shift?** | Staffing sets the practical ceiling for manual interventions. |\n| **Shift structure** (8‑hr, 12‑hr, 2‑shift, 3‑shift) and break policy | Determines total run time and allowable downtime. |\n| **Regulatory/QA steps on‑line?** (e.g., barcode verification, weight check, child‑proof test) | Adds cycle‑time overhead. |\n| **Desired output per day/week?** (units or weight) | Helps translate speed into production targets. |\n| **Current bottlenecks you’ve observed?** | Pinpoint where speed is already being limited. |\n\n*If you can give me a quick snapshot (even approximate numbers) for the items above, I can calculate a realistic **packs‑per‑minute (PPM)** or **lb/hr** figure and suggest where you can gain extra throughput.*\n\n---\n\n## 2. Typical Benchmarks (Manufacturer Specs vs. Real‑World)\n\n| Equipment Type | Manufacturer Max Speed* | Real‑World Sustainable Speed (≈80‑85 % of max) | Typical Staffing |\n|----------------|------------------------|-----------------------------------------------|------------------|\n| **Horizontal Flow Pack (e.g., Bosch, IMA)** | 200 PPM (small pouch) | 150‑170 PPM | 1 operator (feed) + 1 QA |\n| **Vertical Form‑Fill‑Seal (VFFS) for flower** | 120 PPM (1 oz pouch) | 90‑100 PPM | 1‑2 operators |\n| **Automatic Cartoner (e.g., Krones, Bosch)** | 100 cartons/min | 80‑85 cartons\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1164 (164?1000) | Cost: $0.000000*",
+      "duration": 12497,
+      "grade": "F",
+      "score": 57,
+      "grading": {
+        "length": "Pass",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "4/5 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 159,
+      "question": "How do I run a packaging line trial and document acceptance?",
+      "category": "packaging-&-labeling-operations",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": true,
+      "response": "Below is a practical, end‑to‑end workflow you can follow the first time you run a **cannabis packaging line trial** and the **acceptance documentation** that should accompany it. The steps are organized into three phases – Planning & Prep, Execution & Data Capture, and Acceptance & Report – so you can hand them off to the relevant team members (operations, quality, compliance, engineering) and keep everything audit‑ready.\n\n---\n\n## 1️⃣ Phase 1 – Planning & Preparation  \n\n| Step | What to Do | Who’s Involved | Key Deliverables |\n|------|------------|----------------|------------------|\n| **1. Define the trial scope** | • Product(s) to be packaged (strain, potency, batch size)  <br>• Packaging type (child‑resistant, pre‑rolled, bulk) <br>• Process steps to be validated (weigh‑fill, labeling, sealing, inspection) | Product Development + QA | **Trial Scope Document** (one‑page summary) |\n| **2. Write a Trial Protocol** | • Objective, hypothesis, success criteria <br>• Equipment settings (speed, torque, vision‑system thresholds) <br>• Number of units per run (minimum 30 units for statistical relevance) <br>• Acceptance criteria (weight tolerance, label accuracy, seal integrity, visual defect rate) <br>• Sampling plan (e.g., every 10th unit) <br>• Deviations handling procedure | QA Lead + Engineering + Compliance | **Packaging Line Trial Protocol (PLTP)** – formatted as a SOP‑style document; attach equipment manuals and SOP references. |\n| **3. Prepare the line** | • Clean & sanitize (per GMP/State Regulation) <br>• Verify equipment calibration (scales, vision system, torque meters) <br>• Load the exact packaging components that will be used in production | Maintenance + Production | **Equipment Calibration Log** (signed) |\n| **4. Train the crew** | • Walk‑through of the protocol <br>• Data‑capture tools (tablet, barcode scanner, PLC export) <br>• Safety & PPE | Production Supervisor + QA | **Training Attendance Sheet** |\n| **5. Set up documentation tools** | • Create a trial data sheet (Excel, Google Sheet, or Formul8 “Trial Capture” template) <br>• Pre‑populate fields: batch #, date, operator, equipment ID, run number, measurement columns | QA + IT | **Trial Data Capture Template** (saved in controlled folder) |\n\n---\n\n## 2️⃣ Phase 2 – Execution & Data Capture  \n\n| Activity | How to Do It | Data to Record |\n|----------|--------------|----------------|\n| **Start the run** | Follow the exact equipment settings from the protocol. Record start time, operator, and any pre‑run observations (e.g., “no visible debris”). | Start timestamp, operator name |\n| **In‑process checks** | • Every **n** units (as defined) stop the line and perform: <br> - **Weight check** (± % tolerance) <br> - **Label verification** (barcode scan, product info, warning statements) <br> - **Seal/closure test** (visual & pull‑test if applicable) <br> - **Visual inspection** (defect log) | Unit #, weight, weight deviation, label pass/fail, seal pass/fail, visual defect notes |\n| **Automated data capture** | Export PLC / vision‑system logs (speed, reject count, error codes). | Equipment logs (CSV) |\n| **Document any deviations** | If a measurement falls outside the acceptance window, note the cause, corrective action taken, and whether the unit is re‑worked or discarded. | Deviation Form (attached to trial file) |\n| **End of run** | Record stop time, total units processed, overall reject rate, and any operator comments. | End\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1163 (163?1000) | Cost: $0.000000*",
+      "duration": 14748,
+      "grade": "F",
+      "score": 56.25,
+      "grading": {
+        "length": "Pass",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "3/4 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 160,
+      "question": "Can you help me spec a new chiller (load calcs, tonnage, heat rejection, redundancy)?",
+      "category": "equipment-selection-qualification-&-maintenance",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": true,
+      "response": "Absolutely—let’s walk through the key steps so you can put together a solid chiller spec, and I’ll point you to a more‑technical HVAC specialist if you need detailed calculations.\n\n---\n\n## 1. Gather the Core Data\n\n| Item | Typical Sources | What You Need to Know |\n|------|----------------|-----------------------|\n| **Facility footprint** | Building plans, CAD files | Square footage (or cubic volume) of each conditioned zone |\n| **Heat‑generating equipment** | Lighting layouts, equipment specs | Wattage of grow lights, de‑humidifiers, CO₂ generators, pumps, etc. |\n| **Ventilation / infiltration** | Air‑change rates, door schedules | CFM of fresh‑air intake, exhaust, and any leakage |\n| **Desired indoor conditions** | SOPs, regulatory limits | Target temperature (°F/°C) and relative humidity (RH) |\n| **Process load** | Plant growth stage, canopy density | Approx. latent load from transpiration (≈ 0.68 BTU/lb · lb of water evaporated) |\n| **Utility constraints** | Site utilities, water availability | Available chilled water temperature, condenser water temperature, electrical service size |\n\n---\n\n## 2. Cooling Load Calculation (BTU/h)\n\n1. **Sensible Load**  \n   \\[\n   Q_{sens} = 1.1 \\times \\text{CFM} \\times (\\Delta T)\n   \\]  \n   - *CFM*: total supply airflow (including fresh air)  \n   - *ΔT*: difference between outside dry‑bulb and target indoor dry‑bulb (°F)  \n\n2. **Equipment Load**  \n   \\[\n   Q_{equip} = \\sum (\\text{Wattage}_i) \\times 3.412 \\; \\text{BTU/h per Watt}\n   \\]  \n\n3. **Latent Load**  \n   \\[\n   Q_{latent} = 0.68 \\times \\text{lb water evap/hr}\n   \\]  \n   - Estimate water evaporation from plants (≈ 0.1 lb water / ft² · day for dense canopies) and de‑humidifiers.\n\n4. **Total Cooling Load**  \n   \\[\n   Q_{total}= Q_{sens}+Q_{equip}+Q_{latent}\n   \\]\n\n> **Tip:** Add a 10‑15 % safety factor for future expansion or peak‑day conditions.\n\n---\n\n## 3. Convert to Tonnage\n\n- **1 Ton** = 12 000 BTU/h (≈ 3.517 kW)  \n\\[\n\\text{Tons Required}= \\frac{Q_{total}}{12,000}\n\\]\n\n*Example*: If \\(Q_{total}= 360,000 BTU/h\\) → 30 tons.\n\n---\n\n## 4. Heat Rejection (Condenser Design)\n\n1. **Condenser Capacity** ≈ **Cooling Load** (plus compressor inefficiency).  \n2. **Water‑side (if using a water‑cooled condenser)**  \n   - **Flow rate** (GPM) = \\(\\frac{Q_{cond}}{500 \\times \\Delta T_{cond}}\\)  \n   - Use ΔT\\(_{cond}\\) ≈ 10‑12 °F (typical water‑side temperature rise).  \n\n3. **Air‑side (if using a cooling‑tower‑cooled condenser)**  \n   - Determine tower approach and range; size the tower for the calculated heat‑rejection rate.\n\n---\n\n## 5. Redundancy Strategy\n\n| Redundancy Type | How It Works | When to Use |\n|-----------------|--------------\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1173 (173?1000) | Cost: $0.000000*",
+      "duration": 17386,
+      "grade": "F",
+      "score": 48,
+      "grading": {
+        "length": "Pass",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "1/5 key words"
+      },
+      "expectedKeywords": []
     }
   ],
-  "status": "In Progress: 150/438 questions completed"
+  "status": "In Progress: 160/438 questions completed"
 }
