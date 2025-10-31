@@ -1985,23 +1985,41 @@
             
             // Start with sidebar collapsed on mobile
             function initializeMobileSidebar() {
-                const sidebar = document.getElementById('sidebar');
-                const toggle = document.getElementById('sidebarToggle');
-                const isMobile = window.innerWidth <= 768 || window.matchMedia('(max-width: 768px)').matches;
-                
-                if (isMobile) {
-                    sidebar.classList.add('collapsed');
-                    toggle.classList.remove('sidebar-open');
-                    // Update icon to point right (indicating sidebar is closed)
-                    const icon = toggle.querySelector('svg path');
-                    if (icon) {
-                        icon.setAttribute('d', 'M10 4l-4 4 4 4');
+                try {
+                    const sidebar = document.getElementById('sidebar');
+                    const toggle = document.getElementById('sidebarToggle');
+                    
+                    if (!sidebar || !toggle) {
+                        console.warn('Sidebar or toggle not found, retrying...');
+                        setTimeout(initializeMobileSidebar, 100);
+                        return;
                     }
+                    
+                    const isMobile = window.innerWidth <= 768 || window.matchMedia('(max-width: 768px)').matches;
+                    
+                    if (isMobile) {
+                        sidebar.classList.add('collapsed');
+                        toggle.classList.remove('sidebar-open');
+                        // Update icon to point right (indicating sidebar is closed)
+                        const icon = toggle.querySelector('svg path');
+                        if (icon) {
+                            icon.setAttribute('d', 'M10 4l-4 4 4 4');
+                        }
+                        console.log('Mobile sidebar initialized as collapsed');
+                    }
+                } catch (error) {
+                    console.error('Error initializing mobile sidebar:', error);
                 }
             }
             
-            // Initialize on load
-            initializeMobileSidebar();
+            // Initialize on load - try immediately and also after a delay
+            if (document.readyState === 'loading') {
+                window.addEventListener('DOMContentLoaded', initializeMobileSidebar);
+            } else {
+                initializeMobileSidebar();
+            }
+            // Also run after a short delay to ensure elements are ready
+            setTimeout(initializeMobileSidebar, 100);
             
             // Also handle resize events
             window.addEventListener('resize', initializeMobileSidebar);
