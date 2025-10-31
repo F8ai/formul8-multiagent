@@ -1,11 +1,11 @@
 {
-  "timestamp": "2025-10-31T08:05:05.479Z",
+  "timestamp": "2025-10-31T08:07:05.928Z",
   "url": "https://chat.formul8.ai",
   "totalQuestions": 438,
-  "completed": 50,
-  "passed": 11,
-  "failed": 39,
-  "averageScore": "47.33",
+  "completed": 60,
+  "passed": 12,
+  "failed": 48,
+  "averageScore": "48.46",
   "averageGrade": "F",
   "results": [
     {
@@ -1008,7 +1008,217 @@
         "relevance": "5/5 key words"
       },
       "expectedKeywords": []
+    },
+    {
+      "questionNum": 51,
+      "question": "Can I transport cannabis waste using a standard courier service?",
+      "category": "transport-transfer-regulations",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "compliance",
+      "agentMatch": false,
+      "response": "**Short answer:** No – you cannot use a regular (e.g UPS, FedEx, USPS) courier service to move cannabis‑related waste. Federal law, regulations, and the carriers’ own policies all prohibit it. Waste must be handled by a licensed cannabis‑waste transporter that follows the specific tracking, security, and disposal rules of your jurisdiction.\n\n---\n\n## Why standard couriers are off‑limits\n\n| Factor | Explanation |\n|--------|-------------|\n| **Federal status** | Cannabis (including its waste) is a Schedule I controlled substance under the Controlled Substances Act. Any “mail” or “common carrier” service that is regulated by the U.S. Postal Service or the Federal Motor Carrier Safety Administration is prohibited from transporting it. |\n| **Carrier policies** | Major carriers (UPS, FedEx, DHL, USPS) explicitly forbid any shipment of cannabis, cannabis‑derived products, or cannabis waste in their terms of service. Violations can result in loss of business accounts, fines, and criminal investigation. |\n| **State licensing** | Most states that have legalized cannabis require a **specific “cannabis waste transport license”** (or a permit under a broader “hazardous waste” program). Only carriers holding that license may move the waste. |\n| **Security & tracking** | Cannabis waste is treated as a **controlled substance** or **hazardous waste**. Regulations usually demand sealed, tamper‑evident containers, chain‑of‑custody documentation, real‑time GPS tracking, and sometimes a police escort for larger loads. Standard couriers do not provide these controls. |\n\n---\n\n## What you *must* do instead\n\n1. **Confirm your state’s waste‑handling rules**  \n   - Look up the relevant agency (e.g., California Department of Cannabis Control, Massachusetts Cannabis Control Commission, Colorado Department of Revenue – Marijuana Enforcement Division).  \n   - Identify the required permits for “cannabis waste transporter” and any specific packaging, labeling, or manifest requirements.\n\n2. **Hire a licensed cannabis‑waste hauler**  \n   - These firms are vetted and hold the state‑issued transport permit.  \n   - They typically provide:  \n     - **Secure, sealed containers** (often double‑bagged, tamper‑evident).  \n     - **Electronic manifests** that log weight,, destination, and date/time stamps.  \n     - **GPS tracking** and a dedicated compliance officer.\n\n3. **Prepare the waste properly**  \n   - **Segregate**: Separate plant material, unused product, and contaminated packaging.  \n   - **Label**: Use state‑mandated labels (e.g., “Cannabis Waste – Not for Consumption”).  \n   - **Package**: Place waste in approved containers (often 55‑gal drums or sealed metal boxes).  \n   - **Document**: Complete the required waste‑manifest form; retain a copy for your records.\n\n4. **Maintain a chain‑of‑custody record**  \n   - Log every hand‑off: who received, who transferred, timestamps, and signatures.  \n   - Store the manifest for the retention period required by your state (often 3–5 years).\n\n5. **Dispose at an approved facility**  \n   - The hauler will deliver the waste to a state‑approved disposal site (e.g., licensed incinerator, approved landfill, or composting facility).  \n   - Obtain a **Certificate of Destruction** or **Final Disposal Receipt** for your records.\n\n---\n\n## Quick checklist for compliance\n\n| ✅ | Item |\n|---|------|\n| 1 | Verify your state’s cannabis‑waste transport permit requirement. |\n| 2 | Contract a licensed cannabis‑waste hauler (ask for copy of their transport license). |\n| 3 | Use only approved, sealed containers; label as “Cannabis Waste – Not for Consumption.” |\n| 4 | Complete the state‑required waste manifest (electronic or paper). |\n| 5 | Ensure GPS tracking and chain‑of‑cust\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1162 (162?1000) | Cost: $0.000000*",
+      "duration": 11393,
+      "grade": "F",
+      "score": 57,
+      "grading": {
+        "length": "Pass",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "4/5 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 52,
+      "question": "Am I allowed to batch multiple COAs together for a single delivery manifest?",
+      "category": "transport-transfer-regulations",
+      "agent": "unknown",
+      "actualAgent": "formulation",
+      "actualAgentName": "Formulation Agent",
+      "expectedAgent": "compliance",
+      "agentMatch": false,
+      "response": "**Short answer:** Yes – you can include several COAs on a single delivery manifest, *provided each COA is clearly linked to the specific lot(s) of product it certifies* and the manifest meets all state‑level traceability requirements.\n\n---\n\n## Why the rule exists\n- **Traceability:** Regulators must be able to follow every lot from seed/clone to consumer. The COA is the “proof of compliance” for that lot (potency, contaminants, terpene profile, etc.).\n- **Product integrity:** Each batch may have different potency or contaminant limits, so the COA cannot be “averaged” across multiple lots.\n\n---\n\n## How to do it correctly\n\n| Step | What to do | Why it matters |\n|------|------------|----------------|\n **1. Identify each lot** | Assign a unique **Lot/Batch Number** to every product package you are shipping. | The manifest and COA must reference the same identifier. |\n| **2. Obtain a COA for each lot** | Every lot must have its own lab‑generated COA (or a COA that explicitly covers a range of lot numbers). | Regulators will reject a COA that does not match the lot number on the manifest. |\n| **3. Consolidate COAs** | Create a single PDF (or other approved format) that contains all relevant COAs, each labelled with its number. | Simplifies paperwork while preserving the one‑to‑one lot‑COA relationship. |\n| **4. Reference COAs on the manifest** | In the manifest’s “Lab Results/COA” column, list each lot number and the file name or reference number of its COA. Some states require a QR code or URL linking directly to the COA. | Ensures the regulator can quickly locate the correct COA for any lot. |\n| **5. Keep originals on file** | Retain the full, un‑redacted COAs (usually for 2–5 years, depending on jurisdiction) in case of an audit. | Audits often request the original lab report, not just the summary on the manifest. |\n| **6. Verify state‑specific rules** | the specific cannabis‑regulatory body for your market (e.g., CA BCC, CO DOR, MA Cannabis Control Commission). Some states **require a separate COA attachment per line item**, while others allow a single “batch COA” document. | Non‑compliance can trigger a rejected manifest or a compliance violation. |\n\n---\n\n## Typical State Examples\n\n| State | COA‑on‑Manifest Requirement |\n|-------|------------------------------|\n| **California (BCC)** | Each **product type/lot must have a COA. You may attach a single PDF that includes multiple COAs, as long as each COA is clearly labeled with the corresponding lot number. |\n| **Colorado (DOR)** | The manifest must reference a **COA ID** for each lot. Multiple COAs can be grouped on one file, but the manifest must list each ID separately. |\n| **Oregon (regon Liquor & Cannabis Commission)** | Allows “batch COA” documents that cover multiple lots, **provided the batch is defined in the COA** and the manifest lists the batch number. |\n| **Massachusetts (CCPA)** | Requires a **separate COA attachment** for each product line item; however, a “combined COA” file is acceptable if it contains a distinct page per lot with clear identifiers. |\n| **Washington (LCA)** | Similar to CO, each lot must have COA reference; multiple COAs can be bundled in a single PDF as long as the manifest cross‑references each lot number. |\n\n*If you operate in multiple states, you must follow the most restrictive rule or generate state‑specific manifests.*\n\n---\n\n## Practical Tips & Checklist\n\n1. **Label everything** – Lot #, product SKU, weight/volume, THC/CBD potency, and COA reference.\n2. **Use a manifest template** that includes a column for “COA # / File”\n\n---\n*Agent: Formulation Agent | Plan: Standard | Tokens: 1208 (208?1000) | Cost: $0.000000*",
+      "duration": 10917,
+      "grade": "F",
+      "score": 54,
+      "grading": {
+        "length": "Pass",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "3/5 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 53,
+      "question": "Can you help me create a batch tracker sheet for employees to log production data in a GMP-friendly format?",
+      "category": "production-&-process-optimization",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "formulation",
+      "agentMatch": false,
+      "response": "Below is a **ready‑to‑use “Batch Tracker” template** that you can copy into Excel or Google Sheets and then lock down to meet GMP requirements. I’ve also included a short checklist of GMP‑friendly practices you should apply after the sheet is built.\n\n---\n\n## 1️⃣ Core Sheet Layout (one tab per production line or product family)\n\n| **A** | **B** | **C** | **D** | **E** | **F** | **G** | **H** | **I** | **J** | **K** | **L** | **M** | **N** |\n|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|\n| **1** | **Batch ID** | **Product Code** | **Lot Number** | **Start Date‑Time** | **End Date‑Time** | **Quantity Produced (g/ml)** | **Yield %** | **Operator 1** | **Operator 2** | **QC Result** | **Deviations** | **Corrective Action** | **Signature (Initials)** |\n| **2** | Auto‑generated (see notes) | Pull from product master list | Auto‑generated (seq.) | Timestamp (default = NOW()) | Timestamp (default = NOW()) | Numeric, 2‑dp | Calculated: `=IF(G2>0,(G2/PlannedQty)*100,\"\")` | Drop‑down list of staff | Drop‑down list of staff | Pass / Fail (list) | Free‑text (max 200 char) | Free‑text (max 200 char) | Locked cell – filled via “Insert Signature” macro |\n\n> **How to copy the template**  \n> 1. **Excel** – Download the attached **BatchTracker.xlsx** (or copy the table into a new workbook).  \n> 2. **Google Sheets** – Create a new sheet, paste the table, then use **File → Make a copy**.\n\n---\n\n## 2️⃣ Building the Sheet (step‑by‑step)\n\n| Step | Action | GMP Note |\n|------|--------|----------|\n| **1** | **Create a hidden “Lookup” tab** with: <br>• Product master list (code, name, planned quantity) <br>• Employee master list (name, employee ID) | Keeps data **controlled** and **audit‑ready**. |\n| **2** | **Define named ranges** (e.g., `ProdCodes`, `Employees`) for drop‑downs. | Prevents free‑text entry errors. |\n| **3** | **Batch ID generation** – use formula: `=\"B\"&TEXT(ROW(A2)-1,\"0000\")` (or a VBA macro that adds date prefix). | Guarantees **unique, sequential IDs**. |\n| **4** | **Lock cells** that must not be edited after “close” (e.g., start/end times, signatures). Use **Sheet Protection** with a password stored in a controlled location. | Meets **record integrity** requirements. |\n| **5** | **Add data‑validation**: <br>• Dates → “Date” type only <br>• Quantity → “Decimal, >0” <br>• QC Result → list {Pass, Fail} | Reduces entry mistakes. |\n| **6** | **Insert a macro** (or Google Apps Script) called **InsertSignature** that: <br>• Prompts the user for password <br\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1172 (172?1000) | Cost: $0.000000*",
+      "duration": 15887,
+      "grade": "D",
+      "score": 60,
+      "grading": {
+        "length": "Pass",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "5/5 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 54,
+      "question": "How do I set up a daily production log that helps with compliance audits?",
+      "category": "production-&-process-optimization",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "formulation",
+      "agentMatch": false,
+      "response": "Below is a practical, step‑by‑step framework for a **Daily Production Log (DPL)** that satisfies most state‑mandated compliance audits while still being easy for staff to use. Feel free to adapt the fields to your specific licensing board (e.g., MA, CA, CO, OR) – the core elements are the same.\n\n---\n\n## 1. Choose a Format & Storage Method\n| Option | Pros | Cons |\n|--------|------|------|\n| **Paper logbook (bound, tamper‑evident)** | Simple, no tech failures, legal‑acceptable in many states | Hard to aggregate data, risk of loss, manual backup needed |\n| **Spreadsheet (Excel/Google Sheets)** | Quick to set up, searchable, easy to export | Requires version control, must lock cells enable audit trail |\n| **‑specific software (e.g., BioTrackTHC, MJ Freeway, METRC, or Formul8 Production Tracker)** | Automatic timestamps, user‑level permissions, export to state‑required formats, built‑in backup | Subscription cost, training required |\n\n**Recommendation:** Start with a locked spreadsheet (or a Formul8 Production Tracker if you have the module) and migrate to a full‑featured seed‑to‑sale system as volume grows.\n\n---\n\n## 2. Core Log Sections (one row per batch/lot)\n\n| Column | What to Capture | Why It Matters for Audits |\n|--------|----------------|---------------------------|\n| **Date** | YYYY‑MM‑DD | Timeline verification |\n| **Shift** | Day / Night / 1st / 2nd | Correlates staffing & environmental data |\n| **Batch/Lot ID** | Unique alphanumeric (e.g., B‑2025‑001) | Traceability from seed to sale |\n| **Product Type** | Flower, Concentrate, Edible, Topical, etc. | Required for product‑specific limits |\n| **Strain / Genetics** | Name or code | Allows potency & pesticide tracking |\n| **Input Materials** | Seed/clone IDs, nutrients, solvents, packaging | Shows source compliance |\n| **Quantity Received** | Weight (g, oz, lbs) | Reconciles inventory receipts |\n| **Processing Step** | Harvest, Drying, Curing, Extraction, Packaging, etc. | Demonstrates SOP adherenceStart Time / End Time** | HH:MM (24‑hr) | Verifies time‑based limits (e.g., max drying time) |\n| **Operator(s)** | Employee ID(s) | Accountability & training verification |\n| **Equipment Used** | Machine ID, serial # | Maintenance & calibration records |\n| **Yield** | Weight after step (e.g., post‑dry) | Calculates efficiency, detects loss |\n| **QC Results** | Moisture %, THC/CBD %, microbial/pesticide pass‑fail | Direct compliance data |\n| **Notes / Deviations** Any abnormal events, corrective actions | Shows proactive issue handling |\n| **Signature / Digital Auth** | Hand‑signed or e‑signature | Legal attestation |\n\n*Tip:* Keep the **Batch/Lot ID** consistent across all logs (cultivation, processing, packaging) so auditors can follow the product end‑to‑end.\n\n---\n\n## 3. Build in Controls & Audit Trails\n\n1. **User Permissions** – Only the assigned operator can enter data; supervisors have “edit‑only” rights.\n2. **Timestamped Entries** – Enable automatic date‑time stamps (Excel: `=NOW()` locked; software: built‑in).\n3. **Change Log** – If using a spreadsheet, turn on “Track Changes” and keep a hidden “Revision History” sheet.\n4. **Tamper‑Evident Backup** – Export a PDF of each day’s log to a secure, read‑only folder (e.g., encrypted AWS S3 bucket) and retain for the state‑mandated period (often 3–5 years).\n5. **Periodic Review** – Supervisors must sign off on the daily log before the shift begins.\n\n---\n\n## 4. Integrate with Other Compliance Records\n\n| Record | Connection Point |\n|--------|------------------|\n| **Cultivation Manifest** | Batch ID links to seed/clone lot numbers |\n| **Inventory Adjustments** | Yield numbers reconcile with inventory counts |\n| **Lab Test Results** | QC column pulls data from the state‑approved lab |\n| **Waste Tracking** | Any material removed from the batch\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1166 (166?1000) | Cost: $0.000000*",
+      "duration": 10103,
+      "grade": "F",
+      "score": 54,
+      "grading": {
+        "length": "Pass",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "3/5 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 55,
+      "question": "What are the best KPIs to track in my extraction lab on a daily basis?",
+      "category": "production-&-process-optimization",
+      "agent": "unknown",
+      "actualAgent": "formulation",
+      "actualAgentName": "Formulation Agent",
+      "expectedAgent": "formulation",
+      "agentMatch": true,
+      "response": "**Daily KPI Dashboard for a Cannabis Extraction Lab**\n\n| KPI | What It Measures | Why It Matters | Typical Target / Benchmarks* |\n|-----|------------------|----------------|------------------------------|\n| **1. Batch Yield (% w/w)** | Ratio of finished product weight to raw material weight | Direct indicator of extraction efficiency and profitability | 60‑85 % (depending on matrix & method) |\n| **2. Potency Consistency (C/CBD % ± Δ)** | Measured concentration vs. target specification | Guarantees label compliance and consumer trust | ± 5 % of target potency |\n| **3. Solvent Recovery Rate (%)** | Volume of solvent reclaimed after each cycle | Reduces raw‑material cost & environmental impact | ≥ 95 % for ethanol, ≥ 90 % for hydrocarbon |\n| **4. Cycle Time (min per batch)** | Time from loading to product discharge | Impacts throughput and labor utilization | ≤ 30 (short‑run) – ≤ 90 min (large‑scale) |\n| **5. Equipment Uptime / Downtime (hrs)** | % of scheduled operating time the extractor is functional | Prevents bottlenecks and unplanned maintenance | ≥ 95 % uptime |\n| **6. Energy Consumption (kWh per gram of product)** | Energy used per unit of output | Controls operating expense & carbon footprint | Facility‑specific; track trend line |\n| **7. Solvent Loss (g or mL per batch)** | Unrecovered solvent that ends up as waste | Direct cost & regulatory waste‑disposal issue | ≤ 0.5 % of total solvent used |\n| **8. QC Pass Rate (%)** | % of daily samples meeting potency, residual‑solvent, microbial & pesticide specs | Early detection of process drift | ≥ 98 % |\n| **9. Residual Solvent Levels (ppm)** | Concentration of target solvent in final product | Legal compliance (e.g., 500 ppm for ethanol in many jurisdictions) | ≤ Regulatory limit |\n| **10. Waste Generation (kg per batch)** | Weight of spent plant material & hazardous waste | Drives sustainability initiatives | Reduce > 10 % YoY |\n| **11. Safety Incidents (NR/IR)** | Number of near‑misses, injuries, or equipment alarms | Protects personnel and maintains certification | Zero incidents |\n| **12. Cost per Gram (USD/g)** | Total direct cost (raw material, solvent, labor, energy) divided by product weight | Bottom‑line metric for pricing decisions | Facility‑specific; aim for downward trend |\n| **13. Terpene Retention (% of target profile)** | % of key terpenes retained vs. input material | Product differentiation & consumer experience | ≥ 70 % for preferred terpenes |\n\n\\*Benchmarks vary with extraction method (ethanol, CO₂, hydrocarbon, butane, etc.), scale, and strain. Use historical data to set realistic internal targets and adjust as you optimize.\n\n---\n\n### How to Implement a Daily KPI Routine\n\n1. **Automated Data Capture**  \n   - **SCADA/PLC**: Log batch weight, temperature, pressure, solvent flow, and cycle time.  \n   - **LIMS**: Push potency, residual‑solvent, and microbial results straight from the analytical lab.  \n   - **Energy Meters**: Record kWh per extractor per shift.\n\n2. **ized Reporting Format**  \n   - Use a single Excel/Google Sheet or a BI tool (Power BI, Tableau) with one row per batch and columns for each KPI.  \n   - Include a “Variance” column that flags values outside the pre‑set tolerance (e.g., red for > 5 % potency deviation).\n\n3. **Shift Handoff Checklist**  \n   - At the end of each shift, the operator signs off on:  \n     - Yield recorded  \n     - Solvent recovery logged  \n     - Any equipment alarms noted  \n     - QC samples submitted\n\n4. **Daily Review Meeting (15 min)**  \n   - **Trend Spotting**: Compare’s KPIs to the 7‑day moving average.  \n   - **Root‑Cause Quick‑Scan**: If Yield ↓ or Potency variance ↑\n\n---\n*Agent: Formulation Agent | Plan: Standard | Tokens: 1210 (210?1000) | Cost: $0.000000*",
+      "duration": 12771,
+      "grade": "F",
+      "score": 56.25,
+      "grading": {
+        "length": "Pass",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "3/4 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 56,
+      "question": "What is the best way to standardize my formulations so batches stay consistent?",
+      "category": "production-&-process-optimization",
+      "agent": "unknown",
+      "actualAgent": "formulation",
+      "actualAgentName": "Formulation Agent",
+      "expectedAgent": "formulation",
+      "agentMatch": true,
+      "response": "### How to Keep Your Cannabis Formulations Consistently On‑Spec\n\n| **Step** | **What to Do** | **Why It Matters** |\n|----------|----------------|--------------------|\n| **1. Raw‑Material Qualification** | • Require a Certificate of Analysis (COA) for every lot of flower, isolate, distillate, carrier oil, excipients, etc.<br>• Set acceptance windows (e.g., THC ± 5 %, CBD ± 5 %, moisture ≤ 12 %).<br>• Store COAs in a searchable LIMS or spreadsheet. | Guarantees you start each batch with known potency and impurity levels. |\n| **2. Create a Master Formula Sheet** | • List every ingredient with *target* weight (mg or % w/w) and *tolerance* (e.g., ±2 %).<br>• Include process parameters (temperature, pressure, time, agitation).<br>• Assign a version number and change‑control log. | Provides a single point of reference for operators and auditors. |\n| **3. Use Standard Operating Procedures (SOPs)** | • Write step‑by‑step SOPs for weighing, blending, extraction, decarboxylation, filtration, and packaging.<br>• Include equipment set‑points, calibration frequency, and safety checks. | Reduces operator variability and ensures repeatable conditions. |\n| **4. Implement In‑Process Controls (IPCs)** | • **Weigh‑in checks**: Verify each ingredient weight before release (±0.1 % of target).<br>• **Temperature/pressure logs**: Use data‑loggers with alarms for excursions.<br>• **Blend uniformity test**: Take 3–5 grab samples after mixing and analyze THC/CBD by HPLC or rapid IR. | Detects deviations early, before the batch is completed. |\n| **5. Calibration & Maintenance** | • Calibrate balances (≥ 0.01 g), temperature probes, and pressure transducers weekly.<br>• Keep a maintenance log and replace parts before drift occurs. | Prevents systematic errors that accumulate over many batches. |\n| **6. Statistical Process Control (SPC)** | • Plot key CQAs (e.g., final THC % and terpene %) on control charts (X‑bar, R).<br>• Establish Upper/Lower Control Limits (UCL/LCL) based on historical data (±3σ).<br>• Investigate any point outside limits or trends (≥ 7 points moving in one direction). | Gives a quantitative view of process stability and signals when corrective action is needed. |\n| **7. Batch Record Documentation** | • Record every weighing, set‑point, and IPC result in a paper or electronic batch record.<br>• Include signatures, timestamps, and any deviations with root‑cause analysis. | Provides traceability for recalls, audits, and continuous improvement. |\n| **8. Final Product Testing** | • Test each finished batch for THC, CBD, major terpenes, residual solvents, heavy metals, microbiology, and moisture.<br>• Compare results to the master specification (e.g., THC 30 % ± 2 %).<br>• Release only after all specs are met. | Confirms that the batch meets the marketed potency and safety claims. |\n| **9. Shelf‑Life & Stability Checks** | • Conduct accelerated stability (40 °C/75 % RH) and real‑time (25 °C/60 % RH) studies on a pilot lot.<br>• Use the data to set retest dates and storage conditions. | Ensures potency and terpene profile remain within specs throughout the product’s life. |\n| **10. Continuous Improvement Loop** | • Review deviation logs monthly.<br>• Perform root‑cause analysis (5 Why, Fishbone) on any out‑of‑spec batch.<br>• Update SOPs, tolerances, or equipment as needed. | Keeps the process tightening over time, reducing batch‑to‑batch\n\n---\n*Agent: Formulation Agent | Plan: Standard | Tokens: 1208 (208?1000) | Cost: $0.000000*",
+      "duration": 9665,
+      "grade": "F",
+      "score": 52.5,
+      "grading": {
+        "length": "Pass",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "2/4 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 57,
+      "question": "How do I calculate expected yield from a given biomass input?",
+      "category": "production-&-process-optimization",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "formulation",
+      "agentMatch": false,
+      "response": "### Quick‑Start Formula\n\\[\n\\text{Expected Yield (kg)} = \\text{Biomass (kg)} \\times \\underbrace{(1-\\text{Moisture %})}_{\\text{Dry‑weight factor}} \\times \\underbrace{\\text{Potency %}}_{\\text{Target cannabinoid}} \\times \\underbrace{\\text{Extraction Efficiency}}_{\\text{Process loss}}\n\\]\n\n| Variable | What it means | Typical range (cannabis) |\n|----------|---------------|--------------------------|\n| **Biomass (kg)** | Wet weight of the plant material you start with | – |\n| **Moisture %** | Water content of the wet material (e.g., 75 % for fresh buds) | 70‑80 % for fresh, 5‑12 % for dried |\n| **Potency %** | % of the desired cannabinoid in the dry material (e.g., 18 % THC) | 10‑30 % for THC, 5‑15 % for CBD |\n| **Extraction Efficiency** | Fraction of the cannabinoid that survives the extraction, filtration, and post‑processing steps | 60‑80 % for ethanol/CO₂, 70‑90 % for refined distillates |\n\n---\n\n## Step‑by‑Step Calculation\n\n1. **Convert to dry weight**  \n   \\[\n   \\text{Dry kg} = \\text{Wet kg} \\times (1 - \\frac{\\text{Moisture %}}{100})\n   \\]\n\n2. **Determine the amount of target cannabinoid in the dry material**  \n   \\[\n   \\text{Cannabinoid kg}_{\\text{raw}} = \\textDry kg} \\times \\frac{\\text{Potency %}}{100}\n   \\]\n\n3. **Apply extraction efficiency**  \n   \\[\n   \\text{Yield kg}_{\\text{final}} = \\text{Cannabinoid kg}_{\\text{raw}} \\times \\text{Extraction Efficiency}\n   \\]\n\n4. **Convert to a more useful unit (e.g., grams or milliliters)**  \n   - 1 kg = 1 000 g  \n   - If you’re producing oil, you can approximate density ≈ 0.92 g/mL for most cannabis oils, so:  \n     \\[\n     \\text{Volume (mL)} = \\frac{\\text{Yield (g)}}{0.92}\n     \\]\n\n---\n\n## Example Dried Flower → THC‑Rich Oil\n\n| Parameter | Value |\n|-----------|-------|\n| Wet biomass (fresh buds) | 120 kg |\n| Moisture % (fresh) | 78 % |\n| Potency % (THC, dry) | 18 % |\n| Extraction Efficiency (ethanol) | 70 % |\n\n1. **Dry weight**  \n   \\[\n   120 \\times (1 - 0.78) = 26.4 \\text{ kg dry}\n   \\]\n\n2. **Raw THC in dry material**  \n   \\[\n   26.4 \\times 0.18 = 4.75 \\text{ kg THC\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1163 (163?1000) | Cost: $0.000000*",
+      "duration": 12832,
+      "grade": "F",
+      "score": 54,
+      "grading": {
+        "length": "Pass",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "3/5 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 58,
+      "question": "Can you help me design a workflow checklist for my lab techs to reduce errors?",
+      "category": "production-&-process-optimization",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "formulation",
+      "agentMatch": false,
+      "response": "Below is a **ready‑to‑use workflow checklist** you can print, put on a whiteboard, or load into digital form (e.g., iAuditor, Labguru, or a simple Google Form).  It’s organized into the major phases of a typical analytical or QC lab run and includes “error‑reduction” prompts (double‑checks, required sign‑offs, and built‑in “stop‑points”).\n\n---\n\n## 📋 Lab‑Tech Error‑Reduction Checklist  \n\n| **Phase** | **Step** | **What to Verify** | **Who Signs‑Off** | **Stop‑Point / Prompt** |\n|-----------|----------|-------------------|-------------------|--------------------------|\n| **1️⃣ Pre‑Shift / Lab Prep** | 1.1 Review daily SOP & work order | Correct SOP version, correct test(s) listed | Lab Manager / Lead | “If SOP mismatch → pause, retrieve correct SOP.” |\n| | 1.2 Check equipment status | Calibration due? Maintenance log up‑to‑date? Power on? | Tech | “If calibration overdue → log issue, do not start.” |\n| | 1.3 Verify consumables & reagents | Expiry dates, lot numbers, proper storage (‑20 °C, dark, etc.) | Tech | “If out‑of‑spec → obtain replacement before proceeding.” |\n| | 1.4 Safety check | PPE worn, fume hood sash, spill kit accessible | Tech | “If any PPE missing → stop, retrieve before starting.” |\n| **2️⃣ Sample Receipt** | 2.1 Log sample receipt | Sample ID, collection time, chain‑of‑custody form signed | Tech | “If ID mismatch → hold sample, contact sender.” |\n| | 2.2 Visual inspection | Integrity of container, leakage, correct labeling | Tech | “If compromised → quarantine, document, notify QA.” |\n| | 2.3 Assign unique lab barcode | Scan into LIMS; verify against order | Tech | “If barcode fails → re‑scan, verify manually.” |\n| **3️⃣ Sample Preparation** | 3.1 Confirm preparation method | SOP step‑by‑step, correct volumes, solvents | Tech | “If volume differs > 5 % → repeat preparation.” |\n| | 3.2 Calibration of pipettes / balances | Perform pre‑run check (±0.5 % tolerance) | Tech | “If out of tolerance → recalibrate or replace.” |\n| | 3.3 Record all preparation details | Date, tech name, lot numbers, deviations | Tech | “All fields mandatory in LIMS – cannot submit otherwise.” |\n| **4️⃣ Instrument Setup** | 4.1 Power‑on & warm‑up | Follow instrument SOP (e.g., 30 min warm‑up) | Tech | “If warm‑up incomplete → wait.” |\n| | 4.2 Load method / method file | Verify method version, correct sample set | Tech | “If method mismatch → stop, load correct file.” |\n| | 4.3 Run system suitability test (SST) | Check control sample meets acceptance criteria | Tech | “If SST fails → troubleshoot, repeat before samples.” |\n| **5️⃣ Sample Analysis** | 5.1 Load samples in correct order | Verify barcode matches run queue | Tech | “If order wrong → re‑queue.” |\n| | 5.2 Monitor run in real time | Watch for alerts, pressure spikes, baseline drift | Tech | “If any alarm → pause run, log, and troubleshoot.” |\n| | 5.3 Document any deviations | Time‑stamp, description, corrective action | Tech “All deviations must be entered in LIMS before run ends.” |\n| **6️⃣ Post‑Run Data Review** | 6.1 Review QC criteria | Pass/fail per SOP, acceptance windows | Tech + QA | “If any fails → initiate investigation, do not release.” |\n | 6.2 Perform data integrity check | No missing points, correct integration\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1168 (168?1000) | Cost: $0.000000*",
+      "duration": 10461,
+      "grade": "F",
+      "score": 51,
+      "grading": {
+        "length": "Pass",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "2/5 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 59,
+      "question": "What are the best ways to minimize loss when transferring concentrates between vessels?",
+      "category": "production-&-process-optimization",
+      "agent": "unknown",
+      "actualAgent": "formulation",
+      "actualAgentName": "Formulation Agent",
+      "expectedAgent": "formulation",
+      "agentMatch": true,
+      "response": "### Minimizing Transfer Loss of Cannabis Concentrates  \n*(Applicable to shatter, wax, live‑resin, distillate, CO₂‑extracts, etc.)*\n\n| **Factor** | **Why It Matters** | **Practical Tips** |\n|------------|-------------------|--------------------|\n| **Temperature** | Viscosity drops dramatically above the melt point, reducing “sticking” to glass, metal or tools. | • Pre‑heat the receiving vessel (glass or stainless‑steel) to 45‑60 °C (for most extracts) – use a temperature‑controlled hot plate or a water‑bath. <br>• Keep the source vessel just below the melt point (e.g., 30‑35 °C) so the concentrate stays semi‑fluid during pour. |\n| **Surface Energy / Coating** | High‑energy glass or metal surfaces cause the concentrate to spread thinly and cling. | • Use **silicone‑coated** or **FE‑lined** funnels, syringes, and spatulas. <br>• Apply a thin film of food‑grade **propylene glycol (PG)** or **propylene glycol‑based anti‑static spray** to the interior of glassware; it creates a non‑wetting film that the concentrate slides off. |\n| **Tool Choice** | Rigid tools can shear or break crystals, increasing residues. | • **Low‑dead‑volume syringes** (5 mL or 10 mL) with Luer‑Lock tips; preferably stainless‑steel or PTFE plungers. <br>• **Wide‑bore, rounded‑edge spatulas** (titanium or stainless) that can sweep the entire surface in one motion. |\n| **Atmosphere** | Oxidation or moisture can change texture, making the extract tackier. | • Perform the transfer in a **nitrogen‑pur glove box** or under a **continuous N₂ blanket**. <br>• Keep relative humidity < 5 % to avoid water‑induced “sugar‑coat” formation. |\n| **Vacuum/Pressure Assistance** | Gravity alone may leave a thin film on the walls. | • Apply a **gentle vacuum** (≈‑100 mbar) to the receiving vessel while the source vessel is opened, drawing the melt in. <br>• Alternatively, use a **positive‑pressure push**: pressurize the source vessel with N₂ (≈2 psi) to force the melt out of a valve or septum. |\n| **Minimize Surface Area** | More wall area = more opportunity for residue. | • Use **narrow‑diameter, short‑height vessels** for both source and destination (e.g., 10 mL amber glass vials). <br>• For large batches, split into **multiple small‑volume containers** rather than one big jar. |\n| **Cleaning Between Batches** | Residual film from the previous batch can trap product. | • Rinse vessels with a **small amount of high‑purity ethanol (≥99.9 %)** heated to 40 °C, then blow‑dry with filtered N₂. <br>• For silicone‑lined tools, a quick wipe with isopropyl alcohol removes any tacky film. |\n| **Static Control** | charge can pull the viscous liquid onto the walls. | • Ground all metal tools and use an **ionizing air blower** (or anti‑static wrist strap) in the work area. |\n| **Measurement & Documentation** | Knowing the baseline loss helps target improvements. | • Weigh the source vial before and after transfer (±0.001 g). <br>• Record temperature, pressure, and tool type for each batch; track loss % over time. |\n\n---\n\n#### Step‑by‑Step Transfer Protocol (Typical 5 g shatter → 10 mL amber vial)\n\n1. **Pre‑heat** the receiving vial on a calibrated hot plate to **55 °C** (verified with an IR probe).  \n2. **Warm** the source vial in a 30 °C water‑bath for 2 min to loosen the crystal lattice.  \n3. **Purge** the workbench with **N** (flow\n\n---\n*Agent: Formulation Agent | Plan: Standard | Tokens: 1207 (207?1000) | Cost: $0.000000*",
+      "duration": 10763,
+      "grade": "F",
+      "score": 54,
+      "grading": {
+        "length": "Pass",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "3/5 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 60,
+      "question": "Can you help me make an SOP for preparing biomass before extraction?",
+      "category": "production-&-process-optimization",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "formulation",
+      "agentMatch": false,
+      "response": "Below is a ready‑to‑use **Standard Operating Procedure (SOP) – “Biomass Preparation for Extraction”**.  \nFeel free to copy‑paste, edit the headings to match your company’s format, and add any plant‑specific details (e.g., strain‑specific drying times).\n\n---\n\n## 1. Document Control  \n\n| Item | Detail |\n|------|--------|\n| **SOP Title** | Biomass Preparation for Extraction |\n| **SOP ID** | BIO‑PREP‑001 |\n| **Version** | 1.0 |\n| **Effective Date** | [Insert] |\n| **Review Date** | [Insert – typically 12 months] |\n| **Prepared By** | [Name / Title] |\n| **Approved By** | [Name / Title] |\n| **Related SOPs** | Harvest SOP, Drying/Curing, Safety & PPE SOP, QA/QC Sampling SOP |\n\n---\n\n## 2. Purpose  \n\nTo define a consistent, safe, and reproducible process for receiving, inspecting, drying/curing, grinding, and storing cannabis biomass prior to solvent or solvent‑less extraction, ensuring optimal cannabinoid/terpene retention and compliance with regulatory and quality standards.\n\n---\n\n## 3. Scope  \n\nApplies to all staff handling flower, trim, leaves, or other plant material intended for extraction at **[Facility Name]**. Covers material from the moment it enters the extraction area until it is loaded into the extraction vessel.\n\n---\n\n## 4. Responsibilities  \n\n| Role | Responsibility |\n|------|----------------|\n| **Extraction Manager** | Approves batch release, monitors SOP compliance, ensures equipment calibration. |\n| **Biomass Prep Technician** | Executes steps, records data, reports deviations. |\n| **Quality Assurance (QA)** | Audits records, validates moisture/content testing, signs off batch release. |\n| **Safety Officer** | Confirms PPE, ventilation, and fire‑suppression readiness. |\n| **Maintenance** | Performs preventative maintenance on grinders, screens, dehumidifiers, and scales. |\n\n---\n\n## 5. Equipment & Materials  \n\n| Equipment | Calibration/Check Frequency |\n|-----------|------------------------------|\n| Digital scale (±0.01 g) | Monthly |\n| Moisture meter (e.g., NIR or halogen) | Monthly |\n| Industrial grinder (e.g., hammer or blade) | Weekly (blade inspection) |\n| Mesh screens (0.5 mm, 1 mm) | Visual inspection each use |\n| Dehumidifier / HVAC system | Daily temperature/humidity log |\n| Anti‑static trays / bins | Per batch |\n| PPE: nitrile gloves, lab coat, safety glasses, N95/FFP2 mask, hearing protection | Per shift |\n| Labels & barcode printer | As needed |\n\n**Materials**  \n- Freshly harvested biomass (flower, trim, leaves)  \n- Clean, food‑grade containers (HDPE or stainless steel)  \n- Desiccant packets (if required for storage)  \n\n---\n\n## 6. Safety & Environmental Controls  \n\n1. **Ventilation** – Ensure 12 ACH (air changes per hour) in prep area; verify airflow direction away from ignition sources.  \n2. **PPE** – All personnel must wear required PPE (see Section 5).  \n3. **Dust Control** – Use local exhaust ventilation (LEV) on grinders; keep dust collectors clean.  \n4. **Fire Safety** – No open flames; keep fire extinguishers (Class B) within 30 ft.  \n5. **Spill Protocol** – Follow “Spill Response SOP – BIO‑SPILL‑001”.  \n6. **Electrical Safety** – Verify all equipment is grounded; use GFCI outlets.\n\n---\n\n## 7. Procedure  \n\n### 7.1. Receiving & Initial Inspection  \n\n1. **Log receipt** – Record batch number, weight, cultivar, and harvest date in the LIMS/ERP.  \n2. **Visual inspection** – Check for mold, pests, foreign material, or obvious degradation.  \n3. **\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1164 (164?1000) | Cost: $0.000000*",
+      "duration": 10628,
+      "grade": "F",
+      "score": 48.75,
+      "grading": {
+        "length": "Pass",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "1/4 key words"
+      },
+      "expectedKeywords": []
     }
   ],
-  "status": "In Progress: 50/438 questions completed"
+  "status": "In Progress: 60/438 questions completed"
 }
