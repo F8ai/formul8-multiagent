@@ -48,6 +48,26 @@ jobs:
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
 
+      - name: Set Supabase Keys in Vercel
+        run: |
+          echo "🔐 Setting Supabase credentials in Vercel..."
+          if [ -n "$SUPABASE_URL" ]; then
+            vercel env rm SUPABASE_URL production --token=${{ secrets.VERCEL_TOKEN }} --yes || true
+            echo "$SUPABASE_URL" | vercel env add SUPABASE_URL production --token=${{ secrets.VERCEL_TOKEN }}
+            echo "✅ SUPABASE_URL set"
+          fi
+          if [ -n "$SUPABASE_ANON_KEY" ]; then
+            vercel env rm SUPABASE_ANON_KEY production --token=${{ secrets.VERCEL_TOKEN }} --yes || true
+            echo "$SUPABASE_ANON_KEY" | vercel env add SUPABASE_ANON_KEY production --token=${{ secrets.VERCEL_TOKEN }}
+            echo "✅ SUPABASE_ANON_KEY set"
+          fi
+        env:
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+        continue-on-error: true
+
       - name: Deploy to Vercel
         run: vercel --prod --token=${{ secrets.VERCEL_TOKEN }} --yes
         env:

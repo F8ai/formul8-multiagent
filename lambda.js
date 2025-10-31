@@ -88,14 +88,43 @@ app.use((req, res, next) => {
 // Apply rate limiting to API endpoints
 app.use('/api/', rateLimiter);
 
-// Root route - serve chat.html
+// Helper function to inject Supabase credentials into HTML
+function injectSupabaseCredentials(html) {
+  const supabaseUrl = process.env.SUPABASE_URL || '';
+  const supabaseAnonKey = process.env.SUPABASE_ANON_KEY || '';
+  
+  if (supabaseUrl && supabaseAnonKey) {
+    // Inject credentials as a script tag before the main script
+    const injectScript = `
+    <script>
+      window.SUPABASE_URL = '${supabaseUrl}';
+      window.SUPABASE_ANON_KEY = '${supabaseAnonKey}';
+    </script>`;
+    
+    // Insert before the Supabase library script
+    html = html.replace(
+      /<script src="https:\/\/cdn\.jsdelivr\.net\/npm\/@supabase\/supabase-js@2\/dist\/umd\/supabase\.min\.js"><\/script>/,
+      injectScript + '\n    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>'
+    );
+  }
+  
+  return html;
+}
+
+// Root route - serve chat.html with injected credentials
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'chat.html'));
+  const htmlPath = path.join(__dirname, 'public', 'chat.html');
+  let html = fs.readFileSync(htmlPath, 'utf8');
+  html = injectSupabaseCredentials(html);
+  res.send(html);
 });
 
 // Chat routes
 app.get('/chat', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'chat.html'));
+  const htmlPath = path.join(__dirname, 'public', 'chat.html');
+  let html = fs.readFileSync(htmlPath, 'utf8');
+  html = injectSupabaseCredentials(html);
+  res.send(html);
 });
 
 // Future4200 route
