@@ -1,11 +1,10 @@
 {
-  "timestamp": "2025-10-31T23:49:43.254Z",
+  "timestamp": "2025-10-31T23:51:34.298Z",
   "url": "https://chat.formul8.ai",
   "totalQuestions": 438,
-  "completed": 430,
-  "passed": 232,
-  "failed": 198,
-  "averageScore": "46.82",
+  "passed": 237,
+  "failed": 201,
+  "averageScore": "46.89",
   "averageGrade": "F",
   "results": [
     {
@@ -13719,7 +13718,213 @@
         "checklist"
       ],
       "expectedAnswer": "**Creating a marketing checklist** I need to summarize the essentials for launching a seasonal limited-edition strain. The focus should be on key points for marketing, including the main conclusion, important requirements, and critical regulatory details. While there's no specific state mentioned, I'll include general state compliance reminders such as age-gating, packaging and labeling rules, and advertising limitations. The checklist should also cover pre-launch phases like market research, legal reviews, packaging design, and digital marketing strategies.**Considering retail strategies** I'm thinking about various strategies for retail partnerships. I should focus on things like budtender education kits, which can help enhance product knowledge for staff. Sell sheets and menus could effectively showcase product options. Sampling could be an engaging way to promote products, where permitted. I also want to consider how to create attractive promotional materials that can help drive sales. There's a lot here to explore for effective retail collaboration!"
+    },
+    {
+      "questionNum": 431,
+      "question": "Can you mock up a QR code campaign that links to lab results and product videos?",
+      "category": "requests-to-the-marketing-agent",
+      "agent": "unknown",
+      "actualAgent": "formulation",
+      "actualAgentName": "Formulation Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": false,
+      "response": "Below is a **step‑by‑step mock‑up** for a QR‑code‑driven campaign that gives customers instant access to **lab results (COAs) and product‑specific videos**. The plan is broken into three parts: 1) Creative & technical specs, 2) Customer journey & landing‑page layout, and 3) Implementation checklist & tracking.\n\n---\n\n## 1️⃣ Creative & Technical Specs\n\n| Element | Recommendation | Why it matters |\n|---------|----------------|----------------|\n| **QR‑code size** | 1.0–1.2 in (25–30 mm) on packaging, 2 in (50 mm) on print ads | Guarantees scannability from a typical smartphone distance. |\n| **Error‑correction level** | **Q (25 % recovery)** or **H (30 %)** | Allows you to add a subtle logo or brand colour without losing readability. |\n| **Colour scheme** | 90 % contrast (e.g., dark teal on white, or white on matte black). Keep the colour palette consistent with your brand. | Improves scan reliability on glossy or matte surfaces. |\n| **Logo embed** | Small (≤ 15 % of code area) brand icon in centre. Use a QR‑code generator that supports “quiet‑zone” preservation (e.g., **QR Code Generator Pro**, **Beaconstac**, **QR Code Monkey**). | Reinforces brand identity while maintaining scan success. |\n| **File format** | Vector **SVG** for print (CMYK), PNG @ 300 dpi for digital assets. | Keeps crisp edges at any size and meets print‑shop requirements. |\n| **Dynamic vs. static** | **Dynamic QR** (redirect URL can be edited later). Choose a platform that offers analytics (scan count, location, device). | Future‑proofs the campaign and gives you data for optimisation. |\n\n**Sample QR‑code visual description**\n\n```\n[Rounded teal square] \n   ┌───────────────────────┐\n   │   █ █ █ █ █ █ █ █ █   │   (dark teal modules)\n   │   █   █   █   █   █   │   centre: 15% white space with small “C” logo\n   │   █ █ █ █ █ █ █ █ █   │\n   └───────────────────────┘\n```\n\n*(Replace the placeholder with an actual QR generated from your chosen platform.)*\n\n---\n\n## 2️⃣ Customer Journey & Landing‑Page Layout\n\n### A. Scanning Flow\n1. **Scan** → Browser opens a **mobile‑optimised landing page** (URL short, e.g., `cannaplus.co/qr‑productX`).\n2. **Landing page** instantly shows two tabs/buttons:\n   - **📄 Lab Results (COA)**\n   - **🎥 Product Video**\n3. Optional **“Learn More”** link to full product page or retailer locator.\n\n### B. Wireframe (Mobile‑first)\n\n```\n+---------------------------------------------------+\n|  Header (brand logo + “Product X”)                |\n+---------------------------------------------------+\n|  Hero Section                                     |\n|  ┌───────────────────────┐   ┌───────────────────┐|\n|  │  📄   Lab Results      │   │  🎥   Watch Video │|\n|  │  (Tap to view PDF)    │   │  (Play inline)   │|\n|  └───────────────────────┘   └───────────────────┘|\n|                                                   |\n|  Quick Summary (THC/CBD %, Terpenes)             |\n|  • Potency: 18% THC, 0.1% CBD                     |\n|  • Terpene profile: Myrcene 0\n\n---\n*Agent: Formulation Agent | Plan: Standard | Tokens: 1177 (177?1000) | Cost: $0.000000*",
+      "duration": 12861,
+      "grade": "C",
+      "score": 78,
+      "grading": {
+        "length": "Pass",
+        "keywords": "3/5 matched",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "3/5 key words"
+      },
+      "strengths": [],
+      "weaknesses": [],
+      "feedback": "",
+      "gradingMethod": "unknown",
+      "expectedKeywords": [
+        "marketing",
+        "agent",
+        "request",
+        "lab",
+        "campaign"
+      ],
+      "expectedAnswer": "**Summarizing QR Code Campaign Requirements** I need to create a concise summary for the marketing agent about a QR code campaign linking to lab results and product videos. My main conclusion is to propose a QR code campaign with a dynamic landing page, UTM tracking, and include lab results (COAs) and product videos. I must also address privacy regulations, age-gating, health claims restrictions, and state-specific labeling requirements, alongside QR code best practices like dynamic versus static codes and testing across devices.**Designing a User-Friendly Landing Page** I'm working on creating a simple and fast-loading landing page for the campaign. It should include a downloadable COA PDF, a key summary featuring details like THC/CBD content, terpenes, harvest date, lab name, and batch number. I want to embed a video with captions and alt text for accessibility. The page should have a call-to-action (CTA) for locating a dispensary legally, along with location detection, compliance disclaimers, and age verification to ensure users are 21+.**Designing landing page elements** I’m thinking about creating a landing page that is simple and quick to load. It should have a COA PDF and a concise summary that includes details like THC/CBD content, terpenes, harvest date, lab name, and batch number. I also want to embed a video with captions and alt text for accessibility. There should be a call to action for finding a dispensary within legal areas, along with location detection, comp..."
+    },
+    {
+      "questionNum": 432,
+      "question": "Can you help me script a short promotional video for Instagram or TikTok?",
+      "category": "requests-to-the-marketing-agent",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": true,
+      "response": "Absolutely! Below is a **ready‑to‑shoot script** (≈ 15‑20 seconds) that works for both Instagram Reels and TikTok, plus a quick storyboard, music cue, and caption ideas. Feel free to swap in your product name, visuals, and branding details.\n\n---\n\n## 🎬 15‑Second Promo Blueprint\n\n| Time | Visual / Action | Voice‑over / Text Overlay | Audio |\n|------|----------------|---------------------------|-------|\n| **0‑2 s** | **Hook** – Close‑up of a hand snapping open the product (e.g., a vape pen, pre‑rolled joint, or CBD tincture). Quick cut to a smiling face. | **On‑screen text:** “Stop scrolling – you need this!”<br>**VO (optional):** “Whoa, look at this!” | Upbeat, 2‑beat drop (e.g., a modern lo‑fi or synth‑pop beat). |\n| **2‑5 s** | Show the problem: a stressed‑out person scrolling, yawning, or rubbing temples. | **On‑screen text:** “Feeling the grind?” | Keep the beat, add a subtle “whoosh” as the scene flips. |\n| **5‑9 s** | Reveal the solution: product being used, vapor/cloud, or a drop of tincture. Quick, bright lighting. | **VO / Text:** “Our [Product Name] gives you instant calm & focus.” | Add a **pop** sound synced with the product reveal. |\n| **9‑12 s** | Highlight 2‑3 key benefits (icons: 🌿 Natural, ⚡ Fast‑acting, 🌱 Sustainable). | **On‑screen text (fast‑cut):** “All‑natural • 30‑sec effect • Eco‑friendly” | Continue the beat, layer a subtle “ding” for each icon. |\n| **12‑15 s** | **CTA** – Show the product packaging with a swipe‑up/Link‑in‑bio graphic. | **VO / Text:** “Tap to shop now & get 15% off! Use code **VIBES**.” | Beat hits the final **kick**; fade out. |\n\n---\n\n## 📋 Quick Production Checklist\n\n| Item | Details |\n|------|---------|\n| **Aspect Ratio** | 9:16 (1080 × 1920). Keep key elements within the “safe zone” (center 80%). |\n| **Lighting** | Natural daylight or a soft‑box; avoid harsh shadows on the product. |\n| **Music** | Royalty‑free upbeat track (e.g., “Summer Vibes” from Epidemic Sound). Make sure it’s **≤ 30 sec** and loops cleanly. |\n| **Captions** | Add subtitles for the voice‑over (most users watch mute). |\n| **Hashtags** | `#YourBrand #InstantCalm #CBDLife #WellnessRoutine #TikTokMadeMeBuyIt #InstaReels` |\n| **CTA Link** | Instagram: “Link in bio” + a swipe‑up sticker (if you have >10k followers.); TikTok: “Tap product link” (use the “Shopping” feature or a short URL). |\n| **Compliance (if cannabis‑related)** | - Include an age‑gate overlay (e.g., “21+”).<br>- Avoid health‑claim language that isn’t FDA‑approved.<br>- Add a disclaimer: “This product is not for minors.” |\n\n---\n\n## ✨ Customization Tips\n\n1. **Product Focus**  \n   - **Vape Pen:** Emphasize smooth clouds, discreet design.  \n   - **Pre‑rolled Joint:** Highlight hand‑roll quality, aroma.  \n   - **CBD Tincture:** Show a dropper, mixing into a smoothie or coffee.\n\n2. **Brand Voice**  \n   - **Playful:** Use emojis and slang (“Yo, vibe‑up!”).  \n   - **Premium:** Slow‑motion shots, elegant typography, minimal text.\n\n3. **User‑Generated Content (UGC) Hook**  \n   - Add a quick 1‑second clip of a real customer saying “I’m obsessed!” and tag them. It boosts algorithmic trust.\n\n4. **Loop‑Friendly Edit**  \n   - End the video on the same visual cue you start with (e.g., the product snap). This creates a seamless loop that TikTok loves.\n\n---\n\n## 📢 Sample Caption (ready to copy)\n\n> ✨ Instant calm in 30 seconds. 🌿  \n>  \n> 👉 Swipe up / tap the link in bio for **15 % OFF** with code **VIBES**.  \n>  \n> 🎶 Music: [Artist\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1394 (167?1227) | Cost: $0.000000*",
+      "duration": 14111,
+      "grade": "B",
+      "score": 81,
+      "grading": {
+        "length": "Pass",
+        "keywords": "3/5 matched",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "4/5 key words"
+      },
+      "strengths": [],
+      "weaknesses": [],
+      "feedback": "",
+      "gradingMethod": "unknown",
+      "expectedKeywords": [
+        "marketing",
+        "agent",
+        "request",
+        "script",
+        "short"
+      ],
+      "expectedAnswer": "**Considering local regulations** I need to think about how local regulations can vary significantly depending on the state. For instance, California has its own specific disclaimers and regulations like Prop 65, which aims to inform residents about potential exposure to harmful chemicals. It's interesting how these regulations shape consumer awareness and choices, but it also makes things more complex. Navigating this requires keeping track of what's applicable, which can be a bit daunting!"
+    },
+    {
+      "questionNum": 433,
+      "question": "Can you create a compliant shelf-talker design for my flower jars?",
+      "category": "requests-to-the-marketing-agent",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": true,
+      "response": "Below is a **step‑by‑step checklist** and a **sample layout** you can use to build a shelf‑talker that meets the most common U.S. state cannabis‑packaging rules. Because each state (and sometimes each local jurisdiction) has its own nuances, treat this as a **template** and verify every item against the specific regulations that apply to the market where your flower will be sold.\n\n---\n\n## 1️⃣ Core Compliance Checklist (for most “adult‑use” states)\n\n| Category | What to Include | Typical Placement on the Shelf‑Talker |\n|----------|----------------|---------------------------------------|\n| **Product Identity** | • Brand name & logo  <br>• Product name (e.g., “Blue Dream”)  <br>• Product type (e.g., “Indica‑dominant flower”) | Top‑center, bold, legible from ≥3 ft |\n| **Net Weight** | Exact weight (e.g., “1 g”) | Bottom‑right corner, same font size as other mandatory text |\n| **Potency** | • THC % (and/or total THC)  <br>• CBD % (if applicable)  <br>• Any other cannabinoids required by the state | Directly under the product name or in a “Potency” box |\n| **Batch / Lot / QR Code** | • Lot/Batch number  <br>• QR code linking to the state‑run seed‑to‑sale database (or your own compliance portal) | Lower‑left corner; QR code ≥0.8 in² for easy scanning |\n| **Warnings & Statements** | • “For adult use only – 21+”  <br>• “Keep out of reach of children”  <br>• “This product may cause impairment”  <br>• State‑specific health warnings (e.g., “May contain pesticides”)  <br>• Any required “Not for resale” or “Do not consume if pregnant” language | Bottom‑center, in a contrasting box (often yellow or red) |\n| **Testing / Certification** | • “Tested by [Lab Name] – Certificate #XXXXX” (if required) | Small text near the QR code or beneath the warning box |\n| **Universal Symbols** | • Child‑resistant symbol (if required)  <br>• THC/CBD symbol (e.g., leaf with “THC” label) | Adjacent to potency info |\n| **Bar Code / SKU** | Required for inventory tracking | Bottom‑right (often separate from net weight) |\n| **State‑Specific Logos** | Some states demand a “State‑approved” seal or a specific compliance logo | Upper‑left corner or integrated into the branding block |\n| **Material & Adhesion** | • Must be on a **non‑removable** or **tamper‑evident** label (often a “shelf‑talker” is a separate, removable piece, but many states require the information to stay on the package).  <br>• If removable, the label must still be **child‑resistant** and **non‑transferable**. | N/A – ensure you follow the state’s packaging rulebook. |\n\n**Tip:** Create a master spreadsheet with each column representing a requirement. Fill it for every SKU; then use a simple script or a label‑software merge to auto‑populate the design template.\n\n---\n\n## 2️⃣ Visual Layout Blueprint (A4‑size, 8.5 × 11 in – common for shelf‑talkers)\n\n```\n ---------------------------------------------------------\n| LOGO (Brand)           | STATE COMPLIANCE SEAL          |\n|---------------------------------------------------------|\n|                PRODUCT NAME (\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1150 (150?1000) | Cost: $0.000000*",
+      "duration": 4117,
+      "grade": "C",
+      "score": 78,
+      "grading": {
+        "length": "Pass",
+        "keywords": "3/5 matched",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "3/5 key words"
+      },
+      "strengths": [],
+      "weaknesses": [],
+      "feedback": "",
+      "gradingMethod": "unknown",
+      "expectedKeywords": [
+        "marketing",
+        "agent",
+        "request",
+        "flower",
+        "create"
+      ],
+      "expectedAnswer": "**Reviewing packaging requirements** I’m noticing that typically a universal symbol is required on packaging but not always on signage. In Colorado, for instance, retail marijuana advertising might need to include a license number. It seems like California has specific regulations requiring the license number on ads. Additionally, some states like Massachusetts need disclaimers stating, \"For use only by adults 21 years of age or older. Keep out of reach of children.\" on advertisements. There’s a lot to consider here!**Creating a shelf-talker summary** I need to generate a concise summary for a compliant shelf-talker design specifically for cannabis flower jars. The request is clear: the marketing agent should propose a compliant design while including key requirements and regulatory details. Since no specific state is mentioned, I’ll note that regulations vary by state and emphasize there's a need to avoid medical claims and cater to legal marketing guidelines. This includes age restrictions, disclaimers, business information, and universal cannabis symbols.**Identifying cannabis marketing requirements** I'm noting that the universal symbol for cannabis packaging is typically required, though it may not be necessary for signage in every state. Some states, like Colorado, may require a license number on retail marijuana advertisements, while California mandates it as well. Massachusetts, on the other hand, insists on disclaimers stating, \"For use only by adults 21 years of age..."
+    },
+    {
+      "questionNum": 434,
+      "question": "Example question for formulation-agent",
+      "category": "formulation",
+      "agent": "unknown",
+      "actualAgent": "formulation",
+      "actualAgentName": "Formulation Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": false,
+      "response": "Here are a few example questions you might ask a **Formulation Agent** for cannabis products:\n\n1. **Recipe Development**\n   - “Can you help me formulate a 30 ml THC‑dominant vape oil with a target potency of 80 mg THC per ml, using a CO₂‑extracted distillate and a 1:1 PG/VG base?”\n\n2. **Dosage Calculations**\n   - “What dose of a 10 % CBD tincture would provide 25 mg of CBD per serving, and how many milliliters should each serving be?”\n\n3. **Extraction Methodology**\n   - “What are the pros and cons of using ethanol vs. supercritical CO₂ for extracting a full‑spectrum terpene‑rich oil from high‑CBD hemp flowers?”\n\n4. **Ingredient Selection**\n   - “Which carrier oils (MCT, hemp seed, or olive oil) are best for a stable, long‑lasting topical cream containing 5 % total cannabinoids?”\n\n5. **Quality Control & Stability**\n   - “How can I design a stability‑testing protocol for a 500 mg CBD gummy that ensures potency retention ≥ 90 % after 12 months at 25 °C?”\n\n6. **COA Interpretation**\n   - “My recent batch COA shows 0.3 % residual solvents. Is this within acceptable limits for a vape cartridge under the EU Cosmetics Regulation?”\n\n7. **Terpene Profiling**\n   - “What terpene blend (myrcene, limonene, β‑caryophyllene) would complement a 15 % THC isolate to produce a ‘relaxed‑euphoric’ effect profile?”\n\nFeel free to pick any of these or craft your own – I’m ready to dive into the details!\n\n---\n*Agent: Formulation Agent | Plan: Standard | Tokens: 634 (199?435) | Cost: $0.000000*",
+      "duration": 6469,
+      "grade": "A",
+      "score": 95,
+      "grading": {
+        "length": "Pass",
+        "keywords": "5/5 matched",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "2/3 key words"
+      },
+      "strengths": [],
+      "weaknesses": [],
+      "feedback": "",
+      "gradingMethod": "unknown",
+      "expectedKeywords": [
+        "formulation",
+        "recipe",
+        "dosage",
+        "example",
+        "question"
+      ],
+      "expectedAnswer": "**Considering formulation design** I'm focused on the category of formulation, specifically on formulation design. I'm thinking about various aspects like dosage forms, bioavailability, excipients, and delivery methods such as oral oil or nanoemulsion. Stability is key, along with pharmacokinetic considerations and potential interactions. Regulations and quality are crucial too, like what's important for approvals, such as Epidiolex and THC regulations. It seems I don't have any state-specific information mentioned in my research either.**Considering formulation design** I'm looking at the category of formulation, focusing on details like dose forms and bioavailability. I want to consider excipients and delivery methods, such as oral oil or nanoemulsion. Stability and pharmacokinetic (PK) considerations are also key—along with potential interactions and quality or regulatory matters. For instance, I'm noting that Epidiolex is approved and that THC needs to be below 0.3% for hemp. However, there isn't any state-specific info to reference here."
+    },
+    {
+      "questionNum": 435,
+      "question": "Example question for science-agent",
+      "category": "science",
+      "agent": "unknown",
+      "actualAgent": "formulation",
+      "actualAgentName": "Formulation Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": false,
+      "response": "**Sample Question for the Science‑Agent**\n\n> *“I’m developing a 30 ml sub‑lingual oil that delivers 10 mg of Δ⁹‑THC and 5 mg of CBD per dose (≈0.5 ml). The raw material is a full‑spectrum CO₂ extract with a reported potency of70 % THC and 5 % CBD (by weight). Could you:\n> 1. Calculate the exact amount of extract and carrier oil needed to achieve the target dose per 0.5 ml serving?\n> 2. a carrier oil (e.g., MCT, hemp seed, or olive oil) based on stability, bioavailability, and flavor profile?\n> 3. Outline a simple, lab‑scale mixing protocol that ensures homogeneous distribution and minimizes oxidation?\n> 4. Provide a quick QC checklist (e.g., potency verification, microbial limits, terpene preservation) that I can run before batch release?”* \n\nThis type of question lets the science‑agent apply dosage calculations, extraction data interpretation, carrier‑selection expertise, formulation procedures, and quality‑control best practices—all core competencies of the Formul8 system.\n\n---\n*Agent: Formulation Agent | Plan: Standard | Tokens: 502 (198?304) | Cost: $0.000000*",
+      "duration": 9560,
+      "grade": "C",
+      "score": 74,
+      "grading": {
+        "length": "Pass",
+        "keywords": "3/5 matched",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "1/3 key words"
+      },
+      "strengths": [],
+      "weaknesses": [],
+      "feedback": "",
+      "gradingMethod": "unknown",
+      "expectedKeywords": [
+        "science",
+        "cannabinoid",
+        "terpene",
+        "example",
+        "question"
+      ],
+      "expectedAnswer": "**Creating cannabis summary structure** I need to generate a concise summary for a cannabis industry question, but the actual question isn't provided. The instructions mention key requirements and regulatory details, but we lack specifics. It seems I might need to create a generic template instead. I should focus on the cannabis industry while avoiding meta-commentary. I could provide a structure that includes hypothesis, methods, results, implications, and compliance. This way, the summary can guide real responses.**Outlining cannabis answer requirements** I’m focusing on providing cannabis industry specifics, including regulatory details and any state-specific information if mentioned. Since we don’t have that data, I’ll emphasize that the answer should establish a main conclusion, cite peer-reviewed evidence, and explain the underlying mechanisms involved. It's also crucial to outline how to ensure compliance with both federal and state regulations. This way, the summary stays relevant and informative, even in the absence of specifics.**Creating a cannabis summary template** I need to generate a concise summary for a cannabis industry question, but it’s a bit meta and vague with no actual question provided. The instructions mention including key facts and regulatory details, but I don't have that info. I might have to create a generic template instead. The user needs a summary for grading responses. Since there’s no specific content, I could outline a general structure cov..."
+    },
+    {
+      "questionNum": 436,
+      "question": "Example question for spectra-agent",
+      "category": "spectra",
+      "response": null,
+      "error": "Rate limited (HTTP 429) - will retry",
+      "duration": 14954,
+      "grade": "F",
+      "score": 0,
+      "actualAgent": "rate_limit",
+      "actualAgentName": "Rate Limited",
+      "expectedAgent": "f8_agent",
+      "agentMatch": false
+    },
+    {
+      "questionNum": 437,
+      "question": "Example question for customer-success-agent",
+      "category": "customer-success",
+      "response": null,
+      "error": "Rate limited (HTTP 429) - will retry",
+      "duration": 14810,
+      "grade": "F",
+      "score": 0,
+      "actualAgent": "rate_limit",
+      "actualAgentName": "Rate Limited",
+      "expectedAgent": "f8_agent",
+      "agentMatch": false
+    },
+    {
+      "questionNum": 438,
+      "question": "Example question for ad-agent",
+      "category": "ad",
+      "response": null,
+      "error": "Rate limited (HTTP 429) - will retry",
+      "duration": 14755,
+      "grade": "F",
+      "score": 0,
+      "actualAgent": "rate_limit",
+      "actualAgentName": "Rate Limited",
+      "expectedAgent": "f8_agent",
+      "agentMatch": false
     }
-  ],
-  "status": "In Progress: 430/438 questions completed"
+  ]
 }
