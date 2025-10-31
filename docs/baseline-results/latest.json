@@ -1,11 +1,11 @@
 {
-  "timestamp": "2025-10-31T08:37:00.788Z",
+  "timestamp": "2025-10-31T08:38:36.556Z",
   "url": "https://chat.formul8.ai",
   "totalQuestions": 438,
-  "completed": 320,
+  "completed": 330,
   "passed": 23,
-  "failed": 297,
-  "averageScore": "34.32",
+  "failed": 307,
+  "averageScore": "34.54",
   "averageGrade": "F",
   "results": [
     {
@@ -5915,7 +5915,203 @@
         "relevance": "3/4 key words"
       },
       "expectedKeywords": []
+    },
+    {
+      "questionNum": 321,
+      "question": "How do I set up effective carryout and delivery in my cannabis dispensary?",
+      "category": "retail-&-consumer-marketing",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": true,
+      "response": "### Setting Up an Effective Carry‑Out & Delivery Program  \n*(Applicable to most U.S. state‑regulated markets – always double‑check your local rules.)*\n\n---\n\n## 1. Legal & Compliance Foundations  \n\n| Item | What to Do | Why It Matters |\n|------|------------|----------------|\n| **Licensing** | Add “delivery” or “off‑site sales” to your dispensary license (or obtain a separate delivery permit). | Prevents costly fines or license suspension. |\n| **State‑Specific Rules** | Compile a checklist of your state’s requirements (e.g., distance limits from schools, daily/weekly caps, product‑type limits). | Guarantees you stay within the law. |\n| **Age & Identity Verification** | Deploy a certified ID‑scan system (e.g., IDology, Veriff) for both phone orders and in‑person pickup. | Required by most regulators; protects minors. |\n| **Packaging & Labeling** | Use child‑ resistant, tamper‑evident containers with required THC/CBD content, warning labels, batch numbers, and QR codes. | Meets packaging mandates and aids traceability. |\n| **Transportation Rules** | Secure products in locked, climate‑controlled containers; keep driver logs; limit vehicle exposure to the public. | Reduces diversion risk and satisfies transport statutes. |\n| **Record‑Keeping** | Integrate sales data with the state’s seed‑to‑sale (track‑and‑trace) system in real time. | Enables audit trails and automatic reporting. |\n| **Insurance** | Obtain a commercial general liability policy that specifically covers cannabis delivery. | Protects against accidents, theft, or product liability. |\n\n---\n\n## 2. Operations & Logistics  \n\n### a. Order Management  \n1. **Unified POS/Order Platform** – Choose a system that handles in‑store POS, online ordering, and delivery dispatch (e.g., BioTrackTHC, Flowhub, Greenbits).  \n2. **Real‑Time Inventory Sync** – Prevents “out‑of‑stock” promises.  \n3. **Order Confirmation Workflow** – Automated SMS/email order summary, ETA, and verification link.\n\n### b. Delivery Fleet  \n| Option | Pros | Cons |\n|--------|------|------|\n| **In‑House Drivers** | Full control over brand & training; easier to enforce SOPs. | Higher payroll & vehicle costs. |\n| **Third‑Party (e.g., Kush Delivery, GreenRush) | Scalable, lower upfront cost, built‑in marketing. | Fees (15‑30 %), less brand control, variable driver quality. |\n| **Hybrid Model** | Use in‑house for premium/large orders, third‑party for overflow. | Requires dual‑process management. |\n\n**Key Setup Steps**  \n- **Driver Screening & Training** – Background checks, compliance briefing, safe‑driving & product handling.  \n- **Vehicle Prep** – Lockable cargo area, GPS tracking, temperature monitoring for edibles.  \n- **Route Optimization** – Use software (e.g., Routific, Onfleet) to batch orders, minimize mileage, and respect “no‑delivery‑to‑school zones.”  \n\n### c. Carry‑Out (Curbside)  \n- **Designated Pick‑Up Zones** – Clearly marked, preferably separate from foot traffic.  \n- **Contactless Handoff** – Driver scans QR code on the customer’s phone, verifies ID, places product in sealed bag, and moves to a “drop‑off” spot.  \n- **Queue Management** – Mobile app or SMS ticketing to limit wait times.\n\n---\n\n## 3. Technology Stack (Suggested Minimal)\n\n| Layer | Tool/Feature | Reason |\n|-------|--------------|--------|\n| **Front‑End** | Custom website or Shopify + cannabis‑compliant app | Branded ordering experience. |\n| **Order Hub** | Integrated seed‑to‑sale POS (BioTrack, MJ Freeway) | Syncs inventory & compliance data. |\n| **Verification** | ID‑scan\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1167 (167?1000) | Cost: $0.000000*",
+      "duration": 11292,
+      "grade": "F",
+      "score": 54,
+      "grading": {
+        "length": "Pass",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "3/5 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 322,
+      "question": "What’s the best way to use geotargeting or local ads for dispensary customers?",
+      "category": "retail-&-consumer-marketing",
+      "response": null,
+      "error": "Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON",
+      "duration": 169,
+      "grade": "F",
+      "score": 0,
+      "actualAgent": "error",
+      "actualAgentName": "Error parsing response",
+      "expectedAgent": "f8_agent",
+      "agentMatch": false
+    },
+    {
+      "questionNum": 323,
+      "question": "How can I get my products prioritized by dispensary managers?",
+      "category": "retail-&-consumer-marketing",
+      "response": null,
+      "error": "Unexpected non-whitespace character after JSON at position 4 (line 1 column 5)",
+      "duration": 55,
+      "grade": "F",
+      "score": 0,
+      "actualAgent": "error",
+      "actualAgentName": "Error parsing response",
+      "expectedAgent": "f8_agent",
+      "agentMatch": false
+    },
+    {
+      "questionNum": 324,
+      "question": "How do I leverage budtender incentives without breaking compliance rules?",
+      "category": "retail-&-consumer-marketing",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": true,
+      "response": "**Leveraging Budtender Incentives — Compliance‑First Playbook**\n\n| Step | What to Do | Why It Keeps You Compliant |\n|------|------------|----------------------------|\n| **1. Map the Legal Landscape** | • Identify the specific state (or tribal) cannabis statutes and regulator‑issued guidance on employee compensation. <br>• Flag any prohibitions on “sales‑driven” incentives, price discounts, or “push‑to‑sell” language. | Most jurisdictions treat cannabis like a controlled substance; they ban incentives that could be seen as encouraging over‑consumption or price manipulation. |\n| **2. Define Allowed Incentive Categories** | **A. Performance‑Based (non‑sales) metrics** <br> – Customer‑service scores (mystery‑shop, CSAT). <br> – Accuracy of inventory handling / compliance checklists. <br> – Completion of mandated training modules. <br>**B. Professional Development** <br> – Tuition reimbursement for cannabis‑business certifications. <br> – Paid attendance at approved industry conferences. <br>**C. Recognition & Non‑Monetary Rewards** <br> – “Budtender of the Month” plaques, extra PTO, gift cards to non‑cannabis retailers. | These focus on *behavior* that improves the store’s legal operation rather than on moving product volume. |\n| **3. Draft a Transparent Incentive Policy** | • List each incentive, eligibility criteria, and payout schedule. <br>• Include a compliance clause stating that any incentive that could be interpreted as “selling pressure” is prohibited. <br>• Require employee acknowledgment (signed acknowledgment form). | Documentation shows good‑faith effort and makes it easier to demonstrate compliance during audits. |\n| **4. Build a Compliance Review Gate** | • Route any new incentive proposal to a compliance officer or legal counsel **before** implementation. <br>• Use a simple checklist: <br>  – Does it tie compensation to sales volume? <br>  – Does it involve product‑specific bonuses (e.g., “sell X strain”)?. <br>  – Does it conflict with state advertising limits? | Early review catches red‑flags and prevents costly retro‑active corrections. |\n| **5. Separate Incentives from Product Recommendation** | • Train budtenders to base recommendations on **customer needs** and **product safety** (e.g., THC/CBD profile, consumption method). <br>• Prohibit any language that ties a reward to “selling a particular brand” or “pushing a higher‑priced item.” | Regulators look for “undue influence” on consumer choice; keeping advice neutral removes that risk. |\n| **6. Record‑Keeping & Reporting** | • Log every incentive earned (date, employee, metric, payout). <br>• Include these logs in your regular compliance audit packet. | Auditors/inspectors often request payroll and incentive records; organized logs demonstrate transparency. |\n| **7. Periodic Audits & Adjustments** | • Quarterly internal audit: verify that payouts match documented criteria. <br>• Update policy when regulations change (e.g., new “no‑discount” rules). | Continuous monitoring ensures you stay ahead of rule changes and can quickly remediate any drift. |\n| **8. Communicate the “Why” to Staff** | • Explain that incentives are designed to reward **safe, compliant, and customer‑focused** behavior—not volume. <br>• Highlight the link between compliance, brand reputation, and long‑term job security. | When staff understand the compliance rationale, they’re less likely to push gray‑area tactics. |\n\n---\n\n### Quick‑Start Checklist (Copy‑Paste)\n\n```\n[ ] Verify state/tribal cannabis regulations on employee incentives.\n[ ] Choose only allowed incentive categories (A‑C above).\n[ ] Draft\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1165 (165?1000) | Cost: $0.000000*",
+      "duration": 8284,
+      "grade": "F",
+      "score": 51,
+      "grading": {
+        "length": "Pass",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "2/5 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 325,
+      "question": "How do I create compelling product descriptions that are still compliant?",
+      "category": "product-marketing",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": true,
+      "response": "**Creating compelling, compliant cannabis product descriptions is a balance of storytelling, clear information, and strict adherence to regulatory rules. Below is a step‑by‑step framework you can follow, plus practical tips and a short example.**\n\n---\n\n## 1. Know the Core Compliance Rules (U.S. focus)\n\n| Area | What’s Allowed | What’s Forbidden |\n|------|----------------|-------------------|\n| **Health & Therapeutic Claims** | General wellness language (e.g., “supports relaxation”) | Specific medical claims (“treats anxiety”, “cures insomnia”) |\n| **Structure/Content** | • Brand name  <br>• Product type (e.g., “sativa‑dominant flower”) <br>• THC/CBD potency <br>• Net weight/volume <br>• Batch/lot number <br>• Required warnings (e.g., “Not for use by persons under 21”) | • Comparative language (“stronger than…”) <br>• Unverified statements (“lab‑tested by the best lab”) |\n| **Advertising Tone** | Fact‑based, descriptive, lifestyle‑oriented | Overly sensational, “guaranteed” language, or implied efficacy |\n| **Labeling/Packaging** | Must include state‑mandated icons, QR code for lab results, and child‑resistant packaging | Any imagery that appeals to minors (cartoons, bright candy‑like colors) |\n| **State‑Specific** | Follow the state’s “Cannabis Advertising & Promotion” guidelines (e.g., California, Colorado, Oregon) | Ignoring local variations (e.g., distance‑to‑school restrictions) |\n\n> **Tip:** Keep a master checklist for each state you sell in. Many compliance platforms (e.g., **LeafLink**, **Metrc**, **Simplify**) let you toggle state‑specific fields on/off.\n\n---\n\n## 2. Structure a “Compliance‑First” Description\n\n| Section | Purpose | Compliance Checklist |\n|---------|---------|-----------------------|\n| **Headline** | Grab attention, convey product type | No health claims, no superlatives (“best”) |\n| **Key Attributes (Bullets)** | Potency, terpene profile, flavor, effects | Include THC/CBD numbers, terpene percentages, net weight, batch ID |\n| **Story/Use‑Case** | Connect with consumer lifestyle | Use “may” language (“may promote relaxation”) and avoid medical language |\n| **Safety & Legal** | Required warnings | Age restriction, “Do not operate machinery”, “Keep out of reach of children”, storage instructions |\n| **Call‑to‑Action (CTA)** | Prompt purchase or further research | Direct to “Learn more” or “View lab results” (no “buy now” if prohibited) |\n\n---\n\n## 3. Language Hacks for “Compelling” Yet Safe Copy\n\n| Desired Effect | Safe Phrase Example |\n|----------------|---------------------|\n| **Relaxation** | “May help you unwind after a long day.” |\n| **Creativity** | “Some users report a boost in creative focus.” |\n| **Euphoria** | “Can provide a pleasant, uplifting sensation.” |\n| **Flavor** | “Bursting with citrus and pine notes.” |\n| **Quality** | “Crafted from organically grown buds, tested by an ISO‑certified lab.” |\n| **Social** | “Great for sharing with friends in a relaxed setting.” |\n\n**Avoid**: “cures,” “guarantees,” “clinically proven,” “strongest,” “best,” “miracle,” etc.\n\n---\n\n## 4. Add Mandatory Disclosures Seamlessly\n\n1. **Standard Warning Block** (place at bottom or near CTA)  \n   ```\n   WARNING: Contains THC. Not for use by individuals under 21. Do not operate heavy machinery while using. Keep out of reach of children. Consult a physician if you are pregnant, nursing, or have a medical condition.\n   ```\n\n2. **Lab Results Link**  \n   - Use a QR code or short URL: “View full batch lab results → [link]”  \n   - This satisfies transparency requirements without cluttering the copy.\n\n3. **State‑Specific Icons** (if required) – embed as small\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1163 (163?1000) | Cost: $0.000000*",
+      "duration": 8693,
+      "grade": "F",
+      "score": 54,
+      "grading": {
+        "length": "Pass",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "3/5 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 326,
+      "question": "Can you help me create compelling product descriptions for my products in leaflink?",
+      "category": "product-marketing",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": true,
+      "response": "Absolutely! Crafting product descriptions that stand out on Leaflink (or any B2B cannabis marketplace) is all about blending **clear, compliant information** with **persuasive, brand‑aligned storytelling**. Below is a quick workflow, a ready‑to‑use template, and a few example descriptions. If you’d like me to flesh out the copy for specific SKUs, just share the details and I can hand the request off to our **Copy‑Boost Agent** for a polished final draft.\n\n---\n\n## 1️⃣ Quick Discovery Checklist  \n*(Answer as many as you can – the more detail, the sharper the copy)*  \n\n| Category | What to Provide |\n|----------|-----------------|\n| **Product type** | Flower, concentrate, edibles, topicals, accessories, etc. |\n| **Strain name / SKU** | Official name, batch/lot number (if relevant) |\n| **Genetics / Lineage** | Parent strains, indica/sativa/hybrid ratios |\n| **THC / CBD / Terpene profile** | Exact percentages (e.g., THC 22 %, CBD 0.5 %, Myrcene 0.8 %) |\n| **Key effects** | “Relaxing body high,” “Focused creativity,” “Uplifting mood,” etc. |\n| **Flavor / Aroma notes** | Citrus, pine, earth, berry, diesel, etc. |\n| **Cultivation method** | Indoor, outdoor, greenhouse, organic, hydroponic, etc. |\n| **Testing & compliance** | Lab results, pesticide‑free, ISO‑certified, etc. |\n| **Target buyer** | Dispensaries, wholesalers, cultivators, brand partners |\n| **Brand voice** | Professional, playful, scientific, boutique‑craft, etc. |\n| **Length preference** | 2‑sentence teaser, 4‑sentence bullet, 150‑word long‑form |\n| **Call‑to‑action** | “Order now,” “Contact sales for bulk pricing,” etc. |\n\n*Feel free to drop a spreadsheet or a bullet list—any format works.*\n\n---\n\n## 2️⃣ Proven Leaflink Description Template  \n\n> **[Brand] – [Product Name]**  \n> **[Category] | [THC/CBD] | [Key Terpenes]**  \n>  \n> **One‑sentence hook** – a vivid, benefit‑focused line that grabs a buyer’s attention.  \n>  \n> **Core details (2‑3 sentences)** – genetics, cultivation method, lab‑tested potency, standout flavors/aromas, and primary effects.  \n>  \n> **Compliance & quality badge** – e.g., “COA‑verified, pesticide‑free, ISO‑9001 certified.”  \n>  \n> **Buy‑in CTA** – concise prompt encouraging the buyer to add to cart or request a sample.  \n\n**Why it works**\n\n| Element | Purpose |\n|---------|---------|\n| **Hook** | Cuts through the scroll; instantly answers “What’s the wow factor?” |\n| **Core details** | Gives the data buyers need for ordering decisions (potency, effects, provenance). |\n| **Compliance badge** | Instills confidence and meets regulatory expectations. |\n| **CTA** | Moves the buyer toward the next step. |\n\n---\n\n## 3️⃣ Sample Descriptions (Ready‑to‑Copy)\n\n### Example 1 – Premium Flower  \n**Green Horizon – “Solar Flare”**  \n*Flower | THC 23 % | Myrcene 1.2 %*  \n\n> **Solar Flare ignites a solar‑burst of euphoria with a sweet citrus punch.**  \n> Grown indoors under a full-spectrum LED canopy, this hybrid descends from a 70 % Sativa × 30 % Indica lineage, delivering a clear‑headed uplift followed by a mellow body relaxation. Laboratory‑tested potency: THC 23 %, CBD 0.4 %, with a terpene profile led by Myrcene, Limonene, and Caryophyllene.  \n> **COA‑verified, pesticide‑free, and cultivated in a state‑licensed, ISO‑9001 facility.**  \n> **Add to cart now** to stock your shelves with a top‑selling, high‑THC strain that\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1166 (166?1000) | Cost: $0.000000*",
+      "duration": 9109,
+      "grade": "F",
+      "score": 51,
+      "grading": {
+        "length": "Pass",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "2/5 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 327,
+      "question": "What are the best ways to make my LeafLink menu perfect?",
+      "category": "product-marketing",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": true,
+      "response": "Below is a practical checklist you can follow to turn a good LeafLink menu into a **“perfect”** one. Each step is organized by the key areas LeafLink expects from a wholesale brand: **product data, presentation, pricing & compliance, discoverability, sales enablement, and ongoing optimization.**  \n\n---\n\n## 1. Product Data – Accuracy & Completeness  \n\n| ✅ Action | Why it matters | Quick tip |\n|----------|----------------|-----------|\n| **Standardized naming** (strain name + type + THCBD) | Buyers search by familiar terms; reduces duplicate SKUs. | Use the same format for every SKU (e.g., *“Blue Dream – Hybrid – 18% THC – 0.5 g”*). |\n| **Exact weight/volume** (grams, ml, count) | Guarantees transparent ordering & compliance. | Include both the net weight **and** the serving size if you sell pre‑rolled or infused products. |\n| **Batch/lot numbers & expiration dates** | Required for traceability & compliance audits. | Add a “Batch” field in LeafLink’s “Additional Info” section. |\n| **Lab results (COA) link** | Gives buyers confidence & satisfies state regulator rules. | Upload PDFs to LeafLink’s “Certificates” tab; also paste a short “COA Summary” in the description. |\n| **Inventory sync** (real‑time or daily updates) | Prevents out‑of‑stock orders and back‑order headaches. | Connect your ERP/seed‑to‑sale system viaLink API or use the CSV bulk‑upload with a daily schedule. |\n\n---\n\n## 2. Visual Presentation – Make Your Products “pop”  \n\n| ✅ Action | Why it matters | Quick tip |\n|----------|----------------|-----------|\n| **High‑resolution photos** (≥1200 px on the longest side) | Buyers judge quality at a glance. | Use a lightbox backdrop, shoot from multiple angles, and include a scale (e.g., a ruler or a leaf). |\n| **Consistent styling** (same background, lighting, branding) | Creates a professional catalog feel. | Build a simple style guide and stick to it for every batch. |\n| **Lifestyle images** (product in use, packaging on shelf) | Helps retailers visualize placement. | Add 1‑2 lifestyle shots per SKU in the “Gallery” section. |\n| **Video clips (optional)** | 5‑10 sec clips boost engagement on mobile. | Upload to YouTube/Vimeo and paste the embed link in the “Media” field. |\n| **Alt‑text & file naming** (e.g., `blue-dream-hybrid-18pct-thc.jpg`) | Improves internal search and accessibility. | LeafLink pulls alt‑text from the file name; keep it keyword‑rich. |\n\n---\n\n## 3. Pricing, Discounts & Compliance  \n\n| ✅ Action | Why it matters | Quick tip |\n|----------|----------------|-----------|\n| **Clear unit price** (per gram, per ml, per unit) | Removes ambiguity for the buyer’s margin calculations. | Use LeafLink’s “Price per Unit” field – never rely on “price per package” only. |\n| **Tiered pricing** (volume breaks) | Encourages larger orders. | Set 3‑5 tiers (e.g., 1–9 g = $X, 10–49 g = $X‑5%). |\n| **Promotional bundles** (e.g., “Starter Kit – 3 strains”) | Increases average order value. | Create a “Bundle” product type and tag it with a “Promo” label. |\n| **State‑specific compliance notes** | Required by most regulator portals. | Add a “Compliance” field\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1164 (164?1000) | Cost: $0.000000*",
+      "duration": 10895,
+      "grade": "F",
+      "score": 52.5,
+      "grading": {
+        "length": "Pass",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "1/2 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 328,
+      "question": "Are there alternatives to LeafLink?",
+      "category": "product-marketing",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": true,
+      "response": "**Yes—there are several other B2B platforms that serve the cannabis wholesale market.** Below is a quick overview of the most widely‑used alternatives, their core strengths, and the types of businesses that tend to benefit most from each.\n\n| Platform | Primary Focus | Key Features | Typical Users | Pricing (approx.) |\n|----------|---------------|--------------|----------------|-------------------|\n| **Dutchie Wholesale** | Order‑management & marketplace | Real‑time inventory sync, multi‑store support, integrated payment processing, analytics dashboard | Mid‑size dispensaries & growers looking for a unified order hub | Tiered subscription + transaction fees (starts ~​$199/mo) |\n| **CannaBiz** | Compliance‑driven wholesale | State‑specific compliance, automated tax reporting, e‑invoicing, product catalog | Companies operating in highly regulated states (e.g., CA, CO) | SaaS subscription ($150‑$500/mo) |\n| **Baker Technologies (Baker Platform)** | End‑to‑end supply‑chain | Track‑and‑trace, inventory forecasting, vendor rating system, API integration | Larger growers & processors needing full supply‑chain visibility | Custom pricing (often enterprise‑level) |\n| **Jungle (formerly Weedmaps B2B)** | Marketplace + marketing | Marketplace listings, promotional tools, customer reviews, logistics partner network | Brands wanting extra consumer‑facing exposure alongside wholesale | Free basic tier; premium listings $99‑$299/mo |\n| **Headset (Marketplace Module)** | Data‑driven buying | Market intelligence integrated with ordering, demand forecasting, price benchmarking | Data‑focused retailers & brands seeking market‑trend insights | Add‑on to Headset subscription ($399/mo +) |\n| **Fluent (formerly Greenbits Wholesale)** | POS‑to‑wholesale bridge | Syncs directly with Greenbits POS, automated re‑ordering, batch tracking | Dispensaries already on Greenbits looking for seamless wholesale integration | Included with Greenbits plan or $99/mo add‑on |\n| **Kisan** | International & multi‑state | Multi‑state compliance engine, cross‑border logistics, multi‑currency support | Companies expanding across state lines or into Canada/Europe | Custom enterprise pricing |\n\n### How to Choose the Right Alternative\n1. **Regulatory Fit** – If you operate in a state with strict tracking (e.g., California’s CANNABISTRACKING), prioritize platforms with built‑in compliance (CannaBiz, Baker).\n2. **Integration Needs** – Already using a specific POS (Greenbits, LeafLogix, etc.)? Look for a marketplace that syncs directly to avoid double entry (Fluent, Dutchie).\n3. **Data & Analytics** – Want market‑trend while you order? Headset’s marketplace module adds real‑time pricing & demand data.\n4. **Scale & Complexity** – Large growers/processors often need full supply‑chain visibility and API access—Baker and Kisan excel here.\n5. **Budget** – Many platforms offer a free/basic tier (Jungle) but charge per‑transaction or per‑user for advanced features. Compare total cost of ownership, not just subscription fees.\n\n### Quick Recommendation Scenarios\n| Situation | Best Fit |\n|-----------|----------|\n| Small dispensary just starting wholesale purchases | **Jungle** (low entry cost) or **Dutchie Wholesale** (simple UI) |\n| Mid‑size brand needing compliance + inventory sync across multiple states | **CannaBiz** or **Baker Technologies** |\n| Large processor with complex logistics & need for API integration | **Baker Technologies** or **Kisan** |\n| Existing Greenbits POS user wanting a seamless wholesale link | **Fluent** |\n| Retailer who wants market intelligence while ordering | **HeadsetMarketplace Module)** |\n\n---\n\n**Next steps?**  \n- If you’d like a deeper dive into any specific platform (e.g., demo links, feature‑by‑feature comparison, or pricing quotes), just let me know.  \n- I can also route you to our **Business Strategy** agent to help you build a cost‑benefit model for switching platforms.  \n\nWhat would be most helpful for you right now?\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1123 (158?965) | Cost: $0.000000*",
+      "duration": 15043,
+      "grade": "F",
+      "score": 55,
+      "grading": {
+        "length": "Pass",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "2/3 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 329,
+      "question": "What's more effective for me, Weedmaps or Leafly?",
+      "category": "product-marketing",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": true,
+      "response": "### Quick Take  \n| Goal | Best Fit | Why |\n|------|----------|-----|\n| **Brand‑building & SEO** | **Leafly** | Large organic search traffic, strong editorial content, “strain‑lookup” SEO that drives long‑term discovery. |\n| **Paid advertising & lead generation** | **Weedmaps** | Robust paid‑media platform (display ads, sponsored listings, geo‑targeted promotions) with detailed performance dashboards. |\n| **Community & user‑generated reviews** | **Leafly** | Over 2 M verified user reviews; the “strain‑profile” pages rank high in Google. |\n| **Real‑time ordering & delivery integration** | **Weedmaps** | Direct “Order Now” button, integrated delivery partners, and a built‑in POS‑style checkout flow. |\n| **Budget‑conscious starter** | **Leafly (Free tier + low‑cost “Featured” spots)** | Free basic listing + inexpensive promotional boosts; Weedmaps’ paid packages start higher. |\n| **Data & analytics** | **Both** (but different focus) | Weedmaps offers ad‑spend ROI metrics; Leafly gives organic traffic, strain‑search trends, and demographic breakdowns. |\n\n---\n\n## 1. Platform Overview\n\n| Feature | **Weedmaps** | **Leafly** |\n|---------|--------------|------------|\n| **Core product** | Marketplace + advertising network (sponsored listings, display ads, email blasts) | Strain‑search engine + editorial guide + marketplace |\n| **Monthly active users (2024)** | ~2.5 M (US) | ~5 M (US) |\n| **Primary traffic source** | Direct & paid (ads, email) | Organic Google search (70 % of traffic) |\n| **User intent** | “I want to order now” / “Find nearby dispensaries” | “I’m researching strains, products, or dispensaries” |\n| **Pricing model** | • Free basic listing <br>• Sponsored listings (CPC/CPM) <br>• Premium ad packages (starting ~$500/mo) | • Free basic listing <br>• Featured placement (starting ~$200/mo) <br>• Leafly Ads (CPC, CPM) |\n| **Compliance tools** | Built‑in age‑gate, state‑compliant ad‑approval workflow | Same, plus editorial “compliance review” for strain claims |\n **Integration options** | API for inventory sync, POS, delivery partners (e.g., Ganjilink, GreenRush) | API for product feeds, SEO‑friendly schema, and third‑party POS (e.g., Leafly Connect) |\n| **Analytics dashboard** | Impressions, clicks, cost‑per‑lead, geo‑performance | Organic search traffic, click‑through rates, review sentiment, demographic breakdown |\n\n---\n\n## 2. Decision Framework – What Matters Most to **You**?\n\n| Consideration | Questions for You | How It Maps to Platform |\n|---------------|-------------------|--------------------------|\n| **Primary objective** | Are you looking to **drive immediate sales/orders** or **build long‑term brand awareness**? | Immediate sales → Weedmaps (order button, delivery). <br> Brand/SEO → Leafly (search‑driven traffic). |\n| **Budget** | What is your monthly ad spend ceiling? | Weedmaps’ paid tiers start higher; Leafly offers cheaper “Featured” boosts. |\n| **Target audience** | Do you serve a **local, on‑the‑go shopper** (delivery) or a **research‑oriented consumer** (strain enthusiasts)? | Delivery‑focused → Weedmaps.<br> Research‑focused → Leafly. |\n| **Geographic focus** | Are you operating in a **single state** or **multiple states**? | Weedmaps excels in state‑specific ad targeting; Leafly’s SEO works across states but may need separate listings per state. |\n| **Data needs** | Do you need **real‑time conversion data** (order count) or **organic trend data** (search volume, review sentiment)? | Real‑time → Weedmaps.<br> Trend & SEO → Leafly. |\n| **Creative resources** | Do you have in‑house design for banner ads, or would you rely on platform‑provided assets? | Weed\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1163 (163?1000) | Cost: $0.000000*",
+      "duration": 11094,
+      "grade": "F",
+      "score": 48.75,
+      "grading": {
+        "length": "Pass",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "1/4 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 330,
+      "question": "How are advertisers using Weedmaps and/or Leafly most effectively?",
+      "category": "product-marketing",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": true,
+      "response": "**Effective Advertising on Weedmaps & Leafly – What Works Best**\n\nBelow is a concise playbook that pulls together the most successful tactics brands and dispensaries use on the two leading cannabis‑consumer platforms. It covers audience insights, ad formats, targeting, creative best‑practices, measurement, and compliance tips.\n\n---  \n\n## 1. Platform Overview & Audience Differences  \n\n| Feature | Weedmaps | Leafly |\n|---------|----------|--------|\n| **Primary Users** | Dispensary shoppers, delivery drivers, “on‑the‑go” consumers (mobile‑first). | Cannabis‑savvy enthusiasts, product researchers, brand‑loyalists (desktop‑heavy). |\n| **User Intent** | Immediate purchase / location search. | Education, product comparison, brand discovery. |\n| **Geography** | Strong in U.S. states with mature markets (CA CO, WA, OR, MI). | Broadest U.S. coverage + Canada; higher share of “brand‑centric” users. |\n| **Data Access** | Real‑time inventory feeds, foot‑traffic heatmaps (via API). | Deep strain‑level reviews, “brand score” analytics. |\n| **Ad Inventory** | Sponsored listings, featured dispensary slots, banner / native ads, push notifications, SMS campaigns. | Sponsored strain/brand cards, “Featured Brand” carousel, display banners, email newsletters, content‑sponsored articles. |\n\n**Takeaway:**  \n- **Weedmaps** = “point‑of‑sale” engine → focus on location‑based, conversion‑driven ads.  \n- **Leafly** = “research & discovery” hub → focus on brand storytelling, education, and top‑of‑funnel awareness.\n\n---  \n\n## 2. High‑Impact Ad Formats  \n\n| Format | Why It Works | Best‑Practice Tips |\n|--------|--------------|--------------------|\n| **Sponsored Listings (both)** | Appear at the top of search results for strains, products, or dispensaries → immediate visibility. | • Use keyword‑rich titles (e.g., “High‑THC Indica – 25% THC”). <br>• Keep pricing & inventory up‑to‑date via API. |\n| **Featured Dispensary / Brand Carousel** | Eye‑catching visual slot that drives clicks to a custom landing page. | • Rotate creative weekly to avoid “ad fatigue”. <br>• Include a clear CTA (e.g., “Reserve Now”, “Order Delivery”). |\n| **Push Notifications / SMS** (Weedmaps) | Direct, time‑sensitive messages (happy hour, flash sales). | • Segment by zip‑code & purchase history. <br>• Limit to ≤2 messages/week to stay compliant & avoid opt‑outs. |\n| **Content Sponsorship (Leafly)** | Branded articles, strain guides, or “How‑to” videos appear in editorial streams → builds authority. | • Provide value‑first content (e.g., “Beginner’s Guide to Micro‑dosing”). <br>• Use native tone; disclose sponsorship per platform policy. |\n| **Review Amplification** | Encourage verified purchasers to leave 5‑star reviews; high review volume boosts organic ranking. | • Offer post‑purchase email prompts with a simple “Rate your experience” link. <br>• Never incentivize positive ratings (illegal in many states). |\n| **Geo‑Fenced Display Ads** | Target consumers within a 5‑mile radius of a store or event. | • Pair with limited‑time offers (“Free pre‑roll with any purchase”). <br>• Use dynamic creative that swaps in the nearest location name. |\n| **Video/Story Ads (Leafly Mobile)** | Short (6‑15 sec) looping videos in the feed capture attention. | • Show product in use, lab‑tested results, or brand personality. <br>• Include subtitles (most watch muted). |\n\n---  \n\n## 3. Targeting Strategies That Deliver ROI  \n\n1. **Location + Purchase Intent**  \n   - **Weedmaps:** Use the platform’s “delivery radius” data to target users who have ordered within 15 miles of your store.  \n   - **Leafly:** Target by “state‑legal” filters + “looking for dispensaries” keyword.\n\n2. **Behavioral Segments**  \n   - **New Users** – Show introductory offers (e.g.,\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1164 (164?1000) | Cost: $0.000000*",
+      "duration": 17110,
+      "grade": "F",
+      "score": 51,
+      "grading": {
+        "length": "Pass",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "2/5 key words"
+      },
+      "expectedKeywords": []
     }
   ],
-  "status": "In Progress: 320/438 questions completed"
+  "status": "In Progress: 330/438 questions completed"
 }
