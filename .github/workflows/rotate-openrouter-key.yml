@@ -95,13 +95,36 @@ jobs:
           GH_TOKEN: ${{ secrets.GH_PAT }}
           GITHUB_TOKEN: ${{ secrets.GH_PAT }}
         run: |
-          chmod +x scripts/openrouter-key-manager.js
-          node scripts/openrouter-key-manager.js rotate --delete-old || {
-            echo "❌ Provisioning API rotation failed"; 
-            echo "Checking logs...";
-            ls -la logs/ || true;
-            exit 1;
-          }
+          set -euxo pipefail
+          
+          # Create new key
+          echo "🔑 Creating new OpenRouter API key..."
+          RESPONSE=$(curl -sS -X POST https://openrouter.ai/api/v1/keys \
+            -H "Authorization: Bearer $OPENROUTER_PROVISIONING_KEY" \
+            -H "Content-Type: application/json" \
+            -d "{\"name\":\"Formul8-Auto-$(date +%Y%m%d-%H%M%S)\"}")
+          
+          NEW_KEY=$(echo "$RESPONSE" | jq -r '.key')
+          if [ -z "$NEW_KEY" ] || [ "$NEW_KEY" = "null" ]; then
+            echo "❌ Failed to create key"
+            echo "Response: $RESPONSE"
+            exit 1
+          fi
+          
+          echo "✅ Key created: ${NEW_KEY:0:20}..."
+          
+          # Update GitHub secret
+          echo "🔐 Updating GitHub secret..."
+          echo "$NEW_KEY" | gh secret set OPENROUTER_API_KEY
+          echo "✅ GitHub secret updated"
+          
+          # Update Vercel
+          echo "🔐 Updating Vercel environment..."
+          vercel env rm OPENROUTER_API_KEY production --token="$VERCEL_TOKEN" --yes || true
+          echo "$NEW_KEY" | vercel env add OPENROUTER_API_KEY production --token="$VERCEL_TOKEN"
+          echo "✅ Vercel environment updated"
+          
+          echo "✅ Rotation complete!"
       
       - name: Upload rotation log
         if: always()
