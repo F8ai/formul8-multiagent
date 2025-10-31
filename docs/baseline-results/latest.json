@@ -1,11 +1,11 @@
 {
-  "timestamp": "2025-10-31T15:52:07.096Z",
+  "timestamp": "2025-10-31T15:53:28.557Z",
   "url": "https://chat.formul8.ai",
   "totalQuestions": 438,
-  "completed": 140,
-  "passed": 8,
-  "failed": 132,
-  "averageScore": "36.11",
+  "completed": 150,
+  "passed": 10,
+  "failed": 140,
+  "averageScore": "36.61",
   "averageGrade": "F",
   "results": [
     {
@@ -2618,7 +2618,203 @@
         "relevance": "4/5 key words"
       },
       "expectedKeywords": []
+    },
+    {
+      "questionNum": 141,
+      "question": "What documents should be ready for a surprise inspection (binder contents)?",
+      "category": "compliance-recordkeeping-and-seedtosale",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": true,
+      "response": "Below is a practical “inspection binder” checklist that covers the most‑common documents regulators ask for during a **surprise (unannounced) inspection** of a cannabis‑related operation.  \nAdjust the list to match the specific requirements of your state/municipality, but keeping these items on‑hand will put you in the best position to pass any audit.\n\n---\n\n## 1. Licensing & Regulatory Authorizations\n| Document | Why it’s needed |\n|----------|----------------|\n| Current state/local **Cannabis Business License** (cultivation, manufacturing, retail, distribution, testing, etc.) | Proof you are legally authorized to operate. |\n| **Renewal/ amendment** approvals, if any | Shows you are up‑to‑date with any changes. |\n| **Local permits** (building, fire, zoning, health) | Required for compliance with municipal codes. |\n| **Certificate of Occupancy** (if applicable) | Confirms the space is approved for cannabis use. |\n\n---\n\n## 2. Standard Operating Procedures (SOPs) & Policies\n| Document | Typical sections to include |\n|----------|-----------------------------|\n| **Master SOP Manual** (cultivation, processing, packaging, transport, security, waste) | Step‑by‑step processes, responsible staff, record‑keeping requirements. |\n| **Employee Handbook** (code of conduct, safety, anti‑diversion) | Demonstrates workforce training and compliance culture. |\n| **Security Plan** (per state §) | Facility, camera placement, alarm system logs, access‑control procedures. |\n| **Quality Assurance / Good Manufacturing Practices (GMP) Plan** | Controls for product consistency and safety. |\n| **Recall/Recall‑Readiness Plan** | Procedure for product removal, communication, and documentation. |\n\n---\n\n## 3. Personnel Records\n| Document | Details to retain |\n|----------|-------------------|\n| **Employee/contractor roster** (name, role, license number, background check) | Verifies only qualified persons have access. |\n| **Training logs** (date, trainer, topics – e.g., SOPs, security, hygiene) | Shows staff are competent. |\n| **Timesheets / labor hour logs** | Required for wage law compliance and audit of overtime. |\n| **Medical/health certifications** (if required for handling certain products) | Demonstrates compliance with health regulations. |\n\n---\n\n## 4. Inventory & Seed‑to‑Sale Tracking\n| Document | What to include |\n|----------|-----------------|\n| **Daily/weekly inventory logs** (plant count, weight, location) | Matches seed‑to‑sale system. |\n| **Manifest/transport records** (inbound/outbound) | Shows product movement and chain of custody. |\n| **Harvest/processing records** (batch numbers, yields, dates) | Links raw material to finished product. |\n| **Waste disposal logs** (method, date, third‑party hauler) | Confirms proper diversion prevention. |\n| **Seed/clone purchase agreements** | Proof of legal source for genetics. |\n\n---\n\n## 5. Testing & Product Documentation\n| Document | Why it matters |\n|----------|----------------|\n| **Laboratory test certificates** (potency, pesticides, residual solvents, microbial) for every batch | Required before product can be sold. |\n| **Certificate of Analysis (COA) archive** (signed, dated, lab accreditation) | Verifies compliance with safety standards. |\n **Product label approvals** (if state requires pre‑approval) | Confirms label accuracy. |\n| **Batch production records** (ingredients, equipment used, personnel) | Connects COA to the specific batch. |\n\n---\n\n## 6. Financial & Tax Records\n| Document | Typical retention period (varies by state) |\n|----------|--------------------------------------------|\n| **General ledger & bank statements** | 3–5 years |\n| **Sales tax / excise tax filings** (including 280E compliance) | 3–5 years |\n| **Cash handling logs** (if you accept cash) | 3 years |\n| **Audit trail from seed‑to‑sale software** (exported PDF/CSV) | 3–5 years |\n\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1164 (164?1000) | Cost: $0.000000*",
+      "duration": 8857,
+      "grade": "F",
+      "score": 54,
+      "grading": {
+        "length": "Pass",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "3/5 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 142,
+      "question": "How do I set electronic signatures and access controls for controlled records?",
+      "category": "compliance-recordkeeping-and-seedtosale",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": true,
+      "response": "Below is a practical, step‑by‑step framework you can follow to put electronic signatures (e‑signatures) and access controls in place for **controlled records** (e.g., seed‑to‑sale logs, lab results, inventory manifests, employee training files, etc.). The guidance is aligned with common regulatory expectations such as **21 CFR Part 11**, state cannabis tracking requirements (e.g., CA Bureau of Cannabis Control, MA Cannabis Control Commission), and general information‑security best practices.\n\n---\n\n## 1️⃣ Define the Scope of “Controlled Records”\n\n| Record Type Typical Regulatory Triggers | Example Controls |\n|-------------|----------------------------|------------------|\n| **Cultivation/Manufacturing logs** | Seed‑to‑sale, pesticide use, waste disposal | Immutable audit trail, signed by grow manager |\n|Laboratory test results** | Potency, contaminants, pesticide testing | Dual‑sign‑off (lab analyst + QA) |\n| **Inventory & transfer manifests** | Transport, sales to retailers | E‑signature of shipper & receiver |\n| **Employee training & SOPs** | Safety, security, compliance | Signed by employee & supervisor |\n| **Financial & tax docs** | Cost of goods, excise tax reporting | Restricted to finance & compliance staff |\n\n> **Tip:** Create a master list in a spreadsheet or GRC tool; tag each record with its required control level (e.g., “high‑risk – dual sign‑off”).\n\n---\n\n## 2️⃣ Choose a Compliant‑Signature Solution\n\n| Feature | Why It Matters | Recommended Vendors (examples) |\n|---------|----------------|--------------------------------|\n| **21 CFR Part 11 compliance** (or state‑specific e‑signature rules) | Guarantees legal acceptability & auditability | **DocuSign for Enterprise**, **Adobe Sign**, **OneSpan Sign** |\n| **Role‑Based Access Control (RBAC)** | Limits who can view/sign each record | Same vendors (RBAC built‑in) |\n| **Secure authentication** (MFA, SSO, PKI) | Prevents impersonation | Duo, Okta, Azure AD |\n| **Tamper‑evident logs** | Provides immutable evidence of who did what, when | Built‑in in above solutions |\n| **Integration with core cannabis software** (METRC, BioTrackTHC, LeafData, etc.) | Eliminates double‑entry & ensures data consistency | Check vendor APIs or marketplace connectors |\n\n**Implementation checklist**\n\n1. **Validate compliance** – Confirm the vendor’s certification (e.g., Part 11 validation report).  \n2. **Map document types** – Align each controlled record to a template in the e‑signature platform.  \n3 **Configure signing workflow** – Define required signers (e.g., analyst → QA manager → compliance officer).  \n4. **Test end‑to‑end** – Run a pilot with a few records, verify audit logs capture timestamps, IPs, and signer identity.  \n\n---\n\n## 3️⃣ Set Up Role‑Based Access Controls (RBAC)\n\n| Step | Action | Typical Roles (example) |\n|------|--------|--------------------------|\n| **Identify user groups** | List all functional areas (Cultivation, Lab, Distribution, Finance, Compliance, IT). | Grow Manager, Lab Analyst, QA Lead, Sales Rep, Finance Officer, Compliance Officer, IT Admin |\n| **Define permissions per role** | – **Read**: view only <br>– **Write**: create/edit <br– **Sign**: apply e‑signature <br>– **Admin**: manage users & settings | • Grow Manager – read/write/sign on cultivation\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1164 (164?1000) | Cost: $0.000000*",
+      "duration": 8427,
+      "grade": "D",
+      "score": 60,
+      "grading": {
+        "length": "Pass",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "5/5 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 143,
+      "question": "Can you map my data fields so batch records sync correctly to seed-to-sale?",
+      "category": "compliance-recordkeeping-and-seedtosale",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": true,
+      "response": "Sure thing! To get your batch records syncing smoothly with your seed‑to‑sale (STS) platform, we’ll need to line up the source fields you’re exporting with the exact field set the STS system expects. Here’s a quick checklist and a basic mapping template you can start filling in. Let me know the specifics of your source system (e.g., ERP, lab LIMS, custom spreadsheet) and which STS solution you’re using (BioTrackTHC, MJ Freeway, LeafLogix, etc.), and I can fine‑tune the mapping or hand it off to our Integration Specialist.\n\n---\n\n### 1️⃣ Key STS Batch Record Fields (common across most platforms)\n\n| STS Field (Target) | Description | Required? | Typical Data Type |\n|--------------------||-----------|-------------------|\n| **BatchID** | Unique identifier for the batch | Yes |/UUID |\n| **ProductSKU** | SKU or internal product code | Yes | String |\n| **StrainID** | Reference to strain master list | Yes | String/ID |\n| **BatchDate** | Date the batch was created/processed | Yes | Date (ISO 8601) |\n| **QuantityProduced** | Total weight (g, kg, oz) | Yes | Decimal |\n| **Units** | Unit of measure (g, kg, oz) | Yes | String |\n| **THC%** | THC potency (if applicable) | No | Decimal |\n| **CBD%** | CBD potency (if applicable) | No | Decimal |\n| **TestingStatus** | “Pending”, “Passed”, “Failed” | Yes | Enum |\n| **LabResultID** | Link to lab results record | No | String |\n| **HarvestDate** | Date of harvest (if applicable) | No | Date |\n| **PackagingType** | e.g., “Flower”, “Oil”, “Edible” | Yes | Enum |\n| **LocationID** | Facility/room where batch resides | Yes | String |\n| **CreatedBy** | User who entered the batch | No | String |\n| **CreatedTimestamp** | When the record was created | Yes | DateTime |\n| **ModifiedTimestamp** | Last update timestamp | No | DateTime |\n\n*(Your STS may have extra custom fields – just add them to the list.)*\n\n---\n\n### 2️⃣ Sample Mapping Template\n\n| Source System Field | Target STS Field | Transformation Needed? | Comments |\n|---------------------|------------------|------------------------|----------|\n| `batch_number`      | `BatchID`        | None (ensure uniqueness) | May need to prepend plant ID |\n| `product`      | `ProductSKU`     | Upper‑case conversion | |\n| `strain_name`       | `StrainID`       | Lookup to STS strain table | Use a reference table |\n| `date_created`      | `BatchDate`      | Format to `YYYY‑MM‑DD` | |\n| `total_weight_g`    | `QuantityProduced` | Convert to kg if STS expects kg | |\n| `weight_uom`        | `Units`          | Map “g” → “g”, “kg” → “kg” | |\n| `thc_percent`       | `THC%`           | Round to 2 decimals | Optional field |\n| `cbd_percent`       | `CBD%`           | Round to 2 decimals | Optional field |\n| `test_status`       | `TestingStatus`  | Map “P” → “Passed”, “F” → “Failed” | |\n| `lab_result_id`     | `LabResultID`    | None | |\n| `harvest_dt`        | `HarvestDate`    | Date format conversion | |\n| `pack_type`         | `PackagingType`  | Enum mapping (e.g., “flower” → “Flower\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1167 (167?1000) | Cost: $0.000000*",
+      "duration": 11358,
+      "grade": "F",
+      "score": 54,
+      "grading": {
+        "length": "Pass",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "3/5 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 144,
+      "question": "What’s the best way to track transport manifests and retention periods?",
+      "category": "compliance-recordkeeping-and-seedtosale",
+      "response": null,
+      "error": "Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON",
+      "duration": 144,
+      "grade": "F",
+      "score": 0,
+      "actualAgent": "error",
+      "actualAgentName": "Error parsing response",
+      "expectedAgent": "f8_agent",
+      "agentMatch": false
+    },
+    {
+      "questionNum": 145,
+      "question": "How do I set min/max levels and reorder points by SKU?",
+      "category": "inventory-warehousing-and-materials-control",
+      "response": null,
+      "error": "Unexpected non-whitespace character after JSON at position 4 (line 1 column 5)",
+      "duration": 78,
+      "grade": "F",
+      "score": 0,
+      "actualAgent": "error",
+      "actualAgentName": "Error parsing response",
+      "expectedAgent": "f8_agent",
+      "agentMatch": false
+    },
+    {
+      "questionNum": 146,
+      "question": "Can you help me implement FEFO/FIFO for ingredients and packaging?",
+      "category": "inventory-warehousing-and-materials-control",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": true,
+      "response": "Absolutely—implementing FEFO (First Expired, First Out) and FIFO (First In, First Out) is a best‑practice for any cannabis operation that handles both ingredients (e.g., cannabinoids, terpenes, excipients) and packaging (bottles, cartridges, labels). Below is a concise, step‑by‑step framework you can adapt to your current workflow, whether you’re using a spreadsheet, a generic ERP, or a dedicated seed‑to‑sale platform.\n\n---\n\n## 1️⃣  Define the Data Model\n\n| Field | Why It Matters | Typical Source |\n|------|----------------|----------------|\n| **Item ID** | Unique identifier for each SKU (ingredient or packaging) | Master catalog |\n| **Batch / Lot Number** | Tracks production/receipt batch (critical for recall) | Supplier or in‑house batch creation |\n| **Received Date** | Basis for FIFO ordering | Receiving log |\n| **Expiration Date** | Basis for FEFO ordering (mandatory for perishable ingredients) | Supplier certificate of analysis (COA) |\n| **Quantity On‑Hand** | Current stock level | Inventory count |\n| **Location** | Shelf, freezer, or warehouse zone | WMS (Warehouse Management System) |\n| **Status** (e.g., “Quarantine”, “Approved”) | Controls usage eligibility | Quality‑control system |\n\n*Tip:* In most cannabis ERP/seed‑to‑sale platforms (e.g., BioTrackTHC, MJ Freeway, Sophic), these fields are already built‑in. If you’re on a generic ERP (SAP Business One, NetSuite), you may need to add custom fields for **Expiration Date** and **Batch Number**.\n\n---\n\n## 2️⃣  Capture Data at Inbound\n\n1. **Receive & Verify**  \n   - Scan barcode/QR code → auto‑populate Item ID, Batch Number, Expiration Date.  \n   - Perform visual inspection; flag any deviations.\n\n2. **Enter into System**  \n   - Record **Received Date** automatically (timestamp).  \n   - Assign **Location** based on temperature/handling requirements.\n\n3. **Confirm Compliance**  \n   - For cannabis ingredients, attach COA and any required state‑level certificates to the batch record.\n\n---\n\n## 3️⃣  Set the Picking Logic\n\n### FIFO (for non‑perishable packaging)\n\n- **Rule:** Pick the **oldest Received Date** first.\n- **Implementation Options**  \n  - **SQL/ERP Query:** `SELECT TOP 1 * FROM Inventory WHERE ItemID = @Item AND Quantity > 0 ORDER BY ReceivedDate ASC`  \n  - **WMS Configuration:** Enable “FIFO” sort order on the pick list generation.\n\n### FEFO (for perishable ingredients)\n\n- **Rule:** Pick the **nearest Expiration Date** first, regardless of receipt order.\n- **Implementation Options**  \n  - **SQL/ERP Query:** `SELECT TOP 1 * FROM Inventory WHERE ItemID = @Item AND Quantity > 0 ORDER BY ExpirationDate ASC`  \n  - **WMS Configuration:** Choose “FEFO” as the default algorithm for any SKU flagged as “Perishable”.\n\n*Note:* Some platforms let you tag a SKU as “FEFO‑Managed”; the system then automatically switches the algorithm.\n\n---\n\n## 4️⃣  Automate Re‑order & Shelf‑Life Alerts\n\n| Alert Type | Trigger | Action |\n|-----------|---------|--------|\n| **Imminent Expiry** | Expiration Date ≤ today + X days (X = 7–30 depending on product) | Flag for usage or discount promotion |\n| **Low FIFO Stock** | Quantity on hand ≤ safety stock | Generate purchase order |\n| **Batch‑Specific Recall** | Recall issued for specific Batch Number | Auto‑exclude batch from pick lists and generate quarantine report\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1165 (165?1000) | Cost: $0.000000*",
+      "duration": 9458,
+      "grade": "F",
+      "score": 52.5,
+      "grading": {
+        "length": "Pass",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "2/4 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 147,
+      "question": "What cycle-count schedule should I run to reduce variance?",
+      "category": "inventory-warehousing-and-materials-control",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": true,
+      "response": "### Quick‑Start Cycle‑Count Blueprint for Variance Reduction  \n\n| Item Class | Selection Rule | Count Frequency | Typical Timing | Why It Helps Variance |\n|------------|----------------|----------------|----------------|----------------------|\n| **A‑items** (top 10‑20 % of dollar value / highest turnover) | 100 % of SKUs | **Daily** (or every shift for very fast‑moving lines) | Early‑shift or end‑of‑day when the warehouse is quiet | Spot‑checks the biggest risk drivers; any drift is caught immediately, preventing variance from propagating. |\n| **B‑items** (next 30‑40 % of value/turnover) | 100 % of SKUs | **Weekly** (Mon‑Fri, rotate) | Same day each week (e.g., Tuesdays) | Gives a regular “pulse” on medium‑risk stock without over‑burdening staff. |\n| **C‑items** (low‑value, low‑turn) | Random sample of 20‑30 % of SKUs | **Monthly** (first business day) | Fixed calendar date (e.g., 1st of month) | Controls drift in the long tail; sampling keeps effort manageable. |\n| **D‑items** (very low activity, seasonal) | 5‑10 % random sample | **Quarterly** | End of quarter | Provides a safety net for seldom‑used inventory. |\n\n> **Goal:** By concentrating counts where variance has the biggest financial impact (A‑items) and using a statistically‑sound sampling regime elsewhere, you shrink the overall standard deviation of inventory accuracy.\n\n---\n\n## Step‑by‑Step Implementation\n\n1. **Run an ABC‑XYZ analysis**  \n   * **ABC** = value/turnover (A‑high, B‑mid, C‑low).  \n   * **XYZ** = demand stability (X‑steady, Y‑moderate, Z‑sporadic).  \n   Combine the two to get 9 buckets (e.g., AX, BY, CZ). Prioritize AX → daily, BY → weekly, CZ → monthly/quarterly.\n\n2. **Set a baseline variance metric**  \n   * Use **Cycle‑Count Accuracy (CCA)** = 1 – (|system – physical| ÷ system).  \n   * Track **Standard Deviation (σ)** of the count errors per class.  \n   * Goal: σ ≤ 5 % for A, ≤ 10 % for B, ≤ 15 % for C.\n\n3. **Create the counting calendar**  \n   * Export the SKU list with class tags into a simple spreadsheet or directly into your WMS/ERP (e.g., Fishbowl, NetSuite, SAP).  \n   * Auto‑generate daily/weekly/monthly work orders based on the table above.  \n   * Assign owners (e.g., receiving team for A‑items, inventory team for B/C).\n\n4. **Perform counts using “blind” methodology**  \n   * Counters do **not** see the system quantity before counting.  \n   * Record results in the WMS; let the system calculate variance automatically.\n\n5. **Analyze variance & root‑cause** (after each cycle)  \n   * If σ for a class exceeds the target, drill down:  \n     - Receiving errors?  \n     - Put‑away location drift?  \n     - Damaged/expired adjustments?  \n   * Apply corrective actions (process SOP updates, staff retraining, barcode enforcement).\n\n6. **Adjust schedule dynamically**  \n   * **Increase frequency** for any SKU whose σ > target for two consecutive cycles.  \n   * **Decrease frequency** (or move to a lower class) when σ stays < target for ≥ 3 months.\n\n---\n\n##\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1162 (162?1000) | Cost: $0.000000*",
+      "duration": 9321,
+      "grade": "F",
+      "score": 48,
+      "grading": {
+        "length": "Pass",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "1/5 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 148,
+      "question": "How do I segregate quarantined, rejected, and released inventory in the WMS?",
+      "category": "inventory-warehousing-and-materials-control",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": true,
+      "response": "### Segregating Quarantined, Rejected and Released Inventory in a Cannabis‑compliant WMS  \n\n| **Goal** | **Key WMS Features to Use** | **Typical Setup Steps** | **Compliance** |\n|----------|----------------------------|--------------------------|----------------------|\n| **Quarantined** (items pending QC, awaiting test results, or on hold) | • **Status/Disposition codes** (e.g., *Quarantine*) <br>• **Dedicated “Quarantine” location type** (locked, temperature‑controlled if required) <br>• **Batch/lot tracking** linked to QC work orders | 1. **Create a status code** called *Quarantine* (or *QC Hold*). <br>2. **Define a location group** (e.g., “Q‑Zone”) that is isolated from regular pick zones. <br>3. **Configure inbound receiving rules** so any product flagged for testing automatically receives the *Quarantine* status and is routed to the Q‑Zone. <br>4. **Tie QC work‑order workflow** to the status change – when a test is completed, the system moves the lot to *Released* (or *Rejected*) automatically. | • Keep a **paper‑trail** of who changed the status and when (audit log). <br>• Restrict user permissions: only QC managers can change *Quarantine* → *Released/Rejected*. |\n| **Rejected** (failed QC, out‑of‑spec, or non‑compliant) | • **Reject status code** (e.g., *Rejected – Destroy* or *Rejected – Return*) <br>• **Disposition location** (e.g., “Destruction Area” or “Return Dock”) <br>• **Automated disposal work order** | 1. **Create a “Rejected” status** linked to a disposition rule (e.g., auto‑generate a destruction work order). <br>2. **Set up a “Rejected” location** that is separate from both pick and quarantine zones. <br>3. **Configure a rule**: when QC result = FAIL, status → *Rejected* and inventory is moved to the disposition location. <br>4. **Generate a compliance report** (batch, test result, disposition) for regulator upload. | • Ensure **chain‑of‑custody** is captured for every rejected lot. <br>• Keep the destroyed/rejected inventory **physically isolated** until a final sign‑off. |\n| **Released** (passed QC, ready for sale) | • **Released status** (default “Available”) <br>• **Standard pick locations** (aisles, bins) <br>• **Batch/lot visibility** for traceability | 1. When QC work order is marked *PASS*, the system automatically changes status to *Released*. <br>2. **Move inventory** from quarantine to its assigned pick location (can be done via automated transfer order). <br>3. Verify that the lot is now **visible in the “available for sale” inventory report**. | • Run a **daily reconciliation** between released inventory and sales orders. <br>• Keep the *Release* timestamp for each lot for traceability. |\n\n---\n\n## Step‑by‑Step Implementation Checklist  \n\n1. **Define Status Codes**  \n   - `Q` – Quarantine (QC Hold)  \n   - `R` – Released (Ready for Sale)  \n   - `RJ` – Rejected (Destroy/Return)  \n\n2. **Create Location Types**  \n   - **Quarantine Zone** – locked, limited access, temperature‑controlled if needed.  \n   - **Rejected Zone** – separate from pick area, clearly labeled for disposal.  \n   - **Standard Pick Zones** – where released inventory lives.  \n\n3. **Set Up Workflow Rules**  \n   - **Receiving → QC**: Auto‑assign `Q` status and route to Quarantine Zone.  \n   - **QC Pass**: Status changes `Q → R`; generate a **transfer order** to move to pick location.  \n   - **QC Fail**: Status changes `Q → RJ`; generate **disposal work order**; move to Rejected Zone.  \n\n4. **User Permissions**  \n   - **QC\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1169 (169?1000) | Cost: $0.000000*",
+      "duration": 9507,
+      "grade": "F",
+      "score": 54,
+      "grading": {
+        "length": "Pass",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "3/5 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 149,
+      "question": "Can you design a location codification (bin/shelf/aisle) and label schema?",
+      "category": "inventory-warehousing-and-materials-control",
+      "agent": "unknown",
+      "actualAgent": "formulation",
+      "actualAgentName": "Formulation Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": false,
+      "response": "Below is a **complete, scalable system** you can adopt for any cannabis‑focused operation (cultivation, processing, or retail).  \nIt separates **physical location coding** (where the product lives) from **label coding** (what the product is). Both are human‑readable, barcode/QR‑ready, and compliant with most state seed‑to‑sale regulations.\n\n---\n\n## 1️⃣ Physical‑Location Codification  \n**Structure:** `A‑S‑R‑L‑B`  \n\n| Segment | Meaning | Format | Example |\n|---------|---------|--------|---------|\n| **A** – Aisle | Main corridor or zone (1‑99) | 2‑digit numeric, left‑padded with 0 | `04` |\n| **S** – Section | Sub‑area within aisle (e.g., temperature zone) | 1‑letter (A‑Z) | `C` |\n| **R** – Rack | Shelf‑unit or pallet rack identifier | 2‑digit numeric | `07` |\n| **L** – Level | Shelf height on the rack (1‑9) | 1‑digit numeric | `3` |\n| **B** – Bin | Individual bin/box drawer (1‑99) | 2‑digit numeric | `12` |\n\n**Full code:** `04‑C‑07‑3‑12`  \n*Read as:* “Aisle 4, Section C, Rack 07, Level 3, Bin 12”.\n\n### Why this works\n* **Hierarchical** – you can quickly locate a product by scanning the first two segments (aisle/section) to narrow down the area.\n* **Scalable** – supports up to 9 900 bins per aisle; add more aisles or sections as you grow.\n* **Human‑friendly** – each segment is short enough to be printed on a 1‑inch label.\n* **Barcode/QR ready** – encode the whole string in Code‑128 or QR; scanning pulls the location into your WMS.\n\n---\n\n## 2️⃣ Product‑Label Schema  \n**Structure:** `TYPE‑POT‑BATCH‑EXP‑LOC`  \n\n| Segment | Meaning | Format | Example |\n|---------|---------|--------|---------|\n| **TYPE** | Product family (flower, concentrate, edible, top‑coat, etc.) | 3‑letter code | `FLW` |\n| **POT** | Potency (THC%‑CBD%) – two‑digit each, no decimal | `TTCC` (TT = THC × 10, CC = CBD × 10) | `1830` = 18.3 % THC, 3.0 % CBD |\n| **BATCH** | Manufacturer batch/lot number | Up to 6 alphanumerics (right‑padded) | `A12B3` |\n| **EXP** | Expiration (YYMMDD) | 6‑digit numeric | `250731` |\n| **LOC** | Physical location code (see above) | 9‑character string (no hyphens) | `04C07312` |\n\n**Full label string (human‑readable):**  \n\n```\nFLW‑1830‑A12B3‑250731‑04C07312\n```\n\n### QR/Barcode Content\nEncode the **exact same string** (or a JSON payload) in a **QR code**. A simple scan yields:\n\n```json\n{\n  \"type\":\"FLW\",\n  \"thc\":18.3,\n  \"cbd\":3.0,\n  \"batch\":\"A12B3\",\n  \"exp\":\"2025-0731\",\n  \"location\":\"04C07312\"\n}\n```\n\n---\n\n## 3️⃣ Label Layout (7 × 3 in printable sticker)\n\n| Position | Content | Font |\n|----------|---------|------|\n| **Top‑Left** | **Company logo** | 10 pt |\n| **Top‑Center** | **Product name\n\n---\n*Agent: Formulation Agent | Plan: Standard | Tokens: 1212 (212?1000) | Cost: $0.000000*",
+      "duration": 11305,
+      "grade": "F",
+      "score": 54,
+      "grading": {
+        "length": "Pass",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "3/5 key words"
+      },
+      "expectedKeywords": []
+    },
+    {
+      "questionNum": 150,
+      "question": "How do I measure and reduce inventory shrink in processing vs. retail?",
+      "category": "inventory-warehousing-and-materials-control",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": true,
+      "response": "Below is a practical framework you can use to **measure** and **reduce** inventory shrink in both **processing** (manufacturing/packaging) and **retail** (dispensary) operations. The steps are ordered from data‑capture → analysis → action, and each section includes quick‑wins you can implement today and longer‑term controls you can layer in as you grow.\n\n---\n\n## 1. Define Shrink & Set the KPI\n\n| Metric | Formula | Typical Benchmark (Cannabis) |\n|--------|---------|------------------------------|\n| **Shrink %** | \\((\\text{Theoretical Inventory} - \\text{Physical Count}) ÷ \\text{Theoretical Inventory} × 100\\) | 1‑3 % for mature operations (≤ 2 % is excellent) |\n| **Shrink per Unit** | \\((\\text{Theoretical} - \\text{Physical}) ÷ \\text{Units Produced/Sold}\\) | Helpful when product mix varies dramatically |\n| **Cost‑of‑Shrink** | \\(\\text{Shrink %} × \\text{Average Unit Cost}\\) | Turns % into dollars for ROI calculations |\n\n*Theoretical inventory* = opening balance + receipts – sales/shipments – disposals (including waste, testing losses, etc.).\n\n---\n\n## 2. Measurement System – “What to Count, When, and How”\n\n| Area | What to Reconcile | Frequency | Tools / Formul8 Feature |\n|------|-------------------|-----------|--------------------------|\n| **Processing** | • Raw material (flower, trim, extracts) <br>• Work‑in‑process (WIP) batches <br>• Finished product (pre‑pack)br>• Waste & testing samples | • Daily “batch‑level” reconciliation (per run) <br>• Weekly full cycle count of WIP & finished goods | • Formul8 **Batch Ledger** (auto‑posts material usage) <br>• **Lot‑to‑Lot Traceability** reports <br>• Mobile barcode scanner integration |\n| **Retail** | • Receiving (vendor deliveries) <br>• Shelf/stockroom inventory <br>• POS sales <br>• Returns & disposals | • Receiving: real‑time (as soon as docked) <br>• Shelf: **Per‑product** cycle count every 2 weeks (high‑velocity) <br>• Full store count monthly | • Formul8 **POS‑Inventory Sync** (real‑time delta alerts) <br>• **Shrink Dashboard** (automated variance alerts) <br>• RFID/barcode scanners at point‑of‑sale & back‑room |\n\n**Key practice:** *Never rely on a single data source.* Always cross‑reference POS data with the ERP’s inventory ledger and physical counts.\n\n---\n\n## 3. Root‑Cause Diagnosis – “Why is it shrinking?”\n\n| Common Causes | How to Spot It | Mitigation Tips |\n|---------------|----------------|-----------------|\n| **Human error** (mis‑picks, double‑entry) | High variance on specific SKUs, spikes after shift changes | • Mandatory double‑check for any “adjustment” entry <br>• Use barcode/RFID scanning for every receipt, move, and sale <br>• Enforce “no‑adjust” policy except via manager approval |\n| **Process loss** (evaporation, testing burn‑rate) | Shrink appears in “processing” but not in “retail” reports | • Capture **testing loss factor** per batch in Formul8 (e.g., 1‑2 % of weight) <br>• Track “wet‑weight → dry‑weight” conversion accurately <br>• Include loss factor in theoretical inventory calculations |\n| **Theft / Diversion** |\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1165 (165?1000) | Cost: $0.000000*",
+      "duration": 8985,
+      "grade": "D",
+      "score": 60,
+      "grading": {
+        "length": "Pass",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "5/5 key words"
+      },
+      "expectedKeywords": []
     }
   ],
-  "status": "In Progress: 140/438 questions completed"
+  "status": "In Progress: 150/438 questions completed"
 }
