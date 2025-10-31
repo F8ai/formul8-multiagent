@@ -748,6 +748,16 @@ sequenceDiagram
   // Also create sequence.html as an alias
   await fs.writeFile(path.join(pagesDir, 'sequence.html'), sequenceDiagramHtml);
   
+  // Copy agents.html from root to pages directory
+  const agentsHtmlPath = path.join(__dirname, '..', 'agents.html');
+  try {
+    const agentsHtml = await fs.readFile(agentsHtmlPath, 'utf8');
+    await fs.writeFile(path.join(pagesDir, 'agents.html'), agentsHtml);
+    console.log('✅ Copied agents.html to pages directory');
+  } catch (error) {
+    console.warn('⚠️  Could not copy agents.html:', error.message);
+  }
+  
   console.log('✅ Static pages built successfully!');
   console.log(`📁 Pages directory: ${pagesDir}`);
   console.log('🚀 Ready for GitHub Pages deployment');

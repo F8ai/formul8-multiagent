@@ -7,6 +7,7 @@ on:
       - 'sequence-diagram.md'
       - 'scripts/build-pages.js'
       - '.github/workflows/github-pages.yml'
+      - 'agents.html'
   workflow_dispatch:
 
 permissions:
