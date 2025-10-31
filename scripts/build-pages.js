@@ -748,14 +748,107 @@ sequenceDiagram
   // Also create sequence.html as an alias
   await fs.writeFile(path.join(pagesDir, 'sequence.html'), sequenceDiagramHtml);
   
-  // Copy agents.html from root to pages directory
-  const agentsHtmlPath = path.join(__dirname, '..', 'agents.html');
+  // Build agents.html with dynamic data from baseline.json files
+  const agentsDir = path.join(__dirname, '..', 'agents');
+  const agentsData = [];
+  
+  // RAG data sizes from AGENT_DATA_S3_ARCHITECTURE.md
+  const ragSizes = {
+    'sourcing-agent': '12GB',
+    'compliance-agent': '3.3GB',
+    'metabolomics-agent': '1.3GB',
+    'future-agent': '410MB',
+    'patent-agent': '4.2MB',
+    'science-agent': '324KB',
+    'mcr-agent': '228KB',
+    'formulation-agent': '4KB',
+    'operations-agent': '4KB',
+    'editor-agent': null,
+    'ad-agent': null,
+    'customer-success-agent': null,
+    'marketing-agent': null,
+    'spectra-agent': null,
+    'f8-slackbot': null
+  };
+  
+  const ragSources = {
+    'formulation-agent': 'science-agent (324KB)'
+  };
+  
+  const descriptions = {
+    'ad-agent': 'Advertising campaigns and marketing strategy',
+    'compliance-agent': 'State regulations and compliance documentation',
+    'customer-success-agent': 'Customer retention and engagement',
+    'editor-agent': 'File management and document editing',
+    'f8-slackbot': 'Team collaboration and communication',
+    'formulation-agent': 'Product formulation specialist',
+    'marketing-agent': 'Brand and marketing strategy',
+    'mcr-agent': 'Master Control Records documentation',
+    'operations-agent': 'Facility operations management',
+    'patent-agent': 'Patent records and IP research',
+    'science-agent': 'Research papers and scientific studies',
+    'sourcing-agent': 'Supplier databases, pricing, and availability',
+    'spectra-agent': 'Spectral analysis and processing'
+  };
+  
   try {
-    const agentsHtml = await fs.readFile(agentsHtmlPath, 'utf8');
+    const agentDirs = await fs.readdir(agentsDir);
+    
+    for (const agentName of agentDirs) {
+      const baselinePath = path.join(agentsDir, agentName, 'baseline.json');
+      try {
+        const baselineContent = await fs.readFile(baselinePath, 'utf8');
+        const baseline = JSON.parse(baselineContent);
+        const questionCount = baseline.questions ? baseline.questions.length : 0;
+        
+        agentsData.push({
+          agent: agentName,
+          questions: questionCount,
+          ragSize: ragSizes[agentName] || null,
+          ragSource: ragSources[agentName] || null,
+          description: descriptions[agentName] || `${agentName} agent`,
+          usesRAG: !!ragSources[agentName],
+          isRAGSource: agentName === 'science-agent'
+        });
+      } catch (error) {
+        // If baseline.json doesn't exist or can't be read, still add agent with 0 questions
+        agentsData.push({
+          agent: agentName,
+          questions: 0,
+          ragSize: ragSizes[agentName] || null,
+          ragSource: ragSources[agentName] || null,
+          description: descriptions[agentName] || `${agentName} agent`,
+          usesRAG: !!ragSources[agentName],
+          isRAGSource: agentName === 'science-agent'
+        });
+      }
+    }
+    
+    // Read the agents.html template
+    const agentsHtmlPath = path.join(__dirname, '..', 'agents.html');
+    let agentsHtml = await fs.readFile(agentsHtmlPath, 'utf8');
+    
+    // Replace the hardcoded agentsData with dynamically generated data
+    const agentsDataJson = JSON.stringify(agentsData, null, 2);
+    agentsHtml = agentsHtml.replace(
+      /const agentsData = \[[\s\S]*?\];/,
+      `const agentsData = ${agentsDataJson};`
+    );
+    
     await fs.writeFile(path.join(pagesDir, 'agents.html'), agentsHtml);
-    console.log('✅ Copied agents.html to pages directory');
+    console.log(`✅ Built agents.html with data from ${agentsData.length} agents`);
+    console.log(`   Total questions: ${agentsData.reduce((sum, a) => sum + a.questions, 0)}`);
   } catch (error) {
-    console.warn('⚠️  Could not copy agents.html:', error.message);
+    console.warn('⚠️  Could not build agents.html:', error.message);
+    // Fallback: just copy the file as-is
+    try {
+      const agentsHtmlPath = path.join(__dirname, '..', 'agents.html');
+      const agentsHtml = await fs.readFile(agentsHtmlPath, 'utf8');
+      await fs.writeFile(path.join(pagesDir, 'agents.html'), agentsHtml);
+      console.log('✅ Copied agents.html to pages directory (fallback)');
+    } catch (fallbackError) {
+      console.error('❌ Could not copy agents.html:', fallbackError.message);
+    }
   }
   
   console.log('✅ Static pages built successfully!');
