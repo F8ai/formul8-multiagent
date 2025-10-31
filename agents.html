@@ -80,23 +80,22 @@
         }
 
         .agents-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 25px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
             margin-bottom: 30px;
         }
 
         .agent-card {
             background: rgba(255, 255, 255, 0.95);
             border-radius: 12px;
-            padding: 25px;
             box-shadow: 0 10px 40px rgba(0,0,0,0.2);
-            transition: transform 0.2s, box-shadow 0.2s;
+            transition: box-shadow 0.2s;
             color: #333;
+            overflow: hidden;
         }
 
         .agent-card:hover {
-            transform: translateY(-5px);
             box-shadow: 0 15px 50px rgba(0,0,0,0.3);
         }
 
@@ -104,16 +103,42 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 20px;
-            padding-bottom: 15px;
-            border-bottom: 2px solid #f0f0f0;
+            padding: 20px;
+            cursor: pointer;
+            user-select: none;
+            transition: background 0.2s;
+        }
+
+        .agent-header:hover {
+            background: rgba(102, 126, 234, 0.05);
+        }
+
+        .agent-title-wrapper {
+            display: flex;
+            align-items: center;
+            flex: 1;
+        }
+
+        .collapse-triangle {
+            width: 0;
+            height: 0;
+            border-left: 8px solid #667eea;
+            border-top: 6px solid transparent;
+            border-bottom: 6px solid transparent;
+            margin-right: 12px;
+            transition: transform 0.3s;
+        }
+
+        .agent-card.collapsed .collapse-triangle {
+            transform: rotate(-90deg);
         }
 
         .agent-name {
-            font-size: 1.5em;
+            font-size: 1.3em;
             font-weight: bold;
             color: #333;
             text-transform: capitalize;
+            margin-right: 15px;
         }
 
         .agent-name::before {
@@ -121,8 +146,65 @@
             margin-right: 8px;
         }
 
+        .agent-metrics {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            font-size: 0.95em;
+            color: #666;
+        }
+
+        .metric-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .metric-value {
+            font-weight: bold;
+            color: #667eea;
+        }
+
         .agent-info {
+            padding: 0 20px 20px 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+            opacity: 0;
+        }
+
+        .agent-card.expanded .agent-info {
+            max-height: 5000px;
+            padding: 0 20px 20px 20px;
+            opacity: 1;
+        }
+
+        .questions-list {
             margin-top: 15px;
+        }
+
+        .question-item {
+            padding: 12px;
+            margin-bottom: 8px;
+            background: #f8f9fa;
+            border-radius: 6px;
+            border-left: 3px solid #667eea;
+        }
+
+        .question-text {
+            color: #333;
+            font-size: 0.95em;
+            line-height: 1.5;
+        }
+
+        .question-category {
+            display: inline-block;
+            margin-top: 6px;
+            padding: 3px 8px;
+            background: #e3f2fd;
+            color: #1976d2;
+            border-radius: 4px;
+            font-size: 0.75em;
         }
 
         .info-row {
@@ -328,32 +410,56 @@
         function renderAgentCard(agent) {
             const hasRAG = agent.usesRAG || agent.isRAGSource;
             const ragBadge = hasRAG ? '<span class="badge badge-rag">RAG</span>' : '';
+            const agentDisplayName = agent.agent.replace('-agent', '').replace('f8-', '');
+            const questions = agent.questionList || [];
+            
+            const questionsHtml = questions.length > 0 ? `
+                <div class="questions-list">
+                    ${questions.map(q => `
+                        <div class="question-item">
+                            <div class="question-text">${q.question}</div>
+                            ${q.category && q.category !== 'uncategorized' ? `
+                                <span class="question-category">${q.category}</span>
+                            ` : ''}
+                        </div>
+                    `).join('')}
+                </div>
+            ` : '<div class="questions-list"><p style="color: #999; font-style: italic;">No questions available</p></div>';
             
             return `
-                <div class="agent-card">
+                <div class="agent-card collapsed" onclick="toggleAgent(this)">
                     <div class="agent-header">
-                        <div class="agent-name">${agent.agent.replace('-agent', '').replace('f8-', '')}${ragBadge}</div>
-                    </div>
-                    <div class="agent-info">
-                        <div class="info-row">
-                            <span class="info-label">Baseline Questions</span>
-                            <span class="info-value">${agent.questions}</span>
-                        </div>
-                        <div class="info-row">
-                            <span class="info-label">RAG Source Data</span>
-                            <span class="info-value ${agent.ragSize ? 'has-rag' : ''}">${formatSize(agent.ragSize)}</span>
-                        </div>
-                        ${agent.ragSource ? `
-                            <div class="rag-source">
-                                Uses RAG from: ${agent.ragSource}
+                        <div class="agent-title-wrapper">
+                            <span class="collapse-triangle"></span>
+                            <div class="agent-name">${agentDisplayName}${ragBadge}</div>
+                            <div class="agent-metrics">
+                                <div class="metric-item">
+                                    <span>Questions:</span>
+                                    <span class="metric-value">${agent.questions}</span>
+                                </div>
+                                ${agent.ragSize ? `
+                                    <div class="metric-item">
+                                        <span>RAG:</span>
+                                        <span class="metric-value">${formatSize(agent.ragSize)}</span>
+                                    </div>
+                                ` : ''}
                             </div>
-                        ` : ''}
-                        <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #f0f0f0; color: #666; font-size: 0.9em;">
-                            ${agent.description}
                         </div>
+                    </div>
+                    <div class="agent-info" onclick="event.stopPropagation()">
+                        <div style="margin-bottom: 15px; color: #666; font-size: 0.9em;">
+                            ${agent.description}
+                            ${agent.ragSource ? `<br><span style="font-style: italic; color: #667eea;">Uses RAG from: ${agent.ragSource}</span>` : ''}
+                        </div>
+                        ${questionsHtml}
                     </div>
                 </div>
             `;
+        }
+
+        function toggleAgent(cardElement) {
+            cardElement.classList.toggle('collapsed');
+            cardElement.classList.toggle('expanded');
         }
 
         function renderStats() {

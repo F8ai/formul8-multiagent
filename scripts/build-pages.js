@@ -834,6 +834,7 @@ sequenceDiagram
     
     for (const agentName of agentDirs) {
       let questionCount = 0;
+      let agentQuestions = [];
       
       // Try to get count from root baseline.json first (more accurate)
       if (rootBaseline && rootBaseline.questions && agentCategoryMap[agentName]) {
@@ -842,7 +843,7 @@ sequenceDiagram
         const isComplianceAgent = agentName === 'compliance-agent';
         const jurisdictionPattern = /\b(new jersey|california|new york|colorado|florida|arizona|michigan|illinois|massachusetts|washington|oregon|nevada|pennsylvania|virginia|maryland|connecticut|vermont|maine|new hampshire|rhode island|delaware|montana|south dakota|new mexico|mississippi|alabama|south carolina|louisiana|utah|west virginia|north dakota|wyoming|idaho|kentucky|tennessee|oklahoma|arkansas|missouri|iowa|indiana|ohio|wisconsin|minnesota|nebraska|kansas|texas|north carolina|georgia|alaska|hawaii|nevada|district of columbia|dc)\b/i;
         
-        questionCount = rootBaseline.questions.filter(q => {
+        const matchingQuestions = rootBaseline.questions.filter(q => {
           // Check category match
           if (q.category) {
             const categoryLower = q.category.toLowerCase();
@@ -866,7 +867,14 @@ sequenceDiagram
           }
           
           return false;
-        }).length;
+        });
+        
+        questionCount = matchingQuestions.length;
+        // Store questions for display
+        agentQuestions = matchingQuestions.map(q => ({
+          question: q.question,
+          category: q.category || 'uncategorized'
+        }));
       }
       
       // Fallback to individual agent baseline.json if root count is 0
@@ -876,14 +884,20 @@ sequenceDiagram
           const baselineContent = await fs.readFile(baselinePath, 'utf8');
           const baseline = JSON.parse(baselineContent);
           questionCount = baseline.questions ? baseline.questions.length : 0;
+          agentQuestions = (baseline.questions || []).map(q => ({
+            question: q.question,
+            category: q.category || 'uncategorized'
+          }));
         } catch (error) {
           questionCount = 0;
+          agentQuestions = [];
         }
       }
       
       agentsData.push({
         agent: agentName,
         questions: questionCount,
+        questionList: agentQuestions, // Include the actual questions
         ragSize: ragSizes[agentName] || null,
         ragSource: ragSources[agentName] || null,
         description: descriptions[agentName] || `${agentName} agent`,
