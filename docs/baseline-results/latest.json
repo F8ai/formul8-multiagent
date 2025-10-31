@@ -1,11 +1,11 @@
 {
-  "timestamp": "2025-10-31T23:06:21.788Z",
+  "timestamp": "2025-10-31T23:08:10.814Z",
   "url": "https://chat.formul8.ai",
   "totalQuestions": 438,
-  "completed": 300,
-  "passed": 180,
+  "completed": 310,
+  "passed": 190,
   "failed": 120,
-  "averageScore": "53.88",
+  "averageScore": "54.64",
   "averageGrade": "F",
   "results": [
     {
@@ -12337,7 +12337,337 @@
         "common"
       ],
       "expectedAnswer": "**Summarizing cannabis branding mistakes** I'm focused on generating a summary about common mistakes smaller cannabis brands make in their positioning. This involves marketing, so I need to include main conclusions, key facts, and essential regulatory details. Although there's no state-specific information provided, I should mention state-by-state fragmentation, compliance advertising restrictions, and packaging or labeling rules. I must also note that there shouldn't be any medical claims, and I need to consider age-gating and social media restrictions in my answer.**Summarizing cannabis marketing mistakes** I need to create a summary outlining common mistakes that smaller cannabis brands make in their positioning strategy, focusing on marketing aspects. I’ll include main conclusions and key requirements. Although there's no specific state information, it’s essential to mention the fragmentation of state regulations, compliance with advertising restrictions, packaging and labeling rules, as well as limitations like no medical claims and age-gating. Social media restrictions and METRC requirements could also be critical to address."
+    },
+    {
+      "questionNum": 301,
+      "question": "What are the top cannabis consumer trends I should build my positioning around this year?",
+      "category": "business-&-competitive-positioning",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": true,
+      "response": "**Top Cannabis Consumer Trends to Anchor Your Positioning in 2025**\n\n| Trend | Why It Matters | How to Leverage It |\n|-------|----------------|--------------------|\n| **1. Wellness‑First Consumption** | 68% of adult consumers say “health benefits” drive their purchase decisions (Headset, Q4 2024). | • Highlight terpene‑profile science and functional benefits (e.g., stress‑relief, sleep, focus).<br>• Offer “wellness bundles” that pair product with lifestyle guides (meditation, yoga). |\n| **2. Micro‑dosing & Low‑Dose Products** | Millennials & Gen Z are gravitating toward sub‑psychoactive doses for daily functional use. | • Develop 1–2 mg THC “micro‑dose” cartridges, gummies, or tinctures.<br>• Educate through clear dosing charts and usage scenarios. |\n| **3. Premiumization & Craft Quality** | 42% of spend is now on “premium” or “craft” brands (BDSA, 2024). | • Emphasize small‑batch cultivation, unique genetics, and third‑party lab results.<br>• Use premium packaging (glass, matte finishes) and limited‑edition releases. |\n| **4. Sustainability & Eco‑Credibility** | 57% of respondents will switch brands for greener practices (New Frontier Data, 2024). | • Adopt solar‑powered grow operations, biodegradable packaging, and carbon‑offset programs.<br>• Communicate impact metrics on the label and via QR‑code stories. |\n| **5. Personalization & Data‑Driven Experiences** | AI‑driven recommendation engines boost repeat purchase rates by 23% (Leafly, 2024). | • Offer an online “profile quiz” that matches terpene blends to mood/needs.<br>• Use CRM data to send targeted product suggestions and dosage tips. |\n| **6. Social‑Consumption Spaces & Community Hubs** | Legal lounges are up 38% YoY in states where they’re permitted. | • Partner with or create pop‑up lounges, “canna‑cafés,” or wellness studios.<br>• Host educational events (pairings, cooking classes) to build brand loyalty. |\n| **7. Functional & Hybrid Formulations** | Products that combine THC, CBD, CBG and adaptogens are fastest‑growing sub‑category (15% CAGR). | • Launch “focus” or “recovery” formulas that blend cannabinoids with nootropics or herbal adaptogens.<br>• Provide clear labeling on each active ingredient’s role. |\n| **8. Transparency & Lab‑Verified Trust** | 71% of shoppers check third‑party lab results before buying (Brightfield, 2024). | • Put QR‑linked certificates front‑and‑center on packaging.<br>• Publish a “lab‑report hub” on your website with searchable batch data. |\n| **9. Gen Z & Senior Market Expansion** | Gen Z (18‑24) now represents 22% of new entrants; seniors (55+) are up 12% YoY. | • For Gen Z: focus on vibrant branding, social‑media challenges, and limited‑edition drops.<br>• For seniors: emphasize low‑THC, easy‑admin formats (soft gels, sprays) and health‑focused messaging. |\n| **10. Integrated Digital & Metaverse Experiences** | 9% of cannabis spend in 2024 was on virtual events or NFT‑linked products. | • Offer virtual “grow tours,” NFT‑based loyalty tokens, or AR‑enhanced packaging that unlocks exclusive content. |\n\n---\n\n### Quick Positioning Blueprint\n\n1. **Core Brand Promise** – *“Science‑backed, sustainable wellness for everyday life.”*  \n   - Marries wellness, transparency, and eco‑cred\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1167 (167?1000) | Cost: $0.000000*",
+      "duration": 10156,
+      "grade": "B",
+      "score": 81,
+      "grading": {
+        "length": "Pass",
+        "keywords": "3/5 matched",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "4/5 key words"
+      },
+      "strengths": [],
+      "weaknesses": [],
+      "feedback": "",
+      "gradingMethod": "unknown",
+      "expectedKeywords": [
+        "business",
+        "competitive",
+        "positioning",
+        "cannabis",
+        "consumer"
+      ],
+      "expectedAnswer": "**Summarizing cannabis trends** I need to create a concise summary about the top cannabis consumer trends for this year, focusing on marketing and competitive positioning. Although the question doesn't mention state-specific information, I must include relevant regulatory details like advertising restrictions, dosage limits, and packaging requirements. Key trends include value-oriented products, high-THC vs balanced cannabinoids, functional effects-based positioning like wellness and microdosing, and the growth of beverages. I'll also note the safety aspects, clean labels, and focus on terpenes."
+    },
+    {
+      "questionNum": 302,
+      "question": "What are the best ways to drive foot traffic to dispensaries or retail outlets?",
+      "category": "retail-&-consumer-marketing",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": true,
+      "response": "### Driving Foot Traffic to a Cannabis Dispensary (or Any Retail Outlet)\n\nBelow is a practical, step‑by‑step playbook that blends **offline** and **online** tactics. Choose the ones that fit your brand, market, and budget, then track results with simple KPIs (store visits, sales lift, promo redemption, etc.).\n\n---\n\n## 1. Optimize the Physical Store Experience  \n\n| Tactic | Why It Works | Quick Implementation Tips |\n|--------|--------------|----------------------------|\n| **Eye‑catching storefront & signage** | First‑impression marketing; draws passing traffic. | Use high‑contrast, compliant signage; add LED lighting and a clear “Open” sign. |\n| **Window displays & product demos** | Visual curiosity → footfall. | Rotate themes (seasonal, new strains, “Learn & Sample” days). Keep demos within legal limits (e.g., vaporizer demos, educational posters). |\n| **In‑store events & workshops** | Community building + education → repeat visits. | Host “Cannabis 101,” terpene‑pairing tastings, or local artist pop‑ups. Promote the event a week ahead. |\n| **Comfortable layout & “Instagram‑able” spots** | People linger, post, and bring friends. | Add a selfie wall, branded backdrop, or plant‑filled lounge. |\n| **Loyalty & referral program** | Turns one‑time shoppers into regulars. | Offer points for each purchase, and bonus points when a referred friend makes a first purchase. |\n| **Free or low‑cost amenities** | Increases dwell time and word‑of‑mouth. | Offer coffee, water, charging stations, or a small reading nook with cannabis literature. |\n\n---\n\n## 2. Leverage Local Digital Marketing  \n\n| Channel | Action Items | Compliance Note |\n|---------|--------------|-----------------|\n| **Google My Business (GMB) / Local SEO** | • Verify the listing, add high‑quality photos, update hours.<br>• Post weekly “offers” and event updates.<br>• Encourage satisfied customers to leave reviews (no incentives that violate local law). | Keep all content within state‑approved messaging (e.g., no health claims). |\n| **Geotargeted paid ads** (Google Search, Facebook/Instagram “restricted” placements) | • Use keywords like “cannabis dispensary near me.”<br>• Set a radius of 5‑10 mi around the store.<br>• Promote limited‑time discounts or new‑product drops. | Platforms require age‑gate & location verification; follow each platform’s cannabis ad policy. |\n| **SMS / MMS marketing** | • Collect phone numbers at checkout (opt‑in).<br>• Send “Flash Sale – 20 % off all edibles today only!” messages.<br>• Include a short‑code link to a map. | Must include opt‑out (“STOP”) and age verification. |\n| **Email newsletters** | • Segment list (new customers, loyalty members, event‑attendees).<br>• Highlight new strains, exclusive in‑store events, and community news.<br>• Add a “Find us on the map” CTA. | Keep subject lines compliant (no promises of “instant high”). |\n| **Social‑media organic posts** | • Share behind‑the‑scenes, staff picks, and user‑generated content.<br>• Use location tags and local hashtags (#YourCityCannabis).<br>• Run “Check‑in & win” contests (prizes must be compliant). | Avoid direct product promotions that violate platform rules; focus on education and lifestyle. |\n\n---\n\n## 3. Community & Partnership Strategies  \n\n| Strategy | How to Execute | Benefits |\n|----------|----------------|----------|\n| **Cross‑promotions with nearby businesses** | Partner with coffee shops, gyms, yoga studios, or health food stores for joint flyers or “show this receipt for 10 % off”. | Accesses complementary customer bases. |\n| **Sponsor local events / charities** | Provide product samples (where legal) or branded swag at festivals, farmer’s markets, or charity runs\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1134 (134?1000) | Cost: $0.000000*",
+      "duration": 11451,
+      "grade": "C",
+      "score": 75,
+      "grading": {
+        "length": "Pass",
+        "keywords": "3/5 matched",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "2/5 key words"
+      },
+      "strengths": [],
+      "weaknesses": [],
+      "feedback": "",
+      "gradingMethod": "unknown",
+      "expectedKeywords": [
+        "retail",
+        "consumer",
+        "marketing",
+        "drive",
+        "traffic"
+      ],
+      "expectedAnswer": "**Generating marketing strategies** I need to create a concise summary on \"the best ways to drive foot traffic to dispensaries or retail outlets\" within the cannabis industry. The key aspects should include main conclusions, critical regulatory details, and variations by state. I know regulations differ widely, including restrictions on advertising targeting minors, distance regulations, and specifics on loyalty programs. For instance, some states like Colorado have discount caps, while Massachusetts prohibits free samples. I'll also mention that Washington has strict prohibitions against giveaways and coupons. It’s essential to highlight these points in my summary!**Reviewing advertising regulations** I need to clarify the advertising regulations in Washington. The WAC 314-55-155 explicitly prohibits coupons and giveaways, and there's also a significant restriction against discounting below cost. Additionally, in some localities, sandwich boards are banned, which could limit visibility. Also, SMS and email promotions must follow age-gating and opt-in requirements under the CAN-SPAM Act and TCPA. It’s essential to keep all these regulations in mind when planning marketing strategies!**Evaluating marketing strategies** I’m generating a concise summary to answer the question regarding the best ways to drive foot traffic to dispensaries or retail outlets. As a cannabis industry consultant, I need to include key facts about regulatory requirements, noting that regulations vary by..."
+    },
+    {
+      "questionNum": 303,
+      "question": "How can I collaborate with local cultivators or processors on products for my store only?",
+      "category": "retail-&-consumer-marketing",
+      "agent": "unknown",
+      "actualAgent": "formulation",
+      "actualAgentName": "Formulation Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": false,
+      "response": "**Partnering with Local Growers/Processors for Store‑Only Cannabis Products**\n\nBelow is a practical roadmap you can follow—from outreach to launch—while staying compliant and protecting both your brand and your partner’s interests.\n\n---\n\n## 1. Define Your Vision & Scope\n| What to decide | Why it matters |\n|---|---|\n| **Product type** (e.g., flower, pre‑roll, vape cartridge, edibles, topicals) | Determines extraction method, packaging, and testing requirements. |\n| **Target consumer segment** (recreational, medical, wellness) | Guides potency, terpene profile, and marketing language. |\n| **Exclusivity goal** (store‑only SKU, limited‑edition batch, co‑branded line) | Sets the contractual language for “store‑only” rights. |\n| **Desired cannabinoid/terpene profile** | Helps growers select genetics and processors choose extraction parameters. |\n\n---\n\n## 2. Identify & Vet Potential Partners\n1. **Local networking**  \n   * Attend regional cannabis trade shows, growers’ meetings, and dispensary owner groups.  \n   * Use industry directories (e.g., MJBiz, Leafly Pro) to shortlist growers within a 50‑mile radius.\n\n2. **Due‑diligence checklist**  \n   * **Licensing** – Verify state‑issued cultivator/processor licenses and any required “micro‑license” for private label work.  \n   * **Quality history** – Request recent COAs, batch records, and any third‑party audit reports.  \n   * **Production capacity** – Ensure they can meet your projected volumes (including seasonal spikes).  \n   * **Reputation** – Check online reviews, peer references, and any past compliance actions.\n\n3. **Site visit** (if feasible) – Observe cultivation practices, extraction labs, and SOPs first‑hand.\n\n---\n\n## 3. Draft a Collaborative Agreement\n| Clause | Key Points |\n|---|---|\n| **Exclusivity** | Grant you “store‑only” rights for the agreed SKU(s); define geographic limits (e.g., within your state or specific zip codes). |\n| **Product specifications** | Include cannabinoid/terpene targets, batch size, packaging dimensions, and label copy. |\n| **Quality & testing** | Stipulate mandatory COAs for potency, residual solvents, pesticides, mycotoxins, and microbial load. |\n| **Intellectual property** | Clarify ownership of formulations, branding assets, and any proprietary processes. |\n| **Pricing & payment terms** | Fixed per‑gram price, volume discounts, and payment schedule (e.g., 30 % deposit, 70 % on delivery). |\n| **Recall & liability** | Outline joint responsibility, recall procedures, and indemnification. |\n| **Termination** | Conditions for ending the partnership and handling of remaining inventory. |\n\n*Tip:* Have a cannabis‑specialized attorney review the contract to ensure compliance with state‑level “vertical integration” rules.\n\n---\n\n## 4. Co‑Develop the Product\n1. **Strain selection** – Work with the cultivator to choose genetics that naturally hit your desired THC/CBD/terpene ratios.  \n2. **Extraction method** – Decide between CO₂, hydrocarbon, ethanol, or solvent‑free (e.g., rosin) based on product type and regulatory limits.  \n3. **Formulation input** – As the Formulation Agent, provide:  \n   * Desired potency range (e.g., 15 % THC, 2 % CBD).  \n   * Terpene “signature” (e.g., high myrcene & limonene for a relaxed‑euphoric feel).  \n   * Stability considerations (e.g., antioxidant additives for vape oils).  \n4. **Pilot batch** – Run a small test batch, generate full COAs, and conduct internal sensory & potency verification.  \n5. **Iterate** – Adjust genetics, extraction parameters, or post‑processing steps until specs are met.\n\n---\n\n## 5. Ensure Regulatory Compliance\n| Requirement | Action |\n|---|---|\n| **State packaging/labeling** | Include required warnings,\n\n---\n*Agent: Formulation Agent | Plan: Standard | Tokens: 1211 (211?1000) | Cost: $0.000000*",
+      "duration": 21289,
+      "grade": "C",
+      "score": 78,
+      "grading": {
+        "length": "Pass",
+        "keywords": "3/5 matched",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "3/5 key words"
+      },
+      "strengths": [],
+      "weaknesses": [],
+      "feedback": "",
+      "gradingMethod": "unknown",
+      "expectedKeywords": [
+        "retail",
+        "consumer",
+        "marketing",
+        "lab",
+        "collaborate"
+      ],
+      "expectedAnswer": "**Summarizing collaboration strategies** I need to create a summary that captures key points related to collaborating with local cultivators or processors for products in a retail context. It should include topics like white label agreements, exclusivity deals, co-branding, and compliance with state regulations regarding ownership, financial interests, and residency. I should also touch on contract manufacturing, branding restrictions in cannabis, packaging compliance, payment terms, IP licensing, and various other relevant considerations. State-specific info may not be necessary since the question doesn’t mention a state.**Considering state variations** I need to note that regulations vary by state regarding collaboration in branding. Some states allow white labeling or brand ownership by non-licensees, while others require brand owners to be licensed or to have a trademark use agreement. Additionally, it's important to mention that some states, like California, necessitate using a third-party distributor. This helps clarify the complexities involved when collaborating with cultivators or processors for retail products.**Generating collaboration summary** I need to create a summary of 100-200 words that covers key points regarding collaboration with local cultivators or processors for retail products. Important topics to include are white label and private label agreements, exclusivity deals, and co-branding options. I’ll also consider compliance with state regulations, cont..."
+    },
+    {
+      "questionNum": 304,
+      "question": "How do I run compliant promotions for cannabis products?",
+      "category": "retail-&-consumer-marketing",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": true,
+      "response": "### Quick‑Start Guide to Running Compliant Cannabis Promotions  \n\n| **Step** | **What to Do** | **Why It Matters** | **Typical Requirement (U.S.)** |\n|----------|----------------|--------------------|--------------------------------|\n| **1️⃣ Map the Legal Landscape** | • Identify the state(s) where you’ll market. <br>• Pull the most recent cannabis‑specific advertising statutes, licensing board rules, and any local ordinances. | Cannabis law is **state‑specific** (and sometimes city‑specific). A promotion legal in Colorado may be illegal in California. | • State cannabis control board (e.g., CA‑Bureau of Cannabis Control, CO Department of Revenue). <br>• “Regulation XYZ‑2023‑A” for each jurisdiction. |\n| **2️⃣ Define Your Audience** | • Limit all outreach to adults 21 + (or 19 + in some states). <br>• Exclude minors from email lists, social‑media targeting, and physical locations. | Federal law (21 U.S.C. § 846) prohibits marketing to minors; many states impose harsher penalties. | • Age‑gating on websites, “21+ Only” signage, no “flavor‑appealing” graphics that target kids. |\n| **3️⃣ Choose Approved Channels** | • **Allowed (usually):** Email (opt‑in), SMS (opt‑in), in‑store signage, point‑of‑sale receipts, loyalty apps, trade shows, industry publications, adult‑only events. <br>• **Restricted/Prohibited:** TV, radio, billboards, general‑audience social media (Facebook, Instagram, TikTok) unless age‑gated and compliant. | Certain media are expressly barred or heavily regulated. | • Colorado: No TV/radio ads. <br>• Oregon: No outdoor signage within 1,000 ft of schools. |\n| **4️⃣ Draft the Creative Content** | • No health‑care claims, “cure,” “treat,” or “prevent” language. <br>• No false or misleading statements about potency, effects, or safety. <br>• Avoid imagery that appeals to children (cartoons, bright candy colors, mascots). <br>• Include required disclaimer language (e.g., “These products contain THC. Keep out of reach of children. Use responsibly.”) | Consumer‑protection statutes and state advertising codes prohibit deceptive or youth‑targeted marketing. | • Many states require a **standard disclaimer** on every ad and on packaging. |\n| **5️⃣ Set Promotion Mechanics** | • **Discounts & coupons:** Must be limited to adult‑only purchasers; often cannot be “free” (e.g., “buy one, get one free” is allowed in some states but not “free sample”). <br>• **Loyalty points:** Must be non‑transferable, cannot be redeemed for cash, and must be tracked for audit. <br>• **Contests/giveaways:** Must require purchase (no “no‑purchase” sweepstakes), must be age‑verified, and must disclose odds and rules. | State statutes often restrict “free” product distribution and require clear, auditable redemption processes. | • Washington: No free product giveaways. <br>• Michigan: Must retain records of every coupon redemption for 3 years. |\n| **6️⃣ Build a Compliance Checklist** | • **Pre‑launch:** <br> ✔ Verify age‑gate on landing page. <br> ✔ Confirm disclaimer appears in ≥ 25 % of ad space. <br> ✔ Ensure all claims are substantiated. <br>• **During campaign:** <br> ✔ Monitor ad placements for accidental exposure to minors. <br> ✔ Track coupon redemption & inventory.\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1128 (128?1000) | Cost: $0.000000*",
+      "duration": 13538,
+      "grade": "B",
+      "score": 88.25,
+      "grading": {
+        "length": "Pass",
+        "keywords": "4/5 matched",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "3/4 key words"
+      },
+      "strengths": [],
+      "weaknesses": [],
+      "feedback": "",
+      "gradingMethod": "unknown",
+      "expectedKeywords": [
+        "retail",
+        "consumer",
+        "marketing",
+        "cannabis",
+        "compliant"
+      ],
+      "expectedAnswer": "I'm recalling that some states have specific requirements for alcohol content. For instance, there are those that require a standard of 71.6%, which follows the alcohol industry, while many others have a higher requirement of 85% for adults. It's interesting to see the differences across states. I wonder what influences these variations and how they might affect consumers or producers in the alcohol industry. It’s a curious topic overall!**Summarizing cannabis promotion compliance** I need to summarize how to run compliant promotions for cannabis products. It's crucial to note that regulations vary by state, but there are some common requirements. For example, age gating and not targeting minors are essential. Many states like California, Colorado, and Massachusetts have restrictions on discounting, bundling, and giveaways, plus no health claims or depictions of consumption. Additionally, ads must include disclaimers and responsible use warnings, and some states require ads to target audiences with at least 71.6% adults."
+    },
+    {
+      "questionNum": 305,
+      "question": "How do I promote my cannabis products on major social media platforms without getting banned?",
+      "category": "retail-&-consumer-marketing",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": true,
+      "response": "### Quick‑Start Playbook for Legal, Low‑Risk Cannabis Promotion on Main Social Channels  \n\n| Platform | Core Policy Highlights | What You **Can** Do | What to **Avoid** | Tips to Stay Safe |\n|----------|-----------------------|---------------------|-------------------|-------------------|\n| **Facebook / Instagram** (Meta: Meta) | - No direct advertising of “recreational” cannabis, THC‑rich products, or paraphernalia.<br>- Allowed only for **CBD (≤0.3 % THC)** that is **legal in the user’s country** and **properly labeled**. | • Share **educational** content (e.g., “how hemp is processed”).<br>• Highlight **brand story**, sustainability, farm‑to‑shelf journey.<br>• Use **organic posts** (no paid ads) that focus on lifestyle, behind‑the‑scenes, or customer testimonials that do **not** mention purchase. | • Direct calls‑to‑action (“Buy now”, “Shop here”).<br>• Images of plant material, smoking devices, or product packaging with THC claims. | • Add an **age‑gate** on your landing page (18/21+).<br>• Tag posts with “#CBD” only if the product meets the legal definition.<br>• Keep a **policy log**: screenshot the current Meta Commerce & Advertising Policies every quarter. |\n| **Twitter** | - More permissive, but still bans **promoted** cannabis sales and “drug‑related” content that encourages illegal activity. | • Post **real‑time news**, industry stats, and thought‑leadership threads.<br>• Use **Twitter Spaces** for Q&A with compliance‑cleared experts.<br>• Share **user‑generated content** (UGC) that is voluntarily posted by followers. | • Direct links to a storefront that sells THC products.<br>• “Buy now” language or discount codes. | • Use **#CBD** and **#Hemp** tags only when you’re sure the product qualifies.<br>• Enable **“Sensitive Content”** warnings on any images of plant material. |\n| **TikTok** | - Strict: No promotion of cannabis, THC, or related paraphernalia. CBD is allowed only if it complies with local law and the product is **non‑psychoactive**. | • Create **short‑form educational videos** (e.g., “What is hemp?”, “How CBD interacts with the endocannabinoid system”).<br>• Leverage **trend sounds** to discuss wellness topics without showing the product. | • Showing product packaging, dosage instructions, or “how‑to‑use” for THC items.<br>• Direct links in bio to a cannabis shop. | • Add a **disclaimer** in video captions (“CBD product – legal where sold”).<br>• Keep the **bio link** to a generic brand site that only hosts a **blog** or **educational hub** (no checkout). |\n| **YouTube** | - Allows **educational** cannabis content; **no direct sales** or “click‑to‑buy” for THC products. | • Publish **long‑form tutorials**, lab‑tour videos, or interviews with growers/experts.<br>• Use **cards** and **end screens** to drive traffic to a **compliant landing page** (age‑gated, no checkout). | • “Shop now” overlays, product pricing in the video, or direct checkout links in the description. | • Add **age‑restriction** to videos that discuss THC.<br>• Include a **clear disclaimer** (“Content for informational purposes only; not a solicitation”). |\n| **LinkedIn** | - Business‑focused; allows **B2B** discussion of cannabis industry, but no consumer‑sale advertising. | • Publish **industry reports**, market insights, hiring posts, and partnership announcements.<br>• Share **case studies** of compliance, cultivation tech, or supply‑chain**. | • Direct consumer sales pitches or product images with THC claims. |\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1168 (168?1000) | Cost: $0.000000*",
+      "duration": 4234,
+      "grade": "B",
+      "score": 81,
+      "grading": {
+        "length": "Pass",
+        "keywords": "3/5 matched",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "4/5 key words"
+      },
+      "strengths": [],
+      "weaknesses": [],
+      "feedback": "",
+      "gradingMethod": "unknown",
+      "expectedKeywords": [
+        "retail",
+        "consumer",
+        "marketing",
+        "cannabis",
+        "promote"
+      ],
+      "expectedAnswer": ""
+    },
+    {
+      "questionNum": 306,
+      "question": "What are the most friendly social media platforms to advertise my cannabis products or brand?",
+      "category": "retail-&-consumer-marketing",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": true,
+      "response": "Below is a quick‑reference guide to the social‑media venues that tend to be the most **cannabis‑friendly** (both for organic reach and, where allowed, paid promotion).  Keep in mind that every answer must respect the advertising rules of each platform and the laws of the state/country where you’re operating.\n\n---\n\n## 1. Platforms With the Least Restrictive Policies (Paid + Organic)\n\n| Platform | Why It Works | Paid‑Ad Possibility | Tips for Success |\n|----------|--------------|---------------------|------------------|\n| **Twitter (X)** | Historically tolerant of cannabis‑related content; hashtags are searchable. | **Limited** – only “organic” promotion; direct ads for cannabis are generally prohibited, but you can run “promoted tweets” for non‑product‑specific brand messaging (e.g., education, events). | Use **#CannabisCommunity**, **#WeedBiz**, **#CBD**, and tag relevant industry handles. Pin a welcome tweet with an age‑gate link. |\n| **Reddit** | Numerous niche sub‑reddits (r/weed, r/cannabisbusiness, r/cbd) where users seek genuine discussion. | **No traditional ads** for cannabis, but **self‑serve Reddit Ads** allow “brand awareness” creative that avoids direct product sales. | Participate authentically; run AMA’s; share data‑driven posts; use **flair** to mark NSFW. |\n| **Discord** | Growing “cannabis‑culture” servers; perfect for community building and real‑time Q&A. | No formal ad platform, but **sponsored server invites** or **partner bots** can be used. | Create a branded server, set an age‑gate channel, host live tastings, giveaways (compliant with local law). |\n| **Pinterest** | Users search for lifestyle inspiration (recipes, décor, wellness). | **Allowed** for CBD‑derived products (non‑psychoactive) when you comply with the “CBD content policy.” | Pin high‑quality images, link to your blog/online store, use SEO‑rich descriptions (“Cannabis‑infused dessert”). |\n\n---\n\n## 2. Platforms With Strict Paid‑Ad Bans but Strong Organic Reach\n\n| Platform | Current Policy | How to Leverage |\n|----------|----------------|-----------------|\n| **Instagram (Meta)** | No paid ads for THC‑containing products; CBD ads allowed only if the product is **derived from hemp** and meets local regulations. | Focus on **organic reels, stories, and carousel posts**. Use **age‑gate stickers** (“18+”). Leverage **influencer collaborations** (must disclose). |\n| **TikTok** | No paid ads for any cannabis or CBD (except FDA‑approved medical claims). | Build **short‑form, entertaining content** (e.g., “day‑in‑the‑life of a budtender”). Use **hashtag challenges** that stay within community‑guidelines. |\n| **Snapchat** | No paid cannabis ads; limited organic content for brand building. | Use **Geofilters** for dispensary locations, **Snapchat Spotlight** videos, and **AR lenses** that highlight product packaging (age‑gated). |\n| **Facebook** | Strict ban on all THC‑related advertising; limited allowance for CBD (must be compliant with local law). | Treat as a **community page**: post events, education, blog links. Use **Facebook Groups** (private, age‑restricted) to foster discussion. |\n\n---\n\n## 3. Cannabis‑Specific Platforms (Native Advertising)\n\n| Platform | Audience | Ad Options | Why Use It |\n|----------|----------|-----------|------------|\n| **Leafly** | 10M+ monthly visitors searching strain info, dispensaries, reviews. | Sponsored listings, banner ads, “Featured Strain” placements. | Users are already in purchase mode; geo‑targeting by state. |\n| **Weedmaps** | Dispens\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1168 (168?1000) | Cost: $0.000000*",
+      "duration": 5552,
+      "grade": "C",
+      "score": 73,
+      "grading": {
+        "length": "Pass",
+        "keywords": "2/5 matched",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "4/5 key words"
+      },
+      "strengths": [],
+      "weaknesses": [],
+      "feedback": "",
+      "gradingMethod": "unknown",
+      "expectedKeywords": [
+        "retail",
+        "consumer",
+        "marketing",
+        "cannabis",
+        "friendly"
+      ],
+      "expectedAnswer": "**Summarizing advertising platforms** I need to provide a concise overview of friendly social media platforms for advertising cannabis products. Key aspects to include are main conclusions, essential requirements, and regulatory details. While no state-specific information is mentioned, I should note that regulations vary and include considerations like state-compliant age gating. I must avoid facilitating any illegal behavior and ensure I stick to high-level guidance on safety protocols and legal compliance, steering clear of any instructions that could imply evading laws."
+    },
+    {
+      "questionNum": 307,
+      "question": "What retail activations (sampling, pop-ups, education events) work best in cannabis?",
+      "category": "retail-&-consumer-marketing",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": true,
+      "response": "Below is a quick‑reference guide to the retail‑activation formats that consistently deliver the highest foot‑traffic, brand lift, and repeat‑purchase rates in today’s regulated cannabis market.\n\n| Activation Type | Why It Works | Key Compliance Tips | Best‑Practice Checklist |\n|-----------------|--------------|---------------------|--------------------------|\n| **In‑store Sampling (where legal)** | • Turns curiosity into trial → higher conversion.<br>• Allows you to showcase product effects, flavor, and aroma in real time.<br>• Generates immediate social‑media buzz when customers share “first‑taste” moments. | • Only in states/provinces that permit on‑premise consumption or “sample‑only” rooms.<br>• Limit sample size to the legal maximum (often 0.5 g or 1 ml).<br>• Require age verification and signed waiver. | • Train staff on dosage & responsible‑use messaging.<br>• Use QR‑coded “sample cards” that track who took a sample (for analytics).<br>• Pair with a mini‑education card (effects, terpenes, dosage). |\n| **Pop‑up “Experience Pods”** | • Creates a destination‑like feel in high‑traffic malls, festivals, or partner retail spaces.<br>• Allows you to control environment (lighting, scent, music) to match brand personality.<br>• Easy to replicate in multiple cities for a coordinated rollout. | • Must be a temporary “cannabis‑focused” event, not a permanent retail location.<br>• All staff must be licensed / registered with the jurisdiction.<br>• Keep inventory on‑site under lock‑up and limit sales to “take‑away” only if allowed. | • Design a 10‑min “guided tasting” that walks guests through 3–4 strains.<br>• Capture email/phone via a raffle (compliant prize).<br>• Offer a limited‑edition merch drop to drive urgency. |\n| **Education Workshops / “Cannabis 101”** | • Positions the brand as a trusted authority → higher loyalty.<br>• Helps demystify dosing, terpene profiles, and consumption methods, reducing buyer anxiety.<br>• Generates high‑quality leads (attendees are already intent‑rich). | • No product sales on‑site unless the jurisdiction allows “education‑only” dispensary sales.<br>• All presenters must be licensed or certified (e.g., Budtender, Cannabis Educator).<br>• Keep the content factual, avoid medical claims. | • 30‑min presentation + 15‑min Q&A.<br>• Provide a take‑home “cheat sheet” (strain matrix, dosage guide).<br>• Follow up with a personalized email offering a first‑order discount (if legal). |\n| **Brand‑Partnered “Wellness Days”** | • Leverages cross‑industry credibility (e.g., yoga studios, fitness centers, health food stores).<br>• Aligns cannabis with lifestyle benefits (stress relief, recovery). | • Ensure partner venue is licensed for cannabis‑related activities or that only “non‑ingestible” products (topicals, CBD) are used.<br>• Clear signage that consumption is for participants only. | • Co‑host a 60‑min class + 10‑min product demo.<br>• Offer a “post‑class bundle” (e.g., THC‑infused balm + branded water). |\n| **Digital‑Hybrid Events (Live‑Stream + In‑Store)** | • Extends reach beyond foot traffic; captures remote enthusiasts.<br>• Allows data capture (registration, watch time) for retargeting. | • Stream must be geo‑blocked where cannabis advertising is prohibited.<br>• No direct product sale through the stream unless the platform permits. | • Host a live “Strain Spotlight” with a budtender answering chat questions.<br>• Offer a QR‑code for an in‑store “pick‑up” discount. |\n| **Loyalty‑Driven “\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1170 (170?1000) | Cost: $0.000000*",
+      "duration": 3285,
+      "grade": "D",
+      "score": 67,
+      "grading": {
+        "length": "Pass",
+        "keywords": "2/5 matched",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "2/5 key words"
+      },
+      "strengths": [],
+      "weaknesses": [],
+      "feedback": "",
+      "gradingMethod": "unknown",
+      "expectedKeywords": [
+        "retail",
+        "consumer",
+        "marketing",
+        "cannabis",
+        "activations"
+      ],
+      "expectedAnswer": "**Considering retail activations in cannabis** I'm focusing on how to summarize the key aspects of retail activations in the cannabis industry, including sampling, pop-ups, and educational events. I'll need to ensure I include the main conclusion and key requirements, which involve navigating critical regulatory details, especially since state-specific restrictions might come into play, like age verification and consumption rules. Additionally, it's essential to emphasize compliance signage and data capture for a successful ROI while being mindful of regulations from different state entities."
+    },
+    {
+      "questionNum": 308,
+      "question": "What events are available regularly to participate in my market?",
+      "category": "retail-&-consumer-marketing",
+      "agent": "unknown",
+      "actualAgent": "formulation",
+      "actualAgentName": "Formulation Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": false,
+      "response": "Below is a quick reference of the **regular‑occurring cannabis‑industry events** that most formulators, growers, and brand owners attend.  I’ve grouped them by scope (global, regional, local) and added a short note on what each is best for, so you can pick the ones that match your market and product‑development goals.\n\n---\n\n## 1️⃣ International / Flagship Events (annual)\n\n| Event | Typical Timing | Primary Audience | Why Attend for Formulation |\n|-------|----------------|------------------|----------------------------|\n| **MJBizCon (Las Vegas, USA)** | Early March | Investors, distributors, brand owners, regulators | Large networking hub; many “formulation‑focused” workshops (extraction tech, stability testing). |\n| **NCIA Cannabis Business Summit (Washington, DC)** | Late April | Policy‑makers, compliance, corporate execs | Insight into evolving federal regulations that affect label claims & dosage limits. |\n| **Emerald Conference (San Diego, CA)** | Mid‑May | Scientists, R&D, analytical labs | Deep‑dive sessions on analytical methods, terpene profiling, and product stability. |\n| **Cannatech (Berlin, Germany)** | Early June | European growers, tech providers, formulators | Focus on extraction equipment, new solvents, and EU‑compliant testing. |\n| **Spannabis (Barcelona, Spain)** | Early October | International brands, retailers, media | Strong emphasis on product innovation, packaging, and consumer trends. |\n| **CannaTech (Tel Aviv, Israel)** | Usually October (alternates with virtual) | Researchers, biotech, pharma‑style cannabis | Cutting‑edge cannabinoid science, novel delivery systems, and clinical data. |\n\n*Tip:* Most of these conferences release their full agenda 2–3 months in advance—bookmark the dates and register early for discounted early‑bird rates.\n\n---\n\n## 2️⃣ Regional / Country‑Specific Events (annual or bi‑annual)\n\n| Region | Event | Timing | Highlights for Formulators |\n|--------|-------|--------|----------------------------|\n| **North America – West Coast** | *California Cannabis Expo* (Los Angeles) | Spring (April) | State‑specific compliance, packaging regulations, and California‑specific terpene trends. |\n| | *Oregon Cannabis Expo* (Portland) | Summer (July) | Focus on small‑batch extraction, boutique product stability. |\n| **North America – East Coast** | *New York Cannabis Summit* (NYC) | Fall (Sept) | Emerging NY market licensing, dosage‑limit guidelines, and “cannabis‑as‑food” trends. |\n| **Canada** | *Lift & Co. Expo* (Toronto) | Spring (May) | Canadian GPP standards, indoor‑outdoor cultivation impacts on cannabinoid profiles. |\n| **Europe – UK & EU** | *UK Cannabis Expo* (London) | Autumn (Nov) | UK‑specific THC/CBD limits, EU novel‑food approvals, and formulation safety data sheets. |\n| **Latin America** | *Cannabis Brasil Expo* (São Paulo) | Mid‑Year (June) | Growing market, focus on Brazilian regulations and local terpene sourcing. |\n| **Australia & NZ** | *Australian Cannabis Conference* (Sydney) | Early February | Therapeutic product formulation, GMP compliance, and local extraction tech. |\n\n---\n\n## 3️⃣ Ongoing / Virtual Events (monthly or quarterly)\n\n| Format | Event | Frequency | Value |\n|--------|-------|-----------|-------|\n| **Webinar Series** | *NCIA “Regulatory Roundtables”* | Monthly | Direct Q&A with regulators on labeling, THC limits, and testing. |\n| **Industry Podcasts / Live Streams** | *The Cannabinoid Chemist* (hosted by PhD chemists) | Bi‑weekly | Deep dives on terpene‑cannabinoid interactions and stability studies\n\n---\n*Agent: Formulation Agent | Plan: Standard | Tokens: 1204 (204?1000) | Cost: $0.000000*",
+      "duration": 9698,
+      "grade": "B",
+      "score": 80,
+      "grading": {
+        "length": "Pass",
+        "keywords": "4/5 matched",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "1/5 key words"
+      },
+      "strengths": [],
+      "weaknesses": [],
+      "feedback": "",
+      "gradingMethod": "unknown",
+      "expectedKeywords": [
+        "retail",
+        "consumer",
+        "marketing",
+        "lab",
+        "events"
+      ],
+      "expectedAnswer": "**Summarizing cannabis marketing events** I need to create a concise summary addressing the user’s question about regular events available in the cannabis marketing sector. The focus will be on local dispensary events, industry trade shows like MJBizCon and Lift&Co, as well as community events. I’ll also mention that some events may require the participant to be 21+, and I'll note specific regulations like 280E and state-specific consumption laws. Since the user didn’t specify a state, I’ll keep the answer general.**Reviewing on-site consumption laws** I’m considering the current status of on-site consumption laws for cannabis in various states. In California, local permits are required, while Nevada is launching lounges. Colorado has hospitality licenses, and Michigan has designated consumption areas. New York's CAURD program might not be in effect yet. Massachusetts has a social consumption pilot planned for a few cities in 2023/2024. Additionally, I want to include budtender education sessions and medical patient days as part of the events landscape.**Summarizing marketing events** I need to create a concise summary of events related to retail and consumer marketing, particularly in the cannabis industry. While the user didn't specify a state, I'll focus on general event types available, like local dispensary events, industry trade shows (like MJBizCon), and community events. I'll include critical regulatory details, state-specific laws regarding consumption, and any relev..."
+    },
+    {
+      "questionNum": 309,
+      "question": "What are some upcoming cannabis events in my state?",
+      "category": "retail-&-consumer-marketing",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": true,
+      "response": "Sure thing! Could you let me know which state you’re interested in? That’ll help me pull together the most relevant upcoming cannabis events for you.\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 264 (162?102) | Cost: $0.000000*",
+      "duration": 2301,
+      "grade": "C",
+      "score": 72.25,
+      "grading": {
+        "length": "Pass",
+        "keywords": "2/5 matched",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "3/4 key words"
+      },
+      "strengths": [],
+      "weaknesses": [],
+      "feedback": "",
+      "gradingMethod": "unknown",
+      "expectedKeywords": [
+        "retail",
+        "consumer",
+        "marketing",
+        "state",
+        "cannabis"
+      ],
+      "expectedAnswer": ""
+    },
+    {
+      "questionNum": 310,
+      "question": "Can I build loyalty programs for repeat customers, and what do they look like?",
+      "category": "retail-&-consumer-marketing",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": true,
+      "response": "### Building a Loyalty Program for Repeat Cannabis Customers  \n\nBelow is a practical play‑book you can follow, plus examples of what a successful program looks like in the cannabis space.\n\n---\n\n## 1. Define Your Goals & KPIs  \n\n| Goal | Why It Matters | KPI to Track |\n|------|----------------|--------------|\n| **Increase purchase frequency** | Turns occasional buyers into weekly/bi‑weekly shoppers | Avg. purchases per customer / month |\n| **Boost average order value (AOV)** | Higher spend per visit | $ per transaction |\n| **Drive product discovery** | Moves new SKUs faster | % of repeat purchases that include a new product |\n| **Collect actionable data** | Improves inventory, marketing, and compliance | Email opt‑in rate, purchase history depth |\n| **Enhance brand advocacy** | Word‑of‑mouth is gold in a regulated market | Referral count, Net Promoter Score (NPS) |\n\n---\n\n## 2. Choose a Loyalty Structure  \n\n| Model | How It Works | Best For | Typical Reward Types |\n|-------|--------------|----------|----------------------|\n| **Points‑Based** | $1 = 1 point; redeem at set thresholds | High‑volume, price‑sensitive shoppers | Discounts, free product, merch |\n| **Tiered** | Unlock higher tiers (Silver → Gold → Platinum) as spend/visits increase | Brands that want to gamify loyalty | Faster point accrual, exclusive events, early‑access strains |\n| **Cash‑Back / Store Credit** | Earn a % of spend back as credit | Simpler, “instant‑value” feel | 5‑10 % store credit usable on any SKU |\n| **Hybrid** | Combine points with tier benefits | Larger dispensaries with diverse product lines | Points + tier‑only perks (e.g., free delivery) |\n| **Referral‑Driven** | Existing members earn rewards for bringing in new customers | Growth‑focused, community‑centric brands | Bonus points, $10 credit for each new verified shopper |\n\n---\n\n## 3. Program Mechanics – Step‑by‑Step  \n\n| Step | Action | Tips & Compliance |\n|------|--------|--------------------|\n| **1️⃣ Customer Identification** | Capture phone number/email at checkout (opt‑in required). | Use a **single‑purpose consent** form; avoid sharing data with third parties without explicit permission. |\n| **2️⃣ Earn Rules** | Set clear earn rates (e.g., 1 point per $1, 2× points on “product of the week”). | Ensure rates are **non‑discriminatory** and do not promote over‑consumption. |\n| **3️⃣ Redemption Rules** | Define thresholds (e.g., 200 points = $10 off). Offer “partial” redemption so points never go stale. | Keep redemption **within legal purchase limits** (e.g., cannot exceed state‑allowed quantity). |\n| **4️⃣ Tier Advancement** | Auto‑promote after X spend or Y visits within a 90‑day window. | Communicate tier changes via email/SMS **with opt‑out** option. |\n| **5️⃣ Communication Cadence** | Welcome email → monthly statement → special‑event alerts. | All messages must include **age‑verification reminders** and a **clear unsubscribe link**. |\n| **6️⃣ Data Capture & Analytics** | Log every earn/redemption event in a CRM or loyalty platform. | Store data on a **secure, HIPAA‑grade** server; encrypt personally identifiable information (PII). |\n| **7️⃣ Compliance Review** | Quarterly audit of program against state cannabis marketing rules. | Example: Many states prohibit “price‑reduction” ads; frame rewards as “store credit” rather than “discount”. |\n\n---\n\n## 4. Sample Loyalty Program Blueprint  \n\n### “GreenRewards” – A Mid‑Size Dispensary (≈5,000 monthly customers)\n\n| Feature | Detail |\n|---------|--------|\n| **Enrollment** | Phone # or email + DOB verification. Immediate 10‑point sign‑up bonus. |\n| **Earn Rate** | 1 point per $1 spent. Double points on “Featured Strain” days (once a week). |\n| **Tier Levels** | <br>**Leaf** – 0–499 points (base) <br>**Bud** – 500–1,499 points (5 % extra points on every purchase) <br>**Harvest** – 1,500+ points (10 \n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1167 (167?1000) | Cost: $0.000000*",
+      "duration": 14597,
+      "grade": "C",
+      "score": 78,
+      "grading": {
+        "length": "Pass",
+        "keywords": "3/5 matched",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "3/5 key words"
+      },
+      "strengths": [],
+      "weaknesses": [],
+      "feedback": "",
+      "gradingMethod": "unknown",
+      "expectedKeywords": [
+        "retail",
+        "consumer",
+        "marketing",
+        "build",
+        "loyalty"
+      ],
+      "expectedAnswer": "**Summarizing loyalty programs for cannabis** I need to create a summary on loyalty programs for repeat customers in the cannabis industry. The focus is on retail and consumer marketing, emphasizing that regulations vary by state. I'll highlight key points like restrictions on points redemption and discounts in certain states. Additionally, I’ll note data privacy laws and consent requirements that apply. For cannabis POS and loyalty tools, I’ll mention providers like Springbig and Dutchie Loyalty, ensuring the information is clear and straightforward.**Summarizing loyalty programs in cannabis** I need to create a clear summary about loyalty programs for repeat customers in the cannabis industry. The focus is on retail and consumer marketing, addressing key requirements and regulatory details. Since no specific state is mentioned, I’ll highlight that local regulations vary and give examples, like bans on point redemption, discount caps, and restrictions on referral programs. I’ll note relevant regulations, including age restrictions and data privacy laws like CCPA/CPRA, but not HIPAA. I'll also mention tools like Springbig and Blaze for cannabis POS and loyalty programs."
     }
   ],
-  "status": "In Progress: 300/438 questions completed"
+  "status": "In Progress: 310/438 questions completed"
 }
