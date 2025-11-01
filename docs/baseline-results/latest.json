@@ -1,11 +1,11 @@
 {
-  "timestamp": "2025-11-01T00:45:04.163Z",
+  "timestamp": "2025-11-01T00:48:52.084Z",
   "url": "https://chat.formul8.ai",
   "totalQuestions": 438,
-  "completed": 380,
-  "passed": 222,
-  "failed": 158,
-  "averageScore": "48.80",
+  "completed": 390,
+  "passed": 230,
+  "failed": 160,
+  "averageScore": "49.16",
   "averageGrade": "F",
   "results": [
     {
@@ -11939,7 +11939,299 @@
         "disclaimers"
       ],
       "expectedAnswer": "**Summarizing cannabis advertising regulations** I’m focusing on producing a summary about disclaimers required in digital and print advertising for cannabis in New York, since we need to adhere to compliance as agents. The key requirements include age restrictions like \"For use only by adults 21 years of age and older\" and safety warnings such as \"Keep out of reach of children/pets.\" Additionally, health risk statements are important; advertising must also convey that cannabis can impair concentration, coordination, and judgment.**Clarifying cannabis marketing disclaimers** I need to highlight there's a ban on health or medical claims in cannabis advertising, so disclaimers can’t assert therapeutic benefits unless specifically approved. It’s crucial to include the New York licensee's name and license number in the marketing materials. Additionally, disclaimers must state \"This product contains cannabis\" or \"This product contains THC.\" These components are vital for compliance in promoting cannabis products. It's amazing how many details there are to keep track of!**Summarizing cannabis marketing disclaimers** I’m tasked with creating a concise summary on the disclaimers needed for cannabis advertising in New York. As a compliance agent, I’ll focus on key requirements and regulations. In New York, disclaimers must state: \"For use only by adults 21 years of age and older\" and \"Keep out of reach of children/pets.\" Additionally, health warnings are crucial, including advisories..."
+    },
+    {
+      "questionNum": 381,
+      "question": "Can I use lifestyle imagery (e.g., people consuming) in campaigns?",
+      "category": "marketing-cannabis-products-&-following-regulations",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": true,
+      "response": "**Short answer:** In most U.S. states (and many other jurisdictions) you **cannot** use images that show people actually consuming—whether smoking, vaping, or eating—in advertising or promotional campaigns. Lifestyle‑type photos are allowed only if they **don’t depict consumption, don’t feature minors, and comply with the specific wording and placement rules of the state where the ad will run.**\n\n---\n\n## Why the restriction exists\nRegulators view consumption imagery as a “promotion of use” that can:\n\n1. **Appeal to minors** – bright, social scenes are more likely to attract younger audiences.  \n2. **Imply health or safety benefits** – showing people enjoying the product can be interpreted as a claim that it’s safe or beneficial.  \n3. **Blur the line between education and advertising** – many states want a clear separation.\n\n---\n\n## Typical state‑by‑state rules (U.S.)\n\n| State | Consumption imagery allowed? | Key caveats |\n|-------|------------------------------|-------------|\n| **California** | **No** – any depiction of actual consumption is prohibited. | Only “lifestyle” images that do **not** show use, and must not be targeted to minors. |\n| **Colorado** | **No** – “no depiction of consumption” rule. | Must include required warnings, and ads cannot be placed where ≥30% of audience is under‑21. |\n| **Washington** | **No** – any portrayal of smoking/vaping/eating is banned. | Must use “no minors” language and include the state‑required warning. |\n| **Oregon** | **No** – consumption imagery prohibited. | Must keep ad content “non‑comparative” and “non‑misleading.” |\n| **Massachusetts** | **No** – no depiction of consumption. | Ads must be placed where ≥71% of the audience is 21+. |\n| **Illinois** | **No** – consumption imagery banned. | Must include the state warning and avoid “glamorizing” use. |\n| **Canada (federal)** | **No** – the Cannabis Act prohibits showing consumption. | Provincial rules may add extra restrictions (e.g., no depiction of minors, no health claims). |\n\n*If you’re advertising outside the U.S., check the national provincial legislation—most follow the same “no consumption” principle.*\n\n---\n\n## What *is* allowed as “lifestyle” imagery\n\n| Allowed | Not allowed |\n|--------|-------------|\n| People **holding** a product (e.g., a sealed jar, vape cartridge) **without** using it. | People **smoking, vaping, or eating** the product. |\n| Social settings **without** visible consumption (e.g., friends laughing at a park, with the product off‑screen). | Close‑ups of smoke, vapor clouds, or edibles being taken. |\n| Abstract or symbolic visuals (e.g., leaves, sunrise, art) that convey a “feel‑good” vibe. | Any depiction that could be interpreted as encouraging use (e.g., “Take a hit!”). |\n| Adults **≥21** (or legal age) clearly visible, with no minors in the frame. | Presence of anyone who appears under‑21, even if not using. |\n| Text that is **fact‑based** (e.g., “Our product is lab‑tested”) and **non‑medical**. | Health claims, “cures,” “relieves,” or any implied therapeutic benefit. |\n\n---\n\n## Practical checklist before you launch a campaign\n\n1. **Identify the target market geography** – list each state/province where the ad will be displayed.  \n2. **Review the local advertising code** – focus on “consumption depiction,” “minor exposure,” and required warning language.  \n3. **Audit the creative**:  \n   - No smoking/vaping/eating shown.  \n   - No minors (or ambiguous age).  \n   - No health/medical claims.  \n   - Include the mandatory state/Canada warning (e.g., “CAUTION: This product may be habit‑forming”).  \n4. **Placement rules** – ensure the media outlet’s audience meets the age‑percentage thresholds (e.g., ≥71% 21+\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1166 (166?1000) | Cost: $0.000000*",
+      "duration": 10060,
+      "grade": "C",
+      "score": 73,
+      "grading": {
+        "length": "Pass",
+        "keywords": "2/5 matched",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "4/5 key words"
+      },
+      "strengths": [],
+      "weaknesses": [],
+      "feedback": "",
+      "gradingMethod": "unknown",
+      "expectedKeywords": [
+        "marketing",
+        "cannabis",
+        "regulation",
+        "compliance",
+        "lifestyle"
+      ],
+      "expectedAnswer": "**Summarizing cannabis marketing regulations** I need to generate a concise summary of about 100-200 words for grading responses on whether lifestyle imagery, like people consuming cannabis, can be used in campaigns. This will focus on New York-specific regulations, particularly from the NY Office of Cannabis Management. The summary must cover main conclusions, key facts, and regulatory details. Restrictions state that advertising cannot appeal to individuals under 21, and it prohibits depictions of cannabis consumption or misleading ads. I’ll revisit the relevant regulations for accuracy.**Clarifying cannabis imagery regulations** I believe New York prohibits using images of people consuming cannabis and lifestyle images that suggest health or curative claims. However, regulations can differ between states. For example, California does allow such imagery, but there are restrictions to ensure that adult models are used and that the context isn’t appealing to youth. It's interesting how marketing regulations can vary so much from one place to another! I'll need to dive deeper into the specifics for clarity."
+    },
+    {
+      "questionNum": 382,
+      "question": "How do social media platform rules differ for cannabis vs. hemp?",
+      "category": "marketing-cannabis-products-&-following-regulations",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": true,
+      "response": "Below is a quick‑reference guide that captures the **most common social‑media policies** (as of 2024) for **cannabis‑derived products (THC‑rich)** versus **hemp‑derived products (≤0.3 % THC, typically CBD‑focused)**. The rules are not identical across every platform, but the patterns are consistent: THC‑related content is heavily restricted, while hemp‑derived content is generally allowed — provided it follows advertising, age‑gate, and local‑law requirements.\n\n---\n\n## 1. Core Policy Themes\n\n| Theme | Cannabis (THC‑rich) | Hemp / CBD (≤0.3 % THC) |\n|-------|--------------------|------------------------|\n| **Allowed content** | *Usually prohibited* to promote, sell, or depict consumption. Some platforms allow purely educational, news‑or‑political discussion (e.g., “the impact of legalization”). | Generally allowed if the product is legal in the user’s jurisdiction and the post does not make unsubstantiated health claims. |\n| **Advertising** | Almost all platforms **ban paid ads** for recreational or medical THC products. Some (e.g., Google, Facebook) allow ads for “CBD” only if the product contains <0.3 % THC and meets additional certification. | CBD/hemp ads are allowed on a few platforms (Facebook/Instagram, TikTok) **only** when the product is non‑ingestible (e.g., topicals) **or** when the advertiser passes a “restricted‑goods” review and includes a **mandatory age‑gate (18+/21+)**. |\n| **Organic (unpaid) posts** | Allowed for **education, advocacy, news, or personal use** as long as no direct sales link is included. Many platforms require a **“no promotion”** disclaimer. | Allowed, but still subject to the same health‑claim restrictions and must not imply FDA approval. |\n| **Linking to e‑commerce** | **Prohibited** on most platforms (no “Shop” buttons, no “Buy now” links). Some allow linking to a **landing page** that does not directly sell THC. | Usually permitted if the destination site complies with the platform’s ad policy (e.g., age‑gate, legal disclaimer). |\n| **Age‑gate / “Mature” labeling** | Required for any THC‑related content (some platforms enforce a 21+ age gate). | Required for many CBD products, especially ingestible or “wellness” claims (usually 18+). |\n| **Health & therapeutic claims** | Strictly forbidden unless the claim is **scientifically substantiated** and the product is FDA‑approved (rare). | Allowed only if the claim is **“general wellbeing”** (e.g., “helps you relax”) and not a disease‑treatment statement. |\n| **User‑generated content (UGC) & community groups** | Allowed, but moderators often remove “sale” posts. Some sub‑communities are “restricted” or “private”. | Generally allowed; many public groups focus on “CBD wellness”. |\n\n---\n\n## 2. Platform‑by‑Platform Snapshot (2024)\n\n| Platform | Cannabis (THC) | Hemp / CBD | Key Nuances |\n|----------|----------------|-----------|-------------|\n| **Facebook / Instagram** | • No paid ads for THC.<br>• Organic posts allowed if they are **educational**; no direct sales links.<br>• “Restricted content” label may be applied. | • Ads allowed **only** for **non‑ingestible** products (topicals, cosmetics) **and** after a **manual review** (requires proof of ≤0.3 % THC, lab reports).<br>• Age‑gate (21+) required for ingestible CBD ads.<br>• Organic posts OK with disclaimer and no health‑claim exaggeration. | Both platforms use the **“Cannabis & Related Products”** policy category. |\n| **Twitter / X** | • No paid promotion of THC. <br>• Organic tweets about legalization or news are fine; sales links often flagged as “spam”. | • CBD posts allowed, but **no unsubst\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1164 (164?1000) | Cost: $0.000000*",
+      "duration": 9213,
+      "grade": "C",
+      "score": 73,
+      "grading": {
+        "length": "Pass",
+        "keywords": "2/5 matched",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "4/5 key words"
+      },
+      "strengths": [],
+      "weaknesses": [],
+      "feedback": "",
+      "gradingMethod": "unknown",
+      "expectedKeywords": [
+        "marketing",
+        "cannabis",
+        "regulation",
+        "compliance",
+        "social"
+      ],
+      "expectedAnswer": "**Considering cannabis advertising rules** Cannabis, or marijuana, is still federally illegal, which means advertising is prohibited. Organic content also has specific restrictions — I can't share sales, prices, or contact information. Plus, I can't depict consumption or target audiences that aren't age-gated. I need to keep in mind the location restrictions, ensuring everything complies with the legal regulations in each state. It's a complex area, and I’ll make sure to navigate it carefully!"
+    },
+    {
+      "questionNum": 383,
+      "question": "What are compliant alternatives to discounts or giveaways in regulated markets?",
+      "category": "marketing-cannabis-products-&-following-regulations",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": true,
+      "response": "### compliant “price‑promotion” work‑arounds for regulated markets (e.g., cannabis)\n\n| Strategy | How it stays compliant | Typical implementation tips |\n|----------|-----------------------|-----------------------------|\n| **Loyalty / Points Programs** | Points are earned for purchases, not for “free” product. Points can be redeemed for future purchases, merchandise, or experiences that are **not** cannabis‑related. | • Use a tier‑less, “earned‑value” model (e.g., 1 point = $0.01 credit). <br>• Keep the redemption ledger transparent and audit‑ready. |\n| **Rebates (Post‑Purchase)** | Offer a cash‑back or credit after the sale is completed and the transaction is verified. Because the discount is applied **after** the purchase, it does not affect the advertised price. | • Require a receipt upload or QR‑code scan. <br>• Set a minimum spend threshold (e.g., “$100+ purchase → 10% rebate”). |\n| **Gift‑with‑Purchase (Non‑Cannabis Items)** | Include a non‑controlled‑substance item (e.g., branded apparel, accessories, glassware) with a qualifying purchase. The giveaway is not a cannabis product. | • Clearly state “free gift, not a discount on cannabis.” <br>• Keep the value of the gift below any statutory “gift‑value” caps if the jurisdiction has them. |\n| **Educational Events / Workshops** | Offer free or low‑cost entry to a compliance‑approved educational session. Attendees may receive a **voucher** for future purchases, but the voucher is a **separate transaction**. | • Register attendees, collect consent. <br>• Ensure the voucher is not conditional on buying a specific product. |\n| **Bundled Packages (Value‑Added, Not Discounted)** | Create a “bundle” where the total price is set for the package (e.g., flower + pre‑rolled + accessories). The price is presented as a single SKU; individual item pricing isn’t advertised as a discount. | • The bundle price must be the **actual** selling price—no hidden “discount” language. <br>• Keep inventory tracking separate for each component. |\n| **Referral Incentives (Non‑Monetary)** | Reward customers with loyalty points, exclusive access, or branded merchandise for referring a friend who completes a purchase. The reward is **not a cash discount on the product**. | ��� Verify the referred party’s purchase before crediting. <br>• Avoid “cash‑back” language; use “thank‑you gift.” |\n| **Sweepstakes / Contests (Compliance‑First)** | Run a state‑approved sweepstakes where entry is **not** tied to a purchase (e.g., social‑media sign‑up, QR‑code scan). Prizes can be non‑cannabis items or a “store credit” that the winner can apply to a future purchase. | • Publish official rules, odds, and prize value. <br>• Ensure the prize value does not exceed any statutory limit for promotional value. |\n| **Seasonal or “Limited‑Edition” Releases** | Introduce a new product line with a fixed retail price. The “promotion” is the novelty, not a price reduction. | • Highlight the unique attributes (e.g., strain, packaging) rather than price. |\n| **Financing / Payment Plans** | Offer a zero‑interest installment plan for larger carts (e.g., “pay over 3 months”). The unit price remains unchanged; the benefit is cash‑flow flexibility. | • Disclose all terms up‑front, comply with usury laws. |\n\n---\n\n#### Key Compliance Checklist (Applicable to most U.S. state cannabis markets)\n\n1. **No price‑advertising discount** – The advertised price must be the actual selling price; any “discount” must be applied **post‑sale** (rebate, credit, points).\n2. **Gift/value caps** – Some states limit the value of free items that can be given with a purchase. Verify the local cap.\n3. **Non‑cannabis focus** – Giveaways should be items or experiences **not** classified as cannabis or a cannabis‑derived product.\n4. **Transparent terms** – All promotional terms, eligibility criteria, and redemption processes must be clearly disclosed to the consumer\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1164 (164?1000) | Cost: $0.000000*",
+      "duration": 7110,
+      "grade": "C",
+      "score": 78,
+      "grading": {
+        "length": "Pass",
+        "keywords": "3/5 matched",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "3/5 key words"
+      },
+      "strengths": [],
+      "weaknesses": [],
+      "feedback": "",
+      "gradingMethod": "unknown",
+      "expectedKeywords": [
+        "marketing",
+        "cannabis",
+        "regulation",
+        "compliance",
+        "compliant"
+      ],
+      "expectedAnswer": "**Exploring regulations for NY OCM** I'm looking into the New York Office of Cannabis Management's adult-use regulations set to take effect in 2023/2024. Specifically, I'm considering the details in 9 NYCRR §123 related to retail dispensaries. There's quite a bit to untangle here! I want to figure out how these regulations will affect the retail landscape for cannabis in New York, especially as it’s a new environment for both businesses and consumers. Let's see what I can find!"
+    },
+    {
+      "questionNum": 384,
+      "question": "How can I market cannabis products without crossing into medical claims?",
+      "category": "marketing-cannabis-products-&-following-regulations",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": true,
+      "response": "Below is a practical, step‑by‑step framework you can use to promote cannabis (recreational or hemp‑derived) products while staying safely on the right side of the law. The focus is on **what you *can* say**—product attributes, lifestyle positioning, brand story, and verified quality—rather than on any health‑ or medical‑related language.\n\n---\n\n## 1️⃣ Know the Legal Landscape First  \n\n| Jurisdiction | What’s Allowed? | What’s Prohibited? | Typical Enforcement |\n|--------------|----------------|--------------------|---------------------|\n| **U.S. – Federal** | Hemp‑derived < 0.3 % Δ⁹‑THC (CBD) can be marketed as a “dietary supplement” *only* if it meets FDA requirements; otherwise it must be a “cosmetic” or “general wellness” product. | Any claim that the product “treats,” “prevents,” “cures,” or “mitigates” a disease; “helps with anxiety,” “relieves pain,” etc. | FDA warning letters, FTC enforcement actions. |\n| **U.S. – State (recreational)** | Brand, flavor, aroma, potency, “relaxation,” “social enjoyment,” “premium quality.” | Medical‑use language (e.g., “helps with PTSD”). | State cannabis regulatory agencies; can result in license suspension. |\n| **Canada** | Cannabis is legal for both medical and recreational markets. Advertising must not be *false, misleading, or deceptive* and may not *promote the product as a therapeutic product.* | Claims of therapeutic benefit, “helps with insomnia,” “reduces anxiety,” etc. | Health Canada enforcement; fines and license revocation. |\n| **EU** | Hemp‑derived CBD (≤ 0.2 % THC) can be sold as a “food” if it meets novel‑food approval, but health claims are restricted to those authorized by EFSA. | Unsubstantiated health claims, “cures,” “treats.” | National food‑safety agencies. |\n\n**Action:** Keep a current matrix of the rules for every market you sell into. When in doubt, consult a cannabis‑specialized attorney or compliance consultant.\n\n---\n\n## 2️⃣ Define Your Positioning *Without* Health Claims  \n\n| Positioning Element | Safe Messaging Examples |\n|---------------------|--------------------------|\n| **Lifestyle** | “Perfect for a chill evening with friends.” |\n| **Experience** | “Smooth, earthy notes with a subtle citrus finish.” |\n| **Quality** | “Lab‑tested for potency and purity; 0 ppm pesticides.” |\n| **Craftsmanship** | “Small‑batch, hand‑rolled, sourced from organic farms.” |\n| **Social Responsibility** | “Packaged in recyclable glass; supports local growers.” |\n| **Legal Compliance** | “THC content verified at 0.2 % per state regulations.” |\n\nNotice the emphasis on **sensory, social, and product‑quality attributes**—none of which imply a medical effect.\n\n---\n\n## 3️⃣ Use Approved Language & Disclaimers  \n\n| Category | What to Say | Example |\n|----------|------------|---------|\n| **Potency / Content** | State exact THC/CBD percentages. | “Contains 0.15 % THC and 12 % CBD.” |\n| **Lab Results** | Reference third‑party Certificates of Analysis (COA). | “See our COA (link) for full cannabinoid profile.” |\n| **Age & Use Restrictions** | Mandatory age warnings. | “For adult use only. Must be 21+ (or 19+ in Canada).” |\n| **Legal Disclaimer** | Generic “Not for medical use.” | “This product is not intended to diagnose, treat, cure, or prevent any disease.” |\n| **Safety** | “Consume responsibly; keep out of reach of children.” | Same as above. |\n\n**Tip:** Keep the disclaimer **visible** (e.g., on packaging, website footer, and any ad copy). FTC and Health Canada consider the prominence of the disclaimer when evaluating compliance.\n\n---\n\n## 4️⃣ Content‑Marketing Tactics That Stay Within the Rules  \n\n| Tactic | How to Execute (Medical‑Claim\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1130 (130?1000) | Cost: $0.000000*",
+      "duration": 12121,
+      "grade": "A",
+      "score": 97,
+      "grading": {
+        "length": "Pass",
+        "keywords": "5/5 matched",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "4/5 key words"
+      },
+      "strengths": [],
+      "weaknesses": [],
+      "feedback": "",
+      "gradingMethod": "unknown",
+      "expectedKeywords": [
+        "marketing",
+        "cannabis",
+        "regulation",
+        "compliance",
+        "market"
+      ],
+      "expectedAnswer": "I’m considering that in New York, there’s a requirement that at least 90% of the audience is expected to be 21 years old or older. That’s interesting because it can really shape the kind of events or entertainment options available! I wonder how this rule impacts various venues and services targeted at younger audiences. It seems like keeping an eye on age restrictions is crucial for compliance, especially in the entertainment industry.**Generating marketing summary** I need to create a concise summary about marketing cannabis products in New York, making sure I don't cross into medical claims. This includes outlining key regulations like the Office of Cannabis Management's Part 123 and the requirement to avoid false or misleading claims. I should note that any reference to health claims or targeting minors is prohibited, with a focus on a 21+ audience threshold — New York likely sets it at 90%. It’s crucial to capture these points accurately!"
+    },
+    {
+      "questionNum": 385,
+      "question": "What education-focused campaigns are safest for compliance?",
+      "category": "marketing-cannabis-products-&-following-regulations",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": true,
+      "response": "**Education‑focused cannabis campaigns that stay on the safe side of compliance**\n\nBelow is a quick‑reference guide you can use when planning an education‑only campaign.  All of the ideas are built around the “inform‑only, no‑claim, no‑target‑minors” rule set that most state regulators (and the FDA, where applicable) enforce.\n\n| Campaign Theme | Core Message | Why It’s Low‑Risk | Key Compliance Safeguards |\n|----------------|--------------|-------------------|---------------------------|\n| **1. “Know Your Product” Series** | Explain the different cannabis plant parts (flower, concentrate, edibles, topicals), THC/CBD ratios, and basic lab‑test results. | Purely factual, no health‑benefit claims. | • Use only lab‑verified data.<br>• Include a disclaimer: “This information is for educational purposes only.”<br>• Age‑gate the content (18+ or 21+ depending on state). |\n| **2. “Responsible Use” Guide** | Tips on dosing, storage, keeping products out of reach of children, and safe consumption methods. | Promotes safety, not sales. | • No language that encourages higher consumption.<br>• No “best‑of” product rankings.<br>• Include a “talk to a healthcare professional” note. |\n| **3. “Medical‑Education” Webinar** | Overview of conditions where cannabis is legally permitted, how a physician’s recommendation works, and the difference between THC and CBD. | Focuses on the legal framework, not on efficacy. | • Cite only state‑approved medical lists.<br>• Avoid any claim that cannabis “cures” or “treats” a condition.<br>• Require registration and age verification for attendees. |\n| **4. “Cannabis & the Law” Infographic** | State‑by‑state map of legal status, possession limits, and where consumption is allowed. | Purely regulatory information. | • Keep the map up‑to‑date; add a “last updated” date.<br>• No promotional pricing or product placement. |\n| **5. “Sustainability & Production” Tour** | Video/virtual tour of your cultivation facility showing sustainable practices, energy use, and waste management. | Highlights business practices, not product effects. | • No product shots that look like ads.<br>• No “best‑in‑class” language. |\n| **6. “Employee & Community Safety” Workshop** | Training for staff and local community on safe handling, emergency procedures, and community impact. | Internal/Community‑focused, not consumer‑facing sales pitch. | • Keep the audience limited to employees or invited community members.<br>• Record attendance for audit trail. |\n| **7. “Science of Cannabinoids” Blog Series** | Explain endocannabinoid system, how THC/CBD interact with receptors, and what “bioavailability” means. | Scientific, not therapeutic. | • Cite peer‑reviewed sources.<br>• Add a disclaimer: “Not medical advice.” |\n| **8. “Cannabis & Wellness Lifestyle” Podcast** | Interviews with nutritionists, yoga instructors, or mental‑health pros discussing holistic wellness (no product push). | Wellness angle is allowed if you stay away from health‑claim language. | • Guests must pre‑sign a compliance statement.<br>• No mention of specific product SKUs. |\n| **9. “Ask‑Us‑Anything (AA) Live Chat”** | Real‑time Q&A where a compliance‑trained staffer answers general, non‑medical questions (e.g., “What’s the difference between sativa and indica?”). | Interactive but still education‑only. | • Scripted “no‑advice” script.<br>• Log all chats for audit. |\n| **10. “Community Impact Report”** | Annual PDF showing job creation, tax revenue, and community donations. | Purely corporate‑social‑responsibility content. | • No product placement.<br>•\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1166 (166?1000) | Cost: $0.000000*",
+      "duration": 4552,
+      "grade": "C",
+      "score": 72.75,
+      "grading": {
+        "length": "Pass",
+        "keywords": "3/5 matched",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "1/4 key words"
+      },
+      "strengths": [],
+      "weaknesses": [],
+      "feedback": "",
+      "gradingMethod": "unknown",
+      "expectedKeywords": [
+        "marketing",
+        "cannabis",
+        "regulation",
+        "compliance",
+        "education"
+      ],
+      "expectedAnswer": "**Creating a compliance grading summary** I need to produce a grading summary focused on educational campaigns that comply with New York cannabis marketing regulations. This will include the main conclusion, key facts, important regulatory details, and any state-specific information. I'll ensure not to promote illegal products since this is about compliance. I should reference the New York Office of Cannabis Management (OCM) regulations, particularly the Cannabis Advertising and Marketing Rules (9 NYCRR Part 123, now Part 121) adopted in 2023.**Recalling advertising restrictions** I need to recall important specifics about cannabis advertising regulations. Ads can't appeal to those under 21; that means no cartoons, celebrities, images of minors, or toys. I should also note that the audience composition must have at least 90% (or maybe 85%?) expected to be 21 and older. I remember that many states use an 85% threshold, and I need to confirm if New York follows this as well."
+    },
+    {
+      "questionNum": 386,
+      "question": "How do I handle influencer partnerships while staying compliant?",
+      "category": "marketing-cannabis-products-&-following-regulations",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": true,
+      "response": "### Influencer Partnerships — Staying Compliant in the Cannabis Space  \n\nBelow is a step‑by‑step framework you can use to run influencer programs that respect federal, state, and industry‑specific rules while still delivering impact.\n\n| Step | What to Do | Why It Matters | Practical Tips |\n|------|------------|----------------|----------------|\n| **1️⃣ Define the Scope & Geography** | • Identify the states (or provinces) where the influencer’s audience lives. <br>• Confirm that your brand is fully licensed in each of those jurisdictions. | Cannabis is legal at the state level but remains a Schedule I drug federally. Advertising is only permitted where you have a valid license. | • Use geo‑targeted contracts that limit the influencer to “approved states.” <br>• If you sell only in CO, CA, OR, WA, etc., explicitly list those states in the agreement. |\n| **2️⃣ Align with FTC & State Advertising Rules** | • Follow FTC “Truth‑in‑Advertising” guidelines (disclose material connections, avoid deceptive claims). <br>• Review state‑specific advertising statutes (e.g., CA Business & Professions Code § 26024, CO Rule 13‑3‑202). | Influencer posts are considered “advertisements.” Failure to disclose or to make unsubstantiated health claims can trigger FTC or state enforcement. | • Require a standard FTC disclosure phrase (“#ad”, “#sponsored”) in every post. <br>• Provide a pre‑approved “disclosure checklist” for the influencer. |\n| **3️⃣ Restrict Prohibited Content** | • Ban any health‑benefit or therapeutic claims unless they are supported by FDA‑approved data. <br>• Prohibit depictions of under‑18 individuals, consumption in schools, or driving while high. | Federal law (DEA) and most state regulations forbid false health claims and marketing to minors. | • Include a “No‑Claim” clause in the contract: “The influencer may not state that the product cures, treats, or prevents any disease.” <br>• Use a content‑review workflow (see Step 5). |\n| **4️⃣ Age‑Gating & Platform Policies** | • Ensure the influencer’s channel can age‑gate content (e.g., Instagram “restricted mode,” YouTube “age‑restricted”). <br>• Verify that the platform’s own cannabis policy allows your content. | Platforms can remove non‑compliant posts, and age‑gating helps meet state rules that require “adult‑only” marketing. | • Ask the influencer to enable “Adult Content” tags where available. <br>• Keep screenshots of the age‑gate settings as part of your compliance audit. |\n| **5️⃣ Content Review & Approval Process** | • Set up a **two‑step review**: (a) legal/compliance team checks for claim compliance, (b) brand/marketing reviews for tone & branding. <br>• Use a shared folder (e.g., Google Drive, Dropbox) with version control. | Early review catches violations before they go live, reducing risk of fines or takedowns. | • Provide a **Content Brief** template that lists: approved product images, prohibited language, required disclosures, hashtags, and CTA limits. |\n| **6️⃣ Contractual Safeguards** | • Include clauses for: <br>  • **Compliance Warranty** – influencer certifies that all content will meet applicable laws. <br>  • **Indemnification** – influencer indemnifies brand for violations. <br>  • **Audit Rights** – brand can request performance data and post‑mortem reports. | Contracts are your legal safety net if an influencer slips up. | • Use a standard influencer agreement (many cannabis‑specific templates exist) and have counsel tailor it to your state mix. |\n| **7️⃣ Tracking & Reporting** | • Capture UTM parameters, view‑through metrics, and sales attribution. <br>• Log each post’s date, platform, geo‑targeting, and compliance sign‑off. | Documentation shows good‑faith effort to comply—useful if regulators inquire. | • Set up a simple spreadsheet or a SaaS tool (e.g., Influencity, Klear) that includes a “Compliance ✅” column. |\n| **8️⃣ Ongoing Education** | • Conduct a\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1146 (146?1000) | Cost: $0.000000*",
+      "duration": 4390,
+      "grade": "B",
+      "score": 89,
+      "grading": {
+        "length": "Pass",
+        "keywords": "4/5 matched",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "4/5 key words"
+      },
+      "strengths": [],
+      "weaknesses": [],
+      "feedback": "",
+      "gradingMethod": "unknown",
+      "expectedKeywords": [
+        "marketing",
+        "cannabis",
+        "regulation",
+        "compliance",
+        "handle"
+      ],
+      "expectedAnswer": "**Summarizing influencer partnerships compliance** I need to craft a concise summary—about 100 to 200 words—to help grade responses for handling influencer partnerships while ensuring compliance in New York's cannabis marketing. I'll summarize the key facts, including the main conclusion and critical regulatory details from the Office of Cannabis Management (OCM) rules. Influencer partnerships are considered advertising and must comply with OCM's regulations, specifying the target audience as 21+. I’ll verify the precise numeric thresholds required for compliance as well."
+    },
+    {
+      "questionNum": 387,
+      "question": "What’s the best way to review my content for compliance before publishing?",
+      "category": "marketing-cannabis-products-&-following-regulations",
+      "response": null,
+      "error": "HTTP 400: Bad Request",
+      "duration": 289,
+      "grade": "F",
+      "score": 0,
+      "actualAgent": "error",
+      "actualAgentName": "HTTP 400",
+      "expectedAgent": "f8_agent",
+      "agentMatch": false
+    },
+    {
+      "questionNum": 388,
+      "question": "Are there specific ad networks that are cannabis-compliant?",
+      "category": "marketing-cannabis-products-&-following-regulations",
+      "response": null,
+      "error": "HTTP 400: Bad Request",
+      "duration": 84,
+      "grade": "F",
+      "score": 0,
+      "actualAgent": "error",
+      "actualAgentName": "HTTP 400",
+      "expectedAgent": "f8_agent",
+      "agentMatch": false
+    },
+    {
+      "questionNum": 389,
+      "question": "How can hemp-based products be marketed differently than THC products?",
+      "category": "hemp-product-marketing",
+      "agent": "unknown",
+      "actualAgent": "formulation",
+      "actualAgentName": "Formulation Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": false,
+      "response": "### Key Differences in Positioning & Messaging  \n\n| Element | Hemp‑derived (≤0.3 % Δ⁹‑THC, mainly CBD) | THC‑rich (psycho‑active) |\n|---------|------------------------------------------|--------------------------|\n| **Legal framework** | Federally legal in the U.S.; subject to FDA “food, drug, cosmetic” rules and state‑level hemp statutes. | Controlled substance in most jurisdictions; allowed only where state‑level adult‑use or medical programs exist. |\n| **Core consumer promise** | *Well‑being, balance, relief without intoxication* – stress reduction, sleep support, joint health, skincare, pet care. | *Experience, recreation, therapeutic “high”* – euphoria, creativity, appetite stimulation, pain relief with psycho‑active effect. |\n| **Allowed claims** | Only structure‑function statements (e.g., “helps support a calm mood”) and scientifically‑backed health‑related claims that do **not** imply disease treatment. | Can use “medical” language only in licensed dispensary/medical‑marijuana programs; broader therapeutic claims are permissible under state regulations but still restricted by the DEA/ FDA. |\n| **Tone & imagery** | Clean, clinical‑leaning, wellness‑oriented; pastel/earth tones, botanical illustrations, “lab‑tested” badges. | Bold, lifestyle‑driven, vibrant colors, social‑scene imagery; “craft”, “premium”, “artisan” cues. |\n| **Target audience** | • Health‑conscious adults 25‑55 y<br>• Parents, seniors, athletes, pet owners<br>• Users who avoid intoxication | • Adults 21‑45 y in legal markets<br>• Recreational/social users<br>• Patients in medical programs seeking symptom relief |\n| **Channel focus** | E‑commerce, health‑food stores, pharmacies, wellness blogs, influencers in fitness/holistic health, corporate wellness programs. | Dispensaries (brick‑and‑mortar & online), nightlife venues, cannabis‑culture media, music/arts festivals, subscription “curated” boxes. |\n| **Packaging constraints** | Must include: • Net weight • THC/CBD content per serving • USDA‑organic or GMP logos (if applicable) • “0.3 % Δ⁹‑THC or less” statement • No imagery that suggests intoxication. | Can display potency (e.g., “15 % THC”) and strain name; may use “psycho‑active” warnings; child‑resistant packaging is often required. |\n| **Pricing narrative** | Emphasize “value for daily wellness”, “lab‑verified potency”, “sustainably sourced”. | Emphasize “premium craft”, “limited‑edition”, “artisan genetics”, “high potency”. |\n\n---\n\n## 1. Regulatory‑First Marketing Checklist (Hemp)\n\n1. **FDA & FTC Review**  \n   - No disease‑treatment claims.  \n   - Use only “structure‑function” language (e.g., “supports focus”).  \n   - Include disclaimer: “These statements have not been evaluated by the FDA.”  \n\n2. **State‑Specific Hemp Rules**  \n   - Verify THC limit (typically 0.3 % Δ⁹‑THC).  \n   - Some states require a QR code linking to a COA.  \n\n3. **Labeling**  \n   - Full cannabinoid profile (CBD, total THC, other cannabinoids).  \n   - Batch/lot number, expiration date, “keep out of reach of children.”  \n\n4. **Advertising Platforms**  \n   - Google, Facebook, Instagram allow CBD ads only under strict “non‑medical” phrasing and with a verified landing‑page compliance statement.  \n\n---\n\n## 2. Tactical Marketing Ideas for Hemp Products  \n\n| Tactic | How to Execute | Why It Works |\n|--------|----------------|--------------|\n| **“Science‑Backed” Storytelling** | Publish short videos/infographics that walk the viewer through a COA, extraction method (e.g., CO₂), and third‑party testing. | Builds trust with skeptical wellness shoppers and satisfies regulatory transparency. |\n| **Wellness Partnerships** | Co‑brand with yoga studios, gyms, spas, or pet‑care clinics. Offer sample packs or “first‑class” bundles. | Leverages existing health‑focused communities that already value non‑intoxicating botanicals. |\n\n\n---\n*Agent: Formulation Agent | Plan: Standard | Tokens: 1205 (205?1000) | Cost: $0.000000*",
+      "duration": 9509,
+      "grade": "B",
+      "score": 80,
+      "grading": {
+        "length": "Pass",
+        "keywords": "4/5 matched",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "1/5 key words"
+      },
+      "strengths": [],
+      "weaknesses": [],
+      "feedback": "",
+      "gradingMethod": "unknown",
+      "expectedKeywords": [
+        "hemp",
+        "product",
+        "marketing",
+        "thc",
+        "based"
+      ],
+      "expectedAnswer": "**Evaluating hemp compliance** I’m looking at the 2018 Farm Bill, which states that hemp is federally legal as long as it has less than 0.3% delta-9 THC by dry weight. This means it can be sold across state lines, but there are fewer advertising restrictions on mainstream platforms. However, I must keep in mind that those platforms still have specific policies, like including DOH disclaimers and avoiding health claims. I’m wondering if I should treat it like a dietary supplement too.**Exploring hemp compliance** Hemp is federally legal under the 2018 Farm Bill as long as delta-9 THC is less than 0.3% in dry weight. This allows it to be sold interstate, which is a significant plus. However, there are fewer advertising restrictions on mainstream channels, even though different platforms have their policies. I should also consider including disclaimers from the Department of Health and note that health claims can't be made. I wonder if it should be treated as a dietary supplement?"
+    },
+    {
+      "questionNum": 390,
+      "question": "Can I highlight functional benefits (like CBD for wellness) without making medical claims?",
+      "category": "hemp-product-marketing",
+      "agent": "unknown",
+      "actualAgent": "formulation",
+      "actualAgentName": "Formulation Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": false,
+      "response": "### Short answer  \nYes – you can talk about **functional/“well‑being” benefits** (e.g., “promotes a sense of calm”) as long as you avoid **any language that suggests the product treats, mitigates, or cures a disease**.  \n\nBelow is a practical checklist and sample phrasing that keep you safely within U.S. federal (FDA/FTC) and most state guidelines.\n\n---\n\n## 1. Regulatory backdrop (U.S.)\n\n| Agency | What they watch for | Key rule of thumb |\n|--------|--------------------|-------------------|\n| **FDA** | *Structure‑function* vs. *disease‑claim* distinction.  The FDA allows statements about how a product **supports** a normal function of the body, **provided** the claim does **not** imply treatment or prevention of a specific disease. | “supports a relaxed mood” ✔︎  – “cures anxiety” ✖︎ |\n| **FTC** | Truthful, non‑misleading advertising. Any claim must be **substantiated** by competent scientific evidence. | Back up “helps you feel calm” with published data on CBD’s anxiolytic‑like effects in healthy adults (or a well‑controlled study). |\n| **State cannabis boards** | Varying rules on “wellness” language; many mirror FDA guidance but add a “no therapeutic claim” clause. | Check the specific state’s cannabis‑product labeling guide (e.g., CA‑BCL, CO, WA). |\n| **COA requirement** | You must make the **lab results** (potency, contaminants) available to consumers, usually via QR code or label. | No effect on claim language, but the COA must be accessible. |\n\n---\n\n## 2. What **is** allowed (Structure‑function language)\n\n| Allowed phrasing | Why it works |\n|------------------|--------------|\n| “**Supports** a sense of calm” | Refers to a *normal* bodily function (emotional balance). |\n| “**Promotes** overall wellness” | Generic, non‑disease‑specific. |\n| “**Helps** you unwind after a long day” | Describes a *situational* benefit, not a medical outcome. |\n| “**Aids** in maintaining a balanced mood” | “Aids” is permissible when tied to normal homeostasis. |\n| “**Contributes** to a relaxed state of mind” | “Contributes to” indicates a *supportive* role, not a cure. |\n\n**Key characteristics of safe language**\n\n1. **No disease terminology** – avoid words like anxiety, depression, insomnia, arthritis, inflammation, pain, seizures, etc.\n2. **No “cure,” “treat,” “prevent,” “reduce,” “relieve,” “mitigate”** – these are therapeutic verbs.\n3. **Use qualifiers** – “may,” “can help,” “supports,” “promotes,” “contributes to.”\n4. **Focus on *normal* bodily functions** – sleep, mood, focus, recovery, comfort, relaxation, etc.\n\n---\n\n## 3. What **is NOT** allowed (Therapeutic claims)\n\n| Forbidden phrasing | Reason |\n|--------------------|--------|\n| “Relieves anxiety” | Implies treatment of a medical condition. |\n| “Cures chronic pain” | Direct disease claim. |\n| “Prevents seizures” | Therapeutic claim. |\n| “Reduces inflammation” | Implies disease‑modifying effect. |\n| “Treats insomnia” | Disease‑specific. |\n\nEven indirect claims can cross the line if they *suggest* a medical outcome, e.g., “helps you get a better night’s sleep” is borderline—most regulators consider “sleep” a health‑related function, so it’s safer to say “supports a relaxed mind before bedtime” and provide a disclaimer.\n\n---\n\n## 4. How to protect yourself\n\n1. **Scientific substantiation**  \n   - Cite peer‑reviewed studies that examined CBD in **healthy** (non‑clinical) populations.  \n   - Example: “A double‑blind, placebo‑controlled study of \n\n---\n*Agent: Formulation Agent | Plan: Standard | Tokens: 1209 (209?1000) | Cost: $0.000000*",
+      "duration": 7342,
+      "grade": "D",
+      "score": 67,
+      "grading": {
+        "length": "Pass",
+        "keywords": "2/5 matched",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "2/5 key words"
+      },
+      "strengths": [],
+      "weaknesses": [],
+      "feedback": "",
+      "gradingMethod": "unknown",
+      "expectedKeywords": [
+        "hemp",
+        "product",
+        "marketing",
+        "cbd",
+        "highlight"
+      ],
+      "expectedAnswer": "**Considering CBD claims** I’m realizing that structure/function claims are allowed for supplements, while conventional food claims are a bit different. For CBD, if it’s not lawfully marketed as a supplement, those claims about things like anxiety, pain, or sleep disorders could potentially be seen as drug claims. That’s interesting because the FDA has sent out warning letters regarding these claims. There’s definitely a lot to unpack there!"
     }
   ],
-  "status": "In Progress: 380/438 questions completed"
+  "status": "In Progress: 390/438 questions completed"
 }
