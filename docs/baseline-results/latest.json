@@ -1,11 +1,11 @@
 {
-  "timestamp": "2025-11-01T00:22:56.246Z",
+  "timestamp": "2025-11-01T00:27:52.790Z",
   "url": "https://chat.formul8.ai",
   "totalQuestions": 438,
-  "completed": 330,
-  "passed": 180,
+  "completed": 340,
+  "passed": 190,
   "failed": 150,
-  "averageScore": "45.48",
+  "averageScore": "46.53",
   "averageGrade": "F",
   "results": [
     {
@@ -10401,7 +10401,338 @@
         "weedmaps"
       ],
       "expectedAnswer": "**Summarizing advertiser strategies** I need to summarize how advertisers are using Weedmaps and Leafly effectively. This will include best practices like optimizing listings, ensuring menu accuracy with POS integration, utilizing SEO keywords, and managing reviews. I also want to touch on deals and promotions like BOGO and happy hours, along with advertising methods such as featured listings and geo-targeting. Lastly, I’ll note important compliance details for advertising, particularly for states with stringent regulations, like Massachusetts and Colorado on promotions.**Summarizing advertising strategies** I need to create a summary focusing on how advertisers effectively use Weedmaps and Leafly. I’ll aim for 100-200 words and ensure it includes key facts, regulatory details, and state-specific information as needed. Best practices include optimizing listings, ensuring menu accuracy via POS integration, managing SEO keywords and reviews, as well as implementing deals like BOGO and happy hours. I should mention compliance with state regulations, such as restrictions on health claims and advertising near highways in California."
+    },
+    {
+      "questionNum": 331,
+      "question": "What are the best ways to showcase lab results, testing data, or COAs in marketing?",
+      "category": "product-marketing",
+      "agent": "unknown",
+      "actualAgent": "formulation",
+      "actualAgentName": "Formulation Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": false,
+      "response": "### How to Turn Lab Results/COAs into Trust‑Building Marketing Assets  \n\n| Goal | What to Show | How to Present | Why It Works |\n|------|--------------|----------------|--------------|\n| **Instant credibility** | • THC/CBD potency (± % range)  <br>• Major terpene percentages  <br>• Absence of contaminants (pesticides, heavy metals, mycotoxins, residual solvents) | • “Lab‑Tested” badge with the lab’s logo and a short summary (e.g., “Δ9‑THC 18 % ± 0.3 % – Pesticide‑Free”)  <br>• Color‑coded icons (green = pass, red = fail) | A quick visual cue tells the consumer the product meets safety standards without digging into a PDF. |\n| **Full transparency** | Complete COA (PDF) | • QR code or short URL on packaging, website, and POS that opens the **full, un‑edited COA** in a new tab or mobile‑friendly viewer  <br>• “View Full Lab Report” button on product pages | Gives power‑users the data they demand while keeping the label clean. |\n| **Simplified education** | Key metrics + what they mean | • One‑page infographic (≈ A4) that explains: <br> – “THC = psychoactive strength” <br> – “CBD = potential therapeutic benefit” <br> – “Terpenes = flavor & entourage effect” <br>• Use plain language and icons (brain for THC, calm‑face for CBD, leaf for terpenes) | Reduces the “technical barrier” and helps non‑experts understand why the numbers matter. |\n| **Social proof** | Third‑party lab name, accreditation, batch number | • Highlight the lab’s certifications (ISO 17025, CGLAB, etc.) next to the badge  <br>• Include a “Batch #: 12345” line; consumers can verify the exact batch on the lab’s website | Shows the testing isn’t internal marketing fluff but an independent, repeatable process. |\n| **Comparative advantage** | Your product vs. industry average | • Bar graph or radar chart comparing your THC/CBD/terpene profile to the market median (e.g., “Our Δ9‑THC 18 % vs. 12 % avg”)  <br>• Highlight “Zero pesticide detections – 0 % vs. 15 % of products fail” | Positions the brand as higher‑quality and safer than competitors. |\n| **Shelf‑life & stability** | Degradation data (e.g., % THC loss after 6 months) | • Small “Stability” icon with a timeline graphic (0 mo → 6 mo → 12 mo)  <br>• “Freshness guarantee: Tested at 0 mo and 6 mo – ≤ 2 % potency loss” | Reinforces product reliability over time, especially for edibles and concentrates. |\n| **Regulatory compliance** | Required disclaimer language | • Place required statements (e.g., “This product has not been evaluated by the FDA”) in a legible but unobtrusive spot (footer of web page, back of label) | Keeps marketing legal while still showcasing data. |\n\n---\n\n#### Practical Implementation Checklist  \n\n1. **Design a “Lab‑Tested” badge**  \n   - Size: 1.5–2 cm for packaging, 50 × 50 px for web.  \n   - Include: Lab logo, “COA # ####”, and a concise potency line.  \n\n2. **Add QR codes**  \n   - Generate a static QR that points to a **dedicated COA page** (PDF hosted\n\n---\n*Agent: Formulation Agent | Plan: Standard | Tokens: 1213 (213?1000) | Cost: $0.000000*",
+      "duration": 6100,
+      "grade": "B",
+      "score": 88,
+      "grading": {
+        "length": "Pass",
+        "keywords": "5/5 matched",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "1/5 key words"
+      },
+      "strengths": [],
+      "weaknesses": [],
+      "feedback": "",
+      "gradingMethod": "unknown",
+      "expectedKeywords": [
+        "product",
+        "marketing",
+        "testing",
+        "coa",
+        "lab"
+      ],
+      "expectedAnswer": "**Summarizing cannabis marketing practices** I need to create a concise summary of the best ways to market lab results, testing data, or Certificates of Analysis (COAs) for cannabis. This includes essential compliance with regulations, as many states require COAs at the point of sale and QR codes on packaging that link to these documents. It's important to avoid health claims and use disclaimers while steering clear of claims about being the \"strongest.\" This guidance should help keep marketing efforts within legal boundaries.**Summarizing cannabis marketing regulations** I’m working on generating a concise summary about the best ways to showcase lab results, testing data, or COAs for cannabis marketing. I must focus on key facts and critical regulatory details. While cannabis is regulated and legal in many places, I’ll emphasize compliance with safety policies. It’s crucial to provide high-level information on laws without offering illegal guidance. I’ll also include specific requirements, such as the need for COAs at the point of sale and caution against health claims or appealing to minors."
+    },
+    {
+      "questionNum": 332,
+      "question": "Can you help me highlight the differences between formulations (vape, edibles, topicals)?",
+      "category": "product-marketing",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": true,
+      "response": "Below is a quick‑reference guide that outlines the key distinctions between the three most common cannabis product categories – **vapes**, **edibles**, and **topicals**.  It covers how each is formulated, how it works in the body, and practical considerations for product development and marketing.\n\n| Aspect | Vaporizer (Inhalation) | Edible (Oral) | Topical (Skin‑Applied) |\n|--------|------------------------|--------------|------------------------|\n| **Primary Delivery Route** | Pulmonary (inhaled aerosol) | Gastro‑intestinal tract | Dermal (through skin) |\n| **Typical Cannabinoid Forms** | Distillate, isolate, or full‑spectrum oils dissolved in a **PG/VG**, **PEG**, or **MCT** base; sometimes terpenes added for flavor & entourage effect. | Cannabinoid‑infused fats (MCT, butter, coconut oil), sugar matrices, or protein‑based bases (e.g., gelatin, whey). | Cannabinoid‑infused carrier oils (MCT, hemp seed oil, jojoba), butters, liposomal or nano‑emulsion systems for enhanced skin penetration. |\n| **Onset of Effects** | 1–5 min (rapid) | 30 min–2 h (depends on food, metabolism) | Immediate localized sensation; systemic effects generally negligible. |\n **Peak & Duration** | Peak 10–30 min; total 1–3 h | Peak 1–3 h; total 4–8 h (sometimes >12 h for high‑fat foods) | Effects last 2–6 h; may be longer with sustained release formulations. |\n| **Bioavailability** | 10‑35 % (depends on device, temperature, formulation) | 4‑20 % (higher with fats, lower with low‑fat matrices) | <1 % systemic; focus is local tissue concentration. |\n| **Dosing Precision** | High – can meter puffs (0.1‑0.5 ml per puff) with calibrated devices. | Moderate – batch‑to‑batch uniformity is critical; lab‑tested mg per serving is standard. | Low – usually expressed as % w/w (e.g., 5 % THC) or mg per gram of product; precise dose per application is harder to control. |\n| **Key Formulation Challenges** | • Maintaining stable aerosol droplet size (1‑3 µm). <br>• Preventing carrier degradation at high temps (PG can caramelize). <br>• Flavor/terpene volatility control. | • Uniform cannabinoid distribution in solid/liquid matrix. <br>• Preventing oxidation during baking or storage. <br>• Managing “dose dumping” (rapid release) vs. sustained release. | • Achieving sufficient skin permeation (use of penetration enhancers, nano‑emulsions, liposomes). <br>• Avoiding greasiness or residue. <br>• Stability of cannabinoids in presence of water and preservatives. |\n| **Regulatory Touchpoints** | • Limits on nicotine‑free THC concentration (often ≤0.3 % THC in some jurisdictions). <br>• Device safety (battery, heating element). <br>• Labelling of aerosol constituents. | • Food‑grade manufacturing (cGMP). <br>• Limits on THC per package (e.g., ≤10 mg per serving in many US states). <br>• Allergen & nutrition labeling. | • Cosmetic vs. therapeutic classification (varies by THC content). <br>• Claims limited to “non‑psychoactive” effects unless approved as a drug. |\n| **Typical Use Cases** | • Fast relief (pain, anxiety, nausea). <br>• Discreet, low‑odor consumption. | • Long‑lasting, dose‑controlled effects (sleep, chronic pain, appetite). <br>• Social/culinary experiences. | • Targeted relief (muscle soreness, arthritis, skin conditions). <br>• Non‑psychoactive wellness (CBD‑rich lotions). |\n| **Shelf‑Life Considerations** | 12‑24 months if stored in cool, dark containers; avoid high‑heat exposure. | 6‑12 months; watch for rancidity in fats, moisture migration in baked goods. |\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1170 (170?1000) | Cost: $0.000000*",
+      "duration": 14499,
+      "grade": "A",
+      "score": 91,
+      "grading": {
+        "length": "Pass",
+        "keywords": "6/6 matched",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "2/5 key words"
+      },
+      "strengths": [],
+      "weaknesses": [],
+      "feedback": "",
+      "gradingMethod": "unknown",
+      "expectedKeywords": [
+        "product",
+        "marketing",
+        "formulation",
+        "edible",
+        "vape",
+        "topical"
+      ],
+      "expectedAnswer": "**Summarizing cannabis industry formulations** I need to summarize the differences between cannabis formulations: vapes, edibles, and topicals. The user is focused on marketing, so I'll include key facts and critical regulatory details. Since there’s no state-specific mention, I’ll point out general regulations, like dosage limits and ingredient labeling. Vapes have fast onset, while edibles are slower. Topicals provide localized relief without significant absorption, but transdermals can be intoxicating. I'll ensure to cover all these aspects clearly.**Exploring vape formulation differences** I'm looking into the differences between distillate and live resin in vapes. There are also various carrier oils like MCT, PG, and PEG, but PG and PEG are discouraged for certain reasons. I’ll also need to address hardware considerations, particularly testing for heavy metals. Additionally, I should compare ceramic hardware versus metal options. Each factor plays a significant role in the overall quality and safety of vape products, so I'll make sure to clarify these points effectively.**Summarizing cannabis formulations** I need to summarize differences between cannabis formulations like vapes, edibles, and topicals, focusing on key points for marketing. The question doesn't specify a state, but I'll include general regulatory aspects that impact all states, like dosage limits, ingredient requirements, and restrictions around inhalation and packaging. It's crucial to note the differenc..."
+    },
+    {
+      "questionNum": 333,
+      "question": "How do I explain complex processes like nanoemulsion or terpene blending to customers?",
+      "category": "product-marketing",
+      "agent": "unknown",
+      "actualAgent": "formulation",
+      "actualAgentName": "Formulation Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": false,
+      "response": "### 1. Know Your Audience  \n| Customer Type | What They Care About | How Much Detail to Give |\n|---------------|----------------------|--------------------------|\n| **Recreational users** | Flavor, quick onset, “smooth” feeling | Focus on experience (e.g., “fast‑acting, no harshness”) |\n| **Medical patients** | Consistency, dosage, safety | Emphasize reliability, predictable dosing, reduced irritation |\n| **Industry buyers / formulators** | Process efficiency, stability, regulatory compliance | Include technical terms, data points, but keep it clear |\n\n---\n\n## 2. Core Story‑telling Framework  \n\n1. **Problem → Solution → Benefit**  \n   *Problem*: “Cannabis oils can be thick, slow to absorb, and sometimes taste harsh.”  \n   *Solution*: “We break the oil into ultra‑tiny droplets (nano‑emulsion) or blend specific terpenes to enhance flavor and effect.”  \n   *Benefit*: “You get faster relief, smoother taste, and a more consistent experience.”\n\n2. **Analogy + Visual** – One simple image or everyday comparison does most of the work.  \n3. **Key Numbers** – One or two quantifiable facts (droplet size, onset time, stability) give credibility.  \n4. **Bottom‑Line Takeaway** – One sentence that the customer can remember.\n\n---\n\n## 3. Explaining **Nano‑Emulsion**  \n\n| Step | Simple Analogy | One‑Sentence Pitch |\n|------|----------------|--------------------|\n| **What it is** | “Imagine mixing oil and water. Normally they separate, but a nano‑emulsion is like turning that oil into a mist of microscopic droplets that stay evenly mixed.” | “We turn the oil into a cloud of nano‑sized droplets that stay perfectly mixed with water.” |\n| **How it’s made** | “A high‑speed blender (or ultrasonic wave) shreds the oil into droplets a thousand times smaller than a grain of sand.” | “We use ultrasonic energy to crush the oil into particles <200 nm – about 1/50,000 the width of a human hair.” |\n| **Why size matters** | “Think of a sugar cube vs. powdered sugar – the smaller the particles, the faster they dissolve.” | “Smaller droplets dissolve instantly, so the cannabinoids enter your bloodstream faster.” |\n| **Key Benefits** | • Faster onset (minutes vs. 30‑60 min)<br>• More uniform dosing (every drop is the same)<br>• Better bioavailability (up to 2‑3× more THC/CBD absorbed) | “You feel the effect quicker, every dose is consistent, and you get more of the active compounds.” |\n| **Safety/Regulatory** | “All ingredients are GRAS‑approved; the process uses food‑grade surfactants.” | “Our nano‑emulsion meets all FDA‑GRAS standards – no harmful chemicals.” |\n| **Visual Aid** | Show a **microscope image** of regular oil droplets vs. nano‑emulsified droplets, or a **simple diagram** of “oil droplet → nano‑droplet → bloodstream.” |  |\n\n**Mini‑script for a retail conversation**  \n\n> “Most cannabis oils are like a thick syrup – they sit on the surface and take a while to be absorbed. With our nano‑emulsion, we break that syrup into a mist of ultra‑tiny droplets (think powdered sugar). Because they’re so small, they dissolve instantly and your body can absorb up to three times more THC or CBD. That means you feel the effect faster and get a consistent dose every time you take a drop.”\n\n---\n\n## 4. Explaining **Terpene Blending**  \n\n| Step | Simple Analogy | One‑Sentence Pitch |\n|------|----------------|--------------------|\n| **What terpenes are** | “Terpenes are the natural aromatics that give pine, citrus, or mint their smell – just like the fragrance in a perfume.” | “Terpenes are the natural scents and flavors that also shape the cannabis experience.” |\n| **Why blend them** | “Just as a chef balances spices to create a signature dish, we blend terpenes to fine‑tune the effect and flavor of a product.” | “We combine specific terpenes to enhance taste, aroma, and even the therapeutic profile.” |\n| **How we blend** | “We use a precise, lab‑scale mixer that adds terpenes drop‑by‑drop, measured in milligrams, to achieve the exact ratio we want.” | “Our process adds\n\n---\n*Agent: Formulation Agent | Plan: Standard | Tokens: 1210 (210?1000) | Cost: $0.000000*",
+      "duration": 8318,
+      "grade": "C",
+      "score": 75,
+      "grading": {
+        "length": "Pass",
+        "keywords": "3/5 matched",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "2/5 key words"
+      },
+      "strengths": [],
+      "weaknesses": [],
+      "feedback": "",
+      "gradingMethod": "unknown",
+      "expectedKeywords": [
+        "product",
+        "marketing",
+        "terpene",
+        "explain",
+        "complex"
+      ],
+      "expectedAnswer": "**Summarizing complex product explanations** I need to create a concise summary to explain complex processes like nanoemulsion and terpene blending to customers. It's important to focus on compliance with regulatory details and to avoid making medical claims, using terms like \"may\" and \"can.\" I can use analogies, like comparing emulsification to salad dressing. I should define nanoemulsion as tiny oil droplets in water, highlighting advantages like improved dispersion and faster onset without implying cures or effects.**Summarizing marketing explanations** I need to summarize how to explain complex processes like nanoemulsion and terpene blending to customers, focusing on product marketing and agent marketing. I’ll highlight the importance of compliance with regulations and the need to avoid any medical or bioavailability claims. Analogies can be helpful, such as comparing emulsification to salad dressing. I should clarify that nanoemulsion means tiny oil droplets in water, which improves dispersion and potentially results in faster onset while emphasizing aroma and experience without effect claims."
+    },
+    {
+      "questionNum": 334,
+      "question": "What messaging works best for new product launches?",
+      "category": "product-marketing",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": true,
+      "response": "**Key Messaging Elements for a Successful New‑Product Launch**\n\n| Element | Why It Matters | How to Communicate It |\n|---------|----------------|-----------------------|\n| **Clear Value Proposition** | Instantly tells the buyer *what’s in it for them*. | “Get 30 % more lift‑off power in half the time.” |\n| **Target‑Audience Persona** | Shows the product is built for a specific need, increasing relevance. | Speak directly to the persona (“For busy professionals who need a quick, clean boost…”). |\n| **Problem → Solution** | Highlights the pain point and positions your product as the answer. | “Tired of sluggish afternoons? Our new energy spray restores focus in 60 seconds.” |\n| **Differentiation / Unique Selling Point (USP)** | Sets you apart from competitors. | “The only formula with patented XYZ‑Tech that lasts 12 hours.” |\n| **Storytelling Hook** | Humanizes the brand and builds emotional connection. | “Born from a marathon runner’s quest for a legal, crash‑free boost.” |\n| **Social Proof / Credibility** | Reduces purchase risk. | “Rated 4.9/5 by 2,300 early adopters; featured in *TechCrunch*.” |\n| **Call‑to‑Action (CTA) + Urgency** | Drives immediate response. | “Pre‑order now and lock in a 20 % launch discount – limited to 5,000 units.” |\n| **Compliance & Transparency** (especially for regulated sectors like cannabis) | Avoids legal pitfalls and builds trust. | “THC‑free, lab‑tested, compliant with State X regulations.” |\n| **Channel‑Specific Adaptation** | Ensures the message fits each platform’s tone & format. | • **Email** – longer copy, benefit‑driven subject line.<br>• **Social** – punchy visual + short tagline.<br>• **PR** – data‑rich press release.<br>• **In‑store** – quick‑scan QR to product video. |\n\n---\n\n### Quick “Message Blueprint” (fill‑in‑the‑blank)\n\n> **[Product Name]** delivers **[primary benefit]** for **[target audience]** who are **[pain point]**. Unlike **[competitor/standard]**, it **[USP]**. **[Social proof]** proves it works. **[CTA + urgency]**.\n\n*Example (Cannabis‑focused):*  \n> **CalmClear™** offers **fast‑acting, non‑psychoactive relief** for **busy professionals** dealing with **daily stress**. Unlike traditional CBD oils, it **uses nano‑emulsion technology for 3× faster absorption**. **Over 1,200 five‑star reviews** confirm the calm‑in‑minutes effect. **Pre‑order today and receive 15 % off – only 2,000 kits available.**\n\n---\n\n### Implementation Tips\n\n1. **Test Early:** Run A/B tests on headline vs. benefit‑focused copy in email and paid ads.  \n2. **Iterate Based on Data:** Use open‑rate, CTR, and conversion metrics to refine wording.  \n3. **Leverage Influencers/Brand Advocates:** Provide them with a concise “elevator pitch” version of the above messaging.  \n4. **Maintain Consistency:** Keep the core message identical across all touchpoints; only the format changes.  \n5. **Monitor Compliance:** For regulated products (e.g., cannabis, pharma), have legal review every piece of external copy.\n\n---\n\n**Bottom Line:** A launch message works best when it *clearly states the benefit*, *speaks directly to a defined audience*, *highlights what makes the product unique*, and *creates a sense of urgency*, all while staying compliant and adaptable to each communication channel. Use the blueprint above as a starting point, test, and iterate for optimal results.\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1121 (160?961) | Cost: $0.000000*",
+      "duration": 10767,
+      "grade": "B",
+      "score": 80.25,
+      "grading": {
+        "length": "Pass",
+        "keywords": "3/5 matched",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "3/4 key words"
+      },
+      "strengths": [],
+      "weaknesses": [],
+      "feedback": "",
+      "gradingMethod": "unknown",
+      "expectedKeywords": [
+        "product",
+        "marketing",
+        "messaging",
+        "works",
+        "launches"
+      ],
+      "expectedAnswer": "**Examining state restrictions** I’m realizing that many states have limitations on declaring \"curative or therapeutic\" claims. It seems that while discussing effects and terpenes is acceptable, making bold health claims isn’t permitted everywhere. I want to make sure I'm being careful about how this information is presented — it’s important to respect these regulations. Keeping the language clear and compliant will help avoid misunderstandings! realizing that many states have specific restrictions when it comes to discussing \"curative or therapeutic\" claims. I can talk about the effects and terpenes instead, which seems like a safer route. This could help me communicate more effectively while staying within legal guidelines. It's vital to navigate these limitations carefully, especially if the topic is sensitive. I need to ensure I properly frame my information while respecting those restrictions."
+    },
+    {
+      "questionNum": 335,
+      "question": "What's the most effective way to identify what the right pricing is for my products?",
+      "category": "product-marketing",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": true,
+      "response": "**A practical, step‑by‑step framework for finding the “right” price**\n\n| Step | What to Do | Why It Matters |\n|------|------------|----------------|\n| **1. Capture True Cost** | • List **direct costs** (raw material, packaging, lab testing, compliance fees).<br>• Add **indirect costs** (rent, utilities, salaries, marketing, insurance).<br>• Include a **contingency buffer** for waste or unexpected fees. | Guarantees you price below what it costs to produce and sell. |\n| **2 Choose a Pricing Model** | • **Cost‑plus** – add a target margin to total cost.<br>• **Value‑based** – price to the benefit your product delivers (e.g., high‑THC, organic, terpene profile).<br>• **Competitive‑based** – align with what similar brands charge. | The model you pick sets the baseline for all later adjustments. |\n| **3. Map the Competitive Landscape** | • Build a spreadsheet of **direct competitors** (same product class, region, regulatory tier).<br>• Record their **list price, discounts, bundle offers, and any loyalty programs**.<br>• Note **differentiators** (e.g., sustainability, lab‑tested potency). | Shows the price “sweet spot” and where you can command a premium or need to stay low. |\n| **4. Understand Your Customer Segments** | • Conduct **quick surveys** (Google Forms, Typeform) or **focus groups** to gauge willingness‑to‑pay for key attributes (potency, flavor, organic, brand story).<br>• Use **purchase data** (average basket size, repeat rate) to segment “price‑sensitive” vs. “value‑driven” shoppers. | Allows you to tier pricing (e.g., premium line vs. value line) rather than a one‑size‑fits‑all price. |\n| **5. Test Pricing in the Market** | • Run **A/B price tests** on a limited SKU (e.g., $12 vs. $14).<br>• Track **conversion rate, average order value, and profit per unit**.<br>• Use **promo codes** to isolate price impact from marketing spend. | Real‑world data beats assumptions; you’ll see elasticity before a full rollout. |\n| **6. Factor Regulatory & Tax Implications** | • In most jurisdictions, **excise taxes are percentage‑based** (e.g., 10 % of wholesale price).<br>• Some states have **cap‑and‑trade or per‑gram fees**. Incorporate these into your cost model. | Ignoring tax structure can make a “good��� price suddenly unprofitable. |\n| **7. Build a Dynamic Pricing Dashboard** | • Pull data from **POS, ERP, and market‑price feeds into a tool like Power BI, Tableau, or a simple Google Sheet.<br>• Set **alerts** when margin drops below your target or when competitor price shifts > 5 %. | Keeps pricing responsive without manual recalculation each week. |\n| **8. Review & Iterate Quarterly** | • Re‑run cost calculations (raw‑material price changes, new packaging).<br>• Refresh competitor intel (new entrants, seasonal promotions).<br>• Adjust margins based on cash‑flow goals and growth targets. | Markets evolve; a quarterly cadence prevents drift. |\n\n---\n\n### Quick “Starter Checklist” (you can tick these off in a day)\n\n1. **Calculate total unit cost** (include tax & compliance).  \n2. **Set a minimum margin** (e.g., 30 %).  \n3. **Identify top 5 local competitors** and note their prices.  \n4. **Survey 20‑30 regular customers** on what they’d pay for your flagship product.  \n5. **Run a 2\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1167 (167?1000) | Cost: $0.000000*",
+      "duration": 6520,
+      "grade": "B",
+      "score": 86,
+      "grading": {
+        "length": "Pass",
+        "keywords": "4/5 matched",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "3/5 key words"
+      },
+      "strengths": [],
+      "weaknesses": [],
+      "feedback": "",
+      "gradingMethod": "unknown",
+      "expectedKeywords": [
+        "product",
+        "marketing",
+        "effective",
+        "identify",
+        "right"
+      ],
+      "expectedAnswer": "**Summarizing pricing strategies in cannabis** I need to create a concise summary aimed at cannabis industry consultants about effective pricing strategies. The summary must touch on understanding cost structures like COGS, taxes, and compliance costs, along with target margins and price elasticity. I should mention consumer segments and competitive benchmarking using platforms like Weedmaps, Leafly, and NielsenIQ. Additionally, it’s important to consider pricing strategies like anchor pricing and promotional calendars, and how factors like potency and bundle sizes affect pricing.**Summarizing pricing strategies** I need to generate a concise summary for a cannabis industry consultant about effective pricing strategies. The summary should include essential elements such as a data-driven approach to understanding costs, target margins, price elasticity, and consumer segments. It must reference competitive benchmarking using sources like dispensary menus and analytics platforms. I’ll also touch on pricing strategies like anchor pricing and promotional tactics, alongside details on bundle sizes and pricing adjusted by potency."
+    },
+    {
+      "questionNum": 336,
+      "question": "How can I educate consumers about dosage, effects, or functional ingredients?",
+      "category": "product-marketing",
+      "agent": "unknown",
+      "actualAgent": "formulation",
+      "actualAgentName": "Formulation Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": false,
+      "response": "Below is a practical, step‑by‑step framework you can use to build a **consumer‑education program** that covers three pillars:\n\n1. **Dosage & Safe‑Use**\n2. **Expected Effects & Onset/Duration**\n3. **Functional Ingredients (terpenes, adaptogens, vitamins, etc.)**\n\n---\n\n## 1. Dosage & Safe‑Use\n\n| **Component** | **What to Communicate** | **How to Communicate** | **Why It Matters** |\n|---|---|---|---|\n| **Standard unit** | “1 mg THC = 1 dose unit” (or 5 mg for beginners) | • Prominent icon on packaging (e.g., “⬤ 5 mg THC”)  <br>• QR‑code linking to an interactive calculator | Gives a concrete reference point for every product. |\n| **Start‑Low‑Go‑Slow** | “Begin with 1–2 mg THC (or 0.5 mg CBD) and wait 60‑90 min before any additional dose.” | • Simple infographic on the back of the label <br>• Short video (30 s) for social feeds | Reduces risk of over‑intoxication. |\n| **Route‑specific guidance** | • **Inhalation:** onset 2‑10 min, peak 30‑45 min <br>• **Oral:** onset 30‑120 min, peak 2‑4 h | • Separate icon set (smoke, vape, edibles, sublingual) <br>• “How long to wait?” table on website | Helps consumers pick the right product for the situation (e.g., micro‑dosing vs. night‑time relaxation). |\n| **Maximum daily limits** | “For adults, ≤30 mg THC per day is a common safety threshold (adjust for tolerance).” | • Small “Daily limit” badge on packaging <br>• FAQ entry on site | Aligns with many state guidelines and promotes responsible use. |\n| **Tolerance & weight considerations** | Brief note: “Higher body weight → may need slightly more to feel effect; regular users develop tolerance.” | • One‑sentence side‑box on label <br>• Interactive “Find your dose” tool (weight, experience level) | Personalizes dosing without over‑complicating the label. |\n\n**Deliverable Example – One‑Page Dosage Card**\n\n```\n╔═════════════════════════════════════════════════╗\n║  How to Dose Safely                               ║\n║  • 5 mg THC =1 “standard dose” (beginners)      ║\n║  • Start with 1‑2 mg (≈¼ of a 5 mg capsule)       ║\n║  • Wait 60‑90 min before taking more             ║\n║  • Inhalation: effects 2‑10 min, last ~2 h       ║\n║  • Edible: onset 30‑120 min, peak 2‑4 h          ║\n║  • Daily max ≈30 mg THC (adjust for tolerance)   ║\n║  • Use QR code for a personalized dose calculator║\n╚═════════════════════════════════════════════════╝\n```\n\n---\n\n## 2. Expected Effects & Onset/Duration\n\n| **Effect Category** | **Typical Cannabinoid Ratio** | **Terpene Drivers** | **Key Messaging** |\n|---|---|---|---|\n| **Energizing / Focus** | 1:1 THC:CBD or high‑CBD, low‑THC | Limonene, Pinene | “Feel alert without the jitters.” |\n| **Relaxation / Stress Relief** | 1:0–1:0.5 THC:CBD | My\n\n---\n*Agent: Formulation Agent | Plan: Standard | Tokens: 1207 (207?1000) | Cost: $0.000000*",
+      "duration": 10168,
+      "grade": "D",
+      "score": 64,
+      "grading": {
+        "length": "Pass",
+        "keywords": "2/5 matched",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "1/5 key words"
+      },
+      "strengths": [],
+      "weaknesses": [],
+      "feedback": "",
+      "gradingMethod": "unknown",
+      "expectedKeywords": [
+        "product",
+        "marketing",
+        "educate",
+        "consumers",
+        "about"
+      ],
+      "expectedAnswer": "**Creating a summary rubric** I need to generate a grading rubric content capturing key points for educating cannabis consumers about dosage, effects, and functional ingredients. I want to create a concise summary of best practices that stays focused on essential details. This includes regulatory guidelines, state-specific compliance, and important facts about dosing, such as “start low, go slow.” I’ll also highlight that strict prohibitions exist against health claims in marketing and the importance of responsible consumption disclaimers."
+    },
+    {
+      "questionNum": 337,
+      "question": "What's the most effective way to better train budtenders at our customers' locations?",
+      "category": "product-marketing",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": true,
+      "response": "**Effective Budtender Training Blueprint**\n\nBelow is a practical, step‑by‑step framework you can roll out at any of your customer locations. It balances product knowledge, compliance, sales skills, and ongoing reinforcement while staying scalable and measurable.\n\n---\n\n## 1. Foundations – Build a Structured Curriculum\n\n| Module | Core Topics | Delivery Format | Time |\n|--------|-------------|----------------|------|\n| **A. Compliance & Safety** | State/local regulations, packaging/labeling rules, responsible service, security protocols | Live instructor + short quiz | 2 h |\n| **B. Plant Science & Product Portfolio** | Cannabis botany, strain taxonomy, cannabinoids & terpenes, product formats (flower, concentrates, edibles, topicals) | Interactive e‑learning + product demo kits | 3 h |\n| **C. Customer Experience** | Needs‑assessment questioning, recommendation matrix, handling objections, upselling ethically | Role‑play workshops + recorded mock calls | 2 h |\n| **D. Store Operations** | POS system, inventory control, sanitation, loss prevention | Hands‑on SOP walkthrough | 1 h |\n| **E. Soft Skills & Diversity** | Inclusive language, cultural competency, conflict de‑escalation | Micro‑learning videos + discussion circles | 1 h |\n\n**Total initial training:** ~9 hours (can be split into 2‑day onboarding or a week‑long boot camp).\n\n---\n\n## 2. Delivery Mechanics\n\n| Tool | Why It Works | Implementation Tips |\n|------|--------------|---------------------|\n| **Blended Learning Platform** (e.g., TalentLMS, Docebo) | Centralizes e‑learning, tracks progress, issues certificates | Upload videos, quizzes, PDFs; set auto‑reminders for incomplete modules |\n| **Live “Train‑the‑Trainer” Sessions** | Empowers store managers to coach staff on‑site | 2‑hour virtual workshop for managers; provide a facilitator guide |\n| **Product Demo Kits** | Hands‑on familiarity with scent, texture, potency | Ship sealed sample kits (compliant with local law) to each store; include QR codes linking to quick‑reference cards |\n| **Gamified Assessments** | Boosts retention & motivation | Leaderboard for quiz scores; reward top performers with gift cards or extra break time |\n| **Mobile Micro‑Learning** | Allows “just‑in‑time” refreshers during shifts | 2‑minute videos on “How to talk about terpene profiles” accessible via QR code at the POS |\n\n---\n\n## 3. Measurement & Continuous Improvement\n\n1. **Pre‑ and Post‑Training Assessments** – Baseline knowledge test → post‑module quiz → 30‑day retention test. Aim for ≥ 85 % pass rate.\n2. **Mystery Shopper Audits** – Quarterly anonymous visits to gauge real‑world application (product recommendation accuracy, compliance adherence, upsell rate).\n3. **KPIs to Track**  \n   * Average transaction value (↑ 5‑10 % after 3 months)  \n   * Compliance violations (target 0)  \n   * Customer satisfaction (CSAT ≥ 4.5/5)  \n   * Staff turnover (↓ 10 % YoY)\n4. **Feedback Loop** – After each training cycle, collect budtender input via a short survey; iterate content every 6 months.\n\n---\n\n## 4. Scaling Across Multiple Locations\n\n| Strategy | Execution |\n|----------|-----------|\n| **Regional “Training Hubs”** | Designate a lead store per region to host quarterly in‑person refreshers; reduce travel costs. |\n| **Standardized SOP Repository** | Cloud‑based folder (e.g., Google Drive) with version‑controlled SOPs, cheat‑sheet PDFs, and compliance updates. |\n| **Automated Certification Renewal** | Set a 12‑month expiration on the training certificate; auto‑email renewal modules when due. |\n| **Localized Modules** | Add location‑specific legal updates or product lines as separate micro‑learning units. |\n\n---\n\n## 5. Optional Specialized Support\n\nIf you need deeper dive into any area, we can route you to a specialized agent:\n\n| Need | Agent |\n|------|-------|\n| Advanced regulatory compliance (state‑by‑state) | **Compliance Specialist** |\n| Product formulation & cannabinoid science | **Cannabis Science Expert** |\n| Sales enablement & upsell scripting | **Retail Sales Strategist** |\n| Learning‑tech platform selection & setup | **EdTech Integration Agent** |\n\nJust let me know which focus area you’d like to explore further, and I’ll connect you.\n\n---\n\n### Quick Start Checklist\n\n1. ☐ Choose a learning platform & upload core modules.  \n2. ☐ Assemble demo kits & ship to\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1265 (169?1096) | Cost: $0.000000*",
+      "duration": 14017,
+      "grade": "C",
+      "score": 75,
+      "grading": {
+        "length": "Pass",
+        "keywords": "3/5 matched",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "2/5 key words"
+      },
+      "strengths": [],
+      "weaknesses": [],
+      "feedback": "",
+      "gradingMethod": "unknown",
+      "expectedKeywords": [
+        "product",
+        "marketing",
+        "effective",
+        "better",
+        "train"
+      ],
+      "expectedAnswer": "**Considering regulatory details** I’m identifying some typical critical regulatory details that need to be included. It's important to avoid medical claims and address cross-state differences. Some states require Responsible Vendor Training, like Colorado, Illinois, and Massachusetts. I'll also mention budtender permits or cards from states like Nevada and Oregon. Additionally, I should consider track-and-trace systems like METRC versus BioTrack, packaging and labeling knowledge, signs of intoxication, refusal of service, ID scanning, security, and cash handling practices."
+    },
+    {
+      "questionNum": 338,
+      "question": "What product packaging features (QR codes, interactive labels) can enhance marketing?",
+      "category": "product-marketing",
+      "agent": "unknown",
+      "actualAgent": "formulation",
+      "actualAgentName": "Formulation Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": false,
+      "response": "## High‑Impact Packaging Features for Cannabis Brands  \n*(Focus: QR codes, interactive labels, and related tech that boost marketing while staying compliant)*  \n\n| Feature | What It Does | Marketing Benefits | Implementation Tips | Compliance Checklist |\n|---------|--------------|--------------------|---------------------|-----------------------|\n| **Static QR Code** | Links to a fixed URL (product page, COA, brand story). | • Instant access to lab results → builds trust.<br>• Drives traffic to e‑commerce or loyalty site.<br>• Easy to scan on shelf or in‑store. | • Use a high‑contrast, 300 dpi image.<br>• Test at 2 in distance with common scanner apps.<br>• Shorten URLs (bit.ly, branded short domain) for clean appearance. | • QR content must not promote illegal use.<br>• Must not contain age‑gate bypass; include an age‑verification landing page if required. |\n| **Dynamic QR Code** | Points to a URL that can be updated (cloud‑hosted redirect). | • Change promotions, batch info, or recall notices without re‑printing.<br>• Seasonal marketing (e.g., “Winter Relaxation Kit”). | • Use a QR‑manager platform (QR Code Generator Pro, Beaconstac).<br>• Track scans (geo‑location, time) for analytics. | Same as static QR; ensure the redirect stays within the same domain to avoid “link‑jacking” scrutiny. |\n| **Augmented Reality (AR) Label** | When scanned with a branded AR app, 3‑D graphics, videos, or interactive tutorials appear. | • Immersive brand storytelling (e.g., “Meet the terpenes”).<br>• Differentiates shelf‑side; encourages social sharing.<br>• Can showcase dosing guides or consumption tips. | • Partner with AR platforms (ZapWorks, Blippar, Vuforia).<br>• Keep the AR trigger area ≤ 2 in² to maintain label legibility.<br>• Provide a low‑bandwidth fallback (static QR) for non‑AR users. | • All AR content must be age‑appropriate and must not depict consumption to minors.<br>• Ensure the AR overlay does not obscure mandatory warnings, THC/CBD potency, or batch numbers. |\n| **Near‑Field Communication (NFC) Tag** | Embedded chip that a smartphone can tap to pull up product data. | • One‑tap access to COA, usage instructions, loyalty points.<br>• Collects anonymous usage data (opt‑in). | • Use passive NFC stickers (13.56 MHz) placed on the back label.<br>• Encode a URL to a mobile‑optimized page.<br>• Test across iOS & Android (Apple restricts NFC read to Safari/Apple Wallet). | • NFC tag must be clearly labeled (“Tap for product details”) and not mislead about product effects.<br>• Must not replace required printed information. |\n| **Interactive Thermochromic Ink** | Changes color with temperature (e.g., from cool blue to warm orange). | • Visually signals “optimal consumption temperature” or “freshness.”<br>• Fun, shareable on social media. | • Apply a thin strip (≤ 0.5 mm) near the seal.<br>• Pair with a QR code that explains the temperature range. | • Ink must be food‑grade and non‑toxic; disclose if the ink is not intended for ingestion. |\n| **Scratch‑Off or Peel‑Away Reveal** | Conceals a promotional code, QR, or terpene map until the consumer peels it. | • Drives “discoverability” → higher engagement.<br>• Can be used for limited‑edition giveaways. | • Use FDA‑approved food‑grade scratch material.<br>• Position under the mandatory warning panel to avoid covering required text. | • Must not hide mandatory labeling (potency, warnings) at any time. |\n| **QR‑Enabled “Batch Tracker”** | Unique QR per batch that pulls up real‑time inventory, harvest date, and farm story. | • Transparency → premium positioning.<br>• Enables recall management with a single scan. | • Generate QR per batch (e.g\n\n---\n*Agent: Formulation Agent | Plan: Standard | Tokens: 1193 (193?1000) | Cost: $0.000000*",
+      "duration": 4515,
+      "grade": "A",
+      "score": 100,
+      "grading": {
+        "length": "Pass",
+        "keywords": "5/5 matched",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "5/5 key words"
+      },
+      "strengths": [],
+      "weaknesses": [],
+      "feedback": "",
+      "gradingMethod": "unknown",
+      "expectedKeywords": [
+        "product",
+        "marketing",
+        "packaging",
+        "lab",
+        "features"
+      ],
+      "expectedAnswer": "**Summarizing packaging features for marketing** I’m preparing to summarize how packaging features like QR codes and interactive labels can enhance marketing in the cannabis industry. The summary will cover crucial elements, including regulations and state-specific information. I'll include features such as NFC, AR, dynamic content, and dosing guidance while being mindful of packaging constraints like child resistance and opaque materials. I also need to address marketing restrictions that vary by state and the requirement for QR codes linking to Certificates of Analysis in states like Florida, Utah, and Michigan.**Summarizing marketing packaging features** I need to summarize how features like QR codes and interactive labels enhance marketing in the cannabis industry. The conclusion should cover critical requirements like batch-level COAs, terpene profiles, dosage guidance, and features like NFC, AR, and dynamic content. Important constraints also include child-resistant and tamper-evident packaging, along with state-specific marketing restrictions, such as not appealing to minors or making health claims. States like Florida, Utah, and Michigan have specific QR code requirements that link to COAs."
+    },
+    {
+      "questionNum": 339,
+      "question": "How do I effectively launch seasonal or limited-edition products?",
+      "category": "product-marketing",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": true,
+      "response": "### Launching a Seasonal or Limited‑Edition Cannabis Product  \n*(A quick‑start framework you can adapt to any market or brand size)*  \n\n| Phase | Key Actions | Why It Matters |\n|-------|-------------|----------------|\n| **1️⃣ Market Insight** | • Scan sales data & trends (e.g., holiday spikes, regional preferences). <br>• Conduct a 2‑week micro‑survey of target customers (email, social, dispensary QR code). <br>• Review competitor limited‑edition drops for pricing, packaging, and messaging. | Guarantees you’re solving a real, time‑sensitive demand rather than guessing. |\n| **2️⃣ Product Definition** | • Choose a unique attribute (flavor, potency, format) that aligns with the season/theme (e.g., “Pumpkin Spice Indica”). <br>• Verify strain availability & cultivation timeline (reserve genetics ≥ 8 weeks ahead). <br>• Draft a compliance checklist: THC/CBD limits, packaging warnings, state‑specific seasonal labeling rules. | Differentiates the drop and keeps you on the right side of the regulator. |\n| **3️⃣ Branding & Packaging** | • Create a limited‑edition visual system (color palette, iconography) that can be reused each year for brand consistency. <br>• Use QR‑coded “story cards” that link to a short video about the harvest, the season, or the creator. <br>• Secure any required third‑party certifications (organic, vegan) early. | Collectible packaging drives urgency and social‑shareability. |\n| **4️⃣ Supply‑Chain & Inventory** | • Run a “mini‑run” forecast: (average weekly sales × 4‑6 weeks) × 1.2 safety factor. <br>• Lock in packaging suppliers 2 months in advance; negotiate a “flex‑order” clause for last‑minute volume bumps. <br>• Set up a real‑time inventory dashboard (e.g., LeafLink + internal ERP). | Prevents stock‑outs that kill momentum, while avoiding costly over‑production. |\n| **5️⃣ Pre‑Launch Hype** | • Teaser assets 2 weeks before drop (social countdown, influencer “sneak peek”). <br>• Offer an early‑bird “reserve” list (email capture, optional pre‑pay for a guaranteed unit). <br>• Partner with 1–2 local dispensaries for “first‑look” events; give staff talking points. | Generates FOMO and builds a qualified leads list for post‑launch upsell. |\n| **6️⃣ Launch Execution** | • Release on a high‑traffic day (e.g., Friday before a holiday). <br>• Activate a “limited‑stock” banner on e‑commerce and POS systems. <br>• Run a 24‑hour flash‑sale ad set (Meta, TikTok, programmatic) targeting your reserve list and look‑alike audiences. | Drives a spike in sales and captures the “limited” narrative. |\n| **7️⃣ Post‑Launch Amplification** | • Share user‑generated content (UGC) within 48 h (regram, stories). <br>• Offer a “second‑chance” bundle (e.g., 2× limited + 1× regular) at a 10 % discount for buyers. <br>• Collect NPS & sentiment data via a short post‑purchase survey. | Extends the product’s life‑cycle and fuels data for the next edition. |\n| **8️⃣ Learn & Iterate** | • KPI Dashboard: sell‑through %, sell‑through velocity, CAC, ROI, compliance incidents, UGC volume. <br>• Conduct a 30‑day debrief with product, marketing, and compliance leads. <br>• Document lessons in a “Limited‑Edition Playbook” for future seasons. | Turns a one‑off drop into a repeatable growth engine. |\n\n---\n\n#### Quick Checklist (Copy‑Paste)\n\n```\n[ ] Seasonal trend validated (data + survey)\n[ ] Strain & formulation locked (cultivation timeline)\n[ ] Compliance audit completed\n[ ] Packaging design & QR story ready\n[ ] Inventory forecast & supplier contracts signed\n[ ] Pre‑launch teaser calendar set (2 wks)\n[ ] Early‑bird reserve list built\n[ ] Launch day media buy approved\n[ ] Real‑time sell‑through dashboard live\n[ ] Post‑launch UGC & survey plan active\n[ ] KPI debrief scheduled (Day 30)\n```\n\n---\n\n### When to Call in a Specialist Agent\n- **Regulatory Deep‑Dive** – need a state‑by‑state compliance matrix?  \n- **Creative Branding** – want a full‑service visual identity and copy deck.  \n-\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1243 (164?1079) | Cost: $0.000000*",
+      "duration": 8804,
+      "grade": "B",
+      "score": 83,
+      "grading": {
+        "length": "Pass",
+        "keywords": "4/5 matched",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "2/5 key words"
+      },
+      "strengths": [],
+      "weaknesses": [],
+      "feedback": "",
+      "gradingMethod": "unknown",
+      "expectedKeywords": [
+        "product",
+        "marketing",
+        "effectively",
+        "launch",
+        "seasonal"
+      ],
+      "expectedAnswer": "**Summarizing product launch strategies** I need to create a summary on how to effectively launch seasonal or limited-edition products in the cannabis industry by focusing on marketing strategies. The summary should include key requirements like proper packaging and labeling, potency considerations, testing certifications, and SKU registration. I should highlight crucial regulations, noting that different states have specific rules. We also need to mention advertising restrictions, the prohibition of giveaways, and that discounts are allowed in some states."
+    },
+    {
+      "questionNum": 340,
+      "question": "Can you give me some examples or suggestions for seasonal or limited-edition products?",
+      "category": "product-marketing",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": true,
+      "response": "Below are **ready‑to‑launch ideas** you can adapt for any cannabis brand that wants to create buzz with seasonal or limited‑edition (LE) offerings.  I’ve grouped them by **season/occasion**, added a **quick description**, and highlighted a **key marketing hook** you can use in packaging, social, and point‑of‑sale (POS) materials.\n\n---\n\n## 1. Spring (Mar‑May)\n\n| Product Idea | Description | Marketing Hook |\n|--------------|-------------|----------------|\n| **“Bloom” Terpene‑Boosted Pre‑Rolls** | 3‑pack of 0.5 g pre‑rolls infused with a 5 % terpene blend (lavender, citrus, floral) for a “garden‑fresh” vibe. | “Taste the first blossoms of the season.” |\n| **Easter “Egg‑Hunt” Edibles** | Mini chocolate or gummy “egg” packs (10 g total) in pastel colors, each with a QR code that reveals a hidden discount. | “Find the golden egg – special offers inside!” |\n| **St. Pat’s “Green Clover” Vape Cartridges** | 1 ml cartridges in a light‑green bottle with a subtle clover leaf imprint, featuring a crisp, pine‑y terpene profile. | “Lucky you – limited to 5,000 units.” |\n| **“Fresh Cut” Live‑Resin Syrup** | 30 ml bottle of citrus‑forward live resin syrup for drinks or desserts; includes a recipe card for spring cocktails. | “Sip the season – spring‑in‑a‑bottle.” |\n\n---\n\n## 2. Summer (Jun‑Aug)\n\n| Product Idea | Description | Marketing Hook |\n|--------------|-------------|----------------|\n| **Beach‑Body “Sun‑Kissed” THC‑Infused Sunscreen** | SPF 30, broad‑spectrum sunscreen with 2 % THC, packaged in a recyclable tube with a surf‑board graphic. | “Protect & unwind – only while the sun shines.” |\n| **4‑Pack “Cool‑Down” Ice‑Water Gummies** | Water‑melon & cucumber flavored gummies with a cooling menthol finish; each pack includes a reusable silicone ice‑cube tray. | “Chill out, literally.” |\n| **Festival “Back‑Stage Pass” Pre‑Rolls** | 5‑pre‑roll pack in a metallic concert‑ticket‑style tin, each labeled with a different “stage” (e.g., Main Stage, Acoustic). | “Your VIP pass to the summer soundscape.” |\n| **Tropical “Mai‑Tai” THC‑Infused Mocktails** | 250 ml ready‑to‑drink cans with mango, pineapple, and a hint of coconut, 5 % THC. | “Sip the island vibe – limited summer batch.” |\n\n---\n\n## 3. Fall (Sep‑Nov)\n\n| Product Idea | Description | Marketing Hook |\n|--------------|-------------|----------------|\n| **“Harvest Moon” Indica‑Dominant Pre‑Rolls** | 0.7 g pre‑rolls with a rich, earthy terpene profile (cedar, amber) and a subtle moon‑phase imprint on the paper. | “Settle in under the harvest moon.” |\n| **Pumpkin‑Spice THC‑Infused Latte Mix** | Powdered mix (10 g) for a single‑serve latte; includes pumpkin, cinnamon, nutmeg, and 5 % THC. | “Fall in a cup – only 2,500 boxes.” |\n| **“Apple Cider” Hard‑Seltzer** | 12‑oz cans, 4 % ABV + 5 % THC, crisp apple flavor with a hint of cinnamon. | “Toast to the season – limited release.” |\n| **“Sweater Weather” CBD Topicals** | 2 oz balm with vanilla‑oak scent, packaged in a knit‑pattern tin. | “Co\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1167 (167?1000) | Cost: $0.000000*",
+      "duration": 7768,
+      "grade": "C",
+      "score": 72,
+      "grading": {
+        "length": "Pass",
+        "keywords": "3/5 matched",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "1/5 key words"
+      },
+      "strengths": [],
+      "weaknesses": [],
+      "feedback": "",
+      "gradingMethod": "unknown",
+      "expectedKeywords": [
+        "product",
+        "marketing",
+        "examples",
+        "suggestions",
+        "seasonal"
+      ],
+      "expectedAnswer": "**Summarizing for cannabis marketing** I need to create a summary for a cannabis industry grading response regarding seasonal or limited-edition products. This involves key requirements like packaging and labeling compliance, potency limits, and restrictions that avoid appealing to children. Although no state-specific info was provided, I can include general regulatory details, like limits on packaging shapes and flavor names. Additionally, I must address promotional compliance and ensure marketing doesn't reference alcohol or trademark issues. This will guide producing well-rounded responses."
     }
   ],
-  "status": "In Progress: 330/438 questions completed"
+  "status": "In Progress: 340/438 questions completed"
 }
