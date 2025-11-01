@@ -1,11 +1,11 @@
 {
-  "timestamp": "2025-11-01T00:40:32.618Z",
+  "timestamp": "2025-11-01T00:45:04.163Z",
   "url": "https://chat.formul8.ai",
   "totalQuestions": 438,
-  "completed": 370,
-  "passed": 214,
-  "failed": 156,
-  "averageScore": "48.28",
+  "completed": 380,
+  "passed": 222,
+  "failed": 158,
+  "averageScore": "48.80",
   "averageGrade": "F",
   "results": [
     {
@@ -11646,7 +11646,300 @@
         "campaigns"
       ],
       "expectedAnswer": "**Summarizing cannabis advertising compliance** I need to provide a concise summary on running compliant digital campaigns in markets with advertising restrictions. It's essential to focus on compliance issues, especially in the cannabis industry. Key points include verifying age-gating for audiences 21+, avoiding health claims, and not appealing to minors through design choices. I'll mention packaging restrictions and compliant channels. It's important to avoid geo-targeting near schools, include disclaimers, license numbers, and responsible-use notices as needed. Since no specific state is mentioned, I'll reference commonly applicable states such as CA and MA."
+    },
+    {
+      "questionNum": 371,
+      "question": "What seasonal or regional events should I tie my marketing into?",
+      "category": "regional-marketing",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": true,
+      "response": "Below is a quick framework you can use to decide which **seasonal / regional events** make the most sense for your cannabis brand. Feel free to let me know your location, product line, and target audience so I can narrow the list further.\n\n| Timeframe | Event / Theme | Why It Works for Cannabis | Typical Marketing Angles |\n|-----------|----------------|--------------------------|--------------------------|\n| **January** | New‑Year Resolutions & Wellness | Position THC/CBD as part of “reset” or self‑care routines | “Start the year balanced” promos, bundles with vitamins or fitness gear |\n| **February** | Valentine’s Day | Couples‑focused experiences, “share the love” | Limited‑edition edibles, gift‑sets, “date night” bundles |\n| **March–April** | **4/20 (April 20)** – Global cannabis holiday | Core industry celebration, high social buzz | Deep‑discounts, exclusive strains, pop‑up events (where legal) |\n| **April** | Earth Day & Spring Renewal | Emphasize sustainable growing practices, organic products | Eco‑friendly packaging promos, “green” strain launches |\n| **May–June** | Music festivals & Outdoor concerts (e.g., Coachella, Lollapalooza) | Young, experience‑seeking crowd, high spend on edibles & accessories | Festival‑style merch, “festival packs,” influencer collaborations |\n| **June** | Pride Month | Strong alignment with LGBTQ+ community values of inclusion | Rainbow‑colored packaging, donate‑a‑portion to LGBTQ+ charities |\n| **July** | Independence Day (U.S.) | Patriotic branding, summer “chill” vibe | Red/white/blue limited‑edition products, BBQ‑pairing guides |\n| **August–September** | Back‑to‑School / Wellness Reset | Parents & professionals seeking stress relief | “Focus” or “Calm” CBD lines, subscription discounts |\n| **October** | Halloween & “Spooky” Edibles | Fun, novelty, high social media shareability | Themed gummies, limited‑run “monster” strains, costume contests |\n| **November** | Thanksgiving & “Harvest” Theme | Emphasize natural, farm‑to‑table story | Harvest‑season strain releases, bundle deals for gatherings |\n| **December** | Holiday Season (Christmas, Hanukkah, New‑Year Eve) | Gift‑giving peak, premium packaging opportunity | Luxury gift boxes, “12‑Days of Cannabis” campaigns, limited‑edition holiday strains |\n\n### Regional Hooks to Consider\n| Region / City | Signature Event | Marketing Idea |\n|---------------|----------------|----------------|\n| **California (LA, SF, SD)** | **Coachella, San Diego Comic‑Con, LA Film Festival** | Partner with local artists, create “festival‑survival kits” |\n| **Colorado (Boulder, Denver)** | **Denver 4/20 Rally, Rocky Mountain Hemp Fest** | Highlight Rocky‑mountain‑grown strains, sponsor local outdoor activities |\n| **Pacific Northwest (Seattle, Portland)** | **Seattle Hemp Fest, Portland Rose Festival** | Focus on sustainability, local craft‑cannabis narratives |\n| **Northeast (NYC, Boston)** | **NYC Pride, Boston Marathon** | Offer “run‑recovery” CBD rubs, pride‑themed edibles |\n| **Florida (Miami)** | **Art Basel Miami, Miami Beach Music Festival** | Luxury “cannabis‑cognac” pairings, high‑end edibles for nightlife |\n| **Canada (Toronto, Vancouver)** | **Toronto Cannabis Expo, Vancouver International Jazz Festival** | Emphasize Canadian‑grown premium genetics, cross‑promote with music events |\n\n### Quick Checklist for Choosing the Right Events\n1. **Audience Match** – Does the event attract your core demographic (age, lifestyle, spending power)?\n2. **Legal Fit** – Is public consumption allowed or can you promote accessories/educational content instead?\n3. **Brand Alignment** – Does the event’s vibe (wellness, celebration, activism) echo your brand values?\n4. **Local Partnerships** – Can you collaborate with event organizers, venues, or influencers for co‑branding?\n5. **Seasonal Relevance** – Does the timing sync with product launches or inventory cycles?\n\n---\n\n**Next steps:**  \n- Tell me **where your business operates** (city/state or province) and **what product categories you focus on** (flower, edibles, topicals, accessories, etc.).  \n- Let me know any **upcoming product launches** or **budget constraints** you have for the next 3‑6 months.\n\nWith that info, I can craft a **targeted event calendar** and suggest **specific campaign ideas** (creative concepts, channel mix, KPI suggestions\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1293 (164?1129) | Cost: $0.000000*",
+      "duration": 8425,
+      "grade": "B",
+      "score": 89,
+      "grading": {
+        "length": "Pass",
+        "keywords": "4/5 matched",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "4/5 key words"
+      },
+      "strengths": [],
+      "weaknesses": [],
+      "feedback": "",
+      "gradingMethod": "unknown",
+      "expectedKeywords": [
+        "regional",
+        "marketing",
+        "seasonal",
+        "events",
+        "should"
+      ],
+      "expectedAnswer": "**Capturing Marketing Events** I need to create a concise summary focused on seasonal and regional events for marketing within the cannabis industry. Since the user hasn't mentioned a specific state, I'll keep the context generic to the U.S. I should highlight key events like 4/20, Green Wednesday, and local festivals during harvest season. Other significant occasions to include are Memorial Day, Labor Day, and cultural events like Pride Month. I'll also consider the effects of regional weather and tourist seasons for promotional ideas.**Identifying Marketing Events** I need to create a concise summary on seasonal or regional events for marketing in the cannabis industry. The user's request isn't tied to a specific state, so I should focus on a general US context. Key events include 4/20, oil day on 7/10, Green Wednesday (the day before Thanksgiving), and festivities like New Year’s and Labor Day. I'll also mention local harvest seasons, music festivals, and sports seasons, ensuring to cover relevant promotions for different weather conditions."
+    },
+    {
+      "questionNum": 372,
+      "question": "How can I build partnerships with local influencers or organizations?",
+      "category": "regional-marketing",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": true,
+      "response": "**Building Partnerships with Local Influencers & Organizations – A Step‑by‑Step Playbook**\n\nBelow is a practical framework you can follow, whether you’re in the cannabis space or any other market. the details to fit your brand tone, regulatory environment, and target audience.\n\n---\n\n## 1. Define What You Want & What You Offer\n| Goal | Example |\n|------|----------|\n| **Brand awareness** | Reach new customers in a specific zip code |\n| **Lead generation** | Drive traffic to a landing page / event signup |\n| **Community goodwill** | Support local health‑ & wellness initiatives |\n| **Product testing** | Get authentic reviews from trusted voices |\n\n*Craft a one‑sentence value proposition for the partner:*  \n“[Your Brand] will give you exclusive early‑access to our premium line + a revenue‑share on every sale you drive, while positioning you as a community‑focused leader.”\n\n---\n\n## 2. Identify the Right Partners\n| Category | Where to Look | Selection Criteria |\n|----------|---------------|--------------------|\n| **Local influencers** | Instagram/TikTok geo‑tags, TikTok “Discover” page, local blogger networks, agency lists | 5k‑50k followers, high engagement (≥3‑4% avg.), authentic voice, relevance to lifestyle/health/entertainment |\n| **Community orgs** | Chamber of Commerce, nonprofit directories, local event calendars, university clubs | Mission alignment, active membership base, regular events, open to brand collaborations |\n| **Micro‑businesses** (coffee shops, gyms, dispensaries) | Google Maps, Yelp, local business associations | Foot traffic, complementary audience, willingness to co‑market |\n\n*Tip:* Use a simple spreadsheet to score each prospect on relevance, reach, engagement, and partnership fit (0‑5 scale). Aim for a total score ≥ 12 before you reach out.\n\n---\n\n## 3. Do Your Homework\n1. **Audit their content** – Look for tone, visual style, topics they love, and any past brand collaborations.\n2. **Check compliance (if cannabis)** – Verify that/organization can legally promote cannabis in your state (e.g., age‑gating, no false health claims).\n3. **Gauge audience sentiment** – Scan comments for authenticity, spam, or negative feedback.\n\n---\n\n## 4. Craft a Personalized Outreach\n**Subject line (email) or DM hook:**  \n“[First Name], love your recent post on [topic]—let’s create something local together!”\n\n**Message skeleton:**\n1. **Greeting + Specific compliment** – “I saw your story about the community garden—great work!”\n2. **Brief intro** – “I’m [Your Name] from [Brand], a, lab‑tested cannabis brand focused on wellness.”\n3. **Why you’re reaching out** – “We’re launching a limited‑edition line in [City] and think your voice would resonate perfectly with our audience.”\n4. **What’s in it for them** – “We’ll provide a custom product kit, a 20% revenue share on every sale tracked via your unique code, and cross‑promotion on our socials + email list (≈10k local subscribers).”\n5. **Clear next step** – “Could we hop on a quick 15‑minute call next week? I’m free Mon/Thu 10‑12 EST.”\n\n*Keep it ≤150 words; attach a one‑pager PDF that visualizes the partnership (logo, sample products, timeline).*\n\n---\n\n## 5. Propose Collaboration Formats\n| Format | Ideal For | Typical Deliverables | Compensation |\n|--------|-----------|----------------------|--------------|\n| **Co‑created content** | Influencer’s feed/Stories | 1‑2 posts + 3 Stories + “Swipe‑up” to landing page | Fixed fee + performance bonus |\n| **Event/Pop‑up partnership** | Local orgs | Joint booth, product sampling, co‑branded signage | Revenue share or product sponsorship |\n| **Giveaway/Contest** | Both parties | Photo contest, user‑generated content, prize pack | Shared cost of prize + brand exposure |\n| **Affiliate program** |\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1162 (162?1000) | Cost: $0.000000*",
+      "duration": 8270,
+      "grade": "B",
+      "score": 81,
+      "grading": {
+        "length": "Pass",
+        "keywords": "3/5 matched",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "4/5 key words"
+      },
+      "strengths": [],
+      "weaknesses": [],
+      "feedback": "",
+      "gradingMethod": "unknown",
+      "expectedKeywords": [
+        "regional",
+        "marketing",
+        "build",
+        "partnerships",
+        "local"
+      ],
+      "expectedAnswer": "**Summarizing partnership guidelines** I need to create a concise summary, around 100-200 words, highlighting key points for building partnerships with local influencers or organizations in the cannabis industry. I should focus on regional marketing while including essential regulatory details. Compliance with state cannabis marketing regulations is crucial, like not targeting minors, adhering to age restrictions, avoiding health claims, and including required disclaimers. It’s also important to discuss audience composition, FTC endorsement guidelines, and influencer contracts that include compliance and content approval.**Evaluating partnership strategies** I need to vet influencers based on audience demographics, brand fit, and local relevance. Collaborating with local organizations like dispensaries, chambers of commerce, and nonprofits can be beneficial for community events and educational workshops. Municipal approvals and permits are crucial, and it's important to respect consumption regulations. I should also explore social equity partnerships, compensation models, and tracking ROI through UTMs and affiliate codes. Additionally, I should keep in mind medical vs. adult-use differences and local tribal laws. Data privacy for loyalty programs is essential too.**Summarizing partnership strategies** I need to create a concise 100-200 word summary on how to build partnerships with local influencers or organizations in the cannabis industry, focusing on regional marketing. It..."
+    },
+    {
+      "questionNum": 373,
+      "question": "What state-specific consumer behaviors should influence marketing strategy?",
+      "category": "regional-marketing",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": true,
+      "response": "### State‑Specific Consumer Behaviors that Should Shape Your Cannabis Marketing Strategy  \n\n| Category | What to Look For in Each State | Why It Matters for Marketing | How to Leverage It |\n|----------|--------------------------------|------------------------------|--------------------|\n| **Legal Landscape & Purchase Limits** | • Recreational vs. medical‑only vs. de‑regulated  <br>• Purchase caps (e.g., 1 oz per transaction in CO, 2.5 g in MA)  <br>• Home‑grow allowances | Determines who you can target (recreational vs. patient) and how you frame product benefits. | • Tailor messaging to “well‑being” for medical‑only states.  <br>• Emphasize “responsible adult use” where recreation is legal. |\n| **Demographic Profile** | • Age distribution of consumers (e.g., younger adults dominate in WA, older “baby‑boomers” in FL) <br>• Income & education levels <br>• Urban vs. rural concentration | Influences product format preference, price sensitivity, and media consumption habits. | • Use Instagram/TikTok and edibles for younger, high‑spending markets. <br>• Focus on newsletters, Facebook, and low‑dose tinctures for older, health‑focused buyers. |\n| **Product Preference Mix** | • Flower vs. concentrates vs. edibles vs. topicals <br>• THC‑dominant vs. CBD‑dominant demand <br>• Preference for premium craft brands vs. value‑oriented products | Guides SKU allocation, packaging design, and promotional focus. | • Stock higher concentrate ratios in CO and OR where vape culture is strong. <br>• Highlight low‑dose, wellness‑oriented edibles in MA and VT where “micro‑dosing” is trending. |\n| **Price Sensitivity & Spending Power** | • Average spend per transaction (e.g., $70‑$80 in CA, $45‑$55 in NV) <br>• Presence of discount programs or “budget” brands | Determines positioning (premium vs. value) and promotional tactics. | • Offer bundle discounts in price‑sensitive markets. <br>• Promote “craft” or “single‑origin” narratives where consumers pay a premium. |\n| **Channel Preference** | • Dispensary foot‑traffic vs. delivery vs. curb‑side pick‑up <>• Loyalty program adoption rates | Affects media spend allocation and experiential activation. | • Invest in geo‑targeted mobile ads and delivery‑app partnerships where delivery is dominant (e.g., MD, NJ). <br>• Host in‑store events and sampling in states with high dispensary footfall (e.g., CO, WA). |\n| **Cultural & Lifestyle Attitudes** | • “Wellness” framing (popular in VT, NM) <br>• “Recreation & social” framing (common in CA, CO) <br>• Stigma levels (higher in some southern states) | Shapes tone, imagery, and story‑telling. | • Use health‑focused copy and clinical language where wellness is prized. <br>• Deploy lifestyle‑centric, experiential content (music festivals, outdoor adventures) where recreation dominates. |\n| **Advertising & Promotion Restrictions** | • State‑specific limits on digital ads, signage, sponsorships, and influencer marketing (e.g., NY bans billboards, OR restricts radio) | Determines which channels are legal and cost‑effective. | • Map permissible channels before budget allocation. <br>• In restrictive states, lean on SEO, content marketing, and point‑of‑sale education. |\n| **Seasonality & Local Events** | • Tourist spikes (e.g., ski season in CO/UT, beach season in FL) <br>• State‑wide festivals (e.g., Oregon’s “Emerald Cup”, California’s “Cannabis Cup”) | Drives timing of product launches and promotional bursts. | • Align limited‑edition SKUs with peak tourist periods. <br>• Sponsor or co‑host local events where allowed. |\n| **Regulatory Compliance Culture** | • Stringency of packaging/labeling rules (e.g., child‑proof caps, THC potency caps) <br>• Enforcement vigor (some states audit more heavily) | Affects packaging design\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1161 (161?1000) | Cost: $0.000000*",
+      "duration": 9053,
+      "grade": "B",
+      "score": 89,
+      "grading": {
+        "length": "Pass",
+        "keywords": "4/5 matched",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "4/5 key words"
+      },
+      "strengths": [],
+      "weaknesses": [],
+      "feedback": "",
+      "gradingMethod": "unknown",
+      "expectedKeywords": [
+        "regional",
+        "marketing",
+        "state",
+        "specific",
+        "consumer"
+      ],
+      "expectedAnswer": "**Outlining cannabis marketing strategy** I need to create a summary focusing on state-specific consumer behaviors that influence marketing strategies for the cannabis industry. I'll make sure to cover key conclusions and important regulatory details. It’ll be essential to highlight any state-specific information relevant to the marketing strategy. Overall, I want to ensure that I address the core factors that marketers need to consider while crafting their campaigns in this industry!**Generalizing cannabis market differences** I need to generalize differences across cannabis markets without specific states from the user. It’s important to discuss aspects like medical-only versus adult-use, product preferences (like flower, vape, or edibles), and factors such as price sensitivity, local culture, and tourist markets in places like Nevada and Colorado. I'll also consider seasonal patterns, demographics, and the contrast between legacy and new markets, as well as restrictions on advertising and packaging, which can vary significantly by state.**Considering cannabis marketing strategies** I need to summarize expectations for a question regarding consumer behaviors in the cannabis industry, particularly for state-specific marketing strategies. I’m focusing on how regional differences seem to influence these strategies, like local regulations and consumer preferences. I’ll include main conclusions, key facts, and any critical regulatory details. If specific states come up, I’ll mak..."
+    },
+    {
+      "questionNum": 374,
+      "question": "How do I align with local tourism to attract new consumers?",
+      "category": "regional-marketing",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": true,
+      "response": "Below is a practical, step‑by‑step framework you can use to align your cannabis‑related business with the local tourism ecosystem and turn visitors into repeat consumers.\n\n---\n\n## 1️⃣ Understand the Tourist Profile\n\n| What to Find Out | How to Get It |\n|------------------|---------------|\n| **Primary visitor types** (e.g., leisure, adventure, wellness, cultural) | Local tourism board reports, hotel occupancy data, visitor surveys |\n| **Average length of stay & spend** | Chamber of commerce, tourism analytics platforms (e.g., AirDNA, TripAdvisor Insights) |\n| **Legal awareness** (how familiar tourists are with state/municipal cannabis rules) | Online sentiment analysis, Q‑A, social listening tools |\n| **Preferred consumption formats** (edibles, flower, topicals, experiences) | Market research firms (Headset, BDS Analytics) or a short on‑site poll |\n\n**Outcome:** A concise “Tourist Persona” (e.g., “Wellness‑focused 28‑35, seeks low‑dose edibles and guided experiences”).\n\n---\n\n##  Build Formal Partnerships\n\n| Partner What to Offer | What to Receive |\n|--------|---------------|-----------------|\n| **Hotels & B&Bs** | Co‑branded welcome kits, exclusive discount codes, in‑room educational brochures | Guest‑list access, placement on property website, cross‑promotion on booking confirmations |\n| **Tour Operators / Activity Guides** | “Cannabis‑enhanced” tours (e.g., nature hikes, art walks, culinary classes) with a licensed guide | Inclusion in itinerary, mention on tour booking pages |\n| **Local Restaurants & Cafés** | Infused menu items, joint “high‑tea” events, QR‑code links to your dispensary | Menu placement, social‑media shout‑outs, foot‑traffic from dining patrons |\n| **Tourism Board / Visitor Center** | Sponsorship of city maps, QR‑code wayfinding signs, participation in “Welcome to [City]” campaigns | Official endorsement, listing on the board’s website & printed guides |\n| **Transportation Services** (shuttles, bike‑share, ride‑hail) | Discount codes for rides to/from your location, branded vehicle wraps | Direct referral traffic data on rider demographics (if shared) |\n\n**Tips for Success**\n- Draft a **simple MoU** that outlines branding guidelines, compliance responsibilities, and revenue‑share (if any).\n- Ensure every partner **understands the legal limits** (e.g on‑site consumption unless the venue for it).\n\n---\n\n## 3️⃣ Design Tourism‑Friendly Experiences\n\n| Experience | Key Elements | Compliance Checklist|------------|--------------|-----------------------|\n| **Guided “Cannabis & Culture” Walks** | Small‑group, licensed guide, optional low‑dose product sampling, historical storytelling | Guide must be a **licensed cannabis specialist**; sampling only in permitted consumption zones |\n| **Edible‑Pairing Dinner** | Chef‑crafted menu, each course paired with a micro‑dose edible; educational tasting notes | All edibles must beaged, lab‑tested**; provide clear potency labeling |\n| **Wellness Day Packages** | Yoga/meditation class, CBD topicals, on‑site lounge for non‑psychoactive consumption | Only **CBD‑only** products allowed in shared spaces unless the venue holds a consumption license |\n| **“Take‑Home” Souvenir Kits** | Branded, tamper‑evident packaging, travel‑size product samples guidebook | Follow **state packaging & labeling** rules; include “For use in [state] only” warnings |\n\n---\n\n## 4️⃣ Optimize Your Digital & Physical Presence for Tourists\n\n1. **Local SEO**\n   - Claim and optimize\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1163 (163?1000) | Cost: $0.000000*",
+      "duration": 24592,
+      "grade": "C",
+      "score": 78,
+      "grading": {
+        "length": "Pass",
+        "keywords": "3/5 matched",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "3/5 key words"
+      },
+      "strengths": [],
+      "weaknesses": [],
+      "feedback": "",
+      "gradingMethod": "unknown",
+      "expectedKeywords": [
+        "regional",
+        "marketing",
+        "align",
+        "local",
+        "tourism"
+      ],
+      "expectedAnswer": "**Summarizing cannabis tourism marketing** I'm focusing on creating a summary that answers how to align with local tourism to attract new consumers. The response will include essential conclusions, key requirements, and critical regulatory details, noting that cannabis advertising laws differ widely by state and locality. Collaboration with Destination Marketing Organizations and hospitality partnerships is crucial. I’ll also touch on geotargeting strategies, event sponsorships, and the importance of SEO for searches like \"dispensary near [city].\"**Summarizing tourism marketing** I need to create a concise summary focusing on aligning local tourism to attract new consumers, specifically in the context of regional marketing and agent marketing. I must include key conclusions, requirements, and regulatory details while emphasizing U.S. cannabis tourism compliance, which varies by state. Important elements to highlight could include DMO coordination, partnerships with hospitality providers, accommodations, and geotargeting strategies. This supports effective advertising while considering age restrictions and local laws around cannabis marketing."
+    },
+    {
+      "questionNum": 375,
+      "question": "What’s the best way to market products near state borders?",
+      "category": "regional-marketing",
+      "response": null,
+      "error": "HTTP 400: Bad Request",
+      "duration": 276,
+      "grade": "F",
+      "score": 0,
+      "actualAgent": "error",
+      "actualAgentName": "HTTP 400",
+      "expectedAgent": "f8_agent",
+      "agentMatch": false
+    },
+    {
+      "questionNum": 376,
+      "question": "How can regional slang, culture, or art styles be used in branding safely?",
+      "category": "regional-marketing",
+      "response": null,
+      "error": "HTTP 400: Bad Request",
+      "duration": 56,
+      "grade": "F",
+      "score": 0,
+      "actualAgent": "error",
+      "actualAgentName": "HTTP 400",
+      "expectedAgent": "f8_agent",
+      "agentMatch": false
+    },
+    {
+      "questionNum": 377,
+      "question": "What words or claims are restricted in cannabis marketing?",
+      "category": "marketing-cannabis-products-&-following-regulations",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": true,
+      "response": "Below is a quick‑reference guide to the **most common words and claims that U.S. state cannabis regulators flag as prohibited or “restricted”** in advertising, packaging, and digital marketing.  Because each state writes its own rules, treat this as a baseline and always double‑check the specific regulator (e.g., CA‑Bureau of Cannabis Control, CO Department of Revenue, OR Liquor & Cannabis Commission, WA Liquor & Cannabis Board, etc.) before launching any campaign.\n\n---\n\n## 1. Health‑ and Therapeutic‑Claim Blockers\n| **Prohibited Claim** | **Why it’s blocked** | **Typical “safe” alternative wording** |\n|----------------------|----------------------|----------------------------------------|\n| **Cure / Treat / Prevent** (e.g., “cures anxiety”) | Implies medical efficacy without FDA approval. | “May help you relax” (if supported by a clear, non‑medical disclaimer). |\n| **Diagnose / Detect** (e.g., “diagnoses PTSD”) | Medical claim. | Avoid altogether. |\n| **Therapeutic / Medicinal** (e.g., “medicinal benefits”) | Requires a licensed medical‑use program. | “Recreational‑use product” or “well‑being product” (if allowed). |\n| **Clinical trial / FDA‑approved / scientifically proven** | Suggests regulatory endorsement that does not exist. | “Lab‑tested for potency & purity.” |\n| **Safe / Non‑addictive / No side‑effects** | Unsubstantiated safety claim. | “Use responsibly” with a standard disclaimer. |\n| **Reduces / Improves / Increases** (e.g., “reduces inflammation”) | Health‑impact claim. | “Contains X% THC/CBD” (facts only). |\n| **Organic / Natural / Pure** (unless state‑certified) | Can be misleading about cultivation methods. | “Cultivated under state‑approved standards.” |\n| **Psychoactive‑free / No high** (when product does contain THC) | Misrepresentation. | State‑required THC content disclosure. |\n| **Pregnancy‑safe / Breast‑feeding safe** | Direct health claim for a vulnerable group. | “Not recommended for use during pregnancy or while nursing.” |\n| **Drug‑free / Non‑controlled** | Implies legal status beyond state law. | “Complies with state regulations.” |\n\n---\n\n## 2. Target‑Audience & Access Restrictions\n| **Restricted Phrase** | **Regulatory Reason** |\n|------------------------|-----------------------|\n| “For minors” / “Kids” / “Teen” | Cannabis must not be marketed to anyone < 21 (or < 19 in some states). |\n| “Buy now, pay later” (or other “credit” offers) | Many states prohibit financing or “buy‑now‑pay‑later” for cannabis. |\n| “Free samples” / “Giveaways” | Most jurisdictions ban free product distribution (except for very limited, state‑approved programs). |\n| “Discount for veterans/first‑responders” (unless specifically permitted) | Some states restrict price‑discrimination. |\n| “Limited‑time only” with implied urgency that may encourage over‑consumption | Must not promote excessive use. |\n| “Best price” or comparative pricing with non‑cannabis products | Misleading comparisons are prohibited. |\n\n---\n\n## 3. Visual & Contextual Pro\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1161 (161?1000) | Cost: $0.000000*",
+      "duration": 7607,
+      "grade": "B",
+      "score": 89,
+      "grading": {
+        "length": "Pass",
+        "keywords": "4/5 matched",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "4/5 key words"
+      },
+      "strengths": [],
+      "weaknesses": [],
+      "feedback": "",
+      "gradingMethod": "unknown",
+      "expectedKeywords": [
+        "marketing",
+        "cannabis",
+        "regulation",
+        "compliance",
+        "words"
+      ],
+      "expectedAnswer": "**Summarizing cannabis marketing restrictions** I need to create a summary addressing the key points about restricted words or claims in cannabis marketing specific to New York. I should focus on the OCM regulations for adult-use cannabis advertising and packaging, which prohibit false or misleading claims, health claims, and terms appealing to children, like \"candy\" or \"gummies.\" The regulations also restrict imagery appealing to those under 21 and require avoidance of terms like \"organic\" unless USDA-certified. Additionally, I’ll look into specifics around packaging and labeling rules.**Summarizing cannabis marketing restrictions** I need to summarize the key points regarding New York cannabis marketing rules set by the Office of Cannabis Management (OCM). The regulations prohibit false or misleading claims, including health or safety claims, and restrict using terms like “organic” unless certified. Specific rules ban appealing to children, using cartoon imagery, and certain food-related terms like “candy” or “gummies.” Packaging and labeling requirements also prohibit bright colors and imagery that could attract under-21 consumers. I'll consider these details carefully!"
+    },
+    {
+      "questionNum": 378,
+      "question": "How do I avoid making unapproved health or medical claims?",
+      "category": "marketing-cannabis-products-&-following-regulations",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": true,
+      "response": "### Quick‑Start Checklist for Staying Clear of Unapproved Health/Medical Claims\n\n| Step | What to Do | Why It Helps |\n|------|------------|--------------|\n| **1️⃣ Know the Rules** | • **Federal:** FDA / FTC guidance on “structure‑function” vs. “disease‑treatment” language. <br>• **State:** Review your state’s cannabis advertising statutes (e.g., CA Business and Professions Code §26000, CO Cannabis Regulation §7‑110). | Provides the legal baseline you must not cross. |\n| **2️⃣ Use Only Allowed Claim Types** | • **Structure‑function only** (e.g., “supports relaxation,” “helps maintain a balanced mood”). <br>• **General wellness** (e.g., “promotes a sense of calm”). | These are the only claim categories the FDA permits without pre‑approval. |\n| **3️⃣ Avoid Disease‑Specific Language** | Never say: <br>• “cures,” “treats,” “prevents,” or “reduces” a specific condition (e.g., anxiety, epilepsy, chronic pain). <br>• “Clinically proven” unless you have FDA‑approved data. | Disease‑specific language is considered a drug claim and is prohibited for non‑approved products. |\n| **4️⃣ Back Up Every Statement** | • Use **peer‑reviewed, publicly available research** that is not industry‑funded. <br>• Cite the source (author, journal, year). <br>• Add a disclaimer: “These statements have not been evaluated by the FDA.” | Demonstrates good‑faith reliance on scientific evidence and satisfies FTC substantiation rules. |\n| **5️⃣ Deploy a Review Process** | • **Draft → Legal/Compliance Review → Final Approval** before any public release. <br>• Keep a **claim‑log** with source, date, reviewer, and approval status. | Prevents accidental slips and creates an audit trail. |\n| **6️⃣ Train Your Team** | • Conduct a **quarterly compliance refresher** covering the latest FDA/FTC updates. <br>• Provide **cheat‑sheet cards** with “Allowed vs. Forbidden Phrases.” | Consistency across all marketing channels. |\n| **7️⃣ Use Disclaimers Wisely** | • Place the FDA disclaimer **prominently** (near the claim). <br>• Example: “These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease.” | Helps mitigate liability and meets FTC expectations. |\n| **8️⃣ Monitor & Update** | • Set up **Google Alerts** for regulatory changes. <br>• Review and revise any existing copy whenever new guidance is issued. | Keeps your messaging current and compliant. |\n\n---\n\n#### Common Pitfalls & How to Fix Them\n\n| Pitfall | Problem | Fix |\n|---------|----------|-----|\n| **“Helps with anxiety”** | Implies treatment of a mental health condition. | Rephrase to “supports a calm, relaxed state.” |\n| **“Clinically proven to reduce inflammation”** | Requires FDA‑approved clinical trial data. | Remove “clinically proven” unless you have FDA‑cleared study; otherwise use “may help support a balanced inflammatory response (based on pre‑clinical research).” |\n| **“Made with 100% THC‑derived CBD”** | Suggests a therapeutic component. | Stick to “contains full‑spectrum hemp extract” and focus on flavor/aroma or experience. |\n| **Using testimonials that claim “cured my migraines”** | User‑generated content can still violate regulations. | Moderate testimonials; only allow non‑specific statements like “I feel better after using it.” |\n\n---\n\n### Mini‑Template for an Approved Product Description\n\n> **Product Name – Calm Balance Gummies**  \n> *“Supports a relaxed, balanced mood.”*  \n> *“Made with premium, full‑spectrum hemp extract and natural terpenes for a pleasant flavor.”*  \n> *“These statements have not been evaluated by the Food and Drug Administration. This product is not\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1130 (130?1000) | Cost: $0.000000*",
+      "duration": 11857,
+      "grade": "A",
+      "score": 97,
+      "grading": {
+        "length": "Pass",
+        "keywords": "5/5 matched",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "4/5 key words"
+      },
+      "strengths": [],
+      "weaknesses": [],
+      "feedback": "",
+      "gradingMethod": "unknown",
+      "expectedKeywords": [
+        "marketing",
+        "cannabis",
+        "regulation",
+        "compliance",
+        "avoid"
+      ],
+      "expectedAnswer": "**Summarizing marketing regulations** I need to create a concise summary about how to avoid making unapproved health or medical claims when marketing cannabis products in New York. The key points include: don't make health claims, adhere to New York OCM and CCB marketing and labeling rules, and avoid any false or misleading statements. It’s essential not to use terms associated with health benefits or to imply a product can treat medical conditions unless FDA-approved. Disclaimers and compliance with relevant regulations are crucial too!**Summarizing health claim regulations** I need to summarize how to avoid making unapproved health or medical claims in the context of marketing cannabis products. The main conclusion should highlight the importance of following New York's OCM/CCB marketing and labeling rules. It's crucial to avoid false or misleading statements and not to make therapeutic or curative claims unless FDA-approved. Terms like \"anxiety relief\" or \"painkiller\" should be completely avoided, along with ensuring compliance with adult-use regulations in New York."
+    },
+    {
+      "questionNum": 379,
+      "question": "Do I have to submit any of my packaging to the state cannabis authority for certain products?",
+      "category": "marketing-cannabis-products-&-following-regulations",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": true,
+      "response": "**Short answer:** Yes – in most U.S. states you must submit packaging (or at least the artwork/labeling) to the state cannabis regulator for many product you can sell them. The exact requirements, timing and submission format vary by state and by product type (edibles, concentrates, topicals, etc.).\n\n---\n\n## 1️⃣ Why the state cares about your packaging\n| Reason | What it means for you |\n|--------|-----------------------|\n| **Child‑resistant (CR) compliance** | Packaging must meet ASTM or ISO CR standards and be verified (often via a third‑party test report). |\n| **Labeling & warning requirements** statements (e.g., THC potency, serving size, health warnings, QR code results). |\n| **Brand‑approval / artwork review** | Many states want to see the exact front‑ and back‑label design before the product can be marketed. |\n| **Traceability & seed‑to‑sale** | Packaging often includes a unique batch/lot code that must be entered into the state’s track‑and‑trace system. |\n| **Product‑specific rules** | Edibles, vape cartridges, topicals, and tinctures each have their own packaging caps (e.g., maximum package size, tamper‑eent seals). |\n\n---\n\n## 2️⃣ Typical submission triggers by product type\n\n| Product Category | Common submission requirement | Example states |\n|------------------|------------------------------||Edibles (solid, liquid, gummy, baked)** | Artwork/label approval + CR unit‑dose limits | CA, CO, MA, OR, WA |\n| cartridges / aerosols** | Artwork approval + CR + tamper‑evident seal validation | CA, CO, OR, WA |\n| **Concentrates (shatter, wax, distillate)** | Artwork/label approval (often a “product sheet”) | CO, MA, NM |\n| **Topicals & cosmetics** | Artwork approval; may need “cosmetic” labeling compliance | CO, MA| **Pre‑rolled joints** | Artwork/label approval; sometimes a “product packaging” PDF | CA, CO |\n| **Infused beverages** | Artwork + QR code + CR + volume caps | CO, MA, WA |\n| **Tinctures / oral solutions** | Artwork + dosage labeling; CR may not apply if bottle is non‑child‑resistant but many states still require a child‑resistant cap | CA, CO |\n\n*If you sell a product that the state classifies as “non‑THC” (e.g., hemp‑derived CBD with <0.), the rules can be different or lighter, but many states still require label review.*\n\n---\n\n## 3️⃣ How the submission process usually works\n\n1. **Gather the required documents**  \n   - High‑resolution front‑ and back‑label artwork (PDF or AI).  \n   - Proof of CR compliance (lab test report, certification number).  \n   - Product specification sheet (potency, serving size, ingredients).  \n   - QR‑code link to the result (if required).  \n\n2. **Enter the package into the state’s tracking system**  \n   - Most a web portal (e.g., **California BOP**, **Massachusetts Cannabis Control Commission (CCC) – “Product Submission”**, THD – “Packaging Submission”**).  \n   - You’ll assign a **Package ID** that later ties to your seed‑to‑sale batch.\n\n3. **Submit for review**  \n   - Some states give an **instant “approved” flag** if the artwork matches a template (e.g\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1169 (169?1000) | Cost: $0.000000*",
+      "duration": 30150,
+      "grade": "B",
+      "score": 83.66666666666666,
+      "grading": {
+        "length": "Pass",
+        "keywords": "4/6 matched",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "4/5 key words"
+      },
+      "strengths": [],
+      "weaknesses": [],
+      "feedback": "",
+      "gradingMethod": "unknown",
+      "expectedKeywords": [
+        "marketing",
+        "cannabis",
+        "regulation",
+        "compliance",
+        "packaging",
+        "state"
+      ],
+      "expectedAnswer": "**Summarizing packaging requirements in NY cannabis** I need to create a concise summary about New York's packaging rules for cannabis products, particularly focusing on whether packaging must be submitted to the state cannabis authority. It's essential to reference the New York Office of Cannabis Management's (OCM) regulations regarding packaging and labeling, such as record-keeping and potential sample approvals. While I'm unsure if NY has a pre-approval requirement, I do know that states like Massachusetts do have packaging pre-approval for medical products.**Identifying restrictions for cannabis packaging in NY** In New York, there are clear restrictions to ensure products are not attractive to individuals under 21. This includes guidelines on colors, shapes, and imagery, as well as specific wording like \"THC\" and a universal symbol. It's likely that there are requirements to submit brand names, strain names, and logos to the Office of Cannabis Management (OCM) for product and marketing review. I want to make sure I get all these details correct!**Summarizing NY cannabis packaging requirements** I need to create a concise summary addressing whether New York state requires submitting packaging to the cannabis authority for certain products. It's important to reference the NY Office of Cannabis Management (OCM) regulations regarding packaging and labeling. I recall that OCM has strict requirements, including record maintenance and possible requests for samples or pre-approv..."
+    },
+    {
+      "questionNum": 380,
+      "question": "What disclaimers are required in digital or print advertising?",
+      "category": "marketing-cannabis-products-&-following-regulations",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": true,
+      "response": "Below is a quick‑reference guide to the most common disclaimer requirements you’ll run into when you place **cannabis‑related ads in digital or print media**.  Because the rules differ by jurisdiction (state, province, country) and by medium, treat this as a checklist and then verify the exact wording with your local regulator or counsel.\n\n---\n\n## 1. Core Federal / National Requirements (U.S. example)\n\n| Requirement | What it means | Typical wording |\n|-------------|---------------|-----------------|\n| **Age‑gate / Minimum age** | Ads must make clear the product is for adults only. | “For adults 21 years of age and older. Not for sale to minors.” |\n| **Health‑risk warning** | Federal law (e.g., USDA, FDA guidance for hemp) requires a warning about potential health effects. | “This product may contain Δ9‑THC. Use may cause impairment. Keep out of reach of children.” |\n| **No medical claims** | You cannot claim the product treats, cures, or prevents any disease unless approved by the FDA (or equivalent). | “This product is not intended to diagnose, treat, cure, or prevent any disease.” |\n| **Truthful labeling** | All statements must be substantiated and not misleading. | “Contains X mg Δ9‑THC per serving (lab‑tested).” |\n| **FTC/Advertising Standards** | Claims must be non‑deceptive and have a reasonable basis. | “Based on independent third‑party lab results (link).” |\n\n> **Tip:** Even if your product is “hemp‑derived” and falls under the 2018 Farm Bill, many states still impose the same age‑gate and health‑warning language as for marijuana.\n\n---\n\n## 2. State / Provincial Disclaimers (U.S. & Canada)\n\n| State / Province | Required disclaimer(s) | Sample phrasing |\n|------------------|------------------------|-----------------|\n| **California (Cannabis) – Bureau of Cannabis Control** | Age, licensing, health risk, no minors, no false health claims. | “CA License # XXXXX. For adults 21 + only. May cause impairment. Not for use while operating a vehicle.” |\n| **Colorado** | Age, health warning, licensing, no medical claims. | “CO License # XXXXX. For adults 21 + only. Contains Δ9‑THC. Not a medical product.” |\n| **Oregon** | Age, health warning, licensing. | “OR License # XXXXX. For adults 21 + only. May cause drowsiness.” |\n| **Washington** | Age, health warning, licensing, no false health claims. | “WA License # XXXXX. For adults 21 + only. May impair judgment.” |\n| **Ontario (Canada)** | Age, THC content, health warning (Health Canada). | “For adults 19 + (21 + in some municipalities). Contains X mg THC per package. May cause drowsiness. Keep out of reach of children.” |\n| **British Columbia** | Age, health warning, licensing. | “For adults 19 + only. May cause impairment. License # XXXXX.” |\n\n> **How to use:** Insert the appropriate license number (or “License # XXXXX” placeholder) and adjust the age line to match the jurisdiction. If you operate in multiple states, you can list the most restrictive disclaimer (e.g., “For adults 21 + only”) and then add a footnote with the specific license numbers per state.\n\n---\n\n## 3. Platform‑Specific Rules (Digital)\n\n| Platform | Must‑have disclaimer | Additional constraints |\n|----------|---------------------|------------------------|\n| **Google Ads** | Age‑gate + health warning + no medical claims. | Must target only users 21+ (or 19+ in Canada) via\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1162 (162?1000) | Cost: $0.000000*",
+      "duration": 8096,
+      "grade": "C",
+      "score": 73,
+      "grading": {
+        "length": "Pass",
+        "keywords": "2/5 matched",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "4/5 key words"
+      },
+      "strengths": [],
+      "weaknesses": [],
+      "feedback": "",
+      "gradingMethod": "unknown",
+      "expectedKeywords": [
+        "marketing",
+        "cannabis",
+        "regulation",
+        "compliance",
+        "disclaimers"
+      ],
+      "expectedAnswer": "**Summarizing cannabis advertising regulations** I’m focusing on producing a summary about disclaimers required in digital and print advertising for cannabis in New York, since we need to adhere to compliance as agents. The key requirements include age restrictions like \"For use only by adults 21 years of age and older\" and safety warnings such as \"Keep out of reach of children/pets.\" Additionally, health risk statements are important; advertising must also convey that cannabis can impair concentration, coordination, and judgment.**Clarifying cannabis marketing disclaimers** I need to highlight there's a ban on health or medical claims in cannabis advertising, so disclaimers can’t assert therapeutic benefits unless specifically approved. It’s crucial to include the New York licensee's name and license number in the marketing materials. Additionally, disclaimers must state \"This product contains cannabis\" or \"This product contains THC.\" These components are vital for compliance in promoting cannabis products. It's amazing how many details there are to keep track of!**Summarizing cannabis marketing disclaimers** I’m tasked with creating a concise summary on the disclaimers needed for cannabis advertising in New York. As a compliance agent, I’ll focus on key requirements and regulations. In New York, disclaimers must state: \"For use only by adults 21 years of age and older\" and \"Keep out of reach of children/pets.\" Additionally, health warnings are crucial, including advisories..."
     }
   ],
-  "status": "In Progress: 370/438 questions completed"
+  "status": "In Progress: 380/438 questions completed"
 }
