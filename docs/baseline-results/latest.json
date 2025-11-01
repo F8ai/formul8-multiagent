@@ -1,11 +1,11 @@
 {
-  "timestamp": "2025-11-01T00:35:44.003Z",
+  "timestamp": "2025-11-01T00:40:32.618Z",
   "url": "https://chat.formul8.ai",
   "totalQuestions": 438,
-  "completed": 360,
-  "passed": 204,
+  "completed": 370,
+  "passed": 214,
   "failed": 156,
-  "averageScore": "47.45",
+  "averageScore": "48.28",
   "averageGrade": "F",
   "results": [
     {
@@ -11316,7 +11316,337 @@
         "local"
       ],
       "expectedAnswer": "**Considering community engagement for brands** I’m focusing on creating a concise summary about how a brand, especially a smaller one, can get more involved in the local community while competing with larger MSOs. My summary should highlight key points, including main conclusions, essential requirements, critical regulatory details, and any state-specific information that’s relevant. It’s important to make this practical and informative for marketing strategies that can help smaller brands thrive and connect with their communities effectively.**Summarizing community involvement** I need to create a concise summary about how a brand can engage more with the local community, particularly focusing on smaller brands competing against larger MSOs. It's important to include key points such as main conclusions, essential requirements or facts, and any critical regulatory details. If there are state-specific considerations mentioned, those should be included too. My goal is to ensure the summary is clear, informative, and stays within the specified word count."
+    },
+    {
+      "questionNum": 361,
+      "question": "What storytelling techniques make smaller operators relatable to consumers?",
+      "category": "competing-as-a-smaller-brand-vs-msos",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": true,
+      "response": "### Storytelling Techniques That Turn Small Operators into Relatable Brands  \n\n| Technique | Why It Works | How to Apply It (Step‑by‑Step) |\n|-----------|-------------|--------------------------------|\n| **1. Founder‑Origin Narrative** | People love a “humble‑beginnings” story. It humanizes the brand and shows passion over profit. | 1️⃣ Identify the moment or problem that sparked the business. <br>2️⃣ Highlight personal background (e.g., a farmer’s love for the plant, a veteran’s quest for wellness). <br>3️⃣ Keep the language conversational—use first‑person voice and simple anecdotes. |\n| **2. “Day‑in‑the‑Life” Behind‑the‑Scenes** | Transparency builds trust. Seeing the real work demystifies the product and shows dedication. | 1️⃣ Capture short video clips or photo reels of daily tasks (e.g., trimming, packaging, lab testing). <br>2️⃣ Pair each visual with a caption that explains the why (e.g., “We hand‑roll each joint to preserve terpene profile”). <br>3️⃣ Post weekly on Instagram Stories, TikTok, or YouTube Shorts. |\n| **3. Community‑Centric Storytelling** | Small operators often serve a tight‑knit community. Positioning the brand as a local partner creates emotional ownership. | 1️⃣ Spotlight local events, charities, or collaborations (e.g., a pop‑up at a farmer’s market). <br>2️⃣ Use quotes and photos from community members (“Jane says our CBD oil helped her arthritis”). <br>3️⃣ Encourage user‑generated content with a branded hashtag. |\n| **4. Challenge‑and‑Triumph Arc** | Everyone faces obstacles. Sharing struggles (regulatory, funding, supply‑chain) and how you overcame them shows resilience. | 1️⃣ Pick a specific hurdle (e.g., a delayed license). <br>2️⃣ Outline the steps you took to solve it, emphasizing perseverance and creativity. <br>3️⃣ End with a concrete outcome (e.g., “Now we’re the only local grower with organic certification”). |\n| **5. Values‑Driven Micro‑Stories** | Modern consumers buy from brands whose values align with theirs (sustainability, equity, wellness). | 1️⃣ Define 2–3 core values. <br>2️⃣ Create short stories that illustrate each value (e.g., “We compost every plant waste, saving 2,000 kg of CO₂ per year”). <br>3️⃣ Use infographics or carousel posts to make data digestible. |\n| **6. Customer‑Hero Spotlights** | Turning the buyer into the protagonist makes the brand feel like a facilitator of their success. | 1️⃣ Ask customers to share a “before‑and‑after” experience with your product. <br>2️⃣ Feature their story (photo + testimonial) as a case study. <br>3️⃣ Highlight the specific benefit (“John’s anxiety dropped 40% after 2 weeks of our THC‑lite tincture”). |\n| **7. Visual‑First Narrative** | Small operators often lack big budgets for copy; strong visuals convey personality quickly. | 1️⃣ Develop a consistent visual style (color palette, filter, typography). <br>2️⃣ Use lifestyle photography that shows real people using the product in everyday settings. <br>3️⃣ Pair each image with a one‑sentence hook (“Morning calm, powered by our sunrise blend”). |\n| **8. Interactive Storytelling** | Engaging the audience turns passive viewers into participants, deepening connection. | 1️⃣ Run polls or quizzes that reveal personal preferences (“Which terpene matches your vibe?”). <br>2️⃣ Use the results to craft a follow‑up story (“Our community chose ‘Citrus Burst’—here’s how we built it”). <br>3️⃣ Reward participation with a small discount or exclusive content. |\n| **9. “Why We Care” FAQ Series** | Directly answering consumer concerns shows empathy and positions the brand as a problem‑solver. | 1️⃣ Compile top 5 consumer questions (e.g., “Is this product organic?”). <br>2️⃣ Answer each with a short video or illustrated post that weaves in the brand’s mission. <br>3️⃣ Link each answer to a real‑world example or data point. |\n| **10. Legacy & Future Vision** | Showing\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1128 (128?1000) | Cost: $0.000000*",
+      "duration": 13493,
+      "grade": "B",
+      "score": 81,
+      "grading": {
+        "length": "Pass",
+        "keywords": "3/5 matched",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "4/5 key words"
+      },
+      "strengths": [],
+      "weaknesses": [],
+      "feedback": "",
+      "gradingMethod": "unknown",
+      "expectedKeywords": [
+        "brand",
+        "mso",
+        "competitive",
+        "operator",
+        "storytelling"
+      ],
+      "expectedAnswer": "**Crafting a cannabis marketing summary** I need to create a concise summary about storytelling techniques that make smaller cannabis operators relatable to consumers. It's important to clarify that this is a legal marketing context. The user wants a summary for grading responses, so I’ll focus on main conclusions, key requirements, and critical regulatory details. I should mention compliance in marketing, including avoiding medical claims, age-gating, and not targeting minors. It’s also vital to note that advertising rules can vary by state, and I may include some examples, though sparingly.**Summarizing storytelling in cannabis marketing** I need to create a concise summary about storytelling techniques that help smaller operators connect with consumers, specifically in cannabis marketing. It’s important to clarify that this isn't about illegal activities since cannabis marketing is legal in certain states. I should include key points like compliance in marketing, avoiding medical claims, age restrictions, and labeling requirements. State examples like California, Colorado, and Massachusetts could illustrate these points, but I should keep them minimal. The summary should be between 100-200 words."
+    },
+    {
+      "questionNum": 362,
+      "question": "Can I build a 'craft' positioning strategy similar to craft beer or artisanal food?",
+      "category": "competing-as-a-smaller-brand-vs-msos",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": true,
+      "response": "**Yes – you can create a “craft” positioning strategy for cannabis that mirrors the storytelling, quality focus, and community‑centric vibe of craft beer or artisanal food.** Below is a step‑by‑step framework you can adapt to your brand, along with key tactics and common pitfalls to watch.\n\n---\n\n## 1. Define What “Craft” Means for Your Brand\n| Element | Cannabis‑specific focus | Why it matters |\n|---------|------------------------|----------------|\n| **Scale & Ownership** | Small‑batch, locally owned, often family‑run | Signals authenticity and control over the whole process. |\n| **Quality & Terpene Profile** | Hand‑selected genetics, meticulous curing, full‑spectrum testing | Differentiates from mass‑produced, THC‑only products. |\n| **Storytelling** | Origin of seed/clone, growers’ background, community roots | Builds emotional connection and brand loyalty. |\n| **Transparency** | Open lab results, farm‑to‑shelf traceability | Meets consumer demand for safety and honesty. |\n| **Innovation & Artistry** | Unique strain blends, creative extraction methods, limited‑edition releases | Keeps the line fresh and collectible. |\n| **Community & Culture** | Local events, education workshops, collaborations with local artists/chefs | Mirrors the “local hangout” feel of craft breweries. |\n\n**Action:** Write a 1‑sentence “craft manifesto” that captures the above elements. Example:  \n*“We grow, cure, and craft small‑batch, terroir‑driven cannabis that celebrates our valley’s heritage and invites our community to explore flavor, wellness, and creativity together.”*\n\n---\n\n## 2. Build the Core Pillars of Your Craft Positioning\n1. **Terroir & Origin** – Highlight the micro‑climate, soil, and local growers.  \n2. **Hand‑Crafted Process** – Detail each step (seed selection → vegetative → flowering → curing → packaging).  \n3. **Transparency & Testing** – Publish batch‑specific lab reports on your website and packaging.  \n4. **Limited‑Edition & Seasonal Releases** – Create “vintages” (e.g., Spring Harvest, Autumn Reserve).  \n5. **Community Engagement** – Host “grow‑talks,” tasting rooms, or pairings with local chefs/bars.  \n\n**Tip:** Choose **3‑5** pillars and repeat them consistently across all touch‑points (website, packaging, social, POS).\n\n---\n\n## 3. Visual & Verbal Identity\n| Component | Recommendations |\n|-----------|-----------------|\n| **Logo & Typography** | Hand‑drawn icons (leaf + local landmark), vintage‑style serif or script fonts. |\n| **Color Palette** | Earth tones + a signature accent (e.g., deep forest green + amber). |\n| **Packaging** | Small, reusable glass jars, hemp paper labels, QR code linking to batch lab results and story. |\n| **Voice** | Conversational, knowledgeable, a little witty—like a knowledgeable bartender. |\n| **Photography** | Close‑ups of buds, growers at work, local landscapes, lifestyle shots of people enjoying the product responsibly. |\n\n**Consistency check:** Every piece of communication makes this product *craft*?”\n\n---\n\n## 4. Product Architecture & Naming\n- **Core Line** – “Foundations” (consistent, flagship strains).  \n- **Seasonal/Vintage** – “Harvests” (limited releases tied to growing cycles).  \n- **Collaborations** – “Co‑Creations” (partner with local chefs, artists, or other craft producers).  \n- **Naming Formula** – *[Location/Heritage] + [Strain/Flavor] + [Edition]* (e.g., “Willow Creek Sunset Reserve”).  \n\n---\n\n##. Distribution & Sales Channels\n| Channel | Craft‑Friendly Tactics |\n|---------|------------------------|\n| **Dispensaries** | Offer exclusive in‑store tasting events, train budtenders on story. |\n| **Direct‑to‑Consumer** (where legal) | Subscription boxes for quarterly “vintages.” |\n| **On‑Premise (Cafés/Restaurants)** | Pairings menu (e.g., cannabis‑infused olive oil with a local tapas bar). |\n| **Online Community** | Private Discord/Slack for members to discuss effects, recipes, and upcoming releases. |\n\n**Key:** Keep distribution limited enough to maintain scarcity\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1169 (169?1000) | Cost: $0.000000*",
+      "duration": 6407,
+      "grade": "C",
+      "score": 78,
+      "grading": {
+        "length": "Pass",
+        "keywords": "3/5 matched",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "3/5 key words"
+      },
+      "strengths": [],
+      "weaknesses": [],
+      "feedback": "",
+      "gradingMethod": "unknown",
+      "expectedKeywords": [
+        "brand",
+        "mso",
+        "competitive",
+        "build",
+        "craft"
+      ],
+      "expectedAnswer": "**Summarizing craft positioning strategy** I’m thinking about summarizing how someone could build a 'craft' positioning strategy similar to that of craft beer or artisanal food. I want to address categories like smaller brands in comparison to MSOs and the role of agent marketing. The summary needs to highlight key requirements and critical regulatory details, including general US cannabis regulations, and any state-specific variations if applicable. It should stay between 100-200 words while maintaining a focused approach as a cannabis industry consultant.**Summarizing positioning strategies** I need to prepare a summary answering whether a 'craft' positioning strategy can be applied to cannabis, similar to craft beer or artisanal food. I'll focus on smaller brands compared to multi-state operators (MSOs) while considering agent marketing. The summary should include the main conclusions, key requirements, and critical regulatory details. Since there are no specific states mentioned, I can discuss general U.S. cannabis regulatory constraints and the variability across states. The summary should be between 100 and 200 words."
+    },
+    {
+      "questionNum": 363,
+      "question": "What digital marketing channels level the playing field for smaller brands?",
+      "category": "competing-as-a-smaller-brand-vs-msos",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": true,
+      "response": "### Digital‑marketing channels that let small brands punch above their weight\n\n| Channel | Why it levels the field | Quick‑start tactics (3‑5 steps) |\n|---------|------------------------|---------------------------------|\n| **Search‑Engine Optimization (SEO)** | No ad spend required; rankings are earned, not bought. A well‑optimized site can outrank larger competitors for niche keywords. | 1. Do a keyword‑gap audit (focus on long‑tail, “how‑to” and local terms). <br>2. Optimize title tags, meta‑descriptions, and headings for those keywords. <br>3. Publish a pillar page + 3‑5 supporting blog posts. <br>4. Build 5–10 quality backlinks (guest posts, local directories, industry forums). <br>5. Track rankings & organic traffic weekly. |\n| **Content Marketing (Blog, Video, Podcast)** | Content is a reusable asset; once created it keeps driving traffic and leads for months at virtually no marginal cost. | 1. Identify 3 audience pain points. <br>2. Create a 5‑minute “how‑to” video or a 800‑word guide for each. <br>3. Repurpose the video transcript into a blog post and an audio‑only podcast episode. <br>4. Publish on your site and cross‑post to YouTube, LinkedIn, and relevant niche forums. <br>5. Promote with a single email blast and a pinned social post. |\n| **Social‑Media Communities (TikTok, Instagram Reels, Threads, Reddit)** | Algorithms favor engagement over budget; creative, authentic content can go viral regardless of spend. | 1. Choose one platform where your audience hangs out (e.g., TikTok for younger consumers, Reddit for niche hobbyists). <br>2. Use a “trend‑plus‑brand” formula: hop on a trending sound/challenge and add your product angle. <br>3. Post 3× per week, each ≤30 seconds. <br>4. Respond to every comment within 24 h to boost engagement signals. <br>5. Track reach & saves; double‑down on the formats that hit >10 % engagement. |\n| **Micro‑influencer Partnerships** | Influencers with 1‑10 k followers charge far less (or product‑only) and have higher trust ratios; their audiences are hyper‑targeted. | 1. Search hashtags and community groups for creators whose audience matches your buyer persona. <br>2. Offer a free product + a unique discount code. <br>3. Ask for 1‑minute “unboxing/first‑impression” video + 2���story mentions. <br>4. Track sales via the code and UTM parameters. <br>5. Scale to 5–10 creators based on ROI. |\n| **Email Marketing (Automation + Segmentation)** | Costs are low (most ESPs start free) and ROI is consistently high; you own the channel, unlike paid social. | 1. Capture emails with a lead magnet (e.g., “10‑step guide” or discount). <br>2. Set up a 5‑email welcome series (brand story → value → social proof → offer). <br>3. Segment by behavior (first‑time buyer, repeat, cart‑abandon). <br>4. Send a weekly “value‑add” newsletter (tips, user‑generated content). <br>5. Test subject lines (A/B) and track open/click rates. |\n| **Local & Hyper‑Targeted Paid Search (Google Ads, Bing, TikTok Ads)** | CPCs can be kept low by bidding on long‑tail, location‑specific keywords; budgets are fully controllable. | 1. Build a small campaign around 5–10 long‑tail keywords (e.g., “organic CBD oil in [city]”). <br>2. Set a daily budget of $5‑$10. <br>3. Use ad extensions (call, location, sitelinks). <br>4. Direct clicks to a dedicated landing page with a clear CTA. <br>5. Optimize by\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1163 (163?1000) | Cost: $0.000000*",
+      "duration": 13752,
+      "grade": "B",
+      "score": 81,
+      "grading": {
+        "length": "Pass",
+        "keywords": "3/5 matched",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "4/5 key words"
+      },
+      "strengths": [],
+      "weaknesses": [],
+      "feedback": "",
+      "gradingMethod": "unknown",
+      "expectedKeywords": [
+        "brand",
+        "mso",
+        "competitive",
+        "digital",
+        "marketing"
+      ],
+      "expectedAnswer": "**Summarizing digital marketing channels** I’m tasked with creating a summary focused on how smaller brands can compete against multi-state operators in digital marketing. Critical channels to highlight include SEO and content marketing, local SEO, email and SMS, and various social media platforms like Instagram, TikTok, and Reddit. Community engagement through influencers and user-generated content also matters, as do affiliate marketing and other owned channels. Given the cannabis industry's advertising restrictions, it’s crucial to navigate state regulations carefully."
+    },
+    {
+      "questionNum": 364,
+      "question": "How can local community sponsorships boost visibility against MSOs?",
+      "category": "competing-as-a-smaller-brand-vs-msos",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": true,
+      "response": "### Why Local Community Sponsorships Matter in a MSO‑Dominated Market  \n\n| Benefit | How It Helps You Compete with MSOs |\n|---|---|\n| **Hyper‑local brand awareness** | MSOs often focus on state‑wide or regional advertising. Sponsoring a local school, sports team, or cultural event puts your name in front of the exact neighborhoods where you sell, creating “home‑grown” recognition that big players can’t replicate. |\n| **Authentic community goodwill** | When residents see you supporting causes they care about (e.g., youth programs, environmental clean‑ups), they view your brand as a partner rather than a faceless corporation. That loyalty translates into repeat customers and word‑of‑mouth referrals. |\n| **Differentiated storytelling** | Sponsorships give you concrete, human‑interest stories for PR, social media, and in‑store signage—something MSOs can’t easily personalize at the local level. |\n| **Local media coverage** | Community newspapers, radio stations, and city newsletters are more likely to feature a local sponsor than a distant MSO, giving you earned media at a fraction of the cost. |\n| **Regulatory goodwill** | Demonstrating community investment can smooth relationships with local officials and regulators, making it easier to secure permits, licenses, or zoning approvals that MSOs may struggle with. |\n| **Data‑rich touchpoints** | Events and sponsorships generate email sign‑ups, QR‑code scans, and on‑site sales data that you can feed into your CRM for hyper‑targeted follow‑ups—something a broad‑scale MSO campaign can’t capture at the zip‑code level. |\n\n---\n\n## A Step‑by‑Step Playbook\n\n### 1. Identify the Right Sponsorships\n| Criteria | Action |\n|---|---|\n| **Audience overlap** | Choose events/organizations whose participants match your target consumer profile (e.g., local music festivals for a younger demographic, senior wellness groups for older patients). |\n| **Community impact** | Prioritize causes that address a real need (e.g., youth drug‑education, green‑space restoration). This amplifies goodwill and media interest. |\n| **Visibility assets** | Ensure the partnership includes logo placement, speaking opportunities, product sampling, or QR‑code displays. |\n\n### 2. Structure the Sponsorship Offer\n- **Tiered packages** (e.g., “Bronze – logo on flyers,” “Silver – booth + signage,” “Gold – co‑hosted event).  \n- **In‑kind contributions** (product samples, educational workshops) to stretch budget.  \n- **Performance clauses** (e.g., “if event attendance exceeds 500, we receive additional media placement”).\n\n### 3. Leverage the Sponsorship Across Channels\n| Channel | Tactics |\n|---|---|\n| **In‑store** | Display event photos, thank‑you banners, QR‑codes linking to a “Community Impact” landing page. |\n| **Social media** | Live‑stream the event, post behind‑the‑scenes stories, tag the sponsored organization, use localized hashtags. |\n| **Email** | Send a post‑event recap with a special coupon for attendees. |\n| **Local press** | Draft a press release highlighting the partnership and its community benefit; pitch to city newsletters, radio stations, and hyper‑local blogs. |\n| **Influencer/advocate** | Engage a local micro‑influencer or community leader to amplify the sponsorship message. |\n\n### 4. Track ROI & Impact\n| Metric | How to Measure |\n|---|---|\n| **Brand recall** | Short post‑event surveys (online or in‑store) asking “Where did you first hear about us?” |\n| **Foot traffic spikes** | Compare POS data for the week before/after the event. |\n| **Lead capture** | Count email sign‑ups, QR‑code scans, or loyalty‑program enrollments generated at the event. |\n| **Earned media value** | Use media monitoring tools (e.g., Meltwater) to calculate advertising‑equivalent value of coverage. |\n| **Community sentiment** | Monitor local social‑media mentions and sentiment scores. |\n\n### 5. Iterate & Scale\n- **Analyze** which sponsorship types drive the highest lift in sales or brand equity.  \n- **Re‑invest** in the most effective community partners.  \n- **Expand** geographically: replicate successful models in neighboring towns while customizing for local nuances.\n\n---\n\n## Quick‑Start Checklist (Copy‑Paste)\n\n```\n[ ] Identify 3–5 local events/organizations with audience overlap.\n[ ] Secure sponsorship tier with logo, booth, or product‑sample rights.\n[ ] Draft a joint press release + social‑media content calendar.\n[ ] Set up QR‑code / landing page to capture leads at the event.\n[ ] Post‑event: send thank‑you email + coupon; run a brand‑recall survey.\n[ ] Log media mentions, foot‑traffic, and lead numbers; calculate ROI.\n[ ] Review results; refine sponsorship strategy for Q2.\n```\n\n---\n\n### Bottom Line\n\nLocal community sponsorships give you **hyper‑targeted visibility, authentic goodwill, and measurable data**—all of which are hard for MSOs to replicate at the neighborhood level. By selecting the right partners, integrating the sponsorship across every marketing touchpoint, and tracking concrete ROI, a small or mid‑size cannabis retailer can carve out a distinct, trusted brand presence that competes head‑to‑head with the broad‑scale tactics of Multi‑State Operators.\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1444 (164?1280) | Cost: $0.000000*",
+      "duration": 15740,
+      "grade": "B",
+      "score": 89,
+      "grading": {
+        "length": "Pass",
+        "keywords": "4/5 matched",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "4/5 key words"
+      },
+      "strengths": [],
+      "weaknesses": [],
+      "feedback": "",
+      "gradingMethod": "unknown",
+      "expectedKeywords": [
+        "brand",
+        "mso",
+        "competitive",
+        "local",
+        "community"
+      ],
+      "expectedAnswer": "**Discussing advertising regulations** I want to avoid giving legal advice, but I should mention that it's important to check state and local regulations. For instance, states like California, Colorado, and Massachusetts have specific advertising rules. It's also worth noting that a common threshold is that 71.6% of an audience needs to be 21 or older in many places. Additionally, there are restrictions on displaying branded merchandise and logos, especially near schools and youth events."
+    },
+    {
+      "questionNum": 365,
+      "question": "How do I maximize grassroots marketing with limited budgets?",
+      "category": "competing-as-a-smaller-brand-vs-msos",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": true,
+      "response": "### Quick‑Start Playbook for High‑Impact Grassroots Marketing on a Shoestring\n\n| Goal | Low‑Cost Tactic | Why It Works | How to Execute (Step‑by‑Step) |\n|------|----------------|--------------|--------------------------------|\n| **Build a local community** | **Host “pop‑up” meet‑ups** (coffee, park, co‑working space) | Face‑to‑face contact creates trust & word‑of‑mouth | 1. Choose a free venue (café with a back room, community center). <br>2. Promote via free event pages (Facebook, Meetup, Eventbrite). <br>3. Offer a simple “take‑home” (sample, sticker, QR‑code). <br>4. Capture emails on the spot. |\n| **Leverage existing fans** | **Referral/ Ambassador program** | Your happiest customers become low‑cost sales reps | 1. Define a clear reward (discount, exclusive swag, early‑access). <br>2. Create a short sign‑up form (Google Forms, Typeform). <br>3. Provide a shareable link/QR code. <br>4. Track referrals with UTM tags or a free affiliate plugin. |\n| **Create shareable content** | **User‑generated content (UGC) contests** | Real‑people content costs nothing and feels authentic | 1. Set a simple prompt (e.g., “Show us how you use X”). <br>2. Offer a modest prize (gift card, product bundle). <br>3. Re‑post the best entries on your channels (with permission). |\n| **Dominate local search** | **Google My Business + local SEO** | People searching “near me” are ready to buy | 1. Claim/verify your GMB profile. <br>2. Add 5‑10 high‑quality photos each month. <br>3. Encourage satisfied customers to leave 5‑star reviews. <br>4. Use local keywords in your website title tags (e.g., “Organic CBD oil – Portland”). |\n| **Tap micro‑influencers** | **Nano‑influencer swaps** (product for a post) | Influencers with 1‑5 K followers have high engagement & low rates | 1. Identify 10 local creators (use Instagram hashtag search). <br>2. DM a personalized pitch: “We love your aesthetic—would you try our new vape line in exchange for a free sample?” <br>3. Agree on a posting schedule & give them a short brand brief. |\n| **Drive conversation** | **Ask‑Me‑Anything (AMA) on Reddit/Discord** | Direct Q&A builds authority & community loyalty | 1. Choose a relevant subreddit (e.g., r/cannabisbusiness). <br>2. Announce the AMA 3‑5 days ahead on your socials. <br>3. Prepare 5‑7 talking points (industry trends, product story). <br>4. Follow up with a “thank‑you” post linking to a lead magnet. |\n| **Capture leads cheaply** | **Free “cheat‑sheet” or checklist** | Valuable content trades for email addresses | 1. Identify a pain point (e.g., “How to stay compliant in 2025”). <br>2. Create a 1‑page PDF using Canva (free). <br>3. Host on a simple landing page (Mailchimp, ConvertKit). <br>4. Promote the link in every social post and at events. |\n| **Stay measurable** | **Simple tracking dashboard** | Knowing what works lets you re‑allocate budget fast | 1. Set up a Google Sheet with columns: Channel, Spend, Leads, Cost/Lead, Sales. <br>2. Use UTM parameters on every link. <br>3. Review weekly; cut the lowest‑ROI tactics. |\n\n---\n\n#### 5‑Step Tactical Sprint (First 30\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1161 (161?1000) | Cost: $0.000000*",
+      "duration": 5989,
+      "grade": "D",
+      "score": 67,
+      "grading": {
+        "length": "Pass",
+        "keywords": "2/5 matched",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "2/5 key words"
+      },
+      "strengths": [],
+      "weaknesses": [],
+      "feedback": "",
+      "gradingMethod": "unknown",
+      "expectedKeywords": [
+        "brand",
+        "mso",
+        "competitive",
+        "maximize",
+        "grassroots"
+      ],
+      "expectedAnswer": ""
+    },
+    {
+      "questionNum": 366,
+      "question": "What PR strategies work best for small cannabis brands?",
+      "category": "competing-as-a-smaller-brand-vs-msos",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": true,
+      "response": "**PR Strategies That Work for Small Cannabis Brands**\n\n| Goal | Tactics | Why It Works | Quick Tips |\n|------|---------|--------------|------------|\n| **Build Credibility** | • Secure coverage in local and niche cannabis publications (e.g., *Leafly, High Times, Cannabis Business Times*)  <br>• Pitch “founder story” angles that highlight authenticity, sustainability, or community impact | Journalists love human‑interest stories; credibility transfers to the brand. | • Create a one‑page press kit (logo, product shots, bios, key stats). <br>• Use a concise, data‑driven press release template. |\n| **Leverage Influencers & Micro‑Creators** | • Partner with micro‑influencers (5k‑50k followers) in your region or niche (wellness, culinary, lifestyle). <br>• Offer product for honest reviews, “day‑in‑the‑life” reels, or giveaway collaborations. | Smaller audiences = higher engagement & lower cost; FTC/State compliance is easier to manage. | • Draft a short brief with brand voice, compliance guidelines, and required disclosures. |\n| **Community‑First Events** | • Host pop‑ups, “green” workshops, or “grow‑your‑own” classes at local dispensaries, coffee shops, or co‑working spaces. <br>• Sponsor local art, music, or sustainability events. | Face‑to‑face interaction builds loyalty and word‑of‑mouth. | • Capture photos/video for social repurposing; collect email sign‑ups on‑site. |\n| **Social‑First Content** | • Instagram Reels/TikTok (30‑sec product demos, behind‑the‑scenes). <br>• Educational carousel posts (e.g., “THC vs. CBD”, “How to store flower”). <br>• Use “Story Highlights” for FAQs, lab results, and brand values. | Visual platforms drive discovery; education reduces stigma and builds trust. | • Keep captions 125 characters or less; add a clear CTA (e.g., “Tap for lab results”). |\n| **Earned Media via Thought Leadership** | • Submit op‑eds or Q&A pieces to local business journals on topics like “responsible cannabis retail” or “sustainability in cultivation.” <br>• Speak at industry webinars or podcasts. | Positions the brand as an authority, generating backlinks and SEO value. | • Offer a short “expert bio” and a list of talking points. |\n| **Strategic Partnerships** | • Co‑brand with complementary local businesses (e.g., craft breweries, yoga studios). <br>• Cross‑promote via joint newsletters or bundle offers. | Expands reach to an already‑interested audience. | • Draft a simple partnership agreement outlining co‑marketing assets. |\n| **User‑Generated Content (UGC)** | • Run a hashtag challenge (e.g., #MyGreenMoment) with a small prize. <br>• Re‑post authentic customer photos (with permission). | Social proof drives conversion; algorithm favors native content. | • Set clear rules: no minors, no illegal activity, include # and brand handle. |\n| **Local SEO & Listings** | • Optimize Google Business Profile (photos, hours, product categories). <br>• List on Weedmaps, Leafly, and local directories. | When a consumer searches “cannabis near me,” a strong local presence drives foot traffic. | • Encourage happy customers to leave 5‑star reviews; respond promptly. |\n| **Compliance‑First Messaging** | • Include required state warnings, THC limits, and age‑gate links on all digital assets. <br>• Keep a compliance checklist for every press release or ad. | Avoids fines, protects brand reputation. | • Assign one team member as “Compliance Gatekeeper.” |\n| **Email & Loyalty Programs** | • Collect emails at point‑of‑sale or via a website pop‑up (offer 10 % off first order). <br>• Send a monthly “Strain Spotlight” newsletter with exclusive coupons. | Direct line to customers; higher ROI than paid ads. | • Use a simple ESP (Mailchimp, Klaviyo) with segmentation (new vs. repeat). |\n| **Data‑Driven Iteration** | • Track KPIs: media mentions, social engagement, website traffic, conversion rate, and cost per acquisition. <br>• A/B test headlines, ad creatives, and email subject lines. |\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1167 (167?1000) | Cost: $0.000000*",
+      "duration": 4625,
+      "grade": "B",
+      "score": 80.25,
+      "grading": {
+        "length": "Pass",
+        "keywords": "3/5 matched",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "3/4 key words"
+      },
+      "strengths": [],
+      "weaknesses": [],
+      "feedback": "",
+      "gradingMethod": "unknown",
+      "expectedKeywords": [
+        "brand",
+        "mso",
+        "competitive",
+        "cannabis",
+        "strategies"
+      ],
+      "expectedAnswer": "**Summarizing PR Strategies for Small Cannabis Brands** I need to create a concise summary that outlines effective PR strategies for smaller cannabis brands competing against larger multi-state operators (MSOs). The focus should be on earned media, community engagement, compliance, and local press, while also addressing critical regulatory details and general state-specific nuances like advertising restrictions. I want to include key tactics such as thought leadership, micro-influencers, and events, while measuring success with established KPIs.**Highlighting Compliance in Cannabis PR** I need to focus on compliance issues that small cannabis brands face. This includes avoiding health claims, ensuring age-gating, and steering clear of targeting minors. Additionally, I have to consider different platform policies such as those from Meta, Google, and YouTube, as they vary in restrictions. There's also the need for FTC disclosures for influencers and to be mindful of state-specific rules regarding discounts, sweepstakes, and giveaways, along with disclaimers for consumption photos and ingredient testing claims.**Summarizing PR strategies for small cannabis brands** I need to create a summary focused on effective PR strategies for smaller cannabis brands competing against larger companies. It should include key points like earned media, thought leadership, community engagement, and compliance nuances. Although there’s no specific state info, I can still mention general variations..."
+    },
+    {
+      "questionNum": 367,
+      "question": "How do I showcase transparency (cultivation, sourcing, testing) as a differentiator?",
+      "category": "competing-as-a-smaller-brand-vs-msos",
+      "agent": "unknown",
+      "actualAgent": "formulation",
+      "actualAgentName": "Formulation Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": false,
+      "response": "### Making Transparency Your Brand‑Level Differentiator  \n\nBelow is a step‑by‑step framework you can apply to **cultivation, sourcing, and testing** so that every consumer instantly sees “we’re open, we’re honest, we’re reliable.”  \n\n---  \n\n## 1. Cultivation – Farm‑to‑Shelf Narrative  \n| Action | Why it works | How to implement |\n|--------|--------------|------------------|\n| **Live‑feed / time‑lapse videos** of grow‑rooms, cycles, and harvest | Shows real‑world conditions, builds trust that the product isn’t “lab‑grown” in a black box | Post weekly clips on Instagram Reels, TikTok, and embed on product pages. Use a consistent hashtag (e.g., #RootedInTransparency). |\n| **Strain‑specific agronomy sheets** (soil type, nutrients, lighting schedule, pest‑management) | Gives growers credibility & educates connoisseurs who care about terroir | PDF downloadable from each strain’s product page; add a “View Cultivation Sheet” button. |\n| **QR‑code on packaging** that links to a secure “Cultivation Dashboard” | Immediate access for the shopper at the point of sale | Generate a unique QR per batch dashboard shows planting date, harvest date, canopy photos, and CO₂/temperature.| **Third‑party audit badge** (e.g., GMP, ISO‑22000, or a local agricultural certifier) | External validation beats self‑declaration | Include the certifying body’s logo on the front of the package and a link to the audit report. |\n\n## 2. Sourcing – Ingredient & Supply‑Chain Traceability  \n| Action | Why it works | How to implement |\n|--------|--------------|------------------|\n| **Supplier provenance map** (interactive graphic showing each upstream partner) | Visualizes the “supply chain journey” and highlights vetted partners | Build a simple web widget: hover over a node (e.g., “Organic Hemp Seed Oil”) → pop‑up with supplier name, certification, and batch number. |\n| **Batch‑level lot numbers** that cascade from raw material → finished product | Enables recall‑ready traceability and demonstrates control | Use a hierarchical lot‑code (e.g., CULT‑202410‑A‑01‑COA‑B23). Publish a “Lot Lookup” tool on the site. |\n| **Sustainability & ethical sourcing statements** (e.g., fair‑trade, regenerative farming) | Aligns with the values of today’s consumer | Add a concise 2‑sentence blurb on each label and a deeper page in the “Our Values” section. |\n| **Co‑branding with trusted suppliers** (e.g., “Made with XYZ Organic Terpenes”) | Leverages partner credibility | Negotiate a small “partner seal” that can appear on the front label. |\n\n## 3. Testing – Lab Results as a Marketing Asset  \n| Action | Why it works | How to implement |\n|--------|--------------|------------------|\n| **Full COA (Certificate of Analysis) on every package** (or a QR that pulls the exact COA) | Removes the “black‑box” perception of potency & contaminants | Print a short COA thumbnail (THC, CBD, major terpenes, pesticides) on the back; QR links to the PDF with full data. |\n| **Third‑party lab badge**e.g., “Tested at Steep Hill – ISO‑17025”) | Signals impartial verification | Place the lab’s logo with a short tagline (“Independent, State‑licensed”) on the front. |\n| **Batch‑specific potency ranges** (e.g., “THC 18‑20 %”) | Shows you’re not over‑promising and are consistent | Use the range from the COA; avoid a single “18 %” figure if variance exists. |\n| **Terpene profile graphics** (radar or stacked bar) | Educates customers on flavor, effect, and quality | Include a small, color‑coded terpene chart on the packaging or product page. |\n\n\n---\n*Agent: Formulation Agent | Plan: Standard | Tokens: 1211 (211?1000) | Cost: $0.000000*",
+      "duration": 6972,
+      "grade": "C",
+      "score": 75,
+      "grading": {
+        "length": "Pass",
+        "keywords": "3/5 matched",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "2/5 key words"
+      },
+      "strengths": [],
+      "weaknesses": [],
+      "feedback": "",
+      "gradingMethod": "unknown",
+      "expectedKeywords": [
+        "brand",
+        "mso",
+        "competitive",
+        "testing",
+        "cultivation"
+      ],
+      "expectedAnswer": "**Summarizing transparency in marketing** I need to create a concise summary (100-200 words) addressing how to showcase transparency in cultivation, sourcing, and testing as a smaller brand compared to larger multi-state operators (MSOs). This involves including key facts and regulatory details, though there's no specific state to reference. I can mention general regulations like COAs, QR codes, and batch traceability. It's essential to follow regulations, avoid unsubstantiated claims, and highlight third-party lab testing for safety and quality. Revealing limits of detection and maintaining transparency is crucial for credibility.**Summarizing transparency as a differentiator** I need to create a concise summary on showcasing transparency, especially for smaller brands competing against larger MSOs. The answer should cover key elements like cultivation, sourcing, and testing. I want to mention the importance of COAs, QR codes, and batch-level traceability systems. Although no specific state regulations were mentioned, I can generally highlight that packaging and labeling rules vary by state and emphasize the necessity of proper potency presentation and avoiding false claims. I'll include third-party lab testing details as well."
+    },
+    {
+      "questionNum": 368,
+      "question": "How do I tailor campaigns to reflect local culture or community values?",
+      "category": "regional-marketing",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": true,
+      "response": "**Tailoring a campaign to local culture and community values – a step‑by‑step playbook**\n\n| Step | What to Do | Why It Matters | Quick Tips |\n|------|------------|----------------|------------|\n| **1. Deep‑dive cultural research** | • Review local demographics, history, language nuances, holidays, and popular symbols.<br>• Scan local media, social conversations, and community forums. | Sets the foundation for authentic messaging. | Use tools like Google Trends, Facebook Audience Insights, or a simple “Google + city + culture” search. |\n| **2. Identify community values & pain points** | • Conduct informal interviews or focus groups with residents, local influencers, and community leaders.<br>• Look for recurring themes (e.g., sustainability, family, entrepreneurship). | Aligns your brand with what the community cares about. | Offer a small incentive (gift card, product sample) for participation to boost response rates. |\n| **3. Define a localized value proposition** | • Translate your core brand promise into a locally‑relevant benefit (e.g., “locally‑grown, eco‑friendly wellness”).<br>• Highlight any community‑based initiatives you already have (jobs, donations, partnerships). | Makes the campaign feel “made for them,” not generic. | Keep the statement under 10 words for easy recall. |\n| **4. Choose culturally resonant visuals & language** | • Use local landmarks, colors, or motifs in graphics.<br>• If the community speaks a dialect or uses slang, incorporate it naturally. | Visual and linguistic cues signal respect and belonging. | Test a few mock‑ups with a small local panel before full rollout. |\n| **5. Pick the right media mix** | • Determine where the community spends time: local radio, community newspapers, neighborhood Instagram pages, TikTok, outdoor signage, etc.<br>• Consider hyper‑local ad platforms (e.g., Nextdoor, community newsletters). | Reaches the audience where they already engage. | Combine owned (your socials) + earned (local press) + paid (geo‑targeted ads) for maximal reach. |\n| **6. Co‑create with local partners** | • Partner with local artists, NGOs, schools, or businesses for joint content, events, or giveaways. | Demonstrates genuine investment and expands credibility. | Draft a simple partnership brief: goals, deliverables, and mutual benefit. |\n| **7. Ensure regulatory compliance (especially for cannabis)** | • Verify local advertising restrictions (e.g., no targeting minors, no health claims).<br>• Check signage rules, packaging limits, and licensing requirements. | Avoid fines and protect brand reputation. | Keep a compliance checklist and have legal sign‑off before launch. |\n| **8. Launch a pilot & collect real‑time feedback** | • Run a small‑scale version (e.g., one neighborhood or one platform).<br>• Use surveys, comment monitoring, and sales data to gauge reception. | Allows rapid iteration before full spend. | Set a 2‑week KPI window: sentiment score, engagement rate, and conversion lift. |\n| **9. Iterate & scale** | • Refine copy, visuals, or channel spend based on pilot insights.<br>• Roll out to adjacent areas, keeping local tweaks for each micro‑segment. | Keeps the campaign fresh and locally relevant as you grow. | Document learnings in a “Local Playbook” for future markets. |\n| **10. Measure impact on brand perception** | • Track Net Promoter Score (NPS) or brand affinity surveys pre‑/post‑campaign.<br>• Correlate sales uplift with community‑specific metrics (e.g., foot traffic, repeat purchases). | Proves ROI and guides future budgeting. | Use a simple dashboard (Google Data Studio or Power BI) to visualize results. |\n\n---\n\n### Quick “Starter Kit” Checklist\n\n- **Research**: 2 days of secondary research + 2 days of community interviews.  \n- **Creative**: 3 mock‑ups with local imagery, vetted by a focus group.  \n- **Compliance**: Legal sign‑off checklist (5 items for cannabis).  \n- **Media Plan\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1165 (165?1000) | Cost: $0.000000*",
+      "duration": 3632,
+      "grade": "D",
+      "score": 62,
+      "grading": {
+        "length": "Pass",
+        "keywords": "1/5 matched",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "3/5 key words"
+      },
+      "strengths": [],
+      "weaknesses": [],
+      "feedback": "",
+      "gradingMethod": "unknown",
+      "expectedKeywords": [
+        "regional",
+        "marketing",
+        "tailor",
+        "campaigns",
+        "reflect"
+      ],
+      "expectedAnswer": "**Creating a marketing summary** I need to draft a summary for grading answers to the question: \"How do I tailor campaigns to reflect local culture or community values?\" It’s focused on regional marketing in the cannabis industry, so I'll include regulatory aspects and compliance with local marketing restrictions. I must mention that regulations vary by state and provide examples like CA, CO, and NY. The answer should cover local research, audience segmentation, and community partnerships while avoiding stereotypes. It needs to be concise, around 100-200 words, focusing on key facts and critical details.**Generating a marketing summary** I need to create a summary for answering the question about tailoring campaigns to local culture and community values in the cannabis industry. It’s essential to include regulatory aspects, compliance, and sensitivities while avoiding illegal content. The summary should note that regulations vary by state, using examples like CA, CO, and NY. Key points include local research, audience segmentation, partnerships, and aligning messaging with community values while avoiding stereotypes and using inclusive imagery. Let's keep it concise!"
+    },
+    {
+      "questionNum": 369,
+      "question": "Can I highlight regional sourcing (e.g., 'grown in Colorado') as a brand strength?",
+      "category": "regional-marketing",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": true,
+      "response": "**Yes – “grown in Colorado” (or any verifiable regional claim) can be a powerful brand strength, provided you use it strategically and stay compliant.** Below are the key considerations and practical steps to turn regional sourcing into a genuine differentiator.\n\n---\n\n## 1. Why Regional Sourcing Resonates\n| Consumer Insight | How It Helps Your Brand |\n|------------------|--------------------------|\n| **Terroir & Quality Perception** – Colorado is known for high‑altitude, sun‑rich growing conditions that many consumers associate with premium potency and flavor. | Positions your product as “craft‑grade” and justifies a premium price point. |\n| **Local‑Pride & Community Support** – Shoppers love to back growers from their own state or region. | Builds loyalty and word‑of‑mouth among local enthusiasts. |\n| **Transparency & Trust** – Specific origin details reduce the “mystery” around cannabis supply chains. | Enhances credibility, especially for new or health‑focused customers. |\n| **Regulatory Assurance** – States often require clear labeling of cultivation location. | Demonstrates compliance and reduces risk of enforcement actions. |\n\n---\n\n## 2. Legal & Compliance Checklist\n| Requirement | What to Do |\n|-------------|------------|\n| **State Labeling Rules** – Most states (including CO) mandate that the cultivation site be disclosed on the label or QR code. | Verify that your packaging meets the Colorado Department of Revenue (CDOR) and any future federal guidance. |\n| **Truth‑in‑Advertising** – No “misleading” or “unsubstantiated” claims. | Keep the claim factual: “Cultivated in Colorado’s Front Range” (or the exact county). |\n| **Trademark & Branding** – Ensure the phrase isn’t already trademarked by another brand. | Conduct a trademark search (USPTO & state databases) before using it as a tagline. |\n| **Cross‑State Sales** – If you ship out‑of‑state, some markets restrict “state‑origin” claims. | Review destination‑state regulations; consider using a more generic “U.S.‑grown” claim where needed. |\n| **Packaging Space** – Some states limit the number of characters for origin statements. | Draft concise language that complies (e.g., “CO‑grown” or “Colorado‑grown”). |\n\n---\n\n## 3. Positioning the Claim Effectively\n1. **Integrate into Storytelling**  \n   - **Brand Narrative:** “Our buds are nurtured at 7,000 ft in the Rocky Mountains, where crisp air and mineral‑rich soil create a distinct flavor profile.”  \n   - **Founder Quote:** “We chose Colorado because its climate gives us the perfect balance of sunlight and night‑time cooling, delivering consistent potency.”\n\n2. **Visual Elements**  \n   - **Map Icon or State Silhouette** on the front of the package.  \n   - **QR Code** linking to a short video of the farm, harvest, or a “Meet the Grower” page.\n\n3. **Product Differentiation**  \n   - **Tiered Lines:** “Colorado‑Signature Series” vs. “Nationwide Blend.”  \n   - **Terroir Labels:** Pair the claim with specific strain notes (e.g., “Rocky Mountain Citrus – Colorado‑grown”).\n\n4. **Leverage Third‑Party Validation**  \n   - **Lab Results:** Highlight CO‑verified potency & pesticide‑screening certificates.  \n   - **Awards:** If the farm has won state‑level cultivation awards, showcase them.\n\n5. **Cross‑Channel Messaging**  \n   - **Social Media:** Behind‑the‑scenes reels of Colorado farms.  \n   - **Email Marketing:** “From the Colorado Rockies to your door – see how we craft each batch.”  \n   - **Retail POS:** In‑store signage with a mini‑map of Colorado’s growing regions.\n\n---\n\n## 4. Risks & How to Mitigate Them\n| Risk | Mitigation |\n|------\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1170 (170?1000) | Cost: $0.000000*",
+      "duration": 6343,
+      "grade": "A",
+      "score": 97,
+      "grading": {
+        "length": "Pass",
+        "keywords": "5/5 matched",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "4/5 key words"
+      },
+      "strengths": [],
+      "weaknesses": [],
+      "feedback": "",
+      "gradingMethod": "unknown",
+      "expectedKeywords": [
+        "regional",
+        "marketing",
+        "colorado",
+        "highlight",
+        "sourcing"
+      ],
+      "expectedAnswer": "**Summarizing regional marketing compliance** I need to create a concise summary to help evaluate responses about using regional sourcing as a brand strength. The focus is on marketing regulations, so I’ll include compliance and regulatory details essential for this category. I’ll ensure that the conclusion highlights key points and includes any state-specific information, particularly mentioning Colorado if relevant. It’s crucial that I provide the necessary facts and guidelines while keeping it general yet tailored."
+    },
+    {
+      "questionNum": 370,
+      "question": "How do I run compliant digital campaigns in markets with advertising restrictions?",
+      "category": "regional-marketing",
+      "agent": "unknown",
+      "actualAgent": "f8_agent",
+      "actualAgentName": "F8 Multi-Agent",
+      "expectedAgent": "f8_agent",
+      "agentMatch": true,
+      "response": "Below is a practical, step‑by‑step framework you can use to design and launch digital campaigns that stay within the strict advertising rules that many cannabis‑related markets impose.\n\n---\n\n## 1️⃣ Know the Legal Landscape First\n| What to Check | Where to Find It |\n|---------------|-----------------|\n| **State / provincial statutes** (e.g., “Cannabis Control Act”, “Medical Marijuana Program”) | State/Provincial government websites, cannabis regulatory board PDFs |\n| **Federal guidance** (e.g., FDA, Health Canada, DEA) | Federal agency portals; for the U.S., check the FDA’s “Guidance for Industry: Advertising of Cannabis‑Derived Products”| **Local ordinances** (city‑level bans, zoning) | Municipal code libraries or local chamber‑of‑commerce sites |\n| **Industry association best‑practice guides** (e.g., National Cannabis Industry Association, Cannabis Trade Federation) | Association member portals or publicly posted “Compliance Playbooks” |\n\n**Tip:** Create a living spreadsheet that lists each jurisdiction you’ll target, the specific prohibitions (e.g., “no health claims,” “no depiction of consumption”), and the source link. Update it quarterly.\n\n---\n\n## 2️⃣ Map Platform‑Specific Policies\n| Platform | Key Restrictions for Cannabis (2024) |\n|----------|--------------------------------------|\n| **Google Ads** | No promotion of recreational cannabis; medical‑cannabis ads allowed only in approved locations and must not contain health claims. |\n| **Meta (Facebook/Instagram)** | “Illicit drugs” category blocks all cannabis ads, even for medical products, unless you have a pre‑approved “pharmaceutical” exemption (rare). |\n| **TikTok** | Prohibits any content that depicts or promotes cannabis use. |\n| **Twitter/X** | Allows “informational” content but bans direct promotion of sale/consumption. |\n| **Programmatic DSPs** | Many have a “restricted inventory” tag for cannabis‑related creative; you must opt‑in and pass a compliance review. |\n\n**Action:** Before you build any creative, download the most recent ad policy PDFs from each platform and flag any “red‑line” items (e.g., no “feel‑good” language, no product imagery that looks like a consumable).\n\n---\n\n## 3️⃣ Build a Compliance‑First Campaign Architecture\n1. **Audience Segmentation**\n   - **Geofence** to only serve ads in jurisdictions where you’re legally allowed.\n   - **Age‑gate**: Use platform tools (e.g., Meta’s “Age Restriction” setting) to restrict to 21+ (or 19+ in Canada).\n2. **Creative Controls**\n   - **No product images** that look like edible or smoked items unless expressly permitted.\n   - **Neutral language**: “Learn more about our licensed brand” vs. “Feel the buzz.”\n   - **Mandatory disclaimer**: Include a small, legible statement of legality (e.g., “Only for residents of [state] aged 21+.”)\n3. **Landing Page Governance**\n   - Host on a domain that is **registered in the same jurisdiction** as the ad.\n   - Include **age verification** (DOB or driver’s license upload) before any product detail is shown.\n   - Keep **health claims** to strictly “educational” statements backed by FDA/Health Canada sources.\n4. **Tracking & Reporting**\n   - Use **first‑party cookies** or server‑side tagging to avoid third‑party data that could violate privacy laws (e.g., GDPR, CCPA) and platform policies.\n   - Log every ad ID, targeting parameters, and compliance check date in a **Campaign Compliance Log** (Google Sheet or low‑code DB).\n\n---\n\n## 4️⃣ Implement an Internal Review Process\n| Step | Who’s Involved | What to Verify |\n|------|----------------|\n\n---\n*Agent: F8 Multi-Agent | Plan: Standard | Tokens: 1164 (164?1000) | Cost: $0.000000*",
+      "duration": 6243,
+      "grade": "C",
+      "score": 73,
+      "grading": {
+        "length": "Pass",
+        "keywords": "2/5 matched",
+        "noErrors": "Pass",
+        "structure": "Pass",
+        "relevance": "4/5 key words"
+      },
+      "strengths": [],
+      "weaknesses": [],
+      "feedback": "",
+      "gradingMethod": "unknown",
+      "expectedKeywords": [
+        "regional",
+        "marketing",
+        "compliant",
+        "digital",
+        "campaigns"
+      ],
+      "expectedAnswer": "**Summarizing cannabis advertising compliance** I need to provide a concise summary on running compliant digital campaigns in markets with advertising restrictions. It's essential to focus on compliance issues, especially in the cannabis industry. Key points include verifying age-gating for audiences 21+, avoiding health claims, and not appealing to minors through design choices. I'll mention packaging restrictions and compliant channels. It's important to avoid geo-targeting near schools, include disclaimers, license numbers, and responsible-use notices as needed. Since no specific state is mentioned, I'll reference commonly applicable states such as CA and MA."
     }
   ],
-  "status": "In Progress: 360/438 questions completed"
+  "status": "In Progress: 370/438 questions completed"
 }
